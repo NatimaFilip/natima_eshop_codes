@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false # This is important
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -30,4 +33,5 @@ jobs:
           git config --global user.email "actions@github.com"
           git add scss/styles.css
           git commit -m "Compile SCSS to CSS [auto]" || echo "No changes to commit"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
