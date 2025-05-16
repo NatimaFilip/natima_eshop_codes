@@ -29,8 +29,8 @@ jobs:
 
       - name: Commit and push compiled CSS
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "NatimaFilip"
+          git config --global user.email "filip.h@natima.cz"
           git add scss/styles.css
           git commit -m "Compile SCSS to CSS [auto]" || echo "No changes to commit"
           git remote set-url origin https://x-access-token:${{ secrets.SECRET_ACTION }}@github.com/${{ github.repository }}
