@@ -1,12 +1,9 @@
 /*--------------TEST*/
 .test {
-	color: red;
+  color: red;
 }
-.test .wtff {
-	color: blue;
-}
-.xsaxsa {
+.test .wtfff {
+  color: blue;
 }
 
 /*# sourceMappingURL=styles.css.map */
-/* git update-index --no-assume-unchanged scss/styles.css */
