@@ -1,9 +1,9 @@
-name: Compile SCSS
+name: Compile SCSS to CSS
 
 on:
   push:
     branches:
-      - main # or your default branch
+      - "**"
 
 jobs:
   build:
@@ -12,26 +12,24 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.SECRET_ACTION }}
-          persist-credentials: false
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: "16"
 
-      - name: Install Sass
-        run: npm install -g sass
-
-      - name: Compile SCSS
-        run: sass scss/styles.scss:scss/styles.css
-
-      - name: Commit and push compiled CSS
+      - name: Install dependencies
         run: |
-          git config --global user.name "NatimaFilip"
-          git config --global user.email "filip.h@natima.cz"
+          npm install -g sass
+
+      - name: Compile SCSS to CSS
+        run: |
+          sass scss/styles.scss scss/styles.css
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add scss/styles.css
-          git commit -m "Compile SCSS to CSS [auto]" || echo "No changes to commit"
-          git remote set-url origin https://x-access-token:${{ secrets.SECRET_ACTION }}@github.com/${{ github.repository }}
+          git commit -m "Compiled SCSS to CSS [skip ci]" || echo "No changes to commit"
           git push
