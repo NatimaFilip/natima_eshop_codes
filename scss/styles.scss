@@ -1,7 +1,10 @@
 /*--------------TEST*/
 .test {
 	color: red;
+	transform: rotate(45deg);
 	.wtf {
 		color: blue;
+		scale: 2;
+		animation: alternate;
 	}
 }
