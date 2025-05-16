@@ -22,12 +22,12 @@ jobs:
         run: npm install -g sass
 
       - name: Compile SCSS
-        run: sass scss/main.scss:scss/main.css
+        run: sass scss/styles.scss:scss/styles.css
 
       - name: Commit and push compiled CSS
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add scss/main.css
+          git add scss/styles.css
           git commit -m "Compile SCSS to CSS [auto]" || echo "No changes to commit"
           git push
