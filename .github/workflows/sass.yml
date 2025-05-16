@@ -22,14 +22,14 @@ jobs:
         run: |
           npm install -g sass
 
-      - name: Compile SCSS to CSS
+      - name: Compile and Minify SCSS to CSS
         run: |
-          sass scss/styles.scss scss/styles.css
+          sass scss/styles.scss css/styles.css --style=compressed
 
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add scss/styles.css
-          git commit -m "Compiled SCSS to CSS [skip ci]" || echo "No changes to commit"
+          git add css/styles.css
+          git commit -m "Compiled and minified SCSS to CSS [skip ci]" || echo "No changes to commit"
           git push

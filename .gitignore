@@ -40,9 +40,3 @@ pids
 .eslintcache
 .stylelintcache
 
-# Ignore all CSS files except scss/styles.css
-*.css
-!scss/styles.css
-
-# Ignore scss/styles.css locally
-scss/styles.css
