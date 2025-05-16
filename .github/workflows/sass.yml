@@ -22,11 +22,6 @@ jobs:
         run: |
           npm install -g sass
 
-      - name: Ensure scss/styles.css exists
-        run: |
-          mkdir -p scss
-          touch scss/styles.css
-
       - name: Compile SCSS to CSS
         run: |
           sass scss/styles.scss scss/styles.css
