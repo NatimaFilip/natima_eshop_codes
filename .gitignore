@@ -41,4 +41,4 @@ pids
 .stylelintcache
 
 # Compiled CSS files
-.css
+*.css
