@@ -26,6 +26,7 @@ let headerTop = header.querySelector(".header-top");
 let topNavigationContacts = document.querySelector(".top-navigation-contacts");
 
 addContactToHeaderTop();
+addAccountToHeaderTop();
 
 function addContactToHeaderTop() {
 	headerTop.appendChild(topNavigationContacts);
@@ -50,6 +51,14 @@ function addContactToHeaderTop() {
 	}
 
 	projectPhone.appendChild(contactHoursSpan);
+}
+
+function addAccountToHeaderTop() {
+	const accountButton = document.createElement("a");
+	accountButton.className = "login-button-custom";
+	accountButton.setAttribute("data-target", "login");
+
+	headerTop.appendChild(accountButton);
 }
 
 /*-------------------------------------- MENU OVERFLOW DETECTION*/

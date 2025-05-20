@@ -7,6 +7,11 @@
 	box-shadow: inset 0px -2px 0px var(--color-tertiary);
 }
 
+// Define SCSS variables for breakpoints
+$mobile: 767px;
+$tablet: 1280px;
+$desktop: 1281px;
+
 /*variables*/
 :root {
 	--ff-m: "Inter", sans-serif;
@@ -38,6 +43,7 @@
 	--color-black: #000000;
 	--color-black-o-60: hsla(0, 0%, 0%, 0.6);
 	--color-gray-400: #f2f2f2;
+	--color-gray-500: #e7e7e7;
 	--color-gray-600: #4f4f4f;
 
 	--color-primary-500: hsla(268, 36%, 50%, 1);
@@ -52,6 +58,13 @@
 	--fw-800: 800;
 
 	--pad-sides: 40px;
+
+	--media-mobile: 767px;
+}
+@media screen and (max-width: $mobile) {
+	:root {
+		--pad-sides: 10px;
+	}
 }
 
 /*css reset*/
@@ -94,7 +107,7 @@ main {
 body {
 	max-width: 1920px;
 	margin: 0 auto;
-	padding: 0 var(--pad-sides);
+	padding: 0px var(--pad-sides);
 }
 
 /* Balance text wrapping on headings */
@@ -157,20 +170,60 @@ textarea:not([rows]) {
 }
 
 /*-------------------------------------- HEADER*/
+
 #header {
+	position: relative;
+	--height: 54px;
+	--hamburger-width: 56px;
+	@media screen and (max-width: $mobile) {
+		padding-top: 11px;
+	}
 	.navigation-wrapper {
+		@media screen and (max-width: $mobile) {
+			display: flex;
+			background: var(--color-white);
+			border-radius: var(--br-400);
+			justify-content: space-between;
+
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+
+				width: calc(100% + var(--pad-sides) * 2);
+				left: calc(var(--pad-sides) * -1);
+				height: 100px;
+				//gradient background
+				background: linear-gradient(0deg, white 0%, var(--color-gray-500) 100%);
+				z-index: -1;
+				pointer-events: none;
+			}
+		}
 		.header-top {
 			display: flex;
 			justify-content: space-between;
-			--height: 54px;
 			height: var(--height);
 			margin-bottom: var(--gap-18);
+			@media screen and (max-width: $mobile) {
+				margin-bottom: 0;
+				flex: 1;
+				justify-content: flex-start;
+				> * {
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
 
 			.site-name-wrapper {
 				height: 100%;
 				order: 1;
+				@media screen and (max-width: $mobile) {
+					margin-left: 0;
+				}
 				.site-name {
 					height: 100%;
+
 					a {
 						height: 100%;
 						img {
@@ -179,6 +232,9 @@ textarea:not([rows]) {
 							width: auto;
 							object-fit: cover;
 							transition: filter 0.2s ease-in-out;
+							@media screen and (max-width: $mobile) {
+								padding: 7px 0px 10px 11px;
+							}
 						}
 					}
 					&:hover img,
@@ -256,12 +312,19 @@ textarea:not([rows]) {
 					a.project-email {
 						display: none;
 					}
+					@media screen and (max-width: $mobile) {
+						display: none;
+					}
 				}
 			}
 			.search {
 				order: 2;
 				height: 100%;
 				padding: 1px 0;
+				@media screen and (max-width: $mobile) {
+					width: 30px;
+					height: 100%;
+				}
 				form {
 					height: 100%;
 					fieldset {
@@ -272,6 +335,13 @@ textarea:not([rows]) {
 						display: flex;
 						gap: var(--gap-10);
 						position: relative;
+
+						@media screen and (max-width: $mobile) {
+							align-items: center;
+							justify-content: center;
+
+							cursor: pointer;
+						}
 
 						&::before {
 							pointer-events: none;
@@ -285,6 +355,11 @@ textarea:not([rows]) {
 							height: 24px;
 							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_search_glass.svg");
 							background-size: cover;
+							@media screen and (max-width: $mobile) {
+								position: relative;
+								inset: 0;
+								transform: none;
+							}
 						}
 
 						input[type="search"] {
@@ -296,6 +371,9 @@ textarea:not([rows]) {
 							font-size: var(--fs-13);
 							padding: 0 0.5em 0 4em;
 							color: var(--color-gray-600);
+							@media screen and (max-width: $mobile) {
+								display: none;
+							}
 						}
 						button {
 							background: var(--color-primary);
@@ -308,27 +386,40 @@ textarea:not([rows]) {
 							font-weight: var(--fw-700);
 							cursor: pointer;
 							position: relative;
-
 							@include bottom-primary-shadow;
 
 							&:hover,
 							&:focus {
 								background: var(--color-primary-500);
 							}
+							@media screen and (max-width: $mobile) {
+								display: none;
+							}
 						}
 					}
+				}
+				.search-whisperer {
+					display: none;
 				}
 			}
 			.navigation-buttons {
 				order: 4;
 				display: flex;
 				align-items: center;
+				@media screen and (max-width: $mobile) {
+					padding-right: 10px;
+				}
 				.cart-count {
 					display: flex;
 					align-items: center;
 					justify-content: center;
 					gap: var(--gap-12);
 					position: relative;
+					@media screen and (max-width: $mobile) {
+						width: 30px;
+						height: 100%;
+						justify-content: center;
+					}
 					&:before {
 						content: "";
 						display: block;
@@ -340,6 +431,15 @@ textarea:not([rows]) {
 						background-position: center;
 						background-repeat: no-repeat;
 						padding: 17px;
+						@media screen and (max-width: $mobile) {
+							background-repeat: no-repeat;
+							background-position: center;
+							background-size: contain;
+							width: 17px;
+							background-color: transparent;
+							border-radius: 0;
+							padding: 0;
+						}
 					}
 					.sr-only {
 						display: none;
@@ -348,6 +448,9 @@ textarea:not([rows]) {
 						font-size: var(--fs-16);
 						font-weight: var(--fw-700);
 						color: var(--color-black);
+						@media screen and (max-width: $mobile) {
+							display: none;
+						}
 					}
 					i[data-testid="headerCartCount"] {
 						font-style: normal;
@@ -365,6 +468,36 @@ textarea:not([rows]) {
 						top: -3px;
 						left: calc(var(--height) + 3px);
 						transform: translateX(-100%);
+						@media screen and (max-width: $mobile) {
+							top: calc(50% - 12px);
+							left: auto;
+							right: -8px;
+							transform: translate(0, -50%);
+						}
+					}
+				}
+			}
+			.login-button-custom {
+				display: none;
+				@media screen and (max-width: $mobile) {
+					order: 3;
+					content: "";
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 30px;
+					height: 100%;
+					cursor: pointer;
+					&::before {
+						content: "";
+						width: 20px;
+						height: 100%;
+						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_account.svg");
+						background-size: contain;
+						background-repeat: no-repeat;
+						background-position: center;
+						//make it black
+						filter: brightness(0);
 					}
 				}
 			}
@@ -378,6 +511,10 @@ textarea:not([rows]) {
 				margin: 0;
 				padding: 0;
 			}
+			@media screen and (max-width: $mobile) {
+				width: var(--hamburger-width);
+				height: var(--height);
+			}
 			.navigation-in {
 				.menu-level-1 {
 					display: flex;
@@ -387,12 +524,17 @@ textarea:not([rows]) {
 						font-weight: var(--fw-700);
 						display: flex;
 						gap: var(--gap-6);
-
 						padding: 20px 40px;
 						margin-bottom: -1px;
 						flex-direction: row;
 						position: relative;
-
+						@media screen and (max-width: $mobile) {
+							padding: 0;
+							border-radius: var(--br-400);
+							span {
+								display: none;
+							}
+						}
 						.menu-helper-submenu {
 							display: none;
 						}
@@ -403,10 +545,24 @@ textarea:not([rows]) {
 							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_down.svg");
 							width: 8px;
 							height: 100%;
-
 							background-position: center;
 							background-repeat: no-repeat;
 							transition: transform 0.2s ease-in-out;
+							@media screen and (max-width: $mobile) {
+								display: none;
+							}
+						}
+						&:before {
+							@media screen and (max-width: $mobile) {
+								content: "";
+								display: block;
+								justify-content: center;
+								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_hamburger_menu.svg");
+								width: var(--hamburger-width);
+								height: var(--height);
+								background-position: center;
+								background-repeat: no-repeat;
+							}
 						}
 
 						&:hover,
@@ -455,6 +611,9 @@ textarea:not([rows]) {
 
 					> li {
 						display: flex;
+						@media screen and (max-width: $mobile) {
+							display: none;
+						}
 						> a {
 							width: max-content;
 							padding: 20px 40px;
@@ -604,7 +763,26 @@ textarea:not([rows]) {
 			}
 		}
 	}
+	@media screen and (max-width: $mobile) {
+		display: none;
+	}
 }
 .top-navigation-contacts {
 	display: none;
 }
+
+/* 	#header {
+		.search {
+			button {
+				display: none;
+			}
+		}
+		.top-navigation-contacts {
+			display: none;
+		}
+	}
+	.top-navigation-bar {
+		display: none;
+	}
+}
+ */
