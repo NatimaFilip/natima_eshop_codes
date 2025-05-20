@@ -1,12 +1,639 @@
-/*--------------TEST*/
-.test {
-  color: red;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+@charset "UTF-8";
+/*mixins*/
+/*variables*/
+:root {
+  --ff-m: "Inter", sans-serif;
+  --ff-h: "Poppins", sans-serif;
+  --br-200: 8px;
+  --br-300: 12px;
+  --br-400: 16px;
+  --br-600: 24px;
+  --fs-13: 0.8125rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --gap-6: 6px;
+  --gap-10: 10px;
+  --gap-11: 11px;
+  --gap-12: 12px;
+  --gap-13: 13px;
+  --gap-16: 16px;
+  --gap-18: 18px;
+  --gap-20: 20px;
+  --gap-24: 24px;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-black-o-60: hsla(0, 0%, 0%, 0.6);
+  --color-gray-400: #f2f2f2;
+  --color-gray-600: #4f4f4f;
+  --color-primary-500: hsla(268, 36%, 50%, 1);
+  --fw-100: 100;
+  --fw-200: 200;
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  --pad-sides: 40px;
 }
-.test .wtf {
-  color: blue;
-  scale: 2;
-  -webkit-animation: alternate;
-          animation: alternate;
+
+/*css reset*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+      text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  line-height: 1;
+}
+
+/* Set core body defaults */
+body,
+main {
+  min-height: 100vh;
+  font-family: var(--ff-m);
+}
+
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 var(--pad-sides);
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  text-wrap: balance;
+  font-family: var(--ff-h);
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: var(--color-primary);
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/*-------------------------------------- Hide for now */
+.admin-bar,
+.user-action {
+  display: none;
+}
+
+/*-------------------------------------- HEADER*/
+#header .navigation-wrapper .header-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  --height: 54px;
+  height: var(--height);
+  margin-bottom: var(--gap-18);
+}
+#header .navigation-wrapper .header-top .site-name-wrapper {
+  height: 100%;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+#header .navigation-wrapper .header-top .site-name-wrapper .site-name {
+  height: 100%;
+}
+#header .navigation-wrapper .header-top .site-name-wrapper .site-name a {
+  height: 100%;
+}
+#header .navigation-wrapper .header-top .site-name-wrapper .site-name a img {
+  padding: 4px 0;
+  height: 100%;
+  width: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: -webkit-filter 0.2s ease-in-out;
+  transition: -webkit-filter 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
+}
+#header .navigation-wrapper .header-top .site-name-wrapper .site-name:hover img, #header .navigation-wrapper .header-top .site-name-wrapper .site-name:focus img {
+  -webkit-filter: brightness(0.85) contrast(1.2);
+          filter: brightness(0.85) contrast(1.2);
+}
+#header .navigation-wrapper .header-top:after {
+  content: "";
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  display: block;
+  width: 185px;
+  height: 1px;
+  background-color: var(--color-gray-400);
+}
+#header .navigation-wrapper .header-top.header-loaded::after {
+  display: none;
+}
+#header .navigation-wrapper .header-top.header-loaded .top-navigation-contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  pointer-events: none;
+  gap: var(--gap-20);
+  position: relative;
+}
+#header .navigation-wrapper .header-top.header-loaded .top-navigation-contacts .project-phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#header .navigation-wrapper .header-top.header-loaded .top-navigation-contacts .project-phone span {
+  color: var(--color-black);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  pointer-events: auto;
+  padding: 4px 0;
+}
+#header .navigation-wrapper .header-top.header-loaded .top-navigation-contacts .project-phone span:hover, #header .navigation-wrapper .header-top.header-loaded .top-navigation-contacts .project-phone span:focus {
+  color: var(--color-primary);
+}
+#header .navigation-wrapper .header-top.header-loaded .top-navigation-contacts .project-phone .contact-hours {
+  font-size: var(--fs-13);
+  color: var(--color-gray-600);
+  font-weight: var(--fw-400);
+  pointer-events: none;
+}
+#header .navigation-wrapper .header-top.header-loaded .top-navigation-contacts::before {
+  content: "";
+  display: block;
+  width: calc(var(--height) - 2px);
+  height: calc(var(--height) - 2px);
+  background-color: var(--color-gray-400);
+  border-radius: var(--br-400);
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/contact-image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#header .navigation-wrapper .header-top.header-loaded .top-navigation-contacts::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 21px;
+  height: 22px;
+  left: -4px;
+  bottom: -3px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_contact_phone_header.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#header .navigation-wrapper .header-top.header-loaded .top-navigation-contacts strong,
+#header .navigation-wrapper .header-top.header-loaded .top-navigation-contacts a.project-email {
+  display: none;
+}
+#header .navigation-wrapper .header-top .search {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  height: 100%;
+  padding: 1px 0;
+}
+#header .navigation-wrapper .header-top .search form {
+  height: 100%;
+}
+#header .navigation-wrapper .header-top .search form fieldset {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--gap-10);
+  position: relative;
+}
+#header .navigation-wrapper .header-top .search form fieldset::before {
+  pointer-events: none;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_search_glass.svg");
+  background-size: cover;
+}
+#header .navigation-wrapper .header-top .search form fieldset input[type=search] {
+  width: clamp(200px, 38vw, 726px);
+  background: var(--color-gray-400);
+  border-style: none;
+  border-radius: var(--br-400);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: var(--fs-13);
+  padding: 0 0.5em 0 4em;
+  color: var(--color-gray-600);
+}
+#header .navigation-wrapper .header-top .search form fieldset button {
+  background: var(--color-primary);
+  border-style: none;
+  border-radius: var(--br-400);
+  color: var(--color-white);
+  padding: 0 1.6em;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 2px;
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-tertiary);
+          box-shadow: inset 0px -2px 0px var(--color-tertiary);
+}
+#header .navigation-wrapper .header-top .search form fieldset button:hover, #header .navigation-wrapper .header-top .search form fieldset button:focus {
+  background: var(--color-primary-500);
+}
+#header .navigation-wrapper .header-top .navigation-buttons {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#header .navigation-wrapper .header-top .navigation-buttons .cart-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--gap-12);
+}
+#header .navigation-wrapper .header-top .navigation-buttons .cart-count:before {
+  content: "";
+  display: block;
+  width: calc(var(--height) - 2px);
+  height: calc(var(--height) - 2px);
+  background-color: var(--color-gray-400);
+  border-radius: var(--br-400);
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_cart.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 17px;
+}
+#header .navigation-wrapper .header-top .navigation-buttons .cart-count .sr-only {
+  display: none;
+}
+#header .navigation-wrapper .header-top .navigation-buttons .cart-count .cart-price {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+}
+#header .navigation-wrapper #navigation {
+  background: var(--color-primary);
+  border-radius: var(--br-400);
+  padding-bottom: 2px;
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-tertiary);
+          box-shadow: inset 0px -2px 0px var(--color-tertiary);
+}
+#header .navigation-wrapper #navigation ul,
+#header .navigation-wrapper #navigation li {
+  margin: 0;
+  padding: 0;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper {
+  padding: 20px 40px;
+  color: var(--color-white);
+  font-weight: var(--fw-700);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--gap-6);
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper .menu-helper-submenu {
+  display: none;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper::after {
+  content: "";
+  display: block;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_down.svg");
+  width: 8px;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:focus {
+  background: var(--color-primary-500);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:hover::after, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:focus::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:hover .menu-helper-submenu, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:focus .menu-helper-submenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  width: 16.5em;
+  right: 0;
+  top: 100%;
+  font-size: var(--fs-14);
+  gap: var(--gap-16);
+  margin-top: 1px;
+  padding: 2em 1em 1.75em 2em;
+  background: white;
+  border-radius: var(--br-400);
+  -webkit-box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:hover .menu-helper-submenu li, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:focus .menu-helper-submenu li {
+  list-style: none;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:hover .menu-helper-submenu li a, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:focus .menu-helper-submenu li a {
+  display: block;
+  color: var(--color-black);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
+  line-height: 1.4;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:hover .menu-helper-submenu li a:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:hover .menu-helper-submenu li a:focus, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:focus .menu-helper-submenu li a:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:focus .menu-helper-submenu li a:focus {
+  color: var(--color-primary);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:hover .menu-helper-submenu .menu-level-2, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper:focus .menu-helper-submenu .menu-level-2 {
+  display: none;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li > a {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 20px 40px;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li a,
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li span {
+  color: var(--color-white);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li .menu-level-2 {
+  display: none;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover {
+  background: var(--color-primary-500);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 {
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  -webkit-column-gap: var(--gap-16);
+     -moz-column-gap: var(--gap-16);
+          column-gap: var(--gap-16);
+  row-gap: var(--gap-16);
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 100%;
+  padding: var(--gap-16);
+  -webkit-box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-column-gap: var(--gap-16);
+     -moz-column-gap: var(--gap-16);
+          column-gap: var(--gap-16);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 > li > div {
+  /*nadpis menu level 2*/
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 > li > div > a {
+  font-weight: var(--fw-700);
+  font-size: var(--fs-16);
+  color: var(--color-black);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-image {
+  padding: 0;
+  height: 90px;
+  width: 90px;
+  background-color: var(--color-gray-400);
+  border-radius: var(--br-200);
+  padding: var(--gap-13);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-level-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-level-3 li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-level-3 li a {
+  padding: 0;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-400);
+  color: var(--color-black-o-60);
+}
+
+.top-navigation-bar > .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.top-navigation-bar > .container .top-navigation-menu .top-navigation-menu-trigger {
+  display: none;
+}
+.top-navigation-bar > .container .top-navigation-menu .top-navigation-bar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: calc(var(--gap-24) - 4px);
+  padding-bottom: 5px;
+}
+.top-navigation-bar > .container .top-navigation-menu .top-navigation-bar-menu a {
+  font-size: var(--fs-13);
+  color: var(--color-black);
+  padding: 5px 2px;
+  display: block;
+}
+.top-navigation-bar > .container .top-navigation-menu .top-navigation-bar-menu a:hover, .top-navigation-bar > .container .top-navigation-menu .top-navigation-bar-menu a:focus {
+  color: var(--color-primary);
+}
+.top-navigation-bar > .container .top-navigation-menu .top-navigation-bar-menu-helper {
+  display: none;
+}
+.top-navigation-bar > .container .top-navigation-tools {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.top-navigation-bar > .container .top-navigation-tools .responsive-tools {
+  display: none;
+}
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 4px;
+  font-size: var(--fs-13);
+  color: var(--color-black);
+  margin-bottom: 5px;
+}
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login span {
+  display: none;
+}
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_account.svg");
+  background-size: cover;
+}
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login::after {
+  content: "Příhlásit / Registrovat";
+  display: block;
+}
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login:hover, .top-navigation-bar > .container .top-navigation-tools .top-nav-button-login:focus {
+  color: var(--color-primary);
+}
+
+.top-navigation-contacts {
+  display: none;
 }
