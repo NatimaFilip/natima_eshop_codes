@@ -363,7 +363,7 @@ textarea:not([rows]) {
 				.menu-level-1 {
 					display: flex;
 					position: relative;
-					.menu-helper {
+					.menu-helper-custom {
 						padding: 20px 40px;
 						color: var(--color-white);
 						font-weight: var(--fw-700);

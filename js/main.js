@@ -57,9 +57,13 @@ let mainCategoryMenu = header.querySelector(".menu-level-1");
 let mainCategoryMenuItems = mainCategoryMenu.querySelectorAll(":scope > li");
 let mainCategoryMenuItemsWidth = [];
 let cumulativeMainCategoryMenuItemWidth = 0;
+
+const originalMainCategoryMenuHelper = header.querySelector(".menu-helper");
+const textOfOriginalMainCategoryMenuHelper = originalMainCategoryMenuHelper.innerHTML;
 header.querySelector(".menu-helper").remove();
 let mainCategoryMenuHelper = document.createElement("div");
 mainCategoryMenuHelper.className = "menu-helper-custom";
+mainCategoryMenuHelper.innerHTML = textOfOriginalMainCategoryMenuHelper;
 const mainCategoryMenuHelperSubmenuDiv = document.createElement("div");
 mainCategoryMenuHelperSubmenuDiv.className = "menu-helper-submenu";
 mainCategoryMenuHelper.appendChild(mainCategoryMenuHelperSubmenuDiv);
