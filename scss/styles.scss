@@ -34,6 +34,8 @@ $desktop: 1281px;
 	--gap-11: 11px;
 	--gap-12: 12px;
 	--gap-13: 13px;
+	--gap-14: 14px;
+	--gap-15: 15px;
 	--gap-16: 16px;
 	--gap-18: 18px;
 	--gap-20: 20px;
@@ -176,6 +178,7 @@ textarea:not([rows]) {
 	position: relative;
 	--height: 54px;
 	--hamburger-width: 56px;
+	--menu-image-width: clamp(60px, 40px + 3vw, 90px);
 	@media screen and (max-width: $mobile) {
 		padding-top: 11px;
 	}
@@ -529,6 +532,8 @@ textarea:not([rows]) {
 						margin-bottom: -1px;
 						flex-direction: row;
 						position: relative;
+						margin-left: auto;
+						border-radius: 0 var(--br-400) var(--br-400) 0;
 						@media screen and (max-width: $mobile) {
 							padding: 0;
 							border-radius: var(--br-400);
@@ -635,33 +640,88 @@ textarea:not([rows]) {
 								background: white;
 								display: grid;
 								grid-template-columns: repeat(4, 1fr);
-								grid-auto-rows: 1fr;
+								grid-auto-rows: minmax(8rem, 1fr);
 								column-gap: var(--gap-16);
-								row-gap: var(--gap-16);
+								row-gap: calc(var(--gap-14) + 2rem);
 								position: absolute;
 								width: 100%;
 								left: 0;
 								top: 100%;
-								padding: var(--gap-16);
+								padding: calc(var(--gap-16) * 4) calc(var(--gap-16) * 2) calc(var(--gap-16) * 4 - 10px)
+									calc(var(--gap-16) * 4);
+								border-radius: var(--br-400);
 								@include bottom-shadow;
 								> li {
 									display: flex;
-									align-items: center;
+									align-items: flex-start;
 									justify-content: flex-start;
 									column-gap: var(--gap-16);
+									&:not(.has-third-level) {
+										div {
+											display: flex;
+											height: 100%;
+											align-items: center;
+											a {
+												padding-top: 0.75em;
+												padding-bottom: 0.75em;
+
+												margin-bottom: calc(8rem - var(--menu-image-width));
+											}
+										}
+									}
+
 									> div {
 										/*nadpis menu level 2*/
 										> a {
+											display: block;
 											font-weight: var(--fw-700);
 											font-size: var(--fs-16);
 											color: var(--color-black);
+											line-height: 1;
+											padding-left: 0.625rem;
+											padding-bottom: 0.5em;
+											&:hover,
+											&:focus {
+												color: var(--color-primary);
+											}
 										}
+									}
+								}
+								.show-all-categories {
+									font-weight: var(--fw-700);
+									font-size: var(--fs-16);
+									color: var(--color-primary);
+									position: relative;
+									display: flex;
+									align-items: center;
+									margin-bottom: calc(8rem - var(--menu-image-width));
+									justify-content: flex-end;
+									padding-right: 1em;
+									&::after {
+										content: "";
+										display: flex;
+										width: 1em;
+										height: 0.85em;
+										background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+										background-position: center;
+										background-repeat: no-repeat;
+										position: absolute;
+										transform: translateY(-50%);
+										top: 50%;
+										right: 0;
+									}
+									&:hover,
+									&:focus {
+										text-decoration: underline;
+										text-underline-offset: 3px;
 									}
 								}
 								.menu-image {
 									padding: 0;
-									height: 90px;
-									width: 90px;
+									height: var(--menu-image-width);
+									width: var(--menu-image-width);
+									min-width: var(--menu-image-width);
+									max-height: var(--menu-image-width);
 									background-color: var(--color-gray-400);
 									border-radius: var(--br-200);
 									padding: var(--gap-13);
@@ -681,6 +741,28 @@ textarea:not([rows]) {
 											font-size: var(--fs-14);
 											font-weight: var(--fw-400);
 											color: var(--color-black-o-60);
+											line-height: 1.6;
+											padding-left: 0.625rem;
+											&:hover,
+											&:focus {
+												color: var(--color-primary);
+												text-decoration: underline;
+												text-underline-offset: 3px;
+											}
+										}
+									}
+									.show-all-subcategories {
+										color: var(--color-primary);
+										font-size: var(--fs-14);
+										font-weight: var(--fw-400);
+										line-height: 1.6;
+										padding-left: 0.625rem;
+
+										text-decoration: underline;
+										text-underline-offset: 3px;
+										&:hover,
+										&:focus {
+											color: var(--color-tertiary);
 										}
 									}
 								}

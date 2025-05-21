@@ -19,6 +19,8 @@
   --gap-11: 11px;
   --gap-12: 12px;
   --gap-13: 13px;
+  --gap-14: 14px;
+  --gap-15: 15px;
   --gap-16: 16px;
   --gap-18: 18px;
   --gap-20: 20px;
@@ -158,6 +160,7 @@ textarea:not([rows]) {
   position: relative;
   --height: 54px;
   --hamburger-width: 56px;
+  --menu-image-width: clamp(60px, 40px + 3vw, 90px);
 }
 @media screen and (max-width: 767px) {
   #header {
@@ -613,6 +616,8 @@ textarea:not([rows]) {
       -ms-flex-direction: row;
           flex-direction: row;
   position: relative;
+  margin-left: auto;
+  border-radius: 0 var(--br-400) var(--br-400) 0;
 }
 @media screen and (max-width: 767px) {
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom {
@@ -736,16 +741,17 @@ textarea:not([rows]) {
   background: white;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 1fr;
+  grid-auto-rows: minmax(8rem, 1fr);
   -webkit-column-gap: var(--gap-16);
      -moz-column-gap: var(--gap-16);
           column-gap: var(--gap-16);
-  row-gap: var(--gap-16);
+  row-gap: calc(var(--gap-14) + 2rem);
   position: absolute;
   width: 100%;
   left: 0;
   top: 100%;
-  padding: var(--gap-16);
+  padding: calc(var(--gap-16) * 4) calc(var(--gap-16) * 2) calc(var(--gap-16) * 4 - 10px) calc(var(--gap-16) * 4);
+  border-radius: var(--br-400);
   -webkit-box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
 }
@@ -753,9 +759,9 @@ textarea:not([rows]) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -763,18 +769,78 @@ textarea:not([rows]) {
      -moz-column-gap: var(--gap-16);
           column-gap: var(--gap-16);
 }
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 > li:not(.has-third-level) div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 > li:not(.has-third-level) div a {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  margin-bottom: calc(8rem - var(--menu-image-width));
+}
 #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 > li > div {
   /*nadpis menu level 2*/
 }
 #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 > li > div > a {
+  display: block;
   font-weight: var(--fw-700);
   font-size: var(--fs-16);
   color: var(--color-black);
+  line-height: 1;
+  padding-left: 0.625rem;
+  padding-bottom: 0.5em;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 > li > div > a:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 > li > div > a:focus {
+  color: var(--color-primary);
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .show-all-categories {
+  font-weight: var(--fw-700);
+  font-size: var(--fs-16);
+  color: var(--color-primary);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: calc(8rem - var(--menu-image-width));
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 1em;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .show-all-categories::after {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1em;
+  height: 0.85em;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 50%;
+  right: 0;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .show-all-categories:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .show-all-categories:focus {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-image {
   padding: 0;
-  height: 90px;
-  width: 90px;
+  height: var(--menu-image-width);
+  width: var(--menu-image-width);
+  min-width: var(--menu-image-width);
+  max-height: var(--menu-image-width);
   background-color: var(--color-gray-400);
   border-radius: var(--br-200);
   padding: var(--gap-13);
@@ -804,6 +870,25 @@ textarea:not([rows]) {
   font-size: var(--fs-14);
   font-weight: var(--fw-400);
   color: var(--color-black-o-60);
+  line-height: 1.6;
+  padding-left: 0.625rem;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-level-3 li a:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-level-3 li a:focus {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-level-3 .show-all-subcategories {
+  color: var(--color-primary);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-400);
+  line-height: 1.6;
+  padding-left: 0.625rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-level-3 .show-all-subcategories:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-level-3 .show-all-subcategories:focus {
+  color: var(--color-tertiary);
 }
 #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:first-child:hover {
   border-radius: var(--br-400) 0 0 var(--br-400);

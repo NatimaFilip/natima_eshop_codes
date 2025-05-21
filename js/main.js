@@ -57,7 +57,6 @@ function addAccountToHeaderTop() {
 	const accountButton = document.createElement("a");
 	accountButton.className = "login-button-custom";
 	accountButton.setAttribute("data-target", "login");
-
 	headerTop.appendChild(accountButton);
 }
 
@@ -95,6 +94,7 @@ function inicializeMenu() {
 		});
 		mainCategoryMenu.appendChild(mainCategoryMenuHelper);
 	}
+
 	let mainCategoryMenuWidth = mainCategoryMenu.offsetWidth;
 	console.log("menuWidth", mainCategoryMenuWidth);
 	console.log("menuItemsWidth", mainCategoryMenuItemsWidth);
@@ -122,3 +122,99 @@ inicializeMenu();
 document.addEventListener("debouncedResize", function () {
 	inicializeMenu();
 });
+
+/*-------------------------------------- MENU MAXIMUM POLOŽEK*/
+function removeCommasFromMenu() {
+	mainCategoryMenuItems.forEach((item) => {
+		let menuLinkHref = item.querySelector(":scope > a")?.getAttribute("href") || null;
+
+		console.log("menuLink href:", menuLinkHref);
+		let menuLevelTwo = item.querySelector(".menu-level-2");
+		let menuLevelTwoLi = item.querySelectorAll(".menu-level-2 > li");
+
+		if (menuLevelTwoLi.length > 0) {
+			if (menuLevelTwoLi.length > 12) {
+				for (let i = 11; i < menuLevelTwoLi.length; i++) {
+					menuLevelTwoLi[i].style.display = "none";
+				}
+				const numberOfHiddenItems = menuLevelTwoLi.length - 12 + 1;
+				const showAllCategoriesButton = document.createElement("a");
+				showAllCategoriesButton.setAttribute("href", menuLinkHref);
+				showAllCategoriesButton.className = "show-all-categories";
+				if (csLang) {
+					showAllCategoriesButton.innerHTML = "Zobrazit další kategorie (" + numberOfHiddenItems + ")";
+				}
+				if (skLang) {
+					showAllCategoriesButton.innerHTML = "Zobraziť ďalšie kategórie (" + numberOfHiddenItems + ")";
+				}
+				if (plLang) {
+					showAllCategoriesButton.innerHTML = "Pokaż więcej kategorii (" + numberOfHiddenItems + ")";
+				}
+
+				menuLevelTwo.appendChild(showAllCategoriesButton);
+			}
+
+			menuLevelTwoLi.forEach((li, index) => {
+				let menuLevelThreeLinkHref = li.querySelector(":scope > a")?.getAttribute("href") || null;
+				let menuLevelThree = li.querySelector(".menu-level-3");
+				let menuLevelThreeLi = li.querySelectorAll(".menu-level-3 > li");
+
+				//Odstranení čárky z menu level 3
+				if (menuLevelThreeLi.length > 0) {
+					if (menuLevelThreeLi.length > 4) {
+						for (let i = 3; i < menuLevelThreeLi.length; i++) {
+							menuLevelThreeLi[i].style.display = "none";
+						}
+
+						const numberOfHiddenItems = menuLevelThreeLi.length - 4 + 1;
+						const showAllSubcategoriesButton = document.createElement("a");
+						showAllSubcategoriesButton.setAttribute("href", menuLevelThreeLinkHref);
+						showAllSubcategoriesButton.className = "show-all-subcategories";
+
+						if (csLang) {
+							if (numberOfHiddenItems > 4) {
+								showAllSubcategoriesButton.innerHTML = "+ dalších " + numberOfHiddenItems;
+							} else {
+								showAllSubcategoriesButton.innerHTML = "+ další " + numberOfHiddenItems;
+							}
+						}
+						if (skLang) {
+							if (numberOfHiddenItems > 4) {
+								showAllSubcategoriesButton.innerHTML = "+ ďalších " + numberOfHiddenItems;
+							} else {
+								showAllSubcategoriesButton.innerHTML = "+ ďalšie " + numberOfHiddenItems;
+							}
+						}
+						if (plLang) {
+							if (numberOfHiddenItems > 4) {
+								showAllSubcategoriesButton.innerHTML = "+ dalszych " + numberOfHiddenItems;
+							} else {
+								showAllSubcategoriesButton.innerHTML = "+ dalsze " + numberOfHiddenItems;
+							}
+						}
+
+						menuLevelThree.appendChild(showAllSubcategoriesButton);
+					}
+					menuLevelThreeLi.forEach((li) => {
+						let liHTML = li.innerHTML;
+						liHTML = liHTML.replace(/<\/a>,\s*<\/li>$/, "</a></li>");
+						liHTML = liHTML.replace(/<\/a>,\s*$/, "</a>");
+						li.innerHTML = liHTML;
+					});
+				}
+			});
+		}
+	});
+	/* 	menuLevelThreeAElements.forEach((item) => {
+		// Get the text content of the item
+		let itemHTML = item.innerHTML;
+
+		// Replace any comma followed by whitespace at the end of links
+		itemHTML = itemHTML.replace(/<\/a>,\s*<\/li>$/, "</a></li>");
+		itemHTML = itemHTML.replace(/<\/a>,\s*$/, "</a>");
+
+		// Update the item's HTML
+		item.innerHTML = itemHTML;
+	}); */
+}
+removeCommasFromMenu();
