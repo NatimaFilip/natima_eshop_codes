@@ -142,13 +142,13 @@ function removeCommasFromMenu() {
 				showAllCategoriesButton.setAttribute("href", menuLinkHref);
 				showAllCategoriesButton.className = "show-all-categories";
 				if (csLang) {
-					showAllCategoriesButton.innerHTML = "Zobrazit další kategorie (" + numberOfHiddenItems + ")";
+					showAllCategoriesButton.innerHTML = "<span>Zobrazit další kategorie (" + numberOfHiddenItems + ")</span>";
 				}
 				if (skLang) {
-					showAllCategoriesButton.innerHTML = "Zobraziť ďalšie kategórie (" + numberOfHiddenItems + ")";
+					showAllCategoriesButton.innerHTML = "<span>Zobraziť ďalšie kategórie (" + numberOfHiddenItems + ")</span>";
 				}
 				if (plLang) {
-					showAllCategoriesButton.innerHTML = "Pokaż więcej kategorii (" + numberOfHiddenItems + ")";
+					showAllCategoriesButton.innerHTML = "<span>Pokaż więcej kategorii (" + numberOfHiddenItems + ")</span>";
 				}
 
 				menuLevelTwo.appendChild(showAllCategoriesButton);

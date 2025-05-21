@@ -802,7 +802,6 @@ textarea:not([rows]) {
   font-weight: var(--fw-700);
   font-size: var(--fs-16);
   color: var(--color-primary);
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -810,18 +809,21 @@ textarea:not([rows]) {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: calc(8rem - var(--menu-image-width));
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding-right: 1em;
 }
-#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .show-all-categories::after {
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .show-all-categories span {
+  position: relative;
+}
+#header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .show-all-categories span::after {
   content: "";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 1em;
-  height: 0.85em;
+  height: 0.8em;
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
   background-position: center;
   background-repeat: no-repeat;
@@ -829,7 +831,7 @@ textarea:not([rows]) {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   top: 50%;
-  right: 0;
+  right: -1em;
 }
 #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .show-all-categories:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .show-all-categories:focus {
   text-decoration: underline;

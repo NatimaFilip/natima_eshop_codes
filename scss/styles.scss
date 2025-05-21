@@ -691,25 +691,29 @@ textarea:not([rows]) {
 									font-weight: var(--fw-700);
 									font-size: var(--fs-16);
 									color: var(--color-primary);
-									position: relative;
+
 									display: flex;
 									align-items: center;
 									margin-bottom: calc(8rem - var(--menu-image-width));
-									justify-content: flex-end;
+									justify-content: flex-start;
 									padding-right: 1em;
-									&::after {
-										content: "";
-										display: flex;
-										width: 1em;
-										height: 0.85em;
-										background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
-										background-position: center;
-										background-repeat: no-repeat;
-										position: absolute;
-										transform: translateY(-50%);
-										top: 50%;
-										right: 0;
+									span {
+										position: relative;
+										&::after {
+											content: "";
+											display: flex;
+											width: 1em;
+											height: 0.8em;
+											background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+											background-position: center;
+											background-repeat: no-repeat;
+											position: absolute;
+											transform: translateY(-50%);
+											top: 50%;
+											right: -1em;
+										}
 									}
+
 									&:hover,
 									&:focus {
 										text-decoration: underline;
