@@ -3,9 +3,6 @@ const csLang = true;
 const skLang = false;
 const plLang = false;
 
-/*-------------------------------------- Custom events*/
-let resizeTimer;
-
 // Create a custom debounced resize event
 window.addEventListener("resize", function () {
 	clearTimeout(resizeTimer);
@@ -15,6 +12,40 @@ window.addEventListener("resize", function () {
 		document.dispatchEvent(new CustomEvent("debouncedResize"));
 	}, 250);
 });
+
+/*-------------------------------------- Media sizes*/
+const mediaSizes = {
+	desktop: 1280,
+	tablet: 768,
+};
+let isMobile = false;
+let isTablet = false;
+let isDesktop = false;
+
+function checkMediaSizes() {
+	if (window.innerWidth < mediaSizes.tablet) {
+		isMobile = true;
+		isTablet = false;
+		isDesktop = false;
+	}
+	if (window.innerWidth >= mediaSizes.tablet && window.innerWidth < mediaSizes.desktop) {
+		isMobile = false;
+		isTablet = true;
+		isDesktop = false;
+	}
+	if (window.innerWidth >= mediaSizes.desktop) {
+		isMobile = false;
+		isTablet = false;
+		isDesktop = true;
+	}
+}
+checkMediaSizes();
+document.addEventListener("debouncedResize", function () {
+	checkMediaSizes();
+});
+
+/*-------------------------------------- Custom events*/
+let resizeTimer;
 
 // Now you can trigger the same debounced behavior with:
 // document.dispatchEvent(new CustomEvent("debouncedResize"));
@@ -218,3 +249,50 @@ function removeCommasFromMenu() {
 	}); */
 }
 removeCommasFromMenu();
+
+/*-------------------------------------- CATEGORY*/
+function trimPerex() {
+	const maxLength = 130;
+	const perexElement = document.querySelector(".category-perex");
+	if (!perexElement) return;
+
+	const paragraphElement = perexElement.querySelector(":scope > p");
+	if (!paragraphElement) return;
+
+	let originalText = paragraphElement.textContent;
+	originalText = originalText.replace(/\s+/g, " ").trim();
+
+	if (originalText.length <= maxLength) {
+		// If the text is already short enough, do nothing
+		return;
+	}
+	perexElement.classList.add("category-perex-has-shortened");
+	// Find the last full word within the maxLength
+	let truncatedText = originalText.slice(0, maxLength);
+	const lastSpaceIndex = truncatedText.lastIndexOf(" ");
+	if (lastSpaceIndex !== -1) {
+		truncatedText = truncatedText.slice(0, lastSpaceIndex);
+	}
+
+	const categoryPerexShortened = document.createElement("p");
+	categoryPerexShortened.innerHTML = truncatedText;
+	categoryPerexShortened.className = "category-perex-shortened";
+	perexElement.appendChild(categoryPerexShortened);
+
+	const readMoreButton = document.createElement("span");
+	readMoreButton.className = "read-more-perex";
+	if (csLang) {
+		readMoreButton.innerHTML = "Více";
+	}
+	if (skLang) {
+		readMoreButton.innerHTML = "Viac";
+	}
+	if (plLang) {
+		readMoreButton.innerHTML = "Więcej";
+	}
+	categoryPerexShortened.appendChild(readMoreButton);
+
+	//make it so it trims after 3 lines and saves the rest of the text in a data attribute
+}
+trimPerex();
+// Run after page load

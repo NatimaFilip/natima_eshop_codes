@@ -6,11 +6,15 @@
 	padding-bottom: 2px;
 	box-shadow: inset 0px -2px 0px var(--color-tertiary);
 }
+@mixin text-underline {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
 
 // Define SCSS variables for breakpoints
 $mobile: 767px;
-$tablet: 1280px;
-$desktop: 1281px;
+$tablet: 1279px;
+$desktop: 1280px;
 
 /*variables*/
 :root {
@@ -28,6 +32,8 @@ $desktop: 1281px;
 	--fs-16: 1rem;
 	--fs-20: 1.25rem;
 	--fs-24: 1.5rem;
+	--fs-26: 1.625rem;
+	--fs-32: 2rem;
 
 	--gap-6: 6px;
 	--gap-10: 10px;
@@ -59,16 +65,27 @@ $desktop: 1281px;
 	--fw-700: 700;
 	--fw-800: 800;
 
-	--pad-sides: 40px;
+	--padding-sides: 40px;
+	--padding-top-header: 8px;
 
 	--media-mobile: 767px;
+
+	--header-height: 54px;
+	--hamburger-width: 56px;
+	--menu-image-width: clamp(60px, 40px + 3vw, 90px);
 }
 @media screen and (max-width: $mobile) {
 	:root {
-		--pad-sides: 10px;
+		--padding-sides: 10px;
+		--padding-top-header: 11px;
 	}
 }
-
+/* Prevent font size inflation */
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
 /*css reset*/
 /* Box sizing rules */
 *,
@@ -77,26 +94,22 @@ $desktop: 1281px;
 	box-sizing: border-box;
 }
 
-/* Prevent font size inflation */
-html {
-	-moz-text-size-adjust: none;
-	-webkit-text-size-adjust: none;
-	text-size-adjust: none;
-}
-
 /* Remove default margin in favour of better control in authored CSS */
 body,
 h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 figure,
 blockquote,
 dl,
 dd {
 	margin-block-end: 0;
-	line-height: 1;
+	margin-block-start: 0;
+	line-height: 1.4;
 }
 
 /* Set core body defaults */
@@ -109,7 +122,7 @@ main {
 body {
 	max-width: 1920px;
 	margin: 0 auto;
-	padding: 0px var(--pad-sides);
+	padding: 0px var(--padding-sides);
 	background: white;
 }
 
@@ -130,12 +143,25 @@ h6,
 	font-family: var(--ff-h);
 }
 
+h1,
+.h1 {
+	font-size: var(--fs-32);
+	font-weight: var(--fw-700);
+	line-height: 1.2;
+	padding-top: 0.625em;
+	padding-bottom: 0.375em;
+	@media screen and (max-width: $mobile) {
+		font-size: var(--fs-26);
+		padding-bottom: 0.5em;
+	}
+}
+
 /* A elements that don't have a class get default styles */
 a {
 	text-decoration-skip-ink: auto;
 	text-decoration: none;
 	&:hover,
-	&:focus {
+	&:focus-within {
 		color: var(--color-primary);
 	}
 }
@@ -167,20 +193,16 @@ textarea:not([rows]) {
 }
 
 /*-------------------------------------- Hide for now */
-.admin-bar,
-.user-action {
+.admin-bar {
 	display: none;
 }
 
 /*-------------------------------------- HEADER*/
-
 #header {
 	position: relative;
-	--height: 54px;
-	--hamburger-width: 56px;
-	--menu-image-width: clamp(60px, 40px + 3vw, 90px);
+
 	@media screen and (max-width: $mobile) {
-		padding-top: 11px;
+		padding-top: var(--padding-top-header);
 	}
 	.navigation-wrapper {
 		@media screen and (max-width: $mobile) {
@@ -195,8 +217,8 @@ textarea:not([rows]) {
 				position: absolute;
 				top: 0;
 
-				width: calc(100% + var(--pad-sides) * 2);
-				left: calc(var(--pad-sides) * -1);
+				width: calc(100% + var(--padding-sides) * 2);
+				left: calc(var(--padding-sides) * -1);
 				height: 100px;
 				//gradient background
 				background: linear-gradient(0deg, white 0%, var(--color-gray-500) 100%);
@@ -207,7 +229,7 @@ textarea:not([rows]) {
 		.header-top {
 			display: flex;
 			justify-content: space-between;
-			height: var(--height);
+			height: var(--header-height);
 			margin-bottom: var(--gap-18);
 			@media screen and (max-width: $mobile) {
 				margin-bottom: 0;
@@ -242,7 +264,7 @@ textarea:not([rows]) {
 						}
 					}
 					&:hover img,
-					&:focus img {
+					&:focus-within img {
 						filter: brightness(0.85) contrast(1.2);
 					}
 				}
@@ -276,7 +298,7 @@ textarea:not([rows]) {
 							pointer-events: auto;
 							padding: 4px 0;
 							&:hover,
-							&:focus {
+							&:focus-within {
 								color: var(--color-primary);
 							}
 						}
@@ -291,8 +313,8 @@ textarea:not([rows]) {
 					&::before {
 						content: "";
 						display: block;
-						width: calc(var(--height) - 2px);
-						height: calc(var(--height) - 2px);
+						width: calc(var(--header-height) - 2px);
+						height: calc(var(--header-height) - 2px);
 						background-color: var(--color-gray-400);
 						border-radius: var(--br-400);
 						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/contact-image.jpg");
@@ -393,7 +415,7 @@ textarea:not([rows]) {
 							@include bottom-primary-shadow;
 
 							&:hover,
-							&:focus {
+							&:focus-within {
 								background: var(--color-primary-500);
 							}
 							@media screen and (max-width: $mobile) {
@@ -427,8 +449,8 @@ textarea:not([rows]) {
 					&:before {
 						content: "";
 						display: block;
-						width: calc(var(--height) - 2px);
-						height: calc(var(--height) - 2px);
+						width: calc(var(--header-height) - 2px);
+						height: calc(var(--header-height) - 2px);
 						background-color: var(--color-gray-400);
 						border-radius: var(--br-400);
 						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_cart.svg");
@@ -470,7 +492,7 @@ textarea:not([rows]) {
 						justify-content: center;
 						position: absolute;
 						top: -3px;
-						left: calc(var(--height) + 3px);
+						left: calc(var(--header-height) + 3px);
 						transform: translateX(-100%);
 						@media screen and (max-width: $mobile) {
 							top: calc(50% - 12px);
@@ -517,7 +539,7 @@ textarea:not([rows]) {
 			}
 			@media screen and (max-width: $mobile) {
 				width: var(--hamburger-width);
-				height: var(--height);
+				height: var(--header-height);
 			}
 			.navigation-in {
 				.menu-level-1 {
@@ -565,14 +587,14 @@ textarea:not([rows]) {
 								justify-content: center;
 								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_hamburger_menu.svg");
 								width: var(--hamburger-width);
-								height: var(--height);
+								height: var(--header-height);
 								background-position: center;
 								background-repeat: no-repeat;
 							}
 						}
 
 						&:hover,
-						&:focus {
+						&:focus-within {
 							&::after {
 								transform: rotate(180deg);
 							}
@@ -603,7 +625,7 @@ textarea:not([rows]) {
 										font-weight: var(--fw-700);
 										line-height: 1.4;
 										&:hover,
-										&:focus {
+										&:focus-within {
 											color: var(--color-primary);
 										}
 									}
@@ -633,7 +655,8 @@ textarea:not([rows]) {
 							display: none;
 						}
 
-						&:hover {
+						&:hover,
+						&:focus-within {
 							background: var(--color-primary-500);
 
 							.menu-level-2 {
@@ -681,7 +704,7 @@ textarea:not([rows]) {
 											padding-left: 0.625rem;
 											padding-bottom: 0.5em;
 											&:hover,
-											&:focus {
+											&:focus-within {
 												color: var(--color-primary);
 											}
 										}
@@ -715,9 +738,8 @@ textarea:not([rows]) {
 									}
 
 									&:hover,
-									&:focus {
-										text-decoration: underline;
-										text-underline-offset: 3px;
+									&:focus-within {
+										@include text-underline;
 									}
 								}
 								.menu-image {
@@ -748,10 +770,9 @@ textarea:not([rows]) {
 											line-height: 1.6;
 											padding-left: 0.625rem;
 											&:hover,
-											&:focus {
+											&:focus-within {
 												color: var(--color-primary);
-												text-decoration: underline;
-												text-underline-offset: 3px;
+												@include text-underline;
 											}
 										}
 									}
@@ -762,10 +783,9 @@ textarea:not([rows]) {
 										line-height: 1.6;
 										padding-left: 0.625rem;
 
-										text-decoration: underline;
-										text-underline-offset: 3px;
+										@include text-underline;
 										&:hover,
-										&:focus {
+										&:focus-within {
 											color: var(--color-tertiary);
 										}
 									}
@@ -783,8 +803,11 @@ textarea:not([rows]) {
 }
 
 .top-navigation-bar {
-	padding-top: 8px;
+	padding-top: var(--padding-top-header);
 	padding-bottom: var(--gap-18);
+	.top-navigation-contacts {
+		display: none;
+	}
 	> .container {
 		display: flex;
 		justify-content: space-between;
@@ -805,7 +828,7 @@ textarea:not([rows]) {
 
 					display: block;
 					&:hover,
-					&:focus {
+					&:focus-within {
 						color: var(--color-primary);
 					}
 				}
@@ -827,15 +850,15 @@ textarea:not([rows]) {
 				gap: 4px;
 				font-size: var(--fs-13);
 				color: var(--color-black);
-				margin-bottom: 5px;
+
 				span {
 					display: none;
 				}
 				&::before {
 					content: "";
 					display: block;
-					width: 16px;
-					height: 16px;
+					width: var(--fs-16);
+					height: var(--fs-16);
 					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_account.svg");
 					background-size: cover;
 				}
@@ -844,7 +867,7 @@ textarea:not([rows]) {
 					display: block;
 				}
 				&:hover,
-				&:focus {
+				&:focus-within {
 					color: var(--color-primary);
 				}
 			}
@@ -854,22 +877,124 @@ textarea:not([rows]) {
 		display: none;
 	}
 }
-.top-navigation-contacts {
-	display: none;
+
+/*-------------------------------------- USER ACTION*/
+body {
+	.user-action {
+		height: 0px;
+		width: 0px;
+		overflow: hidden;
+	}
+	#cart-widget,
+	.login-widget {
+		display: none;
+	}
+	&.cart-window-visible {
+		#cart-widget {
+			display: block;
+			position: fixed;
+			top: calc(var(--padding-top-header) + 1rem + var(--gap-18) + var(--header-height));
+			right: 0;
+			background: white;
+			z-index: 1000;
+			border-radius: var(--br-400);
+			max-width: 400px;
+			@include bottom-shadow;
+		}
+	}
+	&.login-window-visible {
+		.login-widget {
+			display: block;
+			position: fixed;
+			top: calc(var(--padding-top-header) + 1rem);
+			right: 0;
+			background: white;
+			z-index: 1000;
+			border-radius: var(--br-400);
+			max-width: 400px;
+			@include bottom-shadow;
+		}
+	}
 }
 
-/* 	#header {
-		.search {
-			button {
+/*-------------------------------------- COMMON BODY FEATURESc*/
+body {
+	.breadcrumbs-wrapper {
+		--padding-for-click: 5px;
+		margin-top: calc(var(--gap-14) - var(--padding-for-click));
+		.breadcrumbs {
+			display: flex;
+			flex-direction: row;
+			> span {
+				display: flex;
+				align-items: center;
+
+				color: var(--color-black);
+				font-size: var(--fs-13);
+				font-weight: var(--fw-400);
+				line-height: 1.4;
+			}
+			#navigation-first {
+				display: flex;
+				a {
+					padding: var(--padding-for-click) var(--padding-for-click);
+					height: calc(var(--fs-16) + var(--padding-for-click) * 2);
+					margin-left: calc(var(--padding-for-click) * -1);
+					&::before {
+						content: "";
+						width: 14px;
+						height: 100%;
+						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+						background-position: center;
+						background-repeat: no-repeat;
+						display: block;
+						transform: rotate(180deg);
+						transition: transform 0.2s ease-out;
+					}
+					&:hover,
+					&:focus-within {
+						&::before {
+							transform: rotate(180deg) scale(1.2);
+						}
+					}
+
+					span {
+						display: none;
+					}
+				}
+			}
+			.navigation-bullet {
 				display: none;
 			}
 		}
-		.top-navigation-contacts {
-			display: none;
-		}
-	}
-	.top-navigation-bar {
-		display: none;
 	}
 }
- */
+
+/*-------------------------------------- CATEGORY*/
+body.type-category {
+	.category-perex {
+		//max 3 lines
+		/* 		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis; */
+		&.category-perex-has-shortened {
+			> * {
+				display: none;
+			}
+			.category-perex-shortened {
+				display: block;
+			}
+		}
+	}
+	.read-more-perex {
+		cursor: pointer;
+		color: var(--color-primary);
+		padding: 0 0.35em;
+		@include text-underline;
+	}
+}
+.sidebar {
+	display: none;
+}
