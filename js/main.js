@@ -1,3 +1,8 @@
+/*--------------------------------------- Přepsání funkcí*/
+function moveFilters() {
+	console.log("moveFilters");
+}
+
 /*-------------------------------------- CS SK PL*/
 const csLang = true;
 const skLang = false;
@@ -251,6 +256,34 @@ function removeCommasFromMenu() {
 removeCommasFromMenu();
 
 /*-------------------------------------- CATEGORY*/
+let filterInSidebar = true;
+let filtersElement = document.querySelector(".filters-wrapper");
+let filtersPositionSidebar = document.querySelector(".sidebar-inner .box-filters");
+let filtersPositionContent = document.querySelector(".category-content-wrapper");
+
+customMoveFilter();
+document.addEventListener("debouncedResize", function () {
+	customMoveFilter();
+});
+
+let filterOpenButton = document.querySelector(".filters-unveil-button-wrapper > a");
+if (csLang) {
+	filterOpenButton.innerHTML = "Filtrování výsledků";
+	filterOpenButton.setAttribute("data-text", "Filtrování výsledků");
+}
+if (skLang) {
+	filterOpenButton.innerHTML = "Filtrovanie výsledkov";
+	filterOpenButton.setAttribute("data-text", "Filtrovanie výsledkov");
+}
+if (plLang) {
+	filterOpenButton.innerHTML = "Filtrowanie wyników";
+	filterOpenButton.setAttribute("data-text", "Filtrowanie wyników");
+}
+
+if (isMobile) {
+	trimPerex();
+}
+
 function trimPerex() {
 	const maxLength = 130;
 	const perexElement = document.querySelector(".category-perex");
@@ -292,7 +325,29 @@ function trimPerex() {
 	}
 	categoryPerexShortened.appendChild(readMoreButton);
 
+	// Listen for both "click" and "touchstart" events
+	["click", "touchstart"].forEach((event) => {
+		readMoreButton.addEventListener(event, function () {
+			perexElement.classList.toggle("active");
+		});
+	});
 	//make it so it trims after 3 lines and saves the rest of the text in a data attribute
 }
-trimPerex();
+
+function customMoveFilter() {
+	if (isDesktop) {
+		if (filterInSidebar) {
+			return;
+		}
+		filtersPositionSidebar.appendChild(filtersElement);
+		filterInSidebar = true;
+	} else {
+		if (!filterInSidebar) {
+			return;
+		}
+		filtersPositionContent.prepend(filtersElement);
+		filterInSidebar = false;
+	}
+}
+
 // Run after page load
