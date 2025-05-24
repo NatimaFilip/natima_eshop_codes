@@ -256,35 +256,32 @@ function removeCommasFromMenu() {
 removeCommasFromMenu();
 
 /*-------------------------------------- CATEGORY*/
+let perexTrimmedIsVisible = false;
 let filterInSidebar = true;
-let filtersElement = document.querySelector(".filters-wrapper");
+let filtersElement = document.querySelector("#filters");
 let filtersPositionSidebar = document.querySelector(".sidebar-inner .box-filters");
 let filtersPositionContent = document.querySelector(".category-content-wrapper");
 
-customMoveFilter();
-document.addEventListener("debouncedResize", function () {
-	customMoveFilter();
-});
 document.addEventListener("ShoptetPagePriceFilterChange", function (event) {
-	filterInSidebar = true;
-	setTimeout(() => {
-		customMoveFilter();
-	}, 200);
+	document.addEventListener(
+		"ShoptetDOMPageContentLoaded",
+		function (event) {
+			if (!isDesktop) {
+				filterInSidebar = true;
+				filtersElement = document.querySelector("#filters");
+				filtersElement.classList.add("active");
+				filtersPositionContent = document.querySelector(".category-content-wrapper");
+				customMoveFilter();
+			}
+			if (isMobile) {
+				if (!perexTrimmedIsVisible) {
+					trimPerex();
+				}
+			}
+		},
+		{ once: true }
+	);
 });
-
-let filterOpenButton = document.querySelector(".filters-unveil-button-wrapper > a");
-if (csLang) {
-	filterOpenButton.innerHTML = "Filtrování výsledků";
-	filterOpenButton.setAttribute("data-text", "Filtrování výsledků");
-}
-if (skLang) {
-	filterOpenButton.innerHTML = "Filtrovanie výsledkov";
-	filterOpenButton.setAttribute("data-text", "Filtrovanie výsledkov");
-}
-if (plLang) {
-	filterOpenButton.innerHTML = "Filtrowanie wyników";
-	filterOpenButton.setAttribute("data-text", "Filtrowanie wyników");
-}
 
 if (isMobile) {
 	trimPerex();
@@ -334,11 +331,17 @@ function trimPerex() {
 	// Listen for both "click" and "touchstart" events
 	["click", "touchstart"].forEach((event) => {
 		readMoreButton.addEventListener(event, function () {
-			perexElement.classList.toggle("active");
+			perexElement.classList.add("active");
+			perexTrimmedIsVisible = true;
 		});
 	});
 	//make it so it trims after 3 lines and saves the rest of the text in a data attribute
 }
+
+customMoveFilter();
+document.addEventListener("debouncedResize", function () {
+	customMoveFilter();
+});
 
 function customMoveFilter() {
 	if (isDesktop) {
@@ -353,6 +356,26 @@ function customMoveFilter() {
 		}
 		filtersPositionContent.prepend(filtersElement);
 		filterInSidebar = false;
+
+		const customOpenFilterButton = document.createElement("a");
+		customOpenFilterButton.className = "custom-open-filter-button";
+
+		if (csLang) {
+			customOpenFilterButton.innerHTML = "Filtrování výsledků";
+		}
+		if (skLang) {
+			customOpenFilterButton.innerHTML = "Filtrovanie výsledkov";
+		}
+		if (plLang) {
+			customOpenFilterButton.innerHTML = "Filtrowanie wyników";
+		}
+		["click", "touchstart"].forEach((event) => {
+			customOpenFilterButton.addEventListener(event, function () {
+				filtersElement.classList.toggle("active");
+				customOpenFilterButton.classList.toggle("active");
+			});
+		});
+		filtersPositionContent.prepend(customOpenFilterButton);
 	}
 }
 
