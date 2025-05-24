@@ -265,6 +265,12 @@ customMoveFilter();
 document.addEventListener("debouncedResize", function () {
 	customMoveFilter();
 });
+document.addEventListener("ShoptetPagePriceFilterChange", function (event) {
+	filterInSidebar = true;
+	setTimeout(() => {
+		customMoveFilter();
+	}, 200);
+});
 
 let filterOpenButton = document.querySelector(".filters-unveil-button-wrapper > a");
 if (csLang) {
