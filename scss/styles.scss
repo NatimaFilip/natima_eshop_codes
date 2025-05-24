@@ -1119,12 +1119,14 @@ body.type-category {
 		display: none;
 	}
 	#filters {
+		--box-width: 20px;
+		--box-radius: 6px;
 		background-color: var(--color-gray-400);
 		border-radius: var(--br-400);
 		display: none;
 		font-size: var(--fs-13);
-		padding: 30px 20px 16px 20px;
-		margin-top: -20px;
+		padding: calc(10px + var(--box-width)) 20px 16px 20px;
+		margin-top: calc(var(--box-width) * -1);
 		flex-direction: column;
 		&.active {
 			display: flex;
@@ -1132,23 +1134,23 @@ body.type-category {
 		h4 {
 			font-size: var(--fs-16);
 			line-height: var(--lh-2);
+			padding-bottom: 0.5em;
 		}
 		.slider-wrapper {
 			display: flex;
 			flex-direction: column;
 			h4 {
 				order: 1;
-				padding-bottom: 0.5em;
 			}
 			.slider-content {
 				order: 2;
 			}
 			.slider-header {
-				padding-bottom: 10px;
 				order: 3;
 				display: flex;
 				justify-content: space-between;
 				padding-top: 1.46em;
+				padding-bottom: 1.385em;
 				.from,
 				.to {
 					min-width: 6.15em;
@@ -1165,34 +1167,155 @@ body.type-category {
 				background-color: #dadada;
 				border-radius: 5px;
 				margin-top: 5px;
-
 				#slider {
 					background-color: #dadada;
 					border-color: inherit;
 					height: 6px;
 					position: relative;
 					text-align: left;
-					width: calc(100% - 20px);
+					width: calc(100% - var(--box-width));
 					margin: auto;
 
 					span {
-						width: 20px;
-						height: 20px;
+						width: var(--box-width);
+						height: var(--box-width);
+						border-radius: var(--box-radius);
+						background-color: var(--color-primary);
 						top: -6px;
 
-						background-color: var(--color-primary);
 						display: block;
 						position: absolute;
-						border-radius: 6px;
-						margin-left: -10px;
+
+						margin-left: calc(var(--box-width) / -2);
+					}
+				}
+			}
+		}
+		fieldset {
+			padding: 0;
+			margin: 0;
+			border-style: none;
+			div {
+				input {
+					display: none;
+				}
+
+				label {
+					display: flex;
+					align-items: center;
+					min-height: var(--box-width);
+					cursor: pointer;
+					position: relative;
+					margin-bottom: 0.615em;
+					&.disabled {
+						display: none !important;
+					}
+					&::before {
+						content: "";
+						margin: 0;
+						width: var(--box-width);
+						height: var(--box-width);
+						border-radius: var(--box-radius);
+						border-style: solid;
+						border-width: 1px;
+						border-color: var(--color-primary);
+						outline-style: none;
+						background: transparent;
+						margin-right: 0.4615em;
+					}
+					&.active::before {
+						background: var(--color-primary);
+					}
+					&.active::after {
+						content: "";
+						margin: 0;
+						width: calc(var(--box-width) / 2);
+						height: var(--box-width);
+						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_check_white.svg");
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: contain;
+						position: absolute;
+						left: 0;
+						top: 1px;
+						transform: translateX(50%);
+					}
+					.filter-count {
+						padding-left: 0.84615em;
+					}
+				}
+			}
+		}
+		.filter-sections {
+			.filter-section {
+				display: flex;
+				flex-direction: column;
+				border-top-style: solid;
+				border-color: var(--color-gray-500);
+				border-width: 1px;
+				padding-top: 0.5em;
+				padding-bottom: 0.615em;
+				&.filter-section-boolean {
+					border-top-style: none;
+				}
+				.param-filter-top {
+					form {
 						&:last-child {
+							div {
+								label {
+									display: none;
+									//skrytí všech filtrů příznaků krom akce a novinky
+									&[for="dd[]1"],
+									&[for="dd[]2"] {
+										display: flex;
+									}
+								}
+							}
 						}
 					}
 				}
 			}
-			.no-display {
-				display: none;
+			#category-filter-hover {
+				display: flex;
+				flex-direction: column;
+				#manufacturer-filter {
+					order: 99;
+					fieldset {
+						div {
+							display: none;
+						}
+						//first 5 block
+						div:nth-child(-n + 5) {
+							display: block;
+						}
+					}
+					.show-all-manufacturers {
+						color: var(--color-primary);
+						cursor: pointer;
+						@include text-underline;
+						&:hover,
+						&:focus-within {
+							color: var(--color-tertiary);
+						}
+					}
+					&.active {
+						fieldset {
+							div {
+								display: block;
+							}
+						}
+						.show-all-manufacturers {
+							display: none;
+						}
+					}
+				}
 			}
+		}
+		#price-filter-form,
+		.filter-section-button,
+		.filter-section-count,
+		.no-display {
+			display: none !important;
 		}
 	}
 

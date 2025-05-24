@@ -378,5 +378,56 @@ function customMoveFilter() {
 		filtersPositionContent.prepend(customOpenFilterButton);
 	}
 }
+editManufacturerFilter();
+
+function editManufacturerFilter() {
+	let manufacturerFilter = document.querySelector("#manufacturer-filter");
+	if (!manufacturerFilter) {
+		return;
+	}
+
+	//remove disabled manufacturers
+	let disabledManufacturers = manufacturerFilter.querySelectorAll("fieldset > div > label.disabled");
+	disabledManufacturers.forEach((label) => {
+		label.parentElement.remove();
+	});
+	let manufacturers = manufacturerFilter.querySelectorAll("fieldset > div");
+	let manufacturersNumber = manufacturers.length;
+	let manufacturersNumberMinusVisible = manufacturersNumber - 5;
+
+	// If there are more than 5 active manufacturers, hide the rest
+	if (manufacturersNumber <= 5) {
+		return;
+	}
+	const showAllManufacturersButton = document.createElement("a");
+	showAllManufacturersButton.className = "show-all-manufacturers";
+	if (csLang) {
+		if (manufacturersNumberMinusVisible > 4) {
+			showAllManufacturersButton.innerHTML = "+ dalších " + manufacturersNumberMinusVisible;
+		} else {
+			showAllManufacturersButton.innerHTML = "+ další " + manufacturersNumberMinusVisible;
+		}
+	}
+	if (skLang) {
+		if (manufacturersNumberMinusVisible > 4) {
+			showAllManufacturersButton.innerHTML = "+ ďalších " + manufacturersNumberMinusVisible;
+		} else {
+			showAllManufacturersButton.innerHTML = "+ ďalšie " + manufacturersNumberMinusVisible;
+		}
+	}
+	if (plLang) {
+		if (manufacturersNumberMinusVisible > 4) {
+			showAllManufacturersButton.innerHTML = "+ dalszych " + manufacturersNumberMinusVisible;
+		} else {
+			showAllManufacturersButton.innerHTML = "+ dalsze " + manufacturersNumberMinusVisible;
+		}
+	}
+	manufacturerFilter.appendChild(showAllManufacturersButton);
+	["click", "touchstart"].forEach((event) => {
+		showAllManufacturersButton.addEventListener(event, function () {
+			manufacturerFilter.classList.add("active");
+		});
+	});
+}
 
 // Run after page load

@@ -1273,12 +1273,14 @@ body.type-category .filters-wrapper {
   display: none;
 }
 body.type-category #filters {
+  --box-width: 20px;
+  --box-radius: 6px;
   background-color: var(--color-gray-400);
   border-radius: var(--br-400);
   display: none;
   font-size: var(--fs-13);
-  padding: 30px 20px 16px 20px;
-  margin-top: -20px;
+  padding: calc(10px + var(--box-width)) 20px 16px 20px;
+  margin-top: calc(var(--box-width) * -1);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1292,6 +1294,7 @@ body.type-category #filters.active {
 body.type-category #filters h4 {
   font-size: var(--fs-16);
   line-height: var(--lh-2);
+  padding-bottom: 0.5em;
 }
 body.type-category #filters .slider-wrapper {
   display: -webkit-box;
@@ -1306,7 +1309,6 @@ body.type-category #filters .slider-wrapper h4 {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
-  padding-bottom: 0.5em;
 }
 body.type-category #filters .slider-wrapper .slider-content {
   -webkit-box-ordinal-group: 3;
@@ -1314,7 +1316,6 @@ body.type-category #filters .slider-wrapper .slider-content {
           order: 2;
 }
 body.type-category #filters .slider-wrapper .slider-header {
-  padding-bottom: 10px;
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
@@ -1325,6 +1326,7 @@ body.type-category #filters .slider-wrapper .slider-header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-top: 1.46em;
+  padding-bottom: 1.385em;
 }
 body.type-category #filters .slider-wrapper .slider-header .from,
 body.type-category #filters .slider-wrapper .slider-header .to {
@@ -1348,21 +1350,141 @@ body.type-category #filters .slider-wrapper .slider-content #slider {
   height: 6px;
   position: relative;
   text-align: left;
-  width: calc(100% - 20px);
+  width: calc(100% - var(--box-width));
   margin: auto;
 }
 body.type-category #filters .slider-wrapper .slider-content #slider span {
-  width: 20px;
-  height: 20px;
-  top: -6px;
+  width: var(--box-width);
+  height: var(--box-width);
+  border-radius: var(--box-radius);
   background-color: var(--color-primary);
+  top: -6px;
   display: block;
   position: absolute;
-  border-radius: 6px;
-  margin-left: -10px;
+  margin-left: calc(var(--box-width) / -2);
 }
-body.type-category #filters .slider-wrapper .no-display {
+body.type-category #filters fieldset {
+  padding: 0;
+  margin: 0;
+  border-style: none;
+}
+body.type-category #filters fieldset div input {
   display: none;
+}
+body.type-category #filters fieldset div label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: var(--box-width);
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 0.615em;
+}
+body.type-category #filters fieldset div label.disabled {
+  display: none !important;
+}
+body.type-category #filters fieldset div label::before {
+  content: "";
+  margin: 0;
+  width: var(--box-width);
+  height: var(--box-width);
+  border-radius: var(--box-radius);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-primary);
+  outline-style: none;
+  background: transparent;
+  margin-right: 0.4615em;
+}
+body.type-category #filters fieldset div label.active::before {
+  background: var(--color-primary);
+}
+body.type-category #filters fieldset div label.active::after {
+  content: "";
+  margin: 0;
+  width: calc(var(--box-width) / 2);
+  height: var(--box-width);
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_check_white.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  top: 1px;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+}
+body.type-category #filters fieldset div label .filter-count {
+  padding-left: 0.84615em;
+}
+body.type-category #filters .filter-sections .filter-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-top-style: solid;
+  border-color: var(--color-gray-500);
+  border-width: 1px;
+  padding-top: 0.5em;
+  padding-bottom: 0.615em;
+}
+body.type-category #filters .filter-sections .filter-section.filter-section-boolean {
+  border-top-style: none;
+}
+body.type-category #filters .filter-sections .filter-section .param-filter-top form:last-child div label {
+  display: none;
+}
+body.type-category #filters .filter-sections .filter-section .param-filter-top form:last-child div label[for="dd[]1"], body.type-category #filters .filter-sections .filter-section .param-filter-top form:last-child div label[for="dd[]2"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+body.type-category #filters .filter-sections #category-filter-hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter {
+  -webkit-box-ordinal-group: 100;
+      -ms-flex-order: 99;
+          order: 99;
+}
+body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter fieldset div {
+  display: none;
+}
+body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter fieldset div:nth-child(-n+5) {
+  display: block;
+}
+body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter .show-all-manufacturers {
+  color: var(--color-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter .show-all-manufacturers:hover, body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter .show-all-manufacturers:focus-within {
+  color: var(--color-tertiary);
+}
+body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter.active fieldset div {
+  display: block;
+}
+body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter.active .show-all-manufacturers {
+  display: none;
+}
+body.type-category #filters #price-filter-form,
+body.type-category #filters .filter-section-button,
+body.type-category #filters .filter-section-count,
+body.type-category #filters .no-display {
+  display: none !important;
 }
 body.type-category .category-header {
   margin-top: 200px;
