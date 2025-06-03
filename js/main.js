@@ -342,13 +342,25 @@ if (document.body.classList.contains("type-category")) {
 
 	/*--------------------FILTRY*/
 	customMoveFilter();
+	moveAndEditClearFilters();
+	editManufacturerFilter();
+	cleanEmptyFilters();
 	document.addEventListener("debouncedResize", function () {
 		customMoveFilter();
 	});
 
-	moveAndEditClearFilters();
-	editManufacturerFilter();
-	cleanEmptyFilters();
+	document.addEventListener("ShoptetPageFilterValueChange", function () {
+		document.addEventListener(
+			"ShoptetDOMPageContentLoaded",
+			function () {
+				customMoveFilter();
+				moveAndEditClearFilters();
+				editManufacturerFilter();
+				cleanEmptyFilters();
+			},
+			{ once: true }
+		);
+	});
 
 	function customMoveFilter() {
 		if (isDesktop) {
