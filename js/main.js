@@ -353,7 +353,10 @@ if (document.body.classList.contains("type-category")) {
 		document.addEventListener(
 			"ShoptetDOMPageContentLoaded",
 			function () {
-				customMoveFilter();
+				if (!isDesktop) {
+					filterInSidebar = true;
+					customMoveFilter();
+				}
 				moveAndEditClearFilters();
 				editManufacturerFilter();
 				cleanEmptyFilters();
