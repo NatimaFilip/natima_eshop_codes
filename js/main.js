@@ -27,6 +27,8 @@ let isMobile = false;
 let isTablet = false;
 let isDesktop = false;
 
+let body = document.querySelector("body");
+
 function checkMediaSizes() {
 	if (window.innerWidth < mediaSizes.tablet) {
 		isMobile = true;
@@ -256,13 +258,14 @@ function removeCommasFromMenu() {
 removeCommasFromMenu();
 
 /*-------------------------------------- CATEGORY*/
-if (document.body.classList.contains("type-category")) {
+if (body.classList.contains("type-category")) {
 	let perexTrimmedIsVisible = false;
 	let filterInSidebar = true;
 	let filtersElement = document.querySelector("#filters");
 	let filtersPositionSidebar = document.querySelector(".sidebar-inner .box-filters");
 	let filtersPositionContent = document.querySelector(".category-content-wrapper");
 	let filterSections = filtersElement.querySelectorAll(".filter-section");
+	let allProducts = document.querySelectorAll(".product");
 
 	document.addEventListener("ShoptetPagePriceFilterChange", function (event) {
 		document.addEventListener(
@@ -345,30 +348,25 @@ if (document.body.classList.contains("type-category")) {
 	moveAndEditClearFilters();
 	editManufacturerFilter();
 	cleanEmptyFilters();
+	editProductSorting();
+	measureUnitFromAppendix();
 	document.addEventListener("debouncedResize", function () {
 		customMoveFilter();
 	});
 
-	["ShoptetPageFilterValueChange", "ShoptetPageFiltersCleared"].forEach((event) => {
-		document.addEventListener(event, function () {
-			document.addEventListener(
-				"ShoptetDOMPageContentLoaded",
-				function () {
-					if (!isDesktop) {
-						filterInSidebar = true;
-						filtersElement = document.querySelector("#filters");
-						filtersElement.classList.add("active");
-						filtersPositionContent = document.querySelector(".category-content-wrapper");
-						filterSections = filtersElement.querySelectorAll(".filter-section");
-						customMoveFilter();
-					}
-					moveAndEditClearFilters();
-					editManufacturerFilter();
-					cleanEmptyFilters();
-				},
-				{ once: true }
-			);
-		});
+	document.addEventListener("ShoptetDOMPageContentLoaded", function () {
+		if (!isDesktop) {
+			filterInSidebar = true;
+			filtersElement = document.querySelector("#filters");
+			filtersElement.classList.add("active");
+			filtersPositionContent = document.querySelector(".category-content-wrapper");
+			filterSections = filtersElement.querySelectorAll(".filter-section");
+			customMoveFilter();
+		}
+		moveAndEditClearFilters();
+		editManufacturerFilter();
+		cleanEmptyFilters();
+		editProductSorting();
 	});
 
 	function customMoveFilter() {
@@ -410,24 +408,26 @@ if (document.body.classList.contains("type-category")) {
 	function moveAndEditClearFilters() {
 		let clearFilterButton = filtersElement.querySelector("#clear-filters");
 		if (!clearFilterButton) {
+			body.classList.remove("has-filters-active");
 			return;
 		}
+		body.classList.add("has-filters-active");
 		const selectedFiltersDiv = document.createElement("div");
 		selectedFiltersDiv.className = "selected-filters";
-		const selectedFiltersP = document.createElement("p");
-		selectedFiltersP.className = "selected-filters-text";
+		const selectedFiltersSpan = document.createElement("span");
+		selectedFiltersSpan.className = "selected-filters-text";
 
 		if (csLang) {
-			selectedFiltersP.innerHTML = "Vybrané filtry";
+			selectedFiltersSpan.innerHTML = "Vybrané filtry";
 		}
 		if (skLang) {
-			selectedFiltersP.innerHTML = "Vybrané filtre";
+			selectedFiltersSpan.innerHTML = "Vybrané filtre";
 		}
 		if (plLang) {
-			selectedFiltersP.innerHTML = "Wybrane filtry";
+			selectedFiltersSpan.innerHTML = "Wybrane filtry";
 		}
 		filtersElement.prepend(selectedFiltersDiv);
-		selectedFiltersDiv.appendChild(selectedFiltersP);
+		selectedFiltersDiv.appendChild(selectedFiltersSpan);
 
 		//for each fieldset get active labels, create copies of them and append tgem to selectedFiltersDiv
 		filterSections.forEach((section) => {
@@ -542,6 +542,121 @@ if (document.body.classList.contains("type-category")) {
 			let filterItems = section.querySelectorAll("fieldset > div > label:not(.disabled)");
 			if (filterItems.length === 0) {
 				section.remove();
+			}
+		});
+	}
+
+	function editProductSorting() {
+		let categoryHeader = document.querySelector("#category-header");
+		if (!categoryHeader) return;
+
+		let sortingForm = categoryHeader.querySelector("form");
+		if (!sortingForm) return;
+
+		const toggleOpenSortingForm = document.createElement("span");
+		toggleOpenSortingForm.className = "toggle-open-sorting-form";
+		sortingForm.append(toggleOpenSortingForm);
+
+		// Find all inputs within the category header
+		let sortingInputs = sortingForm.querySelectorAll("fieldset input[type='radio']");
+
+		sortingInputs.forEach((input) => {
+			let label = categoryHeader.querySelector(`label[for='${input.id}']`);
+			if (input.checked && label) {
+				label.classList.add("active"); // Add 'active' class to the label of the checked input
+				sortingForm.querySelector("fieldset").prepend(label); // Move the label to the end of the fieldset
+			} else if (label) {
+				label.classList.remove("active"); // Remove 'active' class from other labels
+			}
+		});
+
+		// Add event listener to the toggle button
+		["click", "touchstart"].forEach((event) => {
+			toggleOpenSortingForm.addEventListener(event, function () {
+				sortingForm.classList.toggle("active");
+				toggleOpenSortingForm.classList.toggle("active");
+			});
+		});
+	}
+
+	function measureUnitFromAppendix() {
+		allProducts.forEach((product) => {
+			let productAppendix = product.querySelector(".product-appendix");
+			if (!productAppendix) return;
+
+			let productMeasureUnitComplet;
+			let productMeasureAmount;
+			let appendixText = productAppendix.textContent;
+
+			// Use a regular expression to extract the desired value
+			let match = appendixText.match(/Množství:\s*([^;]+);/);
+			if (match) {
+				productMeasureUnitComplet = match[1].trim(); // Save the extracted value
+				productMeasureAmount = productMeasureUnitComplet.replace(/[^\d]/g, ""); //keep only digits from the measure unit
+				productMeasureUnit = productMeasureUnitComplet.replace(/[\d\s]/g, ""); //keep only letters from the measure unit
+
+				let ratingsWrapper = product.querySelector(".ratings-wrapper");
+				if (ratingsWrapper) {
+					// Create a new span element to display the amount
+					let measureUnitSpan = document.createElement("span");
+					measureUnitSpan.className = "product-measure-unit";
+					measureUnitSpan.textContent = productMeasureUnitComplet;
+
+					// Append the amount span to the ratings wrapper
+					ratingsWrapper.appendChild(measureUnitSpan);
+				}
+
+				const pricePerUnitDiv = document.createElement("div");
+				pricePerUnitDiv.className = "product-price-per-unit";
+				let prices = product.querySelector(".prices");
+
+				let priceFinal = product.querySelector(".price-final");
+				let priceFinalValue;
+
+				if (priceFinal) {
+					// Extract the text content, trim it, and remove everything but numbers
+					priceFinalValue = priceFinal.textContent.trim().replace(/[^\d.,]/g, ""); // Keep only digits, commas, and dots
+					priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
+				}
+
+				let signleMeasuringUnit = {
+					kapslí: "kapsle",
+					tablet: "tableta",
+					tobolek: "tobolka",
+					tabletek: "tabletka",
+				};
+
+				let pricePerUnit_Unit;
+
+				let foundUnitMatch = false;
+
+				// Iterate over the keys in the object
+				for (let key in signleMeasuringUnit) {
+					if (productMeasureUnit.includes(key)) {
+						foundUnitMatch = true;
+						pricePerUnit_Unit = signleMeasuringUnit[key];
+						break; // Exit the loop once a match is found
+					}
+				}
+				if (!foundUnitMatch) {
+					// If no match is found, use the original measure unit
+					pricePerUnit_Unit = productMeasureUnit;
+				}
+
+				const pricePerUnit_Value = priceFinalValue / productMeasureAmount;
+
+				const pricePerUnit_ValueSpan = document.createElement("span");
+				pricePerUnit_ValueSpan.className = "product-price-per-unit-value";
+
+				pricePerUnit_ValueSpan.textContent =
+					pricePerUnit_Value.toFixed(1).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
+
+				prices.appendChild(pricePerUnitDiv);
+				pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
+
+				/* 				// Remove "Množství ...;" from the text
+				appendixText = appendixText.replace(/Množství:\s*[^;]+;/, "").trim();
+				productAppendix.textContent = appendixText; // Update the element's text content */
 			}
 		});
 	}
