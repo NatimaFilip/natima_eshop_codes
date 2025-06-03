@@ -256,178 +256,272 @@ function removeCommasFromMenu() {
 removeCommasFromMenu();
 
 /*-------------------------------------- CATEGORY*/
-let perexTrimmedIsVisible = false;
-let filterInSidebar = true;
-let filtersElement = document.querySelector("#filters");
-let filtersPositionSidebar = document.querySelector(".sidebar-inner .box-filters");
-let filtersPositionContent = document.querySelector(".category-content-wrapper");
+if (document.body.classList.contains("type-category")) {
+	let perexTrimmedIsVisible = false;
+	let filterInSidebar = true;
+	let filtersElement = document.querySelector("#filters");
+	let filtersPositionSidebar = document.querySelector(".sidebar-inner .box-filters");
+	let filtersPositionContent = document.querySelector(".category-content-wrapper");
+	let filterSections = filtersElement.querySelectorAll(".filter-section");
 
-document.addEventListener("ShoptetPagePriceFilterChange", function (event) {
-	document.addEventListener(
-		"ShoptetDOMPageContentLoaded",
-		function (event) {
-			if (!isDesktop) {
-				filterInSidebar = true;
-				filtersElement = document.querySelector("#filters");
-				filtersElement.classList.add("active");
-				filtersPositionContent = document.querySelector(".category-content-wrapper");
-				customMoveFilter();
-			}
-			if (isMobile) {
-				if (!perexTrimmedIsVisible) {
-					trimPerex();
+	document.addEventListener("ShoptetPagePriceFilterChange", function (event) {
+		document.addEventListener(
+			"ShoptetDOMPageContentLoaded",
+			function (event) {
+				if (!isDesktop) {
+					filterInSidebar = true;
+					filtersElement = document.querySelector("#filters");
+					filtersElement.classList.add("active");
+					filtersPositionContent = document.querySelector(".category-content-wrapper");
+					customMoveFilter();
 				}
-			}
-		},
-		{ once: true }
-	);
-});
-
-if (isMobile) {
-	trimPerex();
-}
-
-function trimPerex() {
-	const maxLength = 130;
-	const perexElement = document.querySelector(".category-perex");
-	if (!perexElement) return;
-
-	const paragraphElement = perexElement.querySelector(":scope > p");
-	if (!paragraphElement) return;
-
-	let originalText = paragraphElement.textContent;
-	originalText = originalText.replace(/\s+/g, " ").trim();
-
-	if (originalText.length <= maxLength) {
-		// If the text is already short enough, do nothing
-		return;
-	}
-	perexElement.classList.add("category-perex-has-shortened");
-	// Find the last full word within the maxLength
-	let truncatedText = originalText.slice(0, maxLength);
-	const lastSpaceIndex = truncatedText.lastIndexOf(" ");
-	if (lastSpaceIndex !== -1) {
-		truncatedText = truncatedText.slice(0, lastSpaceIndex);
-	}
-
-	const categoryPerexShortened = document.createElement("p");
-	categoryPerexShortened.innerHTML = truncatedText;
-	categoryPerexShortened.className = "category-perex-shortened";
-	perexElement.appendChild(categoryPerexShortened);
-
-	const readMoreButton = document.createElement("span");
-	readMoreButton.className = "read-more-perex";
-	if (csLang) {
-		readMoreButton.innerHTML = "Více";
-	}
-	if (skLang) {
-		readMoreButton.innerHTML = "Viac";
-	}
-	if (plLang) {
-		readMoreButton.innerHTML = "Więcej";
-	}
-	categoryPerexShortened.appendChild(readMoreButton);
-
-	// Listen for both "click" and "touchstart" events
-	["click", "touchstart"].forEach((event) => {
-		readMoreButton.addEventListener(event, function () {
-			perexElement.classList.add("active");
-			perexTrimmedIsVisible = true;
-		});
+				if (isMobile) {
+					if (!perexTrimmedIsVisible) {
+						trimPerex();
+					}
+				}
+			},
+			{ once: true }
+		);
 	});
-	//make it so it trims after 3 lines and saves the rest of the text in a data attribute
-}
 
-customMoveFilter();
-document.addEventListener("debouncedResize", function () {
-	customMoveFilter();
-});
+	if (isMobile) {
+		trimPerex();
+	}
 
-function customMoveFilter() {
-	if (isDesktop) {
-		if (filterInSidebar) {
+	function trimPerex() {
+		const maxLength = 130;
+		const perexElement = document.querySelector(".category-perex");
+		if (!perexElement) return;
+
+		const paragraphElement = perexElement.querySelector(":scope > p");
+		if (!paragraphElement) return;
+
+		let originalText = paragraphElement.textContent;
+		originalText = originalText.replace(/\s+/g, " ").trim();
+
+		if (originalText.length <= maxLength) {
+			// If the text is already short enough, do nothing
 			return;
 		}
-		filtersPositionSidebar.appendChild(filtersElement);
-		filterInSidebar = true;
-	} else {
-		if (!filterInSidebar) {
-			return;
+		perexElement.classList.add("category-perex-has-shortened");
+		// Find the last full word within the maxLength
+		let truncatedText = originalText.slice(0, maxLength);
+		const lastSpaceIndex = truncatedText.lastIndexOf(" ");
+		if (lastSpaceIndex !== -1) {
+			truncatedText = truncatedText.slice(0, lastSpaceIndex);
 		}
-		filtersPositionContent.prepend(filtersElement);
-		filterInSidebar = false;
 
-		const customOpenFilterButton = document.createElement("a");
-		customOpenFilterButton.className = "custom-open-filter-button";
+		const categoryPerexShortened = document.createElement("p");
+		categoryPerexShortened.innerHTML = truncatedText;
+		categoryPerexShortened.className = "category-perex-shortened";
+		perexElement.appendChild(categoryPerexShortened);
 
+		const readMoreButton = document.createElement("span");
+		readMoreButton.className = "read-more-perex";
 		if (csLang) {
-			customOpenFilterButton.innerHTML = "Filtrování výsledků";
+			readMoreButton.innerHTML = "Více";
 		}
 		if (skLang) {
-			customOpenFilterButton.innerHTML = "Filtrovanie výsledkov";
+			readMoreButton.innerHTML = "Viac";
 		}
 		if (plLang) {
-			customOpenFilterButton.innerHTML = "Filtrowanie wyników";
+			readMoreButton.innerHTML = "Więcej";
 		}
+		categoryPerexShortened.appendChild(readMoreButton);
+
+		// Listen for both "click" and "touchstart" events
 		["click", "touchstart"].forEach((event) => {
-			customOpenFilterButton.addEventListener(event, function () {
-				filtersElement.classList.toggle("active");
-				customOpenFilterButton.classList.toggle("active");
+			readMoreButton.addEventListener(event, function () {
+				perexElement.classList.add("active");
+				perexTrimmedIsVisible = true;
 			});
 		});
-		filtersPositionContent.prepend(customOpenFilterButton);
-	}
-}
-editManufacturerFilter();
-
-function editManufacturerFilter() {
-	let manufacturerFilter = document.querySelector("#manufacturer-filter");
-	if (!manufacturerFilter) {
-		return;
+		//make it so it trims after 3 lines and saves the rest of the text in a data attribute
 	}
 
-	//remove disabled manufacturers
-	let disabledManufacturers = manufacturerFilter.querySelectorAll("fieldset > div > label.disabled");
-	disabledManufacturers.forEach((label) => {
-		label.parentElement.remove();
+	/*--------------------FILTRY*/
+	customMoveFilter();
+	document.addEventListener("debouncedResize", function () {
+		customMoveFilter();
 	});
-	let manufacturers = manufacturerFilter.querySelectorAll("fieldset > div");
-	let manufacturersNumber = manufacturers.length;
-	let manufacturersNumberMinusVisible = manufacturersNumber - 5;
 
-	// If there are more than 5 active manufacturers, hide the rest
-	if (manufacturersNumber <= 5) {
-		return;
-	}
-	const showAllManufacturersButton = document.createElement("a");
-	showAllManufacturersButton.className = "show-all-manufacturers";
-	if (csLang) {
-		if (manufacturersNumberMinusVisible > 4) {
-			showAllManufacturersButton.innerHTML = "+ dalších " + manufacturersNumberMinusVisible;
+	moveAndEditClearFilters();
+	editManufacturerFilter();
+	cleanEmptyFilters();
+
+	function customMoveFilter() {
+		if (isDesktop) {
+			if (filterInSidebar) {
+				return;
+			}
+			filtersPositionSidebar.appendChild(filtersElement);
+			filterInSidebar = true;
 		} else {
-			showAllManufacturersButton.innerHTML = "+ další " + manufacturersNumberMinusVisible;
+			if (!filterInSidebar) {
+				return;
+			}
+			filtersPositionContent.prepend(filtersElement);
+			filterInSidebar = false;
+
+			const customOpenFilterButton = document.createElement("a");
+			customOpenFilterButton.className = "custom-open-filter-button";
+
+			if (csLang) {
+				customOpenFilterButton.innerHTML = "Filtrování výsledků";
+			}
+			if (skLang) {
+				customOpenFilterButton.innerHTML = "Filtrovanie výsledkov";
+			}
+			if (plLang) {
+				customOpenFilterButton.innerHTML = "Filtrowanie wyników";
+			}
+			["click", "touchstart"].forEach((event) => {
+				customOpenFilterButton.addEventListener(event, function () {
+					filtersElement.classList.toggle("active");
+					customOpenFilterButton.classList.toggle("active");
+				});
+			});
+			filtersPositionContent.prepend(customOpenFilterButton);
 		}
 	}
-	if (skLang) {
-		if (manufacturersNumberMinusVisible > 4) {
-			showAllManufacturersButton.innerHTML = "+ ďalších " + manufacturersNumberMinusVisible;
-		} else {
-			showAllManufacturersButton.innerHTML = "+ ďalšie " + manufacturersNumberMinusVisible;
+
+	function moveAndEditClearFilters() {
+		let clearFilterButton = filtersElement.querySelector("#clear-filters");
+		if (!clearFilterButton) {
+			return;
 		}
-	}
-	if (plLang) {
-		if (manufacturersNumberMinusVisible > 4) {
-			showAllManufacturersButton.innerHTML = "+ dalszych " + manufacturersNumberMinusVisible;
-		} else {
-			showAllManufacturersButton.innerHTML = "+ dalsze " + manufacturersNumberMinusVisible;
+		const selectedFiltersDiv = document.createElement("div");
+		selectedFiltersDiv.className = "selected-filters";
+		const selectedFiltersP = document.createElement("p");
+		selectedFiltersP.className = "selected-filters-text";
+
+		if (csLang) {
+			selectedFiltersP.innerHTML = "Vybrané filtry";
 		}
-	}
-	manufacturerFilter.appendChild(showAllManufacturersButton);
-	["click", "touchstart"].forEach((event) => {
-		showAllManufacturersButton.addEventListener(event, function () {
-			manufacturerFilter.classList.add("active");
+		if (skLang) {
+			selectedFiltersP.innerHTML = "Vybrané filtre";
+		}
+		if (plLang) {
+			selectedFiltersP.innerHTML = "Wybrane filtry";
+		}
+		filtersElement.prepend(selectedFiltersDiv);
+		selectedFiltersDiv.appendChild(selectedFiltersP);
+
+		//for each fieldset get active labels, create copies of them and append tgem to selectedFiltersDiv
+		filterSections.forEach((section) => {
+			let fieldsetHeader = section.querySelector("h4 > span");
+			let activeLabels = section.querySelectorAll("fieldset > div > label.active");
+			if (activeLabels.length === 0) {
+				return;
+			}
+			const activeFilterSection = document.createElement("div");
+			activeFilterSection.className = "active-filter-section";
+
+			if (fieldsetHeader) {
+				activeFilterSection.innerHTML = `<span class="active-filter-section-header">${fieldsetHeader.textContent}</span>`;
+			} else {
+				let defaultHeader = "";
+				if (csLang) {
+					defaultHeader = "Produkt";
+				}
+				if (skLang) {
+					defaultHeader = "Produkt";
+				}
+				if (plLang) {
+					defaultHeader = "Produkt";
+				}
+				activeFilterSection.innerHTML = `<span class="active-filter-section-header">${defaultHeader}</span>`;
+			}
+			selectedFiltersDiv.appendChild(activeFilterSection);
+			activeLabels.forEach((label) => {
+				// Extract only the text node, excluding the .filter-count
+				let labelText = Array.from(label.childNodes)
+					.filter((node) => node.nodeType === Node.TEXT_NODE) // Get only text nodes
+					.map((node) => node.textContent.trim()) // Trim the text content
+					.join(""); // Combine the text if there are multiple text nodes
+
+				const activeNewLabel = document.createElement("span");
+				activeNewLabel.className = "active-filter-label";
+				activeNewLabel.textContent = labelText;
+
+				//on click also click the original label
+				activeFilterSection.appendChild(activeNewLabel);
+				["click", "touchstart"].forEach((event) => {
+					activeNewLabel.addEventListener(event, function () {
+						label.click();
+					});
+				});
+			});
 		});
-	});
-}
 
-// Run after page load
+		selectedFiltersDiv.appendChild(clearFilterButton);
+	}
+
+	function editManufacturerFilter() {
+		let manufacturerFilter = document.querySelector("#manufacturer-filter");
+		if (!manufacturerFilter) {
+			return;
+		}
+		let manufacturerFilterFieldset = manufacturerFilter.querySelector("fieldset");
+
+		//remove disabled manufacturers
+		let disabledManufacturers = manufacturerFilterFieldset.querySelectorAll(":scope >div > label.disabled");
+		disabledManufacturers.forEach((label) => {
+			label.parentElement.remove();
+		});
+		//move natios to the top
+		let natiosManufacturer = manufacturerFilterFieldset.querySelector(
+			":scope > div > label[for='manufacturerId[]natios']"
+		);
+		if (natiosManufacturer) {
+			manufacturerFilterFieldset.prepend(natiosManufacturer.parentElement);
+		}
+		let manufacturers = manufacturerFilterFieldset.querySelectorAll(":scope > div");
+		let manufacturersNumber = manufacturers.length;
+		let manufacturersNumberMinusVisible = manufacturersNumber - 5;
+
+		// If there are more than 5 active manufacturers, hide the rest
+		if (manufacturersNumber <= 5) {
+			return;
+		}
+		const showAllManufacturersButton = document.createElement("a");
+		showAllManufacturersButton.className = "show-all-manufacturers";
+		if (csLang) {
+			if (manufacturersNumberMinusVisible > 4) {
+				showAllManufacturersButton.innerHTML = "+ dalších " + manufacturersNumberMinusVisible;
+			} else {
+				showAllManufacturersButton.innerHTML = "+ další " + manufacturersNumberMinusVisible;
+			}
+		}
+		if (skLang) {
+			if (manufacturersNumberMinusVisible > 4) {
+				showAllManufacturersButton.innerHTML = "+ ďalších " + manufacturersNumberMinusVisible;
+			} else {
+				showAllManufacturersButton.innerHTML = "+ ďalšie " + manufacturersNumberMinusVisible;
+			}
+		}
+		if (plLang) {
+			if (manufacturersNumberMinusVisible > 4) {
+				showAllManufacturersButton.innerHTML = "+ dalszych " + manufacturersNumberMinusVisible;
+			} else {
+				showAllManufacturersButton.innerHTML = "+ dalsze " + manufacturersNumberMinusVisible;
+			}
+		}
+		manufacturerFilter.appendChild(showAllManufacturersButton);
+		["click", "touchstart"].forEach((event) => {
+			showAllManufacturersButton.addEventListener(event, function () {
+				manufacturerFilter.classList.add("active");
+			});
+		});
+	}
+
+	function cleanEmptyFilters() {
+		filterSections.forEach((section) => {
+			let filterItems = section.querySelectorAll("fieldset > div > label:not(.disabled)");
+			if (filterItems.length === 0) {
+				section.remove();
+			}
+		});
+	}
+}
