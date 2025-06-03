@@ -357,6 +357,7 @@ if (document.body.classList.contains("type-category")) {
 					filterInSidebar = true;
 					filtersElement = document.querySelector("#filters");
 					filtersElement.classList.add("active");
+					filtersPositionContent = document.querySelector(".category-content-wrapper");
 					customMoveFilter();
 				}
 				moveAndEditClearFilters();
