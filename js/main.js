@@ -355,6 +355,8 @@ if (document.body.classList.contains("type-category")) {
 			function () {
 				if (!isDesktop) {
 					filterInSidebar = true;
+					filtersElement = document.querySelector("#filters");
+					filtersElement.classList.add("active");
 					customMoveFilter();
 				}
 				moveAndEditClearFilters();
