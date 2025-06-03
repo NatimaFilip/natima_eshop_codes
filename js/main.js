@@ -349,23 +349,26 @@ if (document.body.classList.contains("type-category")) {
 		customMoveFilter();
 	});
 
-	document.addEventListener("ShoptetPageFilterValueChange", function () {
-		document.addEventListener(
-			"ShoptetDOMPageContentLoaded",
-			function () {
-				if (!isDesktop) {
-					filterInSidebar = true;
-					filtersElement = document.querySelector("#filters");
-					filtersElement.classList.add("active");
-					filtersPositionContent = document.querySelector(".category-content-wrapper");
-					customMoveFilter();
-				}
-				moveAndEditClearFilters();
-				editManufacturerFilter();
-				cleanEmptyFilters();
-			},
-			{ once: true }
-		);
+	["ShoptetPageFilterValueChange", "ShoptetPageFiltersCleared"].forEach((event) => {
+		document.addEventListener(event, function () {
+			document.addEventListener(
+				"ShoptetDOMPageContentLoaded",
+				function () {
+					if (!isDesktop) {
+						filterInSidebar = true;
+						filtersElement = document.querySelector("#filters");
+						filtersElement.classList.add("active");
+						filtersPositionContent = document.querySelector(".category-content-wrapper");
+						filterSections = filtersElement.querySelectorAll(".filter-section");
+						customMoveFilter();
+					}
+					moveAndEditClearFilters();
+					editManufacturerFilter();
+					cleanEmptyFilters();
+				},
+				{ once: true }
+			);
+		});
 	});
 
 	function customMoveFilter() {
