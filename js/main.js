@@ -267,30 +267,46 @@ if (body.classList.contains("type-category")) {
 	let filterSections = filtersElement.querySelectorAll(".filter-section");
 	let allProducts = document.querySelectorAll(".product");
 
-	document.addEventListener("ShoptetPagePriceFilterChange", function (event) {
-		document.addEventListener(
-			"ShoptetDOMPageContentLoaded",
-			function (event) {
-				if (!isDesktop) {
-					filterInSidebar = true;
-					filtersElement = document.querySelector("#filters");
-					filtersElement.classList.add("active");
-					filtersPositionContent = document.querySelector(".category-content-wrapper");
-					customMoveFilter();
-				}
-				if (isMobile) {
-					if (!perexTrimmedIsVisible) {
-						trimPerex();
-					}
-				}
-			},
-			{ once: true }
-		);
-	});
+	/*--------------------FILTRY*/
+	customMoveFilter();
+	moveAndEditClearFilters();
+	editManufacturerFilter();
+	cleanEmptyFilters();
+	editProductSorting();
+	measureUnitFromAppendix();
+
+	actionPriceToFinalPriceAndReviewsNumber();
 
 	if (isMobile) {
 		trimPerex();
 	}
+
+	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
+		allProducts = document.querySelectorAll(".product");
+
+		if (!isDesktop) {
+			filterInSidebar = true;
+			filtersElement = document.querySelector("#filters");
+			filtersElement.classList.add("active");
+			filtersPositionContent = document.querySelector(".category-content-wrapper");
+			filterSections = filtersElement.querySelectorAll(".filter-section");
+			customMoveFilter();
+		}
+		moveAndEditClearFilters();
+		editManufacturerFilter();
+		cleanEmptyFilters();
+		editProductSorting();
+		actionPriceToFinalPriceAndReviewsNumber();
+		if (isMobile) {
+			if (!perexTrimmedIsVisible) {
+				trimPerex();
+			}
+		}
+	});
+
+	document.addEventListener("debouncedResize", function () {
+		customMoveFilter();
+	});
 
 	function trimPerex() {
 		const maxLength = 130;
@@ -342,32 +358,6 @@ if (body.classList.contains("type-category")) {
 		});
 		//make it so it trims after 3 lines and saves the rest of the text in a data attribute
 	}
-
-	/*--------------------FILTRY*/
-	customMoveFilter();
-	moveAndEditClearFilters();
-	editManufacturerFilter();
-	cleanEmptyFilters();
-	editProductSorting();
-	measureUnitFromAppendix();
-	document.addEventListener("debouncedResize", function () {
-		customMoveFilter();
-	});
-
-	document.addEventListener("ShoptetDOMPageContentLoaded", function () {
-		if (!isDesktop) {
-			filterInSidebar = true;
-			filtersElement = document.querySelector("#filters");
-			filtersElement.classList.add("active");
-			filtersPositionContent = document.querySelector(".category-content-wrapper");
-			filterSections = filtersElement.querySelectorAll(".filter-section");
-			customMoveFilter();
-		}
-		moveAndEditClearFilters();
-		editManufacturerFilter();
-		cleanEmptyFilters();
-		editProductSorting();
-	});
 
 	function customMoveFilter() {
 		if (isDesktop) {
@@ -654,9 +644,29 @@ if (body.classList.contains("type-category")) {
 				prices.appendChild(pricePerUnitDiv);
 				pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
 
-				/* 				// Remove "Množství ...;" from the text
+				// Remove "Množství ...;" from the text
 				appendixText = appendixText.replace(/Množství:\s*[^;]+;/, "").trim();
-				productAppendix.textContent = appendixText; // Update the element's text content */
+				productAppendix.textContent = appendixText; // Update the element's text content
+			}
+		});
+	}
+
+	function actionPriceToFinalPriceAndReviewsNumber() {
+		allProducts.forEach((product) => {
+			let priceStandard = product.querySelector(".flag-discount .price-standard");
+			let priceFinal = product.querySelector(".price-final");
+			if (priceStandard && priceFinal) {
+				priceFinal.appendChild(priceStandard);
+			}
+			let starWrapper = product.querySelector(".stars-wrapper");
+			if (starWrapper) {
+				let reviewsNumber = starWrapper.getAttribute("data-micro-rating-count");
+				if (reviewsNumber) {
+					const reviewsNumberSpan = document.createElement("span");
+					reviewsNumberSpan.className = "reviews-number";
+					reviewsNumberSpan.innerHTML = reviewsNumber + "x";
+					starWrapper.appendChild(reviewsNumberSpan);
+				}
 			}
 		});
 	}
