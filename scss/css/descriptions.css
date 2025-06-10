@@ -18,6 +18,10 @@
       -ms-flex-direction: column;
           flex-direction: column;
   gap: var(--description-widget-gap);
+  color: var(--color-black);
+  font-size: var(--fs-16);
+  line-height: var(--fs-1-4);
+  font-weight: var(--fw-400);
 }
 .widgets.natima {
   background: rgb(255, 232, 232);
@@ -25,4 +29,45 @@
 }
 .widgets.natios {
   background: rgb(211, 211, 240);
+}
+.widgets p,
+.widgets h1,
+.widgets h2,
+.widgets h3,
+.widgets h4 {
+  margin: 0;
+  text-align: left;
+}
+.widgets h2,
+.widgets h3 {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  line-height: var(--fs-1-6);
+  text-wrap: balance;
+}
+.widgets h4 {
+  font-size: var(--fs-20);
+  font-weight: var(--fw-700);
+  line-height: var(--fs-1-6);
+  text-wrap: balance;
+}
+.widgets ul {
+  --list-dot-width: 5px;
+  list-style: none;
+}
+.widgets ul li {
+  position: relative;
+  padding-left: 1.25em;
+}
+.widgets ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: var(--list-dot-width);
+  height: var(--list-dot-width);
+  background-color: var(--color-primary);
+  border-radius: 50%;
 }
