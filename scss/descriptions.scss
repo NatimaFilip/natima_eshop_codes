@@ -1,6 +1,7 @@
 :root {
 	--description-max-width: 1220px;
 	--description-natima-max-width: 760px;
+	--description-natios-max-width: var(--description-max-width);
 	--description-cart-max-width: 430px;
 	--description-widget-gap: var(--gap-20);
 	--description-cart-gap: var(--gap-30);
@@ -19,11 +20,10 @@
 	font-weight: var(--fw-400);
 
 	&.natima {
-		background: rgb(255, 232, 232);
 		max-width: var(--description-natima-max-width);
 	}
 	&.natios {
-		background: rgb(211, 211, 240);
+		max-width: var(--description-natios-max-width);
 	}
 	p,
 	h1,
@@ -75,7 +75,36 @@
 				content: "";
 				position: absolute;
 				left: 0;
-				top: calc(1em - var(--list-dot-width) / 2);
+				top: 0.55em;
+				width: var(--list-dot-width);
+				height: var(--list-dot-width);
+				background-color: var(--color-primary);
+				border-radius: 50%;
+			}
+		}
+		:not(:last-child) {
+			padding-bottom: 0.6em;
+		}
+	}
+	ol {
+		--list-dot-width: 5px;
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+
+		p {
+			padding-bottom: 0;
+		}
+
+		li {
+			position: relative;
+			padding-left: 1.25em;
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0.55em;
 				width: var(--list-dot-width);
 				height: var(--list-dot-width);
 				background-color: var(--color-primary);
