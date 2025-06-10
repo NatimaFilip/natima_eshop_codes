@@ -10,6 +10,14 @@
   width: 100%;
   max-width: var(--description-max-width);
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--description-widget-gap);
 }
 .widgets.natima {
   background: rgb(255, 232, 232);
