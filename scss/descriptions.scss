@@ -8,13 +8,13 @@
 
 .widgets {
 	width: max(100%, var(--description-max-width));
-	margin: auto;
+	margin: 0 auto;
 
 	&.natima {
-		background: red;
+		background: rgb(255, 232, 232);
 		max-width: var(--description-natima-max-width);
 	}
 	&.natios {
-		background: blue;
+		background: rgb(211, 211, 240);
 	}
 }
