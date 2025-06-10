@@ -1,6 +1,20 @@
-.natima {
-	background: red;
+:root {
+	--description-max-width: 1220px;
+	--description-natima-max-width: 760px;
+	--description-cart-max-width: 430px;
+	--description-widget-gap: var(--gap-20);
+	--description-cart-gap: var(--gap-30);
 }
-.natios {
-	background: blue;
+
+.widgets {
+	width: max(100%, var(--description-max-width));
+	margin: auto;
+
+	&.natima {
+		background: red;
+		max-width: var(--description-natima-max-width);
+	}
+	&.natios {
+		background: blue;
+	}
 }

@@ -1,1 +1,1 @@
-.natima{background:red}.natios{background:blue}
+:root{--description-max-width: 1220px;--description-natima-max-width: 760px;--description-cart-max-width: 430px;--description-widget-gap: var(--gap-20);--description-cart-gap: var(--gap-30)}.widgets{width:max(100%,var(--description-max-width));margin:auto}.widgets.natima{background:red;max-width:var(--description-natima-max-width)}.widgets.natios{background:blue}
