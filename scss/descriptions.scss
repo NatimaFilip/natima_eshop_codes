@@ -62,7 +62,7 @@
 		list-style: none;
 		padding-left: 0;
 		margin: 0;
-		line-height: var(--l-h-2);
+
 		p {
 			padding-bottom: 0;
 		}
@@ -75,13 +75,15 @@
 				content: "";
 				position: absolute;
 				left: 0;
-				top: 50%;
-				transform: translateY(-50%);
+				top: calc(1em - var(--list-dot-width) / 2);
 				width: var(--list-dot-width);
 				height: var(--list-dot-width);
 				background-color: var(--color-primary);
 				border-radius: 50%;
 			}
+		}
+		:not(:last-child) {
+			padding-bottom: 0.6em;
 		}
 	}
 }
