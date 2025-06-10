@@ -13,9 +13,9 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--description-widget-gap);
-	color: var(--color-black);
+	color: var(--color-black-200);
 	font-size: var(--fs-16);
-	line-height: var(--fs-1-4);
+	line-height: var(--lh-1-4);
 	font-weight: var(--fw-400);
 
 	&.natima {
@@ -34,22 +34,38 @@
 		text-align: left;
 	}
 
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	ul,
+	ol {
+		padding-bottom: var(--gap-20);
+	}
+
 	h2,
 	h3 {
 		font-size: var(--fs-24);
 		font-weight: var(--fw-700);
-		line-height: var(--fs-1-6);
+		line-height: var(--lh-1-6);
 		text-wrap: balance;
 	}
 	h4 {
 		font-size: var(--fs-20);
 		font-weight: var(--fw-700);
-		line-height: var(--fs-1-6);
+		line-height: var(--lh-1-6);
 		text-wrap: balance;
 	}
 	ul {
 		--list-dot-width: 5px;
 		list-style: none;
+		padding-left: 0;
+		margin: 0;
+		line-height: var(--l-h-2);
+		p {
+			padding-bottom: 0;
+		}
 
 		li {
 			position: relative;
