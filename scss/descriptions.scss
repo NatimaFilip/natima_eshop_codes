@@ -217,9 +217,15 @@ body {
 
 			&.image-on-right {
 				grid-template-columns: 1fr var(--image-width);
+				.description-image-container {
+					grid-column: 2;
+				}
 			}
 			&.image-on-left {
 				grid-template-columns: var(--image-width) 1fr;
+				.description-image-container {
+					grid-column: 1;
+				}
 			}
 			.description-image-container {
 				img {
