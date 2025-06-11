@@ -215,11 +215,17 @@ body .natima-lifestyle-product-image .description-image-container img {
   body:not(.mobile-view) .natima-lifestyle-product-image.image-on-right {
     grid-template-columns: 1fr var(--image-width);
   }
+  body:not(.mobile-view) .natima-lifestyle-product-image.image-on-right > * {
+    grid-column: 1;
+  }
   body:not(.mobile-view) .natima-lifestyle-product-image.image-on-right .description-image-container {
     grid-column: 2;
   }
   body:not(.mobile-view) .natima-lifestyle-product-image.image-on-left {
     grid-template-columns: var(--image-width) 1fr;
+  }
+  body:not(.mobile-view) .natima-lifestyle-product-image.image-on-left > * {
+    grid-column: 2;
   }
   body:not(.mobile-view) .natima-lifestyle-product-image.image-on-left .description-image-container {
     grid-column: 1;
