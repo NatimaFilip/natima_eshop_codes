@@ -217,20 +217,11 @@ body {
 
 			&.image-on-right {
 				grid-template-columns: 1fr var(--image-width);
-				> * {
-					grid-column: 1;
-				}
-				.description-image-container {
-					grid-column: 2;
-				}
 			}
 			&.image-on-left {
 				grid-template-columns: var(--image-width) 1fr;
-				> * {
-					grid-column: 2;
-				}
 				.description-image-container {
-					grid-column: 1;
+					order: -1;
 				}
 			}
 			.description-image-container {
