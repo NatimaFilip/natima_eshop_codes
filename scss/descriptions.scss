@@ -11,6 +11,7 @@ $desktop-min: 1280px;
 	--description-cart-max-width: 430px;
 	--description-widget-gap: var(--gap-20);
 	--description-widget-gap-bigger: var(--gap-27);
+	--description-widget-gap-biggest: var(--gap-41);
 	--description-cart-gap: var(--gap-30);
 }
 
@@ -127,6 +128,17 @@ $desktop-min: 1280px;
 
 /*Natima descriptions*/
 body {
+	.widget-gray-background {
+		--description-widget-gap: var(--description-widget-gap-bigger);
+		background-color: var(--color-gray-400);
+		padding: var(--description-widget-gap);
+		border-radius: var(--br-12);
+
+		&.widget-with-icon {
+			--description-widget-gap: var(--description-widget-gap-biggest);
+		}
+	}
+
 	.natima-transparent-product-image {
 		display: flex;
 		flex-direction: column;
@@ -156,17 +168,14 @@ body {
 			}
 		}
 	}
-
-	.widget-gray-background {
-		--description-widget-gap: var(--description-widget-gap-bigger);
-		background-color: var(--color-gray-400);
-		padding: var(--description-widget-gap);
-		border-radius: var(--br-12);
-	}
 }
 
 /*Natima descriptions pc*/
 @media screen and (min-width: $tablet-min) {
+	.widget-gray-background {
+		border-radius: var(--br-16);
+	}
+
 	body:not(.mobile-view) {
 		.natima-transparent-product-image {
 			display: block;
@@ -181,6 +190,7 @@ body {
 				display: flex;
 				justify-content: center;
 				align-items: flex-start;
+				border-radius: var(--br-10);
 				padding: calc(var(--description-widget-gap) / 2) var(--description-widget-gap);
 				img {
 					max-width: 100%;
@@ -238,12 +248,8 @@ body {
 					max-height: 100%;
 					height: auto;
 					width: auto;
-					border-radius: var(--br-10);
 				}
 			}
-		}
-		.widget-gray-background {
-			border-radius: var(--br-16);
 		}
 	}
 }
