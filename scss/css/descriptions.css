@@ -279,6 +279,7 @@ body .widget-directions .white-background-text p {
     min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
     min-width: fit-content;
+    padding-bottom: 0;
   }
   body:not(.mobile-view) .widget-directions .text-with-bigger-font {
     font-size: 1.25em;
