@@ -10,6 +10,7 @@ $desktop-min: 1280px;
 	--description-natios-max-width: var(--description-max-width);
 	--description-cart-max-width: 430px;
 	--description-widget-gap: var(--gap-20);
+	--description-widget-gap-bigger: var(--gap-27);
 	--description-cart-gap: var(--gap-30);
 }
 
@@ -155,6 +156,13 @@ body {
 			}
 		}
 	}
+
+	.widget-gray-background {
+		--description-widget-gap: var(--description-widget-gap-bigger);
+		background-color: var(--color-gray-400);
+		padding: var(--description-widget-gap);
+		border-radius: var(--br-12);
+	}
 }
 
 /*Natima descriptions pc*/
@@ -233,6 +241,9 @@ body {
 					border-radius: var(--br-10);
 				}
 			}
+		}
+		.widget-gray-background {
+			border-radius: var(--br-16);
 		}
 	}
 }
