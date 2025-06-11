@@ -275,9 +275,11 @@ body {
 		.widget-directions {
 			&.short-text {
 				flex-direction: row;
+				align-items: center;
 				h2,
 				h3 {
 					padding-right: 1.5em;
+					min-width: fit-content;
 				}
 			}
 			.text-with-bigger-font {

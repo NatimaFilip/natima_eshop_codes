@@ -269,10 +269,16 @@ body .widget-directions .white-background-text p {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   body:not(.mobile-view) .widget-directions.short-text h2,
   body:not(.mobile-view) .widget-directions.short-text h3 {
     padding-right: 1.5em;
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
   }
   body:not(.mobile-view) .widget-directions .text-with-bigger-font {
     font-size: 1.25em;
