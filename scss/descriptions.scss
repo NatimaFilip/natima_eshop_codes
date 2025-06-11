@@ -1,3 +1,9 @@
+// Define SCSS variables for breakpoints
+$mobile-max: 767px;
+$tablet-min: 768px;
+$tablet-max: 1279px;
+$desktop-min: 1280px;
+
 :root {
 	--description-max-width: 1220px;
 	--description-natima-max-width: 760px;
@@ -113,6 +119,121 @@
 		}
 		:not(:last-child) {
 			padding-bottom: 0.6em;
+		}
+	}
+}
+
+.widgets {
+	.natima-transparent-product-image {
+		display: flex;
+		flex-direction: column;
+		gap: var(--description-widget-gap);
+
+		.description-image-container {
+			padding: 0 5%;
+			img {
+				max-width: 100%;
+				max-height: 400px;
+				height: auto;
+				width: auto;
+			}
+		}
+	}
+	.natima-lifestyle-product-image {
+		display: flex;
+		flex-direction: column;
+		gap: var(--description-widget-gap);
+
+		.description-image-container {
+			padding: 0;
+			img {
+				max-width: 100%;
+				width: auto;
+				height: auto;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: $tablet-min) {
+	body:not(.mobile-view) {
+		.widgets {
+			.natima-transparent-product-image {
+				display: block;
+				position: relative;
+				--image-width: 37%;
+
+				.description-image-container {
+					position: absolute;
+					top: 0;
+					height: 100%;
+					width: var(--image-width);
+					/* 	display: flex;
+				justify-content: center;
+				align-items: flex-start; */
+					padding: calc(var(--description-widget-gap) / 2) var(--description-widget-gap);
+					img {
+						max-width: 100%;
+						max-height: 100%;
+						height: auto;
+						width: auto;
+					}
+				}
+				&.image-on-right {
+					.editable-content {
+						padding-right: var(--image-width);
+					}
+					.description-image-container {
+						right: 0;
+						left: auto;
+					}
+				}
+				&.image-on-left {
+					.editable-content {
+						padding-left: var(--image-width);
+					}
+					.description-image-container {
+						left: 0;
+						right: auto;
+					}
+				}
+			}
+
+			.natima-lifestyle-product-image {
+				&.small {
+					--image-width: 35%;
+				}
+				&.medium {
+					--image-width: 43%;
+				}
+				&.big {
+					--image-width: calc(50% - var(--description-widget-gap) / 2);
+				}
+				display: grid;
+
+				align-items: center;
+				gap: var(--description-widget-gap);
+
+				&.image-on-right {
+					grid-template-columns: 1fr var(--image-width);
+				}
+				&.image-on-left {
+					grid-template-columns: var(--image-width) 1fr;
+				}
+
+				.editable-content {
+				}
+
+				.description-image-container {
+					img {
+						max-width: 100%;
+						max-height: 100%;
+						height: auto;
+						width: auto;
+						border-radius: var(--br-10);
+					}
+				}
+			}
 		}
 	}
 }
