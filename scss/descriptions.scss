@@ -14,7 +14,7 @@ $desktop-min: 1280px;
 }
 
 /*General styles*/
-.widgets {
+.product-widgets {
 	width: 100%;
 	max-width: var(--description-max-width);
 	margin: 0 auto;
@@ -212,7 +212,6 @@ body {
 				--image-width: calc(50% - var(--description-widget-gap) / 2);
 			}
 			display: grid;
-
 			align-items: center;
 			gap: var(--description-widget-gap);
 

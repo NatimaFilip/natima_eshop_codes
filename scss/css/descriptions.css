@@ -8,7 +8,7 @@
 }
 
 /*General styles*/
-.widgets {
+.product-widgets {
   width: 100%;
   max-width: var(--description-max-width);
   margin: 0 auto;
@@ -25,56 +25,56 @@
   line-height: var(--lh-1-4);
   font-weight: var(--fw-400);
 }
-.widgets.natima {
+.product-widgets.natima {
   max-width: var(--description-natima-max-width);
 }
-.widgets.natios {
+.product-widgets.natios {
   max-width: var(--description-natios-max-width);
 }
-.widgets p,
-.widgets h1,
-.widgets h2,
-.widgets h3,
-.widgets h4 {
+.product-widgets p,
+.product-widgets h1,
+.product-widgets h2,
+.product-widgets h3,
+.product-widgets h4 {
   margin: 0;
   text-align: left;
 }
-.widgets p,
-.widgets h1,
-.widgets h2,
-.widgets h3,
-.widgets h4,
-.widgets ul,
-.widgets ol {
+.product-widgets p,
+.product-widgets h1,
+.product-widgets h2,
+.product-widgets h3,
+.product-widgets h4,
+.product-widgets ul,
+.product-widgets ol {
   padding-bottom: var(--gap-20);
 }
-.widgets h2,
-.widgets h3 {
+.product-widgets h2,
+.product-widgets h3 {
   font-size: var(--fs-24);
   font-weight: var(--fw-700);
   line-height: var(--lh-1-6);
   text-wrap: balance;
 }
-.widgets h4 {
+.product-widgets h4 {
   font-size: var(--fs-20);
   font-weight: var(--fw-700);
   line-height: var(--lh-1-6);
   text-wrap: balance;
 }
-.widgets ul {
+.product-widgets ul {
   --list-dot-width: 5px;
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
-.widgets ul p {
+.product-widgets ul p {
   padding-bottom: 0;
 }
-.widgets ul li {
+.product-widgets ul li {
   position: relative;
   padding-left: 1.25em;
 }
-.widgets ul li::before {
+.product-widgets ul li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -84,23 +84,23 @@
   background-color: var(--color-primary);
   border-radius: 50%;
 }
-.widgets ul :not(:last-child) {
+.product-widgets ul :not(:last-child) {
   padding-bottom: 0.6em;
 }
-.widgets ol {
+.product-widgets ol {
   --list-dot-width: 5px;
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
-.widgets ol p {
+.product-widgets ol p {
   padding-bottom: 0;
 }
-.widgets ol li {
+.product-widgets ol li {
   position: relative;
   padding-left: 1.25em;
 }
-.widgets ol li::before {
+.product-widgets ol li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -110,7 +110,7 @@
   background-color: var(--color-primary);
   border-radius: 50%;
 }
-.widgets ol :not(:last-child) {
+.product-widgets ol :not(:last-child) {
   padding-bottom: 0.6em;
 }
 
