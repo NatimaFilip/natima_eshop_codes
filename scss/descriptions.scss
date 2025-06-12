@@ -287,6 +287,9 @@ body {
 			background-color: var(--color-white);
 			padding: 0.7em 1.2em;
 			border-radius: var(--br-10);
+			p:last-of-type {
+				padding-bottom: 0;
+			}
 		}
 
 		&.directions-with-icon {

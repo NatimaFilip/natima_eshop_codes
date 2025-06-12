@@ -267,6 +267,9 @@ body .widget-directions .white-background-text {
   padding: 0.7em 1.2em;
   border-radius: var(--br-10);
 }
+body .widget-directions .white-background-text p:last-of-type {
+  padding-bottom: 0;
+}
 body .widget-directions.directions-with-icon h2,
 body .widget-directions.directions-with-icon h3 {
   padding-left: calc(var(--icon-section-margin) + var(--icon-section-size));
