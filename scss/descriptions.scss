@@ -142,6 +142,7 @@ body {
 	.natima-transparent-product-image {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		gap: var(--description-widget-gap);
 
 		.description-image-container {
@@ -157,6 +158,7 @@ body {
 	.natima-lifestyle-product-image {
 		display: flex;
 		flex-direction: column;
+
 		gap: var(--description-widget-gap);
 
 		.description-image-container {
