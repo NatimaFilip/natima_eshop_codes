@@ -261,6 +261,7 @@ body .widget-directions {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  row-gap: var(--description-widget-gap);
 }
 body .widget-directions .white-background-text {
   background-color: var(--color-white);
@@ -272,9 +273,15 @@ body .widget-directions .white-background-text p:last-of-type {
 }
 body .widget-directions.directions-with-icon h2,
 body .widget-directions.directions-with-icon h3 {
-  padding-left: calc(var(--icon-section-margin) + var(--icon-section-size));
+  padding-left: calc(var(--icon-section-margin));
   position: relative;
   padding-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 body .widget-directions.directions-with-icon h2::before,
 body .widget-directions.directions-with-icon h3::before {
@@ -284,14 +291,8 @@ body .widget-directions.directions-with-icon h3::before {
   display: block;
   background: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg) no-repeat center center;
   background-size: contain;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
 }
 body .widget-directions.directions-with-icon .long-text {
-  padding-top: var(--description-widget-gap);
   padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
 }
 
@@ -317,3 +318,4 @@ body .widget-directions.directions-with-icon .long-text {
     font-size: 1.25em;
   }
 }
+/*Natima directions pc*/
