@@ -284,10 +284,8 @@ body .widget-directions.with-icon .long-text,
 body .widget-indgedients.with-icon .long-text {
   padding-left: 0;
 }
-body .widget-directions.with-icon.widget-directions h2,
-body .widget-directions.with-icon.widget-directions h3,
-body .widget-indgedients.with-icon.widget-directions h2,
-body .widget-indgedients.with-icon.widget-directions h3 {
+body .with-icon.widget-directions h2,
+body .with-icon.widget-directions h3 {
   padding-bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -297,10 +295,8 @@ body .widget-indgedients.with-icon.widget-directions h3 {
           align-items: center;
   gap: var(--icon-section-margin);
 }
-body .widget-directions.with-icon.widget-directions h2::before,
-body .widget-directions.with-icon.widget-directions h3::before,
-body .widget-indgedients.with-icon.widget-directions h2::before,
-body .widget-indgedients.with-icon.widget-directions h3::before {
+body .with-icon.widget-directions h2::before,
+body .with-icon.widget-directions h3::before {
   content: "";
   width: var(--icon-section-size);
   height: var(--icon-section-size);
@@ -308,10 +304,8 @@ body .widget-indgedients.with-icon.widget-directions h3::before {
   background: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg) no-repeat center center;
   background-size: contain;
 }
-body .widget-directions.with-icon.widget-ingredients h2,
-body .widget-directions.with-icon.widget-ingredients h3,
-body .widget-indgedients.with-icon.widget-ingredients h2,
-body .widget-indgedients.with-icon.widget-ingredients h3 {
+body .with-icon.widget-ingredients h2,
+body .with-icon.widget-ingredients h3 {
   padding-bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -321,10 +315,8 @@ body .widget-indgedients.with-icon.widget-ingredients h3 {
           align-items: center;
   gap: var(--icon-section-margin);
 }
-body .widget-directions.with-icon.widget-ingredients h2::before,
-body .widget-directions.with-icon.widget-ingredients h3::before,
-body .widget-indgedients.with-icon.widget-ingredients h2::before,
-body .widget-indgedients.with-icon.widget-ingredients h3::before {
+body .with-icon.widget-ingredients h2::before,
+body .with-icon.widget-ingredients h3::before {
   content: "";
   width: var(--icon-section-size);
   height: var(--icon-section-size);
@@ -361,8 +353,8 @@ body .widget-indgedients.with-icon.widget-ingredients h3::before {
   body:not(.mobile-view) .widget-indgedients .text-with-bigger-font {
     font-size: 1.25em;
   }
-  body:not(.mobile-view) .widget-directions.directions-with-icon .long-text,
-  body:not(.mobile-view) .widget-indgedients.directions-with-icon .long-text {
+  body:not(.mobile-view) .widget-directions.with-icon .long-text,
+  body:not(.mobile-view) .widget-indgedients.with-icon .long-text {
     padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
   }
 }

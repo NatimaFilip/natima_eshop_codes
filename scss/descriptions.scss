@@ -300,21 +300,23 @@ body {
 			.long-text {
 				padding-left: 0;
 			}
-			&.widget-directions {
-				h2,
-				h3 {
-					@include description_section_icon_before(
-						"https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg"
-					);
-				}
+		}
+	}
+	.with-icon {
+		&.widget-directions {
+			h2,
+			h3 {
+				@include description_section_icon_before(
+					"https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg"
+				);
 			}
-			&.widget-ingredients {
-				h2,
-				h3 {
-					@include description_section_icon_before(
-						"https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_ingredients.svg"
-					);
-				}
+		}
+		&.widget-ingredients {
+			h2,
+			h3 {
+				@include description_section_icon_before(
+					"https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_ingredients.svg"
+				);
 			}
 		}
 	}
@@ -338,7 +340,7 @@ body {
 				font-size: 1.25em;
 			}
 
-			&.directions-with-icon {
+			&.with-icon {
 				.long-text {
 					padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
 				}
