@@ -296,7 +296,7 @@ body .widget-directions.directions-with-icon h3::before {
   background-size: contain;
 }
 body .widget-directions.directions-with-icon .long-text {
-  padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
+  padding-left: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -320,7 +320,7 @@ body .widget-directions.directions-with-icon .long-text {
     font-size: 1.25em;
   }
   body:not(.mobile-view) .widget-directions.directions-with-icon .long-text {
-    padding-left: 0;
+    padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
   }
 }
 /*Natima directions pc*/
