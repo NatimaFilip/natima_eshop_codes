@@ -265,13 +265,12 @@ body .widget-directions .white-background-text p {
   padding: 0.7em 1.2em;
   border-radius: var(--br-10);
 }
-body .widget-directions h2::before,
-body .widget-directions h3::before {
-  content: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg");
+body .widget-directions::before {
+  content: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg);
   display: inline-block;
-  width: 3.2em;
-  height: 3.2em;
-  margin-right: 1.3em;
+  width: 2.5833em;
+  height: 2.5833em;
+  margin-right: 1.083em;
 }
 
 @media screen and (min-width: 768px) {
