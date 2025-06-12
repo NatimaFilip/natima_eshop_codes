@@ -300,7 +300,7 @@ body {
 				);
 			}
 			.long-text {
-				padding-top: 2.125em;
+				padding-top: var(--description-widget-gap);
 				padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
 			}
 		}
@@ -310,7 +310,7 @@ body {
 @media screen and (min-width: $tablet-min) {
 	body:not(.mobile-view) {
 		.widget-directions {
-			&.short-text {
+			&.with-short-text {
 				flex-direction: row;
 				align-items: center;
 				h2,

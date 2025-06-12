@@ -291,12 +291,12 @@ body .widget-directions.directions-with-icon h3::before {
           transform: translateY(-50%);
 }
 body .widget-directions.directions-with-icon .long-text {
-  padding-top: 2.125em;
+  padding-top: var(--description-widget-gap);
   padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
 }
 
 @media screen and (min-width: 768px) {
-  body:not(.mobile-view) .widget-directions.short-text {
+  body:not(.mobile-view) .widget-directions.with-short-text {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -305,8 +305,8 @@ body .widget-directions.directions-with-icon .long-text {
         -ms-flex-align: center;
             align-items: center;
   }
-  body:not(.mobile-view) .widget-directions.short-text h2,
-  body:not(.mobile-view) .widget-directions.short-text h3 {
+  body:not(.mobile-view) .widget-directions.with-short-text h2,
+  body:not(.mobile-view) .widget-directions.with-short-text h3 {
     padding-right: 1.5em;
     min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
