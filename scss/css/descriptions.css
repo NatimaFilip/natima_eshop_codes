@@ -118,6 +118,9 @@
 .product-widgets ol :not(:last-child) {
   padding-bottom: 0.6em;
 }
+.product-widgets .smaller-text {
+  font-size: var(--fs-14);
+}
 
 /*Natima descriptions*/
 body .widget-gray-background {
@@ -247,7 +250,8 @@ body .natima-lifestyle-product-image .description-image-container img {
     width: auto;
   }
 }
-body .widget-directions {
+body .widget-directions,
+body .widget-indgedients {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -261,19 +265,25 @@ body .widget-directions {
   row-gap: var(--description-widget-gap-smaller);
 }
 body .widget-directions h2,
-body .widget-directions h3 {
+body .widget-directions h3,
+body .widget-indgedients h2,
+body .widget-indgedients h3 {
   padding-bottom: 0;
 }
-body .widget-directions .white-background-text {
+body .widget-directions .white-background-text,
+body .widget-indgedients .white-background-text {
   background-color: var(--color-white);
   padding: 0.7em 1.2em;
   border-radius: var(--br-10);
 }
-body .widget-directions .white-background-text p:last-of-type {
+body .widget-directions .white-background-text p:last-of-type,
+body .widget-indgedients .white-background-text p:last-of-type {
   padding-bottom: 0;
 }
 body .widget-directions.directions-with-icon h2,
-body .widget-directions.directions-with-icon h3 {
+body .widget-directions.directions-with-icon h3,
+body .widget-indgedients.directions-with-icon h2,
+body .widget-indgedients.directions-with-icon h3 {
   padding-bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -284,7 +294,9 @@ body .widget-directions.directions-with-icon h3 {
   gap: var(--icon-section-margin);
 }
 body .widget-directions.directions-with-icon h2::before,
-body .widget-directions.directions-with-icon h3::before {
+body .widget-directions.directions-with-icon h3::before,
+body .widget-indgedients.directions-with-icon h2::before,
+body .widget-indgedients.directions-with-icon h3::before {
   content: "";
   width: var(--icon-section-size);
   height: var(--icon-section-size);
@@ -292,15 +304,18 @@ body .widget-directions.directions-with-icon h3::before {
   background: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg) no-repeat center center;
   background-size: contain;
 }
-body .widget-directions.directions-with-icon .long-text {
+body .widget-directions.directions-with-icon .long-text,
+body .widget-indgedients.directions-with-icon .long-text {
   padding-left: 0;
 }
 
 @media screen and (min-width: 768px) {
-  body:not(.mobile-view) .widget-directions {
+  body:not(.mobile-view) .widget-directions,
+  body:not(.mobile-view) .widget-indgedients {
     row-gap: var(--description-widget-gap);
   }
-  body:not(.mobile-view) .widget-directions.with-short-text {
+  body:not(.mobile-view) .widget-directions.with-short-text,
+  body:not(.mobile-view) .widget-indgedients.with-short-text {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -310,16 +325,20 @@ body .widget-directions.directions-with-icon .long-text {
             align-items: center;
   }
   body:not(.mobile-view) .widget-directions.with-short-text h2,
-  body:not(.mobile-view) .widget-directions.with-short-text h3 {
+  body:not(.mobile-view) .widget-directions.with-short-text h3,
+  body:not(.mobile-view) .widget-indgedients.with-short-text h2,
+  body:not(.mobile-view) .widget-indgedients.with-short-text h3 {
     padding-right: 1.5em;
     min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
     min-width: fit-content;
   }
-  body:not(.mobile-view) .widget-directions .text-with-bigger-font {
+  body:not(.mobile-view) .widget-directions .text-with-bigger-font,
+  body:not(.mobile-view) .widget-indgedients .text-with-bigger-font {
     font-size: 1.25em;
   }
-  body:not(.mobile-view) .widget-directions.directions-with-icon .long-text {
+  body:not(.mobile-view) .widget-directions.directions-with-icon .long-text,
+  body:not(.mobile-view) .widget-indgedients.directions-with-icon .long-text {
     padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
   }
 }
