@@ -9,6 +9,7 @@ $desktop-min: 1280px;
 ) {
 	padding-left: calc(var(--icon-section-margin) + var(--icon-section-size));
 	position: relative;
+	padding-bottom: 0;
 	&::before {
 		content: "";
 		width: var(--icon-section-size);
@@ -17,7 +18,7 @@ $desktop-min: 1280px;
 		background: url(#{$url}) no-repeat center center;
 		background-size: contain;
 		position: absolute;
-		left: calc(-1 * var(--icon-size) - var(--icon-margin));
+		left: calc(-1 * var(--icon-section-size) - var(--icon-section-margin));
 		top: 50%;
 		transform: translateY(-50%);
 	}
@@ -285,11 +286,9 @@ body {
 		align-items: flex-start;
 
 		.white-background-text {
-			p {
-				background-color: var(--color-white);
-				padding: 0.7em 1.2em;
-				border-radius: var(--br-10);
-			}
+			background-color: var(--color-white);
+			padding: 0.7em 1.2em;
+			border-radius: var(--br-10);
 		}
 
 		&.directions-with-icon {
@@ -298,6 +297,8 @@ body {
 				@include description_section_icon_before;
 			}
 			.long-text {
+				padding-top: 2.125em;
+				padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
 			}
 		}
 	}

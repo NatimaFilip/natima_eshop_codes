@@ -262,7 +262,7 @@ body .widget-directions {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-body .widget-directions .white-background-text p {
+body .widget-directions .white-background-text {
   background-color: var(--color-white);
   padding: 0.7em 1.2em;
   border-radius: var(--br-10);
@@ -271,6 +271,7 @@ body .widget-directions.directions-with-icon h2,
 body .widget-directions.directions-with-icon h3 {
   padding-left: calc(var(--icon-section-margin) + var(--icon-section-size));
   position: relative;
+  padding-bottom: 0;
 }
 body .widget-directions.directions-with-icon h2::before,
 body .widget-directions.directions-with-icon h3::before {
@@ -281,11 +282,16 @@ body .widget-directions.directions-with-icon h3::before {
   background: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg) no-repeat center center;
   background-size: contain;
   position: absolute;
-  left: calc(-1 * var(--icon-size) - var(--icon-margin));
+  left: calc(-1 * var(--icon-section-size) - var(--icon-section-margin));
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
+body .widget-directions.directions-with-icon .long-text {
+  padding-top: 2.125em;
+  padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
+}
+
 @media screen and (min-width: 768px) {
   body:not(.mobile-view) .widget-directions.short-text {
     -webkit-box-orient: horizontal;
