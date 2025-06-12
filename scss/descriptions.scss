@@ -7,11 +7,21 @@ $desktop-min: 1280px;
 @mixin description_section_icon_before(
 	$url: "https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg"
 ) {
-	content: url(#{$url});
-	display: inline-block;
-	width: 2.5833em;
-	height: 2.5833em;
-	margin-right: 1.083em;
+	--icon-size: 3.875em;
+	--icon-margin: 1.625em;
+	margin-left: calc(var(--icon-margin) + var(--icon-size));
+	position: relative;
+	&::before {
+		content: "";
+		width: var(--icon-size);
+		display: block;
+		height: var(--icon-size);
+		background: url(#{$url}) no-repeat center center;
+		background-size: contain;
+		position: absolute;
+		left: calc(-1 * var(--icon-size) - var(--icon-margin));
+		top: 0;
+	}
 }
 
 :root {
@@ -280,7 +290,7 @@ body {
 			}
 		}
 
-		&::before {
+		&.directions-with-icon {
 			@include description_section_icon_before;
 		}
 	}
