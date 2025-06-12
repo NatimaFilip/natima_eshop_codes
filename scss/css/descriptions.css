@@ -134,7 +134,7 @@
     /* For tables with 4 columns */
     /* For tables with 5 columns or more */
   }
-  body:not(.mobile-view) .product-widgets :not(.widget-gray-background) table {
+  body:not(.mobile-view) .product-widgets .widget:not(.widget-gray-background) table {
     outline: solid;
     outline-width: 1px;
     outline-color: var(--color-gray-500);

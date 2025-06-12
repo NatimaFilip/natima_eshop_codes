@@ -156,7 +156,7 @@ $desktop-min: 1280px;
 @media screen and (min-width: $tablet-min) {
 	body:not(.mobile-view) {
 		.product-widgets {
-			:not(.widget-gray-background) {
+			.widget:not(.widget-gray-background) {
 				table {
 					outline: solid;
 					outline-width: 1px;
