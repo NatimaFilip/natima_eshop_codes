@@ -251,7 +251,7 @@ body .natima-lifestyle-product-image .description-image-container img {
   }
 }
 body .widget-directions,
-body .widget-indgedients {
+body .widget-ingredients {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -266,22 +266,22 @@ body .widget-indgedients {
 }
 body .widget-directions h2,
 body .widget-directions h3,
-body .widget-indgedients h2,
-body .widget-indgedients h3 {
+body .widget-ingredients h2,
+body .widget-ingredients h3 {
   padding-bottom: 0;
 }
 body .widget-directions .white-background-text,
-body .widget-indgedients .white-background-text {
+body .widget-ingredients .white-background-text {
   background-color: var(--color-white);
   padding: 0.7em 1.2em;
   border-radius: var(--br-10);
 }
 body .widget-directions .white-background-text p:last-of-type,
-body .widget-indgedients .white-background-text p:last-of-type {
+body .widget-ingredients .white-background-text p:last-of-type {
   padding-bottom: 0;
 }
 body .widget-directions.with-icon .long-text,
-body .widget-indgedients.with-icon .long-text {
+body .widget-ingredients.with-icon .long-text {
   padding-left: 0;
 }
 body .with-icon.widget-directions h2,
@@ -327,11 +327,11 @@ body .with-icon.widget-ingredients h3::before {
 
 @media screen and (min-width: 768px) {
   body:not(.mobile-view) .widget-directions,
-  body:not(.mobile-view) .widget-indgedients {
+  body:not(.mobile-view) .widget-ingredients {
     row-gap: var(--description-widget-gap);
   }
   body:not(.mobile-view) .widget-directions.with-short-text,
-  body:not(.mobile-view) .widget-indgedients.with-short-text {
+  body:not(.mobile-view) .widget-ingredients.with-short-text {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -342,19 +342,19 @@ body .with-icon.widget-ingredients h3::before {
   }
   body:not(.mobile-view) .widget-directions.with-short-text h2,
   body:not(.mobile-view) .widget-directions.with-short-text h3,
-  body:not(.mobile-view) .widget-indgedients.with-short-text h2,
-  body:not(.mobile-view) .widget-indgedients.with-short-text h3 {
+  body:not(.mobile-view) .widget-ingredients.with-short-text h2,
+  body:not(.mobile-view) .widget-ingredients.with-short-text h3 {
     padding-right: 1.5em;
     min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
     min-width: fit-content;
   }
   body:not(.mobile-view) .widget-directions .text-with-bigger-font,
-  body:not(.mobile-view) .widget-indgedients .text-with-bigger-font {
+  body:not(.mobile-view) .widget-ingredients .text-with-bigger-font {
     font-size: 1.25em;
   }
   body:not(.mobile-view) .widget-directions.with-icon .long-text,
-  body:not(.mobile-view) .widget-indgedients.with-icon .long-text {
+  body:not(.mobile-view) .widget-ingredients.with-icon .long-text {
     padding-left: calc(var(--icon-section-size) + var(--icon-section-margin));
   }
 }
