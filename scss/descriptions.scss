@@ -5,11 +5,10 @@ $tablet-max: 1279px;
 $desktop-min: 1280px;
 
 @mixin description_section_icon_before($url) {
-	padding-left: calc(var(--icon-section-margin));
-	position: relative;
 	padding-bottom: 0;
 	display: flex;
 	align-items: center;
+	gap: var(--icon-section-margin);
 
 	&::before {
 		content: "";
@@ -283,6 +282,11 @@ body {
 		align-items: flex-start;
 		row-gap: var(--description-widget-gap);
 
+		h2,
+		h3 {
+			padding-bottom: 0;
+		}
+
 		.white-background-text {
 			background-color: var(--color-white);
 			padding: 0.7em 1.2em;
@@ -316,11 +320,16 @@ body {
 				h3 {
 					padding-right: 1.5em;
 					min-width: fit-content;
-					padding-bottom: 0;
 				}
 			}
 			.text-with-bigger-font {
 				font-size: 1.25em;
+			}
+
+			&.directions-with-icon {
+				.long-text {
+					padding-left: 0;
+				}
 			}
 		}
 	}

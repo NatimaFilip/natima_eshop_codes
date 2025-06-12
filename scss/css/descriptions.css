@@ -263,6 +263,10 @@ body .widget-directions {
           align-items: flex-start;
   row-gap: var(--description-widget-gap);
 }
+body .widget-directions h2,
+body .widget-directions h3 {
+  padding-bottom: 0;
+}
 body .widget-directions .white-background-text {
   background-color: var(--color-white);
   padding: 0.7em 1.2em;
@@ -273,8 +277,6 @@ body .widget-directions .white-background-text p:last-of-type {
 }
 body .widget-directions.directions-with-icon h2,
 body .widget-directions.directions-with-icon h3 {
-  padding-left: calc(var(--icon-section-margin));
-  position: relative;
   padding-bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -282,6 +284,7 @@ body .widget-directions.directions-with-icon h3 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: var(--icon-section-margin);
 }
 body .widget-directions.directions-with-icon h2::before,
 body .widget-directions.directions-with-icon h3::before {
@@ -312,10 +315,12 @@ body .widget-directions.directions-with-icon .long-text {
     min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
     min-width: fit-content;
-    padding-bottom: 0;
   }
   body:not(.mobile-view) .widget-directions .text-with-bigger-font {
     font-size: 1.25em;
+  }
+  body:not(.mobile-view) .widget-directions.directions-with-icon .long-text {
+    padding-left: 0;
   }
 }
 /*Natima directions pc*/
