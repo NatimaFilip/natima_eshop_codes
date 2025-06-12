@@ -134,10 +134,10 @@
     /* For tables with 4 columns */
     /* For tables with 5 columns or more */
   }
-  body:not(.mobile-view) .product-widgets:not(.widget-gray-background) table {
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--color-gray-500);
+  body:not(.mobile-view) .product-widgets :not(.widget-gray-background) table {
+    outline: solid;
+    outline-width: 1px;
+    outline-color: var(--color-gray-500);
     border-radius: var(--br-10);
   }
   body:not(.mobile-view) .product-widgets table {
@@ -148,6 +148,9 @@
   }
   body:not(.mobile-view) .product-widgets table p {
     padding-bottom: 0.25em;
+  }
+  body:not(.mobile-view) .product-widgets table th {
+    font-weight: var(--fw-700);
   }
   body:not(.mobile-view) .product-widgets table tr th,
   body:not(.mobile-view) .product-widgets table tr td {
