@@ -134,18 +134,17 @@
     /* For tables with 4 columns */
     /* For tables with 5 columns or more */
   }
-  body:not(.mobile-view) .product-widgets:not(.widget-gray-background) {
+  body:not(.mobile-view) .product-widgets:not(.widget-gray-background) table {
     border-style: solid;
     border-width: 1px;
     border-color: var(--color-gray-500);
+    border-radius: var(--br-10);
   }
   body:not(.mobile-view) .product-widgets table {
     border-collapse: collapse;
     width: 100%;
     background: var(--color-white);
-    border-radius: var(--br-10);
     overflow: hidden;
-    text-wrap: pretty;
   }
   body:not(.mobile-view) .product-widgets table p {
     padding-bottom: 0.25em;
