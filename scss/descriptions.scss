@@ -16,7 +16,7 @@ $desktop-min: 1280px;
 		background: url(#{$url}) no-repeat center center;
 		background-size: contain;
 		position: absolute;
-		left: calc(-1 * var(--icon-section-size) - var(--icon-section-margin));
+		left: 0;
 		top: 50%;
 		transform: translateY(-50%);
 	}

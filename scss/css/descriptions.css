@@ -282,7 +282,7 @@ body .widget-directions.directions-with-icon h3::before {
   background: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg) no-repeat center center;
   background-size: contain;
   position: absolute;
-  left: calc(-1 * var(--icon-section-size) - var(--icon-section-margin));
+  left: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
