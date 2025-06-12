@@ -280,10 +280,14 @@ body .widget-directions .white-background-text p:last-of-type,
 body .widget-indgedients .white-background-text p:last-of-type {
   padding-bottom: 0;
 }
-body .widget-directions.directions-with-icon h2,
-body .widget-directions.directions-with-icon h3,
-body .widget-indgedients.directions-with-icon h2,
-body .widget-indgedients.directions-with-icon h3 {
+body .widget-directions.with-icon .long-text,
+body .widget-indgedients.with-icon .long-text {
+  padding-left: 0;
+}
+body .widget-directions.with-icon.widget-directions h2,
+body .widget-directions.with-icon.widget-directions h3,
+body .widget-indgedients.with-icon.widget-directions h2,
+body .widget-indgedients.with-icon.widget-directions h3 {
   padding-bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -293,10 +297,10 @@ body .widget-indgedients.directions-with-icon h3 {
           align-items: center;
   gap: var(--icon-section-margin);
 }
-body .widget-directions.directions-with-icon h2::before,
-body .widget-directions.directions-with-icon h3::before,
-body .widget-indgedients.directions-with-icon h2::before,
-body .widget-indgedients.directions-with-icon h3::before {
+body .widget-directions.with-icon.widget-directions h2::before,
+body .widget-directions.with-icon.widget-directions h3::before,
+body .widget-indgedients.with-icon.widget-directions h2::before,
+body .widget-indgedients.with-icon.widget-directions h3::before {
   content: "";
   width: var(--icon-section-size);
   height: var(--icon-section-size);
@@ -304,9 +308,29 @@ body .widget-indgedients.directions-with-icon h3::before {
   background: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_directions.svg) no-repeat center center;
   background-size: contain;
 }
-body .widget-directions.directions-with-icon .long-text,
-body .widget-indgedients.directions-with-icon .long-text {
-  padding-left: 0;
+body .widget-directions.with-icon.widget-ingredients h2,
+body .widget-directions.with-icon.widget-ingredients h3,
+body .widget-indgedients.with-icon.widget-ingredients h2,
+body .widget-indgedients.with-icon.widget-ingredients h3 {
+  padding-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--icon-section-margin);
+}
+body .widget-directions.with-icon.widget-ingredients h2::before,
+body .widget-directions.with-icon.widget-ingredients h3::before,
+body .widget-indgedients.with-icon.widget-ingredients h2::before,
+body .widget-indgedients.with-icon.widget-ingredients h3::before {
+  content: "";
+  width: var(--icon-section-size);
+  height: var(--icon-section-size);
+  display: block;
+  background: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_ingredients.svg) no-repeat center center;
+  background-size: contain;
 }
 
 @media screen and (min-width: 768px) {
