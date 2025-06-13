@@ -312,6 +312,12 @@ body {
 				border-bottom-style: 2px solid var(--color-gray-500);
 				box-shadow: 0 4px 24px var(--color-black-o-10);
 			}
+			ul {
+				padding: 0;
+			}
+			ul li::before {
+				display: none !important;
+			}
 		}
 
 		.with-table {
