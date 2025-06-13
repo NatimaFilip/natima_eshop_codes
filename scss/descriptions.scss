@@ -34,6 +34,91 @@ $desktop-min: 1280px;
 
 /*General styles*/
 .product-widgets {
+	--ff-m: "Inter", sans-serif;
+	--ff-h: "Inter", sans-serif;
+	--ff-h2: "Poppins", sans-serif;
+
+	--br-6: 6px;
+	--br-8: 8px;
+	--br-10: 10px;
+	--br-12: 12px;
+	--br-16: 16px;
+	--br-20: 20px;
+	--br-24: 24px;
+
+	--fs-10: 0.625rem;
+	--fs-12: 0.75rem;
+	--fs-13: 0.8125rem;
+	--fs-14: 0.875rem;
+	--fs-16: 1rem;
+	--fs-20: 1.25rem;
+	--fs-24: 1.5rem;
+	--fs-26: 1.625rem;
+	--fs-32: 2rem;
+
+	--gap-5: 5px;
+	--gap-6: 6px;
+	--gap-7: 7px;
+	--gap-8: 8px;
+	--gap-9: 9px;
+	--gap-10: 10px;
+	--gap-11: 11px;
+	--gap-12: 12px;
+	--gap-13: 13px;
+	--gap-14: 14px;
+	--gap-15: 15px;
+	--gap-16: 16px;
+	--gap-18: 18px;
+	--gap-20: 20px;
+	--gap-24: 24px;
+	--gap-27: 27px;
+	--gap-30: 30px;
+	--gap-41: 41px;
+
+	--color-white: #ffffff;
+	--color-black-200: #272727;
+	--color-black: #000000;
+	--color-black-o-60: hsla(0, 0%, 0%, 0.6);
+	--color-black-o-20: hsla(0, 0%, 0%, 0.2);
+	--color-black-o-10: hsla(0, 0%, 0%, 0.1);
+
+	--color-gray-400: #f2f2f2;
+	--color-gray-500: #e7e7e7;
+	--color-gray-700: #4f4f4f;
+
+	--color-primary-500: hsla(268, 36%, 50%, 1);
+
+	--color-red-400: #d44b6c;
+
+	--color-cta-200: #e1ffda;
+	--color-cta-400: var(--color-secondary);
+	--color-cta-600: var(--color-secondary-hover);
+
+	--fw-100: 100; /*//shin*/
+	--fw-200: 200; /*//extra-light*/
+	--fw-300: 300; /*//light*/
+	--fw-400: 400; /*//regular*/
+	--fw-500: 500; /*//medium*/
+	--fw-600: 600; /*//semi-bold*/
+	--fw-700: 700; /*//bold*/
+	--fw-800: 800; /*//black*/
+
+	--lh-1: 1;
+	--lh-1-2: 1.2;
+	--lh-1-4: 1.4;
+	--lh-1-6: 1.6;
+	--lh-1-8: 1.8;
+	--lh-2: 2;
+
+	--padding-sides: 40px;
+	--padding-top-header: 8px;
+
+	--media-mobile: 767px;
+
+	--header-height: 54px;
+	--hamburger-width: 56px;
+	--menu-image-width: clamp(60px, 40px + 3vw, 90px);
+
 	--icon-section-size: calc(var(--fs-16) * 3.875);
 	--icon-section-margin: calc(var(--fs-16) * 1.625);
 
