@@ -271,6 +271,12 @@ body .product-widgets table tr:has(th) {
   -webkit-box-shadow: 0 4px 24px var(--color-black-o-10);
           box-shadow: 0 4px 24px var(--color-black-o-10);
 }
+body .product-widgets table ul {
+  padding: 0;
+}
+body .product-widgets table ul li::before {
+  display: none !important;
+}
 body .product-widgets .with-table .editable-content {
   /* 	tr:last-of-type td[colspan="2"],
   	tr:last-of-type td[colspan="3"],
