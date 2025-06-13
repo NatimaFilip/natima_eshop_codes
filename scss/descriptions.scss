@@ -21,18 +21,10 @@ $desktop-min: 1280px;
 }
 
 :root {
-	--description-max-width: 1220px;
-	--description-natima-max-width: 760px;
-	--description-natios-max-width: var(--description-max-width);
-	--description-cart-max-width: 430px;
-	--description-widget-gap-smaller: var(--gap-16);
-	--description-widget-gap: var(--gap-20);
-	--description-widget-gap-bigger: var(--gap-27);
-	--description-widget-gap-biggest: var(--gap-41);
-	--description-cart-gap: var(--gap-30);
 }
 
 /*General styles*/
+/*Převézt PX na rem u FS*/
 .product-widgets {
 	--ff-m: "Inter", sans-serif;
 	--ff-h: "Inter", sans-serif;
@@ -55,6 +47,16 @@ $desktop-min: 1280px;
 	--fs-24: 1.5rem;
 	--fs-26: 1.625rem;
 	--fs-32: 2rem;
+
+	--fs-10: 10px;
+	--fs-12: 12px;
+	--fs-13: 13px;
+	--fs-14: 14px;
+	--fs-16: 16px;
+	--fs-20: 20px;
+	--fs-24: 24px;
+	--fs-26: 26px;
+	--fs-32: 32px;
 
 	--gap-5: 5px;
 	--gap-6: 6px;
@@ -118,6 +120,16 @@ $desktop-min: 1280px;
 	--header-height: 54px;
 	--hamburger-width: 56px;
 	--menu-image-width: clamp(60px, 40px + 3vw, 90px);
+
+	--description-max-width: 1220px;
+	--description-natima-max-width: 760px;
+	--description-natios-max-width: var(--description-max-width);
+	--description-cart-max-width: 430px;
+	--description-widget-gap-smaller: var(--gap-16);
+	--description-widget-gap: var(--gap-20);
+	--description-widget-gap-bigger: var(--gap-27);
+	--description-widget-gap-biggest: var(--gap-41);
+	--description-cart-gap: var(--gap-30);
 
 	--icon-section-size: calc(var(--fs-16) * 3.875);
 	--icon-section-margin: calc(var(--fs-16) * 1.625);
