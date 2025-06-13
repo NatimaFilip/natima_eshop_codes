@@ -133,10 +133,12 @@ $desktop-min: 1280px;
 	line-height: var(--lh-1-4);
 	font-weight: var(--fw-400);
 
-	&.natima {
+	&.natima,
+	&[product-template="natima"] {
 		max-width: var(--description-natima-max-width);
 	}
-	&.natios {
+	&.natios,
+	&[product-template="natios"] {
 		max-width: var(--description-natios-max-width);
 	}
 	p,

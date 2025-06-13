@@ -101,10 +101,10 @@
   line-height: var(--lh-1-4);
   font-weight: var(--fw-400);
 }
-.product-widgets.natima {
+.product-widgets.natima, .product-widgets[product-template=natima] {
   max-width: var(--description-natima-max-width);
 }
-.product-widgets.natios {
+.product-widgets.natios, .product-widgets[product-template=natios] {
   max-width: var(--description-natios-max-width);
 }
 .product-widgets p,
