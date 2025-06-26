@@ -357,6 +357,36 @@ body .product-widgets .natima-lifestyle-product-image .description-image-contain
   height: auto;
   border-radius: var(--br-10);
 }
+body .product-widgets .icons-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: var(--description-widget-gap);
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+body .product-widgets .icons-flex .description-icon-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 100px;
+      flex-basis: 100px;
+  max-width: 100px;
+}
+body .product-widgets .icons-flex .icons-flex-4,
+body .product-widgets .icons-flex .icons-flex-5 {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
 
 /*Natima descriptions pc*/
 @media screen and (min-width: 768px) {

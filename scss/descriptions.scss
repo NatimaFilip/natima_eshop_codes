@@ -409,6 +409,24 @@ body {
 				}
 			}
 		}
+		.icons-flex {
+			display: flex;
+			flex-wrap: nowrap;
+			gap: var(--description-widget-gap);
+			justify-content: space-evenly;
+
+			.description-icon-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-basis: 100px;
+				max-width: 100px;
+			}
+			.icons-flex-4,
+			.icons-flex-5 {
+				flex-wrap: wrap;
+			}
+		}
 	}
 }
 
