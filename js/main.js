@@ -101,9 +101,6 @@ function addAccountToHeaderTop() {
 /*-------------------------------------- MENU OVERFLOW DETECTION*/
 let mainCategoryMenu = header.querySelector(".menu-level-1");
 let mainCategoryMenuItems = mainCategoryMenu.querySelectorAll(":scope > li");
-let mainCategoryMenuItemsWidth = [];
-let cumulativeMainCategoryMenuItemWidth = 0;
-
 const originalMainCategoryMenuHelper = header.querySelector(".menu-helper");
 const textOfOriginalMainCategoryMenuHelper = originalMainCategoryMenuHelper.innerHTML;
 header.querySelector(".menu-helper").remove();
@@ -116,15 +113,21 @@ mainCategoryMenuHelper.appendChild(mainCategoryMenuHelperSubmenuDiv);
 let mainCategoryMenuHelperSubmenu = mainCategoryMenuHelper.querySelector(".menu-helper-submenu");
 
 mainCategoryMenu.appendChild(mainCategoryMenuHelper);
-let mainCategoryMenuHelperWidth = mainCategoryMenuHelper.offsetWidth;
 
-mainCategoryMenuItems.forEach((item) => {
-	let itemWidth = item.offsetWidth;
-	cumulativeMainCategoryMenuItemWidth += itemWidth;
-	mainCategoryMenuItemsWidth.push(cumulativeMainCategoryMenuItemWidth);
-});
+let mobileMenuIsTriggered = false;
 
 function inicializeMenu() {
+	if (isMobile) {
+		if (mobileMenuIsTriggered) {
+			return;
+		}
+		mobileMenuIsTriggered = true;
+		mainCategoryMenuItems.forEach((item) => {
+			mainCategoryMenuHelperSubmenu.appendChild(item);
+		});
+		return;
+	}
+
 	let mainCategoryMenuItemsInSubmenu = mainCategoryMenuHelperSubmenu.querySelectorAll(":scope > li");
 	if (mainCategoryMenuItemsInSubmenu.length > 0) {
 		mainCategoryMenuItemsInSubmenu.forEach((item) => {
@@ -133,8 +136,19 @@ function inicializeMenu() {
 		mainCategoryMenu.appendChild(mainCategoryMenuHelper);
 	}
 
+	let mainCategoryMenuItemsWidth = [];
+	let cumulativeMainCategoryMenuItemWidth = 0;
+	let mainCategoryMenuHelperWidth = mainCategoryMenuHelper.offsetWidth;
+
+	mainCategoryMenuItems.forEach((item) => {
+		let itemWidth = item.offsetWidth;
+		cumulativeMainCategoryMenuItemWidth += itemWidth;
+		mainCategoryMenuItemsWidth.push(cumulativeMainCategoryMenuItemWidth);
+	});
+
 	let mainCategoryMenuWidth = mainCategoryMenu.offsetWidth;
 	console.log("menuWidth", mainCategoryMenuWidth);
+	console.log("cumulativeMainCategoryMenuItemWidth", cumulativeMainCategoryMenuItemWidth);
 	console.log("menuItemsWidth", mainCategoryMenuItemsWidth);
 	console.log("menuHelperWidth", mainCategoryMenuHelperWidth);
 

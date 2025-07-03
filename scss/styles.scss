@@ -48,7 +48,9 @@
 }
 
 // Define SCSS variables for breakpoints
+$large-mobile-min: 500px;
 $mobile-max: 767px;
+
 $tablet-min: 768px;
 $tablet-max: 1279px;
 $desktop-min: 1280px;
@@ -272,10 +274,19 @@ button {
 	display: none;
 }
 
+.skip-link.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
 /*-------------------------------------- HEADER*/
 #header {
 	position: relative;
-
 	@media screen and (max-width: $mobile-max) {
 		padding-top: var(--padding-top-header);
 	}
@@ -310,27 +321,40 @@ button {
 				margin-bottom: 0;
 				flex: 1;
 				justify-content: flex-start;
+				gap: var(--gap-10);
 				> * {
-					margin-left: auto;
-					margin-right: auto;
+					/* 	margin-left: auto;
+					margin-right: auto; */
 				}
+			}
+			@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+				gap: var(--gap-20);
 			}
 
 			.site-name-wrapper {
-				height: 100%;
 				order: 1;
+
 				@media screen and (max-width: $mobile-max) {
 					margin-left: 0;
+					margin-right: auto;
+				}
+				@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+					flex-shrink: 0;
 				}
 				.site-name {
 					height: 100%;
-
+					display: flex;
+					align-items: center;
 					a {
+						display: flex;
+						align-items: center;
 						height: 100%;
 						img {
-							padding: 4px 0;
-							height: 100%;
-							width: auto;
+							padding: 3px 0;
+							height: auto;
+							max-height: 100%;
+							width: 100%;
+
 							object-fit: cover;
 							transition: filter 0.2s ease-in-out;
 							@media screen and (max-width: $mobile-max) {
@@ -395,6 +419,9 @@ button {
 						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/contact-image.jpg");
 						background-position: center;
 						background-repeat: no-repeat;
+						@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+							display: none;
+						}
 					}
 					&::after {
 						content: "";
@@ -407,6 +434,9 @@ button {
 						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_contact_phone_header.svg");
 						background-position: center;
 						background-repeat: no-repeat;
+						@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+							display: none;
+						}
 					}
 
 					strong,
@@ -415,6 +445,9 @@ button {
 					}
 					@media screen and (max-width: $mobile-max) {
 						display: none;
+					}
+					@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+						flex-shrink: 0;
 					}
 				}
 			}
@@ -425,6 +458,10 @@ button {
 				@media screen and (max-width: $mobile-max) {
 					width: 30px;
 					height: 100%;
+				}
+				@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+					width: auto;
+					flex-grow: 1;
 				}
 				form {
 					height: 100%;
@@ -474,6 +511,9 @@ button {
 							color: var(--color-gray-700);
 							@media screen and (max-width: $mobile-max) {
 								display: none;
+							}
+							@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+								width: 100%;
 							}
 						}
 						button {
@@ -550,6 +590,9 @@ button {
 						font-weight: var(--fw-700);
 						color: var(--color-black);
 						@media screen and (max-width: $mobile-max) {
+							display: none;
+						}
+						@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
 							display: none;
 						}
 					}
@@ -638,6 +681,9 @@ button {
 								display: none;
 							}
 						}
+						@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+							padding: 20px 20px;
+						}
 						.menu-helper-submenu {
 							display: none;
 						}
@@ -708,6 +754,26 @@ button {
 								.menu-level-2 {
 									display: none;
 								}
+
+								@media screen and (max-width: $mobile-max) {
+									position: fixed;
+									top: calc(var(--padding-top-header) + var(--header-height) + var(--gap-20));
+									min-height: calc(100vh - var(--padding-top-header) - var(--header-height) - var(--gap-20));
+									min-height: calc(100svh - var(--padding-top-header) - var(--header-height) - var(--gap-20));
+									left: 0;
+									right: auto;
+									width: 100%;
+									background: transparent;
+									box-shadow: none;
+									/*TU JSEM SKONCIL*/
+									li {
+										a {
+											background: var(--color-gray-400);
+											border-radius: var(--br-12);
+											padding: 1.143em 0.85em;
+										}
+									}
+								}
 							}
 						}
 					}
@@ -721,6 +787,10 @@ button {
 							width: max-content;
 							padding: 20px 40px;
 							color: var(--color-white);
+
+							@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+								padding: 20px 20px;
+							}
 						}
 
 						> span {
@@ -896,7 +966,11 @@ button {
 				margin: 0;
 				padding: 0;
 				display: flex;
-				gap: calc(var(--gap-24));
+				gap: var(--gap-24);
+
+				@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+					gap: var(--gap-16);
+				}
 
 				a {
 					font-size: var(--fs-13);
@@ -941,6 +1015,11 @@ button {
 				&::after {
 					content: "Příhlásit / Registrovat";
 					display: block;
+				}
+				@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+					&::after {
+						content: "Příhlásit";
+					}
 				}
 				&:hover,
 				&:focus-within {
