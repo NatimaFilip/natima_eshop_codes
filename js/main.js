@@ -8,8 +8,10 @@ const csLang = true;
 const skLang = false;
 const plLang = false;
 
-// Create a custom debounced resize event
-window.addEventListener("resize", function () {
+/*-------------------------------------- Custom events*/
+// Debounce function to limit the rate at which a function can fire
+let resizeTimer;
+/* window.addEventListener("resize", function () {
 	clearTimeout(resizeTimer);
 	resizeTimer = setTimeout(function () {
 		// Dispatch a custom event when resize is complete
@@ -17,6 +19,7 @@ window.addEventListener("resize", function () {
 		document.dispatchEvent(new CustomEvent("debouncedResize"));
 	}, 250);
 });
+ */
 
 /*-------------------------------------- Media sizes*/
 const mediaSizes = {
@@ -46,16 +49,39 @@ function checkMediaSizes() {
 		isDesktop = true;
 	}
 }
+
 checkMediaSizes();
-document.addEventListener("debouncedResize", function () {
+window.addEventListener("resize", function () {
 	checkMediaSizes();
 });
 
-/*-------------------------------------- Custom events*/
-let resizeTimer;
-
 // Now you can trigger the same debounced behavior with:
-// document.dispatchEvent(new CustomEvent("debouncedResize"));
+
+/*-------------------------------------- Custom functions*/
+//click and touchstart listener for elements that should work on both desktop and mobile
+function addSmartTouchClickListener(element, handler) {
+	let touched = false;
+	["touchstart", "click"].forEach((event) => {
+		element.addEventListener(event, function (e) {
+			if (event === "touchstart") {
+				touched = true;
+				handler(e);
+				e.preventDefault();
+			} else if (event === "click") {
+				if (touched) {
+					touched = false;
+					return; // Skip this click, already handled by touchstart
+				}
+				handler(e);
+			}
+		});
+	});
+
+	/* 	element.addEventListener("pointerdown", function (e) {
+		handler(e);
+		e.preventDefault();
+	}); */
+}
 
 /*-------------------------------------- HEADER*/
 
@@ -125,7 +151,24 @@ function inicializeMenu() {
 		mainCategoryMenuItems.forEach((item) => {
 			mainCategoryMenuHelperSubmenu.appendChild(item);
 		});
+		mainCategoryMenu.append(mainCategoryMenuHelperSubmenu);
+
+		menuLevelsTwo = mainCategoryMenu.querySelectorAll(".menu-level-2");
+		menuLevelsTwo.forEach((menuLevelTwo) => {
+			addSmartTouchClickListener(menuLevelTwo, function (event) {
+				menuLevelTwo.classList.add("active");
+				menuLevelTwo.parentElement.classList.add("active");
+				menuLevelTwo.parentElement.parentElement.classList.add("level-two-active");
+				console.log("menuLevelTwo clicked");
+			});
+		});
+
 		return;
+	}
+
+	if (!isMobile && mobileMenuIsTriggered) {
+		mainCategoryMenuHelper.append(mainCategoryMenuHelperSubmenu);
+		mobileMenuIsTriggered = false;
 	}
 
 	let mainCategoryMenuItemsInSubmenu = mainCategoryMenuHelperSubmenu.querySelectorAll(":scope > li");
@@ -171,7 +214,8 @@ function inicializeMenu() {
 // Add listener for the custom event
 
 inicializeMenu();
-document.addEventListener("debouncedResize", function () {
+
+window.addEventListener("resize", function () {
 	inicializeMenu();
 });
 
@@ -271,6 +315,26 @@ function removeCommasFromMenu() {
 }
 removeCommasFromMenu();
 
+/*-------------------------------------- HEADER SUBMENU LISTENER (hlavně pro mobil)*/
+let addedListenerToClickOutsideOfMenu = false;
+addSmartTouchClickListener(mainCategoryMenuHelper, function (event) {
+	mainCategoryMenuHelper.classList.toggle("active");
+	mainCategoryMenuHelperSubmenuDiv.classList.toggle("active");
+	document.body.classList.toggle("scroll-lock");
+	document.body.classList.toggle("content-hidden");
+
+	if (!addedListenerToClickOutsideOfMenu) {
+		addSmartTouchClickListener(document, function (event) {
+			if (!mainCategoryMenuHelperSubmenuDiv.contains(event.target) && !mainCategoryMenuHelper.contains(event.target)) {
+				mainCategoryMenuHelper.classList.remove("active");
+				mainCategoryMenuHelperSubmenuDiv.classList.remove("active");
+				document.body.classList.remove("scroll-lock");
+				document.body.classList.remove("content-hidden");
+			}
+		});
+	}
+});
+
 /*-------------------------------------- CATEGORY*/
 if (body.classList.contains("type-category")) {
 	let perexTrimmedIsVisible = false;
@@ -363,12 +427,9 @@ if (body.classList.contains("type-category")) {
 		}
 		categoryPerexShortened.appendChild(readMoreButton);
 
-		// Listen for both "click" and "touchstart" events
-		["click", "touchstart"].forEach((event) => {
-			readMoreButton.addEventListener(event, function () {
-				perexElement.classList.add("active");
-				perexTrimmedIsVisible = true;
-			});
+		addSmartTouchClickListener(readMoreButton, function () {
+			perexElement.classList.add("active");
+			perexTrimmedIsVisible = true;
 		});
 		//make it so it trims after 3 lines and saves the rest of the text in a data attribute
 	}
@@ -399,11 +460,9 @@ if (body.classList.contains("type-category")) {
 			if (plLang) {
 				customOpenFilterButton.innerHTML = "Filtrowanie wyników";
 			}
-			["click", "touchstart"].forEach((event) => {
-				customOpenFilterButton.addEventListener(event, function () {
-					filtersElement.classList.toggle("active");
-					customOpenFilterButton.classList.toggle("active");
-				});
+			addSmartTouchClickListener(customOpenFilterButton, function () {
+				filtersElement.classList.toggle("active");
+				customOpenFilterButton.classList.toggle("active");
 			});
 			filtersPositionContent.prepend(customOpenFilterButton);
 		}
@@ -472,10 +531,8 @@ if (body.classList.contains("type-category")) {
 
 				//on click also click the original label
 				activeFilterSection.appendChild(activeNewLabel);
-				["click", "touchstart"].forEach((event) => {
-					activeNewLabel.addEventListener(event, function () {
-						label.click();
-					});
+				addSmartTouchClickListener(activeNewLabel, function () {
+					label.click();
 				});
 			});
 		});
@@ -534,10 +591,8 @@ if (body.classList.contains("type-category")) {
 			}
 		}
 		manufacturerFilter.appendChild(showAllManufacturersButton);
-		["click", "touchstart"].forEach((event) => {
-			showAllManufacturersButton.addEventListener(event, function () {
-				manufacturerFilter.classList.add("active");
-			});
+		addSmartTouchClickListener(showAllManufacturersButton, function () {
+			manufacturerFilter.classList.add("active");
 		});
 	}
 
@@ -575,11 +630,9 @@ if (body.classList.contains("type-category")) {
 		});
 
 		// Add event listener to the toggle button
-		["click", "touchstart"].forEach((event) => {
-			toggleOpenSortingForm.addEventListener(event, function () {
-				sortingForm.classList.toggle("active");
-				toggleOpenSortingForm.classList.toggle("active");
-			});
+		addSmartTouchClickListener(toggleOpenSortingForm, function () {
+			sortingForm.classList.toggle("active");
+			toggleOpenSortingForm.classList.toggle("active");
 		});
 	}
 

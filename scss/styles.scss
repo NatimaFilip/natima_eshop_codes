@@ -79,6 +79,7 @@ $desktop-min: 1280px;
 	--fs-26: 1.625rem;
 	--fs-32: 2rem;
 
+	--gap-4: 4px;
 	--gap-5: 5px;
 	--gap-6: 6px;
 	--gap-7: 7px;
@@ -282,6 +283,18 @@ button {
 	overflow: hidden;
 	clip: rect(0, 0, 0, 0);
 	border: 0;
+}
+
+/*-------------------------------------- Body styles */
+.content-hidden {
+	.content-wrapper,
+	.breadcrumbs-wrapper,
+	#footer {
+		visibility: hidden;
+	}
+}
+.scroll-lock {
+	overflow: hidden;
 }
 
 /*-------------------------------------- HEADER*/
@@ -684,9 +697,7 @@ button {
 						@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
 							padding: 20px 20px;
 						}
-						.menu-helper-submenu {
-							display: none;
-						}
+
 						&::after {
 							content: "";
 							display: block;
@@ -713,64 +724,144 @@ button {
 								background-repeat: no-repeat;
 							}
 						}
+						@media screen and (min-width: $tablet-min) {
+							&:hover,
+							&:focus-within,
+							&.active {
+								&::after {
+									transform: rotate(180deg);
+								}
+								background: var(--color-tertiary);
 
-						&:hover,
-						&:focus-within {
-							&::after {
-								transform: rotate(180deg);
+								.menu-helper-submenu {
+									display: flex;
+								}
 							}
-							background: var(--color-tertiary);
+						}
+					}
 
-							.menu-helper-submenu {
-								display: flex;
-								flex-direction: column;
-								position: absolute;
-								width: 16.5em;
-								right: 0;
-								top: 100%;
+					.menu-helper-submenu {
+						display: none;
+						flex-direction: column;
+						position: absolute;
+						width: 16.5em;
+						right: 0;
+						top: 100%;
+						font-size: var(--fs-14);
+						gap: var(--gap-16);
+						margin-top: 0px;
+						padding: 2em 1em 1.75em 2em;
+						z-index: 2;
+
+						background: white;
+						border-radius: var(--br-16);
+						@include bottom-shadow;
+						li {
+							list-style: none;
+							a {
+								display: block;
+								color: var(--color-black);
 								font-size: var(--fs-14);
-								gap: var(--gap-16);
-								margin-top: 0px;
-								padding: 2em 1em 1.75em 2em;
-								z-index: 2;
+								font-weight: var(--fw-700);
+								line-height: var(--lh-1-4);
+								&:hover,
+								&:focus-within {
+									color: var(--color-primary);
+								}
+							}
+						}
+						.menu-level-2 {
+							display: none;
+						}
+					}
 
-								background: white;
-								border-radius: var(--br-16);
-								@include bottom-shadow;
-								li {
-									list-style: none;
-									a {
+					@media screen and (max-width: $mobile-max) {
+						.menu-helper-submenu.active {
+							display: flex;
+						}
+						.menu-image {
+							display: none !important;
+						}
+
+						.menu-helper-submenu {
+							flex-direction: column;
+							position: fixed;
+							gap: var(--gap-5);
+							top: calc(var(--padding-top-header) + var(--header-height));
+							height: calc(100vh - var(--padding-top-header) - var(--header-height));
+							height: calc(100svh - var(--padding-top-header) - var(--header-height));
+							left: 0;
+							right: auto;
+							width: 100%;
+							background: transparent;
+							overflow-y: scroll;
+							box-shadow: none;
+							padding: var(--gap-18) var(--padding-sides) 40px;
+
+							> li {
+								display: grid;
+								width: 100%;
+								background: var(--color-gray-400);
+								border-radius: var(--br-12);
+								a {
+									padding: 0.73em 0.85em;
+								}
+							}
+
+							> li.ext {
+								grid-template-columns: 1fr 2.857em;
+
+								.menu-level-2 {
+									display: block;
+
+									&::before {
+										content: "";
 										display: block;
-										color: var(--color-black);
-										font-size: var(--fs-14);
-										font-weight: var(--fw-700);
-										line-height: var(--lh-1-4);
-										&:hover,
-										&:focus-within {
-											color: var(--color-primary);
-										}
+										top: 0;
+										left: 0;
+										width: 100%;
+										height: 100%;
+										background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+										background-position: center;
+										background-repeat: no-repeat;
+										background-size: 0.857em;
+										border-radius: 0 var(--br-12) var(--br-12) 0;
+										border-left: 1px solid var(--color-gray-500);
+									}
+
+									.show-all-categories {
+										display: none;
+									}
+
+									> li {
+										display: none;
 									}
 								}
-								.menu-level-2 {
+							}
+							&.level-two-active {
+								> li {
 									display: none;
 								}
+								> li.active {
+									display: flex;
+									flex-direction: column;
 
-								@media screen and (max-width: $mobile-max) {
-									position: fixed;
-									top: calc(var(--padding-top-header) + var(--header-height) + var(--gap-20));
-									min-height: calc(100vh - var(--padding-top-header) - var(--header-height) - var(--gap-20));
-									min-height: calc(100svh - var(--padding-top-header) - var(--header-height) - var(--gap-20));
-									left: 0;
-									right: auto;
-									width: 100%;
-									background: transparent;
-									box-shadow: none;
-									/*TU JSEM SKONCIL*/
-									li {
-										a {
+									.menu-level-2 {
+										display: flex;
+										flex-direction: column;
+										gap: var(--gap-16);
+
+										&::before {
+											display: none;
+										}
+										> li {
+											display: grid;
+											width: 100%;
 											background: var(--color-gray-400);
 											border-radius: var(--br-12);
-											padding: 1.143em 0.85em;
+											a {
+												padding: 0.73em 0.85em;
+											}
 										}
 									}
 								}
