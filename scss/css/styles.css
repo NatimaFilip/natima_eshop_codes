@@ -181,6 +181,10 @@ a:hover, a:focus-within {
   color: var(--color-primary);
 }
 
+b {
+  font-weight: var(--fw-700);
+}
+
 /* Make images easier to work with */
 img,
 picture {
@@ -893,6 +897,9 @@ button {
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu > li a {
     padding: 0.73em 0.85em;
   }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu > li a:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu > li a:focus-within {
+    color: var(--color-black);
+  }
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu > li.ext {
     grid-template-columns: 1fr 2.857em;
   }
@@ -941,8 +948,6 @@ button {
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active > a::before {
     content: "";
     display: block;
-    top: 0;
-    left: 0;
     width: 0.857em;
     height: 100%;
     margin-right: 0.57em;
@@ -972,8 +977,6 @@ button {
     width: 100%;
     background: var(--color-gray-400);
     border-radius: var(--br-12);
-    position: relative;
-    z-index: 9999;
   }
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 > li a {
     padding: 0.73em 0.85em;
@@ -991,8 +994,6 @@ button {
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 > li.has-third-level .menu-level-3::before {
     content: "";
     display: block;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
@@ -1006,6 +1007,75 @@ button {
     display: none;
   }
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 > li.has-third-level .menu-level-3 > li {
+    display: none;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > a {
+    display: none;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 {
+    margin-top: 0;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 > li {
+    display: none;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 > li.active {
+    display: block;
+    background: transparent;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 > li.active > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 > li.active > div > a {
+    color: var(--color-primary);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 > li.active > div > a::before {
+    content: "";
+    display: block;
+    width: 0.857em;
+    height: 100%;
+    margin-right: 0.57em;
+    background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 > li.active .menu-level-3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: var(--gap-5);
+    margin-top: var(--gap-5);
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 > li.active .menu-level-3 > li {
+    display: block;
+    width: 100%;
+    background: var(--color-gray-400);
+    border-radius: var(--br-12);
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 > li.active .menu-level-3 > li a {
+    padding: 0.73em 0.85em;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 > li.active .menu-level-3::before {
+    display: none;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-three-active > li.active > ul.menu-level-2 > li.active .menu-level-3 .show-all-subcategories {
     display: none;
   }
 }

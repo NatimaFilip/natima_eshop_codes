@@ -178,6 +178,8 @@ const mainCategoryMenuHelperSubmenuDiv = document.createElement("div");
 mainCategoryMenuHelperSubmenuDiv.className = "menu-helper-submenu";
 mainCategoryMenuHelper.appendChild(mainCategoryMenuHelperSubmenuDiv);
 let mainCategoryMenuHelperSubmenu = mainCategoryMenuHelper.querySelector(".menu-helper-submenu");
+let menuLevelsTwo;
+let menuLevelsThree;
 
 mainCategoryMenu.appendChild(mainCategoryMenuHelper);
 
@@ -199,8 +201,44 @@ function inicializeMenu() {
 			addSmartTouchClickListener(menuLevelTwo, function (event) {
 				menuLevelTwo.classList.add("active");
 				menuLevelTwo.parentElement.classList.add("active");
-				menuLevelTwo.parentElement.parentElement.classList.add("level-two-active");
+				mainCategoryMenuHelperSubmenu.classList.add("level-two-active");
 				console.log("menuLevelTwo clicked");
+			});
+		});
+
+		menuLevelsThree = mainCategoryMenu.querySelectorAll(".menu-level-3");
+		menuLevelsThree.forEach((menuLevelThree) => {
+			addSmartTouchClickListener(menuLevelThree, function (event) {
+				menuLevelThree.classList.add("active");
+				menuLevelThree.parentElement.parentElement.classList.add("active");
+				mainCategoryMenuHelperSubmenu.classList.add("level-three-active");
+				console.log("menuLevelThree clicked");
+			});
+		});
+
+		let liHasThirdLevel = mainCategoryMenu.querySelectorAll(".has-third-level");
+		liHasThirdLevel.forEach((item) => {
+			let aElement = item.querySelector(":scope > div > a");
+			addSmartTouchClickListener(aElement, function (event) {
+				if (item.classList.contains("active")) {
+					event.preventDefault();
+					mainCategoryMenuHelperSubmenu.classList.remove("level-three-active");
+					item.querySelector(".menu-level-3").classList.remove("active");
+					item.classList.remove("active");
+				}
+			});
+		});
+
+		let liHasSecondLevel = mainCategoryMenu.querySelectorAll("li.ext");
+		liHasSecondLevel.forEach((item) => {
+			let aElement = item.querySelector(":scope > a");
+			addSmartTouchClickListener(aElement, function (event) {
+				if (item.classList.contains("active")) {
+					event.preventDefault();
+					mainCategoryMenuHelperSubmenu.classList.remove("level-two-active");
+					item.querySelector(".menu-level-2").classList.remove("active");
+					item.classList.remove("active");
+				}
 			});
 		});
 

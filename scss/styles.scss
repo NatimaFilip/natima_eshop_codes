@@ -240,6 +240,10 @@ a {
 	}
 }
 
+b {
+	font-weight: var(--fw-700);
+}
+
 /* Make images easier to work with */
 img,
 picture {
@@ -805,6 +809,11 @@ button {
 								border-radius: var(--br-12);
 								a {
 									padding: 0.73em 0.85em;
+
+									&:hover,
+									&:focus-within {
+										color: var(--color-black);
+									}
 								}
 							}
 
@@ -854,12 +863,9 @@ button {
 										&::before {
 											content: "";
 											display: block;
-											top: 0;
-											left: 0;
 											width: 0.857em;
 											height: 100%;
 											margin-right: 0.57em;
-
 											background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
 											background-position: center;
 											background-repeat: no-repeat;
@@ -883,8 +889,7 @@ button {
 											width: 100%;
 											background: var(--color-gray-400);
 											border-radius: var(--br-12);
-											position: relative;
-											z-index: 9999;
+
 											a {
 												padding: 0.73em 0.85em;
 											}
@@ -904,8 +909,7 @@ button {
 												&::before {
 													content: "";
 													display: block;
-													top: 0;
-													left: 0;
+
 													width: 100%;
 													height: 100%;
 													background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
@@ -921,6 +925,70 @@ button {
 												}
 
 												> li {
+													display: none;
+												}
+											}
+										}
+									}
+								}
+							}
+							&.level-three-active {
+								> li.active {
+									> a {
+										display: none;
+									}
+									> ul.menu-level-2 {
+										margin-top: 0;
+										> li {
+											display: none;
+										}
+										> li.active {
+											display: block;
+											background: transparent;
+											> div {
+												display: flex;
+												flex-direction: column;
+												height: 100%;
+
+												> a {
+													color: var(--color-primary);
+													display: flex;
+													height: 100%;
+
+													&::before {
+														content: "";
+														display: block;
+														width: 0.857em;
+														height: 100%;
+														margin-right: 0.57em;
+														background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+														background-position: center;
+														background-repeat: no-repeat;
+														background-size: 100%;
+														transform: rotate(180deg);
+													}
+												}
+											}
+											.menu-level-3 {
+												display: flex;
+												flex-direction: column;
+												gap: var(--gap-5);
+												margin-top: var(--gap-5);
+
+												> li {
+													display: block;
+													width: 100%;
+													background: var(--color-gray-400);
+													border-radius: var(--br-12);
+
+													a {
+														padding: 0.73em 0.85em;
+													}
+												}
+												&::before {
+													display: none;
+												}
+												.show-all-subcategories {
 													display: none;
 												}
 											}
