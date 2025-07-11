@@ -4,7 +4,7 @@
 }
 @mixin bottom-primary-shadow {
 	padding-bottom: 2px;
-	box-shadow: inset 0px -2px 0px var(--color-tertiary);
+	box-shadow: inset 0px -2px 0px var(--color-primary-500);
 }
 @mixin bottom-cta-shadow {
 	padding-bottom: 2px;
@@ -339,10 +339,6 @@ button {
 				flex: 1;
 				justify-content: flex-start;
 				gap: var(--gap-10);
-				> * {
-					/* 	margin-left: auto;
-					margin-right: auto; */
-				}
 			}
 			@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
 				gap: var(--gap-20);
@@ -716,8 +712,8 @@ button {
 								display: none;
 							}
 						}
-						&:before {
-							@media screen and (max-width: $mobile-max) {
+						@media screen and (max-width: $mobile-max) {
+							&:before {
 								content: "";
 								display: block;
 								justify-content: center;
@@ -726,8 +722,16 @@ button {
 								height: var(--header-height);
 								background-position: center;
 								background-repeat: no-repeat;
+								background-size: 37%;
+							}
+							&.active {
+								background-color: var(--color-primary-500);
+								&::before {
+									background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_hamburger_menu_close.svg");
+								}
 							}
 						}
+
 						@media screen and (min-width: $tablet-min) {
 							&:hover,
 							&:focus-within,
@@ -735,7 +739,7 @@ button {
 								&::after {
 									transform: rotate(180deg);
 								}
-								background: var(--color-tertiary);
+								background: var(--color-primary-500);
 
 								.menu-helper-submenu {
 									display: flex;
@@ -1153,7 +1157,7 @@ button {
 										@include text-underline;
 										&:hover,
 										&:focus-within {
-											color: var(--color-tertiary);
+											color: var(--color-primary-500);
 										}
 									}
 								}
@@ -1434,61 +1438,64 @@ body.type-category {
 			}
 		}
 	}
-	.category-content-wrapper {
-		padding-top: var(--gap-24);
-		@media screen and (min-width: $desktop-min) {
-			padding-top: calc(var(--gap-24) * 1.5);
-		}
+
+	.filters-unveil-button-wrapper {
+		display: none;
 	}
+
 	.custom-open-filter-button {
-		display: flex;
-		justify-content: center;
-		align-items: stretch;
-		position: relative;
-		z-index: 1;
-		background-color: var(--color-primary);
-		border-radius: var(--br-12);
-		color: var(--color-white);
-		font-size: var(--fs-13);
-		gap: 0.7em;
-		font-weight: var(--fw-600);
-		@include bottom-primary-shadow;
-		padding: calc(0.8em + 2px) 0.77em calc(0.8em);
-		&:hover,
-		&:focus-within {
-			background-color: var(--color-tertiary);
-		}
-		&::after {
+		display: none;
+		@media screen and (max-width: $mobile-max) {
+			display: flex;
+			justify-content: center;
+			align-items: stretch;
 			position: relative;
-			top: -1px;
-			content: "";
-			display: block;
-			width: 1em;
-			height: auto;
-			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_down_white.svg");
-			background-position: center;
-			background-repeat: no-repeat;
-			transition: transform 0.2s ease-out;
-		}
-		&.active {
+			z-index: 1;
+			background-color: var(--color-primary);
+			border-radius: var(--br-12);
+			color: var(--color-white);
+			font-size: var(--fs-13);
+			gap: 0.7em;
+			font-weight: var(--fw-600);
+			@include bottom-primary-shadow;
+			padding: calc(0.8em + 2px) 0.77em calc(0.8em);
+			&:hover,
+			&:focus-within {
+				background-color: var(--color-primary-500);
+			}
 			&::after {
-				transform: rotate(180deg);
+				position: relative;
+				top: -1px;
+				content: "";
+				display: block;
+				width: 1em;
+				height: auto;
+				background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_down_white.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+				transition: transform 0.2s ease-out;
+			}
+			&.active {
+				&::after {
+					transform: rotate(180deg);
+				}
 			}
 		}
 	}
-	.filters-wrapper {
-		display: none;
-	}
+
 	#filters {
 		--box-width: 20px;
 		--box-radius: 6px;
 		background-color: var(--color-gray-400);
 		border-radius: var(--br-16);
-		display: none;
 		font-size: var(--fs-13);
 		padding: calc(10px + var(--box-width)) 20px 16px 20px;
 		margin-top: calc(var(--box-width) * -1);
 		flex-direction: column;
+
+		@media screen and (max-width: $mobile-max) {
+			display: none;
+		}
 		&.active {
 			display: flex;
 		}
@@ -1497,6 +1504,7 @@ body.type-category {
 			line-height: var(--lh-2);
 			padding-bottom: 0.5em;
 		}
+
 		.slider-wrapper {
 			display: flex;
 			flex-direction: column;
@@ -1656,7 +1664,7 @@ body.type-category {
 						@include text-underline;
 						&:hover,
 						&:focus-within {
-							color: var(--color-tertiary);
+							color: var(--color-primary-500);
 						}
 					}
 					&.active {
@@ -1770,6 +1778,14 @@ body.type-category {
 			}
 		}
 	}
+
+	.category-content-wrapper {
+		padding-top: var(--gap-24);
+		@media screen and (min-width: $desktop-min) {
+			padding-top: calc(var(--gap-24) * 1.5);
+		}
+	}
+
 	.category-header {
 		margin-top: var(--gap-24);
 		margin-bottom: var(--gap-16);

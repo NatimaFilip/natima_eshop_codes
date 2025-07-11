@@ -55,15 +55,6 @@ window.addEventListener("resize", function () {
 	checkMediaSizes();
 });
 
-// Now you can trigger the same debounced behavior with:
-
-//console log what i click on
-document.addEventListener("touchstart", function (event) {
-	if (event.target) {
-		console.log("Clicked on:", event.target);
-	}
-});
-
 /*-------------------------------------- Custom functions*/
 //click and touchstart listener for elements that should work on both desktop and mobile
 /* function addSmartTouchClickListener(element, handler) {
@@ -115,7 +106,6 @@ function addSmartTouchClickListener(element, handler) {
 	}); */
 
 	element.addEventListener("click", function (e) {
-		console.log("click on element:", element);
 		if (touched) {
 			// Click after touch, skip
 			touched = false;
@@ -196,23 +186,34 @@ function inicializeMenu() {
 		});
 		mainCategoryMenu.append(mainCategoryMenuHelperSubmenu);
 
+		mainCategoryMenuHelper.classList.remove("active");
+		mainCategoryMenuHelperSubmenuDiv.classList.remove("active");
+
 		menuLevelsTwo = mainCategoryMenu.querySelectorAll(".menu-level-2");
 		menuLevelsTwo.forEach((menuLevelTwo) => {
 			addSmartTouchClickListener(menuLevelTwo, function (event) {
-				menuLevelTwo.classList.add("active");
-				menuLevelTwo.parentElement.classList.add("active");
-				mainCategoryMenuHelperSubmenu.classList.add("level-two-active");
-				console.log("menuLevelTwo clicked");
+				if (isMobile) {
+					menuLevelTwo.classList.add("active");
+					menuLevelTwo.parentElement.classList.add("active");
+					mainCategoryMenuHelperSubmenu.classList.add("level-two-active");
+
+					//mainCategoryMenuHelperSubmenuDiv scroll to top
+					mainCategoryMenuHelperSubmenuDiv.scrollTop = 0;
+				}
 			});
 		});
 
 		menuLevelsThree = mainCategoryMenu.querySelectorAll(".menu-level-3");
 		menuLevelsThree.forEach((menuLevelThree) => {
 			addSmartTouchClickListener(menuLevelThree, function (event) {
+				if (!isMobile) {
+					return;
+				}
 				menuLevelThree.classList.add("active");
 				menuLevelThree.parentElement.parentElement.classList.add("active");
 				mainCategoryMenuHelperSubmenu.classList.add("level-three-active");
-				console.log("menuLevelThree clicked");
+
+				mainCategoryMenuHelperSubmenuDiv.scrollTop = 0;
 			});
 		});
 
@@ -220,11 +221,15 @@ function inicializeMenu() {
 		liHasThirdLevel.forEach((item) => {
 			let aElement = item.querySelector(":scope > div > a");
 			addSmartTouchClickListener(aElement, function (event) {
+				if (!isMobile) {
+					return;
+				}
 				if (item.classList.contains("active")) {
 					event.preventDefault();
 					mainCategoryMenuHelperSubmenu.classList.remove("level-three-active");
 					item.querySelector(".menu-level-3").classList.remove("active");
 					item.classList.remove("active");
+					mainCategoryMenuHelperSubmenuDiv.scrollTop = 0;
 				}
 			});
 		});
@@ -233,11 +238,15 @@ function inicializeMenu() {
 		liHasSecondLevel.forEach((item) => {
 			let aElement = item.querySelector(":scope > a");
 			addSmartTouchClickListener(aElement, function (event) {
+				if (!isMobile) {
+					return;
+				}
 				if (item.classList.contains("active")) {
 					event.preventDefault();
 					mainCategoryMenuHelperSubmenu.classList.remove("level-two-active");
 					item.querySelector(".menu-level-2").classList.remove("active");
 					item.classList.remove("active");
+					mainCategoryMenuHelperSubmenuDiv.scrollTop = 0;
 				}
 			});
 		});
@@ -247,6 +256,13 @@ function inicializeMenu() {
 
 	if (!isMobile && mobileMenuIsTriggered) {
 		mainCategoryMenuHelper.append(mainCategoryMenuHelperSubmenu);
+		mainCategoryMenu.querySelectorAll(".active").forEach((activeItems) => {
+			activeItems.classList.remove("active");
+		});
+		mainCategoryMenuHelperSubmenu.classList.remove("level-two-active");
+		mainCategoryMenuHelperSubmenu.classList.remove("level-three-active");
+		document.body.classList.remove("scroll-lock");
+		document.body.classList.remove("content-hidden");
 		mobileMenuIsTriggered = false;
 	}
 
@@ -269,18 +285,18 @@ function inicializeMenu() {
 	});
 
 	let mainCategoryMenuWidth = mainCategoryMenu.offsetWidth;
-	console.log("menuWidth", mainCategoryMenuWidth);
+	/* 	console.log("menuWidth", mainCategoryMenuWidth);
 	console.log("cumulativeMainCategoryMenuItemWidth", cumulativeMainCategoryMenuItemWidth);
 	console.log("menuItemsWidth", mainCategoryMenuItemsWidth);
-	console.log("menuHelperWidth", mainCategoryMenuHelperWidth);
+	console.log("menuHelperWidth", mainCategoryMenuHelperWidth); */
 
 	if (mainCategoryMenuWidth < cumulativeMainCategoryMenuItemWidth) {
 		mainCategoryMenuHelper.classList.remove("menu-helper-hidden");
 		let indexOfOverflowItem = mainCategoryMenuItemsWidth.findIndex(
 			(itemWidth) => itemWidth > mainCategoryMenuWidth - mainCategoryMenuHelperWidth
 		);
-		console.log("indexOfOverflowItem", indexOfOverflowItem);
-		console.log("mainCategoryMenuItemsWidth Idex", mainCategoryMenuItemsWidth[indexOfOverflowItem]);
+		/* 		console.log("indexOfOverflowItem", indexOfOverflowItem);
+		console.log("mainCategoryMenuItemsWidth Idex", mainCategoryMenuItemsWidth[indexOfOverflowItem]); */
 
 		// from this index onwards, hide the items with style.display = "none"
 		for (let i = indexOfOverflowItem; i < mainCategoryMenuItems.length; i++) {
@@ -290,7 +306,6 @@ function inicializeMenu() {
 		mainCategoryMenuHelper.classList.add("menu-helper-hidden");
 	}
 }
-// Add listener for the custom event
 
 inicializeMenu();
 
@@ -298,12 +313,42 @@ window.addEventListener("resize", function () {
 	inicializeMenu();
 });
 
+/*-------------------------------------- HEADER SUBMENU LISTENER (hlavně pro mobil)*/
+let addedListenerToClickOutsideOfMenu = false;
+addSmartTouchClickListener(mainCategoryMenuHelper, function (event) {
+	mainCategoryMenuHelper.classList.toggle("active");
+	mainCategoryMenuHelperSubmenuDiv.classList.toggle("active");
+
+	if (isMobile) {
+		document.body.classList.toggle("scroll-lock");
+		document.body.classList.toggle("content-hidden");
+		mainCategoryMenu.querySelectorAll(".menu-helper-submenu .active").forEach((activeItems) => {
+			activeItems.classList.remove("active");
+		});
+		mainCategoryMenuHelperSubmenu.classList.remove("level-two-active");
+		mainCategoryMenuHelperSubmenu.classList.remove("level-three-active");
+	}
+
+	if (!addedListenerToClickOutsideOfMenu) {
+		addedListenerToClickOutsideOfMenu = true;
+		addSmartTouchClickListener(document, function (event) {
+			if (!mainCategoryMenuHelperSubmenuDiv.contains(event.target) && !mainCategoryMenuHelper.contains(event.target)) {
+				mainCategoryMenuHelper.classList.remove("active");
+				mainCategoryMenuHelperSubmenuDiv.classList.remove("active");
+				if (isMobile) {
+					document.body.classList.remove("scroll-lock");
+					document.body.classList.remove("content-hidden");
+				}
+			}
+		});
+	}
+});
+
 /*-------------------------------------- MENU MAXIMUM POLOŽEK*/
 function removeCommasFromMenu() {
 	mainCategoryMenuItems.forEach((item) => {
 		let menuLinkHref = item.querySelector(":scope > a")?.getAttribute("href") || null;
 
-		console.log("menuLink href:", menuLinkHref);
 		let menuLevelTwo = item.querySelector(".menu-level-2");
 		let menuLevelTwoLi = item.querySelectorAll(".menu-level-2 > li");
 
@@ -394,78 +439,20 @@ function removeCommasFromMenu() {
 }
 removeCommasFromMenu();
 
-/*-------------------------------------- HEADER SUBMENU LISTENER (hlavně pro mobil)*/
-let addedListenerToClickOutsideOfMenu = false;
-addSmartTouchClickListener(mainCategoryMenuHelper, function (event) {
-	mainCategoryMenuHelper.classList.toggle("active");
-	mainCategoryMenuHelperSubmenuDiv.classList.toggle("active");
-	document.body.classList.toggle("scroll-lock");
-	document.body.classList.toggle("content-hidden");
-
-	if (!addedListenerToClickOutsideOfMenu) {
-		addedListenerToClickOutsideOfMenu = true;
-		addSmartTouchClickListener(document, function (event) {
-			if (!mainCategoryMenuHelperSubmenuDiv.contains(event.target) && !mainCategoryMenuHelper.contains(event.target)) {
-				mainCategoryMenuHelper.classList.remove("active");
-				mainCategoryMenuHelperSubmenuDiv.classList.remove("active");
-				document.body.classList.remove("scroll-lock");
-				document.body.classList.remove("content-hidden");
-			}
-		});
-	}
-});
-
-/*-------------------------------------- CATEGORY*/
+/*------------------------------------------------- CATEGORY*/
 if (body.classList.contains("type-category")) {
+	/*------------------------------PEREX*/
 	let perexTrimmedIsVisible = false;
-	let filterInSidebar = true;
-	let filtersElement = document.querySelector("#filters");
-	let filtersPositionSidebar = document.querySelector(".sidebar-inner .box-filters");
-	let filtersPositionContent = document.querySelector(".category-content-wrapper");
-	let filterSections = filtersElement.querySelectorAll(".filter-section");
-	let allProducts = document.querySelectorAll(".product");
-
-	/*--------------------FILTRY*/
-	customMoveFilter();
-	moveAndEditClearFilters();
-	editManufacturerFilter();
-	cleanEmptyFilters();
-	editProductSorting();
-	measureUnitFromAppendix();
-
-	actionPriceToFinalPriceAndReviewsNumber();
-
-	if (isMobile) {
-		trimPerex();
-	}
-
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
-		allProducts = document.querySelectorAll(".product");
-
-		if (!isDesktop) {
-			filterInSidebar = true;
-			filtersElement = document.querySelector("#filters");
-			filtersElement.classList.add("active");
-			filtersPositionContent = document.querySelector(".category-content-wrapper");
-			filterSections = filtersElement.querySelectorAll(".filter-section");
-			customMoveFilter();
-		}
-		moveAndEditClearFilters();
-		editManufacturerFilter();
-		cleanEmptyFilters();
-		editProductSorting();
-		actionPriceToFinalPriceAndReviewsNumber();
 		if (isMobile) {
 			if (!perexTrimmedIsVisible) {
 				trimPerex();
 			}
 		}
 	});
-
-	document.addEventListener("debouncedResize", function () {
-		customMoveFilter();
-	});
-
+	if (isMobile) {
+		trimPerex();
+	}
 	function trimPerex() {
 		const maxLength = 130;
 		const perexElement = document.querySelector(".category-perex");
@@ -514,39 +501,259 @@ if (body.classList.contains("type-category")) {
 		//make it so it trims after 3 lines and saves the rest of the text in a data attribute
 	}
 
+	/*------------------------------ACTION PRICE AND REVIEWS NUMBER*/
+	let allProducts = document.querySelectorAll(".product");
+	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
+		if (isMobile) {
+			if (!perexTrimmedIsVisible) {
+				actionPriceToFinalPriceAndReviewsNumber();
+			}
+		}
+	});
+	actionPriceToFinalPriceAndReviewsNumber();
+	function actionPriceToFinalPriceAndReviewsNumber() {
+		allProducts.forEach((product) => {
+			let priceStandard = product.querySelector(".flag-discount .price-standard");
+			let priceFinal = product.querySelector(".price-final");
+			if (priceStandard && priceFinal) {
+				priceFinal.appendChild(priceStandard);
+			}
+			let starWrapper = product.querySelector(".stars-wrapper");
+			if (starWrapper) {
+				let reviewsNumber = starWrapper.getAttribute("data-micro-rating-count");
+				if (reviewsNumber) {
+					const reviewsNumberSpan = document.createElement("span");
+					reviewsNumberSpan.className = "reviews-number";
+					reviewsNumberSpan.innerHTML = reviewsNumber + "x";
+					starWrapper.appendChild(reviewsNumberSpan);
+				}
+			}
+		});
+	}
+
+	/*------------------------------MEASURE UNIT FROM APENDIX INTO CAPSULE*/
+
+	measureUnitFromAppendix();
+	function measureUnitFromAppendix() {
+		allProducts.forEach((product) => {
+			let productAppendix = product.querySelector(".product-appendix");
+			if (!productAppendix) return;
+
+			let productMeasureUnitComplet;
+			let productMeasureAmount;
+			let appendixText = productAppendix.textContent;
+
+			// Use a regular expression to extract the desired value
+			let match = appendixText.match(/Množství:\s*([^;]+);/);
+			if (match) {
+				productMeasureUnitComplet = match[1].trim(); // Save the extracted value
+				productMeasureAmount = productMeasureUnitComplet.replace(/[^\d]/g, ""); //keep only digits from the measure unit
+				productMeasureUnit = productMeasureUnitComplet.replace(/[\d\s]/g, ""); //keep only letters from the measure unit
+
+				let ratingsWrapper = product.querySelector(".ratings-wrapper");
+				if (ratingsWrapper) {
+					// Create a new span element to display the amount
+					let measureUnitSpan = document.createElement("span");
+					measureUnitSpan.className = "product-measure-unit";
+					measureUnitSpan.textContent = productMeasureUnitComplet;
+
+					// Append the amount span to the ratings wrapper
+					ratingsWrapper.appendChild(measureUnitSpan);
+				}
+
+				const pricePerUnitDiv = document.createElement("div");
+				pricePerUnitDiv.className = "product-price-per-unit";
+				let prices = product.querySelector(".prices");
+
+				let priceFinal = product.querySelector(".price-final");
+				let priceFinalValue;
+
+				if (priceFinal) {
+					// Extract the text content, trim it, and remove everything but numbers
+					priceFinalValue = priceFinal.textContent.trim().replace(/[^\d.,]/g, ""); // Keep only digits, commas, and dots
+					priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
+				}
+
+				let signleMeasuringUnit = {
+					kapslí: "kapsle",
+					tablet: "tableta",
+					tobolek: "tobolka",
+					tabletek: "tabletka",
+				};
+
+				let pricePerUnit_Unit;
+
+				let foundUnitMatch = false;
+
+				// Iterate over the keys in the object
+				for (let key in signleMeasuringUnit) {
+					if (productMeasureUnit.includes(key)) {
+						foundUnitMatch = true;
+						pricePerUnit_Unit = signleMeasuringUnit[key];
+						break; // Exit the loop once a match is found
+					}
+				}
+				if (!foundUnitMatch) {
+					// If no match is found, use the original measure unit
+					pricePerUnit_Unit = productMeasureUnit;
+				}
+
+				const pricePerUnit_Value = priceFinalValue / productMeasureAmount;
+
+				const pricePerUnit_ValueSpan = document.createElement("span");
+				pricePerUnit_ValueSpan.className = "product-price-per-unit-value";
+
+				pricePerUnit_ValueSpan.textContent =
+					pricePerUnit_Value.toFixed(1).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
+
+				prices.appendChild(pricePerUnitDiv);
+				pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
+
+				// Remove "Množství ...;" from the text
+				appendixText = appendixText.replace(/Množství:\s*[^;]+;/, "").trim();
+				productAppendix.textContent = appendixText; // Update the element's text content
+			}
+		});
+	}
+
+	/*------------------------------FILTRY*/
+	/* 	customMoveFilter();
+	moveAndEditClearFilters();
+	editManufacturerFilter();
+	cleanEmptyFilters();
+	editProductSorting();
+
+	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
+		allProducts = document.querySelectorAll(".product");
+
+		if (!isDesktop) {
+			filterInSidebar = true;
+			filtersElement = document.querySelector("#filters");
+			filtersElement.classList.add("active");
+			filtersPositionContent = document.querySelector(".category-content-wrapper");
+			filterSections = filtersElement.querySelectorAll(".filter-section");
+			customMoveFilter();
+		}
+		moveAndEditClearFilters();
+		editManufacturerFilter();
+		cleanEmptyFilters();
+		editProductSorting();
+	});
+
+	window.addEventListener("resize", function () {
+		customMoveFilter();
+	}); */
+	let asideElement = document.querySelector("aside.sidebar");
+	let categoryTop = document.querySelector(".category-top");
+	let contentWrapperInElement = document.querySelector(".content-wrapper-in");
+	let filterInOriginalPosition = true;
+	let filtersElement = document.querySelector("#filters");
+	let filtersWrapperElement = document.querySelector(".filters-wrapper");
+
+	const customOpenFilterButton = document.createElement("a");
+	customOpenFilterButton.className = "custom-open-filter-button";
+	if (csLang) {
+		customOpenFilterButton.innerHTML = "Filtrování výsledků";
+	}
+	if (skLang) {
+		customOpenFilterButton.innerHTML = "Filtrovanie výsledkov";
+	}
+	if (plLang) {
+		customOpenFilterButton.innerHTML = "Filtrowanie wyników";
+	}
+
+	customMoveFilter();
+	editFilters();
+
+	window.addEventListener("resize", function () {
+		customMoveFilter();
+	});
+
+	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
+		/* 	filterInOriginalPosition = true; */
+
+		filtersElement = document.querySelector("#filters");
+		categoryTop = document.querySelector(".category-top");
+		filtersWrapperElement = document.querySelector(".filters-wrapper");
+		filterInOriginalPosition = true;
+
+		customMoveFilter();
+
+		if (customOpenFilterButton.classList.contains("active")) {
+			filtersElement.classList.add("active");
+		} else {
+			filtersElement.classList.remove("active");
+		}
+	});
+
 	function customMoveFilter() {
+		if (isMobile) {
+			moveFiltersElementAfterCategoryTop();
+		}
+		if (!isMobile) {
+			moveFiltersElementToOriginalPosition();
+		}
+	}
+
+	function moveFiltersElementAfterCategoryTop() {
+		if (filterInOriginalPosition) {
+			filterInOriginalPosition = false;
+			categoryTop.insertAdjacentElement("afterend", filtersElement);
+			categoryTop.appendChild(customOpenFilterButton);
+		}
+	}
+
+	function moveFiltersElementToOriginalPosition() {
+		if (!filterInOriginalPosition) {
+			filterInOriginalPosition = true;
+			filtersWrapperElement.appendChild(filtersElement);
+		}
+	}
+
+	function editFilters() {
+		addSmartTouchClickListener(customOpenFilterButton, function () {
+			filtersElement.classList.toggle("active");
+			customOpenFilterButton.classList.toggle("active");
+		});
+	}
+
+	/* 	function customMoveFilter() {
 		if (isDesktop) {
 			if (filterInSidebar) {
 				return;
 			}
 			filtersPositionSidebar.appendChild(filtersElement);
 			filterInSidebar = true;
-		} else {
+		}
+		if (!isDesktop) {
 			if (!filterInSidebar) {
 				return;
 			}
-			filtersPositionContent.prepend(filtersElement);
 			filterInSidebar = false;
 
-			const customOpenFilterButton = document.createElement("a");
-			customOpenFilterButton.className = "custom-open-filter-button";
+			if (!customOpenFilterButtonExists) {
+				customOpenFilterButtonExists = true;
+				const customOpenFilterButton = document.createElement("a");
+				customOpenFilterButton.className = "custom-open-filter-button";
 
-			if (csLang) {
-				customOpenFilterButton.innerHTML = "Filtrování výsledků";
+				if (csLang) {
+					customOpenFilterButton.innerHTML = "Filtrování výsledků";
+				}
+				if (skLang) {
+					customOpenFilterButton.innerHTML = "Filtrovanie výsledkov";
+				}
+				if (plLang) {
+					customOpenFilterButton.innerHTML = "Filtrowanie wyników";
+				}
+				addSmartTouchClickListener(customOpenFilterButton, function () {
+					filtersElement.classList.toggle("active");
+					customOpenFilterButton.classList.toggle("active");
+				});
 			}
-			if (skLang) {
-				customOpenFilterButton.innerHTML = "Filtrovanie výsledkov";
-			}
-			if (plLang) {
-				customOpenFilterButton.innerHTML = "Filtrowanie wyników";
-			}
-			addSmartTouchClickListener(customOpenFilterButton, function () {
-				filtersElement.classList.toggle("active");
-				customOpenFilterButton.classList.toggle("active");
-			});
+			filtersPositionContent.prepend(filtersElement);
 			filtersPositionContent.prepend(customOpenFilterButton);
 		}
-	}
+	} */
 
 	function moveAndEditClearFilters() {
 		let clearFilterButton = filtersElement.querySelector("#clear-filters");
@@ -713,108 +920,6 @@ if (body.classList.contains("type-category")) {
 		addSmartTouchClickListener(toggleOpenSortingForm, function () {
 			sortingForm.classList.toggle("active");
 			toggleOpenSortingForm.classList.toggle("active");
-		});
-	}
-
-	function measureUnitFromAppendix() {
-		allProducts.forEach((product) => {
-			let productAppendix = product.querySelector(".product-appendix");
-			if (!productAppendix) return;
-
-			let productMeasureUnitComplet;
-			let productMeasureAmount;
-			let appendixText = productAppendix.textContent;
-
-			// Use a regular expression to extract the desired value
-			let match = appendixText.match(/Množství:\s*([^;]+);/);
-			if (match) {
-				productMeasureUnitComplet = match[1].trim(); // Save the extracted value
-				productMeasureAmount = productMeasureUnitComplet.replace(/[^\d]/g, ""); //keep only digits from the measure unit
-				productMeasureUnit = productMeasureUnitComplet.replace(/[\d\s]/g, ""); //keep only letters from the measure unit
-
-				let ratingsWrapper = product.querySelector(".ratings-wrapper");
-				if (ratingsWrapper) {
-					// Create a new span element to display the amount
-					let measureUnitSpan = document.createElement("span");
-					measureUnitSpan.className = "product-measure-unit";
-					measureUnitSpan.textContent = productMeasureUnitComplet;
-
-					// Append the amount span to the ratings wrapper
-					ratingsWrapper.appendChild(measureUnitSpan);
-				}
-
-				const pricePerUnitDiv = document.createElement("div");
-				pricePerUnitDiv.className = "product-price-per-unit";
-				let prices = product.querySelector(".prices");
-
-				let priceFinal = product.querySelector(".price-final");
-				let priceFinalValue;
-
-				if (priceFinal) {
-					// Extract the text content, trim it, and remove everything but numbers
-					priceFinalValue = priceFinal.textContent.trim().replace(/[^\d.,]/g, ""); // Keep only digits, commas, and dots
-					priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
-				}
-
-				let signleMeasuringUnit = {
-					kapslí: "kapsle",
-					tablet: "tableta",
-					tobolek: "tobolka",
-					tabletek: "tabletka",
-				};
-
-				let pricePerUnit_Unit;
-
-				let foundUnitMatch = false;
-
-				// Iterate over the keys in the object
-				for (let key in signleMeasuringUnit) {
-					if (productMeasureUnit.includes(key)) {
-						foundUnitMatch = true;
-						pricePerUnit_Unit = signleMeasuringUnit[key];
-						break; // Exit the loop once a match is found
-					}
-				}
-				if (!foundUnitMatch) {
-					// If no match is found, use the original measure unit
-					pricePerUnit_Unit = productMeasureUnit;
-				}
-
-				const pricePerUnit_Value = priceFinalValue / productMeasureAmount;
-
-				const pricePerUnit_ValueSpan = document.createElement("span");
-				pricePerUnit_ValueSpan.className = "product-price-per-unit-value";
-
-				pricePerUnit_ValueSpan.textContent =
-					pricePerUnit_Value.toFixed(1).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
-
-				prices.appendChild(pricePerUnitDiv);
-				pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
-
-				// Remove "Množství ...;" from the text
-				appendixText = appendixText.replace(/Množství:\s*[^;]+;/, "").trim();
-				productAppendix.textContent = appendixText; // Update the element's text content
-			}
-		});
-	}
-
-	function actionPriceToFinalPriceAndReviewsNumber() {
-		allProducts.forEach((product) => {
-			let priceStandard = product.querySelector(".flag-discount .price-standard");
-			let priceFinal = product.querySelector(".price-final");
-			if (priceStandard && priceFinal) {
-				priceFinal.appendChild(priceStandard);
-			}
-			let starWrapper = product.querySelector(".stars-wrapper");
-			if (starWrapper) {
-				let reviewsNumber = starWrapper.getAttribute("data-micro-rating-count");
-				if (reviewsNumber) {
-					const reviewsNumberSpan = document.createElement("span");
-					reviewsNumberSpan.className = "reviews-number";
-					reviewsNumberSpan.innerHTML = reviewsNumber + "x";
-					starWrapper.appendChild(reviewsNumberSpan);
-				}
-			}
 		});
 	}
 }

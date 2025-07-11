@@ -296,10 +296,6 @@ button {
             justify-content: flex-start;
     gap: var(--gap-10);
   }
-  #header .navigation-wrapper .header-top > * {
-    /* 	margin-left: auto;
-    margin-right: auto; */
-  }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   #header .navigation-wrapper .header-top {
@@ -560,8 +556,8 @@ button {
   cursor: pointer;
   position: relative;
   padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-tertiary);
-          box-shadow: inset 0px -2px 0px var(--color-tertiary);
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
+          box-shadow: inset 0px -2px 0px var(--color-primary-500);
 }
 #header .navigation-wrapper .header-top .search form fieldset button:hover, #header .navigation-wrapper .header-top .search form fieldset button:focus-within {
   background: var(--color-primary-500);
@@ -724,8 +720,8 @@ button {
   background: var(--color-primary);
   border-radius: var(--br-16);
   padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-tertiary);
-          box-shadow: inset 0px -2px 0px var(--color-tertiary);
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
+          box-shadow: inset 0px -2px 0px var(--color-primary-500);
 }
 #header .navigation-wrapper #navigation ul,
 #header .navigation-wrapper #navigation li {
@@ -808,11 +804,18 @@ button {
     height: var(--header-height);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 37%;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom.active {
+    background-color: var(--color-primary-500);
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom.active::before {
+    background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_hamburger_menu_close.svg");
   }
 }
 @media screen and (min-width: 768px) {
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom:focus-within, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom.active {
-    background: var(--color-tertiary);
+    background: var(--color-primary-500);
   }
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom:hover::after, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom:focus-within::after, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom.active::after {
     -webkit-transform: rotate(180deg);
@@ -1264,7 +1267,7 @@ button {
   text-underline-offset: 3px;
 }
 #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-level-3 .show-all-subcategories:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .menu-level-3 .show-all-subcategories:focus-within, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:focus-within .menu-level-2 .menu-level-3 .show-all-subcategories:hover, #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:focus-within .menu-level-2 .menu-level-3 .show-all-subcategories:focus-within {
-  color: var(--color-tertiary);
+  color: var(--color-primary-500);
 }
 #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:first-child:hover {
   border-radius: var(--br-16) 0 0 var(--br-16);
@@ -1564,68 +1567,64 @@ body.type-category .subcategories li a .text {
   max-width: 7em;
   text-wrap: balance;
 }
-body.type-category .category-content-wrapper {
-  padding-top: var(--gap-24);
-}
-@media screen and (min-width: 1280px) {
-  body.type-category .category-content-wrapper {
-    padding-top: calc(var(--gap-24) * 1.5);
-  }
+body.type-category .filters-unveil-button-wrapper {
+  display: none;
 }
 body.type-category .custom-open-filter-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  position: relative;
-  z-index: 1;
-  background-color: var(--color-primary);
-  border-radius: var(--br-12);
-  color: var(--color-white);
-  font-size: var(--fs-13);
-  gap: 0.7em;
-  font-weight: var(--fw-600);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-tertiary);
-          box-shadow: inset 0px -2px 0px var(--color-tertiary);
-  padding: calc(0.8em + 2px) 0.77em 0.8em;
-}
-body.type-category .custom-open-filter-button:hover, body.type-category .custom-open-filter-button:focus-within {
-  background-color: var(--color-tertiary);
-}
-body.type-category .custom-open-filter-button::after {
-  position: relative;
-  top: -1px;
-  content: "";
-  display: block;
-  width: 1em;
-  height: auto;
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_down_white.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  -webkit-transition: -webkit-transform 0.2s ease-out;
-  transition: -webkit-transform 0.2s ease-out;
-  transition: transform 0.2s ease-out;
-  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
-}
-body.type-category .custom-open-filter-button.active::after {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-body.type-category .filters-wrapper {
   display: none;
+}
+@media screen and (max-width: 767px) {
+  body.type-category .custom-open-filter-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    position: relative;
+    z-index: 1;
+    background-color: var(--color-primary);
+    border-radius: var(--br-12);
+    color: var(--color-white);
+    font-size: var(--fs-13);
+    gap: 0.7em;
+    font-weight: var(--fw-600);
+    padding-bottom: 2px;
+    -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
+            box-shadow: inset 0px -2px 0px var(--color-primary-500);
+    padding: calc(0.8em + 2px) 0.77em 0.8em;
+  }
+  body.type-category .custom-open-filter-button:hover, body.type-category .custom-open-filter-button:focus-within {
+    background-color: var(--color-primary-500);
+  }
+  body.type-category .custom-open-filter-button::after {
+    position: relative;
+    top: -1px;
+    content: "";
+    display: block;
+    width: 1em;
+    height: auto;
+    background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_down_white.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-transition: -webkit-transform 0.2s ease-out;
+    transition: -webkit-transform 0.2s ease-out;
+    transition: transform 0.2s ease-out;
+    transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+  }
+  body.type-category .custom-open-filter-button.active::after {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
 }
 body.type-category #filters {
   --box-width: 20px;
   --box-radius: 6px;
   background-color: var(--color-gray-400);
   border-radius: var(--br-16);
-  display: none;
   font-size: var(--fs-13);
   padding: calc(10px + var(--box-width)) 20px 16px 20px;
   margin-top: calc(var(--box-width) * -1);
@@ -1633,6 +1632,11 @@ body.type-category #filters {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+@media screen and (max-width: 767px) {
+  body.type-category #filters {
+    display: none;
+  }
 }
 body.type-category #filters.active {
   display: -webkit-box;
@@ -1820,7 +1824,7 @@ body.type-category #filters .filter-sections #category-filter-hover #manufacture
   text-underline-offset: 3px;
 }
 body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter .show-all-manufacturers:hover, body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter .show-all-manufacturers:focus-within {
-  color: var(--color-tertiary);
+  color: var(--color-primary-500);
 }
 body.type-category #filters .filter-sections #category-filter-hover #manufacturer-filter.active fieldset div {
   display: block;
@@ -1945,6 +1949,14 @@ body.type-category.has-filters-active #filters #clear-filters a::after {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_close_gray.svg");
   background-position: center;
   background-repeat: no-repeat;
+}
+body.type-category .category-content-wrapper {
+  padding-top: var(--gap-24);
+}
+@media screen and (min-width: 1280px) {
+  body.type-category .category-content-wrapper {
+    padding-top: calc(var(--gap-24) * 1.5);
+  }
 }
 body.type-category .category-header {
   margin-top: var(--gap-24);
