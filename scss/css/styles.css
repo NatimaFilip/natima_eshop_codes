@@ -930,6 +930,28 @@ button {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    background: transparent;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active > a {
+    color: var(--color-primary);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active > a::before {
+    content: "";
+    display: block;
+    top: 0;
+    left: 0;
+    width: 0.857em;
+    height: 100%;
+    margin-right: 0.57em;
+    background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 {
     display: -webkit-box;
@@ -939,7 +961,8 @@ button {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    gap: var(--gap-16);
+    gap: var(--gap-5);
+    margin-top: var(--gap-5);
   }
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2::before {
     display: none;
@@ -949,9 +972,41 @@ button {
     width: 100%;
     background: var(--color-gray-400);
     border-radius: var(--br-12);
+    position: relative;
+    z-index: 9999;
   }
   #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 > li a {
     padding: 0.73em 0.85em;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 .menu-level-3 {
+    display: none;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 > li.has-third-level > div {
+    display: grid;
+    grid-template-columns: 1fr 2.857em;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 > li.has-third-level .menu-level-3 {
+    display: block;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 > li.has-third-level .menu-level-3::before {
+    content: "";
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0.857em;
+    border-radius: 0 var(--br-12) var(--br-12) 0;
+    border-left: 1px solid var(--color-gray-500);
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 > li.has-third-level .menu-level-3 .show-all-subcategories {
+    display: none;
+  }
+  #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.level-two-active > li.active .menu-level-2 > li.has-third-level .menu-level-3 > li {
+    display: none;
   }
 }
 #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li {

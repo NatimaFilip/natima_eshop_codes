@@ -57,16 +57,22 @@ window.addEventListener("resize", function () {
 
 // Now you can trigger the same debounced behavior with:
 
+//console log what i click on
+document.addEventListener("touchstart", function (event) {
+	if (event.target) {
+		console.log("Clicked on:", event.target);
+	}
+});
+
 /*-------------------------------------- Custom functions*/
 //click and touchstart listener for elements that should work on both desktop and mobile
-function addSmartTouchClickListener(element, handler) {
+/* function addSmartTouchClickListener(element, handler) {
 	let touched = false;
 	["touchstart", "click"].forEach((event) => {
 		element.addEventListener(event, function (e) {
 			if (event === "touchstart") {
 				touched = true;
 				handler(e);
-				e.preventDefault();
 			} else if (event === "click") {
 				if (touched) {
 					touched = false;
@@ -77,12 +83,47 @@ function addSmartTouchClickListener(element, handler) {
 		});
 	});
 
-	/* 	element.addEventListener("pointerdown", function (e) {
-		handler(e);
-		e.preventDefault();
-	}); */
-}
+	 //	element.addEventListener("pointerdown", function (e) {
+		//handler(e);
+	//	e.preventDefault();
+	//}); 
+} */
 
+function addSmartTouchClickListener(element, handler) {
+	let touched = false;
+	let touchTimer = null;
+
+	/* 	element.addEventListener("touchstart"
+	, function () {
+		touched = true;
+		// Reset touch if touchend doesn't happen soon
+		touchTimer = setTimeout(() => {
+			touched = false;
+		}, 100);
+
+		console.log("touchstart on element:", element);
+	});
+
+	element.addEventListener("touchend", function (e) {
+		if (touched) {
+			handler(e);
+			touched = false;
+			clearTimeout(touchTimer);
+		}
+
+		console.log("touchend on element:", element);
+	}); */
+
+	element.addEventListener("click", function (e) {
+		console.log("click on element:", element);
+		if (touched) {
+			// Click after touch, skip
+			touched = false;
+			return;
+		}
+		handler(e);
+	});
+}
 /*-------------------------------------- HEADER*/
 
 let header = document.getElementById("header");
@@ -324,6 +365,7 @@ addSmartTouchClickListener(mainCategoryMenuHelper, function (event) {
 	document.body.classList.toggle("content-hidden");
 
 	if (!addedListenerToClickOutsideOfMenu) {
+		addedListenerToClickOutsideOfMenu = true;
 		addSmartTouchClickListener(document, function (event) {
 			if (!mainCategoryMenuHelperSubmenuDiv.contains(event.target) && !mainCategoryMenuHelper.contains(event.target)) {
 				mainCategoryMenuHelper.classList.remove("active");
