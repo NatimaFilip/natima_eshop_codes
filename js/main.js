@@ -642,7 +642,7 @@ if (body.classList.contains("type-category")) {
 	moveAsideToCategoryContent();
 	customMoveFilter();
 	editClearFiltersButton();
-	moveSelectedFilters();
+	/* 	moveSelectedFilters(); */
 	editManufacturerFilter();
 	cleanEmptyFilters();
 	editProductSorting();
@@ -651,7 +651,7 @@ if (body.classList.contains("type-category")) {
 
 	window.addEventListener("resize", function () {
 		customMoveFilter();
-		moveSelectedFilters();
+		/* 	moveSelectedFilters(); */
 	});
 
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
@@ -664,7 +664,7 @@ if (body.classList.contains("type-category")) {
 
 		customMoveFilter();
 		editClearFiltersButton();
-		moveSelectedFilters();
+		/* 		moveSelectedFilters(); */
 		editManufacturerFilter();
 		cleanEmptyFilters();
 		editProductSorting();
@@ -681,6 +681,10 @@ if (body.classList.contains("type-category")) {
 	}
 
 	function customMoveFilter() {
+		categoryContentWrapper.prepend(filtersWrapperElement);
+	}
+
+	/* 	function customMoveFilter() {
 		if (isTablet) {
 			moveFiltersElementAfterCategoryTop();
 		}
@@ -702,7 +706,7 @@ if (body.classList.contains("type-category")) {
 			filterInOriginalPosition = true;
 			filtersWrapperElement.appendChild(filtersElement);
 		}
-	}
+	} */
 
 	function customOpenFilterButtonListener() {
 		addSmartTouchClickListener(customOpenFilterButton, function () {
@@ -732,7 +736,7 @@ if (body.classList.contains("type-category")) {
 		if (plLang) {
 			selectedFiltersSpan.innerHTML = "Wybrane filtry";
 		}
-		filtersElement.prepend(selectedFiltersDiv);
+		filtersWrapperElement.prepend(selectedFiltersDiv);
 		selectedFiltersDiv.appendChild(selectedFiltersSpan);
 
 		//for each fieldset get active labels, create copies of them and append tgem to selectedFiltersDiv
