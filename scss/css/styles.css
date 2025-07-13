@@ -1575,6 +1575,7 @@ body.type-category .custom-open-filter-button {
 }
 @media screen and (max-width: 767px) {
   body.type-category .custom-open-filter-button {
+    margin-top: var(--gap-24);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

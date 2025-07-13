@@ -631,7 +631,7 @@ if (body.classList.contains("type-category")) {
 			filtersElement = document.querySelector("#filters");
 			filtersElement.classList.add("active");
 			filtersPositionContent = document.querySelector(".category-content-wrapper");
-			filterSections = filtersElement.querySelectorAll(".filter-section");
+			
 			customMoveFilter();
 		}
 		moveAndEditClearFilters();
@@ -643,12 +643,11 @@ if (body.classList.contains("type-category")) {
 	window.addEventListener("resize", function () {
 		customMoveFilter();
 	}); */
-	let asideElement = document.querySelector("aside.sidebar");
 	let categoryTop = document.querySelector(".category-top");
-	let contentWrapperInElement = document.querySelector(".content-wrapper-in");
 	let filterInOriginalPosition = true;
 	let filtersElement = document.querySelector("#filters");
 	let filtersWrapperElement = document.querySelector(".filters-wrapper");
+	let filterSections = filtersElement.querySelectorAll(".filter-section");
 
 	const customOpenFilterButton = document.createElement("a");
 	customOpenFilterButton.className = "custom-open-filter-button";
@@ -663,21 +662,29 @@ if (body.classList.contains("type-category")) {
 	}
 
 	customMoveFilter();
-	editFilters();
+	editClearFiltersButton();
+	editManufacturerFilter();
+	cleanEmptyFilters();
+	editProductSorting();
+
+	customOpenFilterButtonListener();
 
 	window.addEventListener("resize", function () {
 		customMoveFilter();
 	});
 
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
-		/* 	filterInOriginalPosition = true; */
-
+		// potřebuje znovu definovat, protože se to z nějakého důvodu přepíše
 		filtersElement = document.querySelector("#filters");
 		categoryTop = document.querySelector(".category-top");
 		filtersWrapperElement = document.querySelector(".filters-wrapper");
 		filterInOriginalPosition = true;
 
 		customMoveFilter();
+		editClearFiltersButton();
+		editManufacturerFilter();
+		cleanEmptyFilters();
+		editProductSorting();
 
 		if (customOpenFilterButton.classList.contains("active")) {
 			filtersElement.classList.add("active");
@@ -710,52 +717,14 @@ if (body.classList.contains("type-category")) {
 		}
 	}
 
-	function editFilters() {
+	function customOpenFilterButtonListener() {
 		addSmartTouchClickListener(customOpenFilterButton, function () {
 			filtersElement.classList.toggle("active");
 			customOpenFilterButton.classList.toggle("active");
 		});
 	}
 
-	/* 	function customMoveFilter() {
-		if (isDesktop) {
-			if (filterInSidebar) {
-				return;
-			}
-			filtersPositionSidebar.appendChild(filtersElement);
-			filterInSidebar = true;
-		}
-		if (!isDesktop) {
-			if (!filterInSidebar) {
-				return;
-			}
-			filterInSidebar = false;
-
-			if (!customOpenFilterButtonExists) {
-				customOpenFilterButtonExists = true;
-				const customOpenFilterButton = document.createElement("a");
-				customOpenFilterButton.className = "custom-open-filter-button";
-
-				if (csLang) {
-					customOpenFilterButton.innerHTML = "Filtrování výsledků";
-				}
-				if (skLang) {
-					customOpenFilterButton.innerHTML = "Filtrovanie výsledkov";
-				}
-				if (plLang) {
-					customOpenFilterButton.innerHTML = "Filtrowanie wyników";
-				}
-				addSmartTouchClickListener(customOpenFilterButton, function () {
-					filtersElement.classList.toggle("active");
-					customOpenFilterButton.classList.toggle("active");
-				});
-			}
-			filtersPositionContent.prepend(filtersElement);
-			filtersPositionContent.prepend(customOpenFilterButton);
-		}
-	} */
-
-	function moveAndEditClearFilters() {
+	function editClearFiltersButton() {
 		let clearFilterButton = filtersElement.querySelector("#clear-filters");
 		if (!clearFilterButton) {
 			body.classList.remove("has-filters-active");
