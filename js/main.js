@@ -884,17 +884,17 @@ if (body.classList.contains("type-category")) {
 		// Find all inputs within the category header
 		let sortingInputs = sortingForm.querySelectorAll("fieldset input[type='radio']");
 
-		if (!isDesktop) {
-			sortingInputs.forEach((input) => {
-				let label = categoryHeader.querySelector(`label[for='${input.id}']`);
-				if (input.checked && label) {
-					label.classList.add("active"); // Add 'active' class to the label of the checked input
+		sortingInputs.forEach((input) => {
+			let label = categoryHeader.querySelector(`label[for='${input.id}']`);
+			if (input.checked && label) {
+				label.classList.add("active"); // Add 'active' class to the label of the checked input
+				if (!isDesktop) {
 					sortingForm.querySelector("fieldset").prepend(label); // Move the label to the end of the fieldset
-				} else if (label) {
-					label.classList.remove("active"); // Remove 'active' class from other labels
 				}
-			});
-		}
+			} else if (label) {
+				label.classList.remove("active"); // Remove 'active' class from other labels
+			}
+		});
 
 		// Add event listener to the toggle button
 		addSmartTouchClickListener(toggleOpenSortingForm, function () {
