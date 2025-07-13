@@ -1892,6 +1892,12 @@ body.type-category {
 				max-width: 248px;
 				grid-row: 1/5;
 			}
+			> #filters {
+				grid-column: 1;
+				width: 90%;
+				max-width: 248px;
+				grid-row: 1/5;
+			}
 			#filters-wrapper {
 				display: none;
 			}

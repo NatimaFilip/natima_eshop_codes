@@ -2082,6 +2082,12 @@ body.type-category .selected-filters #clear-filters a::after {
     max-width: 248px;
     grid-row: 1/5;
   }
+  body.type-category .category-content-wrapper > #filters {
+    grid-column: 1;
+    width: 90%;
+    max-width: 248px;
+    grid-row: 1/5;
+  }
   body.type-category .category-content-wrapper #filters-wrapper {
     display: none;
   }

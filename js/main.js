@@ -664,6 +664,7 @@ if (body.classList.contains("type-category")) {
 
 		customMoveFilter();
 		editClearFiltersButton();
+		moveSelectedFilters();
 		editManufacturerFilter();
 		cleanEmptyFilters();
 		editProductSorting();
