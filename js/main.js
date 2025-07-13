@@ -682,7 +682,7 @@ if (body.classList.contains("type-category")) {
 
 	function customMoveFilter() {
 		categoryContentWrapper.prepend(filtersElement);
-		categoryContentWrapper.prepend(filtersWrapperElement);
+		document.querySelector("#filters-wrapper")?.remove();
 	}
 
 	/* 	function customMoveFilter() {
