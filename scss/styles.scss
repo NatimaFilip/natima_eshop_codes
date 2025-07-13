@@ -54,6 +54,7 @@ $mobile-max: 767px;
 $tablet-min: 768px;
 $tablet-max: 1279px;
 $desktop-min: 1280px;
+$desktop-large-min: 1680px;
 
 /*variables*/
 :root {
@@ -70,6 +71,7 @@ $desktop-min: 1280px;
 	--br-24: 24px;
 
 	--fs-10: 0.625rem;
+	--fs-11: 0.6875rem;
 	--fs-12: 0.75rem;
 	--fs-13: 0.8125rem;
 	--fs-14: 0.875rem;
@@ -106,8 +108,10 @@ $desktop-min: 1280px;
 	--color-black-o-20: hsla(0, 0%, 0%, 0.2);
 	--color-black-o-10: hsla(0, 0%, 0%, 0.1);
 
+	--color-gray-200: #f8f8f8;
 	--color-gray-400: #f2f2f2;
 	--color-gray-500: #e7e7e7;
+	--color-gray-600: #808080;
 	--color-gray-700: #4f4f4f;
 
 	--color-primary-500: hsla(268, 36%, 50%, 1);
@@ -249,6 +253,7 @@ img,
 picture {
 	max-width: 100%;
 	display: block;
+	user-select: none;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -1032,17 +1037,25 @@ button {
 							.menu-level-2 {
 								background: white;
 								display: grid;
-								grid-template-columns: repeat(4, 1fr);
-								grid-auto-rows: minmax(8rem, 1fr);
+								grid-template-columns: repeat(3, 1fr);
+								@media screen and (min-width: $desktop-min) {
+									grid-template-columns: repeat(4, 1fr);
+								}
+								/* 								grid-auto-rows: minmax(8rem, 1fr);
 								column-gap: var(--gap-16);
-								row-gap: calc(var(--gap-14) + 2rem);
+								row-gap: calc(var(--gap-14) + 2rem); */
+								grid-auto-rows: minmax(6rem, 1fr);
+								column-gap: var(--gap-14);
+								row-gap: calc(var(--gap-14) + 1rem);
 								position: absolute;
 								width: 100%;
 								left: 0;
 								top: 100%;
 								z-index: 9;
-								padding: calc(var(--gap-16) * 4) calc(var(--gap-16) * 2) calc(var(--gap-16) * 4 - 10px)
-									calc(var(--gap-16) * 4);
+								/* 		padding: calc(var(--gap-16) * 4) calc(var(--gap-16) * 2) calc(var(--gap-16) * 4 - 10px)
+									calc(var(--gap-16) * 4); */
+								padding: calc(var(--gap-14) * 3) calc(var(--gap-14) * 1) calc(var(--gap-14) * 3 - 10px)
+									calc(var(--gap-14) * 3);
 								border-radius: var(--br-16);
 								@include bottom-shadow;
 								> li {
@@ -1059,7 +1072,7 @@ button {
 												padding-top: 0.75em;
 												padding-bottom: 0.75em;
 
-												margin-bottom: calc(8rem - var(--menu-image-width));
+												margin-bottom: calc(6rem - var(--menu-image-width));
 											}
 										}
 									}
@@ -1308,7 +1321,6 @@ body {
 			> span {
 				display: flex;
 				align-items: center;
-
 				color: var(--color-black);
 				font-size: var(--fs-13);
 				font-weight: var(--fw-400);
@@ -1317,9 +1329,9 @@ body {
 			#navigation-first {
 				display: flex;
 				a {
+					margin-left: calc(var(--padding-for-click) * -1);
 					padding: var(--padding-for-click) var(--padding-for-click);
 					height: calc(var(--fs-16) + var(--padding-for-click) * 2);
-					margin-left: calc(var(--padding-for-click) * -1);
 					&::before {
 						content: "";
 						width: 14px;
@@ -1345,6 +1357,46 @@ body {
 			}
 			.navigation-bullet {
 				display: none;
+			}
+		}
+		@media screen and (min-width: $tablet-min) {
+			margin-top: var(--gap-14);
+			.breadcrumbs {
+				> span {
+					color: var(--color-gray-600);
+					padding-left: var(--gap-13);
+					border-left-style: solid;
+					border-left-width: 1px;
+					border-color: var(--color-black-o-10);
+					line-height: 1;
+				}
+
+				#navigation-first {
+					padding: 1px var(--padding-for-click);
+					margin-left: calc(var(--padding-for-click) * -1);
+					margin-right: calc(var(--gap-13) - var(--padding-for-click));
+					border-left-style: none;
+					a {
+						margin-left: 0;
+						width: var(--fs-16);
+						height: var(--fs-16);
+						padding: 0;
+
+						&::before {
+							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_breadcrumbs_home_black.svg");
+							transform: none;
+							transition: none;
+							height: 100%;
+							width: 100%;
+						}
+						&:hover,
+						&:focus-within {
+							&::before {
+								transform: scale(1.15);
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -1402,7 +1454,7 @@ body.type-category {
 			grid-template-columns: repeat(5, 1fr);
 			font-size: var(--fs-16);
 		}
-		@media screen and (min-width: calc($desktop-min + 400px)) {
+		@media screen and (min-width: calc($desktop-large-min)) {
 			grid-template-columns: repeat(6, 1fr);
 		}
 		li {
@@ -1411,7 +1463,6 @@ body.type-category {
 			padding: 0.77em 1.5em 0.77em 0.77em;
 			@media screen and (min-width: $desktop-min) {
 				border-radius: var(--br-16);
-
 				padding: 0.75em 2em 0.75em 1em;
 			}
 			a {
@@ -1436,16 +1487,19 @@ body.type-category {
 					text-wrap: balance;
 				}
 			}
+			&:hover,
+			&:focus-within {
+				outline: solid 2px var(--color-primary);
+				background-color: var(--color-gray-200);
+			}
 		}
 	}
-
 	.filters-unveil-button-wrapper {
 		display: none;
 	}
-
 	.custom-open-filter-button {
 		display: none;
-		@media screen and (max-width: $mobile-max) {
+		@media screen and (max-width: $tablet-max) {
 			margin-top: var(--gap-24);
 			display: flex;
 			justify-content: center;
@@ -1483,7 +1537,6 @@ body.type-category {
 			}
 		}
 	}
-
 	#filters {
 		--box-width: 20px;
 		--box-radius: 6px;
@@ -1494,7 +1547,7 @@ body.type-category {
 		margin-top: calc(var(--box-width) * -1);
 		flex-direction: column;
 
-		@media screen and (max-width: $mobile-max) {
+		@media screen and (max-width: $tablet-max) {
 			display: none;
 		}
 		&.active {
@@ -1611,7 +1664,12 @@ body.type-category {
 						transform: translateX(50%);
 					}
 					.filter-count {
-						padding-left: 0.84615em;
+						margin-left: 0.84615em;
+						padding: 0 7px;
+						line-height: var(--lh-1-4);
+						background-color: var(--color-gray-400);
+						border-radius: 10px;
+						font-size: var(--fs-11);
 					}
 				}
 			}
@@ -1687,49 +1745,112 @@ body.type-category {
 		.no-display {
 			display: none !important;
 		}
+		@media screen and (min-width: $desktop-min) {
+			padding: 0;
+			margin: 0;
+			background-color: transparent;
+		}
 	}
 	&.has-filters-active {
 		#filters {
 			display: flex;
-			&:not(.active) > * {
-				display: none;
+			@media screen and (max-width: $tablet-max) {
+				&:not(.active) > * {
+					display: none;
+				}
 			}
-			.selected-filters {
-				display: flex;
-				flex-direction: column;
-				gap: var(--gap-6);
+		}
+	}
+
+	.selected-filters {
+		display: flex !important;
+		flex-direction: column;
+		gap: var(--gap-6);
+		@media screen and (min-width: $tablet-min) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: var(--gap-20);
+		}
+		@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+			margin-top: var(--gap-10);
+		}
+
+		.selected-filters-text {
+			font-size: var(--fs-16);
+			font-weight: var(--fw-700);
+			color: var(--color-black);
+			line-height: var(--lh-2);
+		}
+		.active-filter-section {
+			display: flex;
+			flex-direction: row;
+			border-style: solid;
+			border-width: 1px;
+			border-radius: var(--br-10);
+			border-color: var(--color-black-o-10);
+			font-size: var(--fs-13);
+			padding: 0.462em 0.615em;
+			gap: var(--gap-6);
+			align-items: center;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			max-width: fit-content;
+			@media screen and (min-width: $desktop-min) {
+				gap: var(--gap-10);
 			}
-			.selected-filters-text {
-				font-size: var(--fs-16);
-				font-weight: var(--fw-700);
-				color: var(--color-black);
-				line-height: var(--lh-2);
+		}
+		.active-filter-label {
+			color: var(--color-primary);
+			font-weight: var(--fw-700);
+			border-style: solid;
+			border-width: 1px;
+			border-radius: var(--br-6);
+			border-color: var(--color-primary);
+			padding: 0.31em 2.23em 0.31em 0.615em;
+			position: relative;
+			cursor: pointer;
+
+			//make it targetable with tab
+			&:focus-within {
+				outline: 2px solid var(--color-primary);
+				outline-offset: 2px;
 			}
-			.active-filter-section {
-				display: flex;
-				flex-direction: row;
-				border-style: solid;
-				border-width: 1px;
-				border-radius: var(--br-10);
-				border-color: var(--color-black-o-10);
-				font-size: var(--fs-13);
-				padding: 0.462em 0.615em;
-				gap: 0.462em;
-				align-items: center;
-				justify-content: flex-start;
-				flex-wrap: wrap;
-				max-width: fit-content;
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 50%;
+				right: 0.615em;
+				width: 1.315em;
+				height: 1.315em;
+				padding: 0.538em;
+				transform: translateY(-50%);
+				background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_close_gray.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+
+				cursor: pointer;
 			}
-			.active-filter-label {
-				color: var(--color-primary);
+		}
+		#clear-filters {
+			padding: 0;
+			display: flex;
+			margin-top: var(--gap-6);
+			margin-bottom: var(--gap-10);
+			@media screen and (min-width: $desktop-min) {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			a {
+				color: var(--color-red-400);
 				font-weight: var(--fw-700);
 				border-style: solid;
 				border-width: 1px;
 				border-radius: var(--br-6);
-				border-color: var(--color-primary);
-				padding: 0.31em 2.23em 0.31em 0.615em;
+				border-color: var(--color-red-400);
+				padding: 0.315em 2.23em 0.315em 0.615em;
 				position: relative;
-				pointer-events: none;
 				&::after {
 					content: "";
 					display: block;
@@ -1743,52 +1864,42 @@ body.type-category {
 					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_close_gray.svg");
 					background-position: center;
 					background-repeat: no-repeat;
-					pointer-events: auto;
-					cursor: pointer;
-				}
-			}
-			#clear-filters {
-				padding: 0;
-				display: flex;
-				margin-top: var(--gap-6);
-				margin-bottom: var(--gap-10);
-				a {
-					color: var(--color-red-400);
-					font-weight: var(--fw-700);
-					border-style: solid;
-					border-width: 1px;
-					border-radius: var(--br-6);
-					border-color: var(--color-red-400);
-					padding: 0.315em 2.23em 0.315em 0.615em;
-					position: relative;
-					&::after {
-						content: "";
-						display: block;
-						position: absolute;
-						top: 50%;
-						right: 0.615em;
-						width: 1.315em;
-						height: 1.315em;
-						padding: 0.538em;
-						transform: translateY(-50%);
-						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_close_gray.svg");
-						background-position: center;
-						background-repeat: no-repeat;
-					}
 				}
 			}
 		}
 	}
 
-	.category-content-wrapper {
-		padding-top: var(--gap-24);
-		@media screen and (min-width: $desktop-min) {
+	//aside naboku
+	@media screen and (min-width: $desktop-min) {
+		.category-content-wrapper {
 			padding-top: calc(var(--gap-24) * 1.5);
+			display: grid;
+			grid-template-columns: 1fr 4fr;
+			@media screen and (min-width: $desktop-large-min) {
+				grid-template-columns: 1fr 5fr;
+			}
+			row-gap: var(--gap-30);
+
+			> * {
+				grid-column: 2;
+			}
+			aside {
+				display: block;
+				grid-column: 1;
+				width: 90%;
+				max-width: 248px;
+				grid-row: 1/5;
+			}
+			#filters-wrapper {
+				display: none;
+			}
 		}
 	}
 
 	.category-header {
-		margin-top: var(--gap-24);
+		@media screen and (max-width: $tablet-max) {
+			margin-top: var(--gap-24);
+		}
 		margin-bottom: var(--gap-16);
 		display: flex;
 		flex-direction: row;
@@ -1872,6 +1983,26 @@ body.type-category {
 			color: var(--color-black-o-60);
 			strong {
 				font-weight: var(--fw-400);
+			}
+		}
+	}
+
+	@media screen and (min-width: $desktop-min) {
+		.category-header {
+			margin-bottom: 0;
+			form {
+				fieldset {
+					flex-direction: row;
+					gap: 2.615em;
+					label {
+						display: block !important;
+						pointer-events: auto;
+						cursor: pointer;
+					}
+				}
+			}
+			.toggle-open-sorting-form {
+				display: none;
 			}
 		}
 	}

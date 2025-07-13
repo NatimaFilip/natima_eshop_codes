@@ -617,37 +617,15 @@ if (body.classList.contains("type-category")) {
 	}
 
 	/*------------------------------FILTRY*/
-	/* 	customMoveFilter();
-	moveAndEditClearFilters();
-	editManufacturerFilter();
-	cleanEmptyFilters();
-	editProductSorting();
 
-	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
-		allProducts = document.querySelectorAll(".product");
-
-		if (!isDesktop) {
-			filterInSidebar = true;
-			filtersElement = document.querySelector("#filters");
-			filtersElement.classList.add("active");
-			filtersPositionContent = document.querySelector(".category-content-wrapper");
-			
-			customMoveFilter();
-		}
-		moveAndEditClearFilters();
-		editManufacturerFilter();
-		cleanEmptyFilters();
-		editProductSorting();
-	});
-
-	window.addEventListener("resize", function () {
-		customMoveFilter();
-	}); */
 	let categoryTop = document.querySelector(".category-top");
 	let filterInOriginalPosition = true;
 	let filtersElement = document.querySelector("#filters");
 	let filtersWrapperElement = document.querySelector(".filters-wrapper");
 	let filterSections = filtersElement.querySelectorAll(".filter-section");
+	let asideElement = document.querySelector("aside");
+	let categoryContentWrapper = document.querySelector(".category-content-wrapper");
+	let selectedFiltersInSidebar = true;
 
 	const customOpenFilterButton = document.createElement("a");
 	customOpenFilterButton.className = "custom-open-filter-button";
@@ -661,8 +639,10 @@ if (body.classList.contains("type-category")) {
 		customOpenFilterButton.innerHTML = "Filtrowanie wyników";
 	}
 
+	moveAsideToCategoryContent();
 	customMoveFilter();
 	editClearFiltersButton();
+	moveSelectedFilters();
 	editManufacturerFilter();
 	cleanEmptyFilters();
 	editProductSorting();
@@ -671,6 +651,7 @@ if (body.classList.contains("type-category")) {
 
 	window.addEventListener("resize", function () {
 		customMoveFilter();
+		moveSelectedFilters();
 	});
 
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
@@ -694,11 +675,15 @@ if (body.classList.contains("type-category")) {
 		}
 	});
 
+	function moveAsideToCategoryContent() {
+		categoryContentWrapper.prepend(asideElement);
+	}
+
 	function customMoveFilter() {
-		if (isMobile) {
+		if (isTablet) {
 			moveFiltersElementAfterCategoryTop();
 		}
-		if (!isMobile) {
+		if (!isTablet) {
 			moveFiltersElementToOriginalPosition();
 		}
 	}
@@ -795,6 +780,24 @@ if (body.classList.contains("type-category")) {
 		});
 
 		selectedFiltersDiv.appendChild(clearFilterButton);
+	}
+
+	function moveSelectedFilters() {
+		let selectedFiltersDiv = document.querySelector(".selected-filters");
+		if (!selectedFiltersDiv) {
+			return;
+		}
+		if (isDesktop) {
+			if (selectedFiltersInSidebar) {
+				selectedFiltersInSidebar = false;
+				categoryContentWrapper.prepend(selectedFiltersDiv);
+			}
+		} else {
+			if (!selectedFiltersInSidebar) {
+				selectedFiltersInSidebar = true;
+				filtersElement.prepend(selectedFiltersDiv);
+			}
+		}
 	}
 
 	function editManufacturerFilter() {
