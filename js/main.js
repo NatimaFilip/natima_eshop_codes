@@ -680,12 +680,12 @@ if (body.classList.contains("type-category")) {
 		categoryContentWrapper.prepend(asideElement);
 	}
 
-	function customMoveFilter() {
+	/* 	function customMoveFilter() {
 		categoryContentWrapper.prepend(filtersElement);
 		document.querySelector(".filters-wrapper")?.remove();
-	}
+	} */
 
-	/* 	function customMoveFilter() {
+	function customMoveFilter() {
 		if (isTablet) {
 			moveFiltersElementAfterCategoryTop();
 		}
@@ -707,7 +707,7 @@ if (body.classList.contains("type-category")) {
 			filterInOriginalPosition = true;
 			filtersWrapperElement.appendChild(filtersElement);
 		}
-	} */
+	}
 
 	function customOpenFilterButtonListener() {
 		categoryContentWrapper.prepend(customOpenFilterButton);
