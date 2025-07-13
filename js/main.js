@@ -675,10 +675,11 @@ if (body.classList.contains("type-category")) {
 
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
 		// potřebuje znovu definovat, protože se to z nějakého důvodu přepíše
-		filtersElement = document.querySelector("#filters");
 		categoryTop = document.querySelector(".category-top");
-		filtersWrapperElement = document.querySelector(".filters-wrapper");
 		filterInOriginalPosition = true;
+		filtersElement = document.querySelector("#filters");
+		filtersWrapperElement = document.querySelector(".filters-wrapper");
+		filterSections = filtersElement.querySelectorAll(".filter-section");
 
 		customMoveFilter();
 		editClearFiltersButton();
