@@ -1524,6 +1524,10 @@ body .breadcrumbs-wrapper .breadcrumbs .navigation-bullet {
 }
 
 /*-------------------------------------- CATEGORY*/
+body.type-category {
+  --filter-box-width: 20px;
+  --filter-box-radius: 6px;
+}
 body.type-category .category-perex {
   font-size: var(--fs-16);
   padding-bottom: 0.9375em;
@@ -1682,13 +1686,11 @@ body.type-category .custom-open-filter-button {
   }
 }
 body.type-category #filters {
-  --box-width: 20px;
-  --box-radius: 6px;
   background-color: var(--color-gray-400);
   border-radius: var(--br-16);
   font-size: var(--fs-13);
-  padding: calc(10px + var(--box-width)) 20px 16px 20px;
-  margin-top: calc(var(--box-width) * -1);
+  padding: calc(10px + var(--filter-box-width)) 20px 16px 20px;
+  margin-top: calc(var(--filter-box-width) * -1);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1763,18 +1765,18 @@ body.type-category #filters .slider-wrapper .slider-content #slider {
   height: 6px;
   position: relative;
   text-align: left;
-  width: calc(100% - var(--box-width));
+  width: calc(100% - var(--filter-box-width));
   margin: auto;
 }
 body.type-category #filters .slider-wrapper .slider-content #slider span {
-  width: var(--box-width);
-  height: var(--box-width);
-  border-radius: var(--box-radius);
+  width: var(--filter-box-width);
+  height: var(--filter-box-width);
+  border-radius: var(--filter-box-radius);
   background-color: var(--color-primary);
   top: -6px;
   display: block;
   position: absolute;
-  margin-left: calc(var(--box-width) / -2);
+  margin-left: calc(var(--filter-box-width) / -2);
 }
 body.type-category #filters fieldset {
   padding: 0;
@@ -1791,7 +1793,7 @@ body.type-category #filters fieldset div label {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: var(--box-width);
+  min-height: var(--filter-box-width);
   cursor: pointer;
   position: relative;
   margin-bottom: 0.615em;
@@ -1802,9 +1804,9 @@ body.type-category #filters fieldset div label.disabled {
 body.type-category #filters fieldset div label::before {
   content: "";
   margin: 0;
-  width: var(--box-width);
-  height: var(--box-width);
-  border-radius: var(--box-radius);
+  width: var(--filter-box-width);
+  height: var(--filter-box-width);
+  border-radius: var(--filter-box-radius);
   border-style: solid;
   border-width: 1px;
   border-color: var(--color-primary);
@@ -1818,8 +1820,8 @@ body.type-category #filters fieldset div label.active::before {
 body.type-category #filters fieldset div label.active::after {
   content: "";
   margin: 0;
-  width: calc(var(--box-width) / 2);
-  height: var(--box-width);
+  width: calc(var(--filter-box-width) / 2);
+  height: var(--filter-box-width);
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_check_white.svg");
   background-position: center;
   background-repeat: no-repeat;
@@ -1911,11 +1913,6 @@ body.type-category #filters .no-display {
     background-color: transparent;
   }
 }
-body.type-category.has-filters-active #filters {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
 @media screen and (max-width: 1279px) {
   body.type-category.has-filters-active #filters:not(.active) > * {
     display: none;
@@ -1930,6 +1927,10 @@ body.type-category .selected-filters {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: var(--gap-6);
+  background: var(--color-gray-400);
+  padding: calc(10px + var(--filter-box-width)) 20px 16px 20px;
+  margin-top: calc(var(--filter-box-width) * -1);
+  border-radius: var(--br-16);
 }
 @media screen and (min-width: 768px) {
   body.type-category .selected-filters {
@@ -1945,9 +1946,11 @@ body.type-category .selected-filters {
     gap: var(--gap-20);
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 1280px) {
   body.type-category .selected-filters {
-    margin-top: var(--gap-10);
+    background: transparent;
+    padding: 0;
+    margin: 0;
   }
 }
 body.type-category .selected-filters .selected-filters-text {
@@ -2026,6 +2029,7 @@ body.type-category .selected-filters #clear-filters {
   display: flex;
   margin-top: var(--gap-6);
   margin-bottom: var(--gap-10);
+  font-size: var(--fs-13);
 }
 @media screen and (min-width: 1280px) {
   body.type-category .selected-filters #clear-filters {
@@ -2058,10 +2062,44 @@ body.type-category .selected-filters #clear-filters a::after {
   background-position: center;
   background-repeat: no-repeat;
 }
+body.type-category .category-content-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+body.type-category .category-content-wrapper .custom-open-filter-button {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+body.type-category .category-content-wrapper .selected-filters {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+body.type-category .category-content-wrapper #filters {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+body.type-category .category-content-wrapper .category-header {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+}
+body.type-category .category-content-wrapper #products {
+  -webkit-box-ordinal-group: 6;
+      -ms-flex-order: 5;
+          order: 5;
+}
 @media screen and (min-width: 1280px) {
   body.type-category .category-content-wrapper {
-    padding-top: calc(var(--gap-24) * 1.5);
     display: grid;
+    padding-top: calc(var(--gap-24) * 1.5);
     grid-template-columns: 1fr 4fr;
     row-gap: var(--gap-30);
   }
@@ -2076,17 +2114,13 @@ body.type-category .selected-filters #clear-filters a::after {
     grid-column: 2;
   }
   body.type-category .category-content-wrapper aside {
-    display: block;
-    grid-column: 1;
-    width: 90%;
-    max-width: 248px;
-    grid-row: 1/5;
+    display: none;
   }
   body.type-category .category-content-wrapper > #filters {
     grid-column: 1;
     width: 90%;
     max-width: 248px;
-    grid-row: 1/5;
+    grid-row: 1/10;
   }
   body.type-category .category-content-wrapper #filters-wrapper {
     display: none;

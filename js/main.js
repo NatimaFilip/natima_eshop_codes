@@ -646,7 +646,6 @@ if (body.classList.contains("type-category")) {
 	editManufacturerFilter();
 	cleanEmptyFilters();
 	editProductSorting();
-
 	customOpenFilterButtonListener();
 
 	window.addEventListener("resize", function () {
@@ -681,7 +680,7 @@ if (body.classList.contains("type-category")) {
 	}
 
 	function customMoveFilter() {
-		categoryContentWrapper.prepend(filtersWrapperElement);
+		categoryContentWrapper.prepend(filtersElement);
 	}
 
 	/* 	function customMoveFilter() {
@@ -709,6 +708,7 @@ if (body.classList.contains("type-category")) {
 	} */
 
 	function customOpenFilterButtonListener() {
+		categoryContentWrapper.prepend(customOpenFilterButton);
 		addSmartTouchClickListener(customOpenFilterButton, function () {
 			filtersElement.classList.toggle("active");
 			customOpenFilterButton.classList.toggle("active");
@@ -736,7 +736,8 @@ if (body.classList.contains("type-category")) {
 		if (plLang) {
 			selectedFiltersSpan.innerHTML = "Wybrane filtry";
 		}
-		filtersWrapperElement.prepend(selectedFiltersDiv);
+		categoryContentWrapper.prepend(selectedFiltersDiv);
+
 		selectedFiltersDiv.appendChild(selectedFiltersSpan);
 
 		//for each fieldset get active labels, create copies of them and append tgem to selectedFiltersDiv

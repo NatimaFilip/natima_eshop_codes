@@ -1406,6 +1406,8 @@ body {
 
 /*-------------------------------------- CATEGORY*/
 body.type-category {
+	--filter-box-width: 20px;
+	--filter-box-radius: 6px;
 	.category-perex {
 		font-size: var(--fs-16);
 		padding-bottom: 0.9375em;
@@ -1540,13 +1542,11 @@ body.type-category {
 		}
 	}
 	#filters {
-		--box-width: 20px;
-		--box-radius: 6px;
 		background-color: var(--color-gray-400);
 		border-radius: var(--br-16);
 		font-size: var(--fs-13);
-		padding: calc(10px + var(--box-width)) 20px 16px 20px;
-		margin-top: calc(var(--box-width) * -1);
+		padding: calc(10px + var(--filter-box-width)) 20px 16px 20px;
+		margin-top: calc(var(--filter-box-width) * -1);
 		flex-direction: column;
 
 		@media screen and (max-width: $tablet-max) {
@@ -1598,20 +1598,20 @@ body.type-category {
 					height: 6px;
 					position: relative;
 					text-align: left;
-					width: calc(100% - var(--box-width));
+					width: calc(100% - var(--filter-box-width));
 					margin: auto;
 
 					span {
-						width: var(--box-width);
-						height: var(--box-width);
-						border-radius: var(--box-radius);
+						width: var(--filter-box-width);
+						height: var(--filter-box-width);
+						border-radius: var(--filter-box-radius);
 						background-color: var(--color-primary);
 						top: -6px;
 
 						display: block;
 						position: absolute;
 
-						margin-left: calc(var(--box-width) / -2);
+						margin-left: calc(var(--filter-box-width) / -2);
 					}
 				}
 			}
@@ -1628,7 +1628,7 @@ body.type-category {
 				label {
 					display: flex;
 					align-items: center;
-					min-height: var(--box-width);
+					min-height: var(--filter-box-width);
 					cursor: pointer;
 					position: relative;
 					margin-bottom: 0.615em;
@@ -1638,9 +1638,9 @@ body.type-category {
 					&::before {
 						content: "";
 						margin: 0;
-						width: var(--box-width);
-						height: var(--box-width);
-						border-radius: var(--box-radius);
+						width: var(--filter-box-width);
+						height: var(--filter-box-width);
+						border-radius: var(--filter-box-radius);
 						border-style: solid;
 						border-width: 1px;
 						border-color: var(--color-primary);
@@ -1654,8 +1654,8 @@ body.type-category {
 					&.active::after {
 						content: "";
 						margin: 0;
-						width: calc(var(--box-width) / 2);
-						height: var(--box-width);
+						width: calc(var(--filter-box-width) / 2);
+						height: var(--filter-box-width);
 						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_check_white.svg");
 						background-position: center;
 						background-repeat: no-repeat;
@@ -1755,7 +1755,6 @@ body.type-category {
 	}
 	&.has-filters-active {
 		#filters {
-			display: flex;
 			@media screen and (max-width: $tablet-max) {
 				&:not(.active) > * {
 					display: none;
@@ -1768,14 +1767,21 @@ body.type-category {
 		display: flex !important;
 		flex-direction: column;
 		gap: var(--gap-6);
+		background: var(--color-gray-400);
+		padding: calc(10px + var(--filter-box-width)) 20px 16px 20px;
+		margin-top: calc(var(--filter-box-width) * -1);
+		border-radius: var(--br-16);
 		@media screen and (min-width: $tablet-min) {
 			flex-direction: row;
 			flex-wrap: wrap;
 			align-items: center;
 			gap: var(--gap-20);
 		}
-		@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
-			margin-top: var(--gap-10);
+
+		@media screen and (min-width: $desktop-min) {
+			background: transparent;
+			padding: 0;
+			margin: 0;
 		}
 
 		.selected-filters-text {
@@ -1840,6 +1846,7 @@ body.type-category {
 			display: flex;
 			margin-top: var(--gap-6);
 			margin-bottom: var(--gap-10);
+			font-size: var(--fs-13);
 			@media screen and (min-width: $desktop-min) {
 				margin-top: 0;
 				margin-bottom: 0;
@@ -1871,11 +1878,28 @@ body.type-category {
 		}
 	}
 
-	//aside naboku
-	@media screen and (min-width: $desktop-min) {
-		.category-content-wrapper {
-			padding-top: calc(var(--gap-24) * 1.5);
+	//rozlozeni contentu wrapperu,
+	.category-content-wrapper {
+		display: flex;
+		flex-direction: column;
+		.custom-open-filter-button {
+			order: 1;
+		}
+		.selected-filters {
+			order: 2;
+		}
+		#filters {
+			order: 3;
+		}
+		.category-header {
+			order: 4;
+		}
+		#products {
+			order: 5;
+		}
+		@media screen and (min-width: $desktop-min) {
 			display: grid;
+			padding-top: calc(var(--gap-24) * 1.5);
 			grid-template-columns: 1fr 4fr;
 			@media screen and (min-width: $desktop-large-min) {
 				grid-template-columns: 1fr 5fr;
@@ -1886,17 +1910,14 @@ body.type-category {
 				grid-column: 2;
 			}
 			aside {
-				display: block;
-				grid-column: 1;
-				width: 90%;
-				max-width: 248px;
-				grid-row: 1/5;
+				display: none;
 			}
+
 			> #filters {
 				grid-column: 1;
 				width: 90%;
 				max-width: 248px;
-				grid-row: 1/5;
+				grid-row: 1/10;
 			}
 			#filters-wrapper {
 				display: none;
