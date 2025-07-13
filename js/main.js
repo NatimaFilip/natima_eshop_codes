@@ -643,7 +643,7 @@ if (body.classList.contains("type-category")) {
 	moveAsideToCategoryContent();
 	customMoveFilter();
 	editClearFiltersButton();
-	/* 	moveSelectedFilters(); */
+	moveSelectedFilters();
 	editManufacturerFilter();
 	cleanEmptyFilters();
 	editProductSorting();
@@ -651,7 +651,7 @@ if (body.classList.contains("type-category")) {
 
 	window.addEventListener("resize", function () {
 		customMoveFilter();
-		/* 	moveSelectedFilters(); */
+		moveSelectedFilters();
 	});
 
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
@@ -664,7 +664,7 @@ if (body.classList.contains("type-category")) {
 
 		customMoveFilter();
 		editClearFiltersButton();
-		/* 		moveSelectedFilters(); */
+		moveSelectedFilters();
 		editManufacturerFilter();
 		cleanEmptyFilters();
 		editProductSorting();
@@ -680,11 +680,6 @@ if (body.classList.contains("type-category")) {
 		categoryContentWrapper.prepend(asideElement);
 	}
 
-	/* 	function customMoveFilter() {
-		categoryContentWrapper.prepend(filtersElement);
-		document.querySelector(".filters-wrapper")?.remove();
-	} */
-
 	function customMoveFilter() {
 		if (isTablet) {
 			moveFiltersElementAfterCategoryTop();
@@ -697,8 +692,8 @@ if (body.classList.contains("type-category")) {
 	function moveFiltersElementAfterCategoryTop() {
 		if (filterInOriginalPosition) {
 			filterInOriginalPosition = false;
-			categoryTop.insertAdjacentElement("afterend", filtersElement);
-			categoryTop.appendChild(customOpenFilterButton);
+
+			customOpenFilterButton.insertAdjacentElement("afterend", filtersElement);
 		}
 	}
 
@@ -710,7 +705,8 @@ if (body.classList.contains("type-category")) {
 	}
 
 	function customOpenFilterButtonListener() {
-		categoryContentWrapper.prepend(customOpenFilterButton);
+		categoryTop.insertAdjacentElement("afterend", customOpenFilterButton);
+
 		addSmartTouchClickListener(customOpenFilterButton, function () {
 			filtersElement.classList.toggle("active");
 			customOpenFilterButton.classList.toggle("active");
@@ -738,8 +734,8 @@ if (body.classList.contains("type-category")) {
 		if (plLang) {
 			selectedFiltersSpan.innerHTML = "Wybrane filtry";
 		}
-		categoryContentWrapper.prepend(selectedFiltersDiv);
 
+		filtersElement.prepend(selectedFiltersDiv);
 		selectedFiltersDiv.appendChild(selectedFiltersSpan);
 
 		//for each fieldset get active labels, create copies of them and append tgem to selectedFiltersDiv
