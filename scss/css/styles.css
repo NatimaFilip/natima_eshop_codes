@@ -2026,6 +2026,7 @@ body.type-category .selected-filters #clear-filters {
   display: flex;
   margin-top: var(--gap-6);
   margin-bottom: var(--gap-10);
+  font-size: var(--fs-13);
 }
 @media screen and (min-width: 1280px) {
   body.type-category .selected-filters #clear-filters {

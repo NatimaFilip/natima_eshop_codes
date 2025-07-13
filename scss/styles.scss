@@ -1840,6 +1840,7 @@ body.type-category {
 			display: flex;
 			margin-top: var(--gap-6);
 			margin-bottom: var(--gap-10);
+			font-size: var(--fs-13);
 			@media screen and (min-width: $desktop-min) {
 				margin-top: 0;
 				margin-bottom: 0;
