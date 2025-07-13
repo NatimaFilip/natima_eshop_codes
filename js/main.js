@@ -450,6 +450,7 @@ if (body.classList.contains("type-category")) {
 			}
 		}
 	});
+
 	if (isMobile) {
 		trimPerex();
 	}
@@ -681,6 +682,7 @@ if (body.classList.contains("type-category")) {
 
 	function customMoveFilter() {
 		categoryContentWrapper.prepend(filtersElement);
+		document.querySelector(".filters-wrapper")?.remove();
 	}
 
 	/* 	function customMoveFilter() {
