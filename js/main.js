@@ -910,7 +910,7 @@ if (body.classList.contains("type-category")) {
 	}
 
 	/*------------------------------DOM PAGE CONTET LOADED FUNKCE*/
-	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
+	document.addEventListener("ShoptetDOMContentLoaded", function (event) {
 		if (isMobile) {
 			if (!perexTrimmedIsVisible) {
 				trimPerex();
