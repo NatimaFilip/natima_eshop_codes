@@ -6,6 +6,10 @@
 	padding-bottom: 2px;
 	box-shadow: inset 0px -2px 0px var(--color-primary-500);
 }
+@mixin bottom-primary-shadow-small {
+	padding-bottom: 1px;
+	box-shadow: inset 0px -1px 0px var(--color-primary-500);
+}
 @mixin bottom-cta-shadow {
 	padding-bottom: 2px;
 	box-shadow: inset 0px -2px 0px var(--color-cta-600);
@@ -45,6 +49,14 @@
 	width: 100%;
 	height: 100%;
 	background-color: hsla(0, 0%, 0%, 0.04);
+}
+
+@mixin body-max-width {
+	max-width: 1920px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--padding-sides);
+	padding-right: var(--padding-sides);
 }
 
 // Define SCSS variables for breakpoints
@@ -100,7 +112,10 @@ $desktop-large-min: 1680px;
 	--gap-24: 24px;
 	--gap-27: 27px;
 	--gap-30: 30px;
+	--gap-36: 36px;
 	--gap-41: 41px;
+	--gap-46: 46px;
+	--gap-55: 55px;
 
 	--color-white: #ffffff;
 	--color-black-200: #272727;
@@ -110,6 +125,7 @@ $desktop-large-min: 1680px;
 	--color-black-o-10: hsla(0, 0%, 0%, 0.1);
 
 	--color-gray-200: #f8f8f8;
+	--color-gray-300: #f5f5f5;
 	--color-gray-400: #f2f2f2;
 	--color-gray-500: #e7e7e7;
 	--color-gray-600: #808080;
@@ -117,7 +133,10 @@ $desktop-large-min: 1680px;
 
 	--color-primary-500: hsla(268, 36%, 50%, 1);
 
+	--color-red-200: #e9cbd0;
 	--color-red-400: #d44b6c;
+
+	--color-green-online: #22c162;
 
 	--color-cta-200: #e1ffda;
 	--color-cta-400: var(--color-secondary);
@@ -191,13 +210,8 @@ dd {
 body {
 	min-height: 100vh;
 	font-family: var(--ff-m);
-}
-
-body {
-	max-width: 1920px;
-	margin: 0 auto;
-	padding: 0px var(--padding-sides);
 	background: white;
+	margin: 0;
 }
 
 /* Balance text wrapping on headings */
@@ -305,6 +319,9 @@ button {
 }
 .scroll-lock {
 	overflow: hidden;
+}
+.overall-wrapper > * {
+	@include body-max-width;
 }
 
 /*-------------------------------------- HEADER*/
@@ -846,6 +863,7 @@ button {
 										background-size: 0.857em;
 										border-radius: 0 var(--br-12) var(--br-12) 0;
 										border-left: 1px solid var(--color-gray-500);
+										cursor: pointer;
 									}
 
 									.show-all-categories {
@@ -1055,7 +1073,7 @@ button {
 								z-index: 9;
 								/* 		padding: calc(var(--gap-16) * 4) calc(var(--gap-16) * 2) calc(var(--gap-16) * 4 - 10px)
 									calc(var(--gap-16) * 4); */
-								padding: calc(var(--gap-14) * 3) calc(var(--gap-14) * 1) calc(var(--gap-14) * 3 - 10px)
+								padding: calc(var(--gap-14) * 3.5) calc(var(--gap-14) * 1) calc(var(--gap-14) * 3.5 - 10px)
 									calc(var(--gap-14) * 3);
 								border-radius: var(--br-16);
 								@include bottom-shadow;
@@ -1073,7 +1091,7 @@ button {
 												padding-top: 0.75em;
 												padding-bottom: 0.75em;
 
-												margin-bottom: calc(6rem - var(--menu-image-width));
+												margin-bottom: calc(7rem - var(--menu-image-width));
 											}
 										}
 									}
@@ -1190,6 +1208,7 @@ button {
 .top-navigation-bar {
 	padding-top: var(--padding-top-header);
 	padding-bottom: var(--gap-18);
+
 	.top-navigation-contacts {
 		display: none;
 	}
@@ -1437,6 +1456,10 @@ body.type-category {
 			@include text-underline;
 		}
 	}
+	.category__secondDescription {
+		font-size: var(--fs-16);
+		max-width: 1260px;
+	}
 	.subcategories {
 		list-style: none;
 		margin: 0;
@@ -1501,6 +1524,7 @@ body.type-category {
 	}
 	.custom-open-filter-button {
 		display: none;
+		cursor: pointer;
 		@media screen and (max-width: $tablet-max) {
 			margin-top: var(--gap-24);
 			display: flex;
@@ -1881,10 +1905,10 @@ body.type-category {
 			@media screen and (min-width: $desktop-large-min) {
 				grid-template-columns: 1fr 5fr;
 			}
-			row-gap: var(--gap-30);
 
 			> * {
 				grid-column: 2;
+				padding-bottom: var(--gap-30);
 			}
 			aside {
 				display: block;
@@ -2021,7 +2045,6 @@ body.type-category {
 } */
 
 /*-------------------------------------- PRODUCTS BLOCKS */
-
 @mixin products-block-grid-layout {
 	display: grid;
 	grid-row: 1;
@@ -2045,13 +2068,14 @@ body.type-category {
 
 	--price-per-unit-height: calc(0.846em * var(--lh-1-4));
 
+	@media screen and (min-width: $tablet-min) {
+		--add-to-cart-button-height: calc(1em * 2 + 1.231em + 1px + 1em); //1px for shadow 1em for margin
+		--desc-number-of-lines: 4;
+	}
 	@media screen and (min-width: $desktop-min) {
 		--name-height: calc(1.231em * var(--name-number-of-lines) * var(--lh-1-4));
 
 		--desc-number-of-lines: 3;
-	}
-	@media screen and (min-width: $tablet-min) {
-		--add-to-cart-button-height: calc(1em * 2 + 1.231em + 1px + 1em); //1px for shadow 1em for margin
 	}
 
 	grid-template-rows:
@@ -2079,12 +2103,21 @@ body.type-category {
 	column-gap: var(--gap-10);
 	row-gap: var(--gap-10);
 
+	@media screen and (min-width: $tablet-min) {
+		row-gap: var(--gap-30);
+	}
+
+	@media screen and (min-width: $desktop-min) {
+		column-gap: var(--gap-20);
+	}
+
 	--padding-capsules: 2px 8px; //if you change it, you need to change it in mixin products-block-grid-layout!
 	--add-to-cart-button-width: 2.4615em;
 	--add-to-cart-button-height: calc(
 		2.4615em + 1px
 	); //1px for shadow; if you change it, you need to change it in mixin products-block-grid-layout!
 	.product {
+		position: relative;
 		.p {
 			.image {
 				border-radius: var(--br-12);
@@ -2109,9 +2142,7 @@ body.type-category {
 					gap: var(--gap-6);
 					position: absolute;
 					font-size: var(--fs-10);
-					@media screen and (min-width: $desktop-min) {
-						font-size: var(--fs-11);
-					}
+
 					top: var(--gap-7);
 					left: var(--gap-5);
 					max-width: calc(100% - 5em);
@@ -2122,6 +2153,12 @@ body.type-category {
 						border-radius: var(--br-20);
 						line-height: var(--lh-1-4);
 						padding: var(--padding-capsules);
+					}
+
+					@media screen and (min-width: $desktop-min) {
+						font-size: var(--fs-11);
+						left: var(--gap-11);
+						top: var(--gap-11);
 					}
 				}
 				.flags-extra {
@@ -2142,7 +2179,14 @@ body.type-category {
 							display: block;
 						}
 					}
+					@media screen and (min-width: $desktop-min) {
+						font-size: var(--fs-16);
+						line-height: var(--lh-2);
+						border-radius: 0 var(--br-16) 0 var(--br-16);
+						padding: 0.1875em 0.5em;
+					}
 				}
+
 				.flag-action {
 					display: none !important;
 				}
@@ -2243,10 +2287,15 @@ body.type-category {
 						span {
 							font-weight: var(--fw-700);
 						}
+
 						.availability-amount {
 							font-weight: var(--fw-400);
 							padding-left: 0.231em;
 							padding-right: 1px;
+						}
+						&:not(:has(.availability-amount)) {
+							background: var(--color-red-200);
+							color: var(--color-red-400);
 						}
 					}
 				}
@@ -2319,13 +2368,47 @@ body.type-category {
 								background-size: 75%;
 							}
 						}
+						//nedostupný produkt - detail
+						> a {
+							width: var(--add-to-cart-button-width);
+							height: var(--add-to-cart-button-height);
+							background-color: var(--color-primary);
+							color: var(--color-primary);
+							border-radius: var(--br-8);
+							position: relative;
+							cursor: pointer;
+							@include bottom-primary-shadow-small;
+							transition: transform 0.2s ease-out;
+							overflow: hidden;
+							&:hover,
+							&:focus-within {
+								transform: scale(1.1);
+							}
+							&:focus-within {
+								outline: solid 3px var(--color-black);
+								outline-offset: 1px;
+							}
+							&::after {
+								content: "";
+								display: block;
+								position: absolute;
+								left: 0;
+								top: 0;
+								width: 100%;
+								height: 100%;
+								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_search_glass_white.svg");
+								background-position: center;
+								background-repeat: no-repeat;
+								background-size: 75%;
+							}
+						}
+
 						@media screen and (min-width: $tablet-min) {
 							margin-top: 0;
 							margin-right: var(--gap-11);
 							button {
 								height: auto;
 								width: auto;
-
 								transition: background-color 0.1s ease;
 								padding: 1em 2.231em;
 								border-radius: var(--br-16);
@@ -2344,6 +2427,26 @@ body.type-category {
 								}
 								&::after {
 									display: none;
+								}
+							}
+							> a {
+								width: auto;
+								height: 2.65em;
+								height: max-content;
+								transition: background-color 0.1s ease;
+								padding: 0.8125em 1.5625em;
+								border-radius: var(--br-16);
+								font-size: 1.231em;
+								color: var(--color-white);
+								font-weight: var(--fw-700);
+								line-height: 1;
+								&::after {
+									display: none;
+								}
+								&:hover,
+								&:focus-within {
+									transform: none;
+									background-color: var(--color-primary-500);
 								}
 							}
 						}
@@ -2374,6 +2477,496 @@ body.type-category {
 			&:focus-within {
 				.p-tools {
 					display: flex !important;
+				}
+			}
+		}
+		&:not(:has(.availability-amount)) {
+			opacity: 0.65;
+		}
+	}
+}
+
+/*-------------------------------------- PAGINATION */
+.pagination-wrapper {
+	padding-top: var(--gap-16);
+	padding-bottom: var(--gap-11);
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: var(--fs-16);
+	--component-height: 3.25em;
+	min-height: var(--component-height);
+	.pagination-top {
+		strong.js-scroll-top {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: var(--gap-16);
+			color: var(--color-black);
+			&::before {
+				content: "";
+				display: block;
+				width: var(--component-height);
+				height: var(--component-height);
+				background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 0.625em;
+				background-color: var(--color-gray-400);
+				border-radius: var(--br-16);
+			}
+			&:hover,
+			&:focus-within {
+				color: var(--color-primary);
+
+				&::before {
+					background-size: 0.875em;
+					background-color: var(--color-gray-300);
+				}
+			}
+		}
+	}
+	.pagination-loader {
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: var(--component-height);
+			border-style: solid;
+			border-width: 1px;
+			border-color: var(--color-black);
+			color: var(--color-black);
+			font-size: var(--fs-16);
+			font-weight: var(--fw-700);
+			border-radius: var(--br-16);
+			cursor: pointer;
+			padding: 0 2em;
+
+			&:hover,
+			&:focus-within {
+				color: var(--color-white);
+				background-color: var(--color-primary);
+				border-color: var(--color-primary-hover);
+			}
+		}
+	}
+	.pagination {
+		display: flex;
+		flex-direction: row;
+		gap: var(--gap-24);
+		align-items: center;
+
+		.pagination-link {
+			span {
+				display: none;
+			}
+			&::before {
+				content: "";
+				display: block;
+				width: var(--component-height);
+				height: var(--component-height);
+
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 0.625em;
+				background-color: var(--color-gray-400);
+				border-radius: var(--br-16);
+			}
+			&:hover,
+			&:focus-within {
+				&::before {
+					background-size: 0.875em;
+					background-color: var(--color-gray-300);
+				}
+			}
+			&.next {
+				&::before {
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+					transform: rotate(90deg);
+				}
+			}
+			&.prev {
+				&::before {
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+					transform: rotate(-90deg);
+				}
+			}
+		}
+		a {
+			color: var(--color-black);
+			&:hover,
+			&:focus-within {
+				color: var(--color-primary);
+			}
+		}
+	}
+	@media screen and (max-width: $tablet-max) {
+		padding-top: var(--gap-24);
+		padding-bottom: var(--gap-30);
+	}
+
+	@media screen and (max-width: $mobile-max) {
+		--component-height: 2.77em;
+
+		gap: var(--gap-30);
+		flex-wrap: wrap;
+		font-size: var(--fs-13);
+
+		.pagination-top {
+			order: 2;
+			strong.js-scroll-top {
+				gap: var(--gap-11);
+				&::before {
+					border-radius: var(--br-12);
+				}
+			}
+		}
+		.pagination-loader {
+			width: 100%;
+			order: 1;
+		}
+		.pagination {
+			order: 3;
+			gap: var(--gap-16);
+			.pagination-link {
+				width: 100%;
+				text-align: center;
+				&::before {
+					border-radius: var(--br-12);
+				}
+			}
+		}
+	}
+}
+
+/*-------------------------------------- KONKURENČNÍ VÝHODY BENEFIT BANNER */
+.benefitBanner {
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: var(--color-gray-500);
+	margin-top: var(--gap-30);
+	padding: calc(var(--gap-30) * 2) 0;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	font-size: var(--fs-16);
+	gap: var(--gap-30);
+	flex-wrap: wrap;
+	.benefitBanner__picture {
+		display: contents;
+	}
+
+	.benefitBanner__item {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: var(--gap-24);
+	}
+	.benefitBanner__title {
+		line-height: var(--lh-2);
+	}
+	.benefitBanner__data {
+		font-size: var(--fs-13);
+	}
+
+	@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+		gap: var(--gap-30);
+		justify-items: center;
+	}
+	@media screen and (max-width: $mobile-max) {
+		gap: var(--gap-24);
+		flex-direction: column;
+		padding-top: var(--gap-36);
+		padding-bottom: var(--gap-36);
+
+		.benefitBanner__item {
+			width: 18em;
+			max-width: 100%;
+			margin: auto;
+		}
+	}
+}
+
+/*-------------------------------------- FOOTER */
+#footer {
+	font-size: var(--fs-16);
+	.sr-only,
+	.site-name {
+		display: none;
+	}
+	width: 100%;
+	max-width: none;
+	padding: 0;
+	padding-top: var(--gap-55);
+	margin: 0;
+	background-color: var(--color-gray-400);
+	--image-width: 80px;
+
+	@media screen and (max-width: $mobile-max) {
+		background-color: transparent;
+		padding-top: 0;
+	}
+
+	> .container {
+		@include body-max-width;
+	}
+
+	//footer-customer-support
+	.footer-customer-support {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: var(--gap-30);
+		background: white;
+		border-radius: var(--br-16);
+		padding: var(--gap-55) 2em;
+
+		p {
+			padding: 0;
+		}
+
+		@media screen and (max-width: $mobile-max) {
+			flex-direction: column;
+			gap: var(--gap-24);
+			padding: 2em 2em 2em 1em;
+			background: var(--color-gray-400);
+
+			> * {
+				width: 19em;
+				max-width: 100%;
+			}
+		}
+
+		.footer-customer-support-main-text {
+			@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+				width: 100%;
+				text-align: center;
+			}
+			@media screen and (max-width: $mobile-max) {
+				text-align: left;
+			}
+			b {
+				font-size: var(--fs-24);
+				font-weight: var(--fw-700);
+				color: var(--color-black);
+				line-height: var(--lh-1-4);
+			}
+		}
+		.footer-customer-support-image-with-text {
+			display: flex;
+			align-items: center;
+			gap: var(--gap-14);
+			.footer-customer-support-image {
+				width: var(--image-width);
+				height: var(--image-width);
+				border-radius: var(--br-16);
+				overflow: hidden;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+			p {
+				font-size: var(--fs-13);
+				color: var(--color-black-o-60);
+			}
+			.online-status {
+				display: none;
+				padding-left: 0.625em;
+				padding-top: 0.3125em;
+				padding-bottom: 0.3125em;
+				margin-top: 0.3125em;
+				background: var(--color-white);
+				border-radius: var(--br-8);
+				&.active {
+					display: flex;
+				}
+				> * {
+					display: none;
+					align-items: center;
+					gap: var(--gap-8);
+					p {
+						color: var(--color-black);
+					}
+					&:before {
+						content: "";
+						display: block;
+						width: 0.375em;
+						height: 0.375em;
+						border-radius: 50%;
+					}
+				}
+				.online-status-online {
+					&:before {
+						background-color: var(--color-green-online);
+					}
+				}
+				.online-status-offline {
+					&:before {
+						background-color: var(--color-red-400);
+					}
+				}
+				.active {
+					display: flex;
+				}
+			}
+		}
+		.footer-customer-support-icon-with-text {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: var(--gap-16);
+			.footer-customer-support-icon {
+				width: var(--image-width);
+				height: var(--image-width);
+				border-radius: var(--br-16);
+				background: var(--color-gray-400);
+				border-radius: var(--br-16);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				@media screen and (max-width: $mobile-max) {
+					background: var(--color-white);
+				}
+			}
+			a {
+				color: var(--color-black);
+				&:hover,
+				&:focus-within {
+					color: var(--color-primary);
+				}
+			}
+			p {
+				font-size: var(--fs-13);
+				color: var(--color-black-o-60);
+			}
+		}
+		#open-customer-support {
+			cursor: pointer;
+			&:hover,
+			&:focus-within {
+				b {
+					color: var(--color-primary);
+				}
+			}
+		}
+	}
+
+	//footer-heureka
+
+	//footer-instagram
+	.custom-footer__instagram {
+		h4 {
+			display: none;
+		}
+		.instagram-widget {
+			display: grid;
+			grid-template-columns: repeat(6, 1fr);
+			gap: var(--gap-20);
+
+			> * {
+				position: relative;
+				border-radius: var(--br-16);
+				overflow: hidden;
+				display: flex;
+				align-items: center;
+
+				@media screen and (min-width: $desktop-medium-min) {
+					max-height: 255px;
+				}
+				@media screen and (min-width: $desktop-large-min) {
+					max-height: 305px;
+				}
+				@supports (aspect-ratio: 4/5) {
+					max-height: none;
+					aspect-ratio: 4 / 5;
+				}
+			}
+			> a {
+				transition: opacity 0.2s ease-out;
+				&:after {
+					content: "";
+					display: block;
+					position: absolute;
+					width: 60px;
+					height: 60px;
+					border-radius: var(--br-16);
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					background-color: var(--color-white);
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_instagram_black.svg");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 65%;
+					opacity: 0;
+				}
+				&:hover,
+				&:focus-within {
+					opacity: 0.8;
+					&:after {
+						opacity: 1;
+					}
+				}
+			}
+			// last  not visible, protože nemůžu nastavit, ať se zobrazuje 5 - je jich 6
+			> a:last-of-type {
+				display: none;
+			}
+			.instagram-follow-btn {
+				grid-column: 1;
+				grid-row: 1;
+				background: var(--color-white);
+				> span {
+					height: 100%;
+					width: 100%;
+
+					a {
+						display: flex;
+						flex-direction: column;
+						height: 100%;
+						width: 100%;
+						gap: 0.5em;
+						justify-content: center;
+						align-items: center;
+						text-align: center;
+						font-size: var(--fs-24);
+						color: var(--color-black);
+						font-weight: var(--fw-700);
+					}
+					.instagram-profile-name {
+						font-size: var(--fs-16);
+						font-weight: var(--fw-400);
+					}
+					.instagram-image-placeholder {
+						width: 40px;
+						height: 40px;
+						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_instagram_color.svg");
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: contain;
+						margin-bottom: var(--gap-8);
+						transition: transform 0.2s ease-out;
+					}
+					&:hover,
+					&:focus-within {
+						a {
+							color: var(--color-primary);
+						}
+						.instagram-profile-name {
+							color: var(--color-black);
+						}
+						.instagram-image-placeholder {
+							transform: scale(1.1);
+						}
+					}
 				}
 			}
 		}
