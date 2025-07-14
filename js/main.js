@@ -683,10 +683,10 @@ if (body.classList.contains("type-category")) {
 	}
 
 	function customMoveFilter() {
-		if (isTablet) {
+		if (!isDesktop) {
 			moveFiltersElementAfterCategoryTop();
 		}
-		if (!isTablet) {
+		if (isDesktop) {
 			moveFiltersElementToOriginalPosition();
 		}
 	}
@@ -695,7 +695,7 @@ if (body.classList.contains("type-category")) {
 		if (filterInOriginalPosition) {
 			filterInOriginalPosition = false;
 
-			categoryTop.insertAdjacentElement("afterend", filtersElement);
+			customOpenFilterButton.insertAdjacentElement("afterend", filtersElement);
 		}
 	}
 
