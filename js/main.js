@@ -627,6 +627,7 @@ if (body.classList.contains("type-category")) {
 	let asideElement = document.querySelector("aside");
 	let categoryContentWrapper = document.querySelector(".category-content-wrapper");
 	let selectedFiltersInSidebar = true;
+	let customOpenFilterButtonListenerAdded = false;
 
 	const customOpenFilterButton = document.createElement("a");
 	customOpenFilterButton.className = "custom-open-filter-button";
@@ -640,8 +641,9 @@ if (body.classList.contains("type-category")) {
 		customOpenFilterButton.innerHTML = "Filtrowanie wyników";
 	}
 
-	customOpenFilterButtonListener();
 	moveAsideToCategoryContent();
+
+	customOpenFilterButtonListener();
 	customMoveFilter();
 	editClearFiltersButton();
 	moveSelectedFilters();
@@ -711,6 +713,10 @@ if (body.classList.contains("type-category")) {
 		/* 	categoryTop.insertAdjacentElement("afterend", customOpenFilterButton); */
 		categoryTop.appendChild(customOpenFilterButton);
 
+		if (customOpenFilterButtonListenerAdded) {
+			return;
+		}
+		customOpenFilterButtonListenerAdded = true;
 		addSmartTouchClickListener(customOpenFilterButton, function () {
 			filtersElement.classList.toggle("active");
 			customOpenFilterButton.classList.toggle("active");
