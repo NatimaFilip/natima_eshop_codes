@@ -545,7 +545,7 @@ if (body.classList.contains("type-category")) {
 			let appendixText = productAppendix.textContent;
 
 			// Use a regular expression to extract the desired value
-			let match = appendixText.match(/Množství:\s*([^;]+);/);
+			let match = appendixText.match(/^([^;]*);/);
 			if (match) {
 				productMeasureUnitComplet = match[1].trim(); // Save the extracted value
 				productMeasureAmount = productMeasureUnitComplet.replace(/[^\d]/g, ""); //keep only digits from the measure unit

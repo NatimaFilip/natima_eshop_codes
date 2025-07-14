@@ -2705,6 +2705,8 @@ body.type-category .category-header > div strong {
   .products-block .product .p-in .p-bottom > div .p-tools button:hover, .products-block .product .p-in .p-bottom > div .p-tools button:focus-within {
     -webkit-transform: none;
             transform: none;
+  }
+  .products-block .product .p-in .p-bottom > div .p-tools button:hover {
     background-color: var(--color-secondary-hover);
   }
   .products-block .product .p-in .p-bottom > div .p-tools button::after {
@@ -2723,4 +2725,14 @@ body.type-category .category-header > div strong {
 }
 .products-block .product .p-code {
   display: none;
+}
+@media screen and (min-width: 768px) {
+  .products-block .product .p-tools {
+    display: none !important;
+  }
+  .products-block .product:hover .p-tools, .products-block .product:focus-within .p-tools {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
 }

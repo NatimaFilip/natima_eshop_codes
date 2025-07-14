@@ -2338,6 +2338,8 @@ body.type-category {
 								&:hover,
 								&:focus-within {
 									transform: none;
+								}
+								&:hover {
 									background-color: var(--color-secondary-hover);
 								}
 								&::after {
@@ -2363,6 +2365,17 @@ body.type-category {
 		}
 		.p-code {
 			display: none;
+		}
+		@media screen and (min-width: $tablet-min) {
+			.p-tools {
+				display: none !important;
+			}
+			&:hover,
+			&:focus-within {
+				.p-tools {
+					display: flex !important;
+				}
+			}
 		}
 	}
 }
