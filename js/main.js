@@ -664,6 +664,7 @@ if (body.classList.contains("type-category")) {
 		categoryContentWrapper = document.querySelector(".category-content-wrapper");
 		selectedFiltersInSidebar = true;
 
+		customOpenFilterButtonListener();
 		customMoveFilter();
 		editClearFiltersButton();
 		moveSelectedFilters();
