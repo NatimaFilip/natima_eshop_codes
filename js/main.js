@@ -622,7 +622,7 @@ if (body.classList.contains("type-category")) {
 	let categoryTop = document.querySelector(".category-top");
 	let filterInOriginalPosition = true;
 	let filtersElement = document.querySelector("#filters");
-	let filtersWrapperElement = document.querySelector(".filters-wrapper");
+	/* 	let filtersWrapperElement = document.querySelector(".filters-wrapper"); */
 	let filterSections = filtersElement.querySelectorAll(".filter-section");
 	let asideElement = document.querySelector("aside");
 	let categoryContentWrapper = document.querySelector(".category-content-wrapper");
@@ -661,7 +661,7 @@ if (body.classList.contains("type-category")) {
 		categoryTop = document.querySelector(".category-top");
 		filterInOriginalPosition = true;
 		filtersElement = document.querySelector("#filters");
-		filtersWrapperElement = document.querySelector(".filters-wrapper");
+		/* 	filtersWrapperElement = document.querySelector(".filters-wrapper"); */
 		filterSections = filtersElement.querySelectorAll(".filter-section");
 		categoryContentWrapper = document.querySelector(".category-content-wrapper");
 		selectedFiltersInSidebar = true;
@@ -697,7 +697,7 @@ if (body.classList.contains("type-category")) {
 		if (isDesktop) {
 			if (!filterInOriginalPosition) {
 				filterInOriginalPosition = true;
-				filtersWrapperElement.appendChild(filtersElement);
+				categoryContentWrapper.appendChild(filtersElement);
 			}
 		}
 	}
