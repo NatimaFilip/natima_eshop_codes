@@ -785,6 +785,10 @@ if (body.classList.contains("type-category")) {
 	actionPriceToFinalPriceAndReviewsNumber();
 	function actionPriceToFinalPriceAndReviewsNumber() {
 		allProducts.forEach((product) => {
+			if (product.classList.contains("product-edited-price-reviews")) {
+				return; // Skip if already processed
+			}
+			product.classList.add("product-edited-price-reviews");
 			let priceStandard = product.querySelector(".flag-discount .price-standard");
 			let priceFinal = product.querySelector(".price-final");
 			if (priceStandard && priceFinal) {
@@ -807,6 +811,10 @@ if (body.classList.contains("type-category")) {
 	measureUnitFromAppendix();
 	function measureUnitFromAppendix() {
 		allProducts.forEach((product) => {
+			if (product.classList.contains("product-edited-measure")) {
+				return; // Skip if already processed
+			}
+			product.classList.add("product-edited-measure");
 			let productAppendix = product.querySelector(".product-appendix");
 			if (!productAppendix) return;
 
@@ -906,7 +914,15 @@ if (body.classList.contains("type-category")) {
 			amountOfProductsText = "z";
 		}
 
-		categoryHeaderInsideDiv.prepend(amountOfProducts.toString() + " " + amountOfProductsText);
+		if (document.querySelector(".amount-of-products")) {
+			document.querySelector(".amount-of-products").remove();
+		}
+
+		const amountOfProductsSpan = document.createElement("span");
+		amountOfProductsSpan.className = "amount-of-products";
+		amountOfProductsSpan.textContent = amountOfProducts.toString() + " " + amountOfProductsText;
+
+		categoryHeaderInsideDiv.prepend(amountOfProductsSpan);
 	}
 
 	/*------------------------------DOM PAGE CONTET LOADED FUNKCE*/
