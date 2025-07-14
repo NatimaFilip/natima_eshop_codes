@@ -643,7 +643,7 @@ if (body.classList.contains("type-category")) {
 	moveAsideToCategoryContent();
 	customMoveFilter();
 	editClearFiltersButton();
-	moveSelectedFilters();
+	/* 	moveSelectedFilters(); */
 	editManufacturerFilter();
 	cleanEmptyFilters();
 	editProductSorting();
@@ -651,7 +651,7 @@ if (body.classList.contains("type-category")) {
 
 	window.addEventListener("resize", function () {
 		customMoveFilter();
-		moveSelectedFilters();
+		/* moveSelectedFilters(); */
 	});
 
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
@@ -665,7 +665,7 @@ if (body.classList.contains("type-category")) {
 
 		customMoveFilter();
 		editClearFiltersButton();
-		moveSelectedFilters();
+		/* 	moveSelectedFilters(); */
 		editManufacturerFilter();
 		cleanEmptyFilters();
 		editProductSorting();
