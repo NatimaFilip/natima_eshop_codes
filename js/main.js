@@ -962,26 +962,3 @@ if (footer) {
 		instagramWidgetFollowBtn.prepend(instagramImagePlaceholder);
 	}
 }
-
-loadHeureka();
-async function loadHeureka() {
-	try {
-		const response = await fetch(
-			"https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/main/review-natima-cz.xml"
-		);
-		if (!response.ok) {
-			throw new Error("Network response was not ok");
-		}
-		const xmlText = await response.text();
-		console.log(xmlText); // Logs the raw XML string
-
-		// If you want to parse it as XML:
-		const parser = new DOMParser();
-		const xmlDoc = parser.parseFromString(xmlText, "application/xml");
-		console.log(xmlDoc); // Logs the parsed XML Document
-
-		// You can now use xmlDoc as needed
-	} catch (error) {
-		console.error("Error fetching or parsing XML:", error);
-	}
-}
