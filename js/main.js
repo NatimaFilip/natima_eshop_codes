@@ -443,6 +443,9 @@ removeCommasFromMenu();
 if (body.classList.contains("type-category")) {
 	/*------------------------------PEREX*/
 	let perexTrimmedIsVisible = false;
+	if (isMobile) {
+		trimPerex();
+	}
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
 		if (isMobile) {
 			if (!perexTrimmedIsVisible) {
@@ -451,9 +454,6 @@ if (body.classList.contains("type-category")) {
 		}
 	});
 
-	if (isMobile) {
-		trimPerex();
-	}
 	function trimPerex() {
 		const maxLength = 130;
 		const perexElement = document.querySelector(".category-perex");
@@ -504,14 +504,11 @@ if (body.classList.contains("type-category")) {
 
 	/*------------------------------ACTION PRICE AND REVIEWS NUMBER*/
 	let allProducts = document.querySelectorAll(".product");
-	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
-		if (isMobile) {
-			if (!perexTrimmedIsVisible) {
-				actionPriceToFinalPriceAndReviewsNumber();
-			}
-		}
-	});
 	actionPriceToFinalPriceAndReviewsNumber();
+	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
+		actionPriceToFinalPriceAndReviewsNumber();
+	});
+
 	function actionPriceToFinalPriceAndReviewsNumber() {
 		allProducts.forEach((product) => {
 			let priceStandard = product.querySelector(".flag-discount .price-standard");
@@ -535,6 +532,9 @@ if (body.classList.contains("type-category")) {
 	/*------------------------------MEASURE UNIT FROM APENDIX INTO CAPSULE*/
 
 	measureUnitFromAppendix();
+	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
+		measureUnitFromAppendix();
+	});
 	function measureUnitFromAppendix() {
 		allProducts.forEach((product) => {
 			let productAppendix = product.querySelector(".product-appendix");
@@ -566,7 +566,7 @@ if (body.classList.contains("type-category")) {
 				pricePerUnitDiv.className = "product-price-per-unit";
 				let prices = product.querySelector(".prices");
 
-				let priceFinal = product.querySelector(".price-final");
+				let priceFinal = product.querySelector(".price-final strong");
 				let priceFinalValue;
 
 				if (priceFinal) {
@@ -605,7 +605,7 @@ if (body.classList.contains("type-category")) {
 				pricePerUnit_ValueSpan.className = "product-price-per-unit-value";
 
 				pricePerUnit_ValueSpan.textContent =
-					pricePerUnit_Value.toFixed(1).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
+					pricePerUnit_Value.toFixed(2).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
 
 				prices.appendChild(pricePerUnitDiv);
 				pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
@@ -686,8 +686,6 @@ if (body.classList.contains("type-category")) {
 	}
 
 	function customMoveFilter() {
-		console.log("isDesktop", isDesktop);
-		console.log("filterInOriginalPosition", filterInOriginalPosition);
 		if (!isDesktop) {
 			if (filterInOriginalPosition) {
 				filterInOriginalPosition = false;
