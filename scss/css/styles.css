@@ -2872,6 +2872,29 @@ body.type-category .category-header > div strong {
   --component-height: 3.25em;
   min-height: var(--component-height);
 }
+@media screen and (min-width: 768px) {
+  .pagination-wrapper > * {
+    width: 33.3333%;
+  }
+  .pagination-wrapper .pagination-loader {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .pagination-wrapper .pagination-top {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .pagination-wrapper .pagination {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+}
 .pagination-wrapper .pagination-top strong.js-scroll-top {
   cursor: pointer;
   display: -webkit-box;

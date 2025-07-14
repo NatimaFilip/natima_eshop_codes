@@ -2498,6 +2498,23 @@ body.type-category {
 	font-size: var(--fs-16);
 	--component-height: 3.25em;
 	min-height: var(--component-height);
+
+	@media screen and (min-width: $tablet-min) {
+		> * {
+			width: 33.3333%;
+		}
+		.pagination-loader {
+			display: flex;
+			justify-content: center;
+		}
+		.pagination-top {
+			justify-content: flex-start;
+		}
+		.pagination {
+			justify-content: flex-end;
+		}
+	}
+
 	.pagination-top {
 		strong.js-scroll-top {
 			cursor: pointer;
