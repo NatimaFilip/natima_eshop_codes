@@ -640,6 +640,7 @@ if (body.classList.contains("type-category")) {
 		customOpenFilterButton.innerHTML = "Filtrowanie wyników";
 	}
 
+	customOpenFilterButtonListener();
 	moveAsideToCategoryContent();
 	customMoveFilter();
 	editClearFiltersButton();
@@ -647,7 +648,6 @@ if (body.classList.contains("type-category")) {
 	editManufacturerFilter();
 	cleanEmptyFilters();
 	editProductSorting();
-	customOpenFilterButtonListener();
 
 	window.addEventListener("resize", function () {
 		customMoveFilter();
@@ -707,7 +707,8 @@ if (body.classList.contains("type-category")) {
 	}
 
 	function customOpenFilterButtonListener() {
-		categoryTop.insertAdjacentElement("afterend", customOpenFilterButton);
+		/* 	categoryTop.insertAdjacentElement("afterend", customOpenFilterButton); */
+		categoryTop.appendChild(customOpenFilterButton);
 
 		addSmartTouchClickListener(customOpenFilterButton, function () {
 			filtersElement.classList.toggle("active");
