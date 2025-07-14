@@ -643,7 +643,7 @@ if (body.classList.contains("type-category")) {
 	moveAsideToCategoryContent();
 	customMoveFilter();
 	editClearFiltersButton();
-	/* 	moveSelectedFilters(); */
+	moveSelectedFilters();
 	editManufacturerFilter();
 	cleanEmptyFilters();
 	editProductSorting();
@@ -651,7 +651,7 @@ if (body.classList.contains("type-category")) {
 
 	window.addEventListener("resize", function () {
 		customMoveFilter();
-		/* moveSelectedFilters(); */
+		moveSelectedFilters();
 	});
 
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
@@ -661,11 +661,12 @@ if (body.classList.contains("type-category")) {
 		filtersElement = document.querySelector("#filters");
 		filtersWrapperElement = document.querySelector(".filters-wrapper");
 		filterSections = filtersElement.querySelectorAll(".filter-section");
+		categoryContentWrapper = document.querySelector(".category-content-wrapper");
 		selectedFiltersInSidebar = true;
 
 		customMoveFilter();
 		editClearFiltersButton();
-		/* 	moveSelectedFilters(); */
+		moveSelectedFilters();
 		editManufacturerFilter();
 		cleanEmptyFilters();
 		editProductSorting();
