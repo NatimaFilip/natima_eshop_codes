@@ -695,7 +695,7 @@ if (body.classList.contains("type-category")) {
 		if (filterInOriginalPosition) {
 			filterInOriginalPosition = false;
 
-			customOpenFilterButton.insertAdjacentElement("afterend", filtersElement);
+			categoryTop.insertAdjacentElement("afterend", filtersElement);
 		}
 	}
 
