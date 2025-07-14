@@ -686,26 +686,19 @@ if (body.classList.contains("type-category")) {
 	}
 
 	function customMoveFilter() {
+		console.log("isDesktop", isDesktop);
+		console.log("filterInOriginalPosition", filterInOriginalPosition);
 		if (!isDesktop) {
-			moveFiltersElementAfterCategoryTop();
+			if (filterInOriginalPosition) {
+				filterInOriginalPosition = false;
+				customOpenFilterButton.insertAdjacentElement("afterend", filtersElement);
+			}
 		}
 		if (isDesktop) {
-			moveFiltersElementToOriginalPosition();
-		}
-	}
-
-	function moveFiltersElementAfterCategoryTop() {
-		if (filterInOriginalPosition) {
-			filterInOriginalPosition = false;
-
-			customOpenFilterButton.insertAdjacentElement("afterend", filtersElement);
-		}
-	}
-
-	function moveFiltersElementToOriginalPosition() {
-		if (!filterInOriginalPosition) {
-			filterInOriginalPosition = true;
-			filtersWrapperElement.appendChild(filtersElement);
+			if (!filterInOriginalPosition) {
+				filterInOriginalPosition = true;
+				filtersWrapperElement.appendChild(filtersElement);
+			}
 		}
 	}
 
