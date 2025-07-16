@@ -4076,7 +4076,7 @@ body.type-category .category-header > div strong {
   width: calc(50% - var(--gap-30) / 2);
   max-width: 755px;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1280px) {
   #footer .footer-final-block {
     row-gap: calc(var(--gap-41));
   }
@@ -4587,7 +4587,7 @@ body.type-category .category-header > div strong {
   height: 50%;
   background-color: var(--color-gray-500);
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1280px) {
   #footer .footer-final-block::before {
     display: none;
   }
