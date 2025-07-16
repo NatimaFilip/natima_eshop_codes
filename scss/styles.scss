@@ -1379,17 +1379,36 @@ body {
 			z-index: 1000;
 			border-radius: var(--br-16);
 			width: 810px;
-			max-width: 100%;
+			max-width: calc(100% - var(--padding-sides));
 			padding: var(--gap-20) var(--gap-20) var(--gap-36) var(--gap-20);
 			@include bottom-shadow;
 			.cart-widget-products {
 				max-height: 340px;
 				overflow-y: auto;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				border-color: var(--color-gray-500);
 
 				.cart-widget-products-inner {
 					display: flex;
 					flex-direction: column;
 					gap: var(--gap-20);
+				}
+				.cart-widget-product-image {
+					a {
+						border-radius: var(--br-10);
+						overflow: hidden;
+						@include image-foreground-setup;
+						img {
+							width: 100%;
+							height: auto;
+							@include image-foreground-brightness;
+							margin: 10px 14px;
+						}
+						&:after {
+							@include image-foreground-block;
+						}
+					}
 				}
 			}
 		}
