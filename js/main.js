@@ -165,7 +165,7 @@ function stickyHeaderToggle() {
 	let scrolledUp = false;
 
 	const headerHeight = header.offsetHeight;
-	const scrollThreshold = 90;
+	const scrollThreshold = 150;
 
 	let scrollDifference = 0;
 
@@ -178,11 +178,11 @@ function stickyHeaderToggle() {
 			scrollDifference = lastScrollDown - lastScrollUp;
 			console.log("Scrolling up----scrollDifference:", scrollDifference);
 			if (scrollDifference > scrollThreshold) {
-				activateStickyHeader();
+				deactivateStickyHeader();
 				scrolledUp = true;
 			} else if (currentScrollPosition <= headerHeight) {
 				// If scrolled to the top, deactivate sticky header
-				activateStickyHeader();
+				deactivateStickyHeader();
 				scrolledUp = false;
 			}
 		} else {
@@ -192,7 +192,7 @@ function stickyHeaderToggle() {
 			console.log("Scrolling down----scrollDifference:", scrollDifference);
 			if (currentScrollPosition > headerHeight && scrollDifference > scrollThreshold) {
 				if (scrolledUp) {
-					deactivateStickyHeader();
+					activateStickyHeader();
 				}
 			}
 		}
@@ -201,13 +201,13 @@ function stickyHeaderToggle() {
 	};
 
 	const activateStickyHeader = () => {
-		header.classList.add("sticky-header-on");
-		header.classList.remove("sticky-header-off");
+		header.classList.add("sticky-header-off");
+		header.classList.remove("sticky-header-on");
 	};
 
 	const deactivateStickyHeader = () => {
-		header.classList.add("sticky-header-off");
-		header.classList.remove("sticky-header-on");
+		header.classList.add("sticky-header-on");
+		header.classList.remove("sticky-header-off");
 	};
 
 	window.addEventListener("scroll", handleScroll);
