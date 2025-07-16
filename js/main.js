@@ -172,24 +172,24 @@ function stickyHeaderToggle() {
 	const handleScroll = () => {
 		const currentScrollPosition = Math.round(window.pageYOffset || document.documentElement.scrollTop);
 
+		// Scrolling up
 		if (currentScrollPosition < lastScrollPosition) {
-			// Scrolling up
-			lastScrollUp = currentScrollPosition; // Update after comparison
+			lastScrollUp = currentScrollPosition;
 			scrollDifference = lastScrollDown - lastScrollUp;
-			console.log("Scrolling up----scrollDifference:", scrollDifference);
+
 			if (scrollDifference > scrollThreshold) {
 				deactivateStickyHeader();
 				scrolledUp = true;
 			} else if (currentScrollPosition <= headerHeight) {
-				// If scrolled to the top, deactivate sticky header
+				// If scrolled to the top
 				deactivateStickyHeader();
 				scrolledUp = false;
 			}
-		} else {
-			// Scrolling down
-			lastScrollDown = currentScrollPosition; // Update after comparison
+		}
+		// Scrolling down
+		else {
+			lastScrollDown = currentScrollPosition;
 			scrollDifference = lastScrollDown - lastScrollUp;
-			console.log("Scrolling down----scrollDifference:", scrollDifference);
 			if (currentScrollPosition > headerHeight && scrollDifference > scrollThreshold) {
 				if (scrolledUp) {
 					activateStickyHeader();

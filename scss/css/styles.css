@@ -243,7 +243,7 @@ button {
 /*-------------------------------------- Scrollbar */
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
-  width: 0.3125rem;
+  width: 0.375rem; /* 6px */
 }
 
 ::-webkit-scrollbar-track {
@@ -697,6 +697,7 @@ button {
           justify-content: center;
   gap: var(--gap-12);
   position: relative;
+  outline-style: none;
 }
 @media screen and (max-width: 767px) {
   #header .navigation-wrapper .header-top .navigation-buttons .cart-count {
@@ -1497,9 +1498,25 @@ body.cart-window-visible #cart-widget {
   background: white;
   z-index: 1000;
   border-radius: var(--br-16);
-  max-width: 400px;
+  width: 810px;
+  max-width: 100%;
+  padding: var(--gap-20) var(--gap-20) var(--gap-36) var(--gap-20);
   -webkit-box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
+}
+body.cart-window-visible #cart-widget .cart-widget-products {
+  max-height: 340px;
+  overflow-y: auto;
+}
+body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-products-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--gap-20);
 }
 body.login-window-visible .login-widget {
   display: block;
@@ -2877,12 +2894,17 @@ body.type-category .category-header > div strong {
     font-weight: var(--fw-700);
     line-height: 1;
   }
-  .products-block .product .p-in .p-bottom > div .p-tools button:hover, .products-block .product .p-in .p-bottom > div .p-tools button:focus-within {
+  .products-block .product .p-in .p-bottom > div .p-tools button:hover {
     -webkit-transform: none;
             transform: none;
-  }
-  .products-block .product .p-in .p-bottom > div .p-tools button:hover {
     background-color: var(--color-secondary-hover);
+  }
+  .products-block .product .p-in .p-bottom > div .p-tools button:focus-within {
+    -webkit-transform: none;
+            transform: none;
+    outline: none;
+    -webkit-box-shadow: 0px 1px 5px var(--color-secondary);
+            box-shadow: 0px 1px 5px var(--color-secondary);
   }
   .products-block .product .p-in .p-bottom > div .p-tools button::after {
     display: none;
@@ -3827,6 +3849,7 @@ body.type-category .category-header > div strong {
   grid-row: 1;
   background: var(--color-white);
   padding: 0 0.5em;
+  width: 100%;
 }
 #footer .custom-footer__instagram .instagram-widget .instagram-follow-btn > span {
   height: 100%;

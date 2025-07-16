@@ -314,7 +314,7 @@ button {
 /*-------------------------------------- Scrollbar */
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
-	width: 0.3125rem;
+	width: 0.375rem; /* 6px */
 }
 
 ::-webkit-scrollbar-track {
@@ -659,6 +659,7 @@ button {
 					justify-content: center;
 					gap: var(--gap-12);
 					position: relative;
+					outline-style: none;
 					@media screen and (max-width: $mobile-max) {
 						width: 30px;
 						height: 100%;
@@ -1377,8 +1378,20 @@ body {
 			background: white;
 			z-index: 1000;
 			border-radius: var(--br-16);
-			max-width: 400px;
+			width: 810px;
+			max-width: 100%;
+			padding: var(--gap-20) var(--gap-20) var(--gap-36) var(--gap-20);
 			@include bottom-shadow;
+			.cart-widget-products {
+				max-height: 340px;
+				overflow-y: auto;
+
+				.cart-widget-products-inner {
+					display: flex;
+					flex-direction: column;
+					gap: var(--gap-20);
+				}
+			}
 		}
 	}
 	&.login-window-visible {
@@ -2487,13 +2500,16 @@ body.type-category {
 									font-weight: var(--fw-700);
 									line-height: 1;
 								}
-								&:hover,
-								&:focus-within {
-									transform: none;
-								}
 								&:hover {
+									transform: none;
 									background-color: var(--color-secondary-hover);
 								}
+								&:focus-within {
+									transform: none;
+									outline: none;
+									box-shadow: 0px 1px 5px var(--color-secondary);
+								}
+
 								&::after {
 									display: none;
 								}
@@ -3269,6 +3285,7 @@ body.type-category {
 				grid-row: 1;
 				background: var(--color-white);
 				padding: 0 0.5em;
+				width: 100%;
 
 				> span {
 					height: 100%;
