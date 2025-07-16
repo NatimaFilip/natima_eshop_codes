@@ -1432,7 +1432,7 @@ body.type-category {
 		padding-bottom: 0.9375em;
 		max-width: 1260px;
 		@media screen and (min-width: $desktop-min) {
-			padding-bottom: 1.5em;
+			margin-bottom: 1.5em;
 		}
 
 		&.category-perex-has-shortened {
@@ -1901,7 +1901,7 @@ body.type-category {
 	//aside naboku
 	@media screen and (min-width: $desktop-min) {
 		.category-content-wrapper {
-			padding-top: calc(var(--gap-24) * 1.5);
+			margin-top: calc(var(--gap-24) * 1.5);
 			display: grid;
 			grid-template-columns: 1fr 4fr;
 			@media screen and (min-width: $desktop-large-min) {
