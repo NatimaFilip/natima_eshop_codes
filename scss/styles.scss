@@ -89,6 +89,7 @@ $desktop-large-min: 1680px;
 	--fs-13: 0.8125rem;
 	--fs-14: 0.875rem;
 	--fs-16: 1rem;
+	--fs-18: 1.125rem;
 	--fs-20: 1.25rem;
 	--fs-24: 1.5rem;
 	--fs-26: 1.625rem;
@@ -136,6 +137,7 @@ $desktop-large-min: 1680px;
 	--color-red-200: #e9cbd0;
 	--color-red-400: #d44b6c;
 
+	--color-green-online-background: #daffe9;
 	--color-green-online: #22c162;
 
 	--color-cta-200: #e1ffda;
@@ -2701,7 +2703,7 @@ body.type-category {
 		padding-bottom: var(--gap-36);
 
 		.benefitBanner__item {
-			width: 18em;
+			width: 19em;
 			max-width: 100%;
 			margin: auto;
 		}
@@ -2722,6 +2724,7 @@ body.type-category {
 	margin: 0;
 	background-color: var(--color-gray-400);
 	--image-width: 80px;
+	--padding-sides-footer: 2em;
 
 	@media screen and (max-width: $mobile-max) {
 		background-color: transparent;
@@ -2794,46 +2797,6 @@ body.type-category {
 				font-size: var(--fs-13);
 				color: var(--color-black-o-60);
 			}
-			.online-status {
-				display: none;
-				padding-left: 0.625em;
-				padding-top: 0.3125em;
-				padding-bottom: 0.3125em;
-				margin-top: 0.3125em;
-				background: var(--color-white);
-				border-radius: var(--br-8);
-				&.active {
-					display: flex;
-				}
-				> * {
-					display: none;
-					align-items: center;
-					gap: var(--gap-8);
-					p {
-						color: var(--color-black);
-					}
-					&:before {
-						content: "";
-						display: block;
-						width: 0.375em;
-						height: 0.375em;
-						border-radius: 50%;
-					}
-				}
-				.online-status-online {
-					&:before {
-						background-color: var(--color-green-online);
-					}
-				}
-				.online-status-offline {
-					&:before {
-						background-color: var(--color-red-400);
-					}
-				}
-				.active {
-					display: flex;
-				}
-			}
 		}
 		.footer-customer-support-icon-with-text {
 			display: flex;
@@ -2876,7 +2839,258 @@ body.type-category {
 		}
 	}
 
+	.online-status,
+	.open-status {
+		display: none;
+		padding-left: 0.625em;
+		padding-top: 0.3125em;
+		padding-bottom: 0.3125em;
+		margin-top: 0.3125em;
+		background: var(--color-white);
+		border-radius: var(--br-8);
+		&.active {
+			display: flex;
+		}
+		> * {
+			display: none;
+			align-items: center;
+			gap: var(--gap-8);
+			p {
+				color: var(--color-black);
+			}
+			&:before {
+				content: "";
+				display: block;
+				width: 0.375em;
+				height: 0.375em;
+				border-radius: 50%;
+			}
+		}
+		.online-status-online,
+		.open-status-open {
+			&:before {
+				background-color: var(--color-green-online);
+			}
+		}
+		.online-status-offline,
+		.open-status-closed {
+			&:before {
+				background-color: var(--color-red-400);
+			}
+		}
+		.active {
+			display: flex;
+		}
+	}
+
 	//footer-heureka
+	#heureka-reviews-footer {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+		max-width: 100%;
+		overflow: hidden;
+		text-wrap: balance;
+		gap: var(--gap-30);
+		padding: var(--gap-55) var(--padding-sides-footer);
+
+		@media screen and (max-width: $tablet-max) {
+			flex-wrap: wrap;
+		}
+		@media screen and (max-width: $mobile-max) {
+			padding: 2.5em 2em 3.4375em 1em;
+			gap: var(--gap-30);
+		}
+
+		p {
+			padding: 0;
+		}
+		.heureka-texts {
+			padding-right: 1em;
+			flex-grow: 1;
+			flex-shrink: 0;
+			max-width: 17em;
+
+			@media screen and (max-width: $mobile-max) {
+				width: 19em;
+				max-width: 100%;
+				flex-grow: 0;
+			}
+
+			h4 {
+				font-size: var(--fs-24);
+				font-weight: var(--fw-700);
+				color: var(--color-black);
+				line-height: var(--lh-1-4);
+				padding-bottom: 0.417em;
+			}
+			p {
+				font-size: var(--fs-16);
+				line-height: var(--lh-1-4);
+			}
+		}
+		.heureka-odznak {
+			min-width: fit-content;
+			img {
+				height: auto;
+			}
+		}
+		.heureka-reviews-wrapper {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
+			position: relative;
+			flex-grow: 0;
+			flex-shrink: 1;
+			max-width: 50%;
+			overflow: hidden;
+			@media screen and (max-width: $tablet-max) {
+				max-width: 100%;
+			}
+
+			#heureka-reviews-insert {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: flex-start;
+				flex-wrap: nowrap;
+				transition: transform 0.2s ease-in-out;
+				width: 100%;
+
+				.heureka-review {
+					--width: 33.34%;
+					@media screen and (max-width: $desktop-medium-min) {
+						--width: 50%;
+					}
+					@media screen and (max-width: $tablet-max) {
+						--width: 33.34%;
+					}
+					@media screen and (max-width: $mobile-max) {
+						--width: 80%;
+					}
+					width: calc(var(--width) - var(--gap-20));
+					flex-shrink: 0;
+					border-radius: var(--br-16);
+					border-style: solid;
+					border-width: 1px;
+					border-color: var(--color-gray-500);
+					min-height: 11.25em;
+					max-height: 16em;
+					overflow-y: auto;
+					padding: var(--gap-20) var(--gap-24) var(--gap-24);
+					margin-right: var(--gap-20);
+					display: flex;
+					gap: var(--gap-16);
+					flex-direction: column;
+				}
+				.heureka-review-rating-wrapper {
+					display: flex;
+					align-items: center;
+					gap: 3px;
+					.heureka-icon-star {
+						width: 0.692em;
+						height: 0.692em;
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: contain;
+						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+					}
+				}
+				.heureka-review-summary {
+					font-size: var(--fs-13);
+				}
+				.heureka-review-pros,
+				.heureka-review-cons {
+					display: flex;
+					flex-direction: column;
+					font-size: var(--fs-13);
+					font-weight: var(--fw-700);
+					gap: var(--gap-8);
+					.heureka-review-pro,
+					.heureka-review-con {
+						display: flex;
+						align-items: center;
+						gap: var(--gap-8);
+						&:before {
+							content: "+";
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							border-radius: var(--br-8);
+							color: var(--color-green-online);
+							background-color: var(--color-green-online-background);
+							line-height: 1;
+							width: 1.538em;
+							height: 1.538em;
+							min-width: 1.538em;
+							min-height: 1.538em;
+						}
+					}
+				}
+				.heureka-review-cons {
+					.heureka-review-con {
+						&:before {
+							content: "-";
+							color: var(--color-red-400);
+							background-color: var(--color-red-200);
+						}
+					}
+				}
+			}
+
+			#heureka-reviews-scroll-right,
+			#heureka-reviews-scroll-left {
+				position: absolute;
+				--component-width: 3.25em;
+				right: 0;
+
+				top: 50%;
+				transform: translateY(-50%);
+				width: var(--component-width);
+				height: var(--component-width);
+				background-color: var(--color-white);
+				display: none;
+
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				border-radius: var(--br-16);
+				&.active {
+					display: flex;
+				}
+				&::before {
+					content: "";
+					display: block;
+					width: 0.625em;
+					height: 0.625em;
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: contain;
+					transform: rotate(90deg);
+				}
+				&:hover,
+				&:focus-within {
+					&::before {
+						background-size: 0.875em;
+					}
+				}
+				@media screen and (max-width: $mobile-max) {
+					right: calc(20% + var(--component-width) / -5);
+					background-color: var(--color-gray-400);
+				}
+			}
+			#heureka-reviews-scroll-left {
+				top: 8px;
+				transform: translateY(0);
+				&::before {
+					transform: rotate(-90deg);
+				}
+			}
+		}
+	}
 
 	//footer-instagram
 	.custom-footer__instagram {
@@ -2885,8 +3099,55 @@ body.type-category {
 		}
 		.instagram-widget {
 			display: grid;
-			grid-template-columns: repeat(6, 1fr);
-			gap: var(--gap-20);
+			justify-items: center;
+
+			@media screen and (min-width: $desktop-min) {
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-rows: 1fr;
+				gap: var(--gap-20);
+
+				> a:nth-of-type(5) {
+					display: none;
+				}
+				> a:nth-of-type(6) {
+					display: none;
+				}
+			}
+
+			@media screen and (min-width: $desktop-medium-min) {
+				grid-template-columns: repeat(6, 1fr);
+				grid-template-rows: 1fr;
+				gap: var(--gap-20);
+				> a:nth-of-type(5) {
+					display: flex;
+				}
+
+				> a:nth-of-type(6) {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: $tablet-max) {
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: 1fr 1fr;
+				gap: var(--gap-20);
+
+				> a:nth-of-type(6) {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: $mobile-max) {
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-rows: auto 1fr 1fr;
+				gap: var(--gap-10);
+				> a:nth-of-type(5) {
+					display: none;
+				}
+				> a:nth-of-type(6) {
+					display: none;
+				}
+			}
 
 			> * {
 				position: relative;
@@ -2906,6 +3167,8 @@ body.type-category {
 					aspect-ratio: 4 / 5;
 				}
 			}
+			// last  not visible, protože nemůžu nastavit, ať se zobrazuje 5 - je jich 6
+
 			> a {
 				transition: opacity 0.2s ease-out;
 				&:after {
@@ -2933,14 +3196,13 @@ body.type-category {
 					}
 				}
 			}
-			// last  not visible, protože nemůžu nastavit, ať se zobrazuje 5 - je jich 6
-			> a:last-of-type {
-				display: none;
-			}
+
 			.instagram-follow-btn {
 				grid-column: 1;
 				grid-row: 1;
 				background: var(--color-white);
+				padding: 0 0.5em;
+
 				> span {
 					height: 100%;
 					width: 100%;
@@ -2954,10 +3216,20 @@ body.type-category {
 						justify-content: center;
 						align-items: center;
 						text-align: center;
-						font-size: var(--fs-24);
+						font-size: var(--fs-20);
 						color: var(--color-black);
 						font-weight: var(--fw-700);
+						@media screen and (max-width: $tablet-max) {
+							font-size: var(--fs-16);
+						}
+						@media screen and (max-width: $mobile-max) {
+							font-size: var(--fs-14);
+						}
+						@media screen and (min-width: $desktop-large-min) {
+							font-size: var(--fs-24);
+						}
 					}
+
 					.instagram-profile-name {
 						font-size: var(--fs-16);
 						font-weight: var(--fw-400);
@@ -2985,7 +3257,567 @@ body.type-category {
 						}
 					}
 				}
+				@media screen and (max-width: $mobile-max) {
+					grid-column: 1 / -1;
+					grid-row: 1;
+					aspect-ratio: auto;
+					width: 100%;
+					background: var(--color-gray-400);
+					border-radius: calc(var(--br-8) + 2px);
+					padding: var(--gap-15) var(--gap-20);
+					> span {
+						a {
+							display: grid;
+							grid-template-columns: auto 1fr;
+							grid-template-rows: auto auto;
+							row-gap: 0;
+							column-gap: var(--gap-16);
+							justify-items: start;
+							align-items: center;
+							align-content: center;
+							font-size: var(--fs-14);
+							text-align: left;
+							.instagram-image-placeholder {
+								grid-column: 1;
+								grid-row: 1/3;
+								margin-bottom: 0;
+								background-color: var(--color-white);
+								border-radius: var(--br-8);
+								padding: 0.5em;
+								background-size: auto;
+							}
+							.instagram-profile-name {
+								font-size: var(--fs-12);
+							}
+						}
+					}
+				}
 			}
+		}
+	}
+
+	//footer-newsletter
+	.footer-newsletter {
+		padding-top: var(--gap-41);
+		.footer-newsletter-wrapper {
+			display: flex;
+			justify-content: center;
+			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/newsletter_image_pc.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			border-radius: var(--br-16);
+			padding: 65px 0 70px;
+			@media screen and (max-width: $mobile-max) {
+				background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/newsletter_image_mobile.jpg");
+				padding: 240px 2em 40px;
+				text-align: center;
+			}
+			.footer-newsletter-wrapper-inner {
+				max-width: clamp(600px, 50%, 1000px);
+				.newsletter-header {
+					font-size: var(--fs-24);
+					font-weight: var(--fw-700);
+					color: var(--color-black);
+					line-height: var(--lh-1-4);
+					padding-bottom: 1.125em;
+				}
+				form {
+					fieldset {
+						border: none;
+						padding: 0;
+						margin: 0;
+						display: grid;
+						grid-template-columns: 1fr auto;
+						grid-template-rows: auto auto;
+						gap: var(--gap-12);
+						.no-display {
+							display: none;
+						}
+						.validator-msg-holder {
+							grid-row: 1;
+							grid-column: 1;
+							input {
+								border: none;
+								background: var(--color-white);
+								border-radius: var(--br-16);
+								font-size: var(--fs-13);
+								line-height: 1;
+								padding: 1.28em;
+								width: 100%;
+								color: var(--color-gray-700);
+								border-style: solid;
+								border-width: 1px;
+								border-color: var(--color-gray-500);
+								&:focus-within {
+									outline: solid 2px var(--color-primary);
+									outline-offset: 0px;
+								}
+							}
+						}
+						button.btn {
+							grid-row: 1;
+							grid-column: 2;
+							width: 6.4375em;
+							border-radius: var(--br-16);
+							cursor: pointer;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							background-color: var(--color-primary);
+
+							@include bottom-primary-shadow;
+
+							&::before {
+								content: "";
+								display: block;
+								width: 1em;
+								height: 1em;
+								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+								background-position: center;
+								background-repeat: no-repeat;
+
+								background-size: 0.75em;
+								background-color: transparent;
+								border-radius: var(--br-16);
+								filter: brightness(0) invert(1);
+								transform: rotate(90deg);
+							}
+							&:hover,
+							&:focus-within {
+								background-color: var(--color-primary-hover);
+
+								&::before {
+									background-size: 0.875em;
+								}
+							}
+						}
+						> div {
+							grid-row: 2;
+							grid-column: 1 / -1;
+							label.whole-width {
+								font-size: var(--fs-13);
+								padding-top: 2px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	//footer-final-block
+	.footer-final-block {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-start;
+		padding: calc(var(--gap-41) * 2) 2em;
+		column-gap: var(--gap-30);
+		row-gap: calc(var(--gap-41) * 2);
+		position: relative;
+
+		> * {
+			width: calc(50% - var(--gap-30) / 2);
+			max-width: 755px;
+		}
+		h4 {
+			font-size: var(--fs-18);
+			font-weight: var(--fw-700);
+			color: var(--color-black);
+			line-height: var(--lh-1-4);
+			padding-bottom: 1em;
+		}
+		p {
+			padding: 0;
+		}
+
+		// meníčka
+		.footer-important-links {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: var(--gap-30);
+			ul {
+				display: flex;
+				flex-direction: column;
+				gap: var(--gap-6);
+				list-style: none;
+				margin: 0;
+				padding: 0;
+
+				li {
+					a {
+						color: var(--color-black-o-60);
+						font-size: var(--fs-13);
+						font-weight: var(--fw-400);
+						line-height: var(--lh-2);
+
+						&:hover,
+						&:focus-within {
+							color: var(--color-primary);
+						}
+					}
+				}
+			}
+		}
+		//kontaktujte nás
+		.footer-contact-us-socials-languages {
+			.footer-contacts {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				h4 {
+					grid-row: 1;
+					grid-column: 1 / -1;
+				}
+				.footer-contacts-blocks {
+					grid-row: 2;
+					grid-column: 1 / -1;
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: var(--gap-20);
+					padding-bottom: var(--gap-30);
+					.footer-contacts-block {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: var(--gap-16);
+						background: var(--color-white);
+						border-radius: var(--br-16);
+						padding: var(--gap-30) var(--gap-10);
+						--component-width: 40px;
+						.footer-customer-support-icon {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							background-color: var(--color-gray-400);
+							border-radius: var(--br-8);
+							width: var(--component-width);
+							height: var(--component-width);
+							img {
+								width: 37.5%;
+							}
+						}
+						a {
+							color: var(--color-black);
+							font-size: var(--fs-16);
+							font-weight: var(--fw-400);
+							line-height: var(--lh-1-4);
+							&:hover,
+							&:focus-within {
+								color: var(--color-primary);
+							}
+						}
+						p {
+							font-size: var(--fs-13);
+							color: var(--color-black-o-60);
+						}
+					}
+				}
+			}
+			.footer-socials-and-languages {
+				grid-row: 3;
+				grid-column: 1 / -1;
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				justify-items: start;
+				.footer-socials {
+					display: flex;
+					flex-direction: row;
+					gap: var(--gap-18);
+					--component-width: 60px;
+
+					a {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						width: var(--component-width);
+						height: var(--component-width);
+						background-color: var(--color-white);
+						border-radius: var(--br-12);
+
+						cursor: pointer;
+
+						img {
+							width: 50%;
+							height: 50%;
+							object-fit: contain;
+						}
+						&:hover,
+						&:focus-within {
+							background-color: var(--color-primary);
+							img {
+								filter: brightness(0) invert(1);
+							}
+						}
+					}
+				}
+				.footer-languages-wrapper {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					margin-left: auto;
+					width: auto;
+					gap: var(--gap-10);
+					background-color: var(--color-white);
+					border-radius: var(--br-12);
+					border-style: solid;
+					border-width: 1px;
+					border-color: var(--color-black-o-20);
+					position: relative;
+					user-select: none;
+
+					.footer-language-link {
+						img {
+							width: 1.6875em;
+							min-width: 1.6875em;
+							height: auto;
+
+							filter: brightness(0.95);
+						}
+					}
+
+					.footer-languages-current {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: var(--gap-24);
+						padding: 1em 1.625em 1em 1.375em;
+						background-color: var(--color-white);
+						border-radius: var(--br-12);
+						cursor: pointer;
+					}
+					.footer-languages-current {
+						&:after {
+							content: "";
+							display: block;
+							position: relative;
+							top: 2px;
+							width: 1em;
+							height: 1em;
+							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: contain;
+							transform: rotate(180deg);
+						}
+					}
+					.footer-languages-box {
+						display: none;
+					}
+
+					&.active {
+						.footer-languages-current {
+							&:after {
+								transform: rotate(0deg);
+							}
+						}
+						.footer-languages-box {
+							width: 100%;
+							display: flex;
+							flex-direction: column;
+							position: absolute;
+							top: calc(100% + var(--gap-10));
+							left: 0;
+							background-color: var(--color-white);
+							border-radius: var(--br-12);
+							border-style: solid;
+							border-width: 1px;
+							border-color: var(--color-black-o-20);
+
+							z-index: 10;
+							overflow: hidden;
+
+							.footer-language-choice {
+								.footer-language-link {
+									display: flex;
+									align-items: center;
+									justify-content: center;
+									gap: var(--gap-24);
+									padding: 1em 1.625em 1em 1.375em;
+									background-color: var(--color-white);
+									cursor: pointer;
+									span {
+										font-size: var(--fs-14);
+										font-weight: var(--fw-700);
+										color: var(--color-black);
+									}
+								}
+								&:hover,
+								&:focus-within {
+									span {
+										color: var(--color-primary);
+										text-decoration: underline;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		//prodejna
+		.footer-prodejna {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: var(--gap-30);
+			align-items: start;
+			.footer-prodejna-image {
+				width: 100%;
+				position: relative;
+				img {
+					width: 100%;
+					height: auto;
+					border-radius: var(--br-16);
+				}
+			}
+			.footer-prodejna-texts {
+				.footer-prodejna-adress {
+					padding-bottom: 1.75em;
+				}
+				.footer-prodejna-adress,
+				.footer-prodejna-openning-hours {
+					display: flex;
+					gap: var(--gap-12);
+					p {
+						font-size: var(--fs-13);
+						text-wrap: balance;
+					}
+
+					span {
+						font-size: var(--fs-13);
+						line-height: var(--lh-1-4);
+					}
+				}
+				.footer-prodejna-adress-icon,
+				.footer-prodejna-openning-hours-icon {
+					min-width: 40px;
+					min-height: 40px;
+					width: 40;
+					height: 40;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					img {
+						width: 60%;
+						height: 60%;
+						object-fit: contain;
+					}
+				}
+				.footer-prodejna-openning-hours-table {
+					display: grid;
+					grid-template-columns: auto auto;
+					column-gap: 0.625em;
+				}
+			}
+		}
+
+		//vydejní místa
+		.footer-vydejni-mista {
+			display: flex;
+			gap: var(--gap-20);
+			justify-content: space-between;
+			align-items: center;
+			.footer-vydejni-mista-texts {
+				text-wrap: balance;
+				max-width: 12em;
+				p {
+					font-size: var(--fs-13);
+				}
+			}
+			.footer-vydejni-mista-map {
+			}
+			.footer-vydejni-mista-dopravci {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: var(--gap-12);
+
+				img {
+					width: 110px;
+
+					height: auto;
+					object-fit: contain;
+				}
+			}
+		}
+
+		//oddelovací čára horizontální
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: 25%;
+			left: 50%;
+			width: 1px;
+			height: 50%;
+			background-color: var(--color-gray-500);
+		}
+	}
+	.footer-online-payments {
+		display: none;
+	}
+	//konečná patička s copyrightem
+	.footer-bottom {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 1fr 1fr;
+		padding: var(--gap-41) 0;
+
+		position: relative;
+
+		.copyright {
+			grid-column: 1;
+			grid-row: 1 / -1;
+			font-size: var(--fs-13);
+			color: var(--color-black-o-60);
+			line-height: var(--lh-1-4);
+		}
+		.footer-online-payments {
+			display: flex;
+			grid-column: 2;
+			grid-row: 1 / -1;
+			align-items: center;
+			justify-content: center;
+			gap: var(--gap-16);
+		}
+
+		#signature {
+			grid-column: 3;
+			grid-row: 1 / -1;
+			text-align: right;
+			margin-right: 0;
+			margin-left: auto;
+
+			a {
+				display: inline-block;
+				color: var(--color-black-o-60);
+				font-size: var(--fs-13);
+				font-weight: var(--fw-400);
+				line-height: var(--lh-1-4);
+
+				&:hover,
+				&:focus-within {
+					color: var(--color-primary);
+				}
+			}
+			img {
+				margin-right: 1em;
+			}
+			.title {
+				position: relative;
+				top: -0.35em;
+			}
+		}
+		//oddelovací čára vertikální
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: var(--color-gray-500);
 		}
 	}
 }

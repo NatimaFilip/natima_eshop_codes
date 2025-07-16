@@ -948,7 +948,11 @@ if (footer) {
 		let instagramWidgetFollowBtn = footer.querySelector(".instagram-follow-btn a");
 		if (!instagramWidgetFollowBtn) return;
 
-		const instagramProfileName = footer.querySelector(".custom-footer__contact .instagram").textContent.trim();
+		const instagramProfileName = footer
+			.querySelector("a.footer-social-link.instagram")
+			.getAttribute("href")
+			.replace("https://www.instagram.com/", "")
+			.replace("/", "");
 		if (!instagramProfileName) return;
 
 		const instagramProfileNameElement = document.createElement("span");
@@ -961,4 +965,258 @@ if (footer) {
 		instagramWidgetFollowBtn.prepend(instagramProfileNameElement);
 		instagramWidgetFollowBtn.prepend(instagramImagePlaceholder);
 	}
+}
+
+/*------------------------------------------------- DOWNLOAD HEUREKA REVIES*/
+let heurekaReviewsData;
+let numberOfTotalViableReviews = 0;
+let heurekaScrolled = false;
+
+document.addEventListener("DOMContentLoaded", async function () {
+	await downloadAndSaveHeurekaReviews();
+	insertHeurekaReviews();
+	heurekaReviewsScroll();
+});
+
+window.addEventListener("resize", function () {
+	heurekaReviewsScroll();
+});
+
+async function insertHeurekaReviews() {
+	let heurekaInsertElement = footer.querySelector("#heureka-reviews-insert");
+	if (!heurekaInsertElement) {
+		console.warn("Heureka reviews insert element not found.");
+		return;
+	}
+	if (!heurekaReviewsData || heurekaReviewsData.length === 0) {
+		console.warn("No Heureka reviews data available.");
+		return;
+	}
+
+	heurekaReviewsData.forEach((review) => {
+		const reviewElement = document.createElement("div");
+		reviewElement.className = "heureka-review";
+		let contentLength = 0;
+
+		//review stars
+		const reviewRatingWrapper = document.createElement("div");
+		reviewRatingWrapper.className = "heureka-review-rating-wrapper";
+		for (let i = 0; i < review.total_rating._text; i++) {
+			const starIcon = document.createElement("i");
+			starIcon.className = "heureka-icon-star";
+			reviewRatingWrapper.appendChild(starIcon);
+		}
+		reviewElement.appendChild(reviewRatingWrapper);
+
+		//review summary
+		if (review.summary && review.summary._cdata) {
+			if (review.summary._cdata.length < 100) {
+				const reviewText = document.createElement("p");
+				reviewText.className = "heureka-review-summary";
+				reviewText.textContent = review.summary._cdata;
+				reviewElement.appendChild(reviewText);
+				contentLength += review.summary._cdata.length;
+			}
+		}
+
+		//review pros
+		if (review.pros && review.pros._cdata) {
+			let reviesEditedProData = [];
+			const reviewPros = document.createElement("div");
+			reviewPros.className = "heureka-review-pros";
+			let prosString = review.pros._cdata; // Extract the string from _cdata
+			let prosStringEdited = prosString.match(/[A-Z][^A-Z]*/g); // Split by sequences starting with a capital letter
+
+			if (prosStringEdited && prosStringEdited.length > 0) {
+				reviesEditedProData = prosStringEdited;
+			} else {
+				reviesEditedProData[0] = prosString;
+			}
+			//return if there are more than 3 pros (praveděpodobně chyba)
+
+			if (reviesEditedProData.length > 3) {
+				return;
+			}
+			reviesEditedProData.forEach((pro) => {
+				const proElement = document.createElement("span");
+				proElement.className = "heureka-review-pro";
+				proElement.textContent = pro.trim();
+				reviewPros.appendChild(proElement);
+			});
+			reviewElement.appendChild(reviewPros);
+			contentLength += review.pros._cdata.length * 1.5;
+		}
+
+		// Review cons
+		if (review.cons && review.cons._cdata) {
+			let reviewsEditedConsData = [];
+			const reviewCons = document.createElement("div");
+			let consString = review.cons._cdata; // Extract the string from _cdata
+			let consStringEdited = consString.match(/[A-Z][^A-Z]*/g); // Split by sequences starting with a capital letter
+
+			if (consStringEdited && consStringEdited.length > 0) {
+				reviewsEditedConsData = consStringEdited;
+			} else {
+				reviewsEditedConsData[0] = consString;
+			}
+
+			// Return if there are more than 3 cons (likely an error)
+			if (reviewsEditedConsData.length > 3) {
+				return;
+			}
+
+			reviewsEditedConsData.forEach((con) => {
+				const conElement = document.createElement("span");
+				conElement.className = "heureka-review-con";
+				conElement.textContent = con.trim();
+				reviewCons.appendChild(conElement);
+			});
+
+			reviewElement.appendChild(reviewCons);
+			contentLength += review.pros._cdata.length * 1.5;
+		}
+
+		//return if content is less than 40 and more than 150
+		if (contentLength < 50 || contentLength > 100) {
+			return;
+		}
+		numberOfTotalViableReviews = numberOfTotalViableReviews + 1;
+
+		/* 	// review date
+		const reviewDate = document.createElement("span");
+		reviewDate.className = "heureka-review-date";
+		const reviewTimestamp = parseInt(review.unix_timestamp._text, 10) * 1000; // Convert to milliseconds
+		const reviewDateObject = new Date(reviewTimestamp);
+		// Format the date as DD-MM-YYYY
+		const formattedDate = `${reviewDateObject.getDate().toString().padStart(2, "0")}.${(reviewDateObject.getMonth() + 1)
+			.toString()
+			.padStart(2, "0")}.${reviewDateObject.getFullYear()}`;
+		reviewDate.textContent = formattedDate;
+		reviewElement.appendChild(reviewDate);
+*/
+		//add to heurekaInsertElement
+		heurekaInsertElement.appendChild(reviewElement);
+	});
+}
+
+function heurekaReviewsScroll() {
+	let heurekaReviewlements = footer.querySelectorAll(".heureka-review");
+	let heurekaInsertElement = footer.querySelector("#heureka-reviews-insert");
+	if (!heurekaReviewlements.length || !heurekaInsertElement) {
+		return;
+	}
+
+	// Get the computed style
+	let styles = window.getComputedStyle(heurekaReviewlements[0]);
+	// Get the CSS variable
+	let heurekaReviewWidthProperty = styles.getPropertyValue("--width").trim();
+	//remove % from the value
+	heurekaReviewWidthProperty = heurekaReviewWidthProperty.replace("%", "");
+	// calculate how many to 100
+	heurekaReviewVisibleAmount = (100 / heurekaReviewWidthProperty).toFixed(0);
+	console.log("heurekaReviewWidthProperty:", heurekaReviewWidthProperty);
+	console.log("heurekaReviewVisibleAmount:", heurekaReviewVisibleAmount);
+
+	//figure if there are more reviews than visible amount
+	if (numberOfTotalViableReviews <= heurekaReviewVisibleAmount) {
+		return;
+	}
+
+	let scrolledAmount = 0;
+	let arrowRight = footer.querySelector("#heureka-reviews-scroll-right");
+	let arrowLeft = footer.querySelector("#heureka-reviews-scroll-left");
+	if (!arrowRight || !arrowLeft) {
+		console.warn("Heureka reviews scroll arrows not found.");
+		return;
+	}
+	arrowRight.classList.add("active");
+	arrowRight.addEventListener("click", function () {
+		scrolledAmount += 1;
+		scrollHeurekaReviews();
+	});
+	arrowLeft.addEventListener("click", function () {
+		scrolledAmount -= 1;
+		scrollHeurekaReviews();
+	});
+
+	function scrollHeurekaReviews() {
+		heurekaScrolled = true;
+		if (scrolledAmount > 0) {
+			arrowLeft.classList.add("active");
+		}
+		if (scrolledAmount <= 0) {
+			arrowLeft.classList.remove("active");
+		}
+		if (scrolledAmount >= numberOfTotalViableReviews - heurekaReviewVisibleAmount) {
+			arrowRight.classList.remove("active");
+		} else {
+			arrowRight.classList.add("active");
+		}
+		heurekaInsertElement.style.transform = `translateX(-${scrolledAmount * parseFloat(heurekaReviewWidthProperty)}%)`;
+	}
+	if (heurekaScrolled) {
+		heurekaInsertElement.style.transform = "translateX(0)";
+		arrowLeft.classList.remove("active");
+	}
+}
+
+async function downloadAndSaveHeurekaReviews() {
+	const url =
+		"https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_cz.json";
+	const storageKey = "heurekaReviewsCZ";
+	const expiryKey = "heurekaReviewsCZ_expiry";
+
+	// Check if data is already in localStorage and not expired
+	const now = Date.now();
+	const expiry = localStorage.getItem(expiryKey);
+	const cached = localStorage.getItem(storageKey);
+	if (expiry && cached && now < parseInt(expiry)) {
+		// Data is still valid
+		console.log("Heureka reviews loaded from localStorage.");
+		heurekaReviewsData = JSON.parse(cached).reviews.review;
+		return;
+	}
+
+	// Fetch and save
+	try {
+		const response = await fetch(url);
+		if (!response.ok) throw new Error("Network response was not ok");
+		const data = await response.json();
+		localStorage.setItem(storageKey, JSON.stringify(data));
+		localStorage.setItem(expiryKey, (now + 24 * 60 * 60 * 1000).toString());
+		console.log("Heureka reviews saved to localStorage.");
+		heurekaReviewsData = data.reviews.review;
+	} catch (error) {
+		console.error("Failed to fetch Heureka reviews:", error);
+	}
+}
+
+/*------------------------------------------------- FOOTER Jazyky*/
+footerLanguagesToggle();
+function footerLanguagesToggle() {
+	let footerLanguagesWrapper = footer.querySelector(".footer-languages-wrapper");
+	if (!footerLanguagesWrapper) {
+		return;
+	}
+	let footerLanguagesToggleButton = footerLanguagesWrapper.querySelector(".footer-languages-current");
+	if (!footerLanguagesToggleButton) {
+		return;
+	}
+	addSmartTouchClickListener(footerLanguagesToggleButton, function () {
+		footerLanguagesWrapper.classList.toggle("active");
+	});
+}
+
+/*------------------------------------------------- FOOTER Platby*/
+footerPaymentsMove();
+function footerPaymentsMove() {
+	let footerPaymentsWrapper = footer.querySelector(".footer-online-payments");
+	if (!footerPaymentsWrapper) {
+		return;
+	}
+	let footerBottom = footer.querySelector(".footer-bottom");
+	if (!footerBottom) {
+		return;
+	}
+	footerBottom.appendChild(footerPaymentsWrapper);
 }
