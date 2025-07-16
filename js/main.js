@@ -155,34 +155,62 @@ function addAccountToHeaderTop() {
 	accountButton.setAttribute("data-target", "login");
 	headerTop.appendChild(accountButton);
 }
-
 function stickyHeaderToggle() {
-	let lastScrollTop = 0;
 	const header = document.getElementById("header");
+	if (!header) return;
+
+	let lastScrollPosition = 0;
+	let lastScrollUp = 0;
+	let lastScrollDown = 0;
 	let scrolledUp = false;
+
 	const headerHeight = header.offsetHeight;
+	const scrollThreshold = 90;
 
-	window.addEventListener("scroll", () => {
-		const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	let scrollDifference = 0;
 
-		if (currentScrollTop < lastScrollTop) {
+	const handleScroll = () => {
+		const currentScrollPosition = Math.round(window.pageYOffset || document.documentElement.scrollTop);
+
+		if (currentScrollPosition < lastScrollPosition) {
 			// Scrolling up
-			header.classList.add("sticky-header-on");
-			header.classList.remove("sticky-header-off");
-			scrolledUp = true;
+			lastScrollUp = currentScrollPosition; // Update after comparison
+			scrollDifference = lastScrollDown - lastScrollUp;
+			console.log("Scrolling up----scrollDifference:", scrollDifference);
+			if (scrollDifference > scrollThreshold) {
+				activateStickyHeader();
+				scrolledUp = true;
+			} else if (currentScrollPosition <= headerHeight) {
+				// If scrolled to the top, deactivate sticky header
+				activateStickyHeader();
+				scrolledUp = false;
+			}
 		} else {
 			// Scrolling down
-			if (currentScrollTop < headerHeight) {
-				return;
+			lastScrollDown = currentScrollPosition; // Update after comparison
+			scrollDifference = lastScrollDown - lastScrollUp;
+			console.log("Scrolling down----scrollDifference:", scrollDifference);
+			if (currentScrollPosition > headerHeight && scrollDifference > scrollThreshold) {
+				if (scrolledUp) {
+					deactivateStickyHeader();
+				}
 			}
-			if (scrolledUp) {
-				header.classList.add("sticky-header-off");
-			}
-			header.classList.remove("sticky-header-on");
 		}
 
-		lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scrolling
-	});
+		lastScrollPosition = Math.max(currentScrollPosition, 0); // Prevent negative scroll
+	};
+
+	const activateStickyHeader = () => {
+		header.classList.add("sticky-header-on");
+		header.classList.remove("sticky-header-off");
+	};
+
+	const deactivateStickyHeader = () => {
+		header.classList.add("sticky-header-off");
+		header.classList.remove("sticky-header-on");
+	};
+
+	window.addEventListener("scroll", handleScroll);
 }
 
 /*-------------------------------------- MENU OVERFLOW DETECTION*/
