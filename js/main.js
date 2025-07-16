@@ -122,6 +122,7 @@ let topNavigationContacts = document.querySelector(".top-navigation-contacts");
 
 addContactToHeaderTop();
 addAccountToHeaderTop();
+stickyHeaderToggle();
 
 function addContactToHeaderTop() {
 	headerTop.appendChild(topNavigationContacts);
@@ -153,6 +154,35 @@ function addAccountToHeaderTop() {
 	accountButton.className = "login-button-custom";
 	accountButton.setAttribute("data-target", "login");
 	headerTop.appendChild(accountButton);
+}
+
+function stickyHeaderToggle() {
+	let lastScrollTop = 0;
+	const header = document.getElementById("header");
+	let scrolledUp = false;
+	const headerHeight = header.offsetHeight;
+
+	window.addEventListener("scroll", () => {
+		const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+		if (currentScrollTop < lastScrollTop) {
+			// Scrolling up
+			header.classList.add("sticky-header-on");
+			header.classList.remove("sticky-header-off");
+			scrolledUp = true;
+		} else {
+			// Scrolling down
+			if (currentScrollTop < headerHeight) {
+				return;
+			}
+			if (scrolledUp) {
+				header.classList.add("sticky-header-off");
+			}
+			header.classList.remove("sticky-header-on");
+		}
+
+		lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scrolling
+	});
 }
 
 /*-------------------------------------- MENU OVERFLOW DETECTION*/

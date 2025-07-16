@@ -326,11 +326,66 @@ button {
 	@include body-max-width;
 }
 
+.overall-wrapper {
+	@media screen and (max-width: $mobile-max) {
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			height: 100px;
+			width: calc(100% + var(--padding-sides) * 2);
+			left: calc(var(--padding-sides) * -1);
+
+			background: linear-gradient(0deg, white 0%, var(--color-gray-500) 100%);
+			z-index: -1;
+
+			pointer-events: none;
+		}
+	}
+}
+
 /*-------------------------------------- HEADER*/
 #header {
 	position: relative;
+	padding-top: var(--gap-18);
+	background: white;
+	z-index: 100;
 	@media screen and (max-width: $mobile-max) {
 		padding-top: var(--padding-top-header);
+		background: transparent;
+
+		padding-bottom: calc(var(--gap-6));
+	}
+
+	&.sticky-header-on {
+		position: sticky;
+		top: 0;
+		animation: slideDown 0.3s ease-in-out; /* Apply the animation */
+
+		@media screen and (max-width: $mobile-max) {
+			background: var(--color-white);
+			box-shadow: 0px 3px 5px var(--color-gray-500);
+		}
+	}
+	@keyframes slideDown {
+		from {
+			transform: translateY(-100%);
+		}
+		to {
+			transform: translateY(0);
+		}
+	}
+	&.sticky-header-off {
+		position: sticky;
+		top: 0;
+		transform: translateY(-100%); /* Start off-screen */
+		transition: transform 0.3s ease-in-out; /* Smooth transition */
+		.navigation-wrapper {
+			&:before {
+				display: none;
+			}
+		}
 	}
 	.navigation-wrapper {
 		@media screen and (max-width: $mobile-max) {
@@ -338,21 +393,6 @@ button {
 			background: var(--color-white);
 			border-radius: var(--br-16);
 			justify-content: space-between;
-
-			&:before {
-				content: "";
-				display: block;
-				position: absolute;
-				top: 0;
-
-				width: calc(100% + var(--padding-sides) * 2);
-				left: calc(var(--padding-sides) * -1);
-				height: 100px;
-				//gradient background
-				background: linear-gradient(0deg, white 0%, var(--color-gray-500) 100%);
-				z-index: -1;
-				pointer-events: none;
-			}
 		}
 		.header-top {
 			display: flex;
@@ -1209,7 +1249,6 @@ button {
 
 .top-navigation-bar {
 	padding-top: var(--padding-top-header);
-	padding-bottom: var(--gap-18);
 
 	.top-navigation-contacts {
 		display: none;
@@ -1337,6 +1376,9 @@ body {
 	.breadcrumbs-wrapper {
 		--padding-for-click: 5px;
 		margin-top: calc(var(--gap-14) - var(--padding-for-click));
+		@media screen and (max-width: $mobile-max) {
+			margin-top: calc(var(--gap-8) - var(--padding-for-click));
+		}
 		.breadcrumbs {
 			display: flex;
 			flex-direction: row;
@@ -3421,6 +3463,17 @@ body.type-category {
 			width: calc(50% - var(--gap-30) / 2);
 			max-width: 755px;
 		}
+		@media screen and (max-width: $desktop-medium-min) {
+			row-gap: calc(var(--gap-41));
+			> * {
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+		@media screen and (max-width: $mobile-max) {
+			padding: calc(var(--gap-27) * 2) 2em;
+		}
+
 		h4 {
 			font-size: var(--fs-18);
 			font-weight: var(--fw-700);
@@ -3437,6 +3490,9 @@ body.type-category {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			gap: var(--gap-30);
+			@media screen and (max-width: $mobile-max) {
+				grid-template-columns: 1fr;
+			}
 			ul {
 				display: flex;
 				flex-direction: column;
@@ -3465,6 +3521,7 @@ body.type-category {
 			.footer-contacts {
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
+
 				h4 {
 					grid-row: 1;
 					grid-column: 1 / -1;
@@ -3513,18 +3570,41 @@ body.type-category {
 						}
 					}
 				}
+				@media screen and (max-width: $mobile-max) {
+					grid-template-columns: 1fr;
+					h4,
+					.footer-contacts-blocks {
+						grid-column: 1;
+						grid-row: auto;
+						grid-template-columns: 1fr;
+						gap: var(--gap-15);
+						.footer-contacts-block {
+							background: var(--color-gray-400);
+							justify-content: flex-start;
+							padding-left: 2.25em;
+							.footer-customer-support-icon {
+								background-color: var(--color-white);
+							}
+						}
+					}
+				}
 			}
+
 			.footer-socials-and-languages {
 				grid-row: 3;
 				grid-column: 1 / -1;
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
 				justify-items: start;
+				--component-width: 60px;
+				@media screen and (max-width: $mobile-max) {
+					--component-width: 46px;
+				}
+
 				.footer-socials {
 					display: flex;
 					flex-direction: row;
 					gap: var(--gap-18);
-					--component-width: 60px;
 
 					a {
 						display: flex;
@@ -3548,6 +3628,12 @@ body.type-category {
 							img {
 								filter: brightness(0) invert(1);
 							}
+						}
+					}
+					@media screen and (max-width: $mobile-max) {
+						gap: var(--gap-14);
+						a {
+							background-color: var(--color-gray-400);
 						}
 					}
 				}
@@ -3581,12 +3667,11 @@ body.type-category {
 						align-items: center;
 						justify-content: center;
 						gap: var(--gap-24);
-						padding: 1em 1.625em 1em 1.375em;
+						height: calc(var(--component-width) - 2px);
+						padding: 0em 1.625em 0em 1.375em;
 						background-color: var(--color-white);
 						border-radius: var(--br-12);
 						cursor: pointer;
-					}
-					.footer-languages-current {
 						&:after {
 							content: "";
 							display: block;
@@ -3601,6 +3686,7 @@ body.type-category {
 							transform: rotate(180deg);
 						}
 					}
+
 					.footer-languages-box {
 						display: none;
 					}
@@ -3652,6 +3738,11 @@ body.type-category {
 							}
 						}
 					}
+					@media screen and (max-width: $mobile-max) {
+						.footer-languages-current {
+							padding: 0em 1em 0em 1em;
+						}
+					}
 				}
 			}
 		}
@@ -3659,18 +3750,26 @@ body.type-category {
 		.footer-prodejna {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
-			gap: var(--gap-30);
+			grid-template-rows: max-content 1fr;
+			column-gap: var(--gap-30);
 			align-items: start;
 			.footer-prodejna-image {
 				width: 100%;
 				position: relative;
+				grid-row: 1 / -1;
 				img {
 					width: 100%;
 					height: auto;
 					border-radius: var(--br-16);
 				}
 			}
+			h4 {
+				grid-column: 2;
+				grid-row: 1;
+			}
 			.footer-prodejna-texts {
+				grid-column: 2;
+				grid-row: 2;
 				.footer-prodejna-adress {
 					padding-bottom: 1.75em;
 				}
@@ -3678,6 +3777,7 @@ body.type-category {
 				.footer-prodejna-openning-hours {
 					display: flex;
 					gap: var(--gap-12);
+					align-items: center;
 					p {
 						font-size: var(--fs-13);
 						text-wrap: balance;
@@ -3709,6 +3809,30 @@ body.type-category {
 					column-gap: 0.625em;
 				}
 			}
+			@media screen and (max-width: $mobile-max) {
+				grid-template-columns: 1fr;
+				grid-template-rows: auto;
+				gap: var(--gap-24);
+				.footer-prodejna-image {
+					grid-row: 2;
+					grid-column: 1;
+					width: 100%;
+				}
+				h4 {
+					grid-row: 1;
+					grid-column: 1;
+					padding-bottom: 0;
+				}
+				.footer-prodejna-texts {
+					grid-row: 3;
+					grid-column: 1;
+				}
+				.footer-prodejna-adress-icon,
+				.footer-prodejna-openning-hours-icon {
+					background-color: var(--color-gray-400);
+					border-radius: var(--br-8);
+				}
+			}
 		}
 
 		//vydejní místa
@@ -3716,6 +3840,7 @@ body.type-category {
 			display: flex;
 			gap: var(--gap-20);
 			justify-content: space-between;
+
 			align-items: center;
 			.footer-vydejni-mista-texts {
 				text-wrap: balance;
@@ -3739,6 +3864,27 @@ body.type-category {
 					object-fit: contain;
 				}
 			}
+			@media screen and (max-width: $mobile-max) {
+				flex-direction: column;
+				.footer-vydejni-mista-texts {
+					max-width: 100%;
+					h4 {
+						padding-bottom: 0.667em;
+					}
+				}
+				.footer-vydejni-mista-map {
+					padding-bottom: var(--gap-8);
+				}
+				.footer-vydejni-mista-dopravci {
+					flex-direction: row;
+					flex-wrap: wrap;
+					gap: var(--gap-10);
+					justify-content: center;
+					img {
+						width: 85px;
+					}
+				}
+			}
 		}
 
 		//oddelovací čára horizontální
@@ -3751,6 +3897,9 @@ body.type-category {
 			width: 1px;
 			height: 50%;
 			background-color: var(--color-gray-500);
+			@media screen and (max-width: $desktop-medium-min) {
+				display: none;
+			}
 		}
 	}
 	.footer-online-payments {
@@ -3762,7 +3911,6 @@ body.type-category {
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: 1fr 1fr;
 		padding: var(--gap-41) 0;
-
 		position: relative;
 
 		.copyright {
@@ -3808,6 +3956,7 @@ body.type-category {
 				top: -0.35em;
 			}
 		}
+
 		//oddelovací čára vertikální
 		&::after {
 			content: "";
@@ -3818,6 +3967,35 @@ body.type-category {
 			width: 100%;
 			height: 1px;
 			background-color: var(--color-gray-500);
+		}
+		@media screen and (max-width: $tablet-max) {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto auto;
+			gap: var(--gap-20);
+			.copyright,
+			.footer-online-payments,
+			#signature {
+				grid-column: 1;
+				grid-row: auto;
+				width: 100%;
+				text-align: center;
+			}
+			.footer-online-payments {
+				grid-row: 1;
+			}
+		}
+		@media screen and (max-width: $mobile-max) {
+			justify-content: start;
+			justify-items: start;
+			padding-left: calc(var(--padding-sides-footer) + var(--padding-sides));
+			padding-right: calc(var(--padding-sides-footer) + var(--padding-sides));
+			.footer-online-payments {
+				justify-content: flex-start;
+			}
+			#signature,
+			.copyright {
+				text-align: left;
+			}
 		}
 	}
 }
