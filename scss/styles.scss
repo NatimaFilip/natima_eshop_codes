@@ -1395,15 +1395,16 @@ body {
 					gap: var(--gap-20);
 				}
 				.cart-widget-product-image {
+					display: flex;
 					a {
 						border-radius: var(--br-10);
 						overflow: hidden;
 						@include image-foreground-setup;
 						img {
-							width: 100%;
+							width: 41px;
 							height: auto;
 							@include image-foreground-brightness;
-							margin: 10px 14px;
+							margin: 10px 19px;
 						}
 						&:after {
 							@include image-foreground-block;
