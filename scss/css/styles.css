@@ -240,6 +240,32 @@ button {
   border: 0;
 }
 
+/*-------------------------------------- Scrollbar */
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 0.3125rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Transparent background */
+}
+
+@media screen and (min-width: 1280px) {
+  ::-webkit-scrollbar-track {
+    background-color: var(--color-gray-400);
+  }
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-hover); /* Primary-hover color on hover */
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
 /*-------------------------------------- Body styles */
 .content-hidden .content-wrapper,
 .content-hidden .breadcrumbs-wrapper,
@@ -266,7 +292,7 @@ button {
     position: absolute;
     top: 0;
     height: 100px;
-    width: calc(100% + var(--padding-sides) * 2);
+    width: 100%;
     left: calc(var(--padding-sides) * -1);
     background: -webkit-gradient(linear, left bottom, left top, from(white), to(var(--color-gray-500)));
     background: linear-gradient(0deg, white 0%, var(--color-gray-500) 100%);
@@ -399,6 +425,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-width: 177px;
 }
 #header .navigation-wrapper .header-top .site-name-wrapper .site-name a {
   display: -webkit-box;
@@ -414,8 +441,8 @@ button {
   height: auto;
   max-height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   -webkit-transition: -webkit-filter 0.2s ease-in-out;
   transition: -webkit-filter 0.2s ease-in-out;
   transition: filter 0.2s ease-in-out;
