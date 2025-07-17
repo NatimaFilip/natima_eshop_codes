@@ -1524,10 +1524,10 @@ body {
 					font-weight: var(--fw-700);
 					cursor: pointer;
 					position: relative;
-					&:hover,
-					&:focus-within {
-						background: var(--color-secondary-hover);
-					}
+				}
+				&:hover,
+				&:focus-within {
+					background: var(--color-secondary-hover);
 				}
 			}
 		}

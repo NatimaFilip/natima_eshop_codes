@@ -1684,7 +1684,7 @@ body.cart-window-visible #cart-widget .cart-widget-button a {
   cursor: pointer;
   position: relative;
 }
-body.cart-window-visible #cart-widget .cart-widget-button a:hover, body.cart-window-visible #cart-widget .cart-widget-button a:focus-within {
+body.cart-window-visible #cart-widget .cart-widget-button:hover, body.cart-window-visible #cart-widget .cart-widget-button:focus-within {
   background: var(--color-secondary-hover);
 }
 body.login-window-visible .login-widget {
