@@ -510,7 +510,6 @@ function calculateFreeShipping() {
 	let freeShippingBoolean = window.dataLayer[0].shoptet.cartInfo.freeShipping;
 	if (freeShippingBoolean == true) {
 		document.body.classList.add("has-free-shipping");
-		return;
 	}
 	if (freeShippingBoolean == false) {
 		document.body.classList.remove("has-free-shipping");
@@ -526,8 +525,12 @@ function calculateFreeShipping() {
 		console.log("Cart total:", cartTotal);
 		leftToFreeShipping = Math.round(leftToFreeShipping);
 		cartTotal = Math.round(cartTotal);
+
 		percentageProgressToFreeShipping = 100 - Math.round((leftToFreeShipping / (cartTotal + leftToFreeShipping)) * 100);
 		cartWidget.style.setProperty("--free-shipping-progress", percentageProgressToFreeShipping + "%");
+		if (leftToFreeShipping <= 0) {
+			document.body.classList.add("has-free-shipping");
+		}
 	}
 }
 
