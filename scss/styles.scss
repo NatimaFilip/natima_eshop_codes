@@ -1663,12 +1663,12 @@ body {
 	&.cart-window-visible.has-free-shipping {
 		#cart-widget {
 			.cart-free-shipping {
-				padding-bottom: calc(var(--padding-top) - 1em);
-				padding-top: calc(var(--padding-top) - 1em);
+				padding-bottom: calc(var(--padding-top) - 1.52em);
+				padding-top: calc(var(--padding-top) - 1.52em);
 				margin-bottom: calc(var(--padding-bottom) - var(--padding-top));
 				margin-right: auto;
 				> div {
-					padding: 1em 0;
+					padding: 1.52em 0;
 					&:before {
 						display: none !important;
 					}
