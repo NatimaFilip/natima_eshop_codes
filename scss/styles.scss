@@ -1392,7 +1392,7 @@ body {
 			border-radius: var(--br-16);
 			width: 810px;
 			max-width: calc(100% - var(--padding-sides));
-			padding: var(--gap-20) var(--gap-20) var(--gap-36) var(--gap-20);
+			padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
 
 			@include bottom-shadow;
 			.cart-widget-products {
@@ -1405,6 +1405,7 @@ body {
 					display: flex;
 					flex-direction: column;
 					gap: var(--gap-20);
+					padding-bottom: var(--gap-20);
 				}
 
 				.cart-widget-product {
@@ -1443,13 +1444,21 @@ body {
 							font-weight: var(--fw-400);
 							color: var(--color-black);
 							line-height: var(--lh-1-4);
+							&:hover {
+								text-decoration: underline;
+							}
 						}
 						.product-appendix {
 							display: none;
 						}
 						span[data-testid="cartWidgetProductPrice"] {
 							position: absolute;
-							right: 0;
+							right: 4rem;
+							left: auto;
+							top: 50%;
+							transform: translatey(-50%);
+							font-size: var(--fs-16);
+							font-weight: var(--fw-700);
 						}
 					}
 					.cart-widget-product-amount {
@@ -1487,6 +1496,7 @@ body {
 									width: 4.5rem;
 									padding-left: 4px;
 									font-size: var(--fs-16);
+									height: 100%;
 									@include disable-input-controls;
 								}
 							}
@@ -1510,7 +1520,44 @@ body {
 						display: none;
 					}
 					.cart-widget-product-delete {
-						display: none;
+						position: absolute;
+						top: 50%;
+						transform: translatey(-50%);
+						right: 1rem;
+						left: auto;
+
+						.sr-only {
+							display: none;
+						}
+						button {
+							--component-width: 1.315rem;
+							--component-padding-for-click: 0.5rem;
+							width: calc(var(--component-width) + var(--component-padding-for-click));
+							height: calc(var(--component-width) + var(--component-padding-for-click));
+							cursor: pointer;
+							display: flex;
+							transition: transform 0.1s ease;
+
+							justify-content: center;
+							align-items: center;
+							&:after {
+								content: "";
+								display: block;
+								position: absolute;
+								top: 50%;
+								width: var(--component-width);
+								height: var(--component-width);
+
+								transform: translateY(-50%);
+								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_close_black.svg");
+								background-position: center;
+								background-repeat: no-repeat;
+							}
+							&:hover,
+							&:focus-within {
+								transform: scale(1.3);
+							}
+						}
 					}
 				}
 			}
@@ -3725,7 +3772,7 @@ body.type-category {
 						background: var(--color-white);
 						border-radius: var(--br-16);
 						padding: var(--gap-30) var(--gap-10);
-						--component-width: 40px;
+						--component-width: 55px;
 						.footer-customer-support-icon {
 							display: flex;
 							align-items: center;
@@ -4094,7 +4141,7 @@ body.type-category {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: 1fr 1fr;
-		padding: var(--gap-41) 0;
+		padding: var(--gap-41) calc(var(--padding-sides-footer) + var(--padding-sides));
 		position: relative;
 
 		.copyright {
