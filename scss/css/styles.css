@@ -1819,13 +1819,13 @@ body.cart-window-visible #cart-widget .cart-free-shipping > div:after {
   border-radius: var(--br-8);
 }
 body.cart-window-visible.has-free-shipping #cart-widget .cart-free-shipping {
-  padding-bottom: calc(var(--padding-top) - 1.52em);
-  padding-top: calc(var(--padding-top) - 1.52em);
-  margin-bottom: calc(var(--padding-bottom) - var(--padding-top));
+  padding-bottom: 0;
+  padding-top: 0;
   margin-right: auto;
 }
 body.cart-window-visible.has-free-shipping #cart-widget .cart-free-shipping > div {
   padding: 1.52em 0;
+  margin: var(--padding-top) 0 var(--padding-bottom) 0;
 }
 body.cart-window-visible.has-free-shipping #cart-widget .cart-free-shipping > div:before {
   display: none !important;
