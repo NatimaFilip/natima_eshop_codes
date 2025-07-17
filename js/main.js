@@ -1320,3 +1320,6 @@ function footerPaymentsMove() {
 	}
 	footerBottom.appendChild(footerPaymentsWrapper);
 }
+/* setInterval(() => {
+	document.body.classList.add("cart-window-visible");
+}, 500); */
