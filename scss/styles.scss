@@ -1383,7 +1383,7 @@ body {
 	.login-widget {
 		display: none;
 	}
-	&.cart-window-visible {
+	&.cart-window-visible:not(.ajax-pending) {
 		#cart-widget {
 			display: block;
 			position: fixed;
@@ -1665,11 +1665,11 @@ body {
 			.cart-free-shipping {
 				padding-bottom: 0;
 				padding-top: 0;
-
+				margin-top: calc(var(--gap-36) + var(--padding-top) + var(--padding-bottom));
 				margin-right: auto;
 				> div {
 					padding: 1.52em 0;
-					margin: var(--padding-top) 0 var(--padding-bottom) 0;
+					margin: 0;
 					&:before {
 						display: none !important;
 					}
