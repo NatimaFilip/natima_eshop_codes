@@ -1388,7 +1388,7 @@ body {
 			display: block;
 			position: fixed;
 			top: calc(var(--padding-top-header) + 1rem + var(--gap-18) + var(--header-height));
-			right: 0;
+			right: 100px;
 			background: white;
 			z-index: 1000;
 			border-radius: var(--br-16);
@@ -1399,11 +1399,9 @@ body {
 			.cart-widget-inner {
 				display: grid;
 				column-gap: var(--gap-30);
-				--first-column-width: 60%;
-				--second-column-width: 40%;
-				grid-template-columns: calc(var(--first-column-width) - var(--gap-30) / 2) calc(
-						var(--second-column-width) - var(--gap-30) / 2
-					);
+				--first-column-width: 57%;
+				--second-column-width: 43%;
+				grid-template-columns: var(--first-column-width) calc(var(--second-column-width) - var(--gap-30));
 				grid-template-rows: auto;
 			}
 
@@ -1445,7 +1443,7 @@ body {
 								width: var(--image-width);
 								height: auto;
 								@include image-foreground-brightness;
-								margin: 12.5% 25%;
+								padding: 12.5% 25%;
 							}
 							&:after {
 								@include image-foreground-block;
@@ -1484,7 +1482,7 @@ body {
 						grid-row: 1;
 						margin-right: auto;
 						margin-left: var(--gap-30);
-						padding: 12px;
+						padding: 11px;
 						border-style: solid;
 						border-color: var(--color-black-o-20);
 						border-width: 1px;
