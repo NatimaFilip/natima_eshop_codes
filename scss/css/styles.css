@@ -1511,14 +1511,7 @@ body.cart-window-visible #cart-widget .cart-widget-products {
   border-bottom-width: 1px;
   border-color: var(--color-gray-500);
 }
-body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-products-inner {
+body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-products-inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1527,6 +1520,13 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
       -ms-flex-direction: column;
           flex-direction: column;
   gap: var(--gap-20);
+}
+body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-image {
   grid-column: 1;
@@ -1637,12 +1637,14 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
   width: 4.5rem;
   padding-left: 4px;
   font-size: var(--fs-16);
-  -moz-appearance: textfield;
-  /* For Firefox */
+  -moz-appearance: textfield; /* For Firefox */
+  -webkit-appearance: none; /* For WebKit browsers like Chrome and Safari */
+  appearance: none; /* Standard property */
+  /* Prevent controls from showing on hover or focus */
+}
+body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-amount .quantity label input::-webkit-inner-spin-button, body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-amount .quantity label input::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  /* For WebKit browsers like Chrome and Safari */
-  appearance: none;
-  /* Standard property */
+  margin: 0;
 }
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-amount .quantity .increase,
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-amount .quantity .decrease {
