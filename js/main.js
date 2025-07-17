@@ -496,6 +496,48 @@ function removeCommasFromMenu() {
 	}); */
 }
 removeCommasFromMenu();
+
+/*----------------------------------------HEADER Calculate to free shipping*/
+function calculateFreeShipping() {
+	if (
+		!window.dataLayer[0].shoptet.cartInfo ||
+		typeof window.dataLayer[0].shoptet.cartInfo.freeShipping === "undefined"
+	) {
+		console.warn("Cart info or freeShipping is not available in the data layer.");
+		return;
+	}
+
+	let freeShippingBoolean = window.dataLayer[0].shoptet.cartInfo.freeShipping;
+	if (freeShippingBoolean == true) {
+		document.body.classList.add("has-free-shipping");
+		return;
+	}
+	if (freeShippingBoolean == false) {
+		document.body.classList.remove("has-free-shipping");
+
+		let cartWidget = document.querySelector("#cart-widget");
+		if (!cartWidget) {
+			return;
+		}
+		let percentageProgressToFreeShipping = 0;
+		let leftToFreeShipping = window.dataLayer[0].shoptet.cartInfo.leftToFreeShipping.priceLeft || 0;
+		let cartTotal = window.dataLayer[0].shoptet.cartInfo.getNoBillingShippingPrice.withVat || 0;
+		console.log("Left to free shipping:", leftToFreeShipping);
+		console.log("Cart total:", cartTotal);
+		leftToFreeShipping = Math.round(leftToFreeShipping);
+		cartTotal = Math.round(cartTotal);
+		percentageProgressToFreeShipping = 100 - Math.round((leftToFreeShipping / (cartTotal + leftToFreeShipping)) * 100);
+		cartWidget.style.setProperty("--free-shipping-progress", percentageProgressToFreeShipping + "%");
+	}
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+	calculateFreeShipping();
+});
+
+document.addEventListener("ShoptetDOMCartContentLoaded", function () {
+	calculateFreeShipping();
+});
 /*------------------------------------------------- CATEGORY Filtry*/
 if (body.classList.contains("type-category")) {
 	/*------------------------------FILTRY*/
@@ -1278,3 +1320,7 @@ function footerPaymentsMove() {
 	}
 	footerBottom.appendChild(footerPaymentsWrapper);
 }
+
+setInterval(() => {
+	document.body.classList.add("cart-window-visible");
+}, 500);

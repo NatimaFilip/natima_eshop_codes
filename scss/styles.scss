@@ -152,6 +152,8 @@ $desktop-large-min: 1680px;
 	--color-green-online-background: #daffe9;
 	--color-green-online: #22c162;
 
+	--color-orange-400: #ff8c00;
+
 	--color-cta-200: #e1ffda;
 	--color-cta-400: var(--color-secondary);
 	--color-cta-600: var(--color-secondary-hover);
@@ -1394,8 +1396,17 @@ body {
 			max-width: calc(100% - var(--padding-sides));
 			padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
 
+			.cart-widget-inner {
+				display: grid;
+				column-gap: var(--gap-30);
+				grid-template-columns: calc(65% - var(--gap-30) / 2) calc(35% - var(--gap-30) / 2);
+				grid-template-rows: auto;
+			}
+
 			@include bottom-shadow;
 			.cart-widget-products {
+				grid-row: 1;
+				grid-column: 1/-1;
 				max-height: 340px;
 				overflow-y: auto;
 				border-bottom-style: solid;
@@ -1567,6 +1578,10 @@ body {
 				justify-content: center;
 				background: var(--color-secondary);
 				border-radius: var(--br-16);
+				position: absolute;
+				width: calc(35% - var(--gap-30) / 2);
+				right: var(--gap-10);
+				bottom: var(--gap-36);
 				@include bottom-cta-shadow;
 				a {
 					color: var(--color-white);
@@ -1579,6 +1594,61 @@ body {
 				&:hover,
 				&:focus-within {
 					background: var(--color-secondary-hover);
+				}
+			}
+			.cart-free-shipping {
+				margin-top: var(--gap-36);
+				font-size: var(--fs-13);
+				background: var(--color-gray-400);
+				border-radius: var(--br-16);
+				--padding-left: 2em;
+				--padding-right: 3em;
+				--padding-top: 2.5em;
+				--padding-bottom: 3.07em;
+				padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
+				display: flex;
+				align-items: center;
+				gap: var(--gap-10);
+				position: relative;
+				margin-right: auto;
+				&:before {
+					content: "";
+					display: block;
+					width: 2.25em;
+					height: 2.25em;
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_delivery_primary.svg");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 80%;
+				}
+				> div {
+					&:before {
+						content: "";
+						position: absolute;
+						bottom: calc(var(--padding-bottom) - 9px);
+						left: var(--padding-left);
+						width: calc(100% - var(--padding-right) - var(--padding-left));
+						height: 6px;
+						background-color: var(--color-gray-500);
+						border-radius: var(--br-8);
+					}
+					&:after {
+						content: "";
+						position: absolute;
+						bottom: calc(var(--padding-bottom) - 9px);
+						left: var(--padding-left);
+						width: calc(100% - var(--padding-right) - var(--padding-left));
+						height: 6px;
+						--color-orange-400: #ff8c00;
+						background: linear-gradient(
+							to right,
+							var(--color-orange-400) 0%,
+							var(--color-orange-400) var(--free-shipping-progress),
+							transparent var(--free-shipping-progress),
+							transparent 100%
+						);
+						border-radius: var(--br-8);
+					}
 				}
 			}
 		}

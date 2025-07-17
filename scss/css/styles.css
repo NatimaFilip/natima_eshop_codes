@@ -62,6 +62,7 @@
   --color-red-400: #d44b6c;
   --color-green-online-background: #daffe9;
   --color-green-online: #22c162;
+  --color-orange-400: #ff8c00;
   --color-cta-200: #e1ffda;
   --color-cta-400: var(--color-secondary);
   --color-cta-600: var(--color-secondary-hover);
@@ -1504,7 +1505,17 @@ body.cart-window-visible #cart-widget {
   -webkit-box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
 }
+body.cart-window-visible #cart-widget .cart-widget-inner {
+  display: grid;
+  -webkit-column-gap: var(--gap-30);
+     -moz-column-gap: var(--gap-30);
+          column-gap: var(--gap-30);
+  grid-template-columns: calc(65% - var(--gap-30) / 2) calc(35% - var(--gap-30) / 2);
+  grid-template-rows: auto;
+}
 body.cart-window-visible #cart-widget .cart-widget-products {
+  grid-row: 1;
+  grid-column: 1/-1;
   max-height: 340px;
   overflow-y: auto;
   border-bottom-style: solid;
@@ -1733,6 +1744,10 @@ body.cart-window-visible #cart-widget .cart-widget-button {
           justify-content: center;
   background: var(--color-secondary);
   border-radius: var(--br-16);
+  position: absolute;
+  width: calc(35% - var(--gap-30) / 2);
+  right: var(--gap-10);
+  bottom: var(--gap-36);
   padding-bottom: 2px;
   -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
           box-shadow: inset 0px -2px 0px var(--color-cta-600);
@@ -1747,6 +1762,58 @@ body.cart-window-visible #cart-widget .cart-widget-button a {
 }
 body.cart-window-visible #cart-widget .cart-widget-button:hover, body.cart-window-visible #cart-widget .cart-widget-button:focus-within {
   background: var(--color-secondary-hover);
+}
+body.cart-window-visible #cart-widget .cart-free-shipping {
+  margin-top: var(--gap-36);
+  font-size: var(--fs-13);
+  background: var(--color-gray-400);
+  border-radius: var(--br-16);
+  --padding-left: 2em;
+  --padding-right: 3em;
+  --padding-top: 2.5em;
+  --padding-bottom: 3.07em;
+  padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--gap-10);
+  position: relative;
+  margin-right: auto;
+}
+body.cart-window-visible #cart-widget .cart-free-shipping:before {
+  content: "";
+  display: block;
+  width: 2.25em;
+  height: 2.25em;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_delivery_primary.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+}
+body.cart-window-visible #cart-widget .cart-free-shipping > div:before {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--padding-bottom) - 9px);
+  left: var(--padding-left);
+  width: calc(100% - var(--padding-right) - var(--padding-left));
+  height: 6px;
+  background-color: var(--color-gray-500);
+  border-radius: var(--br-8);
+}
+body.cart-window-visible #cart-widget .cart-free-shipping > div:after {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--padding-bottom) - 9px);
+  left: var(--padding-left);
+  width: calc(100% - var(--padding-right) - var(--padding-left));
+  height: 6px;
+  --color-orange-400: #ff8c00;
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-orange-400)), color-stop(var(--color-orange-400)), color-stop(transparent), to(transparent));
+  background: linear-gradient(to right, var(--color-orange-400) 0%, var(--color-orange-400) var(--free-shipping-progress), transparent var(--free-shipping-progress), transparent 100%);
+  border-radius: var(--br-8);
 }
 body.login-window-visible .login-widget {
   display: block;
