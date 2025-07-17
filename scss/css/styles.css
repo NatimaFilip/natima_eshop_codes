@@ -1527,6 +1527,7 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-image {
   grid-column: 1;
@@ -1661,6 +1662,30 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
 }
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-delete {
   display: none;
+}
+body.cart-window-visible #cart-widget .cart-widget-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: var(--color--secondary);
+  border-radius: var(--br-16);
+}
+body.cart-window-visible #cart-widget .cart-widget-button a {
+  color: var(--color-white);
+  padding: 1.1em 3.55em 1.1em 2em;
+  font-size: var(--fs-18);
+  font-weight: var(--fw-700);
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 2px;
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
+          box-shadow: inset 0px -2px 0px var(--color-cta-600);
+}
+body.cart-window-visible #cart-widget .cart-widget-button a:hover, body.cart-window-visible #cart-widget .cart-widget-button a:focus-within {
+  background: var(--color-secondary-hover);
 }
 body.login-window-visible .login-widget {
   display: block;

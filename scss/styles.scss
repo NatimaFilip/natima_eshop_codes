@@ -6,6 +6,7 @@
 	padding-bottom: 2px;
 	box-shadow: inset 0px -2px 0px var(--color-primary-500);
 }
+
 @mixin bottom-primary-shadow-small {
 	padding-bottom: 1px;
 	box-shadow: inset 0px -1px 0px var(--color-primary-500);
@@ -57,6 +58,17 @@
 	margin-right: auto;
 	padding-left: var(--padding-sides);
 	padding-right: var(--padding-sides);
+}
+@mixin disable-input-controls {
+	-moz-appearance: textfield; /* For Firefox */
+	-webkit-appearance: none; /* For WebKit browsers like Chrome and Safari */
+	appearance: none; /* Standard property */
+	/* Prevent controls from showing on hover or focus */
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
 }
 
 // Define SCSS variables for breakpoints
@@ -1381,6 +1393,7 @@ body {
 			width: 810px;
 			max-width: calc(100% - var(--padding-sides));
 			padding: var(--gap-20) var(--gap-20) var(--gap-36) var(--gap-20);
+
 			@include bottom-shadow;
 			.cart-widget-products {
 				max-height: 340px;
@@ -1398,6 +1411,7 @@ body {
 					display: grid;
 					grid-template-columns: auto 1fr auto;
 					align-items: center;
+					position: relative;
 
 					.cart-widget-product-image {
 						grid-column: 1;
@@ -1473,15 +1487,7 @@ body {
 									width: 4.5rem;
 									padding-left: 4px;
 									font-size: var(--fs-16);
-									-moz-appearance: textfield; /* For Firefox */
-									-webkit-appearance: none; /* For WebKit browsers like Chrome and Safari */
-									appearance: none; /* Standard property */
-									/* Prevent controls from showing on hover or focus */
-									&::-webkit-inner-spin-button,
-									&::-webkit-outer-spin-button {
-										-webkit-appearance: none;
-										margin: 0;
-									}
+									@include disable-input-controls;
 								}
 							}
 							.increase,
@@ -1501,6 +1507,28 @@ body {
 					}
 					.cart-widget-product-delete {
 						display: none;
+					}
+				}
+			}
+
+			.cart-widget-button {
+				display: flex;
+				justify-content: center;
+				background: var(--color--secondary);
+				border-radius: var(--br-16);
+
+				a {
+					color: var(--color-white);
+					padding: 1.1em 3.55em 1.1em 2em;
+					font-size: var(--fs-18);
+					font-weight: var(--fw-700);
+					cursor: pointer;
+					position: relative;
+					@include bottom-cta-shadow;
+
+					&:hover,
+					&:focus-within {
+						background: var(--color-secondary-hover);
 					}
 				}
 			}
