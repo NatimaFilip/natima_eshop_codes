@@ -1438,7 +1438,7 @@ body {
 						grid-row: 1;
 						font-size: var(--fs-13);
 						padding-left: 1em;
-						max-width: 15em;
+						max-width: 22em;
 						strong a {
 							font-weight: var(--fw-400);
 							color: var(--color-black);
@@ -1499,6 +1499,10 @@ body {
 								color: var(--color-white);
 								cursor: pointer;
 								text-align: center;
+								&:hover,
+								&:focus-within {
+									background-color: var(--color-primary-500);
+								}
 							}
 						}
 					}
