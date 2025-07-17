@@ -1510,7 +1510,9 @@ body.cart-window-visible #cart-widget .cart-widget-inner {
   -webkit-column-gap: var(--gap-30);
      -moz-column-gap: var(--gap-30);
           column-gap: var(--gap-30);
-  grid-template-columns: calc(65% - var(--gap-30) / 2) calc(35% - var(--gap-30) / 2);
+  --first-column-width: 60%;
+  --second-column-width: 40%;
+  grid-template-columns: calc(var(--first-column-width) - var(--gap-30) / 2) calc(var(--second-column-width) - var(--gap-30) / 2);
   grid-template-rows: auto;
 }
 body.cart-window-visible #cart-widget .cart-widget-products {
@@ -1535,8 +1537,8 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
 }
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product {
   display: grid;
-  --image-width: 41px;
-  grid-template-columns: var(--image-width) calc(65% - var(--image-width)) 35%;
+  --image-width: 80px;
+  grid-template-columns: var(--image-width) calc(var(--first-column-width) - var(--image-width)) var(--second-column-width);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1567,7 +1569,7 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
   -webkit-filter: brightness(1.03);
           filter: brightness(1.03);
   margin: auto;
-  margin: 10px 19px;
+  margin: 12.5% 25%;
 }
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-image a:after {
   content: "";
@@ -1613,7 +1615,8 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-amount {
   grid-column: 3;
   grid-row: 1;
-  margin-right: 10em;
+  margin-right: auto;
+  margin-left: var(--gap-30);
   padding: 12px;
   border-style: solid;
   border-color: var(--color-black-o-20);
@@ -1746,7 +1749,7 @@ body.cart-window-visible #cart-widget .cart-widget-button {
   background: var(--color-secondary);
   border-radius: var(--br-16);
   position: absolute;
-  width: calc(35% - var(--gap-30) / 2);
+  width: calc(var(--second-column-width) - var(--gap-30));
   right: var(--gap-10);
   bottom: var(--gap-36);
   padding-bottom: 2px;
@@ -1782,7 +1785,6 @@ body.cart-window-visible #cart-widget .cart-free-shipping {
           align-items: center;
   gap: var(--gap-10);
   position: relative;
-  margin-right: auto;
 }
 body.cart-window-visible #cart-widget .cart-free-shipping:before {
   content: "";
