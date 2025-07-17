@@ -1421,7 +1421,8 @@ body {
 
 				.cart-widget-product {
 					display: grid;
-					grid-template-columns: auto 1fr auto;
+					--image-width: 41px;
+					grid-template-columns: var(--image-width) calc(65% - var(--image-width)) 35%;
 					align-items: center;
 					position: relative;
 
@@ -1435,7 +1436,7 @@ body {
 							overflow: hidden;
 							@include image-foreground-setup;
 							img {
-								width: 41px;
+								width: var(--image-width);
 								height: auto;
 								@include image-foreground-brightness;
 								margin: 10px 19px;
@@ -1450,7 +1451,7 @@ body {
 						grid-row: 1;
 						font-size: var(--fs-13);
 						padding-left: 1em;
-						max-width: 22em;
+						padding-right: 25%;
 						strong a {
 							font-weight: var(--fw-400);
 							color: var(--color-black);
