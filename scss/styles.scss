@@ -1601,6 +1601,16 @@ body {
 				&:focus-within {
 					background: var(--color-secondary-hover);
 				}
+				.cart-total-price-wrapper {
+					position: absolute;
+					top: -10px;
+					left: 0;
+					width: 100%;
+					transform: translatey(-100%);
+					display: flex;
+					justify-content: space-between;
+					font-size: var(--fs-18);
+				}
 			}
 			.cart-free-shipping {
 				margin-top: var(--gap-36);

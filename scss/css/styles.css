@@ -1767,6 +1767,21 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button a {
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button:hover, body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button:focus-within {
   background: var(--color-secondary-hover);
 }
+body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button .cart-total-price-wrapper {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translatey(-100%);
+          transform: translatey(-100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: var(--fs-18);
+}
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-free-shipping {
   margin-top: var(--gap-36);
   font-size: var(--fs-13);
