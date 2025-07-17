@@ -1514,9 +1514,9 @@ body {
 			.cart-widget-button {
 				display: flex;
 				justify-content: center;
-				background: var(--color--secondary);
+				background: var(--color-secondary);
 				border-radius: var(--br-16);
-
+				@include bottom-cta-shadow;
 				a {
 					color: var(--color-white);
 					padding: 1.1em 3.55em 1.1em 2em;
@@ -1524,8 +1524,6 @@ body {
 					font-weight: var(--fw-700);
 					cursor: pointer;
 					position: relative;
-					@include bottom-cta-shadow;
-
 					&:hover,
 					&:focus-within {
 						background: var(--color-secondary-hover);

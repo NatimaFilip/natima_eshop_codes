@@ -1670,8 +1670,11 @@ body.cart-window-visible #cart-widget .cart-widget-button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: var(--color--secondary);
+  background: var(--color-secondary);
   border-radius: var(--br-16);
+  padding-bottom: 2px;
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
+          box-shadow: inset 0px -2px 0px var(--color-cta-600);
 }
 body.cart-window-visible #cart-widget .cart-widget-button a {
   color: var(--color-white);
@@ -1680,9 +1683,6 @@ body.cart-window-visible #cart-widget .cart-widget-button a {
   font-weight: var(--fw-700);
   cursor: pointer;
   position: relative;
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
-          box-shadow: inset 0px -2px 0px var(--color-cta-600);
 }
 body.cart-window-visible #cart-widget .cart-widget-button a:hover, body.cart-window-visible #cart-widget .cart-widget-button a:focus-within {
   background: var(--color-secondary-hover);
