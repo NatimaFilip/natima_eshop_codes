@@ -546,6 +546,7 @@ document.addEventListener("ShoptetDOMCartContentLoaded", function () {
 document.addEventListener("ShoptetDOMCartContentLoaded", function () {
 	insertTotalPriceToCartWidget();
 });
+let priceAddedToCartWidget = false;
 function insertTotalPriceToCartWidget() {
 	let totalPrice = header.querySelector(".cart-price").textContent.trim();
 	if (!totalPrice) {
@@ -554,6 +555,17 @@ function insertTotalPriceToCartWidget() {
 
 	let cartWidgetButton = document.querySelector("#cart-widget .cart-widget-button");
 	if (!cartWidgetButton) {
+		return;
+	}
+
+	if (priceAddedToCartWidget) {
+		const existingTotalPriceElement = cartWidgetButton.querySelector(".cart-total-price-wrapper");
+		if (existingTotalPriceElement) {
+			const totalPriceStrong = existingTotalPriceElement.querySelector(".cart-total-price");
+			if (totalPriceStrong) {
+				totalPriceStrong.innerHTML = totalPrice;
+			}
+		}
 		return;
 	}
 
@@ -577,6 +589,7 @@ function insertTotalPriceToCartWidget() {
 	totalPriceInCartWidgetElement.appendChild(totalPriceLabel);
 	totalPriceInCartWidgetElement.appendChild(totalPriceStrong);
 	cartWidgetButton.appendChild(totalPriceInCartWidgetElement);
+	priceAddedToCartWidget = true;
 }
 
 /*------------------------------------------------- CATEGORY Filtry*/
