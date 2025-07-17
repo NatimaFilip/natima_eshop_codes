@@ -1540,7 +1540,7 @@ body {
 						position: absolute;
 						top: 50%;
 						transform: translatey(-50%);
-						right: 1rem;
+						right: var(--gap-10);
 						left: auto;
 
 						.sr-only {
@@ -1654,6 +1654,26 @@ body {
 							transparent 100%
 						);
 						border-radius: var(--br-8);
+					}
+				}
+			}
+		}
+	}
+	//když je doprava zdarma, upravit kosik
+	&.cart-window-visible.has-free-shipping {
+		#cart-widget {
+			.cart-free-shipping {
+				padding-bottom: var(--padding-top);
+				margin-bottom: calc(var(--padding-bottom) - var(--padding-top));
+				> div {
+					&:before {
+						display: none !important;
+					}
+					&:after {
+						display: none !important;
+					}
+					strong {
+						color: var(--color-primary);
 					}
 				}
 			}

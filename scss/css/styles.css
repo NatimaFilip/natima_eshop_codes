@@ -1696,7 +1696,7 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
   top: 50%;
   -webkit-transform: translatey(-50%);
           transform: translatey(-50%);
-  right: 1rem;
+  right: var(--gap-10);
   left: auto;
 }
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-delete .sr-only {
@@ -1817,6 +1817,19 @@ body.cart-window-visible #cart-widget .cart-free-shipping > div:after {
   background: -webkit-gradient(linear, left top, right top, from(var(--color-orange-400)), color-stop(var(--color-orange-400)), color-stop(transparent), to(transparent));
   background: linear-gradient(to right, var(--color-orange-400) 0%, var(--color-orange-400) var(--free-shipping-progress), transparent var(--free-shipping-progress), transparent 100%);
   border-radius: var(--br-8);
+}
+body.cart-window-visible.has-free-shipping #cart-widget .cart-free-shipping {
+  padding-bottom: var(--padding-top);
+  margin-bottom: calc(var(--padding-bottom) - var(--padding-top));
+}
+body.cart-window-visible.has-free-shipping #cart-widget .cart-free-shipping > div:before {
+  display: none !important;
+}
+body.cart-window-visible.has-free-shipping #cart-widget .cart-free-shipping > div:after {
+  display: none !important;
+}
+body.cart-window-visible.has-free-shipping #cart-widget .cart-free-shipping > div strong {
+  color: var(--color-primary);
 }
 body.login-window-visible .login-widget {
   display: block;
