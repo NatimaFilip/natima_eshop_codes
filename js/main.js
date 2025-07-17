@@ -541,6 +541,44 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("ShoptetDOMCartContentLoaded", function () {
 	calculateFreeShipping();
 });
+
+/*------------------------------------------------- KOSIK WIDGET - cena celkem do widgetu*/
+document.addEventListener("ShoptetDOMCartContentLoaded", function () {
+	insertTotalPriceToCartWidget();
+});
+function insertTotalPriceToCartWidget() {
+	let totalPrice = header.querySelector(".cart-price").textContent.trim();
+	if (!totalPrice) {
+		return;
+	}
+
+	let cartWidgetButton = document.querySelector("#cart-widget .cart-widget-button");
+	if (!cartWidgetButton) {
+		return;
+	}
+
+	const totalPriceInCartWidgetElement = document.createElement("div");
+	totalPriceInCartWidgetElement.className = "cart-total-price-wrapper";
+
+	const totalPriceStrong = document.createElement("strong");
+	totalPriceStrong.className = "cart-total-price";
+	totalPriceStrong.innerHTML = totalPrice;
+
+	const totalPriceLabel = document.createElement("span");
+	if (csLang) {
+		totalPriceLabel.innerHTML = "Cena celkem";
+	}
+	if (skLang) {
+		totalPriceLabel.innerHTML = "Cena spolu";
+	}
+	if (plLang) {
+		totalPriceLabel.innerHTML = "Cena całkowita";
+	}
+	totalPriceInCartWidgetElement.appendChild(totalPriceLabel);
+	totalPriceInCartWidgetElement.appendChild(totalPriceStrong);
+	cartWidgetButton.appendChild(totalPriceInCartWidgetElement);
+}
+
 /*------------------------------------------------- CATEGORY Filtry*/
 if (body.classList.contains("type-category")) {
 	/*------------------------------FILTRY*/
