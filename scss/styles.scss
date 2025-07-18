@@ -1392,17 +1392,17 @@ body {
 			background: white;
 			z-index: 1000;
 			border-radius: var(--br-16);
-			width: 830px;
+
 			max-width: calc(100% - var(--padding-sides));
 			padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
-			--first-column-width: 60%;
-			--second-column-width: 40%;
+			--first-column-width: 450px;
+			--second-column-width: 320px;
 
 			.cart-widget-inner {
 				display: grid;
 				column-gap: var(--gap-30);
 
-				grid-template-columns: var(--first-column-width) calc(var(--second-column-width) - var(--gap-30));
+				grid-template-columns: var(--first-column-width) calc(var(--second-column-width));
 				grid-template-rows: auto;
 			}
 
