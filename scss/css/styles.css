@@ -1494,7 +1494,7 @@ body .login-widget {
 body.cart-window-visible:not(.ajax-pending) #cart-widget {
   display: block;
   position: fixed;
-  top: calc(var(--padding-top-header) + 1rem + var(--gap-18) + var(--header-height));
+  top: calc(var(--padding-top-header) + 1rem + var(--gap-18) + var(--header-height) + var(--arrow-height));
   right: var(--padding-sides);
   background: white;
   z-index: 1000;
@@ -1505,6 +1505,7 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget {
           box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
   --first-column-width: 460px;
   --second-column-width: 320px;
+  --arrow-height: 24px;
 }
 @media screen and (min-width: 1920px) {
   body.cart-window-visible:not(.ajax-pending) #cart-widget {
@@ -1515,6 +1516,17 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-inner {
   display: grid;
   grid-template-columns: var(--first-column-width) calc(var(--second-column-width));
   grid-template-rows: auto;
+}
+body.cart-window-visible:not(.ajax-pending) #cart-widget:after {
+  content: "";
+  width: var(--arrow-height);
+  height: var(--arrow-height);
+  background: white;
+  position: absolute;
+  right: 4.8em;
+  top: calc(var(--arrow-height) / -2);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-products {
   grid-row: 1;

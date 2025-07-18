@@ -1387,7 +1387,7 @@ body {
 		#cart-widget {
 			display: block;
 			position: fixed;
-			top: calc(var(--padding-top-header) + 1rem + var(--gap-18) + var(--header-height));
+			top: calc(var(--padding-top-header) + 1rem + var(--gap-18) + var(--header-height) + var(--arrow-height));
 			right: var(--padding-sides);
 			@media screen and (min-width: 1920px) {
 				right: calc(100vw - 1920px + var(--padding-sides));
@@ -1401,12 +1401,24 @@ body {
 			box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
 			--first-column-width: 460px;
 			--second-column-width: 320px;
+			--arrow-height: 24px;
 
 			.cart-widget-inner {
 				display: grid;
 
 				grid-template-columns: var(--first-column-width) calc(var(--second-column-width));
 				grid-template-rows: auto;
+			}
+
+			&:after {
+				content: "";
+				width: var(--arrow-height);
+				height: var(--arrow-height);
+				background: white;
+				position: absolute;
+				right: 4.8em;
+				top: calc(var(--arrow-height) / -2);
+				transform: rotate(45deg);
 			}
 
 			.cart-widget-products {
