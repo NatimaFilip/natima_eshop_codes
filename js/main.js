@@ -626,6 +626,7 @@ function addCartWidgetToCartMobileListener() {
 	}
 
 	addSmartTouchClickListener(cartButton, function (event) {
+		console.log("Cart button clicked, checking if mobile.");
 		if (isMobile) {
 			console.log("Cart button clicked on mobile, redirecting to cart page.");
 			event.preventDefault();
@@ -635,6 +636,7 @@ function addCartWidgetToCartMobileListener() {
 		}
 	});
 	addSmartTouchClickListener(cartHrefA, function (event) {
+		console.log("Cart button clicked, checking if mobile.");
 		if (isMobile) {
 			console.log("Cart button clicked on mobile, redirecting to cart page.");
 			event.preventDefault();

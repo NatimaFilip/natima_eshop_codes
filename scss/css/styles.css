@@ -689,6 +689,9 @@ body #header .navigation-wrapper .header-top .navigation-buttons {
     padding-right: 10px;
     margin-right: var(--gap-10);
   }
+  body #header .navigation-wrapper .header-top .navigation-buttons a {
+    pointer-events: none;
+  }
 }
 body #header .navigation-wrapper .header-top .navigation-buttons .cart-count {
   display: -webkit-box;

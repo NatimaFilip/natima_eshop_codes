@@ -675,6 +675,9 @@ body {
 					@media screen and (max-width: $mobile-max) {
 						padding-right: 10px;
 						margin-right: var(--gap-10);
+						a {
+							pointer-events: none;
+						}
 					}
 					.cart-count {
 						display: flex;
