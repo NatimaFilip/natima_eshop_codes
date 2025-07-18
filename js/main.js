@@ -545,6 +545,7 @@ document.addEventListener("ShoptetDOMCartContentLoaded", function () {
 /*------------------------------------------------- KOSIK WIDGET - cena celkem do widgetu*/
 document.addEventListener("ShoptetDOMCartContentLoaded", function () {
 	insertTotalPriceToCartWidget();
+	moveContinueButtonCartWidget();
 });
 let priceAddedToCartWidget = false;
 function insertTotalPriceToCartWidget() {
@@ -590,6 +591,19 @@ function insertTotalPriceToCartWidget() {
 	totalPriceInCartWidgetElement.appendChild(totalPriceStrong);
 	cartWidgetButton.appendChild(totalPriceInCartWidgetElement);
 	priceAddedToCartWidget = true;
+}
+
+/*-------------------------------------- KOSIK WIDGET - move button*/
+function moveContinueButtonCartWidget() {
+	let continueButton = document.querySelector("#cart-widget .cart-widget-button");
+	if (!continueButton) {
+		return;
+	}
+	let cartWidgetInnet = document.querySelector("#cart-widget .cart-widget-inner");
+	if (!cartWidgetInnet) {
+		return;
+	}
+	cartWidgetInnet.appendChild(continueButton);
 }
 
 /*------------------------------------------------- CATEGORY Filtry*/
