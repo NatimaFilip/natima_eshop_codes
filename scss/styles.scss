@@ -1388,14 +1388,18 @@ body {
 			display: block;
 			position: fixed;
 			top: calc(var(--padding-top-header) + 1rem + var(--gap-18) + var(--header-height));
-			right: 100px;
+			right: var(--padding-sides);
+			@media screen and (min-width: 1920px) {
+				right: calc(100vw - 1920px + var(--padding-sides));
+			}
 			background: white;
 			z-index: 1000;
 			border-radius: var(--br-16);
 
 			max-width: calc(100% - var(--padding-sides));
 			padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
-			--first-column-width: 450px;
+			box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+			--first-column-width: 460px;
 			--second-column-width: 320px;
 
 			.cart-widget-inner {
@@ -1405,7 +1409,6 @@ body {
 				grid-template-rows: auto;
 			}
 
-			@include bottom-shadow;
 			.cart-widget-products {
 				grid-row: 1;
 				grid-column: 1/-1;
@@ -1625,14 +1628,14 @@ body {
 				padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
 				display: flex;
 				align-items: center;
-				gap: var(--gap-10);
+				gap: var(--gap-9);
 				position: relative;
 
 				&:before {
 					content: "";
 					display: block;
-					width: 2.25em;
-					height: 2.25em;
+					width: 2em;
+					height: 2em;
 					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_delivery_primary.svg");
 					background-position: center;
 					background-repeat: no-repeat;

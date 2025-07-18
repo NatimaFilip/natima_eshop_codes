@@ -1495,16 +1495,21 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget {
   display: block;
   position: fixed;
   top: calc(var(--padding-top-header) + 1rem + var(--gap-18) + var(--header-height));
-  right: 100px;
+  right: var(--padding-sides);
   background: white;
   z-index: 1000;
   border-radius: var(--br-16);
   max-width: calc(100% - var(--padding-sides));
   padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
-  --first-column-width: 450px;
+  -webkit-box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+  --first-column-width: 460px;
   --second-column-width: 320px;
-  -webkit-box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
+}
+@media screen and (min-width: 1920px) {
+  body.cart-window-visible:not(.ajax-pending) #cart-widget {
+    right: calc(100vw - 1920px + var(--padding-sides));
+  }
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-inner {
   display: grid;
@@ -1794,14 +1799,14 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-free-shipping {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: var(--gap-10);
+  gap: var(--gap-9);
   position: relative;
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-free-shipping:before {
   content: "";
   display: block;
-  width: 2.25em;
-  height: 2.25em;
+  width: 2em;
+  height: 2em;
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_delivery_primary.svg");
   background-position: center;
   background-repeat: no-repeat;
