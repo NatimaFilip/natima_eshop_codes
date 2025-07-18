@@ -1383,13 +1383,15 @@ body {
 	.login-widget {
 		display: none;
 	}
-	&.cart-window-visible.ajack-pending {
+	&.cart-window-visible.ajax-pending {
 		#cart-widget {
 			display: none;
 		}
 	}
 	&.cart-window-visible.ajax-pending.cart-widget-has-loaded {
-		display: block;
+		#cart-widget {
+			display: block;
+		}
 	}
 	&.cart-window-visible {
 		#cart-widget {
@@ -1618,12 +1620,12 @@ body {
 
 				right: var(--gap-10);
 				bottom: var(--gap-36);
-				@include bottom-cta-shadow;
+
 				a {
 					background: var(--color-secondary);
 					border-radius: var(--br-16);
 					color: var(--color-white);
-					padding: 1.1em 0;
+					padding: 1.1em 0 calc(1.1em + 2px);
 					font-size: var(--fs-18);
 					font-weight: var(--fw-700);
 					cursor: pointer;
@@ -1631,6 +1633,7 @@ body {
 					display: flex;
 					justify-content: space-evenly;
 					width: 100%;
+					@include bottom-cta-shadow;
 					&:after {
 						content: "";
 						width: 10px;

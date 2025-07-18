@@ -1491,10 +1491,10 @@ body #cart-widget,
 body .login-widget {
   display: none;
 }
-body.cart-window-visible.ajack-pending #cart-widget {
+body.cart-window-visible.ajax-pending #cart-widget {
   display: none;
 }
-body.cart-window-visible.ajax-pending.cart-widget-has-loaded {
+body.cart-window-visible.ajax-pending.cart-widget-has-loaded #cart-widget {
   display: block;
 }
 body.cart-window-visible #cart-widget {
@@ -1776,15 +1776,12 @@ body.cart-window-visible #cart-widget .cart-widget-button {
   width: calc(var(--second-column-width) - var(--gap-30));
   right: var(--gap-10);
   bottom: var(--gap-36);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
-          box-shadow: inset 0px -2px 0px var(--color-cta-600);
 }
 body.cart-window-visible #cart-widget .cart-widget-button a {
   background: var(--color-secondary);
   border-radius: var(--br-16);
   color: var(--color-white);
-  padding: 1.1em 0;
+  padding: 1.1em 0 calc(1.1em + 2px);
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
   cursor: pointer;
@@ -1796,6 +1793,9 @@ body.cart-window-visible #cart-widget .cart-widget-button a {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   width: 100%;
+  padding-bottom: 2px;
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
+          box-shadow: inset 0px -2px 0px var(--color-cta-600);
 }
 body.cart-window-visible #cart-widget .cart-widget-button a:after {
   content: "";
