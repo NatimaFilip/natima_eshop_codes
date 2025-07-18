@@ -1420,8 +1420,12 @@ body {
 				background: white;
 				position: absolute;
 				right: 4.8em;
-				top: calc(var(--arrow-height) / -2);
+				top: calc(var(--arrow-height) / -2) + 1px;
 				transform: rotate(45deg);
+				border-left-style: solid;
+				border-top-style: solid;
+				border-color: var(--color-black-o-10);
+				border-width: 1px;
 			}
 
 			.cart-widget-products {
