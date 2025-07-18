@@ -1783,7 +1783,7 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
   body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-delete {
     left: auto;
     top: auto;
-    bottom: calc(29px + var(--gap-20));
+    bottom: 22px;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
   }
@@ -1875,14 +1875,14 @@ body.cart-window-visible #cart-widget .cart-widget-button a:hover, body.cart-win
   background: var(--color-secondary-hover);
 }
 @media screen and (max-width: 767px) {
-  body.cart-window-visible #cart-widget .cart-widget-button a {
+  body.cart-window-visible #cart-widget .cart-widget-button {
     position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
     margin-top: calc(1em + var(--gap-16) * 2);
   }
-  body.cart-window-visible #cart-widget .cart-widget-button a a {
+  body.cart-window-visible #cart-widget .cart-widget-button a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
