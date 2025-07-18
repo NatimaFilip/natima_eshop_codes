@@ -1514,6 +1514,9 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-inner {
           column-gap: var(--gap-30);
   grid-template-columns: var(--first-column-width) calc(var(--second-column-width) - var(--gap-30));
   grid-template-rows: auto;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-products {
   grid-row: 1;
@@ -1748,10 +1751,12 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button {
           justify-content: center;
   background: var(--color-secondary);
   border-radius: var(--br-16);
-  position: absolute;
-  width: calc(var(--second-column-width) - var(--gap-30));
-  right: var(--gap-10);
-  bottom: var(--gap-36);
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  gap: var(--gap-10);
   padding-bottom: 2px;
   -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
           box-shadow: inset 0px -2px 0px var(--color-cta-600);
@@ -1768,12 +1773,7 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button:hov
   background: var(--color-secondary-hover);
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button .cart-total-price-wrapper {
-  position: absolute;
-  top: -10px;
-  left: 0;
   width: 100%;
-  -webkit-transform: translatey(-100%);
-          transform: translatey(-100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
