@@ -1499,6 +1499,9 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget {
   background: white;
   z-index: 1000;
   border-radius: var(--br-16);
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-color: var(--color-black-o-20);
   max-width: calc(100% - var(--padding-sides));
   padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
   -webkit-box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);

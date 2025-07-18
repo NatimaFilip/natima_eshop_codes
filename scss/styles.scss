@@ -1395,6 +1395,9 @@ body {
 			background: white;
 			z-index: 1000;
 			border-radius: var(--br-16);
+			border-bottom-style: solid;
+			border-bottom-width: 3px;
+			border-color: var(--color-black-o-20);
 
 			max-width: calc(100% - var(--padding-sides));
 			padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
