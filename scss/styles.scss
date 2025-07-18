@@ -1400,7 +1400,6 @@ body {
 
 			.cart-widget-inner {
 				display: grid;
-				column-gap: var(--gap-30);
 
 				grid-template-columns: var(--first-column-width) calc(var(--second-column-width));
 				grid-template-rows: auto;
@@ -1587,7 +1586,7 @@ body {
 				border-radius: var(--br-16);
 				position: absolute;
 				width: calc(var(--second-column-width) - var(--gap-30));
-				width: calc(100% - var(--first-column-width) - var(--gap-30) / 2 + var(--gap-30));
+
 				right: var(--gap-10);
 				bottom: var(--gap-36);
 				@include bottom-cta-shadow;

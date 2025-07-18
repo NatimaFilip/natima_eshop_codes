@@ -1508,9 +1508,6 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget {
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-inner {
   display: grid;
-  -webkit-column-gap: var(--gap-30);
-     -moz-column-gap: var(--gap-30);
-          column-gap: var(--gap-30);
   grid-template-columns: var(--first-column-width) calc(var(--second-column-width));
   grid-template-rows: auto;
 }
@@ -1749,7 +1746,6 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button {
   border-radius: var(--br-16);
   position: absolute;
   width: calc(var(--second-column-width) - var(--gap-30));
-  width: calc(100% - var(--first-column-width) - var(--gap-30) / 2 + var(--gap-30));
   right: var(--gap-10);
   bottom: var(--gap-36);
   padding-bottom: 2px;
