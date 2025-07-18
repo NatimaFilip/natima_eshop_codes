@@ -1408,12 +1408,7 @@ body {
 			position: fixed;
 			top: calc(var(--padding-top-header) + 1rem + var(--gap-18) * 2 + var(--header-height));
 			right: var(--padding-sides);
-			@media screen and (min-width: 1920px) {
-				right: calc(((100vw - 1920px) / 2 + var(--padding-sides)) - 6px);
-			}
-			@media screen and (max-width: $mobile-max) {
-				top: calc(var(--header-height) + var(--padding-top-header) + 8px);
-			}
+
 			background: white;
 			z-index: 1000;
 			border-radius: var(--br-16);
@@ -1427,8 +1422,16 @@ body {
 			--first-column-width: 460px;
 			--second-column-width: 320px;
 
+						@media screen and (min-width: 1920px) {
+				right: calc(((100vw - 1920px) / 2 + var(--padding-sides)) - 6px);
+			}
+			@media screen and (max-width: $mobile-max) {
+				top: calc(var(--header-height) + var(--padding-top-header) + 8px);
+				width: 100%;
+			}
+
 			@media screen and (max-width: $tablet-max) {
-				--first-column-width: 460px;
+				--first-column-width: 400px;
 				
 			}
 

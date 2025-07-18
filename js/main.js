@@ -154,7 +154,14 @@ function addAccountToHeaderTop() {
 	accountButton.className = "login-button-custom";
 	accountButton.setAttribute("data-target", "login");
 	headerTop.appendChild(accountButton);
+
+	let originalAccountButton = document.querySelector(".top-navigation-tools .top-nav-button-login");
+	addSmartTouchClickListener(accountButton, function (event) {
+		event.preventDefault();
+		originalAccountButton.click();
+	});
 }
+
 function stickyHeaderToggle() {
 	const header = document.getElementById("header");
 	if (!header) return;
@@ -598,6 +605,30 @@ function insertTotalPriceToCartWidget() {
 	totalPriceInCartWidgetElement.appendChild(totalPriceStrong);
 	cartWidgetButton.appendChild(totalPriceInCartWidgetElement);
 	priceAddedToCartWidget = true;
+}
+
+/*-------------------------------------- KOSIK WIDGET - na mobilu rovnou do kosiku*/
+addCartWidgetToCartMobileListener();
+function addCartWidgetToCartMobileListener() {
+	let cartButton = header.querySelector(".navigation-buttons");
+	if (!cartButton) {
+		console.warn("Cart button not found.");
+		return;
+	}
+	let cartHref = cartButton.querySelector("a").getAttribute("href");
+	if (!cartHref) {
+		console.warn("Cart button href not found.");
+		return;
+	}
+	addSmartTouchClickListener(cartButton, function (event) {
+		if (isMobile) {
+			console.log("Cart button clicked on mobile, redirecting to cart page.");
+			event.preventDefault();
+			window.location.href = cartHref;
+		} else {
+			console.log("Cart button clicked on desktop, no action needed.");
+		}
+	});
 }
 
 /*------------------------------------------------- CATEGORY Filtry*/
