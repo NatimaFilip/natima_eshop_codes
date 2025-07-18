@@ -365,6 +365,10 @@ button {
 	@include body-max-width;
 }
 
+.display-none {
+	display: none !important;
+}
+
 .overall-wrapper {
 	@media screen and (max-width: $mobile-max) {
 		&:before {
@@ -639,6 +643,10 @@ body {
 								}
 								@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
 									width: 100%;
+								}
+								&:focus {
+									outline: solid 2px var(--color-primary);
+									outline-offset: 1px;
 								}
 							}
 							button {
@@ -1931,6 +1939,9 @@ body {
 							&.error-field {
 								border-color: var(--color-red-400);
 							}
+							@media screen and (max-width: $mobile-max) {
+								font-size: var(--fs-14);
+							}
 						}
 						.msg-error {
 							color: var(--color-red-400);
@@ -2067,6 +2078,7 @@ body {
 		.breadcrumbs {
 			display: flex;
 			flex-direction: row;
+
 			> span {
 				display: flex;
 				align-items: center;
@@ -2111,7 +2123,7 @@ body {
 		@media screen and (min-width: $tablet-min) {
 			margin-top: var(--gap-14);
 			.breadcrumbs {
-				> span {
+				> span[itemprop="itemListElement"] {
 					color: var(--color-gray-600);
 					padding-left: var(--gap-13);
 					padding-right: var(--gap-13);
@@ -2119,6 +2131,14 @@ body {
 					border-left-width: 1px;
 					border-color: var(--color-black-o-10);
 					line-height: 1;
+					a {
+						color: inherit;
+						&:hover,
+						&:focus-within {
+							color: var(--color-primary);
+							@include text-underline;
+						}
+					}
 				}
 
 				#navigation-first {
@@ -3062,10 +3082,11 @@ body.type-category {
 						margin-left: auto;
 						margin-right: var(--gap-7);
 						margin-top: calc(var(--gap-8) * -1);
-						button {
+						button,
+						.increase-decrease-wrapper {
 							width: var(--add-to-cart-button-width);
 							height: var(--add-to-cart-button-height);
-							background-color: var(--color-cta-400);
+							background-color: var(--color-secondary);
 							border-radius: var(--br-8);
 							position: relative;
 							cursor: pointer;
@@ -3073,12 +3094,10 @@ body.type-category {
 							transition: transform 0.2s ease-out;
 							&:hover,
 							&:focus-within {
-								transform: scale(1.1);
+								transform: scale(1.05);
+								background-color: var(--color-secondary-hover);
 							}
-							&:focus-within {
-								outline: solid 3px var(--color-black);
-								outline-offset: 1px;
-							}
+
 							span {
 								font-size: 0px;
 							}
@@ -3135,7 +3154,8 @@ body.type-category {
 						@media screen and (min-width: $tablet-min) {
 							margin-top: 0;
 							margin-right: var(--gap-11);
-							button {
+							button,
+							.increase-decrease-wrapper {
 								height: auto;
 								width: auto;
 								transition: background-color 0.1s ease;
@@ -3154,7 +3174,6 @@ body.type-category {
 								&:focus-within {
 									transform: none;
 									outline: none;
-									box-shadow: 0px 1px 5px var(--color-secondary);
 								}
 
 								&::after {
@@ -3181,6 +3200,58 @@ body.type-category {
 									background-color: var(--color-primary-500);
 								}
 							}
+						}
+					}
+					.increase-decrease-wrapper {
+						z-index: 1;
+						display: flex;
+						padding: 0 !important;
+						&:hover,
+						&:focus-within {
+							background-color: var(--color-secondary) !important;
+						}
+						.increase-button,
+						.decrease-button {
+							flex: 1;
+							padding: 1em calc(2.231em / 2);
+							color: white;
+							transition: background-color 0.1s ease;
+						}
+						.increase-button {
+							border-radius: 0 var(--br-16) var(--br-16) 0;
+							&:hover,
+							&:focus-within {
+								background-color: var(--color-secondary-hover);
+							}
+						}
+						.decrease-button {
+							border-radius: var(--br-16) 0 0 var(--br-16);
+							&:hover,
+							&:focus-within {
+								background-color: var(--color-secondary-hover);
+							}
+						}
+						input {
+							margin: 0;
+							padding: 0;
+							border-style: none;
+							background: var(--color-secondary);
+							color: white;
+							font-size: var(--fs-16);
+							display: flex;
+							text-align: center;
+							width: 3em;
+							@include disable-input-controls;
+							transition: background-color 0.1s ease;
+							&:hover,
+							&:focus-within {
+								background-color: var(--color-secondary-hover);
+								outline: none;
+							}
+						}
+						&:hover,
+						&:focus-within {
+							background-color: var(--color-secondary);
 						}
 					}
 
