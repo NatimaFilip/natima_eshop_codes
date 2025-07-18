@@ -1584,26 +1584,29 @@ body {
 			.cart-widget-button {
 				display: flex;
 				justify-content: center;
-				background: var(--color-secondary);
-				border-radius: var(--br-16);
 
 				width: 100%;
 				flex-direction: column-reverse;
 				gap: var(--gap-10);
 
-				@include bottom-cta-shadow;
 				a {
 					color: var(--color-white);
-					padding: 1.1em 3.55em 1.1em 2em;
+
 					font-size: var(--fs-18);
 					font-weight: var(--fw-700);
 					cursor: pointer;
 					position: relative;
+					background: var(--color-secondary);
+					border-radius: var(--br-16);
+
+					@include bottom-cta-shadow;
+					padding: 1.1em 3.55em calc(1.1em + 2px) 2em;
+					&:hover,
+					&:focus-within {
+						background: var(--color-secondary-hover);
+					}
 				}
-				&:hover,
-				&:focus-within {
-					background: var(--color-secondary-hover);
-				}
+
 				.cart-total-price-wrapper {
 					width: 100%;
 
