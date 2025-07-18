@@ -1525,6 +1525,11 @@ body.cart-window-visible #cart-widget {
     top: calc(var(--header-height) + var(--padding-top-header) + 8px);
   }
 }
+@media screen and (max-width: 1279px) {
+  body.cart-window-visible #cart-widget {
+    --first-column-width: 460px;
+  }
+}
 body.cart-window-visible #cart-widget .cart-widget-inner {
   display: grid;
   grid-template-columns: var(--first-column-width) calc(var(--second-column-width));
@@ -1551,6 +1556,11 @@ body.cart-window-visible #cart-widget:after {
   border-top-style: solid;
   border-color: var(--color-gray-500);
   border-width: 1px;
+}
+@media screen and (max-width: 1279px) {
+  body.cart-window-visible #cart-widget:after {
+    right: 14px;
+  }
 }
 @media screen and (max-width: 767px) {
   body.cart-window-visible #cart-widget:after {
@@ -1979,6 +1989,13 @@ body.cart-window-visible.has-free-shipping #cart-widget .cart-free-shipping {
   margin-top: calc(var(--gap-36) + var(--padding-top) + var(--padding-bottom) - 3.74em);
   margin-right: auto;
 }
+@media screen and (max-width: 767px) {
+  body.cart-window-visible.has-free-shipping #cart-widget .cart-free-shipping {
+    margin-top: var(--gap-20);
+    width: 100%;
+    margin-bottom: var(--gap-20);
+  }
+}
 body.cart-window-visible.has-free-shipping #cart-widget .cart-free-shipping > div {
   padding: 1.87em 0;
   margin: 0;
@@ -2018,6 +2035,13 @@ body.login-window-visible .login-widget {
     right: calc((100vw - 1920px) / 2 + var(--padding-sides) - 6px);
   }
 }
+@media screen and (max-width: 767px) {
+  body.login-window-visible .login-widget {
+    top: calc(var(--header-height) + var(--padding-top-header));
+    max-width: none;
+    width: calc(100% - var(--padding-sides) * 2);
+  }
+}
 body.login-window-visible .login-widget:after {
   content: "";
   --arrow-height: 24px;
@@ -2033,6 +2057,11 @@ body.login-window-visible .login-widget:after {
   border-top-style: solid;
   border-color: var(--color-gray-500);
   border-width: 1px;
+}
+@media screen and (max-width: 767px) {
+  body.login-window-visible .login-widget:after {
+    right: 6.75em;
+  }
 }
 body.login-window-visible .login-widget .popup-widget-inner {
   padding: var(--gap-41) var(--gap-36);

@@ -1427,6 +1427,11 @@ body {
 			--first-column-width: 460px;
 			--second-column-width: 320px;
 
+			@media screen and (max-width: $tablet-max) {
+				--first-column-width: 460px;
+				
+			}
+
 			.cart-widget-inner {
 				display: grid;
 
@@ -1452,6 +1457,9 @@ body {
 				border-top-style: solid;
 				border-color: var(--color-gray-500);
 				border-width: 1px;
+					@media screen and (max-width: $tablet-max) {
+					right: 14px;
+				}
 				@media screen and (max-width: $mobile-max) {
 					right: 4.25em;
 				}
@@ -1809,6 +1817,11 @@ body {
 				padding-top: 0;
 				margin-top: calc(var(--gap-36) + var(--padding-top) + var(--padding-bottom) - 1.87em * 2);
 				margin-right: auto;
+									@media screen and (max-width: $mobile-max) {
+					margin-top: var(--gap-20);
+					width: 100%;
+					margin-bottom: var(--gap-20);
+				}
 				> div {
 					padding: 1.87em 0;
 					margin: 0;
@@ -1852,6 +1865,13 @@ body {
 			border-bottom-width: 3px;
 			border-color: var(--color-black-o-20);
 			box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+
+			@media screen and (max-width: $mobile-max) {
+				top: calc(var(--header-height) + var(--padding-top-header));
+				max-width: none;
+				width: calc(100% - var(--padding-sides) * 2);
+				
+			}
 			&:after {
 				content: "";
 				--arrow-height: 24px;
@@ -1866,6 +1886,10 @@ body {
 				border-top-style: solid;
 				border-color: var(--color-gray-500);
 				border-width: 1px;
+				@media screen and (max-width: $mobile-max) {
+					right: 6.75em;
+					
+				}
 			}
 			.popup-widget-inner {
 				padding: var(--gap-41) var(--gap-36);
