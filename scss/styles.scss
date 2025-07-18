@@ -1420,7 +1420,7 @@ body {
 				background: white;
 				position: absolute;
 				right: 4.8em;
-				top: calc(var(--arrow-height) / -2) + 1px;
+				top: calc(var(--arrow-height) / -2 + 1px);
 				transform: rotate(45deg);
 				border-left-style: solid;
 				border-top-style: solid;
@@ -1640,8 +1640,8 @@ body {
 				font-size: var(--fs-13);
 				background: var(--color-gray-400);
 				border-radius: var(--br-16);
-				--padding-left: 2em;
-				--padding-right: 3em;
+				--padding-left: 1.5em;
+				--padding-right: 2.5em;
 				--padding-top: 2.5em;
 				--padding-bottom: 3.07em;
 				padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
