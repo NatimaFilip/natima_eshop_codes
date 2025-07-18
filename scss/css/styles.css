@@ -1527,12 +1527,12 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget:after {
   background: white;
   position: absolute;
   right: 4.8em;
-  top: calc(var(--arrow-height) / -2 + 1px);
+  top: calc(var(--arrow-height) / -2 - 1px);
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   border-left-style: solid;
   border-top-style: solid;
-  border-color: var(--color-black-o-10);
+  border-color: var(--color-gray-500);
   border-width: 1px;
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-products {
@@ -1778,11 +1778,27 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button {
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button a {
   color: var(--color-white);
-  padding: 1.1em 3.55em 1.1em 2em;
+  padding: 1.1em 0;
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
   cursor: pointer;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+}
+body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button a:after {
+  content: "";
+  width: 14px;
+  height: 100%;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_white.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button:hover, body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button:focus-within {
   background: var(--color-secondary-hover);
@@ -1801,6 +1817,17 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button .ca
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-size: var(--fs-18);
+}
+body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button:after {
+  content: "";
+  width: 12px;
+  height: 100%;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_white.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-free-shipping {
   margin-top: var(--gap-36);
