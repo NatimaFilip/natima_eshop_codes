@@ -312,8 +312,11 @@ body.sticky-header-on #header {
 @media screen and (max-width: 767px) {
   body.sticky-header-on #header {
     background: var(--color-white);
-    -webkit-box-shadow: 0px 3px 5px var(--color-gray-500);
-            box-shadow: 0px 3px 5px var(--color-gray-500);
+    -webkit-box-shadow: 0px 0px 5px var(--color-gray-400);
+            box-shadow: 0px 0px 5px var(--color-gray-400);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: var(--color-gray-500);
   }
 }
 @-webkit-keyframes slideDown {
@@ -684,6 +687,7 @@ body #header .navigation-wrapper .header-top .navigation-buttons {
 @media screen and (max-width: 767px) {
   body #header .navigation-wrapper .header-top .navigation-buttons {
     padding-right: 10px;
+    margin-right: var(--gap-10);
   }
 }
 body #header .navigation-wrapper .header-top .navigation-buttons .cart-count {
@@ -1528,7 +1532,7 @@ body.cart-window-visible #cart-widget {
 }
 @media screen and (max-width: 1279px) {
   body.cart-window-visible #cart-widget {
-    --first-column-width: 400px;
+    --first-column-width: 350px;
   }
 }
 body.cart-window-visible #cart-widget .cart-widget-inner {

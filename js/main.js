@@ -535,8 +535,7 @@ function calculateFreeShipping() {
 		let percentageProgressToFreeShipping = 0;
 		let leftToFreeShipping = window.dataLayer[0].shoptet.cartInfo.leftToFreeShipping.priceLeft || 0;
 		let cartTotal = window.dataLayer[0].shoptet.cartInfo.getNoBillingShippingPrice.withVat || 0;
-		console.log("Left to free shipping:", leftToFreeShipping);
-		console.log("Cart total:", cartTotal);
+
 		leftToFreeShipping = Math.round(leftToFreeShipping);
 		cartTotal = Math.round(cartTotal);
 
@@ -621,6 +620,15 @@ function addCartWidgetToCartMobileListener() {
 		return;
 	}
 	addSmartTouchClickListener(cartButton, function (event) {
+		if (isMobile) {
+			console.log("Cart button clicked on mobile, redirecting to cart page.");
+			event.preventDefault();
+			window.location.href = cartHref;
+		} else {
+			console.log("Cart button clicked on desktop, no action needed.");
+		}
+	});
+	addSmartTouchClickListener(cartButton.querySelector("a"), function (event) {
 		if (isMobile) {
 			console.log("Cart button clicked on mobile, redirecting to cart page.");
 			event.preventDefault();
@@ -1307,8 +1315,6 @@ function heurekaReviewsScroll() {
 	heurekaReviewWidthProperty = heurekaReviewWidthProperty.replace("%", "");
 	// calculate how many to 100
 	heurekaReviewVisibleAmount = (100 / heurekaReviewWidthProperty).toFixed(0);
-	console.log("heurekaReviewWidthProperty:", heurekaReviewWidthProperty);
-	console.log("heurekaReviewVisibleAmount:", heurekaReviewVisibleAmount);
 
 	//figure if there are more reviews than visible amount
 	if (numberOfTotalViableReviews <= heurekaReviewVisibleAmount) {
