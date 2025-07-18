@@ -1502,6 +1502,8 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget {
   width: 830px;
   max-width: calc(100% - var(--padding-sides));
   padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
+  --first-column-width: 60%;
+  --second-column-width: 40%;
   -webkit-box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
 }
@@ -1510,8 +1512,6 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-inner {
   -webkit-column-gap: var(--gap-30);
      -moz-column-gap: var(--gap-30);
           column-gap: var(--gap-30);
-  --first-column-width: 57%;
-  --second-column-width: 43%;
   grid-template-columns: var(--first-column-width) calc(var(--second-column-width) - var(--gap-30));
   grid-template-rows: auto;
 }

@@ -1395,12 +1395,13 @@ body {
 			width: 830px;
 			max-width: calc(100% - var(--padding-sides));
 			padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
+			--first-column-width: 60%;
+			--second-column-width: 40%;
 
 			.cart-widget-inner {
 				display: grid;
 				column-gap: var(--gap-30);
-				--first-column-width: 57%;
-				--second-column-width: 43%;
+
 				grid-template-columns: var(--first-column-width) calc(var(--second-column-width) - var(--gap-30));
 				grid-template-rows: auto;
 			}
