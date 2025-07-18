@@ -1404,6 +1404,7 @@ body {
 
 				grid-template-columns: var(--first-column-width) calc(var(--second-column-width) - var(--gap-30));
 				grid-template-rows: auto;
+				align-items: end;
 			}
 
 			@include bottom-shadow;
@@ -1585,10 +1586,11 @@ body {
 				justify-content: center;
 				background: var(--color-secondary);
 				border-radius: var(--br-16);
-				position: absolute;
-				width: calc(var(--second-column-width) - var(--gap-30));
-				right: var(--gap-10);
-				bottom: var(--gap-36);
+
+				width: 100%;
+				flex-direction: column-reverse;
+				gap: var(--gap-10);
+
 				@include bottom-cta-shadow;
 				a {
 					color: var(--color-white);
@@ -1603,11 +1605,8 @@ body {
 					background: var(--color-secondary-hover);
 				}
 				.cart-total-price-wrapper {
-					position: absolute;
-					top: -10px;
-					left: 0;
 					width: 100%;
-					transform: translatey(-100%);
+
 					display: flex;
 					justify-content: space-between;
 					font-size: var(--fs-18);
