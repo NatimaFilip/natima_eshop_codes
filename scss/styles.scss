@@ -1625,6 +1625,7 @@ body {
 					background: var(--color-secondary);
 					border-radius: var(--br-16);
 					color: var(--color-white);
+					@include bottom-cta-shadow;
 					padding: 1.1em 0 calc(1.1em + 2px);
 					font-size: var(--fs-18);
 					font-weight: var(--fw-700);
@@ -1633,7 +1634,7 @@ body {
 					display: flex;
 					justify-content: space-evenly;
 					width: 100%;
-					@include bottom-cta-shadow;
+
 					&:after {
 						content: "";
 						width: 10px;

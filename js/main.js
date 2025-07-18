@@ -540,6 +540,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("ShoptetDOMCartContentLoaded", function () {
 	calculateFreeShipping();
+	document.body.classList.add("cart-widget-has-loaded");
 });
 
 /*------------------------------------------------- KOSIK WIDGET - cena celkem do widgetu*/
