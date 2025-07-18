@@ -1383,7 +1383,15 @@ body {
 	.login-widget {
 		display: none;
 	}
-	&.cart-window-visible:not(.ajax-pending) {
+	&.cart-window-visible.ajack-pending {
+		#cart-widget {
+			display: none;
+		}
+	}
+	&.cart-window-visible.ajax-pending.cart-widget-has-loaded {
+		display: block;
+	}
+	&.cart-window-visible {
 		#cart-widget {
 			display: block;
 			position: fixed;
@@ -1419,7 +1427,7 @@ body {
 				height: var(--arrow-height);
 				background: white;
 				position: absolute;
-				right: 4.8em;
+				right: 40px;
 				top: calc(var(--arrow-height) / -2 - 1px);
 				transform: rotate(45deg);
 				border-left-style: solid;
@@ -1604,8 +1612,7 @@ body {
 			.cart-widget-button {
 				display: flex;
 				justify-content: center;
-				background: var(--color-secondary);
-				border-radius: var(--br-16);
+
 				position: absolute;
 				width: calc(var(--second-column-width) - var(--gap-30));
 
@@ -1613,6 +1620,8 @@ body {
 				bottom: var(--gap-36);
 				@include bottom-cta-shadow;
 				a {
+					background: var(--color-secondary);
+					border-radius: var(--br-16);
 					color: var(--color-white);
 					padding: 1.1em 0;
 					font-size: var(--fs-18);
@@ -1624,7 +1633,7 @@ body {
 					width: 100%;
 					&:after {
 						content: "";
-						width: 14px;
+						width: 10px;
 						height: 100%;
 
 						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_white.svg");
@@ -1632,11 +1641,12 @@ body {
 						background-repeat: no-repeat;
 						display: block;
 					}
+					&:hover,
+					&:focus-within {
+						background: var(--color-secondary-hover);
+					}
 				}
-				&:hover,
-				&:focus-within {
-					background: var(--color-secondary-hover);
-				}
+
 				.cart-total-price-wrapper {
 					position: absolute;
 					top: -10px;
