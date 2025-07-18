@@ -1505,7 +1505,7 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget {
           box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
   --first-column-width: 460px;
   --second-column-width: 320px;
-  --arrow-height: 24px;
+  --arrow-height: var(--gap-18);
 }
 @media screen and (min-width: 1920px) {
   body.cart-window-visible:not(.ajax-pending) #cart-widget {
