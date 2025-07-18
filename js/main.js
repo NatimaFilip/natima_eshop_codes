@@ -201,13 +201,13 @@ function stickyHeaderToggle() {
 	};
 
 	const activateStickyHeader = () => {
-		header.classList.add("sticky-header-off");
-		header.classList.remove("sticky-header-on");
+		document.body.classList.add("sticky-header-off");
+		document.body.classList.remove("sticky-header-on");
 	};
 
 	const deactivateStickyHeader = () => {
-		header.classList.add("sticky-header-on");
-		header.classList.remove("sticky-header-off");
+		document.body.classList.add("sticky-header-on");
+		document.body.classList.remove("sticky-header-off");
 	};
 
 	window.addEventListener("scroll", handleScroll);
