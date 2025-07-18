@@ -619,7 +619,7 @@ function addCartWidgetToCartMobileListener() {
 		console.warn("Cart button href not found.");
 		return;
 	}
-	let cartHref = artHrefA.getAttribute("href");
+	let cartHref = cartHrefA.getAttribute("href");
 	if (!cartHref) {
 		console.warn("Cart button href is empty.");
 		return;

@@ -1430,7 +1430,7 @@ body {
 				right: calc(((100vw - 1920px) / 2 + var(--padding-sides)) - 6px);
 			}
 			@media screen and (max-width: $mobile-max) {
-				top: calc(var(--header-height) + var(--padding-top-header) + 8px);
+				top: calc(var(--header-height) + var(--padding-top-header)) !important;
 				width: 100%;
 			}
 
@@ -1467,7 +1467,7 @@ body {
 					right: 14px;
 				}
 				@media screen and (max-width: $mobile-max) {
-					right: 4.25em;
+					right: 4.75em;
 				}
 			}
 
@@ -1891,7 +1891,7 @@ body {
 				border-color: var(--color-gray-500);
 				border-width: 1px;
 				@media screen and (max-width: $mobile-max) {
-					right: 6.75em;
+					right: 7.35em;
 				}
 			}
 			.popup-widget-inner {
