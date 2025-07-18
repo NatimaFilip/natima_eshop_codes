@@ -1514,9 +1514,6 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-inner {
           column-gap: var(--gap-30);
   grid-template-columns: var(--first-column-width) calc(var(--second-column-width) - var(--gap-30));
   grid-template-rows: auto;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-products {
   grid-row: 1;
@@ -1749,31 +1746,35 @@ body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
-  gap: var(--gap-10);
+  background: var(--color-secondary);
+  border-radius: var(--br-16);
+  position: absolute;
+  width: calc(var(--second-column-width) - var(--gap-30));
+  width: calc(100% - var(--first-column-width) - var(--gap-30) / 2 + var(--gap-30));
+  right: var(--gap-10);
+  bottom: var(--gap-36);
+  padding-bottom: 2px;
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
+          box-shadow: inset 0px -2px 0px var(--color-cta-600);
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button a {
   color: var(--color-white);
+  padding: 1.1em 3.55em 1.1em 2em;
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
   cursor: pointer;
   position: relative;
-  background: var(--color-secondary);
-  border-radius: var(--br-16);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
-          box-shadow: inset 0px -2px 0px var(--color-cta-600);
-  padding: 1.1em 3.55em calc(1.1em + 2px) 2em;
 }
-body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button a:hover, body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button a:focus-within {
+body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button:hover, body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button:focus-within {
   background: var(--color-secondary-hover);
 }
 body.cart-window-visible:not(.ajax-pending) #cart-widget .cart-widget-button .cart-total-price-wrapper {
+  position: absolute;
+  top: -10px;
+  left: 0;
   width: 100%;
+  -webkit-transform: translatey(-100%);
+          transform: translatey(-100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
