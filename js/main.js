@@ -165,6 +165,7 @@ function stickyHeaderToggle() {
 	let scrolledUp = false;
 
 	const headerHeight = header.offsetHeight;
+	const headerTopPosition = header.getBoundingClientRect().top + window.pageYOffset;
 	const scrollThreshold = 150;
 
 	let scrollDifference = 0;
@@ -175,14 +176,15 @@ function stickyHeaderToggle() {
 		// Scrolling up
 		if (currentScrollPosition < lastScrollPosition) {
 			lastScrollUp = currentScrollPosition;
-			scrollDifference = lastScrollDown - lastScrollUp;
 
 			if (scrollDifference > scrollThreshold) {
 				deactivateStickyHeader();
 				scrolledUp = true;
-			} else if (currentScrollPosition <= headerHeight) {
+			}
+			if (currentScrollPosition <= headerTopPosition) {
 				// If scrolled to the top
-				deactivateStickyHeader();
+				removeStickyHeader();
+
 				scrolledUp = false;
 			}
 		}
@@ -207,6 +209,11 @@ function stickyHeaderToggle() {
 
 	const deactivateStickyHeader = () => {
 		document.body.classList.add("sticky-header-on");
+		document.body.classList.remove("sticky-header-off");
+	};
+
+	const removeStickyHeader = () => {
+		document.body.classList.remove("sticky-header-on");
 		document.body.classList.remove("sticky-header-off");
 	};
 
