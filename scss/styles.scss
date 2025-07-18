@@ -1413,7 +1413,7 @@ body {
 			}
 			@media screen and (max-width: $mobile-max) {
 				top: calc(var(--header-height) + var(--padding-top-header) + 8px);
-				right: 4.25em;
+			
 				
 			}
 			background: white;
@@ -1434,6 +1434,11 @@ body {
 
 				grid-template-columns: var(--first-column-width) calc(var(--second-column-width));
 				grid-template-rows: auto;
+				@media screen and (max-width: $mobile-max) {
+					grid-template-columns: 1fr;
+					grid-template-rows: auto auto;
+					
+				}
 			}
 
 			&:after {
@@ -1450,6 +1455,10 @@ body {
 				border-top-style: solid;
 				border-color: var(--color-gray-500);
 				border-width: 1px;
+				@media screen and (max-width: $mobile-max) {
+						right: 4.25em;
+					
+				}
 			}
 
 			.cart-widget-products {
@@ -1477,8 +1486,8 @@ body {
 					position: relative;
 
 					@media screen and (max-width: $mobile-max) {
-						grid-template-columns: 1fr 1fr;
-						grid-template-rows: auto auto auto;
+						grid-template-columns: auto 1fr;
+						grid-template-rows: auto auto;
 						gap: var(--gap-20);
 						
 					}
@@ -1538,6 +1547,15 @@ body {
 							transform: translatey(-50%);
 							font-size: var(--fs-16);
 							font-weight: var(--fw-700);
+							@media screen and (max-width: $mobile-max) {
+						
+							
+								top: auto;
+								bottom: 27px;
+								transform: translateY(-50%);
+								font-size: var(--fs-14);
+								
+							}
 						}
 					}
 					.cart-widget-product-amount {
@@ -1551,8 +1569,9 @@ body {
 						border-width: 1px;
 						border-radius: var(--br-16);
 						@media screen and (max-width: $mobile-max) {
-							grid-column: 1;
+							grid-column: 1/-1;
 							grid-row: 2;
+							margin-left: 0;
 						
 							
 							
@@ -1611,7 +1630,15 @@ body {
 						transform: translatey(-50%);
 						right: var(--gap-10);
 						left: auto;
-
+						@media screen and (max-width: $mobile-max) {
+							right: 0;
+							left: auto;
+							top: auto;
+							bottom: calc(   27px + 11px);
+							transform: translateY(-50%);
+					
+							
+						}
 						.sr-only {
 							display: none;
 						}
