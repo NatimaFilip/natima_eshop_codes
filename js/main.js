@@ -614,11 +614,17 @@ function addCartWidgetToCartMobileListener() {
 		console.warn("Cart button not found.");
 		return;
 	}
-	let cartHref = cartButton.querySelector("a").getAttribute("href");
-	if (!cartHref) {
+	let cartHrefA = cartButton.querySelector("a");
+	if (!cartHrefA) {
 		console.warn("Cart button href not found.");
 		return;
 	}
+	let cartHref = artHrefA.getAttribute("href");
+	if (!cartHref) {
+		console.warn("Cart button href is empty.");
+		return;
+	}
+
 	addSmartTouchClickListener(cartButton, function (event) {
 		if (isMobile) {
 			console.log("Cart button clicked on mobile, redirecting to cart page.");
@@ -628,7 +634,7 @@ function addCartWidgetToCartMobileListener() {
 			console.log("Cart button clicked on desktop, no action needed.");
 		}
 	});
-	addSmartTouchClickListener(cartButton.querySelector("a"), function (event) {
+	addSmartTouchClickListener(cartHrefA, function (event) {
 		if (isMobile) {
 			console.log("Cart button clicked on mobile, redirecting to cart page.");
 			event.preventDefault();
