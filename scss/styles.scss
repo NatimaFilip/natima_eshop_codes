@@ -2828,7 +2828,8 @@ body.type-category {
 	grid-template-columns: 1fr;
 	row-gap: var(--gap-6);
 	--padding-capsules-vertical: 2px;
-	--add-to-cart-button-height: calc(2.4615em + 1px); //1px for shadow
+	/* 	--add-to-cart-button-height: calc(2.4615em + 1px); //1px for shadow */
+	--add-to-cart-button-height: calc(3.231em + 1px); //1px for shadow
 
 	--rating-wrapper-height: calc(1em * var(--lh-1-4) + var(--padding-capsules-vertical) * 2); //4px for padding
 
@@ -2888,10 +2889,16 @@ body.type-category {
 	}
 
 	--padding-capsules: 2px 8px; //if you change it you need to change it in mixin products-block-grid-layout!
-	--add-to-cart-button-width: 2.4615em;
+	/* 	--add-to-cart-button-width: 2.4615em;
 	--add-to-cart-button-height: calc(
 		2.4615em + 1px
+	); //1px for shadow; if you change it, you need to change it in mixin products-block-grid-layout! */
+
+	--add-to-cart-button-width: 3.231em;
+	--add-to-cart-button-height: calc(
+		3.231em + 1px
 	); //1px for shadow; if you change it, you need to change it in mixin products-block-grid-layout!
+
 	.product {
 		position: relative;
 		.p {

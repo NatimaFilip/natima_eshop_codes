@@ -3107,9 +3107,13 @@ body.type-category .category-header > div strong {
           column-gap: var(--gap-10);
   row-gap: var(--gap-10);
   --padding-capsules: 2px 8px;
-  --add-to-cart-button-width: 2.4615em;
+  /* 	--add-to-cart-button-width: 2.4615em;
   --add-to-cart-button-height: calc(
   	2.4615em + 1px
+  ); //1px for shadow; if you change it, you need to change it in mixin products-block-grid-layout! */
+  --add-to-cart-button-width: 3.231em;
+  --add-to-cart-button-height: calc(
+  	3.231em + 1px
   );
 }
 @media screen and (min-width: 768px) {
@@ -3248,7 +3252,8 @@ body.type-category .category-header > div strong {
   grid-template-columns: 1fr;
   row-gap: var(--gap-6);
   --padding-capsules-vertical: 2px;
-  --add-to-cart-button-height: calc(2.4615em + 1px);
+  /* 	--add-to-cart-button-height: calc(2.4615em + 1px); //1px for shadow */
+  --add-to-cart-button-height: calc(3.231em + 1px);
   --rating-wrapper-height: calc(1em * var(--lh-1-4) + var(--padding-capsules-vertical) * 2);
   --name-number-of-lines: 2;
   --name-height: calc(1em * var(--name-number-of-lines) * var(--lh-1-4));
@@ -3278,7 +3283,8 @@ body.type-category .category-header > div strong {
   grid-template-columns: 1fr;
   row-gap: var(--gap-6);
   --padding-capsules-vertical: 2px;
-  --add-to-cart-button-height: calc(2.4615em + 1px);
+  /* 	--add-to-cart-button-height: calc(2.4615em + 1px); //1px for shadow */
+  --add-to-cart-button-height: calc(3.231em + 1px);
   --rating-wrapper-height: calc(1em * var(--lh-1-4) + var(--padding-capsules-vertical) * 2);
   --name-number-of-lines: 2;
   --name-height: calc(1em * var(--name-number-of-lines) * var(--lh-1-4));
@@ -3330,7 +3336,8 @@ body.type-category .category-header > div strong {
   grid-template-columns: 1fr;
   row-gap: var(--gap-6);
   --padding-capsules-vertical: 2px;
-  --add-to-cart-button-height: calc(2.4615em + 1px);
+  /* 	--add-to-cart-button-height: calc(2.4615em + 1px); //1px for shadow */
+  --add-to-cart-button-height: calc(3.231em + 1px);
   --rating-wrapper-height: calc(1em * var(--lh-1-4) + var(--padding-capsules-vertical) * 2);
   --name-number-of-lines: 2;
   --name-height: calc(1em * var(--name-number-of-lines) * var(--lh-1-4));
@@ -3457,7 +3464,8 @@ body.type-category .category-header > div strong {
   grid-template-columns: 1fr;
   row-gap: var(--gap-6);
   --padding-capsules-vertical: 2px;
-  --add-to-cart-button-height: calc(2.4615em + 1px);
+  /* 	--add-to-cart-button-height: calc(2.4615em + 1px); //1px for shadow */
+  --add-to-cart-button-height: calc(3.231em + 1px);
   --rating-wrapper-height: calc(1em * var(--lh-1-4) + var(--padding-capsules-vertical) * 2);
   --name-number-of-lines: 2;
   --name-height: calc(1em * var(--name-number-of-lines) * var(--lh-1-4));
@@ -3487,7 +3495,8 @@ body.type-category .category-header > div strong {
   grid-template-columns: 1fr;
   row-gap: var(--gap-6);
   --padding-capsules-vertical: 2px;
-  --add-to-cart-button-height: calc(2.4615em + 1px);
+  /* 	--add-to-cart-button-height: calc(2.4615em + 1px); //1px for shadow */
+  --add-to-cart-button-height: calc(3.231em + 1px);
   --rating-wrapper-height: calc(1em * var(--lh-1-4) + var(--padding-capsules-vertical) * 2);
   --name-number-of-lines: 2;
   --name-height: calc(1em * var(--name-number-of-lines) * var(--lh-1-4));
@@ -3517,7 +3526,8 @@ body.type-category .category-header > div strong {
   grid-template-columns: 1fr;
   row-gap: var(--gap-6);
   --padding-capsules-vertical: 2px;
-  --add-to-cart-button-height: calc(2.4615em + 1px);
+  /* 	--add-to-cart-button-height: calc(2.4615em + 1px); //1px for shadow */
+  --add-to-cart-button-height: calc(3.231em + 1px);
   --rating-wrapper-height: calc(1em * var(--lh-1-4) + var(--padding-capsules-vertical) * 2);
   --name-number-of-lines: 2;
   --name-height: calc(1em * var(--name-number-of-lines) * var(--lh-1-4));
