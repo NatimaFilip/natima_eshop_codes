@@ -2091,6 +2091,12 @@ body {
 				border-left-style: solid;
 				border-left-width: 1px;
 				border-color: var(--color-black-o-10);
+				@media screen and (max-width: $mobile-max) {
+					&#navigation-1st {
+						border-left-style: none;
+						padding-left: 0;
+					}
+				}
 			}
 			#navigation-first {
 				display: flex;

@@ -2298,6 +2298,12 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
   border-left-width: 1px;
   border-color: var(--color-black-o-10);
 }
+@media screen and (max-width: 767px) {
+  body .breadcrumbs-wrapper .breadcrumbs > span#navigation-1st {
+    border-left-style: none;
+    padding-left: 0;
+  }
+}
 body .breadcrumbs-wrapper .breadcrumbs #navigation-first {
   display: -webkit-box;
   display: -ms-flexbox;
