@@ -1502,6 +1502,8 @@ function changeAddToCartButtonToIncreaseDecrease() {
 	let cartItemCodesAndQuantities = cartItems.map((item) => ({
 		code: item.code,
 		quantity: item.quantity,
+		priceId: item.priceId, // Include priceId if needed
+		itemId: item.itemId, // Include itemId if needed
 	}));
 
 	// Log the result
@@ -1528,6 +1530,16 @@ function changeAddToCartButtonToIncreaseDecrease() {
 			console.warn(`Add to cart button not found for product with code ${productCode}.`);
 			return; // Skip if no add to cart button
 		}
+		let selectedProductFromCart = cartItemCodesAndQuantities.find((item) => item.code === productCode);
+		if (product.classList.contains("product-in-cart")) {
+			if (selectedProductFromCart.quantity === 0) {
+				shoptet.cartShared.removeFromCart({ itemId: selectedProductFromCart.itemId });
+				product.classList.remove("product-in-cart");
+				return; // Skip if quantity is 0
+			}
+			product.querySelector(".quantityInput").value = selectedProductFromCart.quantity || "1"; // Default to 1 if not found
+			return; // Skip if already processed
+		}
 		product.classList.add("product-in-cart");
 
 		const increaseDecreaseWrapper = document.createElement("div");
@@ -1541,7 +1553,8 @@ function changeAddToCartButtonToIncreaseDecrease() {
 		const quantityInput = document.createElement("input");
 		quantityInput.className = "quantity-input";
 		quantityInput.type = "number";
-		quantityInput.value = cartItemCodesAndQuantities.find((item) => item.code === productCode).quantity || "1"; // Default to 1 if not found
+
+		quantityInput.value = selectedProductFromCart.quantity || "1"; // Default to 1 if not found
 		quantityInput.min = "1"; // Minimum value
 		quantityInput.max = "999"; // Maximum value
 		quantityInput.setAttribute("data-product-code", productCode); // Store the product code
@@ -1577,9 +1590,16 @@ function changeAddToCartButtonToIncreaseDecrease() {
 		quantityInput.addEventListener(
 			"change",
 			debounce(function () {
-				if (parseInt(quantityInput.value) < 1) {
-					console.warn("Quantity is 0, remove");
+				const quantityInputValue = parseInt(quantityInput.value);
+				if (parseInt(quantityInputValue) < 1) {
+					shoptet.cartShared.removeFromCart({ itemId: selectedProductFromCart.itemId });
 					product.classList.remove("product-in-cart");
+				} else {
+					shoptet.cartShared.updateQuantityInCart({
+						itemId: selectedProductFromCart.itemId,
+						priceId: selectedProductFromCart.priceId,
+						amount: quantityInputValue,
+					});
 				}
 			}, 1000) // Debounce delay of 200ms
 		);
