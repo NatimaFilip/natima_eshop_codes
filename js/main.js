@@ -866,7 +866,10 @@ if (body.classList.contains("type-category")) {
 	}
 
 	function cleanEmptyActiveFiltersSection() {
-		if (document.querySelectorAll(".active-filter-section").length === 0) {
+		if (
+			document.querySelector(".selected-filters") &&
+			document.querySelectorAll(".active-filter-section").length === 0
+		) {
 			document.querySelector(".selected-filters").remove();
 		}
 	}

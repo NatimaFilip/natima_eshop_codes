@@ -2086,9 +2086,17 @@ body {
 				font-size: var(--fs-13);
 				font-weight: var(--fw-400);
 				line-height: var(--lh-1-4);
+				padding-left: var(--gap-13);
+				padding-right: var(--gap-13);
+				border-left-style: solid;
+				border-left-width: 1px;
+				border-color: var(--color-black-o-10);
 			}
 			#navigation-first {
 				display: flex;
+				padding-left: 0;
+				padding-right: 0;
+				border-left-style: none;
 				a {
 					margin-left: calc(var(--padding-for-click) * -1);
 					padding: var(--padding-for-click) var(--padding-for-click);
@@ -2127,9 +2135,6 @@ body {
 					color: var(--color-gray-600);
 					padding-left: var(--gap-13);
 					padding-right: var(--gap-13);
-					border-left-style: solid;
-					border-left-width: 1px;
-					border-color: var(--color-black-o-10);
 					line-height: 1;
 					a {
 						color: inherit;
@@ -2472,9 +2477,10 @@ body.type-category {
 						div {
 							label {
 								display: none;
-								//skrytí všech filtrů příznaků krom akce a novinky
+								//skrytí všech filtrů příznaků krom akce, novinky a skladem
 								&[for="dd[]1"],
-								&[for="dd[]2"] {
+								&[for="dd[]2"],
+								&[for="stock"] {
 									display: flex;
 								}
 							}
@@ -3775,6 +3781,9 @@ body.type-category {
 			@media screen and (max-width: $tablet-max) {
 				max-width: 100%;
 			}
+			@media screen and (max-width: $mobile-max) {
+				overflow: visible;
+			}
 
 			#heureka-reviews-insert {
 				display: flex;
@@ -3883,6 +3892,9 @@ body.type-category {
 				justify-content: center;
 				cursor: pointer;
 				border-radius: var(--br-16);
+				@media screen and (max-width: $mobile-max) {
+					top: 100%;
+				}
 				&.active {
 					display: flex;
 				}
@@ -3904,13 +3916,18 @@ body.type-category {
 					}
 				}
 				@media screen and (max-width: $mobile-max) {
-					right: calc(20% + var(--component-width) / -5);
+					right: calc(var(--component-width) / -2 - var(--padding-sides) / 2 - 1px);
+					/* 	right: calc(20% + var(--component-width) / -5); */
 					background-color: var(--color-gray-400);
 				}
 			}
 			#heureka-reviews-scroll-left {
 				top: 8px;
 				transform: translateY(0);
+				@media screen and (max-width: $mobile-max) {
+					top: 100%;
+					transform: translateY(-160%);
+				}
 				&::before {
 					transform: rotate(-90deg);
 				}
@@ -4318,20 +4335,27 @@ body.type-category {
 					grid-template-columns: repeat(2, 1fr);
 					gap: var(--gap-20);
 					padding-bottom: var(--gap-30);
+
+					@media screen and (max-width: $tablet-max) {
+						grid-template-columns: 1fr;
+						grid-template-rows: auto auto;
+					}
 					.footer-contacts-block {
 						display: flex;
 						align-items: center;
-						justify-content: center;
+						/* 		justify-content: center; */
+						justify-content: flex-start;
 						gap: var(--gap-16);
-						background: var(--color-white);
+						/* 	background: var(--color-white);
 						border-radius: var(--br-16);
-						padding: var(--gap-30) var(--gap-10);
+						padding: var(--gap-30) var(--gap-10); */
 						--component-width: 55px;
+
 						.footer-customer-support-icon {
 							display: flex;
 							align-items: center;
 							justify-content: center;
-							background-color: var(--color-gray-400);
+							background-color: var(--color-white);
 							border-radius: var(--br-8);
 							width: var(--component-width);
 							height: var(--component-width);
@@ -4365,8 +4389,11 @@ body.type-category {
 						gap: var(--gap-15);
 						.footer-contacts-block {
 							background: var(--color-gray-400);
+							border-radius: var(--br-16);
 							justify-content: flex-start;
+							padding: var(--gap-30) var(--gap-10);
 							padding-left: 2.25em;
+
 							.footer-customer-support-icon {
 								background-color: var(--color-white);
 							}
@@ -4555,6 +4582,9 @@ body.type-category {
 			.footer-prodejna-texts {
 				grid-column: 2;
 				grid-row: 2;
+				h4 {
+					padding-bottom: 0.667em;
+				}
 				.footer-prodejna-adress {
 					padding-bottom: 1.75em;
 				}
