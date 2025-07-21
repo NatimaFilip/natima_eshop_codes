@@ -1565,7 +1565,7 @@ body {
 						}
 						span[data-testid="cartWidgetProductPrice"] {
 							position: absolute;
-							right: 4rem;
+							right: 3.5rem;
 							left: auto;
 							top: 50%;
 							transform: translatey(-50%);
@@ -1583,7 +1583,7 @@ body {
 						grid-column: 3;
 						grid-row: 1;
 						margin-right: auto;
-						margin-left: var(--gap-30);
+						margin-left: var(--gap-20);
 						padding: 11px;
 						border-style: solid;
 						border-color: var(--color-black-o-20);
@@ -2129,6 +2129,9 @@ body {
 						display: none;
 					}
 				}
+			}
+			.appendix {
+				display: none;
 			}
 			.navigation-bullet {
 				display: none;

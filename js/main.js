@@ -1617,3 +1617,23 @@ document.addEventListener("ShoptetCartUpdated", function () {
 document.addEventListener("DOMContentLoaded", function () {
 	changeAddToCartButtonToIncreaseDecrease();
 });
+
+/*------------------------------------------------- Shorten breadcrumbs*/
+shortenBreadcrumbs();
+function shortenBreadcrumbs() {
+	let breadcrumbs = document.querySelectorAll(".breadcrumbs > span");
+	if (!breadcrumbs || breadcrumbs.length === 0) {
+		return;
+	}
+	breadcrumbs.forEach((breadcrumb) => {
+		if (breadcrumb.getAttribute("id") === "navigation-first") {
+			return; // Skip the home breadcrumb
+		}
+		let breadcrumbTextElement = breadcrumb.querySelector("span[itemprop='name']");
+		console.log("breadcrumbTextElement:", breadcrumbTextElement);
+		let breadcrumbText = breadcrumbTextElement.textContent.trim();
+		if (breadcrumbText.length > 20) {
+			breadcrumb.textContent = breadcrumbText.slice(0, 20) + "...";
+		}
+	});
+}
