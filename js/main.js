@@ -200,9 +200,12 @@ function stickyHeaderToggle() {
 			lastScrollDown = currentScrollPosition;
 			scrollDifference = lastScrollDown - lastScrollUp;
 			if (currentScrollPosition > headerHeight && scrollDifference > scrollThreshold) {
-				if (scrolledUp) {
-					activateStickyHeader();
-				}
+				activateStickyHeader();
+				/* 	if (scrolledUp) {
+					
+				} else {
+					document.body.classList.add("sticky-header-off");
+				} */
 			}
 		}
 
@@ -1522,7 +1525,6 @@ function changeAddToCartButtonToIncreaseDecrease() {
 			return;
 		}
 		if (!cartItemCodesAndQuantities.some((item) => item.code === productCode)) {
-			console.warn(`Product with code ${productCode} is not in the cart.`);
 			return; // Skip products not in the cart
 		}
 		productAddButton = product.querySelector(".p-tools form button");

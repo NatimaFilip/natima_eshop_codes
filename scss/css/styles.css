@@ -3594,16 +3594,10 @@ body.type-category .category-header > div strong {
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-cta-600);
           box-shadow: inset 0px -1px 0px var(--color-cta-600);
-  -webkit-transition: -webkit-transform 0.2s ease-out;
-  transition: -webkit-transform 0.2s ease-out;
-  transition: transform 0.2s ease-out;
-  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
 }
 .products-block .product .p-in .p-bottom > div .p-tools button:hover, .products-block .product .p-in .p-bottom > div .p-tools button:focus-within,
 .products-block .product .p-in .p-bottom > div .p-tools .increase-decrease-wrapper:hover,
 .products-block .product .p-in .p-bottom > div .p-tools .increase-decrease-wrapper:focus-within {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
   background-color: var(--color-secondary-hover);
 }
 .products-block .product .p-in .p-bottom > div .p-tools button span,
@@ -3674,7 +3668,6 @@ body.type-category .category-header > div strong {
     -webkit-transition: background-color 0.1s ease;
     transition: background-color 0.1s ease;
     padding: 1em 2.231em;
-    border-radius: var(--br-16);
   }
   .products-block .product .p-in .p-bottom > div .p-tools button span,
   .products-block .product .p-in .p-bottom > div .p-tools .increase-decrease-wrapper span {
@@ -3753,11 +3746,21 @@ body.type-category .category-header > div strong {
 .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper .increase-button {
   border-radius: 0 var(--br-16) var(--br-16) 0;
 }
+@media screen and (max-width: 767px) {
+  .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper .increase-button {
+    border-radius: 0 var(--br-8) var(--br-8) 0;
+  }
+}
 .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper .increase-button:hover, .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper .increase-button:focus-within {
   background-color: var(--color-secondary-hover);
 }
 .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper .decrease-button {
   border-radius: var(--br-16) 0 0 var(--br-16);
+}
+@media screen and (max-width: 767px) {
+  .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper .decrease-button {
+    border-radius: var(--br-8) 0 0 var(--br-8);
+  }
 }
 .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper .decrease-button:hover, .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper .decrease-button:focus-within {
   background-color: var(--color-secondary-hover);
@@ -5641,5 +5644,60 @@ body.type-category .category-header > div strong {
   #footer .footer-bottom #signature,
   #footer .footer-bottom .copyright {
     text-align: left;
+  }
+}
+
+/* --------------------------------------------------- Messages	*/
+body .messages > * {
+  position: fixed;
+  top: calc(var(--header-height) + var(--padding-top-header) + 1em + var(--gap-18) + 0.5em);
+  right: 0;
+  z-index: 1000;
+  -webkit-animation: slideInFromTop 0.2s ease-out forwards;
+          animation: slideInFromTop 0.2s ease-out forwards;
+  will-change: transform, opacity;
+  color: var(--color-white);
+  font-size: var(--fs-14);
+  border-radius: var(--br-16);
+  max-width: 100%;
+  width: 18em;
+  padding: 1em 2em;
+  -webkit-transform: top 0.2s ease-in-out;
+          transform: top 0.2s ease-in-out;
+}
+body .messages .msg-success {
+  background: var(--color-secondary);
+}
+body .messages .msg-error {
+  background: var(--color-red-400);
+}
+body.sticky-header-on .messages > * {
+  top: calc(var(--header-height) + var(--gap-18) + 0.5em);
+}
+body.sticky-header-off .messages > * {
+  top: 0.5em;
+}
+@-webkit-keyframes slideInFromTop {
+  0% {
+    -webkit-transform: translateX(150%);
+            transform: translateX(150%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(calc(var(--padding-sides) / -1));
+            transform: translateX(calc(var(--padding-sides) / -1));
+    opacity: 1;
+  }
+}
+@keyframes slideInFromTop {
+  0% {
+    -webkit-transform: translateX(150%);
+            transform: translateX(150%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(calc(var(--padding-sides) / -1));
+            transform: translateX(calc(var(--padding-sides) / -1));
+    opacity: 1;
   }
 }
