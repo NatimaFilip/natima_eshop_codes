@@ -1493,6 +1493,7 @@ function footerPaymentsMove() {
 function changeAddToCartButtonToIncreaseDecrease() {
 	// Check if cartItems exist in the dataLayer
 	let cartItems = window.dataLayer[0]?.shoptet?.cartInfo?.cartItems || [];
+	console.log("Cart Items from dataLayer:", cartItems);
 	if (!cartItems || cartItems.length === 0) {
 		console.warn("No cart items found in the dataLayer.");
 		return;
@@ -1513,7 +1514,7 @@ function changeAddToCartButtonToIncreaseDecrease() {
 	}
 
 	allProducts.forEach((product) => {
-		const productCode = product.querySelector(".p").getAttribute("data-micro-product-id");
+		const productCode = product.querySelector(".p-code > span").textContent.trim();
 		if (!productCode) {
 			console.warn("Product code not found for a product.");
 			return;

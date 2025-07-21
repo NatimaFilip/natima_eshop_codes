@@ -3420,6 +3420,9 @@ body.type-category .category-header > div strong {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: var(--padding-capsules);
   background: var(--color-cta-200);
   border-radius: var(--br-20);
@@ -3438,7 +3441,14 @@ body.type-category .category-header > div strong {
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper .availability:not(:has(.availability-amount)) {
   background: var(--color-red-200);
-  color: var(--color-red-400);
+  color: var(--color-red-400) !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@media screen and (max-width: 380px) {
+  .products-block .product .p-in .p-in-in .ratings-wrapper .availability:not(:has(.availability-amount)) {
+    font-size: calc(1em - 2px);
+  }
 }
 .products-block .product .p-in .p-bottom {
   display: grid;
@@ -4202,7 +4212,8 @@ body.type-category .category-header > div strong {
 }
 @media screen and (max-width: 767px) {
   #footer .footer-customer-support .footer-customer-support-icon-with-text .footer-customer-support-icon {
-    background: var(--color-white);
+    /* 	background: var(--color-white); */
+    --image-width: 35px;
   }
 }
 #footer .footer-customer-support .footer-customer-support-icon-with-text a {
@@ -5023,15 +5034,22 @@ body.type-category .category-header > div strong {
 #footer .footer-final-block .footer-contact-us-socials-languages .footer-contacts .footer-contacts-blocks {
   grid-row: 2;
   grid-column: 1/-1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   gap: var(--gap-20);
   padding-bottom: var(--gap-30);
 }
 @media screen and (max-width: 1279px) {
   #footer .footer-final-block .footer-contact-us-socials-languages .footer-contacts .footer-contacts-blocks {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 #footer .footer-final-block .footer-contact-us-socials-languages .footer-contacts .footer-contacts-blocks .footer-contacts-block {
