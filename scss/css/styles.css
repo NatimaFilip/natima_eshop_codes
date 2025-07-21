@@ -2301,7 +2301,7 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
 @media screen and (max-width: 767px) {
   body .breadcrumbs-wrapper .breadcrumbs > span#navigation-1 {
     border-left-style: none;
-    padding-left: 0;
+    padding-left: var(--gap-6);
   }
 }
 body .breadcrumbs-wrapper .breadcrumbs #navigation-first {
@@ -4537,7 +4537,7 @@ body.type-category .category-header > div strong {
 @media screen and (max-width: 767px) {
   #footer #heureka-reviews-footer .heureka-reviews-wrapper #heureka-reviews-scroll-right,
   #footer #heureka-reviews-footer .heureka-reviews-wrapper #heureka-reviews-scroll-left {
-    top: 100%;
+    top: 50%;
   }
 }
 #footer #heureka-reviews-footer .heureka-reviews-wrapper #heureka-reviews-scroll-right.active,
@@ -4579,9 +4579,9 @@ body.type-category .category-header > div strong {
 }
 @media screen and (max-width: 767px) {
   #footer #heureka-reviews-footer .heureka-reviews-wrapper #heureka-reviews-scroll-left {
-    top: 100%;
-    -webkit-transform: translateY(-160%);
-            transform: translateY(-160%);
+    top: 0%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
 }
 #footer #heureka-reviews-footer .heureka-reviews-wrapper #heureka-reviews-scroll-left::before {
