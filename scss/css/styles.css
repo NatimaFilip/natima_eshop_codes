@@ -2299,7 +2299,7 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
   border-color: var(--color-black-o-10);
 }
 @media screen and (max-width: 767px) {
-  body .breadcrumbs-wrapper .breadcrumbs > span#navigation-1st {
+  body .breadcrumbs-wrapper .breadcrumbs > span#navigation-1 {
     border-left-style: none;
     padding-left: 0;
   }
