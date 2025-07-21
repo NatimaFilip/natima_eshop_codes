@@ -954,7 +954,7 @@ if (body.classList.contains("type-category")) {
 			let disabletFilterItems = section.querySelectorAll("fieldset > div > label.disabled");
 			let sectionAppendingPlace = section.querySelector("fieldset");
 			disabletFilterItems.forEach((disabledItem) => {
-				sectionAppendingPlace.parentElement.appendChild(disabledItem);
+				sectionAppendingPlace.appendChild(disabledItem.parentElement);
 			});
 		});
 	}
