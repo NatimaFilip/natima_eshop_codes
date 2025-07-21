@@ -3127,10 +3127,14 @@ body.type-category {
 							width: var(--add-to-cart-button-width);
 							height: var(--add-to-cart-button-height);
 							background-color: var(--color-secondary);
-							border-radius: var(--br-8);
+							border-radius: var(--br-16);
 							position: relative;
 							cursor: pointer;
 							@include bottom-cta-shadow-small;
+
+							@media screen and (max-width: $mobile-max) {
+								border-radius: var(--br-8);
+							}
 
 							&:hover,
 							&:focus-within {
@@ -4867,6 +4871,7 @@ body {
 		> * {
 			position: fixed;
 			top: calc(var(--header-height) + var(--padding-top-header) + 1em + var(--gap-18) + 0.5em);
+
 			right: 0;
 			z-index: 1000;
 			animation: slideInFromTop 0.2s ease-out forwards;
@@ -4883,6 +4888,9 @@ body {
 				font-size: var(--fs-14);
 				font-weight: var(--fw-700);
 				text-decoration: underline;
+			}
+			@media screen and (max-width: $mobile-max) {
+				top: calc(var(--header-height) + var(--padding-top-header) + 1em + var(--gap-6));
 			}
 		}
 		.msg-success {
