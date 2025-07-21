@@ -2613,6 +2613,13 @@ body.type-category {
 
 				cursor: pointer;
 			}
+			&[data-filter-type="price"] {
+				padding: 0.31em 0.615em 0.31em 0.615em;
+				cursor: default;
+				&::after {
+					display: none;
+				}
+			}
 		}
 		#clear-filters {
 			padding: 0;

@@ -2882,6 +2882,13 @@ body.type-category .selected-filters .active-filter-label::after {
   background-repeat: no-repeat;
   cursor: pointer;
 }
+body.type-category .selected-filters .active-filter-label[data-filter-type=price] {
+  padding: 0.31em 0.615em 0.31em 0.615em;
+  cursor: default;
+}
+body.type-category .selected-filters .active-filter-label[data-filter-type=price]::after {
+  display: none;
+}
 body.type-category .selected-filters #clear-filters {
   padding: 0;
   display: -webkit-box;

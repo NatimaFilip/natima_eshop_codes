@@ -675,6 +675,7 @@ if (body.classList.contains("type-category")) {
 
 	document.addEventListener("DOMContentLoaded", function () {
 		addPriceFitlerClearButton();
+		cleanEmptyActiveFiltersSection();
 	});
 
 	window.addEventListener("resize", function () {
@@ -696,6 +697,7 @@ if (body.classList.contains("type-category")) {
 		customMoveFilter();
 		editClearFiltersButton();
 		addPriceFitlerClearButton();
+		cleanEmptyActiveFiltersSection();
 		moveSelectedFilters();
 		editManufacturerFilter();
 		cleanEmptyFilters();
@@ -831,9 +833,6 @@ if (body.classList.contains("type-category")) {
 			minFilterValue = minFilterValue.replace(/  +/g, " ");
 			maxFilterValue = maxFilterValue.replace(/  +/g, " ");
 
-			console.log("Min filter value:", minFilterValue);
-			console.log("Max filter value:", maxFilterValue);
-
 			const sliderHeader = sliderWrapper.querySelector("h4 > span");
 			const activeFilterSection = document.createElement("div");
 
@@ -864,6 +863,12 @@ if (body.classList.contains("type-category")) {
 				}); */
 		}
 		/* 	}, 500); */
+	}
+
+	function cleanEmptyActiveFiltersSection() {
+		if (document.querySelectorAll(".active-filter-section").length === 0) {
+			document.querySelector(".selected-filters").remove();
+		}
 	}
 
 	function moveSelectedFilters() {
@@ -947,9 +952,9 @@ if (body.classList.contains("type-category")) {
 				section.remove();
 			}
 			let disabletFilterItems = section.querySelectorAll("fieldset > div > label.disabled");
-			let sectionAppendingPlace = section.querySelector("fieldset > div");
+			let sectionAppendingPlace = section.querySelector("fieldset");
 			disabletFilterItems.forEach((disabledItem) => {
-				sectionAppendingPlace.appendChild(disabledItem);
+				sectionAppendingPlace.parentElement.appendChild(disabledItem);
 			});
 		});
 	}
