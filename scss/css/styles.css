@@ -5655,15 +5655,15 @@ body .messages > * {
   z-index: 1000;
   -webkit-animation: slideInFromTop 0.2s ease-out forwards;
           animation: slideInFromTop 0.2s ease-out forwards;
-  will-change: transform, opacity;
   color: var(--color-white);
   font-size: var(--fs-14);
   border-radius: var(--br-16);
   max-width: 100%;
-  width: 18em;
+  width: 19em;
+  text-wrap: balance;
   padding: 1em 2em;
-  -webkit-transform: top 0.2s ease-in-out;
-          transform: top 0.2s ease-in-out;
+  -webkit-transition: top 0.2s ease-in-out;
+  transition: top 0.2s ease-in-out;
 }
 body .messages .msg-success {
   background: var(--color-secondary);
