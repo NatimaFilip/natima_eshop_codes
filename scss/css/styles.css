@@ -2718,10 +2718,10 @@ body.type-category #filters .filter-sections .filter-section {
 body.type-category #filters .filter-sections .filter-section.filter-section-boolean {
   border-top-style: none;
 }
-body.type-category #filters .filter-sections .filter-section .param-filter-top form:last-child div label {
+body.type-category #filters .filter-sections .filter-section .param-filter-top form div label {
   display: none;
 }
-body.type-category #filters .filter-sections .filter-section .param-filter-top form:last-child div label[for="dd[]1"], body.type-category #filters .filter-sections .filter-section .param-filter-top form:last-child div label[for="dd[]2"] {
+body.type-category #filters .filter-sections .filter-section .param-filter-top form div label[for="dd[]1"], body.type-category #filters .filter-sections .filter-section .param-filter-top form div label[for="dd[]2"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

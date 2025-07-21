@@ -2469,15 +2469,13 @@ body.type-category {
 				}
 				.param-filter-top {
 					form {
-						&:last-child {
-							div {
-								label {
-									display: none;
-									//skrytí všech filtrů příznaků krom akce a novinky
-									&[for="dd[]1"],
-									&[for="dd[]2"] {
-										display: flex;
-									}
+						div {
+							label {
+								display: none;
+								//skrytí všech filtrů příznaků krom akce a novinky
+								&[for="dd[]1"],
+								&[for="dd[]2"] {
+									display: flex;
 								}
 							}
 						}
