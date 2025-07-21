@@ -3732,6 +3732,12 @@ body.type-category .category-header > div strong {
   color: white;
   -webkit-transition: background-color 0.1s ease;
   transition: background-color 0.1s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper .increase-button {
   border-radius: 0 var(--br-16) var(--br-16) 0;
@@ -3774,6 +3780,17 @@ body.type-category .category-header > div strong {
 }
 .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper:hover, .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper:focus-within {
   background-color: var(--color-secondary);
+}
+@media screen and (max-width: 767px) {
+  .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper {
+    width: auto;
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+  }
+  .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper::after {
+    display: none !important;
+  }
 }
 .products-block .product .p-in .p-bottom > div .p-desc {
   grid-row: 4;

@@ -3249,6 +3249,8 @@ body.type-category {
 							padding: 1em calc(2.231em / 2);
 							color: white;
 							transition: background-color 0.1s ease;
+							display: flex;
+							align-items: center;
 						}
 						.increase-button {
 							border-radius: 0 var(--br-16) var(--br-16) 0;
@@ -3285,6 +3287,13 @@ body.type-category {
 						&:hover,
 						&:focus-within {
 							background-color: var(--color-secondary);
+						}
+						@media screen and (max-width: $mobile-max) {
+							width: auto;
+							width: min-content;
+							&::after {
+								display: none !important;
+							}
 						}
 					}
 
