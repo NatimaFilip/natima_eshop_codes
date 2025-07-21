@@ -2780,6 +2780,10 @@ body.type-category {
 						display: block !important;
 						pointer-events: auto;
 						cursor: pointer;
+						&:hover,
+						&:focus-within {
+							color: var(--color-primary);
+						}
 					}
 				}
 			}
@@ -3273,13 +3277,23 @@ body.type-category {
 			display: none;
 		}
 		@media screen and (min-width: $tablet-min) {
-			.p-tools {
-				display: none !important;
+			&:not(.product-in-cart) {
+				.p-tools {
+					display: none !important;
+					.increase-decrease-wrapper {
+						display: none !important;
+					}
+				}
 			}
 			&:hover,
 			&:focus-within {
 				.p-tools {
 					display: flex !important;
+				}
+			}
+			&.product-in-cart {
+				button {
+					display: none !important;
 				}
 			}
 		}

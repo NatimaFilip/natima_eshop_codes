@@ -669,7 +669,7 @@ if (body.classList.contains("type-category")) {
 	editClearFiltersButton();
 	moveSelectedFilters();
 	editManufacturerFilter();
-	cleanEmptyFilters();
+	/* cleanEmptyFilters(); */
 	editProductSorting();
 
 	window.addEventListener("resize", function () {
@@ -692,7 +692,7 @@ if (body.classList.contains("type-category")) {
 		editClearFiltersButton();
 		moveSelectedFilters();
 		editManufacturerFilter();
-		cleanEmptyFilters();
+		/* cleanEmptyFilters(); */
 		editProductSorting();
 
 		if (customOpenFilterButton.classList.contains("active")) {
@@ -1458,7 +1458,8 @@ function changeAddToCartButtonToIncreaseDecrease() {
 			console.warn(`Add to cart button not found for product with code ${productCode}.`);
 			return; // Skip if no add to cart button
 		}
-		productAddButton.classList.add("display-none"); // Remove the original button
+		product.classList.add("product-in-cart");
+
 		const increaseDecreaseWrapper = document.createElement("div");
 		increaseDecreaseWrapper.className = "increase-decrease-wrapper";
 		const increaseButton = document.createElement("div");
@@ -1508,8 +1509,7 @@ function changeAddToCartButtonToIncreaseDecrease() {
 			debounce(function () {
 				if (parseInt(quantityInput.value) < 1) {
 					console.warn("Quantity is 0, remove");
-					increaseDecreaseWrapper.classList.add("display-none");
-					productAddButton.classList.remove("display-none");
+					product.classList.remove("product-in-cart");
 				}
 			}, 1000) // Debounce delay of 200ms
 		);
@@ -1521,4 +1521,3 @@ document.addEventListener("ShoptetCartUpdated", function () {
 document.addEventListener("DOMContentLoaded", function () {
 	changeAddToCartButtonToIncreaseDecrease();
 });
-changeAddToCartButtonToIncreaseDecrease();
