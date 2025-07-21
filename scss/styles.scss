@@ -3283,14 +3283,18 @@ body.type-category {
 								background-color: var(--color-secondary-hover);
 								outline: none;
 							}
+							@media screen and (max-width: $mobile-max) {
+								font-size: 14px;
+								width: 2em;
+							}
 						}
 						&:hover,
 						&:focus-within {
 							background-color: var(--color-secondary);
 						}
 						@media screen and (max-width: $mobile-max) {
-							width: auto;
-							width: min-content;
+							width: auto !important;
+							width: min-content !important;
 							&::after {
 								display: none !important;
 							}
@@ -3329,6 +3333,13 @@ body.type-category {
 					display: flex !important;
 				}
 			}
+			&.product-in-cart {
+				button {
+					display: none !important;
+				}
+			}
+		}
+		@media screen and (max-width: $mobile-max) {
 			&.product-in-cart {
 				button {
 					display: none !important;
