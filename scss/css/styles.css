@@ -2624,6 +2624,10 @@ body.type-category #filters .slider-wrapper .slider-content #slider {
   width: calc(100% - var(--box-width));
   margin: auto;
 }
+body.type-category #filters .slider-wrapper .slider-content #slider .ui-slider-range {
+  height: 6px;
+  background-color: var(--color-primary);
+}
 body.type-category #filters .slider-wrapper .slider-content #slider span {
   width: var(--box-width);
   height: var(--box-width);
@@ -2655,7 +2659,8 @@ body.type-category #filters fieldset div label {
   margin-bottom: 0.615em;
 }
 body.type-category #filters fieldset div label.disabled {
-  display: none !important;
+  opacity: 0.3;
+  pointer-events: none;
 }
 body.type-category #filters fieldset div label::before {
   content: "";

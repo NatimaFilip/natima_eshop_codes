@@ -2373,6 +2373,11 @@ body.type-category {
 					text-align: left;
 					width: calc(100% - var(--box-width));
 					margin: auto;
+					.ui-slider-range {
+						height: 6px;
+
+						background-color: var(--color-primary);
+					}
 
 					span {
 						width: var(--box-width);
@@ -2406,7 +2411,8 @@ body.type-category {
 					position: relative;
 					margin-bottom: 0.615em;
 					&.disabled {
-						display: none !important;
+						opacity: 0.3;
+						pointer-events: none;
 					}
 					&::before {
 						content: "";

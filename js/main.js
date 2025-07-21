@@ -1,3 +1,5 @@
+const { act } = require("react");
+
 /*--------------------------------------- Přepsání funkcí*/
 function moveFilters() {
 	console.log("moveFilters");
@@ -667,10 +669,15 @@ if (body.classList.contains("type-category")) {
 	customOpenFilterButtonListener();
 	customMoveFilter();
 	editClearFiltersButton();
+
 	moveSelectedFilters();
 	editManufacturerFilter();
-	/* cleanEmptyFilters(); */
+	cleanEmptyFilters();
 	editProductSorting();
+
+	document.addEventListener("DOMContentLoaded", function () {
+		addPriceFitlerClearButton();
+	});
 
 	window.addEventListener("resize", function () {
 		customMoveFilter();
@@ -690,9 +697,10 @@ if (body.classList.contains("type-category")) {
 		customOpenFilterButtonListener();
 		customMoveFilter();
 		editClearFiltersButton();
+		addPriceFitlerClearButton();
 		moveSelectedFilters();
 		editManufacturerFilter();
-		/* cleanEmptyFilters(); */
+		cleanEmptyFilters();
 		editProductSorting();
 
 		if (customOpenFilterButton.classList.contains("active")) {
@@ -808,6 +816,56 @@ if (body.classList.contains("type-category")) {
 		});
 
 		selectedFiltersDiv.appendChild(clearFilterButton);
+	}
+
+	function addPriceFitlerClearButton() {
+		/* 	setTimeout(() => { */
+		let sliderWrapper = filtersElement.querySelector(".slider-wrapper");
+		let priceSlider = document.querySelector(".ui-slider-range");
+		console.log("sliderWrapper:", sliderWrapper);
+		console.log("priceSlider:", priceSlider);
+		console.log("priceSlider width:", priceSlider.style.width);
+
+		if (sliderWrapper && priceSlider && priceSlider.style.width !== "100%") {
+			let minFilterValue = sliderWrapper.querySelector(".slider-header .from").textContent.trim();
+			let maxFilterValue = sliderWrapper.querySelector(".slider-header .to").textContent.trim();
+
+			minFilterValue = minFilterValue.replace(/  +/g, " ");
+			maxFilterValue = maxFilterValue.replace(/  +/g, " ");
+
+			console.log("Min filter value:", minFilterValue);
+			console.log("Max filter value:", maxFilterValue);
+
+			const sliderHeader = sliderWrapper.querySelector("h4 > span");
+			const activeFilterSection = document.createElement("div");
+
+			activeFilterSectionElement = document.querySelector(".active-filter-section");
+			activeFilterSection.className = "active-filter-section";
+			activeFilterSection.innerHTML = `<span class="active-filter-section-header">${sliderHeader.textContent}</span>`;
+			selectedFiltersDiv = document.querySelector(".selected-filters");
+
+			selectedFiltersDiv.appendChild(activeFilterSection);
+			if (!selectedFiltersDiv) {
+				return;
+			}
+			selectedFilterText = selectedFiltersDiv.querySelector(".selected-filters-text");
+			if (!selectedFilterText) {
+				return;
+			}
+
+			const activeNewLabel = document.createElement("span");
+			activeNewLabel.className = "active-filter-label";
+			activeNewLabel.setAttribute("data-filter-type", "price");
+			activeNewLabel.textContent = `${minFilterValue} - ${maxFilterValue}`;
+			activeFilterSection.appendChild(activeNewLabel);
+
+			selectedFiltersDiv.insertBefore(activeFilterSection, selectedFilterText.nextSibling);
+			/* 
+				addSmartTouchClickListener(activeNewLabel, function () {
+					label.click();
+				}); */
+		}
+		/* 	}, 500); */
 	}
 
 	function moveSelectedFilters() {
