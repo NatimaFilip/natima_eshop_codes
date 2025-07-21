@@ -5665,6 +5665,12 @@ body .messages > * {
   -webkit-transition: top 0.2s ease-in-out;
   transition: top 0.2s ease-in-out;
 }
+body .messages > * a {
+  color: var(--color-white);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
+  text-decoration: underline;
+}
 body .messages .msg-success {
   background: var(--color-secondary);
 }

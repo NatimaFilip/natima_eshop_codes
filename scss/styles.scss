@@ -4878,6 +4878,12 @@ body {
 			text-wrap: balance;
 			padding: 1em 2em;
 			transition: top 0.2s ease-in-out;
+			a {
+				color: var(--color-white);
+				font-size: var(--fs-14);
+				font-weight: var(--fw-700);
+				text-decoration: underline;
+			}
 		}
 		.msg-success {
 			background: var(--color-secondary);
