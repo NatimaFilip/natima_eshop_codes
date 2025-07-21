@@ -3622,7 +3622,7 @@ body.type-category .category-header > div strong {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_add_to_cart.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 75%;
+  background-size: 60%;
 }
 .products-block .product .p-in .p-bottom > div .p-tools > a {
   width: var(--add-to-cart-button-width);
@@ -3660,7 +3660,7 @@ body.type-category .category-header > div strong {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_search_glass_white.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 75%;
+  background-size: 60%;
 }
 @media screen and (min-width: 768px) {
   .products-block .product .p-in .p-bottom > div .p-tools {
@@ -3729,6 +3729,7 @@ body.type-category .category-header > div strong {
   display: -ms-flexbox;
   display: flex;
   padding: 0 !important;
+  border-radius: var(--br-16);
 }
 .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper:hover, .products-block .product .p-in .p-bottom > div .increase-decrease-wrapper:focus-within {
   background-color: var(--color-secondary) !important;

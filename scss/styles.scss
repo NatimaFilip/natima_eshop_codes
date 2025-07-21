@@ -3153,7 +3153,7 @@ body.type-category {
 								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_add_to_cart.svg");
 								background-position: center;
 								background-repeat: no-repeat;
-								background-size: 75%;
+								background-size: 60%;
 							}
 						}
 						//nedostupný produkt - detail
@@ -3187,7 +3187,7 @@ body.type-category {
 								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_search_glass_white.svg");
 								background-position: center;
 								background-repeat: no-repeat;
-								background-size: 75%;
+								background-size: 60%;
 							}
 						}
 
@@ -3246,6 +3246,7 @@ body.type-category {
 						z-index: 1;
 						display: flex;
 						padding: 0 !important;
+						border-radius: var(--br-16);
 						&:hover,
 						&:focus-within {
 							background-color: var(--color-secondary) !important;
