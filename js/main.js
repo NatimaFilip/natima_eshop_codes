@@ -1,5 +1,3 @@
-const { act } = require("react");
-
 /*--------------------------------------- Přepsání funkcí*/
 function moveFilters() {
 	console.log("moveFilters");
@@ -948,6 +946,11 @@ if (body.classList.contains("type-category")) {
 			if (filterItems.length === 0) {
 				section.remove();
 			}
+			let disabletFilterItems = section.querySelectorAll("fieldset > div > label.disabled");
+			let sectionAppendingPlace = section.querySelector("fieldset > div");
+			disabletFilterItems.forEach((disabledItem) => {
+				sectionAppendingPlace.appendChild(disabledItem);
+			});
 		});
 	}
 
