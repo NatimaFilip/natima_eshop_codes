@@ -6432,7 +6432,7 @@ body.sticky-header-off .messages > * {
   transition: background-color 0.2s ease-out;
   text-align: center;
 }
-.type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart button.add-to-cart-button:hover, .type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart button.add-to-cart-button:focus-within {
+.type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart button.add-to-cart-button:hover {
   background-color: var(--color-secondary-hover);
 }
 .type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart .quantity {

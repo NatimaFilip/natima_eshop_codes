@@ -5497,8 +5497,7 @@ body {
 						transition: background-color 0.2s ease-out;
 						text-align: center;
 
-						&:hover,
-						&:focus-within {
+						&:hover {
 							background-color: var(--color-secondary-hover);
 						}
 					}
