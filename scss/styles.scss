@@ -2312,8 +2312,10 @@ body {
 }
 
 /*-------------------------------------- CATEGORY*/
-body.type-category {
-	.category-perex {
+body.type-category,
+body.type-manufacturer-detail {
+	.category-perex,
+	.manufacturerDetail {
 		font-size: var(--fs-16);
 		padding-bottom: 0.9375em;
 		max-width: 1260px;
