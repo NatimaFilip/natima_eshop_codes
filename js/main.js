@@ -688,7 +688,7 @@ if (body.classList.contains("type-category") || body.classList.contains("type-ma
 
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
 		// potřebuje znovu definovat, protože se to z nějakého důvodu přepíše
-		categoryTop = document.querySelector(".category-top");
+		categoryTop = document.querySelector(".category-top") || document.querySelector(".manufacturerDetail");
 		filterInOriginalPosition = true;
 		filtersElement = document.querySelector("#filters");
 		/* 	filtersWrapperElement = document.querySelector(".filters-wrapper"); */
