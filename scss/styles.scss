@@ -5434,7 +5434,7 @@ body {
 					color: var(--color-red-400);
 					text-decoration: line-through;
 					font-size: var(--fs-16);
-					line-height: var(--lh-2);
+					line-height: 1;
 					font-weight: var(--fw-400);
 				}
 				.price-save {
@@ -5488,6 +5488,11 @@ body {
 						font-weight: var(--fw-700);
 						@include bottom-cta-shadow;
 						padding: 1.1667em 6.25em;
+						transition: background 0.2s ease-in-out;
+						&:hover,
+						&:focus-within {
+							background: var(--color-secondary-hover);
+						}
 					}
 					.quantity {
 						@include quantity-setup;

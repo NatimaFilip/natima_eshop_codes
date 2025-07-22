@@ -641,7 +641,7 @@ function addCartWidgetToCartMobileListener() {
 }
 
 /*------------------------------------------------- CATEGORY Filtry*/
-if (body.classList.contains("type-category")) {
+if (body.classList.contains("type-category") || body.classList.contains("type-manufacturer-detail")) {
 	/*------------------------------FILTRY*/
 	let categoryTop = document.querySelector(".category-top");
 	let filterInOriginalPosition = true;
