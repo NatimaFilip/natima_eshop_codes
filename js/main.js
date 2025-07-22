@@ -641,9 +641,9 @@ function addCartWidgetToCartMobileListener() {
 }
 
 /*------------------------------------------------- CATEGORY Filtry*/
-if (body.classList.contains("type-category") || body.classList.contains("type-manufacturer-detail")) {
+if (body.classList.contains("type-category")) {
 	/*------------------------------FILTRY*/
-	let categoryTop = document.querySelector(".category-top") || document.querySelector(".manufacturerDetail");
+	let categoryTop = document.querySelector(".category-top");
 	let filterInOriginalPosition = true;
 	let filtersElement = document.querySelector("#filters");
 	/* 	let filtersWrapperElement = document.querySelector(".filters-wrapper"); */
@@ -688,7 +688,7 @@ if (body.classList.contains("type-category") || body.classList.contains("type-ma
 
 	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
 		// potřebuje znovu definovat, protože se to z nějakého důvodu přepíše
-		categoryTop = document.querySelector(".category-top") || document.querySelector(".manufacturerDetail");
+		categoryTop = document.querySelector(".category-top");
 		filterInOriginalPosition = true;
 		filtersElement = document.querySelector("#filters");
 		/* 	filtersWrapperElement = document.querySelector(".filters-wrapper"); */
@@ -1621,6 +1621,9 @@ document.addEventListener("DOMContentLoaded", function () {
 /*------------------------------------------------- Shorten breadcrumbs*/
 shortenBreadcrumbs();
 function shortenBreadcrumbs() {
+	if (isDesktop) {
+		return; // Skip if on desktop
+	}
 	let breadcrumbs = document.querySelectorAll(".breadcrumbs > span");
 	if (!breadcrumbs || breadcrumbs.length === 0) {
 		return;
@@ -1722,6 +1725,11 @@ if (body.classList.contains("type-product")) {
 				if (csLang || skLang) {
 					productBrand.classList.add("natios");
 				}
+				productBrand.setAttribute("href", "/natios");
+				const natiosBrandBlock = document.createElement("div");
+				natiosBrandBlock.className = "natios-brand-block";
+				natiosBrandBlock.innerHTML = `<span class="natios-brand-text">NATIOS brand block</span>`;
+				document.querySelector(".product-top").insertAdjacentElement("afterend", natiosBrandBlock);
 			}
 		}
 

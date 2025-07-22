@@ -2271,7 +2271,7 @@ body {
 					padding-right: var(--gap-13);
 					line-height: 1;
 					a {
-						color: inherit;
+						color: var(--color-black);
 						&:hover,
 						&:focus-within {
 							color: var(--color-primary);
@@ -2312,8 +2312,7 @@ body {
 }
 
 /*-------------------------------------- CATEGORY*/
-body.type-category,
-body.type-manufacturer-detail {
+body.type-category {
 	.category-perex,
 	.manufacturerDetail {
 		font-size: var(--fs-16);
@@ -5417,7 +5416,7 @@ body {
 				grid-row: 5;
 				grid-column: 1 / -1;
 				display: grid;
-				grid-template-columns: auto auto 1fr auto;
+				grid-template-columns: auto auto 1fr;
 				grid-template-rows: auto auto;
 				column-gap: var(--gap-24);
 				align-items: baseline;
@@ -5477,23 +5476,30 @@ body {
 
 				.add-to-cart {
 					grid-row: 1 / -1;
-					grid-column: 4;
-					margin-left: auto;
-					display: flex;
+					grid-column: 3;
+
+					display: grid;
+					grid-template-columns: auto 1fr;
 					gap: var(--gap-9);
+					width: 100%;
+					padding-left: calc(var(--gap-30) * 2);
+
+					margin-left: auto;
 					button.add-to-cart-button {
 						cursor: pointer;
-						background: var(--color-secondary);
+						background-color: var(--color-secondary);
 						border-radius: var(--br-16);
 						color: var(--color-white);
 						font-size: var(--fs-18);
 						font-weight: var(--fw-700);
 						@include bottom-cta-shadow;
-						padding: 1.1667em 6.25em;
-						transition: background 0.2s ease-in-out;
+						padding: 1.1667em;
+						transition: background-color 0.2s ease-out;
+						text-align: center;
+
 						&:hover,
 						&:focus-within {
-							background: var(--color-secondary-hover);
+							background-color: var(--color-secondary-hover);
 						}
 					}
 					.quantity {
