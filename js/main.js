@@ -1081,8 +1081,8 @@ if (body.classList.contains("type-category")) {
 	}
 
 	/*------------------------------MEASURE UNIT FROM APENDIX INTO CAPSULE*/
-	measureUnitFromAppendix();
-	function measureUnitFromAppendix() {
+	measureUnitFromAppendixProducts();
+	function measureUnitFromAppendixProducts() {
 		allProducts.forEach((product) => {
 			if (product.classList.contains("product-edited-measure")) {
 				return; // Skip if already processed
@@ -1207,7 +1207,7 @@ if (body.classList.contains("type-category")) {
 		}
 		allProducts = document.querySelectorAll(".product");
 		actionPriceToFinalPriceAndReviewsNumber();
-		measureUnitFromAppendix();
+		measureUnitFromAppendixProducts();
 		showAmountOfProducts();
 	});
 }
@@ -1636,4 +1636,265 @@ function shortenBreadcrumbs() {
 			breadcrumb.textContent = breadcrumbText.slice(0, 20) + "...";
 		}
 	});
+}
+
+/*------------------------------------------------- Detail produktu*/
+if (body.classList.contains("type-product")) {
+	moveElementsToInfoWrapper();
+	moveFlagsToImageWrapper();
+	measureUnitFromAppendixDetail();
+
+	function moveElementsToInfoWrapper() {
+		let infoWrapper = document.querySelector(".product-top .p-info-wrapper");
+		let productName = document.querySelector(".p-detail-inner-header h1");
+		let productCode = document.querySelector(".p-detail-inner-header .p-code");
+
+		let productBrand = document.querySelector(".product-top a[data-testid='productCardBrandName']");
+		let starsWrapper = document.querySelector(".product-top .stars-wrapper");
+
+		let detailParameters = document.querySelector(".description-inner .detail-parameters");
+		let shortDescription = document.querySelector(".p-short-description");
+
+		let dostupnost = document.querySelector(".product-top .availability-value");
+		let doruceniDo = document.querySelector(".product-top .delivery-time-label").closest("table");
+
+		let addToCartBtn = document.querySelector(".product-top .add-to-cart");
+		let priceWrapper = document.querySelector(".product-top .p-final-price-wrapper");
+
+		let finalProductPrice = document.querySelector(".product-top .price-final");
+
+		let continueReadingShortDescription = document.querySelector(".product-top p[data-testid='productCardDescr']");
+
+		if (!infoWrapper) {
+			console.warn("Info wrapper not found.");
+			return; // Exit if any of the elements are not found
+		}
+
+		if (productName) {
+			infoWrapper.prepend(productName);
+		}
+
+		const rightContentWrapper = document.createElement("div");
+		rightContentWrapper.className = "right-content-wrapper";
+
+		const shortBenefitsWrapper = document.createElement("div");
+		shortBenefitsWrapper.className = "short-benefits-wrapper";
+
+		const vhodneProWrapper = document.createElement("div");
+		vhodneProWrapper.className = "vhodne-pro-wrapper";
+
+		const manufacturerAndCodeWrapper = document.createElement("div");
+		manufacturerAndCodeWrapper.className = "manufacturer-and-code-wrapper";
+
+		rightContentWrapper.appendChild(shortBenefitsWrapper);
+		rightContentWrapper.appendChild(vhodneProWrapper);
+		rightContentWrapper.appendChild(manufacturerAndCodeWrapper);
+		infoWrapper.appendChild(rightContentWrapper);
+
+		if (shortDescription) {
+			let shortDescriptionFirstUl = shortDescription.querySelector("ul");
+			if (shortDescriptionFirstUl) {
+				shortBenefitsWrapper.appendChild(shortDescriptionFirstUl);
+				shortBenefitsWrapper.classList.add("active");
+			}
+			if (continueReadingShortDescription) {
+				let continueReadingShortDescriptionA = continueReadingShortDescription.querySelector("a");
+				if (continueReadingShortDescriptionA) {
+					if (csLang) {
+						continueReadingShortDescriptionA.textContent = "Číst dále";
+					}
+					if (skLang) {
+						continueReadingShortDescriptionA.textContent = "Čítať ďalej";
+					}
+					if (plLang) {
+						continueReadingShortDescriptionA.textContent = "Czytaj dalej";
+					}
+
+					shortDescription.appendChild(continueReadingShortDescription);
+				}
+			}
+		}
+
+		if (productBrand) {
+			manufacturerAndCodeWrapper.appendChild(productBrand);
+			manufacturerAndCodeWrapper.classList.add("active");
+			if (productBrand.textContent.toLowerCase().includes("natios")) {
+				if (csLang || skLang) {
+					productBrand.classList.add("natios");
+				}
+			}
+		}
+
+		if (productCode) {
+			manufacturerAndCodeWrapper.appendChild(productCode);
+			manufacturerAndCodeWrapper.classList.add("active");
+		}
+
+		if (starsWrapper) {
+			infoWrapper.appendChild(starsWrapper);
+			let starsElement = starsWrapper.querySelector(".star");
+
+			if (starsElement) {
+				let starsScore = starsElement.getAttribute("title") || starsElement.getAttribute("data-original-title");
+				if (starsScore) {
+					starsScore = starsScore.split(":")[1].split("/")[0].trim();
+					starsScore = parseFloat(starsScore).toFixed(2).replace(".", ",");
+					const starsScoreElement = document.createElement("div");
+					starsScoreElement.className = "stars-score";
+					starsScoreElement.innerHTML = `<span class="stars-score-text">${starsScore}</span> / 5`;
+					starsWrapper.appendChild(starsScoreElement);
+				}
+			}
+		}
+		if (detailParameters) {
+			let parametersInProductTop = document.createElement("div");
+			parametersInProductTop.className = "product-parameters-product-top";
+			parametersInProductTop.innerHTML = detailParameters.outerHTML;
+			infoWrapper.appendChild(parametersInProductTop);
+		}
+
+		const dostupnostADoruceniDoWrapper = document.createElement("div");
+		dostupnostADoruceniDoWrapper.className = "dostupnost-doruceni-wrapper";
+		if (dostupnost) {
+			dostupnostADoruceniDoWrapper.appendChild(dostupnost);
+			dostupnostADoruceniDoWrapper.classList.add("active");
+
+			let availabilityAmount = dostupnost.querySelector(".availability-amount");
+			if (availabilityAmount) {
+				availabilityAmount.textContent = availabilityAmount.textContent.replace(/[()]/g, "");
+				if (csLang) {
+					availabilityAmount.textContent = availabilityAmount.textContent.replace(">", "více než ");
+				}
+				if (skLang) {
+					availabilityAmount.textContent = availabilityAmount.textContent.replace(">", "viac ako ");
+				}
+				if (plLang) {
+					availabilityAmount.textContent = availabilityAmount.textContent.replace(">", "więcej niż ");
+				}
+			}
+		}
+		if (doruceniDo) {
+			dostupnostADoruceniDoWrapper.appendChild(doruceniDo);
+			dostupnostADoruceniDoWrapper.classList.add("active");
+		}
+		infoWrapper.appendChild(dostupnostADoruceniDoWrapper);
+
+		if (addToCartBtn) {
+			priceWrapper.appendChild(addToCartBtn);
+		} else {
+			//tady bude co se stane když není k prodeji
+			console.warn("Add to cart button not found.");
+		}
+
+		if (finalProductPrice) {
+			const withVATElement = document.createElement("span");
+			withVATElement.className = "with-vat";
+			if (csLang) {
+				withVATElement.textContent = "s DPH";
+			}
+			if (skLang) {
+				withVATElement.textContent = "s DPH";
+			}
+			if (plLang) {
+				withVATElement.textContent = "z VAT";
+			}
+			finalProductPrice.appendChild(withVATElement);
+		}
+	}
+
+	function moveFlagsToImageWrapper() {
+		let imageElement = document.querySelector(".p-image-wrapper .p-image");
+		let flagsWrapper = document.querySelector(".product-top .flags.flags-default");
+
+		if (!imageElement || !flagsWrapper) {
+			console.warn("Image wrapper or flags wrapper not found.");
+			return;
+		}
+
+		imageElement.appendChild(flagsWrapper);
+	}
+
+	//merne jednotky v detailu produktu
+	try {
+		measureUnitFromAppendixDetail();
+	} catch (error) {
+		console.error("Error in measureUnitFromAppendixDetail:", error);
+	}
+	function measureUnitFromAppendixDetail() {
+		let product = document.querySelector(".product-top ");
+
+		if (product.classList.contains("product-edited-measure")) {
+			return; // Skip if already processed
+		}
+		product.classList.add("product-edited-measure");
+		let productAppendix = product.querySelector(".product-appendix");
+		if (!productAppendix) return;
+
+		let productMeasureUnitComplet;
+		let productMeasureAmount;
+		let appendixText = productAppendix.textContent;
+
+		// Use a regular expression to extract the desired value
+		let match = appendixText.match(/^([^;]*);/);
+		if (match) {
+			productMeasureUnitComplet = match[1].trim(); // Save the extracted value
+			productMeasureAmount = productMeasureUnitComplet.replace(/[^\d]/g, ""); //keep only digits from the measure unit
+			productMeasureUnit = productMeasureUnitComplet.replace(/[\d\s]/g, ""); //keep only letters from the measure unit
+
+			let priceFinalWrapper = product.querySelector(".p-final-price-wrapper");
+
+			const pricePerUnitDiv = document.createElement("div");
+			pricePerUnitDiv.className = "product-price-per-unit-detail";
+			let prices = product.querySelector(".prices");
+
+			let priceFinal = product.querySelector(".price-final");
+
+			let priceFinalValue;
+
+			if (priceFinal) {
+				// Extract the text content, trim it, and remove everything but numbers
+				priceFinalValue = priceFinal.textContent.trim().replace(/[^\d.,]/g, ""); // Keep only digits, commas, and dots
+				priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
+			}
+
+			let signleMeasuringUnit = {
+				kapslí: "kapsle",
+				tablet: "tableta",
+				tobolek: "tobolka",
+				tabletek: "tabletka",
+			};
+
+			let pricePerUnit_Unit;
+
+			let foundUnitMatch = false;
+
+			// Iterate over the keys in the object
+			for (let key in signleMeasuringUnit) {
+				if (productMeasureUnit.includes(key)) {
+					foundUnitMatch = true;
+					pricePerUnit_Unit = signleMeasuringUnit[key];
+					break; // Exit the loop once a match is found
+				}
+			}
+			if (!foundUnitMatch) {
+				// If no match is found, use the original measure unit
+				pricePerUnit_Unit = productMeasureUnit;
+			}
+
+			const pricePerUnit_Value = priceFinalValue / productMeasureAmount;
+
+			const pricePerUnit_ValueSpan = document.createElement("span");
+			pricePerUnit_ValueSpan.className = "product-price-per-unit-value-detail";
+
+			pricePerUnit_ValueSpan.textContent =
+				pricePerUnit_Value.toFixed(2).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
+
+			priceFinalWrapper.appendChild(pricePerUnitDiv);
+			pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
+
+			// Remove "Množství ...;" from the text
+			appendixText = appendixText.replace(/Množství:\s*[^;]+;/, "").trim();
+			productAppendix.textContent = appendixText; // Update the element's text content
+		}
+	}
 }
