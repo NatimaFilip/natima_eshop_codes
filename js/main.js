@@ -1053,124 +1053,10 @@ if (body.classList.contains("type-category")) {
 		//make it so it trims after 3 lines and saves the rest of the text in a data attribute
 	}
 
-	/*------------------------------ACTION PRICE AND REVIEWS NUMBER*/
-	let allProducts = document.querySelectorAll(".product");
-	actionPriceToFinalPriceAndReviewsNumber();
-	function actionPriceToFinalPriceAndReviewsNumber() {
-		allProducts.forEach((product) => {
-			if (product.classList.contains("product-edited-price-reviews")) {
-				return; // Skip if already processed
-			}
-			product.classList.add("product-edited-price-reviews");
-			let priceStandard = product.querySelector(".flag-discount .price-standard");
-			let priceFinal = product.querySelector(".price-final");
-			if (priceStandard && priceFinal) {
-				priceFinal.appendChild(priceStandard);
-			}
-			let starWrapper = product.querySelector(".stars-wrapper");
-			if (starWrapper) {
-				let reviewsNumber = starWrapper.getAttribute("data-micro-rating-count");
-				if (reviewsNumber) {
-					const reviewsNumberSpan = document.createElement("span");
-					reviewsNumberSpan.className = "reviews-number";
-					reviewsNumberSpan.innerHTML = reviewsNumber + "x";
-					starWrapper.appendChild(reviewsNumberSpan);
-				}
-			}
-		});
-	}
-
-	/*------------------------------MEASURE UNIT FROM APENDIX INTO CAPSULE*/
-	measureUnitFromAppendixProducts();
-	function measureUnitFromAppendixProducts() {
-		allProducts.forEach((product) => {
-			if (product.classList.contains("product-edited-measure")) {
-				return; // Skip if already processed
-			}
-			product.classList.add("product-edited-measure");
-			let productAppendix = product.querySelector(".product-appendix");
-			if (!productAppendix) return;
-
-			let productMeasureUnitComplet;
-			let productMeasureAmount;
-			let appendixText = productAppendix.textContent;
-
-			// Use a regular expression to extract the desired value
-			let match = appendixText.match(/^([^;]*);/);
-			if (match) {
-				productMeasureUnitComplet = match[1].trim(); // Save the extracted value
-				productMeasureAmount = productMeasureUnitComplet.replace(/[^\d]/g, ""); //keep only digits from the measure unit
-				productMeasureUnit = productMeasureUnitComplet.replace(/[\d\s]/g, ""); //keep only letters from the measure unit
-
-				let ratingsWrapper = product.querySelector(".ratings-wrapper");
-				if (ratingsWrapper) {
-					// Create a new span element to display the amount
-					let measureUnitSpan = document.createElement("span");
-					measureUnitSpan.className = "product-measure-unit";
-					measureUnitSpan.textContent = productMeasureUnitComplet;
-
-					// Append the amount span to the ratings wrapper
-					ratingsWrapper.appendChild(measureUnitSpan);
-				}
-
-				const pricePerUnitDiv = document.createElement("div");
-				pricePerUnitDiv.className = "product-price-per-unit";
-				let prices = product.querySelector(".prices");
-
-				let priceFinal = product.querySelector(".price-final strong");
-				let priceFinalValue;
-
-				if (priceFinal) {
-					// Extract the text content, trim it, and remove everything but numbers
-					priceFinalValue = priceFinal.textContent.trim().replace(/[^\d.,]/g, ""); // Keep only digits, commas, and dots
-					priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
-				}
-
-				let signleMeasuringUnit = {
-					kapslí: "kapsle",
-					tablet: "tableta",
-					tobolek: "tobolka",
-					tabletek: "tabletka",
-				};
-
-				let pricePerUnit_Unit;
-
-				let foundUnitMatch = false;
-
-				// Iterate over the keys in the object
-				for (let key in signleMeasuringUnit) {
-					if (productMeasureUnit.includes(key)) {
-						foundUnitMatch = true;
-						pricePerUnit_Unit = signleMeasuringUnit[key];
-						break; // Exit the loop once a match is found
-					}
-				}
-				if (!foundUnitMatch) {
-					// If no match is found, use the original measure unit
-					pricePerUnit_Unit = productMeasureUnit;
-				}
-
-				const pricePerUnit_Value = priceFinalValue / productMeasureAmount;
-
-				const pricePerUnit_ValueSpan = document.createElement("span");
-				pricePerUnit_ValueSpan.className = "product-price-per-unit-value";
-
-				pricePerUnit_ValueSpan.textContent =
-					pricePerUnit_Value.toFixed(2).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
-
-				prices.appendChild(pricePerUnitDiv);
-				pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
-
-				// Remove "Množství ...;" from the text
-				appendixText = appendixText.replace(/Množství:\s*[^;]+;/, "").trim();
-				productAppendix.textContent = appendixText; // Update the element's text content
-			}
-		});
-	}
-
 	/*------------------------------ZOBRAZENÝ POČET POLOŽEK*/
 	showAmountOfProducts();
 	function showAmountOfProducts() {
+		let allProducts = document.querySelectorAll(".product");
 		const amountOfProducts = allProducts.length;
 		let categoryHeaderInsideDiv = document.querySelector("#category-header > div");
 		if (!amountOfProducts) return;
@@ -1206,9 +1092,135 @@ if (body.classList.contains("type-category")) {
 			}
 		}
 		allProducts = document.querySelectorAll(".product");
-		actionPriceToFinalPriceAndReviewsNumber();
-		measureUnitFromAppendixProducts();
 		showAmountOfProducts();
+	});
+}
+
+/*---------------------------------------------------------Uprava zobrazení produktu v product listu*/
+document.addEventListener("ShoptetDOMContentLoaded", function (event) {
+	actionPriceToFinalPriceAndReviewsNumber();
+	measureUnitFromAppendixProducts();
+});
+/*---------ACTION PRICE AND REVIEWS NUMBER*/
+
+actionPriceToFinalPriceAndReviewsNumber();
+function actionPriceToFinalPriceAndReviewsNumber() {
+	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
+	if (!allProductsInProductsBlock || allProductsInProductsBlock.length === 0) {
+		return; // No products found
+	}
+	allProductsInProductsBlock.forEach((product) => {
+		if (product.classList.contains("product-edited-price-reviews")) {
+			return; // Skip if already processed
+		}
+		product.classList.add("product-edited-price-reviews");
+		let priceStandard = product.querySelector(".flag-discount .price-standard");
+		let priceFinal = product.querySelector(".price-final");
+		if (priceStandard && priceFinal) {
+			priceFinal.appendChild(priceStandard);
+		}
+		let starWrapper = product.querySelector(".stars-wrapper");
+		if (starWrapper) {
+			let reviewsNumber = starWrapper.getAttribute("data-micro-rating-count");
+			if (reviewsNumber) {
+				const reviewsNumberSpan = document.createElement("span");
+				reviewsNumberSpan.className = "reviews-number";
+				reviewsNumberSpan.innerHTML = reviewsNumber + "x";
+				starWrapper.appendChild(reviewsNumberSpan);
+			}
+		}
+	});
+}
+
+/*--------------------MEASURE UNIT FROM APENDIX INTO CAPSULE*/
+measureUnitFromAppendixProducts();
+function measureUnitFromAppendixProducts() {
+	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
+	if (!allProductsInProductsBlock || allProductsInProductsBlock.length === 0) {
+		return; // No products found
+	}
+	allProductsInProductsBlock.forEach((product) => {
+		if (product.classList.contains("product-edited-measure")) {
+			return; // Skip if already processed
+		}
+		product.classList.add("product-edited-measure");
+		let productAppendix = product.querySelector(".product-appendix");
+		if (!productAppendix) return;
+
+		let productMeasureUnitComplet;
+		let productMeasureAmount;
+		let appendixText = productAppendix.textContent;
+
+		// Use a regular expression to extract the desired value
+		let match = appendixText.match(/^([^;]*);/);
+		if (match) {
+			productMeasureUnitComplet = match[1].trim(); // Save the extracted value
+			productMeasureAmount = productMeasureUnitComplet.replace(/[^\d]/g, ""); //keep only digits from the measure unit
+			productMeasureUnit = productMeasureUnitComplet.replace(/[\d\s]/g, ""); //keep only letters from the measure unit
+
+			let ratingsWrapper = product.querySelector(".ratings-wrapper");
+			if (ratingsWrapper) {
+				// Create a new span element to display the amount
+				let measureUnitSpan = document.createElement("span");
+				measureUnitSpan.className = "product-measure-unit";
+				measureUnitSpan.textContent = productMeasureUnitComplet;
+
+				// Append the amount span to the ratings wrapper
+				ratingsWrapper.appendChild(measureUnitSpan);
+			}
+
+			const pricePerUnitDiv = document.createElement("div");
+			pricePerUnitDiv.className = "product-price-per-unit";
+			let prices = product.querySelector(".prices");
+
+			let priceFinal = product.querySelector(".price-final strong");
+			let priceFinalValue;
+
+			if (priceFinal) {
+				// Extract the text content, trim it, and remove everything but numbers
+				priceFinalValue = priceFinal.textContent.trim().replace(/[^\d.,]/g, ""); // Keep only digits, commas, and dots
+				priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
+			}
+
+			let signleMeasuringUnit = {
+				kapslí: "kapsle",
+				tablet: "tableta",
+				tobolek: "tobolka",
+				tabletek: "tabletka",
+			};
+
+			let pricePerUnit_Unit;
+
+			let foundUnitMatch = false;
+
+			// Iterate over the keys in the object
+			for (let key in signleMeasuringUnit) {
+				if (productMeasureUnit.includes(key)) {
+					foundUnitMatch = true;
+					pricePerUnit_Unit = signleMeasuringUnit[key];
+					break; // Exit the loop once a match is found
+				}
+			}
+			if (!foundUnitMatch) {
+				// If no match is found, use the original measure unit
+				pricePerUnit_Unit = productMeasureUnit;
+			}
+
+			const pricePerUnit_Value = priceFinalValue / productMeasureAmount;
+
+			const pricePerUnit_ValueSpan = document.createElement("span");
+			pricePerUnit_ValueSpan.className = "product-price-per-unit-value";
+
+			pricePerUnit_ValueSpan.textContent =
+				pricePerUnit_Value.toFixed(2).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
+
+			prices.appendChild(pricePerUnitDiv);
+			pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
+
+			// Remove "Množství ...;" from the text
+			appendixText = appendixText.replace(/Množství:\s*[^;]+;/, "").trim();
+			productAppendix.textContent = appendixText; // Update the element's text content
+		}
 	});
 }
 
@@ -1643,11 +1655,11 @@ function shortenBreadcrumbs() {
 
 /*------------------------------------------------- Detail produktu*/
 if (body.classList.contains("type-product")) {
-	moveElementsToInfoWrapper();
+	moveElementsInProduct();
 	moveFlagsToImageWrapper();
 	measureUnitFromAppendixDetail();
 
-	function moveElementsToInfoWrapper() {
+	function moveElementsInProduct() {
 		let infoWrapper = document.querySelector(".product-top .p-info-wrapper");
 		let productName = document.querySelector(".p-detail-inner-header h1");
 		let productCode = document.querySelector(".p-detail-inner-header .p-code");
@@ -1667,6 +1679,11 @@ if (body.classList.contains("type-product")) {
 		let finalProductPrice = document.querySelector(".product-top .price-final");
 
 		let continueReadingShortDescription = document.querySelector(".product-top p[data-testid='productCardDescr']");
+
+		let souvisejiciProdukty = document.querySelector(".products-block.products-related");
+		let souvisejiciProduktyTitle = document.querySelector(".products-related-header");
+
+		let benefitBanner = document.querySelector(".benefitBanner");
 
 		if (!infoWrapper) {
 			console.warn("Info wrapper not found.");
@@ -1700,22 +1717,6 @@ if (body.classList.contains("type-product")) {
 				shortBenefitsWrapper.appendChild(shortDescriptionFirstUl);
 				shortBenefitsWrapper.classList.add("active");
 			}
-			if (continueReadingShortDescription) {
-				let continueReadingShortDescriptionA = continueReadingShortDescription.querySelector("a");
-				if (continueReadingShortDescriptionA) {
-					if (csLang) {
-						continueReadingShortDescriptionA.textContent = "Číst dále";
-					}
-					if (skLang) {
-						continueReadingShortDescriptionA.textContent = "Čítať ďalej";
-					}
-					if (plLang) {
-						continueReadingShortDescriptionA.textContent = "Czytaj dalej";
-					}
-
-					shortDescription.appendChild(continueReadingShortDescription);
-				}
-			}
 		}
 
 		if (productBrand) {
@@ -1727,8 +1728,22 @@ if (body.classList.contains("type-product")) {
 				}
 				productBrand.setAttribute("href", "/natios");
 				const natiosBrandBlock = document.createElement("div");
-				natiosBrandBlock.className = "natios-brand-block";
-				natiosBrandBlock.innerHTML = `<span class="natios-brand-text">NATIOS brand block</span>`;
+				natiosBrandBlock.className = "natios-brand-description-block-wrapper";
+				if (csLang) {
+					natiosBrandBlock.innerHTML = `<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>Natios je česká značka, která se zaměřuje na výrobu kvalitních doplňků stravy s čistým složením bezzbytečných příměsí, konzervantů a éček. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Přispíváme"></div><p>Nákupem <b>přispějete</b> 1 Kč dětské hematoonkologii. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více</a></p></div></div>`;
+					if (benefitBanner) {
+						benefitBanner.classList.add("natios-block-added");
+					}
+				}
+				if (skLang) {
+					natiosBrandBlock.innerHTML = `<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>Natios je česká značka, ktorá sa zameriava na výrobu kvalitných výživových doplnkov s čistým zložením bez zbytočných prísad, konzervantov a éčok. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Viac</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Prispievame"></div><p>Nákupom <b>prispejete</b> 1 Kč detskej hematoonkologii. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Viac</a></p></div></div>`;
+					if (benefitBanner) {
+						benefitBanner.classList.add("natios-block-added");
+					}
+				}
+				if (plLang) {
+					return;
+				}
 				document.querySelector(".product-top").insertAdjacentElement("afterend", natiosBrandBlock);
 			}
 		}
@@ -1768,7 +1783,9 @@ if (body.classList.contains("type-product")) {
 			dostupnostADoruceniDoWrapper.classList.add("active");
 
 			let availabilityAmount = dostupnost.querySelector(".availability-amount");
+			//jestlize je skladem
 			if (availabilityAmount) {
+				body.classList.add("product-is-available");
 				availabilityAmount.textContent = availabilityAmount.textContent.replace(/[()]/g, "");
 				if (csLang) {
 					availabilityAmount.textContent = availabilityAmount.textContent.replace(">", "více než ");
@@ -1778,6 +1795,27 @@ if (body.classList.contains("type-product")) {
 				}
 				if (plLang) {
 					availabilityAmount.textContent = availabilityAmount.textContent.replace(">", "więcej niż ");
+				}
+
+				if (souvisejiciProdukty) {
+					document.querySelector(".p-detail").appendChild(souvisejiciProdukty);
+					souvisejiciProdukty.classList.add("available");
+					if (souvisejiciProduktyTitle) {
+						souvisejiciProdukty.insertAdjacentElement("beforebegin", souvisejiciProduktyTitle);
+						souvisejiciProduktyTitle.classList.add("available");
+					}
+				}
+			}
+			//když není skladem
+			if (!availabilityAmount) {
+				body.classList.add("product-not-available");
+				if (souvisejiciProdukty) {
+					document.querySelector(".p-detail-inner").insertAdjacentElement("afterend", souvisejiciProdukty);
+					souvisejiciProdukty.classList.add("not-available");
+					if (souvisejiciProduktyTitle) {
+						souvisejiciProdukty.insertAdjacentElement("beforebegin", souvisejiciProduktyTitle);
+						souvisejiciProduktyTitle.classList.add("not-available");
+					}
 				}
 			}
 		}
@@ -1807,6 +1845,21 @@ if (body.classList.contains("type-product")) {
 				withVATElement.textContent = "z VAT";
 			}
 			finalProductPrice.appendChild(withVATElement);
+		}
+
+		if (continueReadingShortDescription) {
+			let continueReadingShortDescriptionA = continueReadingShortDescription.querySelector("a");
+			if (continueReadingShortDescriptionA) {
+				if (csLang) {
+					continueReadingShortDescriptionA.textContent = "Číst dále";
+				}
+				if (skLang) {
+					continueReadingShortDescriptionA.textContent = "Čítať ďalej";
+				}
+				if (plLang) {
+					continueReadingShortDescriptionA.textContent = "Czytaj dalej";
+				}
+			}
 		}
 	}
 
@@ -1904,5 +1957,68 @@ if (body.classList.contains("type-product")) {
 			appendixText = appendixText.replace(/Množství:\s*[^;]+;/, "").trim();
 			productAppendix.textContent = appendixText; // Update the element's text content
 		}
+	}
+
+	document.addEventListener("DOMContentLoaded", function () {
+		productThumbnailInNavigation();
+	});
+	function productThumbnailInNavigation() {
+		let navigaceProduktu = document.querySelector(".shp-tabs-row");
+		let productMainImage = document.querySelector(".p-image-wrapper .p-main-image");
+		let productName = document.querySelector("h1");
+		let productPrice = document.querySelector(".product-top .price-final");
+
+		if (!navigaceProduktu || !productMainImage || !productName || !productPrice) {
+			console.warn("Product main image, name, or price not found.");
+			return; // Exit if any of the elements are not found
+		}
+
+		const productAddToCartButton = document.createElement("div");
+		productAddToCartButton.className = "product-add-to-cart-button";
+		if (csLang) {
+			productAddToCartButton.textContent = "Do košíku";
+		}
+		if (skLang) {
+			productAddToCartButton.textContent = "Do košíka";
+		}
+		if (plLang) {
+			productAddToCartButton.textContent = "Do koszyka";
+		}
+
+		const noticeMeButton = document.createElement("div");
+		noticeMeButton.className = "product-notice-me-button";
+		if (csLang) {
+			noticeMeButton.textContent = "Upozornit";
+		}
+		if (skLang) {
+			noticeMeButton.textContent = "Upozorniť";
+		}
+		if (plLang) {
+			noticeMeButton.textContent = "Powiadom";
+		}
+
+		const productThumbnail = document.createElement("div");
+		productThumbnail.className = "product-thumbnail";
+		productThumbnail.innerHTML = `
+			<div class="product-thumbnail-image-wrapper">
+				${productMainImage.innerHTML}
+			</div>
+			<div class="product-thumbnail-info-wrapper">
+				<div class="product-thumbnail-name">
+					${productName.innerHTML}
+				</div>
+				<div class="product-thumbnail-price-button-wrapper">
+					<div class="product-thumbnail-price">
+						${productPrice.innerHTML}
+						</div>
+					<div class="product-thumbnail-buttons">
+						${productAddToCartButton.outerHTML}
+							${noticeMeButton.outerHTML}
+					</div>
+				</div>
+			</div>
+		`;
+
+		navigaceProduktu.prepend(productThumbnail);
 	}
 }

@@ -882,7 +882,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-
   display: -ms-flexbox;
   display: flex;
   gap: var(--gap-6);
-  padding: 20px 40px;
+  padding: 18px 30px;
   margin-bottom: -1px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -903,7 +903,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom {
-    padding: 20px 20px;
+    padding: 18px 20px;
   }
 }
 body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom::after {
@@ -1232,12 +1232,12 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li >
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  padding: 20px 40px;
+  padding: 18px 30px;
   color: var(--color-white);
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li > a {
-    padding: 20px 20px;
+    padding: 18px 20px;
   }
 }
 body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li > span {
@@ -3339,7 +3339,6 @@ body.type-category .category-header > div strong {
   }
 }
 .products-block .product .p-in .p-in-in .name {
-  display: block;
   grid-row: 3;
   color: var(--color-black);
   font-weight: var(--fw-700);
@@ -5864,6 +5863,7 @@ body.sticky-header-off .messages > * {
   display: grid;
   grid-template-columns: 1fr 0.96fr;
   margin-top: var(--gap-24);
+  margin-bottom: var(--gap-46);
   gap: calc(var(--gap-30) * 2);
 }
 .type-product .product-top > .col-xs-12:first-child {
@@ -6524,10 +6524,412 @@ body.sticky-header-off .messages > * {
   text-align: left !important;
 }
 .type-product .product-top .p-info-wrapper p[data-testid=productCardDescr] {
+  grid-row: 7;
+  grid-column: 2;
   padding-bottom: 0;
   text-align: right !important;
 }
 .type-product .product-top .p-info-wrapper p[data-testid=productCardDescr] a {
+  font-size: var(--fs-13);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: var(--gap-4);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+.type-product .product-top .p-info-wrapper p[data-testid=productCardDescr] a:after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_long_right_primary.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper {
+  grid-row: 7;
+  grid-column: 1;
+  font-size: var(--fs-13);
+}
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper .link-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: var(--gap-16);
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper .link-icon.share,
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper .link-icon.print,
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper .no-display {
+  display: none;
+}
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper a:hover, .type-product .product-top .p-info-wrapper .social-buttons-wrapper a:focus-within {
+  color: var(--color-primary-hover);
+}
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper .link-icon.chat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--gap-4);
+}
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper .link-icon.chat:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_social_chat_primary.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper .link-icon.watchdog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--gap-4);
+}
+.type-product .product-top .p-info-wrapper .social-buttons-wrapper .link-icon.watchdog:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_social_watchdog_primary.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.type-product .natios-brand-description-block-wrapper {
+  background-color: var(--color-gray-400);
+  border-radius: var(--br-20);
+  padding: 2.5em 2em;
+}
+.type-product .natios-brand-description-block-wrapper #natios-brand-description-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--gap-36);
+}
+.type-product .natios-brand-description-block-wrapper .natios-brand-description-block-logo {
+  position: relative;
+  background-color: #27285b;
+  border-radius: var(--br-10);
+  padding: 15px 10px 15px 10px;
+}
+.type-product .natios-brand-description-block-wrapper .natios-brand-description-block-logo:before {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_flag_cz_circle.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.type-product .natios-brand-description-block-wrapper .natios-brand-description-block-text {
+  max-width: 29em;
+}
+.type-product .natios-brand-description-block-wrapper .natios-brand-description-block-donation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--color-white);
+  border-radius: var(--br-16);
+  gap: 1em;
+  padding: 1.25em 2.25em 1.25em 2em;
+}
+.type-product .natios-brand-description-block-wrapper .natios-brand-description-block-donation .natios-brand-description-block-donation-icon {
+  position: relative;
+  top: -4px;
+}
+.type-product .natios-brand-description-block-wrapper p {
+  padding-bottom: 0;
+}
+.type-product .natios-brand-description-block-wrapper a {
+  display: inline-block;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 0.25em;
+  gap: var(--gap-4);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.type-product .natios-brand-description-block-wrapper a:after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 0.75em;
+  margin-left: var(--gap-4);
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_long_right_primary.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.type-product .benefitBanner.natios-block-added {
+  margin-top: 0;
+  border-style: none;
+  padding-top: 51px;
+  padding-bottom: 65px;
+}
+.type-product .browse-p {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row {
+  position: relative;
+}
+.type-product .p-detail-tabs-wrapper > .row:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  --rezerva-width: 10px;
+  width: calc(100vw - var(--rezerva-width));
+  left: calc(0px - var(--padding-sides));
+  height: 1px;
+  background-color: var(--color-gray-500);
+}
+@media screen and (min-width: 1920px) {
+  .type-product .p-detail-tabs-wrapper > .row:before {
+    left: calc((100vw - 1920px) / -2 - var(--padding-sides) + var(--rezerva-width) / 2);
+  }
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row {
+  padding: 0 var(--gap-12);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  -webkit-transition: top 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out;
+  background-color: var(--color-white);
+  border-radius: 0 0 var(--br-16) var(--br-16);
+  border-bottom-style: solid;
+  border-width: 2px;
+  border-color: var(--color-gray-500);
+  -webkit-box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .navigation-btn {
+  display: none !important;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row ul li {
+  padding: 1.5em 1.5em;
+  position: relative;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row ul li a {
+  font-size: var(--fs-16);
+  color: var(--color-black);
+  line-height: var(--lh-2);
+  font-weight: var(--fw-400);
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row ul li a:hover {
+  color: var(--color-primary);
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row ul li.active {
+  pointer-events: none;
+  cursor: text;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row ul li.active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0.5em;
+  width: calc(100% - 1em);
+  height: 2px;
+  background-color: var(--color-primary);
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--gap-12);
+  margin-bottom: 2px;
+  padding-right: var(--gap-55);
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-image-wrapper {
+  border-radius: var(--br-10);
+  overflow: hidden;
+  margin: auto 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-image-wrapper img {
+  width: 82px;
+  height: auto;
+  -webkit-filter: brightness(1.03);
+          filter: brightness(1.03);
+  margin: auto;
+  padding: 12.5% 15%;
+  margin: 0;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-image-wrapper:after {
+  content: "";
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, 0.04);
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-name {
+  font-size: var(--fs-13);
+  max-width: 20em;
+  text-wrap: balance;
+  padding-bottom: 0.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-height: 2.8em;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-name .product-appendix {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-price-button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--gap-12);
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-price {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-price .pr-list-unit,
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-price .with-vat {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-buttons > div {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-buttons .product-add-to-cart-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: var(--color-white);
+  font-weight: var(--fw-700);
+  font-size: var(--fs-13);
+  border-radius: var(--br-8);
+  background-color: var(--color-secondary);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-cta-600);
+          box-shadow: inset 0px -1px 0px var(--color-cta-600);
+  padding: 0.25em 0.75em;
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-buttons .product-add-to-cart-button:hover {
+  background-color: var(--color-secondary-hover);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content {
+  padding-top: 90px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .basic-description > h3 {
+  display: none;
+}
+
+.sticky-header-on .shp-tabs-row {
+  position: sticky;
+  top: 150px !important;
+  z-index: 10;
 }
