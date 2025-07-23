@@ -173,7 +173,7 @@ function stickyHeaderToggle() {
 
 	const headerHeight = header.offsetHeight;
 	const headerTopPosition = header.getBoundingClientRect().top + window.pageYOffset;
-	const scrollThreshold = 150;
+	const scrollThreshold = 140;
 
 	let scrollDifference = 0;
 
