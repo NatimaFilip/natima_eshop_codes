@@ -173,7 +173,7 @@ function stickyHeaderToggle() {
 
 	const headerHeight = header.offsetHeight;
 	const headerTopPosition = header.getBoundingClientRect().top + window.pageYOffset;
-	const scrollThreshold = 140;
+	const scrollThreshold = 150;
 
 	let scrollDifference = 0;
 
@@ -200,10 +200,9 @@ function stickyHeaderToggle() {
 			lastScrollDown = currentScrollPosition;
 			scrollDifference = lastScrollDown - lastScrollUp;
 			if (currentScrollPosition > headerHeight && scrollDifference > scrollThreshold) {
-				activateStickyHeader();
-				/* 	if (scrolledUp) {
-					
-				} else {
+				if (scrolledUp) {
+					activateStickyHeader();
+				} /* else {
 					document.body.classList.add("sticky-header-off");
 				} */
 			}
