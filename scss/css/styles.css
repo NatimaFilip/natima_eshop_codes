@@ -876,6 +876,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 {
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  font-size: var(--fs-14);
 }
 body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom {
   color: var(--color-white);
@@ -1314,7 +1315,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:h
 body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 > li > div > a, body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:focus-within .menu-level-2 > li > div > a {
   display: block;
   font-weight: var(--fw-700);
-  font-size: var(--fs-16);
+  font-size: var(--fs-14);
   color: var(--color-black);
   line-height: var(--lh-1);
   padding-left: 0.625rem;
@@ -1325,7 +1326,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:h
 }
 body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:hover .menu-level-2 .show-all-categories, body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:focus-within .menu-level-2 .show-all-categories {
   font-weight: var(--fw-700);
-  font-size: var(--fs-16);
+  font-size: var(--fs-14);
   color: var(--color-primary);
   display: -webkit-box;
   display: -ms-flexbox;

@@ -968,6 +968,7 @@ body {
 					.menu-level-1 {
 						display: flex;
 						position: relative;
+						font-size: var(--fs-14);
 						.menu-helper-custom {
 							color: var(--color-white);
 							font-weight: var(--fw-700);
@@ -1370,7 +1371,7 @@ body {
 											> a {
 												display: block;
 												font-weight: var(--fw-700);
-												font-size: var(--fs-16);
+												font-size: var(--fs-14);
 												color: var(--color-black);
 												line-height: var(--lh-1);
 												padding-left: 0.625rem;
@@ -1384,7 +1385,7 @@ body {
 									}
 									.show-all-categories {
 										font-weight: var(--fw-700);
-										font-size: var(--fs-16);
+										font-size: var(--fs-14);
 										color: var(--color-primary);
 
 										display: flex;
