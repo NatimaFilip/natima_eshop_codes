@@ -139,6 +139,8 @@ body {
   font-family: var(--ff-m);
   background: white;
   margin: 0;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* Balance text wrapping on headings */
