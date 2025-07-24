@@ -882,7 +882,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-
   display: -ms-flexbox;
   display: flex;
   gap: var(--gap-6);
-  padding: 18px 30px;
+  padding: 16px 20px;
   margin-bottom: -1px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -903,7 +903,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom {
-    padding: 18px 20px;
+    padding: 16px 20px;
   }
 }
 body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom::after {
@@ -1232,12 +1232,12 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li >
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  padding: 18px 30px;
+  padding: 16px 20px;
   color: var(--color-white);
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li > a {
-    padding: 18px 20px;
+    padding: 16px 20px;
   }
 }
 body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li > span {
