@@ -20,8 +20,11 @@
   --fs-16: 1rem;
   --fs-18: 1.125rem;
   --fs-20: 1.25rem;
+  --fs-22: 1.375rem;
   --fs-24: 1.5rem;
   --fs-26: 1.625rem;
+  --fs-28: 1.75rem;
+  --fs-30: 1.875rem;
   --fs-32: 2rem;
   --gap-4: 4px;
   --gap-5: 5px;
@@ -198,8 +201,10 @@ b {
 /* Make images easier to work with */
 img,
 picture {
+  height: auto;
   max-width: 100%;
-  display: block;
+  display: inline;
+  vertical-align: middle;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -367,8 +372,8 @@ body.sticky-header-on #header {
 body.sticky-header-off #header {
   position: sticky;
   top: 0;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%); /* Start off-screen */
+  -webkit-transform: translateY(-101%);
+          transform: translateY(-101%); /* Start off-screen */
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
@@ -6898,7 +6903,7 @@ body.sticky-header-off .messages > * {
 .type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-buttons > div {
   display: none;
 }
-.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-buttons .product-add-to-cart-button {
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-buttons .product-thumbnail-add-to-cart-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6921,7 +6926,7 @@ body.sticky-header-off .messages > * {
   -webkit-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
 }
-.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-buttons .product-add-to-cart-button:hover {
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper .product-thumbnail-buttons .product-thumbnail-add-to-cart-button:hover {
   background-color: var(--color-secondary-hover);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content {
@@ -6930,9 +6935,7 @@ body.sticky-header-off .messages > * {
 .type-product .p-detail-tabs-wrapper > .row #tab-content .basic-description > h3 {
   display: none;
 }
-
-.sticky-header-on .shp-tabs-row {
+.type-product.sticky-header-on .shp-tabs-row {
   position: sticky;
-  top: 150px !important;
-  z-index: 10;
+  top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px) !important;
 }

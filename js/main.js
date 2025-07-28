@@ -824,9 +824,6 @@ if (body.classList.contains("type-category")) {
 		/* 	setTimeout(() => { */
 		let sliderWrapper = filtersElement.querySelector(".slider-wrapper");
 		let priceSlider = document.querySelector(".ui-slider-range");
-		console.log("sliderWrapper:", sliderWrapper);
-		console.log("priceSlider:", priceSlider);
-		console.log("priceSlider width:", priceSlider.style.width);
 
 		if (sliderWrapper && priceSlider && priceSlider.style.width !== "100%") {
 			let minFilterValue = sliderWrapper.querySelector(".slider-header .from").textContent.trim();
@@ -1654,36 +1651,40 @@ function shortenBreadcrumbs() {
 
 /*------------------------------------------------- Detail produktu*/
 if (body.classList.contains("type-product")) {
+	let isNatiosProduct = false;
+	let isAvailableProduct = false;
+
+	let infoWrapper = document.querySelector(".product-top .p-info-wrapper");
+	let productName = document.querySelector(".p-detail-inner-header h1");
+	let productCode = document.querySelector(".p-detail-inner-header .p-code");
+	let productCodeValue = "";
+
+	let productBrand = document.querySelector(".product-top a[data-testid='productCardBrandName']");
+	let starsWrapper = document.querySelector(".product-top .stars-wrapper");
+
+	let detailParameters = document.querySelector(".description-inner .detail-parameters");
+	let shortDescription = document.querySelector(".p-short-description");
+
+	let dostupnost = document.querySelector(".product-top .availability-value");
+	let doruceniDo = document.querySelector(".product-top .delivery-time-label").closest("table");
+
+	let addToCartBtn = document.querySelector(".product-top .add-to-cart");
+	let priceWrapper = document.querySelector(".product-top .p-final-price-wrapper");
+
+	let finalProductPrice = document.querySelector(".product-top .price-final");
+
+	let continueReadingShortDescription = document.querySelector(".product-top p[data-testid='productCardDescr']");
+
+	let souvisejiciProdukty = document.querySelector(".products-block.products-related");
+	let souvisejiciProduktyTitle = document.querySelector(".products-related-header");
+
+	let benefitBanner = document.querySelector(".benefitBanner");
+
 	moveElementsInProduct();
 	moveFlagsToImageWrapper();
 	measureUnitFromAppendixDetail();
 
 	function moveElementsInProduct() {
-		let infoWrapper = document.querySelector(".product-top .p-info-wrapper");
-		let productName = document.querySelector(".p-detail-inner-header h1");
-		let productCode = document.querySelector(".p-detail-inner-header .p-code");
-
-		let productBrand = document.querySelector(".product-top a[data-testid='productCardBrandName']");
-		let starsWrapper = document.querySelector(".product-top .stars-wrapper");
-
-		let detailParameters = document.querySelector(".description-inner .detail-parameters");
-		let shortDescription = document.querySelector(".p-short-description");
-
-		let dostupnost = document.querySelector(".product-top .availability-value");
-		let doruceniDo = document.querySelector(".product-top .delivery-time-label").closest("table");
-
-		let addToCartBtn = document.querySelector(".product-top .add-to-cart");
-		let priceWrapper = document.querySelector(".product-top .p-final-price-wrapper");
-
-		let finalProductPrice = document.querySelector(".product-top .price-final");
-
-		let continueReadingShortDescription = document.querySelector(".product-top p[data-testid='productCardDescr']");
-
-		let souvisejiciProdukty = document.querySelector(".products-block.products-related");
-		let souvisejiciProduktyTitle = document.querySelector(".products-related-header");
-
-		let benefitBanner = document.querySelector(".benefitBanner");
-
 		if (!infoWrapper) {
 			console.warn("Info wrapper not found.");
 			return; // Exit if any of the elements are not found
@@ -1722,6 +1723,8 @@ if (body.classList.contains("type-product")) {
 			manufacturerAndCodeWrapper.appendChild(productBrand);
 			manufacturerAndCodeWrapper.classList.add("active");
 			if (productBrand.textContent.toLowerCase().includes("natios")) {
+				isNatiosProduct = true;
+				body.classList.add("product-is-natios");
 				if (csLang || skLang) {
 					productBrand.classList.add("natios");
 				}
@@ -1750,6 +1753,7 @@ if (body.classList.contains("type-product")) {
 		if (productCode) {
 			manufacturerAndCodeWrapper.appendChild(productCode);
 			manufacturerAndCodeWrapper.classList.add("active");
+			productCodeValue = productCode.textContent.trim();
 		}
 
 		if (starsWrapper) {
@@ -1784,6 +1788,7 @@ if (body.classList.contains("type-product")) {
 			let availabilityAmount = dostupnost.querySelector(".availability-amount");
 			//jestlize je skladem
 			if (availabilityAmount) {
+				isAvailableProduct = true;
 				body.classList.add("product-is-available");
 				availabilityAmount.textContent = availabilityAmount.textContent.replace(/[()]/g, "");
 				if (csLang) {
@@ -1798,10 +1803,9 @@ if (body.classList.contains("type-product")) {
 
 				if (souvisejiciProdukty) {
 					document.querySelector(".p-detail").appendChild(souvisejiciProdukty);
-					souvisejiciProdukty.classList.add("available");
+
 					if (souvisejiciProduktyTitle) {
 						souvisejiciProdukty.insertAdjacentElement("beforebegin", souvisejiciProduktyTitle);
-						souvisejiciProduktyTitle.classList.add("available");
 					}
 				}
 			}
@@ -1810,10 +1814,9 @@ if (body.classList.contains("type-product")) {
 				body.classList.add("product-not-available");
 				if (souvisejiciProdukty) {
 					document.querySelector(".p-detail-inner").insertAdjacentElement("afterend", souvisejiciProdukty);
-					souvisejiciProdukty.classList.add("not-available");
+
 					if (souvisejiciProduktyTitle) {
 						souvisejiciProdukty.insertAdjacentElement("beforebegin", souvisejiciProduktyTitle);
-						souvisejiciProduktyTitle.classList.add("not-available");
 					}
 				}
 			}
@@ -1972,32 +1975,41 @@ if (body.classList.contains("type-product")) {
 			return; // Exit if any of the elements are not found
 		}
 
-		const productAddToCartButton = document.createElement("div");
-		productAddToCartButton.className = "product-add-to-cart-button";
-		if (csLang) {
-			productAddToCartButton.textContent = "Do košíku";
-		}
-		if (skLang) {
-			productAddToCartButton.textContent = "Do košíka";
-		}
-		if (plLang) {
-			productAddToCartButton.textContent = "Do koszyka";
+		const productThumbnailButton = document.createElement("div");
+
+		if (isAvailableProduct) {
+			productThumbnailButton.className = "product-thumbnail-add-to-cart-button";
+			if (csLang) {
+				productThumbnailButton.textContent = "Do košíku";
+			}
+			if (skLang) {
+				productThumbnailButton.textContent = "Do košíka";
+			}
+			if (plLang) {
+				productThumbnailButton.textContent = "Do koszyka";
+			}
+			console.log("test product code:", productCodeValue);
+			productThumbnailButton.addEventListener("click", function () {
+				console.log("Product code:", productCodeValue);
+			});
 		}
 
-		const noticeMeButton = document.createElement("div");
-		noticeMeButton.className = "product-notice-me-button";
-		if (csLang) {
-			noticeMeButton.textContent = "Upozornit";
-		}
-		if (skLang) {
-			noticeMeButton.textContent = "Upozorniť";
-		}
-		if (plLang) {
-			noticeMeButton.textContent = "Powiadom";
+		if (!isAvailableProduct) {
+			productThumbnailButton.className = "product-thumbnail-notice-me-button";
+			if (csLang) {
+				productThumbnailButton.textContent = "Upozornit";
+			}
+			if (skLang) {
+				productThumbnailButton.textContent = "Upozorniť";
+			}
+			if (plLang) {
+				productThumbnailButton.textContent = "Powiadom";
+			}
 		}
 
 		const productThumbnail = document.createElement("div");
 		productThumbnail.className = "product-thumbnail";
+
 		productThumbnail.innerHTML = `
 			<div class="product-thumbnail-image-wrapper">
 				${productMainImage.innerHTML}
@@ -2011,8 +2023,7 @@ if (body.classList.contains("type-product")) {
 						${productPrice.innerHTML}
 						</div>
 					<div class="product-thumbnail-buttons">
-						${productAddToCartButton.outerHTML}
-							${noticeMeButton.outerHTML}
+						${productThumbnailButton.outerHTML}
 					</div>
 				</div>
 			</div>
