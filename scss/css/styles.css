@@ -6145,6 +6145,12 @@ body.sticky-header-off .messages > * {
   background: var(--color-primary-200);
   border-radius: var(--br-20);
   padding: 0 var(--gap-14);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .type-product .product-top .p-info-wrapper .product-parameters-product-top table {
   width: 100%;
