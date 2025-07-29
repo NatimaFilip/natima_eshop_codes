@@ -5,8 +5,12 @@ function moveFilters() {
 
 /*-------------------------------------- CS SK PL*/
 const csLang = true;
+document.body.classList.add("cs");
+
 const skLang = false;
+/* document.body.classList.add("sk"); */
 const plLang = false;
+/* document.body.classList.add("pl"); */
 
 /*-------------------------------------- Custom events*/
 // Debounce function to limit the rate at which a function can fire
@@ -1101,7 +1105,7 @@ document.addEventListener("ShoptetDOMContentLoaded", function (event) {
 
 actionPriceToFinalPriceAndReviewsNumber();
 function actionPriceToFinalPriceAndReviewsNumber() {
-	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
+	let allProductsInProductsBlock = document.querySelectorAll(".products-block:not(.products-alternative) .product");
 	if (!allProductsInProductsBlock || allProductsInProductsBlock.length === 0) {
 		return; // No products found
 	}
@@ -1131,7 +1135,7 @@ function actionPriceToFinalPriceAndReviewsNumber() {
 /*--------------------MEASURE UNIT FROM APENDIX INTO CAPSULE*/
 measureUnitFromAppendixProducts();
 function measureUnitFromAppendixProducts() {
-	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
+	let allProductsInProductsBlock = document.querySelectorAll(".products-block:not(.products-alternative) .product");
 	if (!allProductsInProductsBlock || allProductsInProductsBlock.length === 0) {
 		return; // No products found
 	}
@@ -1680,6 +1684,8 @@ if (body.classList.contains("type-product")) {
 
 	let benefitBanner = document.querySelector(".benefitBanner");
 
+	let productsAlternative = document.querySelector("#productsAlternative");
+
 	moveElementsInProduct();
 	moveFlagsToImageWrapper();
 	measureUnitFromAppendixDetail();
@@ -1861,6 +1867,48 @@ if (body.classList.contains("type-product")) {
 				if (plLang) {
 					continueReadingShortDescriptionA.textContent = "Czytaj dalej";
 				}
+			}
+		}
+
+		if (productsAlternative) {
+			benefitBanner.insertAdjacentElement("beforebegin", productsAlternative);
+			const productsAlternativeTitle = document.createElement("p");
+			productsAlternativeTitle.className = "products-alternative-title";
+			if (csLang) {
+				productsAlternativeTitle.textContent = "Varianty produktu";
+			}
+			if (skLang) {
+				productsAlternativeTitle.textContent = "Varianty produktu";
+			}
+			if (plLang) {
+				productsAlternativeTitle.textContent = "Warianty produktu";
+			}
+			productsAlternative.prepend(productsAlternativeTitle);
+			let productsAlternativeItems = productsAlternative.querySelectorAll(".product");
+			if (productsAlternativeItems && productsAlternativeItems.length > 0) {
+				productsAlternativeItems.forEach((item) => {
+					if (!item.querySelector(".availability-amount")) {
+						item.remove(); // Remove items without availability amount
+					}
+				});
+			}
+			if (productsAlternativeItems && productsAlternativeItems.length > 4) {
+				productsAlternative.classList.add("multiple-rows-of-alternatives");
+				const showMoreAlternativesButton = document.createElement("div");
+				showMoreAlternativesButton.className = "show-more-alternatives-button";
+				if (csLang) {
+					showMoreAlternativesButton.textContent = "Zobrazit více variant";
+				}
+				if (skLang) {
+					showMoreAlternativesButton.textContent = "Zobraziť viac variantov";
+				}
+				if (plLang) {
+					showMoreAlternativesButton.textContent = "Pokaż więcej wariantów";
+				}
+				productsAlternative.appendChild(showMoreAlternativesButton);
+				showMoreAlternativesButton.addEventListener("click", function () {
+					productsAlternative.classList.add("active-all");
+				});
 			}
 		}
 	}

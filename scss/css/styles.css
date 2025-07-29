@@ -26,6 +26,7 @@
   --fs-28: 1.75rem;
   --fs-30: 1.875rem;
   --fs-32: 2rem;
+  --fs-48: 3rem;
   --gap-4: 4px;
   --gap-5: 5px;
   --gap-6: 6px;
@@ -218,6 +219,21 @@ textarea,
 select {
   font-family: inherit;
   font-size: inherit;
+}
+
+input,
+textarea {
+  border-radius: var(--br-16);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-black-o-20);
+  padding: 1.5em 1em;
+  -webkit-transition: border-color 0.2s ease-out;
+  transition: border-color 0.2s ease-out;
+}
+input:focus,
+textarea:focus {
+  outline: solid 2px var(--color-primary);
 }
 
 /* Make sure textareas without a rows attribute are not tiny */
@@ -3821,6 +3837,7 @@ body.type-category .category-header > div strong {
   display: flex;
   text-align: center;
   width: 3em;
+  border-radius: 0;
   -moz-appearance: textfield; /* For Firefox */
   -webkit-appearance: none; /* For WebKit browsers like Chrome and Safari */
   appearance: none; /* Standard property */
@@ -4093,7 +4110,8 @@ body.type-category .category-header > div strong {
   border-top-width: 1px;
   border-top-color: var(--color-gray-500);
   margin-top: var(--gap-30);
-  padding: calc(var(--gap-30) * 2) 0;
+  padding-top: 50px;
+  padding-bottom: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6518,6 +6536,7 @@ body.sticky-header-off .messages > * {
 }
 .type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart .quantity label input {
   min-height: 2.5em;
+  border-radius: 0;
 }
 .type-product .product-top .p-info-wrapper .p-short-description {
   grid-row: 6;
@@ -6644,6 +6663,7 @@ body.sticky-header-off .messages > * {
   background-color: var(--color-gray-400);
   border-radius: var(--br-20);
   padding: 2.5em 2em;
+  margin-bottom: 50px;
 }
 .type-product .natios-brand-description-block-wrapper #natios-brand-description-block {
   display: -webkit-box;
@@ -6731,7 +6751,8 @@ body.sticky-header-off .messages > * {
 .type-product .benefitBanner.natios-block-added {
   margin-top: 0;
   border-style: none;
-  padding-top: 51px;
+  padding-top: 0;
+  margin-top: 50px;
   padding-bottom: 65px;
 }
 .type-product .browse-p {
@@ -6813,6 +6834,9 @@ body.sticky-header-off .messages > * {
   width: calc(100% - 1em);
   height: 2px;
   background-color: var(--color-primary);
+}
+.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row ul li.shp-tab[data-testid=tabAlternativeProducts], .type-product .p-detail-tabs-wrapper > .row .shp-tabs-row ul li.shp-tab[data-testid=tabBrand] {
+  display: none;
 }
 .type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail {
   display: -webkit-box;
@@ -6930,12 +6954,570 @@ body.sticky-header-off .messages > * {
   background-color: var(--color-secondary-hover);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content {
-  padding-top: 90px;
+  padding-top: var(--gap-55);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content .basic-description > h3 {
   display: none;
 }
+.type-product .p-detail-tabs-wrapper > .row #tab-content #manufacturerDescription {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--gap-30);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .description-inner {
+  width: var(--description-natima-max-width);
+  max-width: 100%;
+  margin: 0 auto;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description {
+  margin-top: var(--description-large-content-gap);
+  margin-bottom: var(--description-large-content-gap);
+  background: var(--color-gray-400);
+  border-radius: var(--br-20);
+  padding: 45px 0 55px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description h3 {
+  text-align: center;
+  font-size: var(--fs-20);
+  padding-bottom: 1.25em;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description .detail-parameters {
+  background: var(--color-white);
+  border-radius: var(--br-10);
+  padding: var(--gap-10) var(--gap-14);
+  width: 370px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description table {
+  width: 100%;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-400);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody {
+  width: 100%;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-10);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: var(--gap-10) 0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--color-black-o-10);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody tr:last-child {
+  border-bottom: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody th {
+  font-weight: var(--fw-400);
+  text-align: left;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody th .row-header-label-colon {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody td {
+  text-align: right;
+  font-weight: var(--fw-700);
+  cursor: text;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody td a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody td a:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody td a:focus-within {
+  color: var(--color-primary-hover);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab {
+  width: calc(var(--description-natima-max-width) + var(--description-cart-max-width) + var(--description-cart-gap));
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  grid-template-columns: 3fr 5fr;
+  -webkit-column-gap: var(--description-widget-gap);
+     -moz-column-gap: var(--description-widget-gap);
+          column-gap: var(--description-widget-gap);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #ratingWrapper {
+  background-color: var(--color-gray-400);
+  border-radius: var(--br-16);
+  padding: 40px 40px 55px 40px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-average-wrap {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-average-wrap::before {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .add-comment {
+  grid-row: 1;
+  grid-column: 2;
+  margin-left: auto;
+  color: var(--color-primary);
+  font-size: var(--fs-16);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .add-comment:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .add-comment:focus-within {
+  color: var(--color-primary-hover);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .add-comment:before {
+  content: "+";
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-average-inner {
+  grid-row: 2;
+  grid-column: 1/-1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--gap-46);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-average {
+  font-size: var(--fs-48);
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+  line-height: var(--lh-2);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-average:after {
+  content: "/ 5";
+  font-size: var(--fs-32);
+  font-weight: var(--fw-400);
+  color: var(--color-black-o-60);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap {
+  padding-top: var(--gap-12);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+  pointer-events: none;
+  cursor: default;
+  gap: var(--gap-8);
+  margin-bottom: var(--gap-4);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list .star {
+  width: 0.692em;
+  height: 0.692em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list .star.star-on {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list .star.star-half {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list .star.star-off {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list .star {
+  width: var(--fs-20);
+  height: var(--fs-20);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .stars-label {
+  pointer-events: none;
+  cursor: default;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-400);
+  color: var(--color-black);
+  text-decoration: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--gap-12);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list {
+  font-size: var(--fs-16);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star {
+  width: 0.692em;
+  height: 0.692em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-on {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-half {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-off {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .stars {
+  display: grid;
+  grid-template-columns: 0.75em 0.75em;
+  gap: var(--gap-4);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star {
+  display: block;
+  width: 0.75em;
+  height: 0.75em;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-off {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-block {
+  width: calc(100% - 5em);
+  padding-left: 0.5em;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-block:before {
+  grid-row: 1;
+  grid-column: 1;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-white);
+  border-radius: 5px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-block .rate-bar {
+  grid-row: 1;
+  grid-column: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-primary);
+  border-radius: 5px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-block .rate-count {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: calc(100% + 1em);
+  color: var(--color-black-o-60);
+  text-align: left;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form {
+  display: none;
+  padding-top: var(--gap-20);
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: var(--color-black-o-20);
+  margin-top: var(--gap-30);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form.visible {
+  display: block;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .no-display {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form input,
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form textarea {
+  width: 100%;
+  margin: var(--gap-6) 0;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form input[type=submit] {
+  background-color: var(--color-primary);
+  border-radius: var(--br-16);
+  color: var(--color-white);
+  font-size: var(--fs-18);
+  font-weight: var(--fw-700);
+  padding-bottom: 2px;
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
+          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding: 1.1667em;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  text-align: center;
+  cursor: pointer;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form input[type=submit]:hover {
+  background-color: var(--color-primary-hover);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+  gap: var(--gap-8);
+  padding-top: var(--gap-8);
+  padding-bottom: var(--gap-16);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star {
+  width: 0.692em;
+  height: 0.692em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star.star-on {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star.star-half {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star.star-off {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star {
+  cursor: pointer;
+  width: 1.25em;
+  height: 1.25em;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star:hover {
+  -webkit-transform: scale(1.35);
+          transform: scale(1.35);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .consents-first {
+  font-size: var(--fs-14);
+  padding-bottom: var(--gap-6);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .votes-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--gap-20);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-black-o-10);
+  border-radius: var(--br-10);
+  padding: var(--gap-20);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+  gap: var(--gap-4);
+  padding-top: var(--gap-12);
+  padding-bottom: var(--gap-12);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars .star {
+  width: 0.692em;
+  height: 0.692em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars .star.star-on {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars .star.star-half {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars .star.star-off {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty.svg");
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars .star {
+  width: 0.75em;
+  height: 0.75em;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .vote-summary {
+  position: relative;
+  width: 100%;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .vote-summary .vote-name {
+  font-size: var(--fs-18);
+  font-weight: var(--fw-700);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .vote-summary .vote-time {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: var(--fs-13);
+  color: var(--color-gray-600);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-pic,
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .no-display,
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-delimeter {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap {
+  grid-column: 2;
+  text-align: center;
+  padding-top: var(--gap-20);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap a:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap a:focus-within {
+  color: var(--color-primary-hover);
+}
 .type-product.sticky-header-on .shp-tabs-row {
   position: sticky;
   top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px) !important;
+}
+.type-product #productsAlternative {
+  margin-top: 50px;
+  padding-bottom: 50px;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: var(--color-gray-500);
+}
+.type-product #productsAlternative .products-alternative-title {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  padding-bottom: 1.25em;
+}
+.type-product #productsAlternative .products-block {
+  grid-template-columns: repeat(4, 1fr);
+}
+.type-product #productsAlternative .products-block > .product {
+  display: none; /* Hide all products by default */
+}
+.type-product #productsAlternative .products-block > .product:nth-child(-n+4) {
+  display: block; /* Show only the first 4 products */
+}
+.type-product #productsAlternative .products-block .product {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-gray-500);
+  border-radius: var(--br-16);
+  padding: 12px 20px 12px 12px;
+}
+.type-product #productsAlternative .products-block .product * {
+  display: block;
+}
+.type-product #productsAlternative .products-block .product .flags,
+.type-product #productsAlternative .products-block .product .p-tools,
+.type-product #productsAlternative .products-block .product .ratings-wrapper,
+.type-product #productsAlternative .products-block .product .product-appendix,
+.type-product #productsAlternative .products-block .product .p-desc,
+.type-product #productsAlternative .products-block .product .product-price-per-unit,
+.type-product #productsAlternative .products-block .product .p-code {
+  display: none !important;
+}
+.type-product #productsAlternative .products-block .product .p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--gap-12);
+}
+.type-product #productsAlternative .products-block .product .p-in {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr -webkit-max-content;
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--gap-10);
+}
+.type-product #productsAlternative .products-block .product .p-in-in {
+  grid-row: 1;
+  grid-column: 1;
+}
+.type-product #productsAlternative .products-block .product .p-bottom {
+  grid-row: 1;
+  grid-column: 2;
+}
+.type-product #productsAlternative .products-block .product .name {
+  font-weight: var(--fw-400);
+  font-size: var(--fs-16);
+}
+.type-product #productsAlternative .products-block .product .name span {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.type-product #productsAlternative .products-block .product .price-final strong {
+  font-size: var(--fs-16);
+}
+.type-product #productsAlternative .products-block .product a.image {
+  width: 70px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.type-product #productsAlternative .products-block .product a.image img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.type-product #productsAlternative .show-more-alternatives-button {
+  padding-top: var(--gap-36);
+  color: var(--color-primary);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  text-align: center;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.type-product #productsAlternative .show-more-alternatives-button:hover, .type-product #productsAlternative .show-more-alternatives-button:focus-within {
+  color: var(--color-primary-hover);
+}
+.type-product #productsAlternative.active-all .show-more-alternatives-button {
+  display: none;
+}
+.type-product #productsAlternative.active-all .product {
+  display: block !important;
+}
+.type-product.cs .rate-average-wrap:before {
+  content: "Hodnocení";
+}
+.type-product.sk .rate-average-wrap:before {
+  content: "Hodnotenie";
+}
+.type-product.pl .rate-average-wrap:before {
+  content: "Ocena";
 }
