@@ -1688,7 +1688,7 @@ if (body.classList.contains("type-product")) {
 	let productsAlternative = document.querySelector("#productsAlternative");
 
 	moveElementsInProduct();
-	moveFlagsToImageWrapper();
+
 	measureUnitFromAppendixDetail();
 
 	function moveElementsInProduct() {
@@ -1912,6 +1912,24 @@ if (body.classList.contains("type-product")) {
 				});
 			}
 		}
+
+		let imageElement = document.querySelector(".p-image-wrapper .p-image");
+		let flagsWrapper = document.querySelector(".product-top .flags.flags-default");
+
+		if (!imageElement || !flagsWrapper) {
+			console.warn("Image wrapper or flags wrapper not found.");
+			return;
+		}
+
+		imageElement.appendChild(flagsWrapper);
+
+		//merne jednotky v detailu produktu
+		try {
+			measureUnitFromAppendixDetail();
+		} catch (error) {
+			console.error("Error in measureUnitFromAppendixDetail:", error);
+		}
+
 		// Add sticky sell section - uplne poslední
 		if (longDescription) {
 			const stickySell = document.createElement("div");
@@ -1950,26 +1968,8 @@ if (body.classList.contains("type-product")) {
 		}
 	}
 
-	function moveFlagsToImageWrapper() {
-		let imageElement = document.querySelector(".p-image-wrapper .p-image");
-		let flagsWrapper = document.querySelector(".product-top .flags.flags-default");
-
-		if (!imageElement || !flagsWrapper) {
-			console.warn("Image wrapper or flags wrapper not found.");
-			return;
-		}
-
-		imageElement.appendChild(flagsWrapper);
-	}
-
-	//merne jednotky v detailu produktu
-	try {
-		measureUnitFromAppendixDetail();
-	} catch (error) {
-		console.error("Error in measureUnitFromAppendixDetail:", error);
-	}
 	function measureUnitFromAppendixDetail() {
-		let product = document.querySelector(".product-top ");
+		let product = document.querySelector(".product-top");
 
 		if (product.classList.contains("product-edited-measure")) {
 			return; // Skip if already processed
@@ -2073,10 +2073,6 @@ if (body.classList.contains("type-product")) {
 			if (plLang) {
 				productThumbnailButton.textContent = "Do koszyka";
 			}
-			console.log("test product code:", productCodeValue);
-			productThumbnailButton.addEventListener("click", function () {
-				console.log("Product code:", productCodeValue);
-			});
 		}
 
 		if (!isAvailableProduct) {
@@ -2115,5 +2111,18 @@ if (body.classList.contains("type-product")) {
 		`;
 
 		navigaceProduktu.prepend(productThumbnail);
+		if (isAvailableProduct) {
+			document.querySelector(".product-thumbnail-add-to-cart-button").addEventListener("click", function () {
+				shoptet.cartShared.addToCart({ productCode: productCodeValue });
+			});
+		}
+		if (!isAvailableProduct) {
+			let watchdog = document.querySelector(".product-top .watchdog");
+			if (watchdog) {
+				document.querySelector(".product-thumbnail-notice-me-button").addEventListener("click", function () {
+					watchdog.click();
+				});
+			}
+		}
 	}
 }
