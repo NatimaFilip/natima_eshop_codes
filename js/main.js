@@ -1778,6 +1778,16 @@ if (body.classList.contains("type-product")) {
 					starsWrapper.appendChild(starsScoreElement);
 				}
 			}
+
+			//zde zde jsem skončil
+			let starsLabel = starsWrapper.querySelector(".stars-label");
+			let ratingTab = document.querySelector("#ratingTab");
+			if (starsLabel && ratingTab) {
+				starsLabel.addEventListener("click", function (event) {
+					event.preventDefault();
+					ratingTab.scrollIntoView({ behavior: "smooth" });
+				});
+			}
 		}
 		if (detailParameters) {
 			let parametersInProductTop = document.createElement("div");
@@ -1937,7 +1947,7 @@ if (body.classList.contains("type-product")) {
 
 			const stickySellText = document.createElement("span");
 			stickySellText.className = "sticky-sell-text";
-			stickySellText.textContent = productName ? productName.textContent.trim() : "";
+			stickySellText.innerHTML = productName ? productName.innerHTML : "";
 			stickySell.appendChild(stickySellText);
 
 			const stickySellRatingsWrapper = document.createElement("div");

@@ -6726,6 +6726,34 @@ body.sticky-header-off .messages > * {
   background-repeat: no-repeat;
   background-size: contain;
 }
+.type-product .sticky-sell {
+  background-color: var(--color-gray-400);
+  border-radius: var(--br-20);
+  width: 100%;
+  position: sticky;
+  top: calc(var(--gap-55) + 3em);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-transition: top 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out;
+  padding: 30px 30px 37px 30px;
+}
+.type-product .sticky-sell .sticky-sell-text {
+  font-size: var(--fs-18);
+  font-weight: var(--fw-700);
+  padding-bottom: 0.5em;
+}
+.type-product .sticky-sell .sticky-sell-text .product-appendix {
+  display: none;
+}
+.type-product .sticky-sell .sticky-price-and-button {
+  width: 100%;
+}
 .type-product .sticky-sell .stars-wrapper {
   grid-row: 2;
   grid-column: 1/-1;
@@ -6735,7 +6763,7 @@ body.sticky-header-off .messages > * {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-bottom: var(--gap-15);
+  padding-bottom: var(--gap-8);
 }
 .type-product .sticky-sell .stars-wrapper .star-list {
   display: -webkit-box;
@@ -6800,6 +6828,14 @@ body.sticky-header-off .messages > * {
 }
 .type-product .sticky-sell .dostupnost-doruceni-wrapper {
   display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: var(--gap-8);
   grid-row: 4;
   grid-column: 1/-1;
   padding-top: var(--gap-20);
@@ -6849,7 +6885,9 @@ body.sticky-header-off .messages > * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 0.25em;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.5em;
 }
 .type-product .sticky-sell .dostupnost-doruceni-wrapper .detail-parameters th .delivery-time-label {
   font-weight: var(--fw-400);
@@ -6863,9 +6901,11 @@ body.sticky-header-off .messages > * {
 .type-product .sticky-sell .dostupnost-doruceni-wrapper .detail-parameters th a {
   color: var(--color-primary);
   font-weight: var(--fw-400);
+  width: 100%;
+  text-align: left;
   text-decoration: underline;
   text-underline-offset: 3px;
-  padding-left: 0.5em;
+  padding-left: 0;
 }
 .type-product .sticky-sell .dostupnost-doruceni-wrapper .detail-parameters th a:hover, .type-product .sticky-sell .dostupnost-doruceni-wrapper .detail-parameters th a:focus-within {
   color: var(--color-primary-hover);
@@ -6874,8 +6914,8 @@ body.sticky-header-off .messages > * {
   grid-row: 5;
   grid-column: 1/-1;
   display: grid;
-  grid-template-columns: auto auto 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr auto auto;
+  grid-template-rows: auto auto auto;
   -webkit-column-gap: var(--gap-24);
      -moz-column-gap: var(--gap-24);
           column-gap: var(--gap-24);
@@ -6887,7 +6927,7 @@ body.sticky-header-off .messages > * {
           justify-content: start;
   background: var(--color-gray-400);
   border-radius: var(--br-20);
-  padding: var(--gap-20);
+  padding-top: var(--gap-20);
 }
 .type-product .sticky-sell .p-final-price-wrapper .price-additional,
 .type-product .sticky-sell .p-final-price-wrapper .price-measure {
@@ -6895,7 +6935,7 @@ body.sticky-header-off .messages > * {
 }
 .type-product .sticky-sell .p-final-price-wrapper .price-standard {
   grid-row: 1;
-  grid-column: 1;
+  grid-column: 2;
   color: var(--color-red-400);
   text-decoration: line-through;
   font-size: var(--fs-16);
@@ -6904,7 +6944,7 @@ body.sticky-header-off .messages > * {
 }
 .type-product .sticky-sell .p-final-price-wrapper .price-save {
   grid-row: 2;
-  grid-column: 1;
+  grid-column: 2;
   background-color: var(--color-red-400);
   color: var(--color-white);
   font-size: var(--fs-13);
@@ -6924,7 +6964,7 @@ body.sticky-header-off .messages > * {
 }
 .type-product .sticky-sell .p-final-price-wrapper .price-final {
   grid-row: 1;
-  grid-column: 2;
+  grid-column: 3;
   font-size: var(--fs-24);
   font-weight: var(--fw-700);
 }
@@ -6938,19 +6978,20 @@ body.sticky-header-off .messages > * {
 }
 .type-product .sticky-sell .p-final-price-wrapper .product-price-per-unit-detail {
   grid-row: 2;
-  grid-column: 2;
+  grid-column: 3;
   font-size: var(--fs-13);
   color: var(--color-black-o-60);
   font-weight: var(--fw-400);
 }
 .type-product .sticky-sell .p-final-price-wrapper .add-to-cart {
-  grid-row: 1/-1;
-  grid-column: 3;
+  grid-row: 3;
+  grid-column: 1/-1;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: var(--gap-9);
   width: 100%;
-  padding-left: calc(var(--gap-30) * 2);
+  padding-left: 0;
+  margin-top: var(--gap-16);
   margin-left: auto;
 }
 .type-product .sticky-sell .p-final-price-wrapper .add-to-cart button.add-to-cart-button {
@@ -7359,22 +7400,28 @@ body.sticky-header-off .messages > * {
   display: none;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #description {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: var(--gap-30);
+  display: grid;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: var(--description-large-content-gap);
+  -webkit-column-gap: var(--description-sticky-sell-gap);
+     -moz-column-gap: var(--description-sticky-sell-gap);
+          column-gap: var(--description-sticky-sell-gap);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #description .description-inner {
-  width: var(--description-natima-max-width);
+  width: 100%;
   max-width: 100%;
   margin: 0;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description {
-  margin-top: var(--description-large-content-gap);
-  margin-bottom: var(--description-large-content-gap);
   background: var(--color-gray-400);
   border-radius: var(--br-20);
   padding: 45px 0 55px;
+  margin-top: var(--description-large-content-gap);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description h3 {
   text-align: center;
@@ -7433,7 +7480,7 @@ body.sticky-header-off .messages > * {
   color: var(--color-primary-hover);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab {
-  width: calc(var(--description-natima-max-width) + var(--description-cart-max-width) + var(--description-cart-gap));
+  width: calc(var(--description-natima-max-width) + var(--description-sticky-sell-max-width) + var(--description-cart-gap));
   max-width: 100%;
   margin: 0 auto;
   display: grid;
@@ -7802,6 +7849,9 @@ body.sticky-header-off .messages > * {
   position: sticky;
   top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px) !important;
 }
+.type-product.sticky-header-on .sticky-sell {
+  top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px + var(--gap-55) + 3em) !important;
+}
 .type-product .products-related-header {
   text-align: center;
   padding-bottom: 1.25em;
@@ -7915,6 +7965,39 @@ body.sticky-header-off .messages > * {
 .type-product #productsAlternative.active-all .product {
   display: block !important;
 }
+.type-product #description {
+  grid-template-columns: var(--description-natima-max-width) var(--description-sticky-sell-max-width);
+}
+.type-product .sticky-sell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media screen and (max-width: 1280px) {
+  .type-product #description {
+    grid-template-columns: min(100%, var(--description-natima-max-width));
+  }
+  .type-product .sticky-sell {
+    display: none;
+  }
+}
+.type-product.product-is-natios #description {
+  grid-template-columns: var(--description-natios-max-width) var(--description-sticky-sell-max-width);
+}
+.type-product.product-is-natios .sticky-sell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media screen and (max-width: 1800px) {
+  .type-product.product-is-natios #description {
+    grid-template-columns: min(100%, var(--description-natios-max-width));
+  }
+  .type-product.product-is-natios .sticky-sell {
+    display: none;
+  }
+}
+
 .type-product.cs .rate-average-wrap:before {
   content: "Hodnocení";
 }
