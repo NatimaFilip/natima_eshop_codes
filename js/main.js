@@ -1760,7 +1760,7 @@ if (body.classList.contains("type-product")) {
 		if (productCode) {
 			manufacturerAndCodeWrapper.appendChild(productCode);
 			manufacturerAndCodeWrapper.classList.add("active");
-			productCodeValue = productCode.textContent.trim();
+			productCodeValue = productCode.querySelector("span:not(.p-code-label)").textContent.trim();
 		}
 
 		if (starsWrapper) {
@@ -1965,6 +1965,39 @@ if (body.classList.contains("type-product")) {
 			}
 			stickySell.appendChild(stickyPriceAndButton);
 			longDescription.appendChild(stickySell);
+
+			let stickySellButton = document.querySelector(".sticky-sell .p-final-price-wrapper button.btn");
+			let productTopSellButton = document.querySelector(".product-top .p-final-price-wrapper button.btn");
+			stickySellButton.addEventListener("click", function (event) {
+				event.preventDefault();
+				productTopSellButton.click();
+			});
+
+			let stickySellInput = document.querySelector(".sticky-sell input.amount");
+			let productTopInput = document.querySelector(".product-top input.amount");
+			if (stickySellInput && productTopInput) {
+				let isProgrammaticChange = false;
+
+				stickySellInput.addEventListener("change", function () {
+					if (isProgrammaticChange) {
+						isProgrammaticChange = false; // Reset the flag
+						return;
+					}
+					isProgrammaticChange = true; // Set the flag before triggering the other input
+					productTopInput.value = stickySellInput.value;
+					productTopInput.dispatchEvent(new Event("change")); // Trigger the change event if needed
+				});
+
+				productTopInput.addEventListener("change", function () {
+					if (isProgrammaticChange) {
+						isProgrammaticChange = false; // Reset the flag
+						return;
+					}
+					isProgrammaticChange = true; // Set the flag before triggering the other input
+					stickySellInput.value = productTopInput.value;
+					stickySellInput.dispatchEvent(new Event("change")); // Trigger the change event if needed
+				});
+			}
 		}
 	}
 
