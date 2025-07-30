@@ -1926,12 +1926,9 @@ if (body.classList.contains("type-product")) {
 		let imageElement = document.querySelector(".p-image-wrapper .p-image");
 		let flagsWrapper = document.querySelector(".product-top .flags.flags-default");
 
-		if (!imageElement || !flagsWrapper) {
-			console.warn("Image wrapper or flags wrapper not found.");
-			return;
+		if (imageElement && flagsWrapper) {
+			imageElement.appendChild(flagsWrapper);
 		}
-
-		imageElement.appendChild(flagsWrapper);
 
 		//merne jednotky v detailu produktu
 		try {
