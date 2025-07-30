@@ -3039,6 +3039,67 @@ body.type-category {
 		column-gap: var(--gap-20);
 	}
 
+	&.products-related {
+		grid-template-columns: 1fr 1fr;
+		> .product {
+			display: none; /* Hide all products by default */
+		}
+
+		> .product:nth-child(-n + 2) {
+			display: block; /* Show only the first 4 products */
+		}
+		@media screen and (max-width: $mobile-max) {
+			grid-template-columns: repeat(2, 1fr);
+			> .product {
+				display: none; /* Hide all products by default */
+			}
+
+			> .product:nth-child(-n + 4) {
+				display: block; /* Show only the first 4 products */
+			}
+		}
+		@media screen and (min-width: $tablet-min) {
+			grid-template-columns: repeat(3, 1fr);
+			> .product {
+				display: none; /* Hide all products by default */
+			}
+
+			> .product:nth-child(-n + 3) {
+				display: block; /* Show only the first 3 products */
+			}
+		}
+		@media screen and (min-width: $desktop-min) {
+			grid-template-columns: repeat(4, 1fr);
+			> .product {
+				display: none; /* Hide all products by default */
+			}
+
+			> .product:nth-child(-n + 4) {
+				display: block; /* Show only the first 4 products */
+			}
+		}
+		@media screen and (min-width: $desktop-medium-min) {
+			grid-template-columns: repeat(5, 1fr);
+			> .product {
+				display: none; /* Hide all products by default */
+			}
+
+			> .product:nth-child(-n + 5) {
+				display: block; /* Show only the first 5 products */
+			}
+		}
+		@media screen and (min-width: $desktop-large-min) {
+			grid-template-columns: repeat(6, 1fr);
+			> .product {
+				display: none; /* Hide all products by default */
+			}
+
+			> .product:nth-child(-n + 6) {
+				display: block; /* Show only the first 6 products */
+			}
+		}
+	}
+
 	--padding-capsules: 2px 8px; //if you change it you need to change it in mixin products-block-grid-layout!
 	/* 	--add-to-cart-button-width: 2.4615em;
 	--add-to-cart-button-height: calc(
@@ -5113,6 +5174,7 @@ body {
 .type-product {
 	.product-top {
 		display: grid;
+		align-items: start;
 		grid-template-columns: 1fr 0.96fr;
 		margin-top: var(--gap-24);
 		margin-bottom: var(--gap-46);
@@ -5251,8 +5313,7 @@ body {
 				background: var(--color-primary-200);
 				border-radius: var(--br-20);
 				padding: 0 var(--gap-14);
-				display: flex;
-				align-items: center;
+
 				table {
 					width: 100%;
 					font-size: var(--fs-14);
@@ -5647,6 +5708,221 @@ body {
 			}
 		}
 	}
+	.sticky-sell {
+		//////xxxxxxxxxxxxxxxxxxxxxxxx
+		.stars-wrapper {
+			grid-row: 2;
+			grid-column: 1/ -1;
+			display: flex;
+			align-items: center;
+			padding-bottom: var(--gap-15);
+
+			.star-list {
+				@include star-list;
+				pointer-events: none;
+				gap: var(--gap-8);
+				order: 1;
+				.star {
+					font-size: var(--fs-32);
+				}
+			}
+			.stars-score {
+				order: 2;
+				font-size: var(--fs-11);
+				font-weight: var(--fw-400);
+				color: var(--color-gray-600);
+				padding-left: 1.63em;
+				padding-right: 1em;
+				position: relative;
+				top: 2px;
+
+				.stars-score-text {
+					font-size: var(--fs-16);
+					font-weight: var(--fw-700);
+					color: var(--color-black);
+				}
+			}
+			.stars-label {
+				order: 3;
+				line-height: 1;
+				position: relative;
+				top: 3px;
+
+				font-size: var(--fs-11);
+				@include text-underline;
+			}
+		}
+		.dostupnost-doruceni-wrapper {
+			display: none;
+			&.active {
+				display: flex;
+			}
+			grid-row: 4;
+			grid-column: 1 / -1;
+			padding-top: var(--gap-20);
+
+			gap: var(--gap-5);
+			.availability-value {
+				background: var(--color-cta-200);
+				border-radius: var(--br-20);
+				color: var(--color-cta-400);
+				font-size: var(--fs-16);
+				padding: 0.25em 0.75em;
+				span {
+					font-weight: var(--fw-700);
+				}
+
+				.availability-amount {
+					font-weight: var(--fw-400);
+					padding-left: 0;
+					padding-right: 1px;
+				}
+				&:not(:has(.availability-amount)) {
+					background: var(--color-red-200);
+					color: var(--color-red-400) !important;
+					white-space: nowrap;
+					overflow: hidden;
+					@media screen and (max-width: 380px) {
+						font-size: calc(1em - 2px);
+					}
+				}
+			}
+			.detail-parameters {
+				display: flex;
+				align-items: center;
+				th {
+					font-size: var(--fs-13);
+					display: flex;
+					gap: 0.25em;
+					.delivery-time-label {
+						font-weight: var(--fw-400);
+					}
+					.delivery-time {
+						font-weight: var(--fw-400);
+						text-decoration: dashed underline;
+						text-underline-offset: 3px;
+					}
+					a {
+						color: var(--color-primary);
+						font-weight: var(--fw-400);
+						@include text-underline;
+						&:hover,
+						&:focus-within {
+							color: var(--color-primary-hover);
+						}
+						padding-left: 0.5em;
+					}
+				}
+			}
+		}
+		.p-final-price-wrapper {
+			grid-row: 5;
+			grid-column: 1 / -1;
+			display: grid;
+			grid-template-columns: auto auto 1fr;
+			grid-template-rows: auto auto;
+			column-gap: var(--gap-24);
+			align-items: baseline;
+			justify-content: start;
+			background: var(--color-gray-400);
+			border-radius: var(--br-20);
+			padding: var(--gap-20);
+
+			.price-additional,
+			.price-measure {
+				display: none;
+			}
+			.price-standard {
+				grid-row: 1;
+				grid-column: 1;
+				color: var(--color-red-400);
+				text-decoration: line-through;
+				font-size: var(--fs-16);
+				line-height: 1;
+				font-weight: var(--fw-400);
+			}
+			.price-save {
+				grid-row: 2;
+				grid-column: 1;
+				background-color: var(--color-red-400);
+				color: var(--color-white);
+				font-size: var(--fs-13);
+				font-weight: var(--fw-700);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				line-height: 1;
+				padding: 0.2334em 0.75em;
+				border-radius: var(--br-20);
+			}
+			.price-final {
+				grid-row: 1;
+				grid-column: 2;
+				font-size: var(--fs-24);
+				font-weight: var(--fw-700);
+				.pr-list-unit {
+					display: none;
+				}
+				.with-vat {
+					font-size: var(--fs-13);
+					color: var(--color-black-o-60);
+					font-weight: var(--fw-400);
+				}
+			}
+			.product-price-per-unit-detail {
+				grid-row: 2;
+				grid-column: 2;
+				font-size: var(--fs-13);
+				color: var(--color-black-o-60);
+				font-weight: var(--fw-400);
+			}
+
+			.add-to-cart {
+				grid-row: 1 / -1;
+				grid-column: 3;
+
+				display: grid;
+				grid-template-columns: auto 1fr;
+				gap: var(--gap-9);
+				width: 100%;
+				padding-left: calc(var(--gap-30) * 2);
+
+				margin-left: auto;
+				button.add-to-cart-button {
+					cursor: pointer;
+					background-color: var(--color-secondary);
+					border-radius: var(--br-16);
+					color: var(--color-white);
+					font-size: var(--fs-18);
+					font-weight: var(--fw-700);
+					@include bottom-cta-shadow;
+					padding: 1.1667em;
+					transition: background-color 0.2s ease-out;
+					text-align: center;
+
+					&:hover {
+						background-color: var(--color-secondary-hover);
+					}
+				}
+				.quantity {
+					@include quantity-setup;
+					border-radius: var(--br-16);
+					background: var(--color-white);
+					align-items: center;
+					padding: 0 var(--gap-18);
+					border-style: solid;
+					border-width: 1px;
+					border-color: var(--color-black-o-20);
+					label {
+						input {
+							min-height: 2.5em;
+							border-radius: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 	.natios-brand-description-block-wrapper {
 		background-color: var(--color-gray-400);
 		border-radius: var(--br-20);
@@ -5732,6 +6008,12 @@ body {
 		display: none;
 	}
 	.p-detail-tabs-wrapper {
+		padding-bottom: 80px;
+		margin-bottom: var(--gap-55);
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-bottom-color: var(--color-gray-500);
+
 		> .row {
 			position: relative;
 			&:before {
@@ -5900,7 +6182,7 @@ body {
 					.description-inner {
 						width: var(--description-natima-max-width);
 						max-width: 100%;
-						margin: 0 auto;
+						margin: 0;
 					}
 					.basic-description {
 					}
@@ -6235,6 +6517,13 @@ body {
 			position: sticky;
 			top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 2 * 16px + 1px) !important;
 		}
+	}
+	.products-related-header {
+		text-align: center;
+		padding-bottom: 1.25em;
+	}
+	.products-related {
+		margin-bottom: var(--gap-55);
 	}
 	#productsAlternative {
 		margin-top: 50px;

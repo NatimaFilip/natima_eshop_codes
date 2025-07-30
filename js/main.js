@@ -1105,7 +1105,7 @@ document.addEventListener("ShoptetDOMContentLoaded", function (event) {
 
 actionPriceToFinalPriceAndReviewsNumber();
 function actionPriceToFinalPriceAndReviewsNumber() {
-	let allProductsInProductsBlock = document.querySelectorAll(".products-block:not(.products-alternative) .product");
+	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
 	if (!allProductsInProductsBlock || allProductsInProductsBlock.length === 0) {
 		return; // No products found
 	}
@@ -1135,7 +1135,7 @@ function actionPriceToFinalPriceAndReviewsNumber() {
 /*--------------------MEASURE UNIT FROM APENDIX INTO CAPSULE*/
 measureUnitFromAppendixProducts();
 function measureUnitFromAppendixProducts() {
-	let allProductsInProductsBlock = document.querySelectorAll(".products-block:not(.products-alternative) .product");
+	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
 	if (!allProductsInProductsBlock || allProductsInProductsBlock.length === 0) {
 		return; // No products found
 	}
@@ -1668,6 +1668,7 @@ if (body.classList.contains("type-product")) {
 
 	let detailParameters = document.querySelector(".description-inner .detail-parameters");
 	let shortDescription = document.querySelector(".p-short-description");
+	let longDescription = document.querySelector("#description");
 
 	let dostupnost = document.querySelector(".product-top .availability-value");
 	let doruceniDo = document.querySelector(".product-top .delivery-time-label").closest("table");
@@ -1738,13 +1739,13 @@ if (body.classList.contains("type-product")) {
 				const natiosBrandBlock = document.createElement("div");
 				natiosBrandBlock.className = "natios-brand-description-block-wrapper";
 				if (csLang) {
-					natiosBrandBlock.innerHTML = `<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>Natios je česká značka, která se zaměřuje na výrobu kvalitních doplňků stravy s čistým složením bezzbytečných příměsí, konzervantů a éček. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Přispíváme"></div><p>Nákupem <b>přispějete</b> 1 Kč dětské hematoonkologii. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více</a></p></div></div>`;
+					natiosBrandBlock.innerHTML = `<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>Natios je česká značka, která se zaměřuje na výrobu kvalitních doplňků stravy s čistým složením bezzbytečných příměsí, konzervantů a éček. <a href="/natios/">Více</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Přispíváme"></div><p>Nákupem <b>přispějete</b> 1 Kč dětské hematoonkologii. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více</a></p></div></div>`;
 					if (benefitBanner) {
 						benefitBanner.classList.add("natios-block-added");
 					}
 				}
 				if (skLang) {
-					natiosBrandBlock.innerHTML = `<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>Natios je česká značka, ktorá sa zameriava na výrobu kvalitných výživových doplnkov s čistým zložením bez zbytočných prísad, konzervantov a éčok. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Viac</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Prispievame"></div><p>Nákupom <b>prispejete</b> 1 Kč detskej hematoonkologii. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Viac</a></p></div></div>`;
+					natiosBrandBlock.innerHTML = `<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>Natios je česká značka, ktorá sa zameriava na výrobu kvalitných výživových doplnkov s čistým zložením bez zbytočných prísad, konzervantov a éčok. <a href="/natios/">Viac</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Prispievame"></div><p>Nákupom <b>prispejete</b> 1 Kč detskej hematoonkologii. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Viac</a></p></div></div>`;
 					if (benefitBanner) {
 						benefitBanner.classList.add("natios-block-added");
 					}
@@ -1910,6 +1911,42 @@ if (body.classList.contains("type-product")) {
 					productsAlternative.classList.add("active-all");
 				});
 			}
+		}
+		// Add sticky sell section - uplne poslední
+		if (longDescription) {
+			const stickySell = document.createElement("div");
+			stickySell.className = "sticky-sell";
+
+			const stickySellText = document.createElement("span");
+			stickySellText.className = "sticky-sell-text";
+			stickySellText.textContent = productName ? productName.textContent.trim() : "";
+			stickySell.appendChild(stickySellText);
+
+			const stickySellRatingsWrapper = document.createElement("div");
+			stickySellRatingsWrapper.className = "sticky-sell-ratings-wrapper";
+			if (starsWrapper) {
+				stickySellRatingsWrapper.innerHTML = starsWrapper.outerHTML;
+			}
+			stickySell.appendChild(stickySellRatingsWrapper);
+
+			const stickySellAvailability = document.createElement("div");
+			stickySellAvailability.className = "sticky-sell-availability";
+			const editedDostupnost = document.querySelector(".product-top .dostupnost-doruceni-wrapper");
+
+			if (editedDostupnost) {
+				stickySellAvailability.innerHTML = editedDostupnost.outerHTML;
+			}
+			stickySell.appendChild(stickySellAvailability);
+
+			const stickyPriceAndButton = document.createElement("div");
+			stickyPriceAndButton.className = "sticky-price-and-button";
+			const editedPriceWrapper = document.querySelector(".product-top .p-final-price-wrapper");
+
+			if (editedPriceWrapper) {
+				stickyPriceAndButton.innerHTML = editedPriceWrapper.outerHTML;
+			}
+			stickySell.appendChild(stickyPriceAndButton);
+			longDescription.appendChild(stickySell);
 		}
 	}
 
