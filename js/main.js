@@ -84,6 +84,14 @@ window.addEventListener("resize", function () {
 	//}); 
 } */
 
+function scrollToElement(element) {
+	const headerHeight = document.querySelector("#header").offsetHeight;
+	window.scrollTo({
+		top: element.getBoundingClientRect().top + window.pageYOffset - headerHeight,
+		behavior: "smooth",
+	});
+}
+
 function addSmartTouchClickListener(element, handler) {
 	let touched = false;
 	let touchTimer = null;
@@ -1697,8 +1705,10 @@ if (body.classList.contains("type-product")) {
 			return; // Exit if any of the elements are not found
 		}
 
-		if (productName) {
-			infoWrapper.prepend(productName);
+		if (isDesktop) {
+			if (productName) {
+				infoWrapper.prepend(productName);
+			}
 		}
 
 		const rightContentWrapper = document.createElement("div");
@@ -1764,7 +1774,13 @@ if (body.classList.contains("type-product")) {
 		}
 
 		if (starsWrapper) {
-			infoWrapper.appendChild(starsWrapper);
+			if (isDesktop) {
+				infoWrapper.appendChild(starsWrapper);
+			} else {
+				if (productName) {
+					productName.parentElement.appendChild(starsWrapper);
+				}
+			}
 			let starsElement = starsWrapper.querySelector(".star");
 
 			if (starsElement) {
@@ -1780,14 +1796,12 @@ if (body.classList.contains("type-product")) {
 			}
 
 			//zde zde jsem skončil
-			let starsLabel = starsWrapper.querySelector(".stars-label");
+
 			let ratingTab = document.querySelector("#ratingTab");
-			if (starsLabel && ratingTab) {
-				starsLabel.addEventListener("click", function (event) {
+			if (ratingTab) {
+				starsWrapper.addEventListener("click", function (event) {
 					event.preventDefault();
-					setTimeout(() => {
-						ratingTab.scrollIntoView({ behavior: "smooth" });
-					}, 10);
+					scrollToElement(ratingTab);
 				});
 			}
 		}
@@ -1954,6 +1968,13 @@ if (body.classList.contains("type-product")) {
 			if (starsWrapper) {
 				stickySellRatingsWrapper.innerHTML = starsWrapper.outerHTML;
 			}
+			stickySellRatingsWrapper.addEventListener("click", function (event) {
+				event.preventDefault();
+				let ratingTab = document.querySelector("#ratingTab");
+				if (ratingTab) {
+					scrollToElement(ratingTab);
+				}
+			});
 			stickySell.appendChild(stickySellRatingsWrapper);
 
 			const stickySellAvailability = document.createElement("div");
@@ -2017,7 +2038,7 @@ if (body.classList.contains("type-product")) {
 			return; // Skip if already processed
 		}
 		product.classList.add("product-edited-measure");
-		let productAppendix = product.querySelector(".product-appendix");
+		let productAppendix = document.querySelector(".product-appendix");
 		if (!productAppendix) return;
 
 		let productMeasureUnitComplet;

@@ -1,3 +1,13 @@
+// Define SCSS variables for breakpoints
+$large-mobile-min: 500px;
+$mobile-max: 767px;
+
+$tablet-min: 768px;
+$tablet-max: 1279px;
+$desktop-min: 1280px;
+$desktop-medium-min: 1440px;
+$desktop-large-min: 1680px;
+
 /*mixinss*/
 @mixin bottom-shadow {
 	box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
@@ -152,10 +162,16 @@
 			margin: 0;
 			text-align: center;
 			width: 4.5rem;
-			padding-left: 4px;
 			font-size: var(--fs-16);
 			height: 100%;
 			@include disable-input-controls;
+
+			@media screen and (max-width: $desktop-large-min) {
+				width: 4rem;
+			}
+			@media screen and (max-width: $desktop-medium-min) {
+				width: 3.5rem;
+			}
 		}
 	}
 	.increase,
@@ -215,16 +231,6 @@
 		}
 	}
 }
-
-// Define SCSS variables for breakpoints
-$large-mobile-min: 500px;
-$mobile-max: 767px;
-
-$tablet-min: 768px;
-$tablet-max: 1279px;
-$desktop-min: 1280px;
-$desktop-medium-min: 1440px;
-$desktop-large-min: 1680px;
 
 /*variables*/
 :root {
@@ -5179,10 +5185,24 @@ body {
 		margin-top: var(--gap-24);
 		margin-bottom: var(--gap-46);
 		gap: calc(var(--gap-30) * 2);
+		@media screen and (max-width: $desktop-large-min) {
+			grid-template-columns: 0.9fr 1fr;
+			gap: var(--gap-30);
+		}
+		@media screen and (max-width: $tablet-max) {
+			display: flex;
+			flex-direction: column;
+			gap: var(--gap-24);
+			margin-top: var(--gap-10);
+			margin-bottom: var(--gap-36);
+		}
+
 		> .col-xs-12:first-child {
 			display: none !important;
 		}
+
 		.p-image-wrapper {
+			width: 100%;
 			.p-image {
 				position: relative;
 				a.p-main-image {
@@ -5197,6 +5217,10 @@ body {
 						@include image-foreground-brightness;
 
 						padding: 12.5% 16.5%;
+
+						@media screen and (max-width: $tablet-max) {
+							padding: 10% 12.5%;
+						}
 					}
 					&:after {
 						@include image-foreground-block;
@@ -5204,15 +5228,28 @@ body {
 				}
 				.flags-extra {
 					@include flags-extra-in-product-image;
-					font-size: var(--fs-20);
-					padding: 0.25em 0.75em;
+					font-size: var(--fs-20) !important;
+					padding: 0.25em 0.75em !important;
+					z-index: 1;
+
+					@media screen and (max-width: $tablet-max) {
+						padding: 0.5em 0.75em !important;
+					}
 				}
 				.flags-default {
 					@include flags-default-in-product-image;
-					--padding-capsules: 2px 8px;
-					font-size: var(--fs-13);
-					top: var(--gap-30);
-					left: var(--gap-20);
+					--padding-capsules: 2px 8px !important;
+					font-size: var(--fs-13) !important;
+					top: var(--gap-30) !important;
+					left: var(--gap-20) !important;
+
+					@media screen and (max-width: $tablet-max) {
+						top: var(--gap-15) !important;
+						left: var(--gap-14) !important;
+					}
+					@media screen and (max-width: $mobile-max) {
+						font-size: var(--fs-11) !important;
+					}
 				}
 			}
 			.p-thumbnails-wrapper {
@@ -5222,24 +5259,39 @@ body {
 					.p-thumbnails-inner {
 						> div {
 							display: flex;
+							overflow-x: auto;
 							align-items: center;
+
 							gap: var(--gap-9); //polovina protože tam jsou hidden bloky
+							&::-webkit-scrollbar {
+								height: 6px; // Reduce the height of the scrollbar
+							}
+							@media screen and (max-width: $mobile-max) {
+								gap: 4px;
+							}
 
 							a.p-thumbnail {
 								border-radius: var(--br-16);
-								overflow: hidden;
+
 								@include image-foreground-setup;
 								img {
 									--image-padding-side: 30px;
 									--image-padding-top: 10px;
 									--image-width: 80px;
 									width: calc(var(--image-width) + var(--image-padding-side) * 2);
+									min-width: calc(var(--image-width) + var(--image-padding-side) * 2);
 									height: auto;
 									@include image-foreground-brightness;
 									padding: var(--image-padding-top) var(--image-padding-side);
+									@media screen and (max-width: $mobile-max) {
+										--image-padding-side: 20px;
+										--image-padding-top: 8px;
+										--image-width: 60px;
+									}
 								}
 								&:after {
 									@include image-foreground-block;
+									border-radius: var(--br-16);
 								}
 							}
 						}
@@ -5257,62 +5309,39 @@ body {
 			grid-template-columns: 0.76fr 1fr;
 			column-gap: calc(var(--gap-30) * 2);
 			row-gap: var(--gap-20);
+			position: relative;
+			@media screen and (max-width: $tablet-max) {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: var(--gap-24);
+				> * {
+					width: 100%;
+				}
+			}
 			h1 {
 				grid-row: 1;
 				grid-column: 1/ -1;
 				padding: 0 0 0.125em;
-				.product-appendix {
-					display: none;
-				}
 			}
 			.stars-wrapper {
 				grid-row: 2;
 				grid-column: 1/ -1;
-				display: flex;
-				align-items: center;
-				padding-bottom: var(--gap-15);
-
-				.star-list {
-					@include star-list;
-					pointer-events: none;
-					gap: var(--gap-8);
-					order: 1;
-					.star {
-						font-size: var(--fs-32);
-					}
-				}
-				.stars-score {
-					order: 2;
-					font-size: var(--fs-11);
-					font-weight: var(--fw-400);
-					color: var(--color-gray-600);
-					padding-left: 1.63em;
-					padding-right: 1em;
-					position: relative;
-					top: 2px;
-
-					.stars-score-text {
-						font-size: var(--fs-16);
-						font-weight: var(--fw-700);
-						color: var(--color-black);
-					}
-				}
-				.stars-label {
-					order: 3;
-					line-height: 1;
-					position: relative;
-					top: 3px;
-
-					font-size: var(--fs-11);
-					@include text-underline;
-				}
 			}
+
 			.product-parameters-product-top {
+				order: 1;
 				grid-row: 3;
 				grid-column: 1;
 				background: var(--color-primary-200);
 				border-radius: var(--br-20);
 				padding: 0 var(--gap-14);
+				@media screen and (max-width: $tablet-max) {
+					width: calc(50% - var(--gap-24) / 2);
+				}
+				@media screen and (max-width: $mobile-max) {
+					width: 100%;
+				}
 
 				table {
 					width: 100%;
@@ -5360,8 +5389,17 @@ body {
 				}
 			}
 			.right-content-wrapper {
+				order: 2;
 				grid-row: 3;
 				grid-column: 2;
+
+				@media screen and (max-width: $tablet-max) {
+					width: calc(50% - var(--gap-24) / 2);
+				}
+				@media screen and (max-width: $mobile-max) {
+					width: 100%;
+				}
+
 				> * {
 					display: none;
 				}
@@ -5441,11 +5479,16 @@ body {
 				&.active {
 					display: flex;
 				}
+				order: 3;
 				grid-row: 4;
 				grid-column: 1 / -1;
 				padding-top: var(--gap-20);
+				flex-wrap: wrap;
 
 				gap: var(--gap-5);
+				@media screen and (max-width: $tablet-max) {
+					padding-top: var(--gap-14);
+				}
 				.availability-value {
 					background: var(--color-cta-200);
 					border-radius: var(--br-20);
@@ -5474,6 +5517,9 @@ body {
 				.detail-parameters {
 					display: flex;
 					align-items: center;
+					@media screen and (max-width: $tablet-max) {
+						padding-left: 4px;
+					}
 					th {
 						font-size: var(--fs-13);
 						display: flex;
@@ -5500,18 +5546,24 @@ body {
 				}
 			}
 			.p-final-price-wrapper {
+				order: 4;
 				grid-row: 5;
 				grid-column: 1 / -1;
 				display: grid;
 				grid-template-columns: auto auto 1fr;
 				grid-template-rows: auto auto;
-				column-gap: var(--gap-24);
+
 				align-items: baseline;
 				justify-content: start;
 				background: var(--color-gray-400);
 				border-radius: var(--br-20);
 				padding: var(--gap-20);
-
+				> *:not(.add-to-cart) {
+					margin-right: var(--gap-24);
+					@media screen and (max-width: $desktop-medium-min) {
+						margin-right: var(--gap-18);
+					}
+				}
 				.price-additional,
 				.price-measure {
 					display: none;
@@ -5564,14 +5616,16 @@ body {
 				.add-to-cart {
 					grid-row: 1 / -1;
 					grid-column: 3;
-
 					display: grid;
 					grid-template-columns: auto 1fr;
 					gap: var(--gap-9);
 					width: 100%;
-					padding-left: calc(var(--gap-30) * 2);
 
 					margin-left: auto;
+					padding-left: calc(var(--gap-30) * 2);
+					@media screen and (max-width: $desktop-large-min) {
+						padding-left: var(--gap-30);
+					}
 					button.add-to-cart-button {
 						cursor: pointer;
 						background-color: var(--color-secondary);
@@ -5605,8 +5659,37 @@ body {
 						}
 					}
 				}
+				@media screen and (max-width: $mobile-max) {
+					padding: var(--gap-16);
+					.add-to-cart {
+						grid-row: 3;
+						grid-column: 1 / -1;
+						padding-left: 0;
+						margin-top: var(--gap-12);
+						.quantity {
+							padding: 0 var(--gap-12);
+							label {
+								input {
+								}
+							}
+						}
+					}
+				}
+				@media screen and (max-width: 390px) {
+					.add-to-cart {
+						.quantity {
+							input {
+								width: 2.5em !important;
+							}
+						}
+						button.add-to-cart-button {
+							padding: 1.1667em 0.75em !important;
+						}
+					}
+				}
 			}
 			.p-short-description {
+				order: 5;
 				grid-row: 6;
 				grid-column: 1 / -1;
 				padding-top: var(--gap-24);
@@ -5618,12 +5701,22 @@ body {
 				p {
 					text-align: left !important;
 				}
+				@media screen and (max-width: $tablet-max) {
+					padding-top: 0;
+				}
 			}
 			p[data-testid="productCardDescr"] {
+				order: 6;
 				grid-row: 7;
 				grid-column: 2;
 				padding-bottom: 0;
 				text-align: right !important;
+				@media screen and (max-width: $tablet-max) {
+					position: absolute;
+					order: 8;
+					bottom: 0;
+					right: 0;
+				}
 				a {
 					font-size: var(--fs-13);
 					display: flex;
@@ -5645,6 +5738,7 @@ body {
 				}
 			}
 			.social-buttons-wrapper {
+				order: 7;
 				grid-row: 7;
 				grid-column: 1;
 
@@ -5708,6 +5802,55 @@ body {
 			}
 		}
 	}
+	//některé věci nejsou ma mobili a tabletu v product top, potřebuju to tedy přesunout
+	#product-detail-form,
+	.p-detail-inner-header {
+		.product-appendix {
+			display: none;
+		}
+		.stars-wrapper {
+			display: flex;
+			align-items: center;
+			padding-bottom: var(--gap-15);
+			cursor: pointer;
+
+			.star-list {
+				@include star-list;
+				pointer-events: none;
+				gap: var(--gap-8);
+				order: 1;
+				.star {
+					font-size: var(--fs-32);
+				}
+			}
+			.stars-score {
+				order: 2;
+				font-size: var(--fs-11);
+				font-weight: var(--fw-400);
+				color: var(--color-gray-600);
+				padding-left: 1.63em;
+				padding-right: 1em;
+				position: relative;
+				top: 2px;
+
+				.stars-score-text {
+					font-size: var(--fs-16);
+					font-weight: var(--fw-700);
+					color: var(--color-black);
+				}
+			}
+			.stars-label {
+				order: 3;
+				line-height: 1;
+				position: relative;
+				top: 3px;
+				pointer-events: none;
+
+				font-size: var(--fs-11);
+				@include text-underline;
+			}
+		}
+	}
 	.sticky-sell {
 		background-color: var(--color-gray-400);
 		border-radius: var(--br-20);
@@ -5729,6 +5872,9 @@ body {
 		}
 		.sticky-price-and-button {
 			width: 100%;
+		}
+		.sticky-sell-ratings-wrapper {
+			cursor: pointer;
 		}
 		.stars-wrapper {
 			grid-row: 2;
@@ -5767,7 +5913,7 @@ body {
 				line-height: 1;
 				position: relative;
 				top: 3px;
-
+				pointer-events: none;
 				font-size: var(--fs-11);
 				@include text-underline;
 			}
@@ -5995,7 +6141,14 @@ body {
 			border-radius: var(--br-16);
 			gap: 1em;
 			padding: 1.25em 2.25em 1.25em 2em;
+			@media screen and (max-width: $mobile-max) {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 4px;
+			}
 			.natios-brand-description-block-donation-icon {
+				min-width: 47px;
+
 				position: relative;
 				top: -4px;
 			}
@@ -6285,9 +6438,6 @@ body {
 					}
 				}
 				#ratingTab {
-					width: calc(
-						var(--description-natima-max-width) + var(--description-sticky-sell-max-width) + var(--description-cart-gap)
-					);
 					max-width: 100%;
 					margin: 0 auto;
 					display: grid;
@@ -6298,6 +6448,11 @@ body {
 						background-color: var(--color-gray-400);
 						border-radius: var(--br-16);
 						padding: 40px 40px 55px 40px;
+						&.unveiled {
+							.add-comment {
+								display: none;
+							}
+						}
 					}
 					.rate-average-wrap {
 						display: grid;
@@ -6678,6 +6833,12 @@ body {
 	.sticky-sell {
 		display: flex;
 	}
+	#ratingTab {
+		width: calc(
+			var(--description-natima-max-width) + var(--description-sticky-sell-max-width) +
+				var(--description-sticky-sell-gap)
+		);
+	}
 	@media screen and (max-width: $desktop-min) {
 		#description {
 			grid-template-columns: min(100%, var(--description-natima-max-width));
@@ -6692,6 +6853,12 @@ body {
 		}
 		.sticky-sell {
 			display: flex;
+		}
+		#ratingTab {
+			width: calc(
+				var(--description-natios-max-width) + var(--description-sticky-sell-max-width) +
+					var(--description-sticky-sell-gap)
+			);
 		}
 		@media screen and (max-width: 1800px) {
 			#description {
