@@ -1785,7 +1785,9 @@ if (body.classList.contains("type-product")) {
 			if (starsLabel && ratingTab) {
 				starsLabel.addEventListener("click", function (event) {
 					event.preventDefault();
-					ratingTab.scrollIntoView({ behavior: "smooth" });
+					setTimeout(() => {
+						ratingTab.scrollIntoView({ behavior: "smooth" });
+					}, 10);
 				});
 			}
 		}
