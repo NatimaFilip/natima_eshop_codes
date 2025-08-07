@@ -441,8 +441,10 @@ b {
 img,
 picture {
 	height: auto;
+	width: auto;
 	max-width: 100%;
-	display: inline;
+	min-height: 100%;
+	display: block;
 	vertical-align: middle;
 	user-select: none;
 }
@@ -6197,7 +6199,6 @@ body {
 		@media screen and (max-width: $tablet-max) {
 			margin-bottom: var(--gap-20);
 			padding-bottom: 40px;
-	
 		}
 
 		> .row {
@@ -6681,8 +6682,10 @@ body {
 								height: 0.75em;
 							}
 						}
-						.vote-summary {
+						.vote-header {
 							position: relative;
+						}
+						.vote-summary {
 							width: 100%;
 							.vote-rating {
 								@media screen and (max-width: $mobile-max) {

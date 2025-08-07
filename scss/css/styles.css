@@ -203,8 +203,10 @@ b {
 img,
 picture {
   height: auto;
+  width: auto;
   max-width: 100%;
-  display: inline;
+  min-height: 100%;
+  display: block;
   vertical-align: middle;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -8093,8 +8095,10 @@ body.sticky-header-off .messages > * {
   width: 0.75em;
   height: 0.75em;
 }
-.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .vote-summary {
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .vote-header {
   position: relative;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .vote-summary {
   width: 100%;
 }
 @media screen and (max-width: 767px) {
