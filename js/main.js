@@ -1679,7 +1679,7 @@ if (body.classList.contains("type-product")) {
 	let longDescription = document.querySelector("#description");
 
 	let dostupnost = document.querySelector(".product-top .availability-value");
-	let doruceniDo = document.querySelector(".product-top .delivery-time-label").closest("table");
+	let shippingOptions = document.querySelector(".product-top .shipping-options")?.closest("table") || null;
 
 	let addToCartBtn = document.querySelector(".product-top .add-to-cart");
 	let priceWrapper = document.querySelector(".product-top .p-final-price-wrapper");
@@ -1694,6 +1694,8 @@ if (body.classList.contains("type-product")) {
 	let benefitBanner = document.querySelector(".benefitBanner");
 
 	let productsAlternative = document.querySelector("#productsAlternative");
+	let watchdog = document.querySelector(".product-top .watchdog");
+	let ratingTab = document.querySelector("#ratingTab");
 
 	moveElementsInProduct();
 
@@ -1785,19 +1787,26 @@ if (body.classList.contains("type-product")) {
 
 			if (starsElement) {
 				let starsScore = starsElement.getAttribute("title") || starsElement.getAttribute("data-original-title");
+
 				if (starsScore) {
 					starsScore = starsScore.split(":")[1].split("/")[0].trim();
 					starsScore = parseFloat(starsScore).toFixed(2).replace(".", ",");
-					const starsScoreElement = document.createElement("div");
-					starsScoreElement.className = "stars-score";
-					starsScoreElement.innerHTML = `<span class="stars-score-text">${starsScore}</span> / 5`;
-					starsWrapper.appendChild(starsScoreElement);
+					if (starsScore != null && starsScore != "NaN") {
+						const starsScoreElement = document.createElement("div");
+						starsScoreElement.className = "stars-score";
+						starsScoreElement.innerHTML = `<span class="stars-score-text">${starsScore}</span> / 5`;
+						starsWrapper.appendChild(starsScoreElement);
+					} else {
+						starsWrapper.classList.add("no-score");
+						if (ratingTab) {
+							ratingTab.classList.add("no-score");
+						}
+					}
 				}
 			}
 
 			//zde zde jsem skončil
 
-			let ratingTab = document.querySelector("#ratingTab");
 			if (ratingTab) {
 				starsWrapper.addEventListener("click", function (event) {
 					event.preventDefault();
@@ -1845,6 +1854,7 @@ if (body.classList.contains("type-product")) {
 			//když není skladem
 			if (!availabilityAmount) {
 				body.classList.add("product-not-available");
+				dostupnostADoruceniDoWrapper.classList.add("not-available");
 				if (souvisejiciProdukty) {
 					document.querySelector(".p-detail-inner").insertAdjacentElement("afterend", souvisejiciProdukty);
 
@@ -1854,8 +1864,8 @@ if (body.classList.contains("type-product")) {
 				}
 			}
 		}
-		if (doruceniDo) {
-			dostupnostADoruceniDoWrapper.appendChild(doruceniDo);
+		if (shippingOptions) {
+			dostupnostADoruceniDoWrapper.appendChild(shippingOptions);
 			dostupnostADoruceniDoWrapper.classList.add("active");
 		}
 		infoWrapper.appendChild(dostupnostADoruceniDoWrapper);
@@ -1864,7 +1874,55 @@ if (body.classList.contains("type-product")) {
 			priceWrapper.appendChild(addToCartBtn);
 		} else {
 			//tady bude co se stane když není k prodeji
-			console.warn("Add to cart button not found.");
+			const notifyMeButtonWrapper = document.createElement("div");
+			notifyMeButtonWrapper.classList.add("sold-out-add-to-cart");
+			notifyMeButtonWrapper.classList.add("add-to-cart");
+			if (watchdog) {
+				const notifyMeButton = document.createElement("div");
+				notifyMeButton.classList.add("notify-me-button");
+				notifyMeButton.classList.add("add-to-cart-button");
+				if (csLang) {
+					notifyMeButton.textContent = "Hlídat dostupnost";
+				}
+				if (skLang) {
+					notifyMeButton.textContent = "Hliadnuť dostupnosť";
+				}
+				if (plLang) {
+					notifyMeButton.textContent = "Obserwuj dostępność";
+				}
+				notifyMeButtonWrapper.appendChild(notifyMeButton);
+				notifyMeButton.addEventListener("click", function () {
+					watchdog.click();
+				});
+			} else {
+				const emptyDiv = document.createElement("div");
+				emptyDiv.className = "empty-div";
+				notifyMeButtonWrapper.appendChild(emptyDiv);
+			}
+
+			if (souvisejiciProdukty) {
+				const showSimiliarProductsButton = document.createElement("div");
+				showSimiliarProductsButton.className = "show-similiar-products-button";
+				if (csLang) {
+					showSimiliarProductsButton.textContent = "Zobrazit související produkty";
+				}
+				if (skLang) {
+					showSimiliarProductsButton.textContent = "Zobraziť súvisiace produkty";
+				}
+				if (plLang) {
+					showSimiliarProductsButton.textContent = "Pokaż produkty powiązane";
+				}
+				notifyMeButtonWrapper.prepend(showSimiliarProductsButton);
+				showSimiliarProductsButton.addEventListener("click", function () {
+					scrollToElement(souvisejiciProdukty);
+				});
+			} else {
+				const emptyDiv = document.createElement("div");
+				emptyDiv.className = "empty-div";
+				notifyMeButtonWrapper.prepend(emptyDiv);
+			}
+
+			priceWrapper.appendChild(notifyMeButtonWrapper);
 		}
 
 		if (finalProductPrice) {
@@ -1918,6 +1976,12 @@ if (body.classList.contains("type-product")) {
 						item.remove(); // Remove items without availability amount
 					}
 				});
+			}
+
+			productsAlternativeItems = productsAlternative.querySelectorAll(".product");
+			if (!productsAlternativeItems || productsAlternativeItems.length == 0) {
+				productsAlternative.remove();
+				productsAlternativeTitle.remove();
 			}
 			if (productsAlternativeItems && productsAlternativeItems.length > 4) {
 				productsAlternative.classList.add("multiple-rows-of-alternatives");
@@ -1996,8 +2060,8 @@ if (body.classList.contains("type-product")) {
 			stickySell.appendChild(stickyPriceAndButton);
 			longDescription.appendChild(stickySell);
 
-			let stickySellButton = document.querySelector(".sticky-sell .p-final-price-wrapper button.btn");
-			let productTopSellButton = document.querySelector(".product-top .p-final-price-wrapper button.btn");
+			let stickySellButton = document.querySelector(".sticky-sell .p-final-price-wrapper .add-to-cart-button");
+			let productTopSellButton = document.querySelector(".product-top .p-final-price-wrapper .add-to-cart-button");
 			stickySellButton.addEventListener("click", function (event) {
 				event.preventDefault();
 				productTopSellButton.click();
@@ -2005,6 +2069,7 @@ if (body.classList.contains("type-product")) {
 
 			let stickySellInput = document.querySelector(".sticky-sell input.amount");
 			let productTopInput = document.querySelector(".product-top input.amount");
+			let productStickySimiliar = document.querySelector(".sticky-sell .show-similiar-products-button");
 			if (stickySellInput && productTopInput) {
 				let isProgrammaticChange = false;
 
@@ -2026,6 +2091,11 @@ if (body.classList.contains("type-product")) {
 					isProgrammaticChange = true; // Set the flag before triggering the other input
 					stickySellInput.value = productTopInput.value;
 					stickySellInput.dispatchEvent(new Event("change")); // Trigger the change event if needed
+				});
+			}
+			if (productStickySimiliar && souvisejiciProdukty) {
+				productStickySimiliar.addEventListener("click", function () {
+					scrollToElement(souvisejiciProdukty);
 				});
 			}
 		}
@@ -2111,6 +2181,7 @@ if (body.classList.contains("type-product")) {
 
 	document.addEventListener("DOMContentLoaded", function () {
 		productThumbnailInNavigation();
+		productNavigationCustom();
 	});
 	function productThumbnailInNavigation() {
 		let navigaceProduktu = document.querySelector(".shp-tabs-row");
@@ -2180,12 +2251,62 @@ if (body.classList.contains("type-product")) {
 			});
 		}
 		if (!isAvailableProduct) {
-			let watchdog = document.querySelector(".product-top .watchdog");
 			if (watchdog) {
 				document.querySelector(".product-thumbnail-notice-me-button").addEventListener("click", function () {
 					watchdog.click();
 				});
 			}
+		}
+	}
+	function productNavigationCustom() {
+		let detailTabs = document.querySelector("#p-detail-tabs");
+		if (!detailTabs) {
+			return; // Exit if detail tabs are not found
+		}
+		let shpTabs = document.querySelectorAll(".shp-tab");
+		if (shpTabs && shpTabs.length > 0) {
+			shpTabs.forEach((tab) => {
+				tab.remove();
+			});
+		}
+		let description = document.querySelector("#description");
+		if (description) {
+			const descriptionTab = document.createElement("li");
+			descriptionTab.className = "shp-tab";
+
+			if (csLang) {
+				descriptionTab.innerHTML = `<span class="shp-tab-link" data-tab="description">Popis</span>`;
+			}
+			if (skLang) {
+				descriptionTab.innerHTML = `<span class="shp-tab-link" data-tab="description">Popis</span>`;
+			}
+			if (plLang) {
+				descriptionTab.innerHTML = `<span class="shp-tab-link" data-tab="description">Opis</span>`;
+			}
+			detailTabs.appendChild(descriptionTab);
+			descriptionTab.addEventListener("click", function () {
+				const activeShopTab = document.querySelector(".shp-tab.active");
+				if (activeShopTab && activeShopTab !== descriptionTab) {
+					activeShopTab.classList.remove("active");
+				}
+
+				scrollToElement(description);
+			});
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							const activeShopTab = document.querySelector(".shp-tab.active");
+							if (activeShopTab) {
+								activeShopTab.classList.remove("active");
+							}
+							descriptionTab.classList.add("active");
+						}
+					});
+				},
+				{ root: null, threshold: 0.01 } // Trigger when 50% of the description is visible
+			);
+			observer.observe(description);
 		}
 	}
 }
