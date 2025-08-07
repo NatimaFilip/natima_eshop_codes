@@ -641,7 +641,7 @@ function addCartWidgetToCartMobileListener() {
 
 	addSmartTouchClickListener(cartButton, function (event) {
 		console.log("Cart button clicked, checking if mobile.");
-		if (isMobile) {
+		if (!isDesktop) {
 			console.log("Cart button clicked on mobile, redirecting to cart page.");
 			event.preventDefault();
 			window.location.href = cartHref;

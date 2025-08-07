@@ -6194,6 +6194,11 @@ body {
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
 		border-bottom-color: var(--color-gray-500);
+		@media screen and (max-width: $tablet-max) {
+			margin-bottom: var(--gap-20);
+			padding-bottom: 40px;
+	
+		}
 
 		> .row {
 			position: relative;
@@ -6225,9 +6230,11 @@ body {
 				border-bottom-style: solid;
 				border-width: 2px;
 				border-color: var(--color-gray-500);
-
 				box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
 				display: flex;
+				@media screen and (max-width: $tablet-max) {
+					display: none !important;
+				}
 				.navigation-btn {
 					display: none !important;
 				}
@@ -6444,6 +6451,12 @@ body {
 					align-items: start;
 					grid-template-columns: 3fr 5fr;
 					column-gap: var(--description-widget-gap);
+					@media screen and (max-width: $tablet-max) {
+						display: flex;
+						flex-direction: column;
+						gap: var(--gap-10);
+						align-items: center;
+					}
 					#ratingWrapper {
 						background-color: var(--color-gray-400);
 						border-radius: var(--br-16);
@@ -6452,6 +6465,10 @@ body {
 							.add-comment {
 								display: none;
 							}
+						}
+						@media screen and (max-width: $tablet-max) {
+							width: 100%;
+							padding: 12px 12px 26px 26px;
 						}
 					}
 					.rate-average-wrap {
@@ -6489,6 +6506,10 @@ body {
 						display: flex;
 						gap: var(--gap-46);
 						align-items: center;
+						@media screen and (max-width: $tablet-max) {
+							justify-content: space-between;
+							gap: var(--gap-20);
+						}
 					}
 					.rate-average {
 						font-size: var(--fs-48);
@@ -6663,6 +6684,13 @@ body {
 						.vote-summary {
 							position: relative;
 							width: 100%;
+							.vote-rating {
+								@media screen and (max-width: $mobile-max) {
+									padding-top: var(--gap-12);
+									display: flex;
+									flex-direction: column-reverse;
+								}
+							}
 							.vote-name {
 								font-size: var(--fs-18);
 								font-weight: var(--fw-700);
@@ -6673,6 +6701,10 @@ body {
 								top: 0;
 								font-size: var(--fs-13);
 								color: var(--color-gray-600);
+								@media screen and (max-width: $mobile-max) {
+									position: relative;
+									inset: 0;
+								}
 							}
 						}
 					}
@@ -6729,6 +6761,18 @@ body {
 		}
 		.products-block {
 			grid-template-columns: repeat(4, 1fr);
+
+			@media screen and (max-width: $mobile-max) {
+				display: flex;
+				flex-wrap: nowrap;
+				> * {
+					min-width: 75vw;
+				}
+			}
+			overflow-x: auto;
+			&::-webkit-scrollbar {
+				height: 6px; // Reduce the height of the scrollbar
+			}
 			> .product {
 				display: none; /* Hide all products by default */
 			}
