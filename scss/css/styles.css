@@ -211,7 +211,6 @@ iframe {
       -ms-user-select: none;
           user-select: none;
   max-width: 100%;
-  max-height: 100%;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -8414,6 +8413,447 @@ body.sticky-header-off .messages > * {
   .type-product.product-is-natios .sticky-sell {
     display: none;
   }
+}
+
+.in-hodnoceni-obchodu .content-inner {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  grid-template-columns: 3fr 5fr;
+  -webkit-column-gap: var(--description-widget-gap);
+     -moz-column-gap: var(--description-widget-gap);
+          column-gap: var(--description-widget-gap);
+}
+.in-hodnoceni-obchodu .content-inner.no-score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--gap-10);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.in-hodnoceni-obchodu .content-inner.no-score #ratingWrapper {
+  width: 100%;
+}
+.in-hodnoceni-obchodu .content-inner.no-score p[data-testid=textCommentNotice] {
+  font-size: var(--fs-20);
+  color: var(--color-black);
+  text-align: left;
+  margin-right: auto;
+  font-weight: var(--fw-700);
+}
+@media screen and (max-width: 1279px) {
+  .in-hodnoceni-obchodu .content-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: var(--gap-10);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+.in-hodnoceni-obchodu .content-inner #ratingWrapper {
+  background-color: var(--color-gray-400);
+  border-radius: var(--br-16);
+  padding: 40px 40px 55px 40px;
+}
+.in-hodnoceni-obchodu .content-inner #ratingWrapper.unveiled .add-comment {
+  display: none;
+}
+@media screen and (max-width: 1279px) {
+  .in-hodnoceni-obchodu .content-inner #ratingWrapper {
+    width: 100%;
+    padding: 12px 12px 26px 26px;
+  }
+}
+.in-hodnoceni-obchodu .content-inner .rate-average-wrap {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+.in-hodnoceni-obchodu .content-inner .rate-average-wrap::before {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+}
+.in-hodnoceni-obchodu .content-inner .add-comment {
+  grid-row: 1;
+  grid-column: 2;
+  margin-left: auto;
+  color: var(--color-primary);
+  font-size: var(--fs-16);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.in-hodnoceni-obchodu .content-inner .add-comment:hover, .in-hodnoceni-obchodu .content-inner .add-comment:focus-within {
+  color: var(--color-primary-hover);
+}
+.in-hodnoceni-obchodu .content-inner .add-comment:before {
+  content: "+";
+}
+.in-hodnoceni-obchodu .content-inner .rate-average-inner {
+  grid-row: 2;
+  grid-column: 1/-1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--gap-46);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media screen and (max-width: 1279px) {
+  .in-hodnoceni-obchodu .content-inner .rate-average-inner {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    gap: var(--gap-20);
+  }
+}
+.in-hodnoceni-obchodu .content-inner .rate-average {
+  font-size: var(--fs-48);
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+  line-height: var(--lh-2);
+}
+.in-hodnoceni-obchodu .content-inner .rate-average:after {
+  content: "/ 5";
+  font-size: var(--fs-32);
+  font-weight: var(--fw-400);
+  color: var(--color-black-o-60);
+}
+.in-hodnoceni-obchodu .content-inner .rate-star-wrap {
+  padding-top: var(--gap-12);
+}
+.in-hodnoceni-obchodu .content-inner .rate-star-wrap .star-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+  pointer-events: none;
+  cursor: default;
+  gap: var(--gap-8);
+  margin-bottom: var(--gap-4);
+}
+.in-hodnoceni-obchodu .content-inner .rate-star-wrap .star-list .star {
+  width: 0.692em;
+  height: 0.692em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.in-hodnoceni-obchodu .content-inner .rate-star-wrap .star-list .star.star-on {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+}
+.in-hodnoceni-obchodu .content-inner .rate-star-wrap .star-list .star.star-half {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half.svg");
+}
+.in-hodnoceni-obchodu .content-inner .rate-star-wrap .star-list .star.star-off {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty.svg");
+}
+.in-hodnoceni-obchodu .content-inner .rate-star-wrap .star-list .star {
+  width: var(--fs-20);
+  height: var(--fs-20);
+}
+.in-hodnoceni-obchodu .content-inner .stars-label {
+  pointer-events: none;
+  cursor: default;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-400);
+  color: var(--color-black);
+  text-decoration: none;
+}
+.in-hodnoceni-obchodu .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--gap-12);
+}
+.in-hodnoceni-obchodu .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list {
+  font-size: var(--fs-16);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+}
+.in-hodnoceni-obchodu .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star {
+  width: 0.692em;
+  height: 0.692em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.in-hodnoceni-obchodu .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-on {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+}
+.in-hodnoceni-obchodu .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-half {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half.svg");
+}
+.in-hodnoceni-obchodu .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-off {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty.svg");
+}
+.in-hodnoceni-obchodu .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .stars {
+  display: grid;
+  grid-template-columns: 0.75em 0.75em;
+  gap: var(--gap-4);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+.in-hodnoceni-obchodu .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star {
+  display: block;
+  width: 0.75em;
+  height: 0.75em;
+}
+.in-hodnoceni-obchodu .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-off {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+}
+.in-hodnoceni-obchodu .content-inner .rate-block {
+  width: calc(100% - 5em);
+  padding-left: 0.5em;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.in-hodnoceni-obchodu .content-inner .rate-block:before {
+  grid-row: 1;
+  grid-column: 1;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-white);
+  border-radius: 5px;
+}
+.in-hodnoceni-obchodu .content-inner .rate-block .rate-bar {
+  grid-row: 1;
+  grid-column: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-primary);
+  border-radius: 5px;
+}
+.in-hodnoceni-obchodu .content-inner .rate-block .rate-count {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: calc(100% + 1em);
+  color: var(--color-black-o-60);
+  text-align: left;
+}
+.in-hodnoceni-obchodu .content-inner #rate-form {
+  display: none;
+  padding-top: var(--gap-20);
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: var(--color-black-o-20);
+  margin-top: var(--gap-30);
+}
+.in-hodnoceni-obchodu .content-inner #rate-form.visible {
+  display: block;
+}
+.in-hodnoceni-obchodu .content-inner #rate-form .no-display {
+  display: none;
+}
+.in-hodnoceni-obchodu .content-inner #rate-form input,
+.in-hodnoceni-obchodu .content-inner #rate-form textarea {
+  width: 100%;
+  margin: var(--gap-6) 0;
+}
+.in-hodnoceni-obchodu .content-inner #rate-form input[type=submit] {
+  background-color: var(--color-primary);
+  border-radius: var(--br-16);
+  color: var(--color-white);
+  font-size: var(--fs-18);
+  font-weight: var(--fw-700);
+  padding-bottom: 2px;
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
+          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding: 1.1667em;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  text-align: center;
+  cursor: pointer;
+}
+.in-hodnoceni-obchodu .content-inner #rate-form input[type=submit]:hover {
+  background-color: var(--color-primary-hover);
+}
+.in-hodnoceni-obchodu .content-inner #rate-form .stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+  gap: var(--gap-8);
+  padding-top: var(--gap-8);
+  padding-bottom: var(--gap-16);
+}
+.in-hodnoceni-obchodu .content-inner #rate-form .stars .star {
+  width: 0.692em;
+  height: 0.692em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.in-hodnoceni-obchodu .content-inner #rate-form .stars .star.star-on {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+}
+.in-hodnoceni-obchodu .content-inner #rate-form .stars .star.star-half {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half.svg");
+}
+.in-hodnoceni-obchodu .content-inner #rate-form .stars .star.star-off {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty.svg");
+}
+.in-hodnoceni-obchodu .content-inner #rate-form .stars .star {
+  cursor: pointer;
+  width: 1.25em;
+  height: 1.25em;
+}
+.in-hodnoceni-obchodu .content-inner #rate-form .stars .star:hover {
+  -webkit-transform: scale(1.35);
+          transform: scale(1.35);
+}
+.in-hodnoceni-obchodu .content-inner #rate-form .consents-first {
+  font-size: var(--fs-14);
+  padding-bottom: var(--gap-6);
+}
+.in-hodnoceni-obchodu .content-inner .votes-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--gap-20);
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-black-o-10);
+  border-radius: var(--br-10);
+  padding: var(--gap-20);
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap .stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+  gap: var(--gap-4);
+  padding-top: var(--gap-12);
+  padding-bottom: var(--gap-12);
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap .stars .star {
+  width: 0.692em;
+  height: 0.692em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap .stars .star.star-on {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap .stars .star.star-half {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half.svg");
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap .stars .star.star-off {
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty.svg");
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap .stars .star {
+  width: 0.75em;
+  height: 0.75em;
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap .vote-header {
+  position: relative;
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap .vote-summary {
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .in-hodnoceni-obchodu .content-inner .vote-wrap .vote-summary .vote-rating {
+    padding-top: var(--gap-12);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap .vote-summary .vote-name {
+  font-size: var(--fs-18);
+  font-weight: var(--fw-700);
+}
+.in-hodnoceni-obchodu .content-inner .vote-wrap .vote-summary .vote-time {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: var(--fs-13);
+  color: var(--color-gray-600);
+}
+@media screen and (max-width: 767px) {
+  .in-hodnoceni-obchodu .content-inner .vote-wrap .vote-summary .vote-time {
+    position: relative;
+    inset: 0;
+  }
+}
+.in-hodnoceni-obchodu .content-inner .vote-pic,
+.in-hodnoceni-obchodu .content-inner .no-display,
+.in-hodnoceni-obchodu .content-inner .vote-delimeter {
+  display: none;
+}
+.in-hodnoceni-obchodu .content-inner .load-next-wrap {
+  grid-column: 2;
+  text-align: center;
+  padding-top: var(--gap-20);
+}
+.in-hodnoceni-obchodu .content-inner .load-next-wrap a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.in-hodnoceni-obchodu .content-inner .load-next-wrap a:hover, .in-hodnoceni-obchodu .content-inner .load-next-wrap a:focus-within {
+  color: var(--color-primary-hover);
 }
 
 .type-product.cs .rate-average-wrap:before {

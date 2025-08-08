@@ -2384,6 +2384,136 @@ if (body.classList.contains("in-index")) {
 			productSlider(block);
 		});
 	}
+
+	footerNatiosBanner();
+	function footerNatiosBanner() {
+		let footerBanner = document.querySelector(".footer-banner");
+
+		if (!footerBanner) {
+			console.warn("Footer banner not found.");
+			return;
+		}
+
+		// Modify the header text
+		let headerText = footerBanner.querySelector("img")?.getAttribute("alt");
+		let bannerTexts = footerBanner.querySelector(".extended-banner-texts");
+		if (headerText && bannerTexts) {
+			let headerTextElement = document.createElement("h2");
+			headerTextElement.className = "footer-banner-header";
+			headerTextElement.textContent = headerText;
+			bannerTexts.prepend(headerTextElement);
+		}
+
+		// Modify the extended banner text
+		let extendedBannerTextElement = footerBanner.querySelector(".extended-banner-text");
+		if (extendedBannerTextElement) {
+			let extendedBannerText = extendedBannerTextElement.textContent;
+			extendedBannerTextElement.innerHTML = ""; // Clear existing content
+			let extendedBannerTextUl = document.createElement("ul");
+			extendedBannerTextUl.className = "extended-banner-text-list";
+
+			// Split the text by ";" and create list items
+			extendedBannerText.split(";").forEach((textItem) => {
+				let listItem = document.createElement("li");
+				listItem.textContent = textItem.trim();
+				extendedBannerTextUl.appendChild(listItem);
+			});
+
+			extendedBannerTextElement.appendChild(extendedBannerTextUl);
+		}
+
+		// Move the footer banner after the second products block
+		let allProductsBlocks = document.querySelectorAll(".products-block");
+		if (allProductsBlocks && allProductsBlocks.length >= 2) {
+			allProductsBlocks[1].parentElement.insertAdjacentElement("afterend", footerBanner.parentElement);
+		} else {
+			console.warn("Not enough products blocks to move the footer banner.");
+		}
+	}
+	let hodnoceniObchoduAdded = false;
+	welcomeWrapper();
+	function welcomeWrapper() {
+		let welcomeSection = document.querySelector(".welcome-wrapper .welcome");
+		let welcomeWrapper = document.querySelector(".welcome-wrapper");
+		if (welcomeSection) {
+			let h1Element = welcomeSection.querySelector("h1");
+			let welcomeTexts = welcomeSection.querySelector(".homepage-welcome-texts");
+			if (h1Element && welcomeTexts) {
+				welcomeTexts.prepend(h1Element);
+			}
+			let homepageBlogWrapper = document.querySelector(".homepage-blog-wrapper");
+			if (homepageBlogWrapper && welcomeWrapper) {
+				homepageBlogWrapper.parentNode.insertBefore(welcomeWrapper, homepageBlogWrapper);
+
+				hodnoceniObchodu();
+			} else {
+				console.warn("Homepage blog not found in the wrapper.");
+			}
+		}
+	}
+
+	hodnoceniObchodu();
+	async function hodnoceniObchodu() {
+		if (hodnoceniObchoduAdded) {
+			return;
+		}
+		hodnoceniObchoduAdded = true;
+		const hodnoceniObchoduSection = document.createElement("div");
+		hodnoceniObchoduSection.className = "hodnoceni-obchodu-section";
+
+		const hodnoceniTitle = document.createElement("h2");
+		hodnoceniTitle.className = "hodnoceni-obchodu-title";
+		if (csLang) {
+			hodnoceniTitle.textContent = "Ověřená hodnocení";
+		}
+		if (skLang) {
+			hodnoceniTitle.textContent = "Overené hodnotenia";
+		}
+		if (plLang) {
+			hodnoceniTitle.textContent = "Zweryfikowane opinie";
+		}
+		let welcomeWrapper = document.querySelector(".welcome-wrapper");
+		if (welcomeWrapper) {
+			welcomeWrapper.parentNode.insertBefore(hodnoceniObchoduSection, welcomeWrapper);
+		}
+
+		hodnoceniObchoduSection.appendChild(hodnoceniTitle);
+
+		let fetchAddress;
+		if (csLang) {
+			fetchAddress = "/hodnoceni-obchodu.html"; //pak odstranit HTML
+		}
+		if (skLang) {
+			fetchAddress = "/hodnotenie-obchodu";
+		}
+		if (plLang) {
+			fetchAddress = "/opinie-o-sklepie";
+		}
+
+		//get .content-inner from the adress and append it to the hodnoceniObchoduSection
+		try {
+			const response = await fetch(fetchAddress);
+			if (!response.ok) {
+				throw new Error("Failed to fetch data from the server.");
+			}
+
+			const html = await response.text();
+			const parser = new DOMParser();
+			const doc = parser.parseFromString(html, "text/html");
+			const votesWrap = doc.querySelector(".votes-wrap");
+			const numberOfReviews = doc.querySelector("#ratingWrapper .stars-label");
+
+			if (votesWrap) {
+				hodnoceniObchoduSection.appendChild(numberOfReviews);
+
+				hodnoceniObchoduSection.appendChild(votesWrap);
+			} else {
+				console.warn("No .content-inner found in the fetched content.");
+			}
+		} catch (error) {
+			console.error("Error fetching or processing hodnoceni obchodu:", error);
+		}
+	}
 }
 
 function productSlider(productBlock) {
@@ -2418,7 +2548,7 @@ function productSlider(productBlock) {
 		carouselControlLeft.classList.remove("display-none");
 		scrolledProducts += displayedNumberOfProducts;
 
-		if (scrolledProducts + displayedNumberOfProducts <= totalNumberOfProducts) {
+		if (scrolledProducts + displayedNumberOfProducts < totalNumberOfProducts) {
 			productsInSlider.forEach((item) => {
 				item.style.transform = `translateX(-${100 * scrolledProducts}%)`;
 			});
@@ -2436,7 +2566,7 @@ function productSlider(productBlock) {
 		carouselControlRight.classList.remove("display-none");
 		scrolledProducts -= displayedNumberOfProducts;
 
-		if (scrolledProducts >= 0) {
+		if (scrolledProducts > 0) {
 			productsInSlider.forEach((item) => {
 				item.style.transform = `translateX(-${100 * scrolledProducts}%)`;
 			});
