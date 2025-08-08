@@ -4188,8 +4188,8 @@ body.type-category .category-header > div strong {
 /*-------------------------------------- KONKURENČNÍ VÝHODY BENEFIT BANNER */
 .benefitBanner {
   border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: var(--color-gray-500);
+  border-width: 1px;
+  border-color: var(--color-gray-500);
   margin-top: var(--gap-30);
   padding-top: 50px;
   padding-bottom: 60px;

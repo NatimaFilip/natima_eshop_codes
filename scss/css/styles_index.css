@@ -1,0 +1,223 @@
+@charset "UTF-8";
+/*toto ↓ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
+/*mixinss*/
+/*toto ↑ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
+.in-index .homepage-box.before-carousel {
+  padding-top: 22px;
+}
+.in-index #carousel {
+  position: relative;
+}
+.in-index #carousel .carousel-control {
+  position: absolute;
+  top: 50%;
+  background: var(--color-black);
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 4px;
+  border-color: var(--color-white);
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_white.svg");
+  background-position: calc(50% + 1px) center;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  cursor: pointer;
+}
+.in-index #carousel .carousel-control:hover, .in-index #carousel .carousel-control:focus-within {
+  background-color: var(--color-primary);
+}
+.in-index #carousel .carousel-control.left {
+  left: 0;
+  -webkit-transform: translate(-50%, -50%) rotate(180deg);
+          transform: translate(-50%, -50%) rotate(180deg);
+}
+.in-index #carousel .carousel-control.right {
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+.in-index #carousel .carousel-control span {
+  display: none;
+}
+.in-index #carousel .carousel-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: row;
+      -ms-flex: row;
+          flex: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  min-height: auto !important;
+  margin-left: calc(-1 * var(--gap-20));
+  overflow: hidden;
+}
+.in-index #carousel .carousel-inner .item {
+  padding-left: var(--gap-20);
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  color: var(--color-black);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+.in-index #carousel .carousel-inner .item a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  border-radius: var(--br-16);
+  overflow: hidden;
+}
+.in-index #carousel .carousel-inner .item img {
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+.in-index #carousel .carousel-inner .item .extended-banner-texts {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 10px 30px 33px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  color: inherit;
+}
+.in-index #carousel .carousel-inner .item .extended-banner-title {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-1-4);
+  padding-bottom: 0.375em;
+}
+.in-index #carousel .carousel-inner .item .extended-banner-text {
+  font-size: var(--fs-20);
+  line-height: var(--lh-1-4);
+  padding-bottom: 1.111em;
+}
+.in-index #carousel .carousel-inner .item .extended-banner-link {
+  color: var(--color-white);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-700);
+  line-height: 1;
+  border-radius: var(--br-12);
+  background-color: var(--color-primary);
+  padding-bottom: 2px;
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
+          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding: 1em 1.538em;
+  z-index: 1;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+.in-index #carousel .carousel-inner .item .extended-banner-link:hover, .in-index #carousel .carousel-inner .item .extended-banner-link:focus-within {
+  background-color: var(--color-primary-hover);
+}
+.in-index #carousel .carousel-inner .item:hover img, .in-index #carousel .carousel-inner .item:focus-within img {
+  -webkit-transform: scale(1.025);
+          transform: scale(1.025);
+}
+.in-index #carousel .carousel-inner .item.white {
+  color: var(--color-white);
+}
+.in-index #carousel .carousel-inner .item:first-child {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.in-index .benefitBanner {
+  border-top-style: none;
+  border-bottom-style: solid;
+  margin-top: 0;
+  padding-top: 76px;
+  padding-bottom: 76px;
+  margin-bottom: 37px;
+}
+.in-index .homepage-group-title {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-1-4);
+  padding-bottom: 1em;
+}
+.in-index .products-block-wrapper {
+  position: relative;
+}
+.in-index .products-block-wrapper .carousel-control {
+  position: absolute;
+  top: 50%;
+  background: var(--color-black);
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 4px;
+  border-color: var(--color-white);
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_white.svg");
+  background-position: calc(50% + 1px) center;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  cursor: pointer;
+  top: 35%;
+}
+.in-index .products-block-wrapper .carousel-control:hover, .in-index .products-block-wrapper .carousel-control:focus-within {
+  background-color: var(--color-primary);
+}
+.in-index .products-block-wrapper .carousel-control.left {
+  left: 0;
+  -webkit-transform: translate(-50%, -50%) rotate(180deg);
+          transform: translate(-50%, -50%) rotate(180deg);
+}
+.in-index .products-block-wrapper .carousel-control.right {
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+.in-index .products-block-wrapper .carousel-control span {
+  display: none;
+}
+.in-index .products-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  margin-left: calc(-1 * var(--gap-20));
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+.in-index .products-block > * {
+  -ms-flex-preferred-size: 16.6667%;
+      flex-basis: 16.6667%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  padding-left: var(--gap-20);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}

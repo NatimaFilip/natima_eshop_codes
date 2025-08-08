@@ -2310,3 +2310,133 @@ if (body.classList.contains("type-product")) {
 		}
 	}
 }
+
+/*------------------------------------------------- Index*/
+if (body.classList.contains("in-index")) {
+	let addedSlidingListener = false;
+	carouselSliding();
+	function carouselSliding() {
+		let carousel = document.querySelector("#carousel");
+		if (carousel) {
+			let carouselInner = carousel.querySelector(".carousel-inner");
+			if (!carouselInner) {
+				console.warn("Carousel inner not found.");
+				return; // Exit if carousel inner is not found
+			}
+			let carouselItems = carousel.querySelectorAll(".item");
+			let carouselLeftButton = carousel.querySelector(".carousel-control.left");
+			let carouselRightButton = carousel.querySelector(".carousel-control.right");
+			const initialDisplayedItems = 3; // na desktopu 3 - dvojitý banner
+			if (carouselItems && carouselItems.length <= initialDisplayedItems) {
+				carousel.classList.add("carousel-no-sliding");
+				if (carouselLeftButton) {
+					carouselLeftButton.classList.add("display-none");
+				}
+				if (carouselRightButton) {
+					carouselRightButton.classList.add("display-none");
+				}
+				return;
+			}
+
+			if (!carouselLeftButton || !carouselRightButton) {
+				return; // Exit if buttons are not found
+			}
+			carouselLeftButton.classList.add("display-none");
+			const maxNumberOfItems = 7;
+
+			let totalItems = Math.min(carouselItems.length, maxNumberOfItems); // Limit totalItems to maxNumberOfItems
+
+			const transformIncrement = totalItems - initialDisplayedItems;
+			console.log("Transform increment:", transformIncrement);
+			carouselLeftButton.addEventListener("click", function () {
+				carouselRightButton.classList.remove("display-none");
+				carouselLeftButton.classList.add("display-none");
+				carouselItems.forEach((item) => {
+					item.style.transform = "translateX(0)";
+				});
+			});
+			carouselRightButton.addEventListener("click", function () {
+				carouselRightButton.classList.add("display-none");
+				carouselLeftButton.classList.remove("display-none");
+				carouselItems.forEach((item, index) => {
+					if (index == 0) {
+						item.style.transform = `translateX(-${(transformIncrement * 100) / 2}%)`;
+					} else {
+						item.style.transform = `translateX(-${transformIncrement * 100}%)`;
+					}
+				});
+			});
+		}
+	}
+	let allProductsBlocks = document.querySelectorAll(".products-block");
+	if (allProductsBlocks && allProductsBlocks.length > 0) {
+		allProductsBlocks.forEach((block) => {
+			productSlider(block);
+		});
+	}
+}
+
+function productSlider(productBlock) {
+	//wrap product in product-block-wrapper
+	let productsBlockWrapper = document.createElement("div");
+	productsBlockWrapper.classList.add("products-block-wrapper");
+	productBlock.parentNode.insertBefore(productsBlockWrapper, productBlock);
+	productsBlockWrapper.appendChild(productBlock);
+
+	let productsInSlider = productBlock.querySelectorAll(".product");
+
+	let productWidth = getComputedStyle(productsInSlider[0]).getPropertyValue("flex-basis");
+	productWidth = parseFloat(productWidth) || productWidth.replace("%", ""); // Convert to number and remove percentage sign if present
+
+	const displayedNumberOfProducts = Math.round(100 / productWidth);
+
+	const totalNumberOfProducts = productsInSlider.length;
+	if (totalNumberOfProducts <= displayedNumberOfProducts) {
+		return;
+	}
+
+	let scrolledProducts = 0;
+
+	const carouselControlLeft = document.createElement("div");
+	carouselControlLeft.classList.add("carousel-control", "left", "display-none");
+	const carouselControlRight = document.createElement("div");
+	carouselControlRight.classList.add("carousel-control", "right");
+	productsBlockWrapper.appendChild(carouselControlLeft);
+	productsBlockWrapper.appendChild(carouselControlRight);
+
+	carouselControlRight.addEventListener("click", function () {
+		carouselControlLeft.classList.remove("display-none");
+		scrolledProducts += displayedNumberOfProducts;
+
+		if (scrolledProducts + displayedNumberOfProducts <= totalNumberOfProducts) {
+			productsInSlider.forEach((item) => {
+				item.style.transform = `translateX(-${100 * scrolledProducts}%)`;
+			});
+		} else {
+			scrolledProducts = totalNumberOfProducts - displayedNumberOfProducts;
+			productsInSlider.forEach((item) => {
+				item.style.transform = `translateX(-${100 * (totalNumberOfProducts - displayedNumberOfProducts)}%)`;
+			});
+			carouselControlRight.classList.add("display-none");
+		}
+	});
+
+	carouselControlLeft.addEventListener("click", function () {
+		console.log("Scrolled products before:", scrolledProducts);
+		carouselControlRight.classList.remove("display-none");
+		scrolledProducts -= displayedNumberOfProducts;
+
+		if (scrolledProducts >= 0) {
+			productsInSlider.forEach((item) => {
+				item.style.transform = `translateX(-${100 * scrolledProducts}%)`;
+			});
+		} else {
+			scrolledProducts = 0;
+			productsInSlider.forEach((item) => {
+				item.style.transform = `translateX(0)`;
+			});
+			carouselControlLeft.classList.add("display-none");
+		}
+		console.log("Scrolled products after:", scrolledProducts);
+	});
+}

@@ -232,6 +232,39 @@ $desktop-large-min: 1680px;
 	}
 }
 
+@mixin slider-controls {
+	position: absolute;
+	top: 50%;
+	background: var(--color-black);
+	width: 3.25rem;
+	height: 3.25rem;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 4px;
+	border-color: var(--color-white);
+	background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_white.svg");
+	background-position: calc(50% + 1px) center;
+	background-repeat: no-repeat;
+	background-size: 25%;
+	transition: background-color 0.2s ease-out;
+	cursor: pointer;
+	&:hover,
+	&:focus-within {
+		background-color: var(--color-primary);
+	}
+	&.left {
+		left: 0;
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+	&.right {
+		right: 0;
+		transform: translate(50%, -50%);
+	}
+	span {
+		display: none;
+	}
+}
+
 /*variables*/
 :root {
 	--ff-m: "Inter", sans-serif;
@@ -3704,8 +3737,8 @@ body.type-category {
 /*-------------------------------------- KONKURENČNÍ VÝHODY BENEFIT BANNER */
 .benefitBanner {
 	border-top-style: solid;
-	border-top-width: 1px;
-	border-top-color: var(--color-gray-500);
+	border-width: 1px;
+	border-color: var(--color-gray-500);
 	margin-top: var(--gap-30);
 	padding-top: 50px;
 	padding-bottom: 60px;
