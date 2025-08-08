@@ -2324,6 +2324,16 @@ if (body.classList.contains("in-index")) {
 				return; // Exit if carousel inner is not found
 			}
 			let carouselItems = carousel.querySelectorAll(".item");
+
+			if (carouselItems && carouselItems.length >= 0 && indexesOfWhiteBanners) {
+				carouselItems.forEach((item, index) => {
+					if (indexesOfWhiteBanners.includes(index)) {
+						item.classList.add("white");
+					} else {
+						item.classList.remove("white");
+					}
+				});
+			}
 			let carouselLeftButton = carousel.querySelector(".carousel-control.left");
 			let carouselRightButton = carousel.querySelector(".carousel-control.right");
 			const initialDisplayedItems = 3; // na desktopu 3 - dvojitý banner

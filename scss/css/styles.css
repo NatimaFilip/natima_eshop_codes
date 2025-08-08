@@ -5621,6 +5621,9 @@ body.type-category .category-header > div strong {
 #footer .footer-final-block .footer-vydejni-mista .footer-vydejni-mista-texts p {
   font-size: var(--fs-13);
 }
+#footer .footer-final-block .footer-vydejni-mista .footer-vydejni-mista-map {
+  padding: 20px;
+}
 #footer .footer-final-block .footer-vydejni-mista .footer-vydejni-mista-dopravci {
   display: -webkit-box;
   display: -ms-flexbox;
