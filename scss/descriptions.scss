@@ -609,3 +609,97 @@ body {
 }
 
 /*Natima directions pc*/
+
+/*-----------------------------------------------------------------------NATIOS*/
+/*natios descriptions*/
+body {
+	.product-widgets {
+		.natios-transparent-product-image {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: var(--description-widget-gap);
+
+			.description-image-container {
+				padding: 0 5%;
+				img {
+					max-width: 100%;
+					max-height: 400px;
+					height: auto;
+					width: auto;
+				}
+			}
+		}
+		.natios-lifestyle-product-image {
+			display: flex;
+			flex-direction: column;
+
+			gap: var(--description-widget-gap);
+
+			.description-image-container {
+				padding: 0;
+				img {
+					max-width: 100%;
+					width: auto;
+					height: auto;
+					border-radius: var(--br-10);
+				}
+			}
+		}
+	}
+}
+
+/*natios descriptions pc*/
+@media screen and (min-width: $tablet-min) {
+	body:not(.mobile-view) {
+		.product-widgets {
+			.natios-transparent-product-image {
+				display: block;
+				position: relative;
+				--image-width: 1fr;
+
+				.description-image-container {
+					position: absolute;
+					top: 0;
+					height: 100%;
+					width: var(--image-width);
+					display: flex;
+					justify-content: center;
+					align-items: flex-start;
+
+					padding: calc(var(--description-widget-gap) / 2) var(--description-widget-gap);
+					img {
+						max-width: 100%;
+						max-height: 100%;
+						height: auto;
+						width: auto;
+					}
+				}
+			}
+
+			.natios-lifestyle-product-image {
+				display: grid;
+				align-items: center;
+				gap: var(--description-widget-gap);
+
+				&.image-on-right {
+					grid-template-columns: 1fr var(--image-width);
+				}
+				&.image-on-left {
+					grid-template-columns: var(--image-width) 1fr;
+					.description-image-container {
+						order: -1;
+					}
+				}
+				.description-image-container {
+					img {
+						max-width: 100%;
+						max-height: 100%;
+						height: auto;
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+}
