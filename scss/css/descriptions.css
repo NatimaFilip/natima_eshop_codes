@@ -597,26 +597,45 @@ body .product-widgets .with-icon.widget-ingredients h3::before {
 /*-----------------------------------------------------------------------NATIOS*/
 /*natios descriptions*/
 body .product-widgets .natios-transparent-product-image {
+  display: block;
+  position: relative;
+  --image-width: 37%;
+}
+body .product-widgets .natios-transparent-product-image .description-image-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: var(--image-width);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: var(--description-widget-gap);
-}
-body .product-widgets .natios-transparent-product-image .description-image-container {
-  padding: 0 5%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: calc(var(--description-widget-gap) / 2) var(--description-widget-gap);
 }
 body .product-widgets .natios-transparent-product-image .description-image-container img {
   max-width: 100%;
-  max-height: 400px;
+  max-height: 100%;
   height: auto;
   width: auto;
+}
+body .product-widgets .natios-transparent-product-image.image-on-right .editable-content {
+  padding-right: var(--image-width);
+}
+body .product-widgets .natios-transparent-product-image.image-on-right .description-image-container {
+  right: 0;
+  left: auto;
+}
+body .product-widgets .natios-transparent-product-image.image-on-left .editable-content {
+  padding-left: var(--image-width);
+}
+body .product-widgets .natios-transparent-product-image.image-on-left .description-image-container {
+  left: 0;
+  right: auto;
 }
 body .product-widgets .natios-lifestyle-product-image {
   display: -webkit-box;
