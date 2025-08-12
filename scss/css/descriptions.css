@@ -683,7 +683,6 @@ body .product-widgets .natios-lifestyle-product-image .description-image-contain
   body:not(.mobile-view) .product-widgets .natios-transparent-product-image .description-image-container img {
     max-width: 100%;
     max-height: 100%;
-    min-width: 100%;
     height: auto;
     width: auto;
   }
