@@ -611,6 +611,7 @@ body {
 /*Natima directions pc*/
 
 /*-----------------------------------------------------------------------NATIOS*/
+
 /*natios descriptions*/
 body {
 	.product-widgets {
@@ -656,7 +657,7 @@ body {
 			.natios-transparent-product-image {
 				display: block;
 				position: relative;
-				--image-width: 1fr;
+				--image-width: 37%;
 
 				.description-image-container {
 					position: absolute;
@@ -681,6 +682,7 @@ body {
 				display: grid;
 				align-items: center;
 				gap: var(--description-widget-gap);
+				--image-width: 1fr;
 
 				&.image-on-right {
 					grid-template-columns: 1fr var(--image-width);
