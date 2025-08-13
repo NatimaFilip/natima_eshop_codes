@@ -799,16 +799,24 @@ body {
 			.natios-icons-flex {
 				flex-direction: row;
 				flex-wrap: wrap;
+				margin-left: calc(var(--description-widget-gap) / -1);
+				column-gap: 0;
+				row-gap: var(--description-widget-gap);
+				justify-content: center;
+				> * {
+					padding-left: var(--description-widget-gap);
+				}
+
 				&.natios-icons-flex-3 {
 					> * {
-						flex-basis: calc(33.33% - var(--description-widget-gap) / 6);
-						width: calc(33.33% - var(--description-widget-gap) / 6);
+						flex-basis: 33.33%;
+						width: 33.33%;
 					}
 				}
 				&.natios-icons-flex-2 {
 					> * {
-						flex-basis: calc(50% - var(--description-widget-gap) / 2);
-						width: calc(50% - var(--description-widget-gap) / 2);
+						flex-basis: 50%;
+						width: 50%;
 					}
 				}
 			}
