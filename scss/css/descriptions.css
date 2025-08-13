@@ -656,6 +656,56 @@ body .product-widgets .natios-lifestyle-product-image .description-image-contain
   height: auto;
   border-radius: var(--br-10);
 }
+body .product-widgets .natios-icons-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--description-widget-gap);
+}
+body .product-widgets .natios-icons-flex .description-icon-container-with-text {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
+  gap: 1em;
+}
+body .product-widgets .natios-icons-flex .product-icon-wrapper {
+  width: 57px;
+  height: 57px;
+  padding: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: blue;
+  border-radius: var(--br-10);
+}
+body .product-widgets .natios-icons-flex .product-icon-wrapper .product-icon {
+  width: 100%;
+  height: 100%;
+}
+body .product-widgets .natios-icons-flex.large-flex .description-icon-container-with-text {
+  gap: var(--description-widget-gap);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+}
+body .product-widgets .natios-icons-flex.small-flex .description-icon-container-with-text {
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
+  gap: 1em;
+}
 
 /*natios descriptions pc*/
 @media screen and (min-width: 768px) {
