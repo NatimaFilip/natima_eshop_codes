@@ -679,6 +679,7 @@ body .product-widgets .natios-icons-flex .description-icon-container-with-text {
           align-items: center;
   font-size: var(--fs-14);
   font-weight: var(--fw-700);
+  line-height: 1;
   gap: 1em;
 }
 body .product-widgets .natios-icons-flex .product-icon-wrapper {
@@ -784,6 +785,10 @@ body .product-widgets .natios-icons-flex.small-flex .description-icon-container-
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   body:not(.mobile-view) .product-widgets .natios-lifestyle-product-image .description-image-container {
     height: 100%;
@@ -839,5 +844,9 @@ body .product-widgets .natios-icons-flex.small-flex .description-icon-container-
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
     width: 50%;
+  }
+  body:not(.mobile-view) .product-widgets .natios-icons-flex.small-flex {
+    row-gap: var(--description-widget-gap-biggest);
+    padding-top: 30px;
   }
 }

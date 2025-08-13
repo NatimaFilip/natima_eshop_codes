@@ -685,6 +685,7 @@ body {
 				align-items: center;
 				font-size: var(--fs-14);
 				font-weight: var(--fw-700);
+				line-height: 1;
 				gap: 1em;
 			}
 			.product-icon-wrapper {
@@ -780,6 +781,7 @@ body {
 					height: 100%;
 					display: flex;
 					align-items: center;
+					flex-direction: column;
 				}
 
 				.description-image-container {
@@ -824,6 +826,10 @@ body {
 						flex-basis: 50%;
 						width: 50%;
 					}
+				}
+				&.small-flex {
+					row-gap: var(--description-widget-gap-biggest);
+					padding-top: 30px;
 				}
 			}
 		}
