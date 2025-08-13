@@ -782,6 +782,7 @@ body {
 					display: flex;
 					align-items: center;
 					flex-direction: column;
+					justify-content: center;
 				}
 
 				.description-image-container {
@@ -828,7 +829,7 @@ body {
 					}
 				}
 				&.small-flex {
-					row-gap: var(--description-widget-gap-biggest);
+					row-gap: var(--description-widget-gap-bigger);
 					padding-top: 30px;
 				}
 			}

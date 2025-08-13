@@ -789,6 +789,9 @@ body .product-widgets .natios-icons-flex.small-flex .description-icon-container-
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   body:not(.mobile-view) .product-widgets .natios-lifestyle-product-image .description-image-container {
     height: 100%;
@@ -846,7 +849,7 @@ body .product-widgets .natios-icons-flex.small-flex .description-icon-container-
     width: 50%;
   }
   body:not(.mobile-view) .product-widgets .natios-icons-flex.small-flex {
-    row-gap: var(--description-widget-gap-biggest);
+    row-gap: var(--description-widget-gap-bigger);
     padding-top: 30px;
   }
 }
