@@ -596,6 +596,10 @@ body .product-widgets .with-icon.widget-ingredients h3::before {
 /*Natima directions pc*/
 /*-----------------------------------------------------------------------NATIOS*/
 /*natios descriptions*/
+body .product-widgets {
+  --color-gradient-1: #002376;
+  --color-gradient-2: #002aa7;
+}
 body .product-widgets .natios-transparent-product-image {
   display: block;
   position: relative;
@@ -690,12 +694,23 @@ body .product-widgets .natios-icons-flex .product-icon-wrapper {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: blue;
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-gradient-1)), to(var(--color-gradient-2)));
+  background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
   border-radius: var(--br-10);
 }
 body .product-widgets .natios-icons-flex .product-icon-wrapper .product-icon {
   width: 100%;
   height: 100%;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 body .product-widgets .natios-icons-flex.large-flex .description-icon-container-with-text {
   gap: var(--description-widget-gap);
