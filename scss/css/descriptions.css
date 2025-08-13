@@ -667,8 +667,9 @@ body .product-widgets .natios-icons-flex {
   gap: var(--description-widget-gap);
 }
 body .product-widgets .natios-icons-flex .description-icon-container-with-text {
+  width: 100%;
   display: grid;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: auto 1fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -677,8 +678,8 @@ body .product-widgets .natios-icons-flex .description-icon-container-with-text {
   gap: 1em;
 }
 body .product-widgets .natios-icons-flex .product-icon-wrapper {
-  width: 57px;
-  height: 57px;
+  width: 58px;
+  height: 58px;
   padding: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -700,6 +701,11 @@ body .product-widgets .natios-icons-flex.large-flex .description-icon-container-
   gap: var(--description-widget-gap);
   font-size: var(--fs-16);
   font-weight: var(--fw-700);
+}
+body .product-widgets .natios-icons-flex.large-flex .product-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  padding: 14px;
 }
 body .product-widgets .natios-icons-flex.small-flex .description-icon-container-with-text {
   font-size: var(--fs-14);
@@ -789,5 +795,23 @@ body .product-widgets .natios-icons-flex.small-flex .description-icon-container-
     width: auto;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+  body:not(.mobile-view) .product-widgets .natios-icons-flex {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  body:not(.mobile-view) .product-widgets .natios-icons-flex.natios-icons-flex-3 > * {
+    -ms-flex-preferred-size: calc(33.33% - var(--description-widget-gap) / 6);
+        flex-basis: calc(33.33% - var(--description-widget-gap) / 6);
+    width: calc(33.33% - var(--description-widget-gap) / 6);
+  }
+  body:not(.mobile-view) .product-widgets .natios-icons-flex.natios-icons-flex-2 > * {
+    -ms-flex-preferred-size: calc(50% - var(--description-widget-gap) / 2);
+        flex-basis: calc(50% - var(--description-widget-gap) / 2);
+    width: calc(50% - var(--description-widget-gap) / 2);
   }
 }
