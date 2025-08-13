@@ -600,6 +600,9 @@ body .product-widgets {
   --color-gradient-1: #002376;
   --color-gradient-2: #002aa7;
 }
+body .product-widgets ul li::before {
+  background: var(--color-gradient-1);
+}
 body .product-widgets .natios-transparent-product-image {
   display: block;
   position: relative;
@@ -727,6 +730,47 @@ body .product-widgets .natios-icons-flex.small-flex .description-icon-container-
   font-size: var(--fs-14);
   font-weight: var(--fw-700);
   gap: 1em;
+}
+body .product-widgets .natios-compare-wrapper {
+  overflow: hidden;
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-gradient-1)), to(var(--color-gradient-2)));
+  background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+}
+body .product-widgets .natios-compare {
+  display: grid;
+  grid-template-columns: repeat(auto, 80%);
+  overflow-x: auto;
+}
+body .product-widgets .natios-compare.items-2 {
+  grid-template-columns: repeat(2, 80%);
+}
+body .product-widgets .natios-compare.items-3 {
+  grid-template-columns: repeat(3, 80%);
+}
+body .product-widgets .natios-compare.items-4 {
+  grid-template-columns: repeat(4, 80%);
+}
+body .product-widgets .natios-compare > * {
+  grid-column: 1/-1;
+}
+body .product-widgets .natios-compare .compare-title {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  color: var(--color-white);
+}
+body .product-widgets .natios-compare .compare-names {
+  font-size: var(--fs-18);
+  font-weight: var(--fw-700);
+  color: var(--color-white);
+}
+body .product-widgets .natios-compare .compare-texts {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-500);
+  color: var(--color-white);
+}
+body .product-widgets .natios-compare .compare-texts a {
+  color: var(--color-white);
+  text-decoration: underline;
 }
 
 /*natios descriptions pc*/

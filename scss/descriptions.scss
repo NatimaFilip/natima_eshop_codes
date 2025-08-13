@@ -617,6 +617,9 @@ body {
 	.product-widgets {
 		--color-gradient-1: #002376;
 		--color-gradient-2: #002aa7;
+		ul li::before {
+			background: var(--color-gradient-1);
+		}
 		.natios-transparent-product-image {
 			display: block;
 			position: relative;
@@ -723,6 +726,50 @@ body {
 					font-size: var(--fs-14);
 					font-weight: var(--fw-700);
 					gap: 1em;
+				}
+			}
+		}
+		.natios-compare-wrapper {
+			overflow: hidden;
+			background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+		}
+		.natios-compare {
+			display: grid;
+			grid-template-columns: repeat(auto, 80%);
+			overflow-x: auto;
+
+			&.items-2 {
+				grid-template-columns: repeat(2, 80%);
+			}
+			&.items-3 {
+				grid-template-columns: repeat(3, 80%);
+			}
+			&.items-4 {
+				grid-template-columns: repeat(4, 80%);
+			}
+			> * {
+				grid-column: 1/-1;
+			}
+
+			.compare-title {
+				font-size: var(--fs-24);
+				font-weight: var(--fw-700);
+				color: var(--color-white);
+			}
+			.compare-images {
+			}
+			.compare-names {
+				font-size: var(--fs-18);
+				font-weight: var(--fw-700);
+				color: var(--color-white);
+			}
+			.compare-texts {
+				font-size: var(--fs-16);
+				font-weight: var(--fw-500);
+				color: var(--color-white);
+				a {
+					color: var(--color-white);
+					text-decoration: underline;
 				}
 			}
 		}
