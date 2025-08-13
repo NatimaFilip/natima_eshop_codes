@@ -738,17 +738,36 @@ body {
 			grid-template-columns: repeat(auto, 80%);
 			overflow-x: auto;
 
+			> *,
+			.editable-content,
+			.editable-content > div.tiptap {
+				display: grid;
+				grid-column: 1/-1;
+			}
+
 			&.items-2 {
 				grid-template-columns: repeat(2, 80%);
+				> *,
+				.editable-content,
+				.editable-content > div.tiptap {
+					grid-template-columns: 50% 50%;
+				}
 			}
 			&.items-3 {
 				grid-template-columns: repeat(3, 80%);
+				> *,
+				.editable-content,
+				.editable-content > div.tiptap {
+					grid-template-columns: 33.33% 33.33% 33.33%;
+				}
 			}
-			&.items-4 {
+			&.items-4,
+			.editable-content,
+			.editable-content > div.tiptap {
 				grid-template-columns: repeat(4, 80%);
-			}
-			> * {
-				grid-column: 1/-1;
+				> * {
+					grid-template-columns: 25% 25% 25% 25%;
+				}
 			}
 
 			.compare-title {

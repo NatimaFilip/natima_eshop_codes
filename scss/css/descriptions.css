@@ -741,17 +741,37 @@ body .product-widgets .natios-compare {
   grid-template-columns: repeat(auto, 80%);
   overflow-x: auto;
 }
+body .product-widgets .natios-compare > *,
+body .product-widgets .natios-compare .editable-content,
+body .product-widgets .natios-compare .editable-content > div.tiptap {
+  display: grid;
+  grid-column: 1/-1;
+}
 body .product-widgets .natios-compare.items-2 {
   grid-template-columns: repeat(2, 80%);
+}
+body .product-widgets .natios-compare.items-2 > *,
+body .product-widgets .natios-compare.items-2 .editable-content,
+body .product-widgets .natios-compare.items-2 .editable-content > div.tiptap {
+  grid-template-columns: 50% 50%;
 }
 body .product-widgets .natios-compare.items-3 {
   grid-template-columns: repeat(3, 80%);
 }
-body .product-widgets .natios-compare.items-4 {
+body .product-widgets .natios-compare.items-3 > *,
+body .product-widgets .natios-compare.items-3 .editable-content,
+body .product-widgets .natios-compare.items-3 .editable-content > div.tiptap {
+  grid-template-columns: 33.33% 33.33% 33.33%;
+}
+body .product-widgets .natios-compare.items-4,
+body .product-widgets .natios-compare .editable-content,
+body .product-widgets .natios-compare .editable-content > div.tiptap {
   grid-template-columns: repeat(4, 80%);
 }
-body .product-widgets .natios-compare > * {
-  grid-column: 1/-1;
+body .product-widgets .natios-compare.items-4 > *,
+body .product-widgets .natios-compare .editable-content > *,
+body .product-widgets .natios-compare .editable-content > div.tiptap > * {
+  grid-template-columns: 25% 25% 25% 25%;
 }
 body .product-widgets .natios-compare .compare-title {
   font-size: var(--fs-24);
