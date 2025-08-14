@@ -771,15 +771,13 @@ body .product-widgets .natios-compare.items-3 .editable-content,
 body .product-widgets .natios-compare.items-3 .editable-content > div.tiptap {
   grid-template-columns: 33.33% 33.33% 33.33%;
 }
-body .product-widgets .natios-compare.items-4,
-body .product-widgets .natios-compare .editable-content,
-body .product-widgets .natios-compare .editable-content > div.tiptap {
+body .product-widgets .natios-compare.items-4 {
   grid-template-columns: repeat(4, 80%);
   --columns: 4;
 }
 body .product-widgets .natios-compare.items-4 > *,
-body .product-widgets .natios-compare .editable-content > *,
-body .product-widgets .natios-compare .editable-content > div.tiptap > * {
+body .product-widgets .natios-compare.items-4 .editable-content,
+body .product-widgets .natios-compare.items-4 .editable-content > div.tiptap {
   grid-template-columns: 25% 25% 25% 25%;
 }
 body .product-widgets .natios-compare h4,
@@ -842,6 +840,9 @@ body .product-widgets .natios-compare .compare-names {
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
   color: var(--color-white);
+}
+body .product-widgets .natios-compare .compare-names h4 {
+  color: inherit;
 }
 body .product-widgets .natios-compare .compare-texts {
   font-size: var(--fs-16);
