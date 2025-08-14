@@ -753,6 +753,35 @@ body .product-widgets .natios-compare .editable-content > div.tiptap {
           align-items: center;
   grid-column: 1/-1;
 }
+body .product-widgets .natios-compare.items-2 {
+  grid-template-columns: repeat(2, 80%);
+  --columns: 2;
+}
+body .product-widgets .natios-compare.items-2 > *,
+body .product-widgets .natios-compare.items-2 .editable-content,
+body .product-widgets .natios-compare.items-2 .editable-content > div.tiptap {
+  grid-template-columns: 50% 50%;
+}
+body .product-widgets .natios-compare.items-3 {
+  grid-template-columns: repeat(3, 80%);
+  --columns: 3;
+}
+body .product-widgets .natios-compare.items-3 > *,
+body .product-widgets .natios-compare.items-3 .editable-content,
+body .product-widgets .natios-compare.items-3 .editable-content > div.tiptap {
+  grid-template-columns: 33.33% 33.33% 33.33%;
+}
+body .product-widgets .natios-compare.items-4,
+body .product-widgets .natios-compare .editable-content,
+body .product-widgets .natios-compare .editable-content > div.tiptap {
+  grid-template-columns: repeat(4, 80%);
+  --columns: 4;
+}
+body .product-widgets .natios-compare.items-4 > *,
+body .product-widgets .natios-compare .editable-content > *,
+body .product-widgets .natios-compare .editable-content > div.tiptap > * {
+  grid-template-columns: 25% 25% 25% 25%;
+}
 body .product-widgets .natios-compare h4,
 body .product-widgets .natios-compare p {
   position: relative;
@@ -774,38 +803,28 @@ body .product-widgets .natios-compare p {
 body .product-widgets .natios-compare h4::after,
 body .product-widgets .natios-compare p::after {
   content: "";
+  display: none;
   position: absolute;
-  width: 100%;
+  width: calc(100% * var(--columns));
   height: 1px;
   bottom: 0;
   left: 0;
   background: radial-gradient(circle, var(--color-compare) 0%, transparent 80%);
 }
-body .product-widgets .natios-compare.items-2 {
-  grid-template-columns: repeat(2, 80%);
+body .product-widgets .natios-compare .compare-names > h4:first-of-type::after {
+  display: block;
 }
-body .product-widgets .natios-compare.items-2 > *,
-body .product-widgets .natios-compare.items-2 .editable-content,
-body .product-widgets .natios-compare.items-2 .editable-content > div.tiptap {
-  grid-template-columns: 50% 50%;
+body .product-widgets .natios-compare.items-2 .compare-texts > p:nth-of-type(2n + 1)::after,
+body .product-widgets .natios-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after {
+  display: block;
 }
-body .product-widgets .natios-compare.items-3 {
-  grid-template-columns: repeat(3, 80%);
+body .product-widgets .natios-compare.items-3 .compare-texts > p:nth-of-type(3n-2)::after,
+body .product-widgets .natios-compare.items-3 .compare-texts > .editable-content > p:nth-of-type(3n-2)::after {
+  display: block;
 }
-body .product-widgets .natios-compare.items-3 > *,
-body .product-widgets .natios-compare.items-3 .editable-content,
-body .product-widgets .natios-compare.items-3 .editable-content > div.tiptap {
-  grid-template-columns: 33.33% 33.33% 33.33%;
-}
-body .product-widgets .natios-compare.items-4,
-body .product-widgets .natios-compare .editable-content,
-body .product-widgets .natios-compare .editable-content > div.tiptap {
-  grid-template-columns: repeat(4, 80%);
-}
-body .product-widgets .natios-compare.items-4 > *,
-body .product-widgets .natios-compare .editable-content > *,
-body .product-widgets .natios-compare .editable-content > div.tiptap > * {
-  grid-template-columns: 25% 25% 25% 25%;
+body .product-widgets .natios-compare.items-4 .compare-texts > p:nth-of-type(4n-3)::after,
+body .product-widgets .natios-compare.items-4 .compare-texts > .editable-content > p:nth-of-type(4n-3)::after {
+  display: block;
 }
 body .product-widgets .natios-compare .compare-title {
   display: block;

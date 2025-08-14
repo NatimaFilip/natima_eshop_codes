@@ -749,6 +749,34 @@ body {
 				grid-column: 1/-1;
 			}
 
+			&.items-2 {
+				grid-template-columns: repeat(2, 80%);
+				--columns: 2;
+				> *,
+				.editable-content,
+				.editable-content > div.tiptap {
+					grid-template-columns: 50% 50%;
+				}
+			}
+			&.items-3 {
+				grid-template-columns: repeat(3, 80%);
+				--columns: 3;
+				> *,
+				.editable-content,
+				.editable-content > div.tiptap {
+					grid-template-columns: 33.33% 33.33% 33.33%;
+				}
+			}
+			&.items-4,
+			.editable-content,
+			.editable-content > div.tiptap {
+				grid-template-columns: repeat(4, 80%);
+				--columns: 4;
+				> * {
+					grid-template-columns: 25% 25% 25% 25%;
+				}
+			}
+
 			h4,
 			p {
 				position: relative;
@@ -762,37 +790,50 @@ body {
 				justify-content: center;
 				&::after {
 					content: "";
+					display: none;
 					position: absolute;
-					width: 100%;
+					width: calc(100% * var(--columns));
 					height: 1px;
 					bottom: 0;
 					left: 0;
 					background: radial-gradient(circle, var(--color-compare) 0%, transparent 80%);
 				}
 			}
-
+			.compare-names {
+				> h4:first-of-type {
+					&::after {
+						display: block;
+					}
+				}
+			}
 			&.items-2 {
-				grid-template-columns: repeat(2, 80%);
-				> *,
-				.editable-content,
-				.editable-content > div.tiptap {
-					grid-template-columns: 50% 50%;
+				.compare-texts,
+				.compare-texts > .editable-content {
+					> p:nth-of-type(2n + 1) {
+						&::after {
+							display: block;
+						}
+					}
 				}
 			}
 			&.items-3 {
-				grid-template-columns: repeat(3, 80%);
-				> *,
-				.editable-content,
-				.editable-content > div.tiptap {
-					grid-template-columns: 33.33% 33.33% 33.33%;
+				.compare-texts,
+				.compare-texts > .editable-content {
+					> p:nth-of-type(3n-2) {
+						&::after {
+							display: block;
+						}
+					}
 				}
 			}
-			&.items-4,
-			.editable-content,
-			.editable-content > div.tiptap {
-				grid-template-columns: repeat(4, 80%);
-				> * {
-					grid-template-columns: 25% 25% 25% 25%;
+			&.items-4 {
+				.compare-texts,
+				.compare-texts > .editable-content {
+					> p:nth-of-type(4n-3) {
+						&::after {
+							display: block;
+						}
+					}
 				}
 			}
 
