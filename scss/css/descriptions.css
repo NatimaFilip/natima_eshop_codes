@@ -1001,22 +1001,24 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
 body .product-widgets .natios-analysis table {
   background: transparent;
 }
-body .product-widgets .natios-analysis table tr {
+body .product-widgets .natios-analysis table tr th {
   background: var(--color-white);
+  line-height: var(--lh-1-2);
+}
+body .product-widgets .natios-analysis table tr td {
+  line-height: 1;
 }
 body .product-widgets .natios-analysis table tr td,
 body .product-widgets .natios-analysis table tr th {
-  padding-top: 0.625em;
-  padding-bottom: 0.625em;
-  line-height: 1.2;
+  padding: 10px 5px;
 }
 body .product-widgets .natios-analysis table tr > td:first-of-type,
 body .product-widgets .natios-analysis table tr > th:first-of-type {
-  padding-left: 0.625em;
+  padding-left: 10px;
 }
 body .product-widgets .natios-analysis table tr > td:last-of-type,
 body .product-widgets .natios-analysis table tr > th:last-of-type {
-  padding-right: 0.625em;
+  padding-right: 10px;
 }
 
 /*natios descriptions pc*/

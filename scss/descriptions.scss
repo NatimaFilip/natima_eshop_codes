@@ -1017,20 +1017,24 @@ body {
 			table {
 				background: transparent;
 				tr {
-					background: var(--color-white);
+					th {
+						background: var(--color-white);
+						line-height: var(--lh-1-2);
+					}
+					td {
+						line-height: 1;
+					}
 					td,
 					th {
-						padding-top: 0.625em;
-						padding-bottom: 0.625em;
-						line-height: 1.2;
+						padding: 10px 5px;
 					}
 					> td:first-of-type,
 					> th:first-of-type {
-						padding-left: 0.625em;
+						padding-left: 10px;
 					}
 					> td:last-of-type,
 					> th:last-of-type {
-						padding-right: 0.625em;
+						padding-right: 10px;
 					}
 				}
 			}
