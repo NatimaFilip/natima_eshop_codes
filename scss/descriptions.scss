@@ -808,8 +808,8 @@ body {
 				}
 			}
 			&.items-2 {
-				.compare-texts,
-				.compare-texts > .editable-content {
+				.compare-texts > .editable-content,
+				.compare-texts > .editable-content > div.tiptap {
 					> p:nth-of-type(2n + 1) {
 						&::after {
 							display: block;
@@ -818,8 +818,8 @@ body {
 				}
 			}
 			&.items-3 {
-				.compare-texts,
-				.compare-texts > .editable-content {
+				.compare-texts > .editable-content,
+				.compare-texts > .editable-content > div.tiptap {
 					> p:nth-of-type(3n-2) {
 						&::after {
 							display: block;
@@ -828,8 +828,8 @@ body {
 				}
 			}
 			&.items-4 {
-				.compare-texts,
-				.compare-texts > .editable-content {
+				.compare-texts > .editable-content,
+				.compare-texts > .editable-content > div.tiptap {
 					> p:nth-of-type(4n-3) {
 						&::after {
 							display: block;

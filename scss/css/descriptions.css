@@ -812,16 +812,16 @@ body .product-widgets .natios-compare p::after {
 body .product-widgets .natios-compare .compare-names > h4:first-of-type::after {
   display: block;
 }
-body .product-widgets .natios-compare.items-2 .compare-texts > p:nth-of-type(2n + 1)::after,
-body .product-widgets .natios-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after {
+body .product-widgets .natios-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,
+body .product-widgets .natios-compare.items-2 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(2n + 1)::after {
   display: block;
 }
-body .product-widgets .natios-compare.items-3 .compare-texts > p:nth-of-type(3n-2)::after,
-body .product-widgets .natios-compare.items-3 .compare-texts > .editable-content > p:nth-of-type(3n-2)::after {
+body .product-widgets .natios-compare.items-3 .compare-texts > .editable-content > p:nth-of-type(3n-2)::after,
+body .product-widgets .natios-compare.items-3 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(3n-2)::after {
   display: block;
 }
-body .product-widgets .natios-compare.items-4 .compare-texts > p:nth-of-type(4n-3)::after,
-body .product-widgets .natios-compare.items-4 .compare-texts > .editable-content > p:nth-of-type(4n-3)::after {
+body .product-widgets .natios-compare.items-4 .compare-texts > .editable-content > p:nth-of-type(4n-3)::after,
+body .product-widgets .natios-compare.items-4 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(4n-3)::after {
   display: block;
 }
 body .product-widgets .natios-compare .compare-title {
