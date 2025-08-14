@@ -966,6 +966,7 @@ body {
 					.amount-of-tests {
 						display: grid;
 						grid-template-columns: 1fr max-content;
+						column-gap: 28px;
 						font-size: var(--fs-20);
 						color: var(--color-black-200);
 						border-style: solid;
@@ -973,6 +974,10 @@ body {
 						border-color: var(--analysis-color-green);
 						border-radius: var(--br-16);
 						background-color: var(--color-white);
+						.analysis-icon {
+							grid-column: 1;
+							grid-row: 1/-1;
+						}
 						.count-text-top {
 							grid-column: 2;
 							grid-row: 1;
@@ -988,7 +993,7 @@ body {
 						}
 						.count-text-bottom {
 							grid-column: 2;
-							grid-row: 1;
+							grid-row: 2;
 							font-size: var(--fs-20);
 							color: var(--color-black-200);
 						}
