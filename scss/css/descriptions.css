@@ -1008,10 +1008,12 @@ body .product-widgets .natios-analysis table tr td {
   padding-top: 0.625em;
   padding-bottom: 0.625em;
 }
-body .product-widgets .natios-analysis table tr > td:first-of-type {
+body .product-widgets .natios-analysis table tr > td:first-of-type,
+body .product-widgets .natios-analysis table tr > th:first-of-type {
   padding-left: 0.625em;
 }
-body .product-widgets .natios-analysis table tr > td:last-of-type {
+body .product-widgets .natios-analysis table tr > td:last-of-type,
+body .product-widgets .natios-analysis table tr > th:last-of-type {
   padding-right: 0.625em;
 }
 
