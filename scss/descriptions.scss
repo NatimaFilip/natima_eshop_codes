@@ -741,7 +741,10 @@ body {
 			> *,
 			.editable-content,
 			.editable-content > div.tiptap {
+				width: 100%;
 				display: grid;
+				justify-items: center;
+				align-items: center;
 				grid-column: 1/-1;
 			}
 
@@ -771,11 +774,16 @@ body {
 			}
 
 			.compare-title {
+				display: block;
 				font-size: var(--fs-24);
 				font-weight: var(--fw-700);
 				color: var(--color-white);
+				text-align: center;
 			}
 			.compare-images {
+				img {
+					max-width: 75px;
+				}
 			}
 			.compare-names {
 				font-size: var(--fs-18);
@@ -786,6 +794,7 @@ body {
 				font-size: var(--fs-16);
 				font-weight: var(--fw-500);
 				color: var(--color-white);
+				align-items: start;
 				a {
 					color: var(--color-white);
 					text-decoration: underline;

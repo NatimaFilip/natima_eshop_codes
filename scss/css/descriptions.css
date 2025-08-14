@@ -744,7 +744,12 @@ body .product-widgets .natios-compare {
 body .product-widgets .natios-compare > *,
 body .product-widgets .natios-compare .editable-content,
 body .product-widgets .natios-compare .editable-content > div.tiptap {
+  width: 100%;
   display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   grid-column: 1/-1;
 }
 body .product-widgets .natios-compare.items-2 {
@@ -774,9 +779,14 @@ body .product-widgets .natios-compare .editable-content > div.tiptap > * {
   grid-template-columns: 25% 25% 25% 25%;
 }
 body .product-widgets .natios-compare .compare-title {
+  display: block;
   font-size: var(--fs-24);
   font-weight: var(--fw-700);
   color: var(--color-white);
+  text-align: center;
+}
+body .product-widgets .natios-compare .compare-images img {
+  max-width: 75px;
 }
 body .product-widgets .natios-compare .compare-names {
   font-size: var(--fs-18);
@@ -787,6 +797,9 @@ body .product-widgets .natios-compare .compare-texts {
   font-size: var(--fs-16);
   font-weight: var(--fw-500);
   color: var(--color-white);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 body .product-widgets .natios-compare .compare-texts a {
   color: var(--color-white);
