@@ -748,6 +748,14 @@ body {
 				grid-column: 1/-1;
 			}
 
+			h4,
+			p {
+				margin: 0;
+				padding: 1em 0.5em;
+				width: 100%;
+				text-align: center;
+			}
+
 			&.items-2 {
 				grid-template-columns: repeat(2, 80%);
 				> *,
@@ -779,6 +787,8 @@ body {
 				font-weight: var(--fw-700);
 				color: var(--color-white);
 				text-align: center;
+				max-width: 600px;
+				margin: auto;
 			}
 			.compare-images {
 				img {

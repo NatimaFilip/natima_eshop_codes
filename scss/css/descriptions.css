@@ -752,6 +752,13 @@ body .product-widgets .natios-compare .editable-content > div.tiptap {
           align-items: center;
   grid-column: 1/-1;
 }
+body .product-widgets .natios-compare h4,
+body .product-widgets .natios-compare p {
+  margin: 0;
+  padding: 1em 0.5em;
+  width: 100%;
+  text-align: center;
+}
 body .product-widgets .natios-compare.items-2 {
   grid-template-columns: repeat(2, 80%);
 }
@@ -784,6 +791,8 @@ body .product-widgets .natios-compare .compare-title {
   font-weight: var(--fw-700);
   color: var(--color-white);
   text-align: center;
+  max-width: 600px;
+  margin: auto;
 }
 body .product-widgets .natios-compare .compare-images img {
   max-width: 75px;
