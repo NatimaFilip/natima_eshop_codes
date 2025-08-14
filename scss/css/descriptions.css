@@ -1001,6 +1001,9 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
 body .product-widgets .natios-analysis table {
   background: transparent;
 }
+body .product-widgets .natios-analysis table tr {
+  border-color: var(--color-black-o-10);
+}
 body .product-widgets .natios-analysis table tr th {
   background: var(--color-white);
   line-height: var(--lh-1-2);
