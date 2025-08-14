@@ -1016,6 +1016,9 @@ body .product-widgets .natios-compare .compare-texts a {
     overflow-x: auto;
     padding: 1.5em 2.75em 2.75em;
   }
+  body:not(.mobile-view) .product-widgets .natios-compare .compare-images img {
+    max-width: 150px;
+  }
   body:not(.mobile-view) .product-widgets .natios-compare.items-2 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1029,6 +1032,9 @@ body .product-widgets .natios-compare .compare-texts a {
   }
 }
 @media screen and (min-width: 768px) {
+  body:not(.mobile-view) .product-widgets .natios-compare.items-3 .compare-images img {
+    max-width: 125px;
+  }
   body:not(.mobile-view) .product-widgets .natios-compare.items-4 {
     grid-template-columns: repeat(4, 40%);
   }
@@ -1039,7 +1045,7 @@ body .product-widgets .natios-compare .compare-texts a {
   }
 }
 @media screen and (min-width: 768px) {
-  body:not(.mobile-view) .product-widgets .natios-compare .compare-images img {
-    max-width: 150px;
+  body:not(.mobile-view) .product-widgets .natios-compare.items-4 .compare-images img {
+    max-width: 100px;
   }
 }

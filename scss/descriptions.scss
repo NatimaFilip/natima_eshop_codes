@@ -1015,6 +1015,12 @@ body {
 				overflow-x: auto;
 				padding: 1.5em 2.75em 2.75em;
 
+				.compare-images {
+					img {
+						max-width: 150px;
+					}
+				}
+
 				&.items-2 {
 					grid-template-columns: repeat(2, 1fr);
 				}
@@ -1023,16 +1029,21 @@ body {
 					@media screen and (min-width: $desktop-min) {
 						grid-template-columns: repeat(3, 1fr);
 					}
+					.compare-images {
+						img {
+							max-width: 125px;
+						}
+					}
 				}
 				&.items-4 {
 					grid-template-columns: repeat(4, 40%);
 					@media screen and (min-width: $desktop-min) {
 						grid-template-columns: repeat(4, 1fr);
 					}
-				}
-				.compare-images {
-					img {
-						max-width: 150px;
+					.compare-images {
+						img {
+							max-width: 100px;
+						}
 					}
 				}
 			}
