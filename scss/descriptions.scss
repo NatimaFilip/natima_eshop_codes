@@ -733,12 +733,13 @@ body {
 		.natios-compare-wrapper {
 			overflow: hidden;
 			background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+			border-radius: var(--br-10);
 		}
 		.natios-compare {
 			display: grid;
 			grid-template-columns: repeat(auto, 80%);
 			overflow-x: auto;
-			padding: 2.75em;
+			padding: 1.5em 1em 2.75em;
 
 			> *,
 			.editable-content,
@@ -782,11 +783,12 @@ body {
 			p {
 				position: relative;
 				margin: 0;
-				padding: 1em 0.5em;
+				padding: 1em;
 				width: 100%;
 				text-align: center;
-				display: flex;
+				display: block;
 				height: 100%;
+				align-content: center;
 				align-items: center;
 				justify-content: center;
 
@@ -847,9 +849,8 @@ body {
 				text-align: center;
 				max-width: 600px;
 				margin: auto;
-				h3 {
-					padding-bottom: 2em;
-				}
+				padding-bottom: 0;
+				margin-bottom: 1.5em;
 			}
 			.compare-images {
 				padding-bottom: 1em;
@@ -986,6 +987,7 @@ body {
 			.natios-compare {
 				grid-template-columns: repeat(auto, 1fr);
 				overflow-x: auto;
+				padding: 1.5em 2.75em 2.75em;
 
 				&.items-2 {
 					grid-template-columns: repeat(2, 1fr);
