@@ -867,7 +867,7 @@ body .product-widgets .natios-compare .compare-title {
   max-width: 600px;
   margin: auto;
   padding-bottom: 0;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 body .product-widgets .natios-compare .compare-images {
   padding-bottom: 1em;
@@ -909,11 +909,25 @@ body .product-widgets .natios-ingredients h2 {
   font-size: var(--fs-24);
   font-weight: var(--fw-700);
   padding-bottom: 0;
-  margin-bottom: calc(1.5em - var(--description-widget-gap-smaller));
+  margin-bottom: calc(1em - var(--description-widget-gap-smaller));
+}
+body .product-widgets .natios-ingredients.with-short-text h2 {
+  margin: 0;
+  padding-right: 1.5em;
+}
+body .product-widgets .natios-ingredients.with-long-text h2 {
+  margin-bottom: 1em;
+  padding: 0;
+}
+body .product-widgets .natios-ingredients .white-background-text {
+  color: var(--color-black);
 }
 body .product-widgets .natios-ingredients table {
   border-radius: var(--br-16);
   color: var(--color-black);
+}
+body .product-widgets .natios-ingredients ul li::before {
+  background: var(--color-white);
 }
 body .product-widgets .natios-ingredients p,
 body .product-widgets .natios-ingredients span,

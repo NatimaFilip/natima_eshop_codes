@@ -886,7 +886,7 @@ body {
 				max-width: 600px;
 				margin: auto;
 				padding-bottom: 0;
-				margin-bottom: 1.5em;
+				margin-bottom: 1em;
 			}
 			.compare-images {
 				padding-bottom: 1em;
@@ -926,11 +926,30 @@ body {
 				font-size: var(--fs-24);
 				font-weight: var(--fw-700);
 				padding-bottom: 0;
-				margin-bottom: calc(1.5em - var(--description-widget-gap-smaller));
+				margin-bottom: calc(1em - var(--description-widget-gap-smaller));
+			}
+			&.with-short-text {
+				h2 {
+					margin: 0;
+					padding-right: 1.5em;
+				}
+			}
+
+			&.with-long-text {
+				h2 {
+					margin-bottom: 1em;
+					padding: 0;
+				}
+			}
+			.white-background-text {
+				color: var(--color-black);
 			}
 			table {
 				border-radius: var(--br-16);
 				color: var(--color-black);
+			}
+			ul li::before {
+				background: var(--color-white);
 			}
 			p,
 			span,
