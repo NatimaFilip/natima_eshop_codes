@@ -887,6 +887,31 @@ body .product-widgets .natios-compare .compare-texts a {
   color: var(--color-white);
   text-decoration: underline;
 }
+body .product-widgets .natios-ingredients {
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-gradient-1)), to(var(--color-gradient-2)));
+  background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+  border-radius: var(--br-10);
+  padding: 1.5em 1em 2.75em;
+  color: var(--color-white);
+}
+body .product-widgets .natios-ingredients h2 {
+  text-align: center;
+  margin: auto;
+  color: var(--color-white);
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  padding-bottom: 0;
+  margin-bottom: 1.5em;
+}
+body .product-widgets .natios-ingredients table {
+  border-radius: var(--br-16);
+  color: var(--color-black);
+}
+body .product-widgets .natios-ingredients p,
+body .product-widgets .natios-ingredients span,
+body .product-widgets .natios-ingredients a {
+  color: inherit;
+}
 
 /*natios descriptions pc*/
 @media screen and (min-width: 768px) {

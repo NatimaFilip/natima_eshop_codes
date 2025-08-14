@@ -903,6 +903,30 @@ body {
 				}
 			}
 		}
+		.natios-ingredients {
+			background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+			border-radius: var(--br-10);
+			padding: 1.5em 1em 2.75em;
+			color: var(--color-white);
+			h2 {
+				text-align: center;
+				margin: auto;
+				color: var(--color-white);
+				font-size: var(--fs-24);
+				font-weight: var(--fw-700);
+				padding-bottom: 0;
+				margin-bottom: 1.5em;
+			}
+			table {
+				border-radius: var(--br-16);
+				color: var(--color-black);
+			}
+			p,
+			span,
+			a {
+				color: inherit;
+			}
+		}
 	}
 }
 
