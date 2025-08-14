@@ -738,6 +738,7 @@ body {
 			display: grid;
 			grid-template-columns: repeat(auto, 80%);
 			overflow-x: auto;
+			padding: 2.75em;
 
 			> *,
 			.editable-content,
@@ -846,8 +847,12 @@ body {
 				text-align: center;
 				max-width: 600px;
 				margin: auto;
+				h3 {
+					padding-bottom: 2em;
+				}
 			}
 			.compare-images {
+				padding-bottom: 1em;
 				img {
 					max-width: 75px;
 				}
@@ -976,6 +981,26 @@ body {
 				&.small-flex {
 					row-gap: var(--description-widget-gap-bigger);
 					padding-top: 30px;
+				}
+			}
+			.natios-compare {
+				grid-template-columns: repeat(auto, 1fr);
+				overflow-x: auto;
+
+				&.items-2 {
+					grid-template-columns: repeat(2, 1fr);
+				}
+				&.items-3 {
+					grid-template-columns: repeat(3, 40%);
+					@media screen and (min-width: $desktop-min) {
+						grid-template-columns: repeat(3, 1fr);
+					}
+				}
+				&.items-4 {
+					grid-template-columns: repeat(4, 40%);
+					@media screen and (min-width: $desktop-min) {
+						grid-template-columns: repeat(4, 1fr);
+					}
 				}
 			}
 		}
