@@ -358,6 +358,16 @@ body {
 			ul li::before {
 				display: none !important;
 			}
+			@media screen and (max-width: $mobile-max) {
+				table tr {
+					> td {
+						min-width: 150px;
+					}
+					> td:first-child {
+						min-width: 250px;
+					}
+				}
+			}
 		}
 
 		.with-table {
@@ -908,6 +918,7 @@ body {
 			border-radius: var(--br-10);
 			padding: 1.5em 1em 2.75em;
 			color: var(--color-white);
+
 			h2 {
 				text-align: center;
 				margin: auto;
@@ -915,7 +926,7 @@ body {
 				font-size: var(--fs-24);
 				font-weight: var(--fw-700);
 				padding-bottom: 0;
-				margin-bottom: 1.5em;
+				margin-bottom: calc(1.5em - var(--description-widget-gap-smaller));
 			}
 			table {
 				border-radius: var(--br-16);
@@ -1037,7 +1048,7 @@ body {
 			.natios-compare {
 				grid-template-columns: repeat(auto, 1fr);
 				overflow-x: auto;
-				padding: 1.5em 2.75em 2.75em;
+				padding: 1.5em 3em 2.75em;
 
 				.compare-images {
 					img {
@@ -1070,6 +1081,9 @@ body {
 						}
 					}
 				}
+			}
+			.natios-ingredients {
+				padding: 1.5em 3em 2.75em;
 			}
 		}
 	}

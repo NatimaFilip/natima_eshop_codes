@@ -316,6 +316,14 @@ body .product-widgets table ul {
 body .product-widgets table ul li::before {
   display: none !important;
 }
+@media screen and (max-width: 767px) {
+  body .product-widgets table table tr > td {
+    min-width: 150px;
+  }
+  body .product-widgets table table tr > td:first-child {
+    min-width: 250px;
+  }
+}
 body .product-widgets .with-table .editable-content {
   /* 	tr:last-of-type td[colspan="2"],
   	tr:last-of-type td[colspan="3"],
@@ -901,7 +909,7 @@ body .product-widgets .natios-ingredients h2 {
   font-size: var(--fs-24);
   font-weight: var(--fw-700);
   padding-bottom: 0;
-  margin-bottom: 1.5em;
+  margin-bottom: calc(1.5em - var(--description-widget-gap-smaller));
 }
 body .product-widgets .natios-ingredients table {
   border-radius: var(--br-16);
@@ -1039,7 +1047,7 @@ body .product-widgets .natios-ingredients a {
   body:not(.mobile-view) .product-widgets .natios-compare {
     grid-template-columns: repeat(auto, 1fr);
     overflow-x: auto;
-    padding: 1.5em 2.75em 2.75em;
+    padding: 1.5em 3em 2.75em;
   }
   body:not(.mobile-view) .product-widgets .natios-compare .compare-images img {
     max-width: 150px;
@@ -1072,5 +1080,8 @@ body .product-widgets .natios-ingredients a {
 @media screen and (min-width: 768px) {
   body:not(.mobile-view) .product-widgets .natios-compare.items-4 .compare-images img {
     max-width: 100px;
+  }
+  body:not(.mobile-view) .product-widgets .natios-ingredients {
+    padding: 1.5em 3em 2.75em;
   }
 }
