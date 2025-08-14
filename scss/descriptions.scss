@@ -426,11 +426,6 @@ body {
 			padding: var(--description-widget-gap-bigger);
 			border-radius: var(--br-12);
 		}
-		.widget-natios-gradient-background {
-			background: linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
-			padding: var(--description-widget-gap-bigger);
-			border-radius: var(--br-12);
-		}
 
 		.natima-transparent-product-image {
 			display: flex;
@@ -659,6 +654,19 @@ body {
 		--color-gradient-1: #002376;
 		--color-gradient-2: #002aa7;
 		--color-compare: #29bbf5;
+
+		.widget-natios-gradient-background {
+			background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+			padding: var(--description-widget-gap-bigger);
+			border-radius: var(--br-12);
+			color: var(--color-white);
+			* {
+				color: inherit;
+			}
+			table {
+				color: var(--color-black);
+			}
+		}
 		ul li::before {
 			background: var(--color-gradient-1);
 		}
@@ -915,6 +923,13 @@ body {
 				a {
 					color: var(--color-white);
 					text-decoration: underline;
+				}
+			}
+			&.with-icon {
+				h2 {
+					&:before {
+						filter: brightness(0) invert(100%);
+					}
 				}
 			}
 		}
