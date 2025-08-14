@@ -932,7 +932,7 @@ body .product-widgets .natios-analysis .analysis-title {
 }
 body .product-widgets .natios-analysis .natios-analysis-content {
   display: grid;
-  grid-template-columns: 0.45fr 1fr;
+  grid-template-columns: 0.44fr 1fr;
   gap: var(--analysis-gap);
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left {
@@ -961,15 +961,16 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
   border-radius: var(--br-16);
   background-color: var(--color-white);
 }
+body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-top {
+  font-size: var(--fs-26);
+}
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-top .test-count-passed {
-  font-size: var(--fs-48);
+  font-size: 2em;
   color: var(--analysis-color-green);
   font-weight: var(--fw-700);
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-top .test-count-total {
-  font-size: var(--fs-26);
   color: var(--color-black-200);
-  font-weight: var(--fw-700);
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-bottom {
   font-size: var(--fs-20);
