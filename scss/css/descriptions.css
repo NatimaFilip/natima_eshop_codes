@@ -363,6 +363,11 @@ body .product-widgets .widget-gray-background {
   padding: var(--description-widget-gap-bigger);
   border-radius: var(--br-12);
 }
+body .product-widgets .widget-natios-gradient-background {
+  background: linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
+  padding: var(--description-widget-gap-bigger);
+  border-radius: var(--br-12);
+}
 body .product-widgets .natima-transparent-product-image {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -632,6 +637,58 @@ body .product-widgets {
   --color-gradient-1: #002376;
   --color-gradient-2: #002aa7;
   --color-compare: #29bbf5;
+  /* .natios-ingredients {
+  	background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+  	border-radius: var(--br-10);
+  	padding: 1.5em 1em 2.75em;
+  	color: var(--color-white);
+
+  	h2 {
+  		text-align: center;
+  		margin: auto;
+  		color: var(--color-white);
+  		font-size: var(--fs-24);
+  		font-weight: var(--fw-700);
+  		padding-bottom: 0;
+  		margin-bottom: calc(1em - var(--description-widget-gap-smaller));
+  	}
+  	&.with-icon {
+  		h2 {
+  			&:before {
+  				filter: brightness(0) invert(100%);
+  			}
+  		}
+  	}
+  	&.with-short-text {
+  		padding: 3em 1em;
+  		h2 {
+  			margin: 0;
+  			padding-right: 1.5em;
+  		}
+  	}
+
+  	&.with-long-text {
+  		h2 {
+  			margin-bottom: 1em;
+  			padding: 0;
+  		}
+  	}
+  	.white-background-text {
+  		color: var(--color-black);
+  	}
+  	table {
+  		border-radius: var(--br-16);
+  		color: var(--color-black);
+  	}
+  	ul li::before {
+  		background: var(--color-white);
+  	}
+  	p,
+  	span,
+  	a {
+  		color: inherit;
+  	}
+  } */
 }
 body .product-widgets ul li::before {
   background: var(--color-gradient-1);
@@ -895,48 +952,18 @@ body .product-widgets .natios-compare .compare-texts a {
   color: var(--color-white);
   text-decoration: underline;
 }
-body .product-widgets .natios-ingredients {
-  background: -webkit-gradient(linear, left top, right top, from(var(--color-gradient-1)), to(var(--color-gradient-2)));
-  background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
-  border-radius: var(--br-10);
-  padding: 1.5em 1em 2.75em;
-  color: var(--color-white);
-}
-body .product-widgets .natios-ingredients h2 {
-  text-align: center;
-  margin: auto;
-  color: var(--color-white);
-  font-size: var(--fs-24);
-  font-weight: var(--fw-700);
-  padding-bottom: 0;
-  margin-bottom: calc(1em - var(--description-widget-gap-smaller));
-}
-body .product-widgets .natios-ingredients.with-short-text h2 {
-  margin: 0;
-  padding-right: 1.5em;
-}
-body .product-widgets .natios-ingredients.with-long-text h2 {
-  margin-bottom: 1em;
-  padding: 0;
-}
-body .product-widgets .natios-ingredients .white-background-text {
-  color: var(--color-black);
-}
-body .product-widgets .natios-ingredients table {
-  border-radius: var(--br-16);
-  color: var(--color-black);
-}
-body .product-widgets .natios-ingredients ul li::before {
-  background: var(--color-white);
-}
-body .product-widgets .natios-ingredients p,
-body .product-widgets .natios-ingredients span,
-body .product-widgets .natios-ingredients a {
-  color: inherit;
-}
 
 /*natios descriptions pc*/
 @media screen and (min-width: 768px) {
+  body:not(.mobile-view) .product-widgets {
+    /* .natios-ingredients {
+    	padding: 1.5em 3em 2.75em;
+
+    	&.with-short-text {
+    		padding: 3em;
+    	}
+    } */
+  }
   body:not(.mobile-view) .product-widgets .natios-transparent-product-image {
     display: block;
     position: relative;
@@ -1094,8 +1121,5 @@ body .product-widgets .natios-ingredients a {
 @media screen and (min-width: 768px) {
   body:not(.mobile-view) .product-widgets .natios-compare.items-4 .compare-images img {
     max-width: 100px;
-  }
-  body:not(.mobile-view) .product-widgets .natios-ingredients {
-    padding: 1.5em 3em 2.75em;
   }
 }
