@@ -1018,9 +1018,11 @@ body {
 				background: transparent;
 				tr {
 					background: var(--color-white);
-					td {
+					td,
+					th {
 						padding-top: 0.625em;
 						padding-bottom: 0.625em;
+						line-height: 1.2;
 					}
 					> td:first-of-type,
 					> th:first-of-type {

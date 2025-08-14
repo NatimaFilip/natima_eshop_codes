@@ -1004,9 +1004,11 @@ body .product-widgets .natios-analysis table {
 body .product-widgets .natios-analysis table tr {
   background: var(--color-white);
 }
-body .product-widgets .natios-analysis table tr td {
+body .product-widgets .natios-analysis table tr td,
+body .product-widgets .natios-analysis table tr th {
   padding-top: 0.625em;
   padding-bottom: 0.625em;
+  line-height: 1.2;
 }
 body .product-widgets .natios-analysis table tr > td:first-of-type,
 body .product-widgets .natios-analysis table tr > th:first-of-type {
