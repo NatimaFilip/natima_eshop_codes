@@ -944,18 +944,19 @@ body {
 		.natios-analysis {
 			--analysis-color-green: #419f1f;
 			--analysis-color-green-o10: hsla(104, 67%, 37%, 0.1);
+
 			--analysis-gap: 30px;
 
 			background: var(--analysis-color-green-o10);
 			border-radius: var(--br-16);
-			padding: var(--description-widget-gap-bigger);
+			padding: var(--description-widget-gap-biggest);
 			.analysis-title {
 				font-size: var(--fs-24);
 				padding-bottom: var(--analysis-gap);
 			}
 			.natios-analysis-content {
 				display: grid;
-				grid-template-columns: 0.5fr 1fr;
+				grid-template-columns: 0.45fr 1fr;
 				gap: var(--analysis-gap);
 
 				.natios-analysis-content-left {
@@ -963,16 +964,30 @@ body {
 					flex-direction: column;
 					gap: var(--analysis-gap);
 					.amount-of-tests {
+						display: flex;
+						flex-direction: column;
 						font-size: var(--fs-20);
 						color: var(--color-black-200);
 						border-style: solid;
 						border-width: 1px;
 						border-color: var(--analysis-color-green);
 						border-radius: var(--br-16);
-						.test-count {
-							font-size: var(--fs-26);
-							color: var(--analysis-color-green);
-							font-weight: var(--fw-700);
+						background-color: var(--color-white);
+						.count-text-top {
+							.test-count-passed {
+								font-size: var(--fs-48);
+								color: var(--analysis-color-green);
+								font-weight: var(--fw-700);
+							}
+							.test-count-total {
+								font-size: var(--fs-26);
+								color: var(--color-black-200);
+								font-weight: var(--fw-700);
+							}
+						}
+						.count-text-bottom {
+							font-size: var(--fs-20);
+							color: var(--color-black-200);
 						}
 					}
 					.analysis-texts {
@@ -990,7 +1005,7 @@ body {
 						border-width: 1px;
 						border-color: var(--color-black);
 						font-weight: var(--fw-700);
-						padding: 1em 2.25em 1em 3.375em;
+						padding: 1em 2.25em;
 						&:hover,
 						&:focus-within {
 							background: var(--color-primary);
