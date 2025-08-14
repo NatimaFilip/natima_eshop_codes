@@ -946,13 +946,9 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
   gap: var(--analysis-gap);
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr -webkit-max-content;
+  grid-template-columns: 1fr max-content;
   font-size: var(--fs-20);
   color: var(--color-black-200);
   border-style: solid;
@@ -962,6 +958,8 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
   background-color: var(--color-white);
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-top {
+  grid-column: 2;
+  grid-row: 1;
   font-size: var(--fs-26);
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-top .test-count-passed {
@@ -973,6 +971,8 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
   color: var(--color-black-200);
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-bottom {
+  grid-column: 2;
+  grid-row: 1;
   font-size: var(--fs-20);
   color: var(--color-black-200);
 }
@@ -1002,7 +1002,7 @@ body .product-widgets .natios-analysis table {
   background: transparent;
 }
 body .product-widgets .natios-analysis table tr {
-  border-color: var(--color-black-o-10);
+  border-color: var(--color-gray-500);
 }
 body .product-widgets .natios-analysis table tr th {
   background: var(--color-white);

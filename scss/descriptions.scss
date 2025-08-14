@@ -964,8 +964,8 @@ body {
 					flex-direction: column;
 					gap: var(--analysis-gap);
 					.amount-of-tests {
-						display: flex;
-						flex-direction: column;
+						display: grid;
+						grid-template-columns: 1fr max-content;
 						font-size: var(--fs-20);
 						color: var(--color-black-200);
 						border-style: solid;
@@ -974,6 +974,8 @@ body {
 						border-radius: var(--br-16);
 						background-color: var(--color-white);
 						.count-text-top {
+							grid-column: 2;
+							grid-row: 1;
 							font-size: var(--fs-26);
 							.test-count-passed {
 								font-size: 2em;
@@ -985,6 +987,8 @@ body {
 							}
 						}
 						.count-text-bottom {
+							grid-column: 2;
+							grid-row: 1;
 							font-size: var(--fs-20);
 							color: var(--color-black-200);
 						}
@@ -1017,7 +1021,7 @@ body {
 			table {
 				background: transparent;
 				tr {
-					border-color: var(--color-black-o-10);
+					border-color: var(--color-gray-500);
 					th {
 						background: var(--color-white);
 						line-height: var(--lh-1-2);
