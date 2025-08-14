@@ -655,6 +655,10 @@ body {
 		--color-gradient-2: #002aa7;
 		--color-compare: #29bbf5;
 
+		ul li::before {
+			background: var(--color-gradient-1);
+		}
+
 		.widget-natios-gradient-background {
 			background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
 			padding: var(--description-widget-gap-bigger);
@@ -666,10 +670,21 @@ body {
 			table {
 				color: var(--color-black);
 			}
+			.white-background-text {
+				color: var(--color-black);
+			}
+			.with-icon {
+				h2 {
+					&:before {
+						filter: brightness(0) invert(100%);
+					}
+				}
+			}
+			ul li::before {
+				background: var(--color-white);
+			}
 		}
-		ul li::before {
-			background: var(--color-gradient-1);
-		}
+
 		.natios-transparent-product-image {
 			display: block;
 			position: relative;
@@ -923,13 +938,6 @@ body {
 				a {
 					color: var(--color-white);
 					text-decoration: underline;
-				}
-			}
-			&.with-icon {
-				h2 {
-					&:before {
-						filter: brightness(0) invert(100%);
-					}
 				}
 			}
 		}
