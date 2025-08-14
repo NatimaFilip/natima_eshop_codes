@@ -998,6 +998,22 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
   border-color: var(--color-primary);
   color: var(--color-white);
 }
+body .product-widgets .natios-analysis table {
+  background: transparent;
+}
+body .product-widgets .natios-analysis table tr {
+  background: var(--color-white);
+}
+body .product-widgets .natios-analysis table tr td {
+  padding-top: 0.625em;
+  padding-bottom: 0.625em;
+}
+body .product-widgets .natios-analysis table tr > td:first-of-type {
+  padding-left: 0.625em;
+}
+body .product-widgets .natios-analysis table tr > td:last-of-type {
+  padding-right: 0.625em;
+}
 
 /*natios descriptions pc*/
 @media screen and (min-width: 768px) {
