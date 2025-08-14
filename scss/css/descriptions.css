@@ -704,7 +704,7 @@ body .product-widgets .widget-natios-gradient-background table {
 body .product-widgets .widget-natios-gradient-background .white-background-text {
   color: var(--color-black);
 }
-body .product-widgets .widget-natios-gradient-background .with-icon h2:before {
+body .product-widgets .widget-natios-gradient-background.with-icon h2::before {
   -webkit-filter: brightness(0) invert(100%);
           filter: brightness(0) invert(100%);
 }

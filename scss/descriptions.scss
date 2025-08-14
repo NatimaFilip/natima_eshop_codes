@@ -673,9 +673,9 @@ body {
 			.white-background-text {
 				color: var(--color-black);
 			}
-			.with-icon {
+			&.with-icon {
 				h2 {
-					&:before {
+					&::before {
 						filter: brightness(0) invert(100%);
 					}
 				}
