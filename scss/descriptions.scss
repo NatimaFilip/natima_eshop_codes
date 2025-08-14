@@ -617,6 +617,7 @@ body {
 	.product-widgets {
 		--color-gradient-1: #002376;
 		--color-gradient-2: #002aa7;
+		--color-compare: #29bbf5;
 		ul li::before {
 			background: var(--color-gradient-1);
 		}
@@ -750,10 +751,24 @@ body {
 
 			h4,
 			p {
+				position: relative;
 				margin: 0;
 				padding: 1em 0.5em;
 				width: 100%;
 				text-align: center;
+				display: flex;
+				height: 100%;
+				align-items: center;
+				justify-content: center;
+				&::after {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 1px;
+					bottom: 0;
+					left: 0;
+					background: radial-gradient(circle, var(--color-compare) 0%, transparent 80%);
+				}
 			}
 
 			&.items-2 {
