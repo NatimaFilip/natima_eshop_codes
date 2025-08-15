@@ -1050,6 +1050,7 @@ body {
 				table {
 					background: transparent;
 					text-wrap: balance;
+					overflow: visible;
 					tr {
 						border-bottom-style: solid !important;
 						border-width: 1px;
@@ -1072,6 +1073,13 @@ body {
 						> td:nth-child(4),
 						> th:nth-child(4) {
 							padding-right: 10px;
+						}
+						> th:first-of-type {
+							border-radius: var(--br-10) 0 0 0;
+						}
+						> th:nth-child(4),
+						> th:nth-child(5) {
+							border-radius: 0 var(--br-10) 0 0;
 						}
 					}
 					tr {
@@ -1131,6 +1139,16 @@ body {
 							border-radius: var(--br-10);
 							pointer-events: none;
 							transform: translateY(-100%);
+							p {
+								text-align: left;
+							}
+							&:hover {
+								font-size: var(--fs-14) !important;
+								padding: 1em 0.5em !important;
+								border-style: solid;
+								border-width: 1px;
+								border-color: var(--color-primary);
+							}
 						}
 						> td:nth-child(4):hover {
 							& ~ td:nth-child(5) {
