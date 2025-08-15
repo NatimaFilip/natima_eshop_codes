@@ -1071,10 +1071,13 @@ body {
 						}
 						> td:nth-child(4),
 						> th:nth-child(4) {
-							padding-left: 2em;
+							padding-left: calc(var(--fs-16) + 5px);
 							padding-right: 2em;
 							justify-content: flex-end;
 							text-align: right;
+							p {
+								text-align: right;
+							}
 						}
 					}
 					tr {
@@ -1097,7 +1100,7 @@ body {
 								justify-content: center;
 								position: absolute;
 								top: 50%;
-								left: calc(var(--fs-16) + 5px);
+								left: calc((var(--fs-16) + 5px) * -1);
 								transform: translateY(-50%);
 							}
 						}

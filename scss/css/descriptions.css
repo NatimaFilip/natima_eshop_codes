@@ -1065,11 +1065,15 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4),
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr > th:nth-child(4) {
-  padding-left: 2em;
+  padding-left: calc(var(--fs-16) + 5px);
   padding-right: 2em;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  text-align: right;
+}
+body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4) p,
+body .product-widgets .natios-analysis .natios-analysis-content-right table tr > th:nth-child(4) p {
   text-align: right;
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr {
@@ -1100,7 +1104,7 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
           justify-content: center;
   position: absolute;
   top: 50%;
-  left: calc(var(--fs-16) + 5px);
+  left: calc((var(--fs-16) + 5px) * -1);
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
