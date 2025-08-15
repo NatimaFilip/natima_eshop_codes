@@ -1085,17 +1085,32 @@ body {
 						> td:nth-child(4) {
 							color: var(--analysis-color-green);
 							position: relative;
+							cursor: help;
 							p {
 								display: flex;
+								align-items: center;
 								gap: 5px;
 								&::before {
 									content: "✓";
 									font-weight: 700;
-									display: block;
+
 									width: var(--fs-16);
 									height: var(--fs-16);
 									color: white;
 									background: var(--analysis-color-green);
+									border-radius: 50%;
+									display: flex;
+									font-size: 0.75em;
+									align-items: center;
+									justify-content: center;
+								}
+								&::after {
+									content: "?";
+									font-weight: 800;
+									width: var(--fs-16);
+									height: var(--fs-16);
+									color: var(--color-primary);
+									background: var(--color-primary-300);
 									border-radius: 50%;
 									display: flex;
 									font-size: 0.75em;
@@ -1116,27 +1131,11 @@ body {
 							top: 0;
 							background: red;
 							color: white;
-
-							&::before {
-								content: "?";
-								position: absolute;
-								top: 10px;
-								right: 5px;
-								display: flex;
-								align-items: center;
-								justify-content: center;
-								background: var(--color-primary-300);
-								color: var(--color-primary);
-								font-weight: var(--fw-800);
-								font-size: var(--fs-16);
-								width: 1.125em;
-								height: 1.125em;
-								border-radius: 50%;
-								cursor: help;
-							}
-
-							&:hover {
-								font-size: var(--fs-14) !important;
+						}
+						> td:nth-child(4):hover {
+							& ~ td:nth-child(5) {
+								font-size: var(--fs-16) !important;
+								padding: 0.5em !important;
 							}
 						}
 					}
