@@ -1023,28 +1023,54 @@ body {
 					}
 				}
 			}
-			table {
-				background: transparent;
-				tr {
-					border-color: var(--color-gray-500);
-					th {
-						background: var(--color-white);
-						line-height: var(--lh-1-2);
+			.natios-analysis-content-right {
+				.editable-content,
+				.editable-content > div.tiptap {
+					> table {
+						margin-bottom: var(--analysis-gap);
 					}
-					td {
-						line-height: 1;
+					> table:last-of-type {
+						margin-bottom: 0;
 					}
-					td,
-					th {
-						padding: 10px 5px;
+				}
+				table {
+					background: transparent;
+					text-wrap: balance;
+					tr {
+						border-color: var(--color-gray-500);
+						th {
+							background: var(--color-white);
+							line-height: var(--lh-1-2);
+						}
+						td {
+							line-height: 1;
+						}
+						td,
+						th {
+							padding: 10px 10px;
+						}
+						> td:first-of-type,
+						> th:first-of-type {
+							padding-left: 10px;
+						}
+						> td:last-of-type,
+						> th:last-of-type {
+							padding-right: 10px;
+						}
 					}
-					> td:first-of-type,
-					> th:first-of-type {
-						padding-left: 10px;
-					}
-					> td:last-of-type,
-					> th:last-of-type {
-						padding-right: 10px;
+					colgroup {
+						col:first-child {
+							width: 35%;
+						}
+						colgroup col:nth-child(2) {
+							width: 22%;
+						}
+						colgroup col:nth-child(3) {
+							width: 24%;
+						}
+						colgroup col:nth-child(4) {
+							width: 20%;
+						}
 					}
 				}
 			}
