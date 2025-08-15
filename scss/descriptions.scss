@@ -1058,7 +1058,7 @@ body {
 							line-height: var(--lh-1-2);
 						}
 						td {
-							line-height: 1;
+							line-height: var(--lh-1-2);
 						}
 						td,
 						th {
@@ -1074,10 +1074,10 @@ body {
 						}
 					}
 					tr {
+						position: relative;
 						> td:nth-child(4) {
 							color: var(--analysis-color-green);
 							display: flex;
-							position: relative;
 							gap: 5px;
 							&::before {
 								content: "✓";
@@ -1092,6 +1092,30 @@ body {
 								font-size: 0.75em;
 								align-items: center;
 								justify-content: center;
+							}
+						}
+						> th:nth-child(5) {
+							font-size: 0px !important;
+							padding: 0 !important;
+						}
+						> td:nth-child(5) {
+							font-size: 0px !important;
+							padding: 0 !important;
+							position: absolute;
+							right: 0;
+							top: 0;
+							background: red;
+							color: white;
+
+							&::before {
+								content: "?";
+								background: blue;
+								font-size: 16px;
+								color: white;
+							}
+
+							&:hover {
+								font-size: var(--fs-14) !important;
 							}
 						}
 					}
@@ -1111,6 +1135,7 @@ body {
 						col:nth-child(5) {
 							width: 0%;
 							max-width: 0px;
+							min-width: 0px !important;
 						}
 					}
 					p {
