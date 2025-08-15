@@ -987,6 +987,7 @@ body {
 							flex-direction: column;
 							.count-text-top {
 								font-size: var(--fs-26);
+								line-height: 1;
 								.test-count-passed {
 									font-size: 2em;
 									color: var(--analysis-color-green);
@@ -1067,9 +1068,31 @@ body {
 						> th:first-of-type {
 							padding-left: 10px;
 						}
-						> td:last-of-type,
-						> th:last-of-type {
+						> td:nth-child(4),
+						> th:nth-child(4) {
 							padding-right: 10px;
+						}
+					}
+					tr {
+						> td:nth-child(4) {
+							color: var(--analysis-color-green);
+							display: flex;
+							position: relative;
+							gap: 5px;
+							&::before {
+								content: "✓";
+								font-weight: 700;
+								display: block;
+								width: var(--fs-16);
+								height: var(--fs-16);
+								color: white;
+								background: var(--analysis-color-green);
+								border-radius: 50%;
+								display: flex;
+								font-size: 0.75em;
+								align-items: center;
+								justify-content: center;
+							}
 						}
 					}
 					colgroup {
@@ -1085,6 +1108,13 @@ body {
 						col:nth-child(4) {
 							width: 20%;
 						}
+						col:nth-child(5) {
+							width: 0%;
+							max-width: 0px;
+						}
+					}
+					p {
+						padding-bottom: 0;
 					}
 				}
 			}
