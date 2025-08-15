@@ -1078,6 +1078,13 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr {
   position: relative;
 }
+body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:first-of-type {
+  font-size: var(--fs-10);
+}
+body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:first-of-type strong {
+  font-weight: var(--fw-400);
+  font-size: var(--fs-16);
+}
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4) {
   color: var(--analysis-color-green);
   position: relative;
