@@ -1127,15 +1127,23 @@ body {
 							font-size: 0px !important;
 							padding: 0 !important;
 							position: absolute;
+							width: 250px;
+							max-width: 90%;
 							right: 0;
 							top: 0;
-							background: red;
-							color: white;
+							background: var(--color-white);
+							color: var(--color-black);
+							border-radius: var(--br-10);
+							pointer-events: none;
+							transform: translateY(-100%);
 						}
 						> td:nth-child(4):hover {
 							& ~ td:nth-child(5) {
-								font-size: var(--fs-16) !important;
+								font-size: var(--fs-14) !important;
 								padding: 0.5em !important;
+								border-style: solid;
+								border-width: 1px;
+								border-color: var(--color-primary);
 							}
 						}
 					}
