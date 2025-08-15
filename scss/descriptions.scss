@@ -1057,19 +1057,19 @@ body {
 						> th:last-of-type {
 							padding-right: 10px;
 						}
-					}
-					colgroup {
-						col:first-child {
-							width: 35%;
-						}
-						colgroup col:nth-child(2) {
-							width: 22%;
-						}
-						colgroup col:nth-child(3) {
-							width: 24%;
-						}
-						colgroup col:nth-child(4) {
-							width: 20%;
+						colgroup {
+							col:first-child {
+								width: 35%;
+							}
+							col:nth-child(2) {
+								width: 22%;
+							}
+							col:nth-child(3) {
+								width: 24%;
+							}
+							col:nth-child(4) {
+								width: 20%;
+							}
 						}
 					}
 				}

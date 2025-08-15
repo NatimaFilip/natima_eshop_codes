@@ -1039,16 +1039,16 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr > th:last-of-type {
   padding-right: 10px;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table colgroup col:first-child {
+body .product-widgets .natios-analysis .natios-analysis-content-right table tr colgroup col:first-child {
   width: 35%;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table colgroup colgroup col:nth-child(2) {
+body .product-widgets .natios-analysis .natios-analysis-content-right table tr colgroup col:nth-child(2) {
   width: 22%;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table colgroup colgroup col:nth-child(3) {
+body .product-widgets .natios-analysis .natios-analysis-content-right table tr colgroup col:nth-child(3) {
   width: 24%;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table colgroup colgroup col:nth-child(4) {
+body .product-widgets .natios-analysis .natios-analysis-content-right table tr colgroup col:nth-child(4) {
   width: 20%;
 }
 
