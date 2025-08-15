@@ -1085,23 +1085,25 @@ body {
 						> td:nth-child(4) {
 							color: var(--analysis-color-green);
 							position: relative;
-							&::before {
-								content: "✓";
-								font-weight: 700;
-								display: block;
-								width: var(--fs-16);
-								height: var(--fs-16);
-								color: white;
-								background: var(--analysis-color-green);
-								border-radius: 50%;
-								display: flex;
-								font-size: 0.75em;
-								align-items: center;
-								justify-content: center;
-								position: absolute;
-								top: 50%;
-								left: calc((var(--fs-16) + 5px) * -1);
-								transform: translateY(-50%);
+							p {
+								&::before {
+									content: "✓";
+									font-weight: 700;
+									display: block;
+									width: var(--fs-16);
+									height: var(--fs-16);
+									color: white;
+									background: var(--analysis-color-green);
+									border-radius: 50%;
+									display: flex;
+									font-size: 0.75em;
+									align-items: center;
+									justify-content: center;
+									position: absolute;
+									top: 50%;
+									left: calc((var(--fs-16) + 5px) * -1);
+									transform: translateY(-50%);
+								}
 							}
 						}
 						> th:nth-child(5) {
@@ -1132,6 +1134,7 @@ body {
 								width: 1.125em;
 								height: 1.125em;
 								border-radius: 50%;
+								cursor: help;
 							}
 
 							&:hover {
