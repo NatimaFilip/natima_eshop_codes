@@ -1071,13 +1071,7 @@ body {
 						}
 						> td:nth-child(4),
 						> th:nth-child(4) {
-							padding-left: calc(var(--fs-16) + 5px);
-							padding-right: 2em;
-							justify-content: flex-end;
-							text-align: right;
-							p {
-								text-align: right;
-							}
+							padding-right: 10px;
 						}
 					}
 					tr {
@@ -1085,7 +1079,7 @@ body {
 						> td:nth-child(4) {
 							color: var(--analysis-color-green);
 							position: relative;
-							cursor: help;
+
 							p {
 								display: flex;
 								align-items: center;
@@ -1128,7 +1122,7 @@ body {
 							font-size: 0px !important;
 							padding: 0 !important;
 							position: absolute;
-							width: 250px;
+							width: 200px;
 							max-width: 90%;
 							right: 0;
 							top: 0;
@@ -1141,7 +1135,7 @@ body {
 						> td:nth-child(4):hover {
 							& ~ td:nth-child(5) {
 								font-size: var(--fs-14) !important;
-								padding: 0.5em !important;
+								padding: 1.5em 0.5em !important;
 								border-style: solid;
 								border-width: 1px;
 								border-color: var(--color-primary);
