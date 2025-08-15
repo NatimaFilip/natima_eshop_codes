@@ -1086,6 +1086,8 @@ body {
 							color: var(--analysis-color-green);
 							position: relative;
 							p {
+								display: flex;
+								gap: 5px;
 								&::before {
 									content: "✓";
 									font-weight: 700;
@@ -1099,10 +1101,6 @@ body {
 									font-size: 0.75em;
 									align-items: center;
 									justify-content: center;
-									position: absolute;
-									top: 50%;
-									left: calc((var(--fs-16) + 5px) * -1);
-									transform: translateY(-50%);
 								}
 							}
 						}
