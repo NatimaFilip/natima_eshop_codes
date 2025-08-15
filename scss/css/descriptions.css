@@ -946,8 +946,16 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
   gap: var(--analysis-gap);
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests {
-  display: grid;
-  grid-template-columns: 24% 1fr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-column-gap: calc(var(--analysis-gap) - 3px);
      -moz-column-gap: calc(var(--analysis-gap) - 3px);
           column-gap: calc(var(--analysis-gap) - 3px);
@@ -958,9 +966,12 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
   border-color: var(--analysis-color-green);
   border-radius: var(--br-16);
   background-color: var(--color-white);
+  padding: var(--analysis-gap) 10px;
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .analysis-icon {
-  grid-column: 1;
+  -ms-flex-preferred-size: 24%;
+      flex-basis: 24%;
+  min-width: 50px;
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts {
   display: -webkit-box;
@@ -1002,11 +1013,21 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
   border-color: var(--color-black);
   font-weight: var(--fw-700);
   padding: 1em 2.25em;
+  gap: 10px;
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:hover, body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:focus-within {
   background: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-white);
+}
+body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:hover .download-icon, body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:focus-within .download-icon {
+  -webkit-filter: brightness(0) invert(100%);
+          filter: brightness(0) invert(100%);
+}
+body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button .download-icon {
+  -ms-flex-preferred-size: 20px;
+      flex-basis: 20px;
+  min-width: 20px;
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > table,
 body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table {

@@ -964,8 +964,11 @@ body {
 					flex-direction: column;
 					gap: var(--analysis-gap);
 					.amount-of-tests {
-						display: grid;
-						grid-template-columns: 24% 1fr;
+						display: flex;
+						justify-items: center;
+						justify-content: center;
+						align-items: center;
+
 						column-gap: calc(var(--analysis-gap) - 3px);
 						font-size: var(--fs-20);
 						color: var(--color-black-200);
@@ -974,8 +977,10 @@ body {
 						border-color: var(--analysis-color-green);
 						border-radius: var(--br-16);
 						background-color: var(--color-white);
+						padding: var(--analysis-gap) 10px;
 						.analysis-icon {
-							grid-column: 1;
+							flex-basis: 24%;
+							min-width: 50px;
 						}
 						.count-texts {
 							display: flex;
@@ -1013,11 +1018,19 @@ body {
 						border-color: var(--color-black);
 						font-weight: var(--fw-700);
 						padding: 1em 2.25em;
+						gap: 10px;
 						&:hover,
 						&:focus-within {
 							background: var(--color-primary);
 							border-color: var(--color-primary);
 							color: var(--color-white);
+							.download-icon {
+								filter: brightness(0) invert(100%);
+							}
+						}
+						.download-icon {
+							flex-basis: 20px;
+							min-width: 20px;
 						}
 					}
 				}
