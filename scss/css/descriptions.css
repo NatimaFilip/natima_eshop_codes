@@ -947,11 +947,10 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests {
   display: grid;
-  grid-template-columns: 1fr -webkit-max-content;
-  grid-template-columns: 1fr max-content;
-  -webkit-column-gap: 28px;
-     -moz-column-gap: 28px;
-          column-gap: 28px;
+  grid-template-columns: 24% 1fr;
+  -webkit-column-gap: calc(var(--analysis-gap) - 3px);
+     -moz-column-gap: calc(var(--analysis-gap) - 3px);
+          column-gap: calc(var(--analysis-gap) - 3px);
   font-size: var(--fs-20);
   color: var(--color-black-200);
   border-style: solid;
@@ -962,24 +961,28 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
 }
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .analysis-icon {
   grid-column: 1;
-  grid-row: 1/-1;
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-top {
-  grid-column: 2;
-  grid-row: 1;
+body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-top {
   font-size: var(--fs-26);
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-top .test-count-passed {
+body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-top .test-count-passed {
   font-size: 2em;
   color: var(--analysis-color-green);
   font-weight: var(--fw-700);
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-top .test-count-total {
+body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-top .test-count-total {
   color: var(--color-black-200);
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-text-bottom {
-  grid-column: 2;
-  grid-row: 2;
+body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-bottom {
   font-size: var(--fs-20);
   color: var(--color-black-200);
 }
@@ -1019,6 +1022,7 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table {
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr {
   border-bottom-style: solid !important;
+  border-width: 1px;
   border-color: hsl(0, 0%, 86%);
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr th {

@@ -965,8 +965,8 @@ body {
 					gap: var(--analysis-gap);
 					.amount-of-tests {
 						display: grid;
-						grid-template-columns: 1fr max-content;
-						column-gap: 28px;
+						grid-template-columns: 24% 1fr;
+						column-gap: calc(var(--analysis-gap) - 3px);
 						font-size: var(--fs-20);
 						color: var(--color-black-200);
 						border-style: solid;
@@ -976,26 +976,25 @@ body {
 						background-color: var(--color-white);
 						.analysis-icon {
 							grid-column: 1;
-							grid-row: 1/-1;
 						}
-						.count-text-top {
-							grid-column: 2;
-							grid-row: 1;
-							font-size: var(--fs-26);
-							.test-count-passed {
-								font-size: 2em;
-								color: var(--analysis-color-green);
-								font-weight: var(--fw-700);
+						.count-texts {
+							display: flex;
+							flex-direction: column;
+							.count-text-top {
+								font-size: var(--fs-26);
+								.test-count-passed {
+									font-size: 2em;
+									color: var(--analysis-color-green);
+									font-weight: var(--fw-700);
+								}
+								.test-count-total {
+									color: var(--color-black-200);
+								}
 							}
-							.test-count-total {
+							.count-text-bottom {
+								font-size: var(--fs-20);
 								color: var(--color-black-200);
 							}
-						}
-						.count-text-bottom {
-							grid-column: 2;
-							grid-row: 2;
-							font-size: var(--fs-20);
-							color: var(--color-black-200);
 						}
 					}
 					.analysis-texts {
@@ -1038,6 +1037,7 @@ body {
 					text-wrap: balance;
 					tr {
 						border-bottom-style: solid !important;
+						border-width: 1px;
 						border-color: hsla(0, 0%, 86%, 1);
 						th {
 							background: var(--color-white);
