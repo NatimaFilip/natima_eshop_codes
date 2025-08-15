@@ -92,6 +92,7 @@
   --color-gray-600: #808080;
   --color-gray-700: #4f4f4f;
   --color-primary-200: #f5ebff;
+  --color-primary-300: #ecdcfe;
   --color-primary-500: hsla(268, 36%, 50%, 1);
   --color-red-200: #e9cbd0;
   --color-red-400: #d44b6c;
@@ -1064,7 +1065,7 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4),
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr > th:nth-child(4) {
-  padding-right: 10px;
+  padding-right: 20px;
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr {
   position: relative;
@@ -1111,9 +1112,25 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5)::before {
   content: "?";
-  background: blue;
-  font-size: 16px;
-  color: white;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: var(--color-primary-300);
+  color: var(--color-primary);
+  font-weight: var(--fw-800);
+  font-size: var(--fs-16);
+  width: 1.125em;
+  height: 1.125em;
+  border-radius: 50%;
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5):hover {
   font-size: var(--fs-14) !important;
