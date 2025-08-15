@@ -1087,6 +1087,7 @@ body {
 						> td:nth-child(4) {
 							color: var(--analysis-color-green);
 							position: relative;
+							cursor: help;
 
 							p {
 								display: flex;
@@ -1095,7 +1096,6 @@ body {
 								&::before {
 									content: "✓";
 									font-weight: 700;
-
 									width: var(--fs-16);
 									height: var(--fs-16);
 									color: white;
@@ -1133,7 +1133,7 @@ body {
 							width: 200px;
 							max-width: 90%;
 							right: 0;
-							top: 0;
+							top: 7px;
 							background: var(--color-white);
 							color: var(--color-black);
 							border-radius: var(--br-10);
@@ -1142,18 +1142,12 @@ body {
 							p {
 								text-align: left;
 							}
-							&:hover {
-								font-size: var(--fs-14) !important;
-								padding: 1em 0.5em !important;
-								border-style: solid;
-								border-width: 1px;
-								border-color: var(--color-primary);
-							}
 						}
+
 						> td:nth-child(4):hover {
 							& ~ td:nth-child(5) {
 								font-size: var(--fs-14) !important;
-								padding: 1.5em 0.5em !important;
+								padding: 1em 0.5em !important;
 								border-style: solid;
 								border-width: 1px;
 								border-color: var(--color-primary);
