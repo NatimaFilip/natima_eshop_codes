@@ -1039,6 +1039,9 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
       flex-basis: 20px;
   min-width: 20px;
 }
+body .product-widgets .natios-analysis .natios-analysis-content-right {
+  overflow: hidden;
+}
 body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > table,
 body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table {
   margin-bottom: var(--analysis-gap);
