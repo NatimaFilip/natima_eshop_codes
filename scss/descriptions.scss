@@ -1020,6 +1020,7 @@ body {
 						border-color: var(--color-black);
 						font-weight: var(--fw-700);
 						padding: 1em 2.25em;
+						display: flex;
 						gap: 10px;
 						&:hover,
 						&:focus-within {
