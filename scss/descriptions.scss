@@ -1136,7 +1136,7 @@ body {
 							font-size: 0px !important;
 							padding: 0 !important;
 							position: absolute;
-							width: 200px;
+							width: 350px;
 							max-width: 90%;
 							right: 0;
 							top: 7px;
@@ -1147,6 +1147,9 @@ body {
 							transform: translateY(-100%);
 							p {
 								text-align: left;
+							}
+							> p:not(:last-child) {
+								padding-bottom: 0.5em;
 							}
 						}
 

@@ -1143,7 +1143,7 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
   font-size: 0px !important;
   padding: 0 !important;
   position: absolute;
-  width: 200px;
+  width: 350px;
   max-width: 90%;
   right: 0;
   top: 7px;
@@ -1156,6 +1156,9 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) p {
   text-align: left;
+}
+body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) > p:not(:last-child) {
+  padding-bottom: 0.5em;
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5) {
   font-size: var(--fs-14) !important;

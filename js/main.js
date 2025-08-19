@@ -2269,6 +2269,22 @@ if (body.classList.contains("type-product")) {
 				tab.remove();
 			});
 		}
+
+		let filesTab;
+		let filesField;
+		let filesButtonDesc = document.querySelector("#show-tests-button");
+
+		if (filesField) {
+			if (filesTab) {
+			}
+			if (filesButtonDesc) {
+				filesButtonDesc.addEventListener("click", function (event) {
+					event.preventDefault();
+					scrollToElement(filesField);
+				});
+			}
+		}
+
 		let description = document.querySelector("#description");
 		if (description) {
 			const descriptionTab = document.createElement("li");
