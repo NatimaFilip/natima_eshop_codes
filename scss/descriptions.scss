@@ -1047,6 +1047,7 @@ body {
 				.editable-content > div.tiptap {
 					> table {
 						margin-bottom: var(--analysis-gap);
+						min-width: 550px !important;
 					}
 					> table:last-of-type {
 						margin-bottom: 0;

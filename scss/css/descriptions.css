@@ -1045,6 +1045,7 @@ body .product-widgets .natios-analysis .natios-analysis-content-right {
 body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > table,
 body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table {
   margin-bottom: var(--analysis-gap);
+  min-width: 550px !important;
 }
 body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > table:last-of-type,
 body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table:last-of-type {
