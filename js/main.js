@@ -1741,7 +1741,10 @@ if (body.classList.contains("type-product")) {
 		if (productBrand) {
 			manufacturerAndCodeWrapper.appendChild(productBrand);
 			manufacturerAndCodeWrapper.classList.add("active");
-			if (productBrand.textContent.toLowerCase().includes("natios")) {
+			if (
+				productBrand.textContent.toLowerCase().includes("natios") ||
+				document.querySelector(".product-widgets[product-template='natios']")
+			) {
 				isNatiosProduct = true;
 				body.classList.add("product-is-natios");
 				if (csLang || skLang) {
