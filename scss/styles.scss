@@ -987,6 +987,12 @@ table {
 		}
 	}
 }
+.scroll-wrapper {
+	overflow: auto;
+	&::-webkit-scrollbar {
+		height: 6px; // Reduce the height of the scrollbar
+	}
+}
 
 /*-------------------------------------- HEADER*/
 body {

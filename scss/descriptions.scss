@@ -959,6 +959,9 @@ body {
 				display: grid;
 				grid-template-columns: 0.44fr 1fr;
 				gap: var(--analysis-gap);
+				@media screen and (max-width: $mobile-max) {
+					grid-template-columns: 1fr;
+				}
 
 				.natios-analysis-content-left {
 					display: flex;

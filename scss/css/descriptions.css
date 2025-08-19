@@ -936,6 +936,11 @@ body .product-widgets .natios-analysis .natios-analysis-content {
   grid-template-columns: 0.44fr 1fr;
   gap: var(--analysis-gap);
 }
+@media screen and (max-width: 767px) {
+  body .product-widgets .natios-analysis .natios-analysis-content {
+    grid-template-columns: 1fr;
+  }
+}
 body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left {
   display: -webkit-box;
   display: -ms-flexbox;

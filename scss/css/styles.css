@@ -356,6 +356,13 @@ table {
   }
 }
 
+.scroll-wrapper {
+  overflow: auto;
+}
+.scroll-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
 /*-------------------------------------- HEADER*/
 body.sticky-header-on #header {
   position: sticky;
