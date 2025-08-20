@@ -314,7 +314,7 @@ $desktop-large-min: 1680px;
 		align-items: center;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: auto auto;
-		&::before {
+		h3 {
 			grid-column: 1;
 			grid-row: 1;
 			font-size: var(--fs-24);
@@ -6862,6 +6862,7 @@ body {
 					display: flex;
 					flex-direction: column;
 					gap: var(--gap-20);
+					margin: 20px auto;
 					li {
 						background: var(--color-white);
 						display: flex;
@@ -7217,29 +7218,5 @@ body {
 .in-hodnoceni-obchodu {
 	.content-inner {
 		@include ratingTab-shopRating;
-	}
-}
-
-.type-product {
-	&.cs {
-		.rate-average-wrap {
-			&:before {
-				content: "Hodnocení";
-			}
-		}
-	}
-	&.sk {
-		.rate-average-wrap {
-			&:before {
-				content: "Hodnotenie";
-			}
-		}
-	}
-	&.pl {
-		.rate-average-wrap {
-			&:before {
-				content: "Ocena";
-			}
-		}
 	}
 }

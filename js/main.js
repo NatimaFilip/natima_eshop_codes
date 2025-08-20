@@ -2007,13 +2007,32 @@ if (body.classList.contains("type-product")) {
 			}
 		}
 
+		if (ratingTab) {
+			let ratingTabTitleText = "Reviews";
+			if (csLang) {
+				ratingTabTitleText = "Hodnocení";
+			}
+			if (skLang) {
+				ratingTabTitleText = "Hodnotenie";
+			}
+			if (plLang) {
+				ratingTabTitleText = "Oceny";
+			}
+			const ratingTabTitleElement = document.createElement("h3");
+			ratingTabTitleElement.textContent = ratingTabTitleText;
+			let rateAverageWrap = ratingTab.querySelector(".rate-average-wrap");
+			if (rateAverageWrap) {
+				rateAverageWrap.prepend(ratingTabTitleElement);
+			}
+		}
+
 		if (relatedFiles) {
 			const basicDescription = document.querySelector("#description .basic-description");
 			if (basicDescription) {
 				basicDescription.insertAdjacentElement("afterend", relatedFiles);
 			}
 		}
-		/**/
+
 		if (extendedDescription) {
 			if (tabContent) {
 				tabContent.appendChild(extendedDescription);
@@ -2352,6 +2371,7 @@ if (body.classList.contains("type-product")) {
 					const showFileBtn = document.createElement("a");
 					showFileBtn.href = fileHref;
 					showFileBtn.classList.add("btn", "show-file");
+					showFileBtn.setAttribute("target", "_blank");
 
 					if (csLang) {
 						showFileBtn.textContent = "Zobrazit certifikát";
