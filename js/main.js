@@ -1808,8 +1808,6 @@ if (body.classList.contains("type-product")) {
 				}
 			}
 
-			//zde zde jsem skončil
-
 			if (ratingTab) {
 				starsWrapper.addEventListener("click", function (event) {
 					event.preventDefault();
@@ -2273,21 +2271,6 @@ if (body.classList.contains("type-product")) {
 			});
 		}
 
-		let filesTab;
-		let filesField;
-		let filesButtonDesc = document.querySelector("#show-tests-button");
-
-		if (filesField) {
-			if (filesTab) {
-			}
-			if (filesButtonDesc) {
-				filesButtonDesc.addEventListener("click", function (event) {
-					event.preventDefault();
-					scrollToElement(filesField);
-				});
-			}
-		}
-
 		let description = document.querySelector("#description");
 		if (description) {
 			const descriptionTab = document.createElement("li");
@@ -2326,6 +2309,57 @@ if (body.classList.contains("type-product")) {
 				{ root: null, threshold: 0.01 } // Trigger when 50% of the description is visible
 			);
 			observer.observe(description);
+		}
+
+		let filesField = document.querySelector("#relatedFiles");
+		let filesButtonDesc = document.querySelector("#show-tests-button");
+
+		if (filesField) {
+			let filesTabTitle = "Certificates";
+			if (csLang) {
+				filesTabTitle = "Certifikáty";
+			}
+			if (skLang) {
+				filesTabTitle = "Certifikáty";
+			}
+			if (plLang) {
+				filesTabTitle = "Certyfikaty";
+			}
+			const filesTabTitleElement = document.createElement("h3");
+			filesTabTitleElement.textContent = filesTabTitle;
+			filesField.prepend(filesTabTitleElement);
+
+			let productFiles = filesField.querySelectorAll("li");
+			if (productFiles && productFiles.length > 0) {
+				productFiles.forEach((file) => {
+					const fileHref = file.querySelector("a").href;
+					const fileType = fileHref.split(".").pop().toUpperCase();
+					const showFileBtn = document.createElement("a");
+					showFileBtn.href = fileHref;
+					showFileBtn.classList.add("btn", "show-file");
+
+					if (csLang) {
+						showFileBtn.textContent = "Zobrazit certifikát";
+					}
+					if (skLang) {
+						showFileBtn.textContent = "Zobraziť certifikát";
+					}
+					if (plLang) {
+						showFileBtn.textContent = "Pokaż certyfikat";
+					}
+					const fileTypeSpan = document.createElement("span");
+					fileTypeSpan.className = "file-type";
+					fileTypeSpan.textContent = "(" + fileType + ")";
+					showFileBtn.appendChild(fileTypeSpan);
+					file.appendChild(showFileBtn);
+				});
+			}
+			if (filesButtonDesc) {
+				filesButtonDesc.addEventListener("click", function (event) {
+					event.preventDefault();
+					scrollToElement(filesField);
+				});
+			}
 		}
 	}
 }
