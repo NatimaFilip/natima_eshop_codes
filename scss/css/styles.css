@@ -8396,6 +8396,10 @@ body.sticky-header-off .messages > * {
   width: calc(var(--description-natima-max-width) + var(--description-sticky-sell-max-width) + var(--description-sticky-sell-gap));
 }
 @media screen and (max-width: 1280px) {
+  .type-product #tab-content {
+    max-width: var(--description-natima-max-width);
+    margin: 0 auto;
+  }
   .type-product #description {
     grid-template-columns: min(100%, var(--description-natima-max-width));
   }
@@ -8415,6 +8419,10 @@ body.sticky-header-off .messages > * {
   width: calc(var(--description-natios-max-width) + var(--description-sticky-sell-max-width) + var(--description-sticky-sell-gap));
 }
 @media screen and (max-width: 1800px) {
+  .type-product.product-is-natios #tab-content {
+    max-width: var(--description-natios-max-width);
+    margin: 0 auto;
+  }
   .type-product.product-is-natios #description {
     grid-template-columns: min(100%, var(--description-natios-max-width));
   }

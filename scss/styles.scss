@@ -7076,6 +7076,10 @@ body {
 		);
 	}
 	@media screen and (max-width: $desktop-min) {
+		#tab-content {
+			max-width: var(--description-natima-max-width);
+			margin: 0 auto;
+		}
 		#description {
 			grid-template-columns: min(100%, var(--description-natima-max-width));
 		}
@@ -7097,6 +7101,10 @@ body {
 			);
 		}
 		@media screen and (max-width: 1800px) {
+			#tab-content {
+				max-width: var(--description-natios-max-width);
+				margin: 0 auto;
+			}
 			#description {
 				grid-template-columns: min(100%, var(--description-natios-max-width));
 			}
