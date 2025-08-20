@@ -6929,7 +6929,7 @@ body {
 					li {
 						background: var(--color-white);
 						display: flex;
-						
+
 						align-items: center;
 						padding: 31px 31px 31px 40px;
 						border-radius: var(--br-10);
@@ -6982,7 +6982,6 @@ body {
 								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_protocol_download.svg");
 								background-size: cover;
 								background-position: center;
-
 							}
 							&:hover,
 							&:focus-within {
@@ -6996,14 +6995,13 @@ body {
 						}
 					}
 					h3 {
-							font-size: var(--fs-24);
+						font-size: var(--fs-24);
 						display: block;
 						width: 100%;
 						font-weight: var(--fw-700);
 						color: var(--color-black);
 						padding-bottom: 0.375em;
 						text-align: center;
-					
 					}
 				}
 				#ratingTab {
@@ -7231,5 +7229,3 @@ body {
 		}
 	}
 }
-
-.

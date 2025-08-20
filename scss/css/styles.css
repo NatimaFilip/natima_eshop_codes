@@ -7819,6 +7819,10 @@ body.sticky-header-off .messages > * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: var(--gap-20);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li {
@@ -7844,17 +7848,58 @@ body.sticky-header-off .messages > * {
 .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > img {
   display: none;
 }
-.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > a {
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > a:not(.btn) {
   font-size: var(--fs-18);
   color: var(--color-black);
   font-weight: var(--fw-700);
 }
-.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > a:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > a:focus-within {
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > a:not(.btn):hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > a:not(.btn):focus-within {
   color: var(--color-primary);
   text-decoration: underline;
 }
-.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles::before {
-  /* content: "Certifikaty"; */
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li a.btn {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+  background: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-black);
+  border-radius: var(--br-16);
+  padding: 1em 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li a.btn span {
+  font-weight: var(--fw-400);
+  color: var(--color-gray-600);
+  padding-left: 0.25em;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li a.btn:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_protocol_download.svg");
+  background-size: cover;
+  background-position: center;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li a.btn:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li a.btn:focus-within {
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li a.btn:hover span, .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li a.btn:focus-within span {
+  color: var(--color-white);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles h3 {
   font-size: var(--fs-24);
   display: block;
   width: 100%;
@@ -8932,14 +8977,4 @@ body.sticky-header-off .messages > * {
 }
 .type-product.pl .rate-average-wrap:before {
   content: "Ocena";
-}
-
-.type-product.cs #relatedFiles:before {
-  content: "Certifikáty";
-}
-.type-product.sk #relatedFiles:before {
-  content: "Certifikáty";
-}
-.type-product.pl #relatedFiles:before {
-  content: "Certyfikaty";
 }
