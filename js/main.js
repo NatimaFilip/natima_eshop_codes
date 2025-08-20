@@ -1674,6 +1674,8 @@ if (body.classList.contains("type-product")) {
 	let productBrand = document.querySelector(".product-top a[data-testid='productCardBrandName']");
 	let starsWrapper = document.querySelector(".product-top .stars-wrapper");
 
+	let tabContent = document.querySelector("#tab-content");
+	let extendedDescription = document.querySelector("#description .extended-description");
 	let detailParameters = document.querySelector(".description-inner .detail-parameters");
 	let shortDescription = document.querySelector(".p-short-description");
 	let longDescription = document.querySelector("#description");
@@ -2009,6 +2011,12 @@ if (body.classList.contains("type-product")) {
 			const basicDescription = document.querySelector("#description .basic-description");
 			if (basicDescription) {
 				basicDescription.insertAdjacentElement("afterend", relatedFiles);
+			}
+		}
+
+		if (extendedDescription) {
+			if (tabContent) {
+				tabContent.appendChild(extendedDescription);
 			}
 		}
 
