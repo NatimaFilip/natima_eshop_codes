@@ -6918,6 +6918,27 @@ body {
 					.kosiksdasdas {
 					}
 				}
+				#relatedFiles {
+					@include list-reset;
+					background: var(--color-gray-400);
+					border-radius: var(--br-16);
+					li {
+						background: var(--color-white);
+						> img {
+							display: none;
+						}
+						> a {
+							font-size: var(--fs-20);
+							color: var(--color-black);
+							font-weight: var(--fw-700);
+						}
+					}
+					&::before {
+						font-size: var(--fs-24);
+						font-weight: var(--fw-700);
+						color: var(--color-black);
+					}
+				}
 				#ratingTab {
 					@include ratingTab-shopRating;
 				}
@@ -7139,6 +7160,30 @@ body {
 		.rate-average-wrap {
 			&:before {
 				content: "Ocena";
+			}
+		}
+	}
+}
+
+.type-product {
+	&.cs {
+		#relatedFiles {
+			&:before {
+				content: "Certifikáty";
+			}
+		}
+	}
+	&.sk {
+		#relatedFiles {
+			&:before {
+				content: "Certifikáty";
+			}
+		}
+	}
+	&.pl {
+		#relatedFiles {
+			&:before {
+				content: "Certyfikaty";
 			}
 		}
 	}

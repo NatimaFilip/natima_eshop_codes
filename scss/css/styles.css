@@ -7811,6 +7811,43 @@ body.sticky-header-off .messages > * {
 .type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody td a:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #description .extended-description tbody td a:focus-within {
   color: var(--color-primary-hover);
 }
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles {
+  list-style: none;
+  background: var(--color-gray-400);
+  border-radius: var(--br-16);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li {
+  padding: 0.375em 0 0.375em 1.25em;
+  position: relative;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0.375em;
+  height: 0.375em;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li {
+  background: var(--color-white);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > img {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > a {
+  font-size: var(--fs-20);
+  color: var(--color-black);
+  font-weight: var(--fw-700);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles::before {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+}
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab {
   max-width: 100%;
   margin: 0 auto;
@@ -8880,4 +8917,14 @@ body.sticky-header-off .messages > * {
 }
 .type-product.pl .rate-average-wrap:before {
   content: "Ocena";
+}
+
+.type-product.cs #relatedFiles:before {
+  content: "Certifikáty";
+}
+.type-product.sk #relatedFiles:before {
+  content: "Certifikáty";
+}
+.type-product.pl #relatedFiles:before {
+  content: "Certyfikaty";
 }
