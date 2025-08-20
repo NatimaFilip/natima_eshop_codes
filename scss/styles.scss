@@ -6923,11 +6923,15 @@ body {
 					background: var(--color-gray-400);
 					border-radius: var(--br-16);
 					padding: 44px 48px 50px;
+					display: flex;
+					gap: var(--gap-20);
 					li {
 						background: var(--color-white);
 						display: flex;
-
 						align-items: center;
+						padding: 31px 31px 31px 40px;
+						border-radius: var(--br-10);
+						gap: var(--gap-20);
 						&::before {
 							content: "";
 							width: 64px;
@@ -6940,10 +6944,10 @@ body {
 							display: none;
 						}
 						> a {
-							font-size: var(--fs-20);
+							font-size: var(--fs-18);
 							color: var(--color-black);
 							font-weight: var(--fw-700);
-							padding-left: 1em;
+
 							&:hover,
 							&:focus-within {
 								color: var(--color-primary);
@@ -6958,7 +6962,7 @@ body {
 						width: 100%;
 						font-weight: var(--fw-700);
 						color: var(--color-black);
-						padding-bottom: 1.208em;
+						padding-bottom: 0.375em;
 						text-align: center;
 					}
 				}
