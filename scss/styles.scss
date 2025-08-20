@@ -6919,11 +6919,23 @@ body {
 					}
 				}
 				#relatedFiles {
-					@include list-reset;
+					list-style: none;
 					background: var(--color-gray-400);
 					border-radius: var(--br-16);
+					padding: 44px 48px 50px;
 					li {
 						background: var(--color-white);
+						display: flex;
+
+						align-items: center;
+						&::before {
+							content: "";
+							width: 64px;
+							height: 64px;
+							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_certificate_primary.svg");
+							background-size: cover;
+							background-position: center;
+						}
 						> img {
 							display: none;
 						}
@@ -6931,12 +6943,23 @@ body {
 							font-size: var(--fs-20);
 							color: var(--color-black);
 							font-weight: var(--fw-700);
+							padding-left: 1em;
+							&:hover,
+							&:focus-within {
+								color: var(--color-primary);
+								text-decoration: underline;
+							}
 						}
 					}
 					&::before {
+						/* content: "Certifikaty"; */
 						font-size: var(--fs-24);
+						display: block;
+						width: 100%;
 						font-weight: var(--fw-700);
 						color: var(--color-black);
+						padding-bottom: 1.208em;
+						text-align: center;
 					}
 				}
 				#ratingTab {

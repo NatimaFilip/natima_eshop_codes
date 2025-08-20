@@ -7815,25 +7815,24 @@ body.sticky-header-off .messages > * {
   list-style: none;
   background: var(--color-gray-400);
   border-radius: var(--br-16);
-}
-.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li {
-  padding: 0.375em 0 0.375em 1.25em;
-  position: relative;
-}
-.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  width: 0.375em;
-  height: 0.375em;
-  border-radius: 50%;
-  background: var(--color-primary);
+  padding: 44px 48px 50px;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li {
   background: var(--color-white);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li::before {
+  content: "";
+  width: 64px;
+  height: 64px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_certificate_primary.svg");
+  background-size: cover;
+  background-position: center;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > img {
   display: none;
@@ -7842,11 +7841,21 @@ body.sticky-header-off .messages > * {
   font-size: var(--fs-20);
   color: var(--color-black);
   font-weight: var(--fw-700);
+  padding-left: 1em;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > a:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > a:focus-within {
+  color: var(--color-primary);
+  text-decoration: underline;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles::before {
+  /* content: "Certifikaty"; */
   font-size: var(--fs-24);
+  display: block;
+  width: 100%;
   font-weight: var(--fw-700);
   color: var(--color-black);
+  padding-bottom: 1.208em;
+  text-align: center;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab {
   max-width: 100%;
