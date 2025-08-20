@@ -7158,22 +7158,28 @@ body {
 }
 
 .type-product {
+	#tab-content {
+		width: calc(
+			var(--description-natima-max-width) + var(--description-sticky-sell-max-width) +
+				var(--description-sticky-sell-gap)
+		);
+		margin: 0 auto;
+	}
 	#description {
 		grid-template-columns: var(--description-natima-max-width) var(--description-sticky-sell-max-width);
 	}
 	.sticky-sell {
 		display: flex;
 	}
+	#relatedFiles {
+		width: 100%;
+	}
 	#ratingTab {
-		width: calc(
-			var(--description-natima-max-width) + var(--description-sticky-sell-max-width) +
-				var(--description-sticky-sell-gap)
-		);
+		width: 100%;
 	}
 	@media screen and (max-width: $desktop-min) {
 		#tab-content {
 			max-width: var(--description-natima-max-width);
-			margin: 0 auto;
 		}
 		#description {
 			grid-template-columns: min(100%, var(--description-natima-max-width));
@@ -7183,18 +7189,19 @@ body {
 		}
 	}
 	&.product-is-natios {
+		#tab-content {
+			width: calc(
+				var(--description-natios-max-width) + var(--description-sticky-sell-max-width) +
+					var(--description-sticky-sell-gap)
+			);
+		}
 		#description {
 			grid-template-columns: var(--description-natios-max-width) var(--description-sticky-sell-max-width);
 		}
 		.sticky-sell {
 			display: flex;
 		}
-		#ratingTab {
-			width: calc(
-				var(--description-natios-max-width) + var(--description-sticky-sell-max-width) +
-					var(--description-sticky-sell-gap)
-			);
-		}
+
 		@media screen and (max-width: 1800px) {
 			#tab-content {
 				max-width: var(--description-natios-max-width);

@@ -8490,6 +8490,10 @@ body.sticky-header-off .messages > * {
 .type-product #productsAlternative.active-all .product {
   display: block !important;
 }
+.type-product #tab-content {
+  width: calc(var(--description-natima-max-width) + var(--description-sticky-sell-max-width) + var(--description-sticky-sell-gap));
+  margin: 0 auto;
+}
 .type-product #description {
   grid-template-columns: var(--description-natima-max-width) var(--description-sticky-sell-max-width);
 }
@@ -8498,13 +8502,15 @@ body.sticky-header-off .messages > * {
   display: -ms-flexbox;
   display: flex;
 }
+.type-product #relatedFiles {
+  width: 100%;
+}
 .type-product #ratingTab {
-  width: calc(var(--description-natima-max-width) + var(--description-sticky-sell-max-width) + var(--description-sticky-sell-gap));
+  width: 100%;
 }
 @media screen and (max-width: 1280px) {
   .type-product #tab-content {
     max-width: var(--description-natima-max-width);
-    margin: 0 auto;
   }
   .type-product #description {
     grid-template-columns: min(100%, var(--description-natima-max-width));
@@ -8513,6 +8519,9 @@ body.sticky-header-off .messages > * {
     display: none;
   }
 }
+.type-product.product-is-natios #tab-content {
+  width: calc(var(--description-natios-max-width) + var(--description-sticky-sell-max-width) + var(--description-sticky-sell-gap));
+}
 .type-product.product-is-natios #description {
   grid-template-columns: var(--description-natios-max-width) var(--description-sticky-sell-max-width);
 }
@@ -8520,9 +8529,6 @@ body.sticky-header-off .messages > * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-.type-product.product-is-natios #ratingTab {
-  width: calc(var(--description-natios-max-width) + var(--description-sticky-sell-max-width) + var(--description-sticky-sell-gap));
 }
 @media screen and (max-width: 1800px) {
   .type-product.product-is-natios #tab-content {
