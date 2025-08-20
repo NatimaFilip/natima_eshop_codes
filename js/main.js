@@ -2013,7 +2013,7 @@ if (body.classList.contains("type-product")) {
 				basicDescription.insertAdjacentElement("afterend", relatedFiles);
 			}
 		}
-
+		/**/
 		if (extendedDescription) {
 			if (tabContent) {
 				tabContent.appendChild(extendedDescription);
