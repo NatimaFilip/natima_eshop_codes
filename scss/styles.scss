@@ -6853,70 +6853,6 @@ body {
 					}
 					.basic-description {
 					}
-					.extended-description {
-						background: var(--color-gray-400);
-						border-radius: var(--br-20);
-						padding: 45px 0 55px;
-						margin-top: var(--description-large-content-gap);
-						h3 {
-							text-align: center;
-							font-size: var(--fs-20);
-							padding-bottom: 1.25em;
-						}
-						table.detail-parameters {
-							background: var(--color-white);
-							border-radius: var(--br-10);
-							font-size: var(--fs-14);
-							font-weight: var(--fw-400);
-							width: 370px;
-							max-width: 90%;
-							margin: 0 auto;
-							border-collapse: separate;
-							padding: var(--gap-10) var(--gap-14);
-						}
-
-						tbody {
-							width: 100%;
-							tr {
-								display: grid;
-								grid-template-columns: 1fr 1fr;
-								gap: var(--gap-10);
-								align-items: center;
-								padding: var(--gap-10) 0;
-								border-bottom-style: solid;
-								border-bottom-width: 1px;
-								border-bottom-color: var(--color-black-o-10);
-
-								&:last-child {
-									border-bottom: none;
-								}
-							}
-
-							th {
-								font-weight: var(--fw-400);
-								text-align: left;
-
-								.row-header-label-colon {
-									display: none;
-								}
-							}
-							td {
-								text-align: right;
-								font-weight: var(--fw-700);
-								cursor: text;
-								a {
-									color: var(--color-primary);
-									@include text-underline;
-									&:hover,
-									&:focus-within {
-										color: var(--color-primary-hover);
-									}
-								}
-							}
-						}
-					}
-					.kosiksdasdas {
-					}
 				}
 				#relatedFiles {
 					list-style: none;
@@ -7015,6 +6951,68 @@ body {
 				}
 				#ratingTab {
 					@include ratingTab-shopRating;
+				}
+				.extended-description {
+					background: var(--color-gray-400);
+					border-radius: var(--br-20);
+					padding: 45px 0 55px;
+					margin-top: var(--description-large-content-gap);
+					h3 {
+						text-align: center;
+						font-size: var(--fs-20);
+						padding-bottom: 1.25em;
+					}
+					table.detail-parameters {
+						background: var(--color-white);
+						border-radius: var(--br-10);
+						font-size: var(--fs-14);
+						font-weight: var(--fw-400);
+						width: 370px;
+						max-width: 90%;
+						margin: 0 auto;
+						border-collapse: separate;
+						padding: var(--gap-10) var(--gap-14);
+					}
+
+					tbody {
+						width: 100%;
+						tr {
+							display: grid;
+							grid-template-columns: 1fr 1fr;
+							gap: var(--gap-10);
+							align-items: center;
+							padding: var(--gap-10) 0;
+							border-bottom-style: solid;
+							border-bottom-width: 1px;
+							border-bottom-color: var(--color-black-o-10);
+
+							&:last-child {
+								border-bottom: none;
+							}
+						}
+
+						th {
+							font-weight: var(--fw-400);
+							text-align: left;
+
+							.row-header-label-colon {
+								display: none;
+							}
+						}
+						td {
+							text-align: right;
+							font-weight: var(--fw-700);
+							cursor: text;
+							a {
+								color: var(--color-primary);
+								@include text-underline;
+								&:hover,
+								&:focus-within {
+									color: var(--color-primary-hover);
+								}
+							}
+						}
+					}
 				}
 			}
 		}
