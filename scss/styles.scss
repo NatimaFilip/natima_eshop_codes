@@ -6938,6 +6938,8 @@ body {
 							content: "";
 							width: 64px;
 							height: 64px;
+							min-width: 64px;
+							min-height: 64px;
 							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_certificate_primary.svg");
 							background-size: cover;
 							background-position: center;
@@ -6969,7 +6971,8 @@ body {
 							display: flex;
 							align-items: center;
 							justify-content: center;
-							gap: 10px;
+
+							margin-left: auto;
 							span {
 								font-weight: var(--fw-400);
 								color: var(--color-gray-600);
@@ -6979,9 +6982,12 @@ body {
 								content: "";
 								width: 20px;
 								height: 20px;
+								min-width: 20px;
+								min-height: 20px;
 								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_protocol_download.svg");
 								background-size: cover;
 								background-position: center;
+								margin-right: 10px;
 							}
 							&:hover,
 							&:focus-within {
@@ -6990,6 +6996,9 @@ body {
 								border-color: var(--color-primary);
 								span {
 									color: var(--color-white);
+								}
+								&::before {
+									filter: brightness(0) invert(1);
 								}
 							}
 						}
