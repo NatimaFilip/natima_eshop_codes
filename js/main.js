@@ -1695,6 +1695,7 @@ if (body.classList.contains("type-product")) {
 
 	let productsAlternative = document.querySelector("#productsAlternative");
 	let watchdog = document.querySelector(".product-top .watchdog");
+	let relatedFiles = document.querySelector("#relatedFiles");
 	let ratingTab = document.querySelector("#ratingTab");
 
 	moveElementsInProduct();
@@ -2001,6 +2002,13 @@ if (body.classList.contains("type-product")) {
 				showMoreAlternativesButton.addEventListener("click", function () {
 					productsAlternative.classList.add("active-all");
 				});
+			}
+		}
+
+		if (relatedFiles) {
+			const basicDescription = document.querySelector("#description .basic-description");
+			if (basicDescription) {
+				basicDescription.insertAdjacentElement("afterend", relatedFiles);
 			}
 		}
 
@@ -2311,10 +2319,9 @@ if (body.classList.contains("type-product")) {
 			observer.observe(description);
 		}
 
-		let filesField = document.querySelector("#relatedFiles");
 		let filesButtonDesc = document.querySelector("#show-tests-button");
 
-		if (filesField) {
+		if (relatedFiles) {
 			let filesTabTitle = "Certificates";
 			if (csLang) {
 				filesTabTitle = "Certifikáty";
@@ -2327,9 +2334,9 @@ if (body.classList.contains("type-product")) {
 			}
 			const filesTabTitleElement = document.createElement("h3");
 			filesTabTitleElement.textContent = filesTabTitle;
-			filesField.prepend(filesTabTitleElement);
+			relatedFiles.prepend(filesTabTitleElement);
 
-			let productFiles = filesField.querySelectorAll("li");
+			let productFiles = relatedFiles.querySelectorAll("li");
 			if (productFiles && productFiles.length > 0) {
 				productFiles.forEach((file) => {
 					const fileHref = file.querySelector("a").href;
@@ -2357,7 +2364,7 @@ if (body.classList.contains("type-product")) {
 			if (filesButtonDesc) {
 				filesButtonDesc.addEventListener("click", function (event) {
 					event.preventDefault();
-					scrollToElement(filesField);
+					scrollToElement(relatedFiles);
 				});
 			}
 		}
