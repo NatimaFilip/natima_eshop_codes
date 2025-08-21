@@ -1756,16 +1756,27 @@ if (body.classList.contains("type-product")) {
 				productBrand.setAttribute("href", "/natios");
 				const natiosBrandBlock = document.createElement("div");
 				natiosBrandBlock.className = "natios-brand-description-block-wrapper";
+
+				const natiosLargeBrandBlock = document.createElement("div");
+				natiosLargeBrandBlock.className = "natios-support-wrapper";
 				if (csLang) {
 					natiosBrandBlock.innerHTML = `<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>Natios je česká značka, která se zaměřuje na výrobu kvalitních doplňků stravy s čistým složením bezzbytečných příměsí, konzervantů a éček. <a href="/natios/">Více</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Přispíváme"></div><p>Nákupem <b>přispějete</b> 1 Kč dětské hematoonkologii. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více</a></p></div></div>`;
 					if (benefitBanner) {
 						benefitBanner.classList.add("natios-block-added");
+					}
+					natiosLargeBrandBlock.innerHTML = `<div class="natios-support-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/NatiosDarujeFNO_2.svg" alt="Natios daruje 1 Kč" width="174" height="174"></div><div class="natios-support-wrapper-content"><div class="natios-support-wrapper-content-title"><h3>Pomáháme</h3><span>&nbsp;dětské hematoonkologii</span></div><p>Natios z každého prodaného produktu daruje 1 Kč dětské hematoonkologii ve Fakultní nemocnici v Ostravě. Léčba každého onkologického pacienta v České republice se odhaduje na přibližně 8&nbsp;000&nbsp;Kč měsíčně. Věříme tedy, že tímto krokem společně dokážeme pomoci několika rodinám.</p><p>Společně jsme již dokázali přispět přes 750&nbsp;000&nbsp;Kč. Děkujeme!</p><p><a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více o pomoci</a></p></div>`;
+					if (tabContent) {
+						tabContent.appendChild(natiosLargeBrandBlock);
 					}
 				}
 				if (skLang) {
 					natiosBrandBlock.innerHTML = `<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>Natios je česká značka, ktorá sa zameriava na výrobu kvalitných výživových doplnkov s čistým zložením bez zbytočných prísad, konzervantov a éčok. <a href="/natios/">Viac</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Prispievame"></div><p>Nákupom <b>prispejete</b> 1 Kč detskej hematoonkologii. <a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Viac</a></p></div></div>`;
 					if (benefitBanner) {
 						benefitBanner.classList.add("natios-block-added");
+					}
+					natiosLargeBrandBlock.innerHTML = `<div class="natios-support-wrapper-content"><p class="natios-support-wrapper-content-title"><h3>Pomáháme</h3> dětské hematoonkologii</p><p>Natios z každého prodaného produktu daruje 1 Kč dětské hematoonkologii ve Fakultní nemocnici v Ostravě. Léčba každého onkologického pacienta v České republice se odhaduje na přibližně 8&nbsp;000&nbsp;Kč měsíčně. Věříme tedy, že tímto krokem společně dokážeme pomoci několika rodinám.</p><p>Společně jsme již dokázali přispět přes 750&nbsp;000&nbsp;Kč. Děkujeme!</p><p><a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více o pomoci</a></p></div>`;
+					if (tabContent) {
+						tabContent.appendChild(natiosLargeBrandBlock);
 					}
 				}
 				if (plLang) {
@@ -2306,57 +2317,6 @@ if (body.classList.contains("type-product")) {
 			});
 		}
 
-		if (detailTabs) {
-			createTabForSection(
-				"#description",
-				csLang ? "Popis" : skLang ? "Popis" : plLang ? "Opis" : "Description",
-				detailTabs
-			);
-			createTabForSection(
-				"#relatedFiles",
-				csLang ? "Certifikáty" : skLang ? "Certifikáty" : plLang ? "Certyfikaty" : "Certificates",
-				detailTabs
-			);
-		}
-
-		function createTabForSection(sectionId, tabTitle, detailTabs) {
-			const section = document.querySelector(sectionId);
-			if (!section) {
-				console.warn(`Section with ID ${sectionId} not found.`);
-				return;
-			}
-
-			const tab = document.createElement("li");
-			tab.className = "shp-tab";
-
-			tab.innerHTML = `<span class="shp-tab-link" data-tab="${sectionId}">${tabTitle}</span>`;
-			detailTabs.appendChild(tab);
-
-			tab.addEventListener("click", function () {
-				const activeShopTab = document.querySelector(".shp-tab.active");
-				if (activeShopTab && activeShopTab !== tab) {
-					activeShopTab.classList.remove("active");
-				}
-				scrollToElement(section);
-			});
-
-			const observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach((entry) => {
-						if (entry.isIntersecting) {
-							const activeShopTab = document.querySelector(".shp-tab.active");
-							if (activeShopTab) {
-								activeShopTab.classList.remove("active");
-							}
-							tab.classList.add("active");
-						}
-					});
-				},
-				{ root: null, threshold: 0.01 } // Trigger when 1% of the section is visible
-			);
-			observer.observe(section);
-		}
-
 		// Example usage:
 
 		/* 		let description = document.querySelector("#description");
@@ -2451,6 +2411,125 @@ if (body.classList.contains("type-product")) {
 					scrollToElement(relatedFiles);
 				});
 			}
+		}
+
+		if (detailTabs) {
+			createTabForSection(
+				"#description",
+				csLang ? "Popis" : skLang ? "Popis" : plLang ? "Opis" : "Description",
+				true,
+				detailTabs
+			);
+
+			createTabForSection(
+				".product-widget[widget-type='directions']",
+				csLang ? "Dávkování" : skLang ? "Dávkovanie" : plLang ? "Dawkowanie" : "Directions",
+				false,
+				detailTabs
+			);
+
+			createTabForSection(
+				".product-widget[widget-type='ingredients']",
+				csLang ? "Složení" : skLang ? "Zloženie" : plLang ? "Składniki" : "Ingredients",
+				false,
+				detailTabs
+			);
+			createTabForSection(
+				"table.ingredients",
+				csLang ? "Složení" : skLang ? "Zloženie" : plLang ? "Składniki" : "Ingredients",
+				true,
+				detailTabs
+			);
+
+			createTabForSection(
+				"#relatedFiles",
+				csLang ? "Certifikáty" : skLang ? "Certifikáty" : plLang ? "Certyfikaty" : "Certificates",
+				false,
+				detailTabs
+			);
+			createTabForSection(
+				"#ratingTab",
+				csLang ? "Hodnocení" : skLang ? "Hodnotenie" : plLang ? "Ocena" : "Rating",
+				false,
+				detailTabs
+			);
+			createTabForSection(
+				".natios-support-wrapper",
+				csLang ? "Pomáháme" : skLang ? "Pomáhame" : plLang ? "Pomagamy" : "Helping",
+				false,
+				detailTabs
+			);
+			createTabForSection(
+				".products-related",
+				csLang
+					? "Související produkty"
+					: skLang
+					? "Súvisiaci tovar"
+					: plLang
+					? "Produkty powiązane"
+					: "Related Products",
+				false,
+				detailTabs
+			);
+		}
+
+		function createTabForSection(sectionId, tabTitle, isHardcoded, detailTabs) {
+			const section = document.querySelector(sectionId);
+			if (!section) {
+				console.warn(`Section with ID ${sectionId} not found.`);
+				return;
+			}
+
+			const tab = document.createElement("li");
+			tab.className = "shp-tab";
+
+			let tabTitleText = tabTitle;
+
+			if (!isHardcoded) {
+				tabTitleText = section.querySelector("h2")
+					? section.querySelector("h2").textContent.trim()
+					: section.querySelector("h3")
+					? section.querySelector("h3").textContent.trim()
+					: section.querySelector("h4")
+					? section.querySelector("h4").textContent.trim()
+					: tabTitle;
+			}
+
+			tab.innerHTML = `<span class="shp-tab-link" data-tab="${sectionId}">${tabTitleText}</span>`;
+
+			if (sectionId === "#ratingTab") {
+				try {
+					let numberOfReviews = section.querySelector(".stars-label").textContent.trim().match(/^\d+/)?.[0];
+					tab.innerHTML = `<span class="shp-tab-link" data-tab="${sectionId}">${tabTitleText}<span class="number-of-reviews">${numberOfReviews}</span></span>`;
+				} catch (error) {
+					console.error("Error parsing number of reviews:", error);
+				}
+			}
+			detailTabs.appendChild(tab);
+
+			tab.addEventListener("click", function () {
+				const activeShopTab = document.querySelector(".shp-tab.active");
+				if (activeShopTab && activeShopTab !== tab) {
+					activeShopTab.classList.remove("active");
+				}
+				scrollToElement(section);
+			});
+
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							const activeShopTab = document.querySelector(".shp-tab.active");
+							if (activeShopTab) {
+								activeShopTab.classList.remove("active");
+							}
+							tab.classList.add("active");
+						}
+					});
+				},
+				{ root: null, threshold: 0.01 } // Trigger when 1% of the section is visible
+			);
+			observer.observe(section);
 		}
 	}
 }
