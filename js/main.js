@@ -2306,27 +2306,83 @@ if (body.classList.contains("type-product")) {
 			});
 		}
 
-		let description = document.querySelector("#description");
+		if (detailTabs) {
+			createTabForSection(
+				"#description",
+				csLang ? "Popis" : skLang ? "Popis" : plLang ? "Opis" : "Description",
+				detailTabs
+			);
+			createTabForSection(
+				"#relatedFiles",
+				csLang ? "Certifikáty" : skLang ? "Certifikáty" : plLang ? "Certyfikaty" : "Certificates",
+				detailTabs
+			);
+		}
+
+		function createTabForSection(sectionId, tabTitle, detailTabs) {
+			const section = document.querySelector(sectionId);
+			if (!section) {
+				console.warn(`Section with ID ${sectionId} not found.`);
+				return;
+			}
+
+			const tab = document.createElement("li");
+			tab.className = "shp-tab";
+
+			tab.innerHTML = `<span class="shp-tab-link" data-tab="${sectionId}">${tabTitle}</span>`;
+			detailTabs.appendChild(tab);
+
+			tab.addEventListener("click", function () {
+				const activeShopTab = document.querySelector(".shp-tab.active");
+				if (activeShopTab && activeShopTab !== tab) {
+					activeShopTab.classList.remove("active");
+				}
+				scrollToElement(section);
+			});
+
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							const activeShopTab = document.querySelector(".shp-tab.active");
+							if (activeShopTab) {
+								activeShopTab.classList.remove("active");
+							}
+							tab.classList.add("active");
+						}
+					});
+				},
+				{ root: null, threshold: 0.01 } // Trigger when 1% of the section is visible
+			);
+			observer.observe(section);
+		}
+
+		// Example usage:
+
+		/* 		let description = document.querySelector("#description");
 		if (description) {
 			const descriptionTab = document.createElement("li");
 			descriptionTab.className = "shp-tab";
 
+			let descriptionTabTitle = "Description";
 			if (csLang) {
-				descriptionTab.innerHTML = `<span class="shp-tab-link" data-tab="description">Popis</span>`;
+				descriptionTabTitle = "Popis";
 			}
 			if (skLang) {
-				descriptionTab.innerHTML = `<span class="shp-tab-link" data-tab="description">Popis</span>`;
+				descriptionTabTitle = "Popis";
 			}
 			if (plLang) {
-				descriptionTab.innerHTML = `<span class="shp-tab-link" data-tab="description">Opis</span>`;
+				descriptionTabTitle = "Opis";
+		
 			}
+			descriptionTab.innerHTML = `<span class="shp-tab-link" data-tab="description">${descriptionTabTitle}</span>`;
+
 			detailTabs.appendChild(descriptionTab);
 			descriptionTab.addEventListener("click", function () {
 				const activeShopTab = document.querySelector(".shp-tab.active");
 				if (activeShopTab && activeShopTab !== descriptionTab) {
 					activeShopTab.classList.remove("active");
 				}
-
 				scrollToElement(description);
 			});
 			const observer = new IntersectionObserver(
@@ -2344,7 +2400,7 @@ if (body.classList.contains("type-product")) {
 				{ root: null, threshold: 0.01 } // Trigger when 50% of the description is visible
 			);
 			observer.observe(description);
-		}
+		} */
 
 		let filesButtonDesc = document.querySelector("#show-tests-button");
 
