@@ -2617,7 +2617,8 @@ if (body.classList.contains("in-index")) {
 
 			carouselLeftButton.classList.add("display-none");
 
-			const transformItemIncrement = 100 / flexBasisOtherItems;
+			const transformItemIncrement = Math.round(100 / flexBasisOtherItems);
+
 			let lastVisibleItem = initialDisplayedItems;
 			let offsetAmountForLargeItem = 0;
 			offsetAmountForLargeItem = Math.round(flexBasisFirstItem / flexBasisOtherItems) - 1;
