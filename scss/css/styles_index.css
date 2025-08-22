@@ -174,6 +174,10 @@
   }
 }
 @media screen and (max-width: 1280px) {
+  .in-index #carousel .carousel-inner {
+    --padding-left: var(--gap-16);
+    margin-left: calc(-1 * var(--padding-left));
+  }
   .in-index #carousel .carousel-inner .item {
     -ms-flex-preferred-size: 33.333%;
         flex-basis: 33.333%;
@@ -192,6 +196,9 @@
   }
 }
 @media screen and (max-width: 767px) {
+  .in-index #carousel .carousel-inner {
+    --padding-left: var(--gap-12);
+  }
   .in-index #carousel .carousel-inner .item {
     -ms-flex-preferred-size: 60%;
         flex-basis: 60%;

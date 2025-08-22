@@ -393,6 +393,8 @@ $desktop-large-min: 1680px;
 				}
 			}
 			@media screen and (max-width: $desktop-min) {
+				--padding-left: var(--gap-16);
+				margin-left: calc(-1 * var(--padding-left));
 				.item {
 					flex-basis: 33.333%;
 				}
@@ -410,6 +412,7 @@ $desktop-large-min: 1680px;
 				}
 			}
 			@media screen and (max-width: $mobile-max) {
+				--padding-left: var(--gap-12);
 				.item {
 					flex-basis: 60%;
 				}
