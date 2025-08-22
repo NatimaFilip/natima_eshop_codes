@@ -2586,6 +2586,7 @@ if (body.classList.contains("in-index")) {
 
 			let totalWidth = 0;
 			let initialDisplayedItems = 0;
+			let totalAmountOfItems = activeItems.length;
 
 			// Calculate how many items fit into 100%
 			while (totalWidth < 100) {
@@ -2603,43 +2604,47 @@ if (body.classList.contains("in-index")) {
 			}
 			console.log("Initial displayed items:", initialDisplayedItems);
 
-			if (carouselItems && carouselItems.length <= initialDisplayedItems) {
+			if (initialDisplayedItems <= totalAmountOfItems) {
 				carousel.classList.add("carousel-no-sliding");
-				if (carouselLeftButton) {
-					carouselLeftButton.classList.add("display-none");
-				}
-				if (carouselRightButton) {
-					carouselRightButton.classList.add("display-none");
-				}
+				carouselLeftButton.classList.add("display-none");
+				carouselRightButton.classList.add("display-none");
 				return;
 			}
 
-			if (!carouselLeftButton || !carouselRightButton) {
-				return; // Exit if buttons are not found
-			}
 			carouselLeftButton.classList.add("display-none");
-			const maxNumberOfItems = 7;
 
-			let totalItems = Math.min(carouselItems.length, maxNumberOfItems); // Limit totalItems to maxNumberOfItems
+			const transformItemIncrement = 100 / flexBasisOtherItems;
+			let lastVisibleItem = initialDisplayedItems;
+			let currentTransformAmount = 0;
 
-			const transformIncrement = totalItems - initialDisplayedItems;
-			console.log("Transform increment:", transformIncrement);
+			carouselRightButton.addEventListener("click", function () {
+				carouselLeftButton.classList.remove("display-none");
+				activeItems.forEach((item, index) => {
+					lastVisibleItem = lastVisibleItem + transformItemIncrement;
+					if (lastVisibleItem >= totalAmountOfItems) {
+						lastVisibleItem = totalAmountOfItems;
+						carouselRightButton.classList.add("display-none");
+					}
+
+					if (index == 0) {
+						item.style.transform = `translateX(-${(lastVisibleItem * 100 - transformItemIncrement) / 2}%)`;
+					} else {
+						item.style.transform = `translateX(-${lastVisibleItem * 100 - transformItemIncrement}%)`;
+					}
+				});
+			});
+
+			/* 			if (index == 0) {
+						item.style.transform = `translateX(-${(transformIncrement * 100) / 2}%)`;
+					} else {
+						item.style.transform = `translateX(-${transformIncrement * 100}%)`;
+					} */
+
 			carouselLeftButton.addEventListener("click", function () {
 				carouselRightButton.classList.remove("display-none");
 				carouselLeftButton.classList.add("display-none");
 				carouselItems.forEach((item) => {
 					item.style.transform = "translateX(0)";
-				});
-			});
-			carouselRightButton.addEventListener("click", function () {
-				carouselRightButton.classList.add("display-none");
-				carouselLeftButton.classList.remove("display-none");
-				carouselItems.forEach((item, index) => {
-					if (index == 0) {
-						item.style.transform = `translateX(-${(transformIncrement * 100) / 2}%)`;
-					} else {
-						item.style.transform = `translateX(-${transformIncrement * 100}%)`;
-					}
 				});
 			});
 		}
