@@ -386,18 +386,21 @@ $desktop-large-min: 1680px;
 			}
 			@media screen and (max-width: $desktop-medium-min) {
 				.item {
-					flex-basis: 25%;
+					flex-basis: 33.333%;
+				}
+				.item:first-child {
+					flex-basis: 66.666%;
+				}
+			}
+			@media screen and (max-width: $desktop-min) {
+				.item {
+					flex-basis: 33.333%;
 				}
 				.item:first-child {
 					display: none;
 				}
 				.item:nth-child(2) {
 					display: block;
-				}
-			}
-			@media screen and (max-width: $desktop-min) {
-				.item {
-					flex-basis: 33.333%;
 				}
 			}
 
