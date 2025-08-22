@@ -3513,6 +3513,9 @@ body.type-category .category-header > div strong {
       -ms-flex-align: center;
           align-items: center;
 }
+.products-block .product .p-in .p-in-in .ratings-wrapper .stars-wrapper[data-micro-rating-count="0"] {
+  display: none;
+}
 .products-block .product .p-in .p-in-in .ratings-wrapper .star-list {
   display: -webkit-box;
   display: -ms-flexbox;

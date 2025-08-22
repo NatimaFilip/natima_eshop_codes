@@ -3602,6 +3602,9 @@ body.type-category {
 						grid-column: 1;
 						display: flex;
 						align-items: center;
+						&[data-micro-rating-count="0"] {
+							display: none;
+						}
 					}
 					.star-list {
 						@include star-list;
