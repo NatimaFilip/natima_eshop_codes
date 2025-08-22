@@ -6716,7 +6716,11 @@ body {
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
 		border-bottom-color: var(--color-gray-500);
-		overflow-x: hidden;
+
+		.divProduktu {
+			overflow-x: hidden;
+		}
+
 		@media screen and (max-width: $tablet-max) {
 			margin-bottom: var(--gap-20);
 			padding-bottom: 40px;

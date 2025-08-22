@@ -7573,6 +7573,8 @@ body.sticky-header-off .messages > * {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: var(--color-gray-500);
+}
+.type-product .p-detail-tabs-wrapper .divProduktu {
   overflow-x: hidden;
 }
 @media screen and (max-width: 1279px) {
