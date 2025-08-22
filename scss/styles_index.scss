@@ -4,6 +4,7 @@ $large-mobile-min: 500px;
 $mobile-max: 767px;
 
 $tablet-min: 768px;
+$tablet-medium-min: 1024px;
 $tablet-max: 1279px;
 $desktop-min: 1280px;
 $desktop-medium-min: 1440px;
@@ -329,6 +330,22 @@ $desktop-large-min: 1680px;
 	&.white {
 		color: var(--color-white);
 	}
+
+	@media screen and (max-width: $desktop-medium-min) {
+		.extended-banner-texts {
+			padding: 20px 10px 20px 20px;
+		}
+		.extended-banner-title {
+			font-size: var(--fs-20);
+		}
+		.extended-banner-text {
+			font-size: var(--fs-16);
+			padding-bottom: 1em;
+		}
+		.extended-banner-link {
+			font-size: var(--fs-13);
+		}
+	}
 }
 
 /*toto ↑ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
@@ -363,6 +380,42 @@ $desktop-large-min: 1680px;
 				padding-left: calc(var(--padding-left) * 2);
 				flex-basis: 50%;
 				flex-shrink: 0;
+			}
+			.item:nth-child(2) {
+				display: none;
+			}
+			@media screen and (max-width: $desktop-medium-min) {
+				.item {
+					flex-basis: 25%;
+				}
+				.item:first-child {
+					display: none;
+				}
+				.item:nth-child(2) {
+					display: block;
+				}
+			}
+			@media screen and (max-width: $desktop-min) {
+				.item {
+					flex-basis: 33.333%;
+				}
+			}
+
+			@media screen and (max-width: $tablet-medium-min) {
+				.item {
+					flex-basis: 40%;
+				}
+			}
+			@media screen and (max-width: $mobile-max) {
+				.item {
+					flex-basis: 60%;
+				}
+			}
+
+			@media screen and (max-width: $large-mobile-min) {
+				.item {
+					flex-basis: 80%;
+				}
 			}
 		}
 	}

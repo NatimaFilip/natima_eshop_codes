@@ -2567,6 +2567,8 @@ if (body.classList.contains("in-index")) {
 				console.warn("Carousel buttons not found.");
 				return; // Exit if buttons are not found
 			}
+			carouselLeftButton.removeAttribute("href");
+			carouselRightButton.removeAttribute("href");
 
 			let activeItems = Array.from(carouselItems).filter((item) => {
 				return window.getComputedStyle(item).getPropertyValue("display") !== "none";
@@ -2603,11 +2605,13 @@ if (body.classList.contains("in-index")) {
 				}
 			}
 			console.log("Initial displayed items:", initialDisplayedItems);
+			console.log("Total amount of items:", totalAmountOfItems);
 
-			if (initialDisplayedItems <= totalAmountOfItems) {
+			if (initialDisplayedItems >= totalAmountOfItems) {
 				carousel.classList.add("carousel-no-sliding");
 				carouselLeftButton.classList.add("display-none");
 				carouselRightButton.classList.add("display-none");
+
 				return;
 			}
 
@@ -2615,40 +2619,53 @@ if (body.classList.contains("in-index")) {
 
 			const transformItemIncrement = 100 / flexBasisOtherItems;
 			let lastVisibleItem = initialDisplayedItems;
-			let currentTransformAmount = 0;
+			let offsetAmountForLargeItem = 0;
+			offsetAmountForLargeItem = Math.round(flexBasisFirstItem / flexBasisOtherItems) - 1;
 
 			carouselRightButton.addEventListener("click", function () {
 				carouselLeftButton.classList.remove("display-none");
+				lastVisibleItem = lastVisibleItem + transformItemIncrement;
+				if (lastVisibleItem >= totalAmountOfItems) {
+					lastVisibleItem = totalAmountOfItems;
+					carouselRightButton.classList.add("display-none");
+				}
 				activeItems.forEach((item, index) => {
-					lastVisibleItem = lastVisibleItem + transformItemIncrement;
-					if (lastVisibleItem >= totalAmountOfItems) {
-						lastVisibleItem = totalAmountOfItems;
-						carouselRightButton.classList.add("display-none");
-					}
-
 					if (index == 0) {
-						item.style.transform = `translateX(-${(lastVisibleItem * 100 - transformItemIncrement) / 2}%)`;
+						item.style.transform = `translateX(-${
+							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
+						}%)`;
 					} else {
-						item.style.transform = `translateX(-${lastVisibleItem * 100 - transformItemIncrement}%)`;
+						item.style.transform = `translateX(-${
+							(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100
+						}%)`;
 					}
 				});
+				console.log("Last visible item after right click:", lastVisibleItem);
 			});
-
-			/* 			if (index == 0) {
-						item.style.transform = `translateX(-${(transformIncrement * 100) / 2}%)`;
-					} else {
-						item.style.transform = `translateX(-${transformIncrement * 100}%)`;
-					} */
 
 			carouselLeftButton.addEventListener("click", function () {
 				carouselRightButton.classList.remove("display-none");
-				carouselLeftButton.classList.add("display-none");
-				carouselItems.forEach((item) => {
-					item.style.transform = "translateX(0)";
+				lastVisibleItem = lastVisibleItem - transformItemIncrement;
+				if (lastVisibleItem <= initialDisplayedItems) {
+					lastVisibleItem = initialDisplayedItems;
+					carouselLeftButton.classList.add("display-none");
+				}
+				activeItems.forEach((item, index) => {
+					if (index == 0) {
+						item.style.transform = `translateX(-${
+							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
+						}%)`;
+					} else {
+						item.style.transform = `translateX(-${
+							(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100
+						}%)`;
+					}
 				});
+				console.log("Last visible item after left click:", lastVisibleItem);
 			});
 		}
 	}
+
 	let allProductsBlocks = document.querySelectorAll(".products-block");
 	if (allProductsBlocks && allProductsBlocks.length > 0) {
 		allProductsBlocks.forEach((block) => {
