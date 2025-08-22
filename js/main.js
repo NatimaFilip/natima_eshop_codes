@@ -2630,7 +2630,7 @@ if (body.classList.contains("in-index")) {
 					carouselRightButton.classList.add("display-none");
 				}
 				activeItems.forEach((item, index) => {
-					if (index == 0) {
+					if (index == 0 && offsetAmountForLargeItem !== 0) {
 						item.style.transform = `translateX(-${
 							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
 						}%)`;
@@ -2651,7 +2651,7 @@ if (body.classList.contains("in-index")) {
 					carouselLeftButton.classList.add("display-none");
 				}
 				activeItems.forEach((item, index) => {
-					if (index == 0) {
+					if (index == 0 && offsetAmountForLargeItem !== 0) {
 						item.style.transform = `translateX(-${
 							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
 						}%)`;
