@@ -6280,6 +6280,9 @@ body.sticky-header-off .messages > * {
   grid-row: 2;
   grid-column: 1/-1;
 }
+.type-product .product-top .p-info-wrapper .stars-wrapper.no-score .star-list {
+  display: none;
+}
 .type-product .product-top .p-info-wrapper .product-parameters-product-top {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
@@ -6970,6 +6973,10 @@ body.sticky-header-off .messages > * {
           align-items: center;
   padding-bottom: var(--gap-15);
   cursor: pointer;
+}
+.type-product #product-detail-form .stars-wrapper.no-score .star-list,
+.type-product .p-detail-inner-header .stars-wrapper.no-score .star-list {
+  display: none;
 }
 .type-product #product-detail-form .stars-wrapper .star-list,
 .type-product .p-detail-inner-header .stars-wrapper .star-list {

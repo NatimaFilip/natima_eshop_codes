@@ -5774,6 +5774,11 @@ body {
 			.stars-wrapper {
 				grid-row: 2;
 				grid-column: 1/ -1;
+				&.no-score {
+					.star-list {
+						display: none;
+					}
+				}
 			}
 
 			.product-parameters-product-top {
@@ -6294,6 +6299,12 @@ body {
 			align-items: center;
 			padding-bottom: var(--gap-15);
 			cursor: pointer;
+
+			&.no-score {
+				.star-list {
+					display: none;
+				}
+			}
 
 			.star-list {
 				@include star-list;
