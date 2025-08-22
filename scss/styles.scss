@@ -354,6 +354,7 @@ $desktop-large-min: 1680px;
 		font-weight: var(--fw-700);
 		color: var(--color-black);
 		line-height: var(--lh-2);
+		flex-shrink: 0;
 		&:after {
 			content: "/ 5";
 			font-size: var(--fs-32);
@@ -6696,6 +6697,7 @@ body {
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
 		border-bottom-color: var(--color-gray-500);
+		overflow-x: hidden;
 		@media screen and (max-width: $tablet-max) {
 			margin-bottom: var(--gap-20);
 			padding-bottom: 40px;
@@ -6999,8 +7001,12 @@ body {
 						text-align: center;
 					}
 					@media screen and (max-width: $tablet-max) {
+						padding: 0;
+						background: transparent;
 						li {
 							flex-wrap: wrap;
+							background: var(--color-gray-400);
+							padding: 27px;
 							> a:not(.btn) {
 								flex: 1;
 							}
@@ -7050,6 +7056,9 @@ body {
 
 							&:last-child {
 								border-bottom: none;
+							}
+							tr.sold-out {
+								display: none;
 							}
 						}
 

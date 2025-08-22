@@ -7559,6 +7559,7 @@ body.sticky-header-off .messages > * {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: var(--color-gray-500);
+  overflow-x: hidden;
 }
 @media screen and (max-width: 1279px) {
   .type-product .p-detail-tabs-wrapper {
@@ -7935,9 +7936,15 @@ body.sticky-header-off .messages > * {
   text-align: center;
 }
 @media screen and (max-width: 1279px) {
+  .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles {
+    padding: 0;
+    background: transparent;
+  }
   .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    background: var(--color-gray-400);
+    padding: 27px;
   }
   .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles li > a:not(.btn) {
     -webkit-box-flex: 1;
@@ -8068,6 +8075,8 @@ body.sticky-header-off .messages > * {
   font-weight: var(--fw-700);
   color: var(--color-black);
   line-height: var(--lh-2);
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-average:after {
   content: "/ 5";
@@ -8428,6 +8437,9 @@ body.sticky-header-off .messages > * {
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content .extended-description tbody tr:last-child {
   border-bottom: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .extended-description tbody tr tr.sold-out {
+  display: none;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content .extended-description tbody th {
   font-weight: var(--fw-400);
@@ -8822,6 +8834,8 @@ body.sticky-header-off .messages > * {
   font-weight: var(--fw-700);
   color: var(--color-black);
   line-height: var(--lh-2);
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .in-hodnoceni-obchodu .content-inner .rate-average:after {
   content: "/ 5";
