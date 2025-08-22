@@ -2648,7 +2648,7 @@ if (body.classList.contains("in-index")) {
 						}%)`;
 					} else {
 						item.style.transform = `translateX(-${
-							(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 - offsetPercentageForLastItems
+							(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 + offsetPercentageForLastItems
 						}%)`;
 					}
 				});
