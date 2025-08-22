@@ -2619,8 +2619,12 @@ if (body.classList.contains("in-index")) {
 
 			let lastVisibleItem = initialDisplayedItems;
 			let offsetAmountForLargeItem = 0;
+
 			offsetAmountForLargeItem = Math.round(flexBasisFirstItem / flexBasisOtherItems) - 1;
+
 			const transformItemIncrement = initialDisplayedItems + offsetAmountForLargeItem;
+
+			let offsetPercentageForLastItems = 0;
 
 			carouselRightButton.addEventListener("click", function () {
 				carouselLeftButton.classList.remove("display-none");
@@ -2628,15 +2632,23 @@ if (body.classList.contains("in-index")) {
 				if (lastVisibleItem >= totalAmountOfItems) {
 					lastVisibleItem = totalAmountOfItems;
 					carouselRightButton.classList.add("display-none");
+
+					if (initialDisplayedItems < 2) {
+						offsetPercentageForLastItems = 100 - flexBasisFirstItem;
+					}
+				} else {
+					offsetPercentageForLastItems = 0;
 				}
 				activeItems.forEach((item, index) => {
 					if (index == 0 && offsetAmountForLargeItem !== 0) {
 						item.style.transform = `translateX(-${
-							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
+							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 -
+								offsetPercentageForLastItems) /
+							2
 						}%)`;
 					} else {
 						item.style.transform = `translateX(-${
-							(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100
+							(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 - offsetPercentageForLastItems
 						}%)`;
 					}
 				});
