@@ -4576,6 +4576,11 @@ body.type-category {
 				}
 			}
 
+			img {
+				max-width: none;
+				width: 100%;
+			}
+
 			@media screen and (min-width: $desktop-medium-min) {
 				grid-template-columns: repeat(6, 1fr);
 				grid-template-rows: 1fr;
@@ -7001,7 +7006,8 @@ body {
 						text-align: center;
 					}
 					@media screen and (max-width: $tablet-max) {
-						padding: 0;
+						padding: 20px 0;
+
 						background: transparent;
 						li {
 							flex-wrap: wrap;
