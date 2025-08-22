@@ -2633,8 +2633,8 @@ if (body.classList.contains("in-index")) {
 					lastVisibleItem = totalAmountOfItems;
 					carouselRightButton.classList.add("display-none");
 
-					if (initialDisplayedItems < 2) {
-						offsetPercentageForLastItems = -flexBasisFirstItem;
+					if (flexBasisOtherItems > 26) {
+						offsetPercentageForLastItems = -flexBasisOtherItems;
 					}
 				} else {
 					offsetPercentageForLastItems = 0;
