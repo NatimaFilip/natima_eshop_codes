@@ -2634,7 +2634,7 @@ if (body.classList.contains("in-index")) {
 					carouselRightButton.classList.add("display-none");
 
 					if (initialDisplayedItems < 2) {
-						offsetPercentageForLastItems = 100 - flexBasisFirstItem;
+						offsetPercentageForLastItems = -flexBasisFirstItem;
 					}
 				} else {
 					offsetPercentageForLastItems = 0;
