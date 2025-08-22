@@ -67,7 +67,6 @@
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  padding-left: var(--padding-left);
 }
 .in-index #carousel .carousel-inner .item a {
   position: relative;
@@ -153,12 +152,17 @@
     font-size: var(--fs-13);
   }
 }
+.in-index #carousel .carousel-inner .item a {
+  margin-left: var(--padding-left);
+}
 .in-index #carousel .carousel-inner .item:first-child {
-  padding-left: calc(var(--padding-left) * 2);
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+}
+.in-index #carousel .carousel-inner .item:first-child a {
+  margin-left: calc(var(--padding-left) * 2);
 }
 .in-index #carousel .carousel-inner .item:nth-child(2) {
   display: none;

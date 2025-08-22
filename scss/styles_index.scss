@@ -374,12 +374,16 @@ $desktop-large-min: 1680px;
 				flex-basis: 25%;
 				flex-shrink: 0;
 				@include banner-item-preset;
-				padding-left: var(--padding-left);
+				a {
+					margin-left: var(--padding-left);
+				}
 			}
 			.item:first-child {
-				padding-left: calc(var(--padding-left) * 2);
 				flex-basis: 50%;
 				flex-shrink: 0;
+				a {
+					margin-left: calc(var(--padding-left) * 2);
+				}
 			}
 			.item:nth-child(2) {
 				display: none;
