@@ -53,7 +53,7 @@
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   min-height: auto !important;
-  margin-left: calc(-2 * var(--padding-left));
+  margin-left: calc(-1 * var(--padding-left));
   overflow: hidden;
 }
 .in-index #carousel .carousel-inner .item {
@@ -161,9 +161,6 @@
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
-.in-index #carousel .carousel-inner .item:first-child a {
-  margin-left: calc(var(--padding-left) * 2);
-}
 .in-index #carousel .carousel-inner .item:nth-child(2) {
   display: none;
 }
@@ -180,7 +177,6 @@
 @media screen and (max-width: 1280px) {
   .in-index #carousel .carousel-inner {
     --padding-left: var(--gap-16);
-    margin-left: calc(-1 * var(--padding-left));
   }
   .in-index #carousel .carousel-inner .item {
     -ms-flex-preferred-size: 33.333%;

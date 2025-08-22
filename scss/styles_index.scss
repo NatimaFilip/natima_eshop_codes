@@ -367,7 +367,7 @@ $desktop-large-min: 1680px;
 			flex: row;
 			flex-wrap: nowrap;
 			min-height: auto !important;
-			margin-left: calc(-2 * var(--padding-left));
+			margin-left: calc(-1 * var(--padding-left));
 			overflow: hidden;
 
 			.item {
@@ -381,9 +381,6 @@ $desktop-large-min: 1680px;
 			.item:first-child {
 				flex-basis: 50%;
 				flex-shrink: 0;
-				a {
-					margin-left: calc(var(--padding-left) * 2);
-				}
 			}
 			.item:nth-child(2) {
 				display: none;
@@ -398,7 +395,7 @@ $desktop-large-min: 1680px;
 			}
 			@media screen and (max-width: $desktop-min) {
 				--padding-left: var(--gap-16);
-				margin-left: calc(-1 * var(--padding-left));
+
 				.item {
 					flex-basis: 33.333%;
 				}
