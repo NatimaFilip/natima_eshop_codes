@@ -2571,8 +2571,18 @@ if (body.classList.contains("in-index")) {
 			let activeItems = Array.from(carouselItems).filter((item) => {
 				return window.getComputedStyle(item).getPropertyValue("display") !== "none";
 			});
-			let flexBasisFirstItem = window.getComputedStyle(activeItems[0]).getPropertyValue("flex-basis");
-			let flexBasisOtherItems = window.getComputedStyle(activeItems[1]).getPropertyValue("flex-basis");
+			console.log("Active items count:", activeItems.length);
+			console.log("Active items:", activeItems);
+
+			let flexBasisFirstItem = parseFloat(
+				window.getComputedStyle(activeItems[0]).getPropertyValue("flex-basis").replace("%", "")
+			);
+			let flexBasisOtherItems = parseFloat(
+				window.getComputedStyle(activeItems[1]).getPropertyValue("flex-basis").replace("%", "")
+			);
+
+			console.log("First item flex-basis:", flexBasisFirstItem);
+			console.log("Other items flex-basis:", flexBasisOtherItems);
 
 			let totalWidth = 0;
 			let initialDisplayedItems = 0;
