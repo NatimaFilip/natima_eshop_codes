@@ -2617,12 +2617,10 @@ if (body.classList.contains("in-index")) {
 
 			carouselLeftButton.classList.add("display-none");
 
-			const transformItemIncrement = Math.round(100 / flexBasisOtherItems);
-			console.log("Transform item increment:", transformItemIncrement);
-
 			let lastVisibleItem = initialDisplayedItems;
 			let offsetAmountForLargeItem = 0;
 			offsetAmountForLargeItem = Math.round(flexBasisFirstItem / flexBasisOtherItems) - 1;
+			const transformItemIncrement = initialDisplayedItems + offsetAmountForLargeItem;
 
 			carouselRightButton.addEventListener("click", function () {
 				carouselLeftButton.classList.remove("display-none");
