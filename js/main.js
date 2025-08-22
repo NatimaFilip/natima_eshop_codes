@@ -2548,18 +2548,51 @@ if (body.classList.contains("in-index")) {
 			}
 			let carouselItems = carousel.querySelectorAll(".item");
 
-			if (carouselItems && carouselItems.length >= 0 && indexesOfWhiteBanners) {
+			if (!carouselItems && carouselItems.length <= 0) {
+				console.warn("Carousel items not found.");
+				return; // Exit if carousel items are not found
+			}
+
+			if (indexesOfWhiteBanners) {
 				carouselItems.forEach((item, index) => {
 					if (indexesOfWhiteBanners.includes(index)) {
 						item.classList.add("white");
-					} else {
-						item.classList.remove("white");
 					}
 				});
 			}
 			let carouselLeftButton = carousel.querySelector(".carousel-control.left");
 			let carouselRightButton = carousel.querySelector(".carousel-control.right");
-			const initialDisplayedItems = 3; // na desktopu 3 - dvojitý banner
+
+			if (!carouselLeftButton || !carouselRightButton) {
+				console.warn("Carousel buttons not found.");
+				return; // Exit if buttons are not found
+			}
+
+			let activeItems = Array.from(carouselItems).filter((item) => {
+				return window.getComputedStyle(item).getPropertyValue("display") !== "none";
+			});
+			let flexBasisFirstItem = window.getComputedStyle(activeItems[0]).getPropertyValue("flex-basis");
+			let flexBasisOtherItems = window.getComputedStyle(activeItems[1]).getPropertyValue("flex-basis");
+
+			let totalWidth = 0;
+			let initialDisplayedItems = 0;
+
+			// Calculate how many items fit into 100%
+			while (totalWidth < 100) {
+				if (initialDisplayedItems === 0) {
+					// Add the first item's width
+					totalWidth += flexBasisFirstItem;
+				} else {
+					// Add the width of subsequent items
+					totalWidth += flexBasisOtherItems;
+				}
+
+				if (totalWidth <= 100) {
+					initialDisplayedItems++;
+				}
+			}
+			console.log("Initial displayed items:", initialDisplayedItems);
+
 			if (carouselItems && carouselItems.length <= initialDisplayedItems) {
 				carousel.classList.add("carousel-no-sliding");
 				if (carouselLeftButton) {
