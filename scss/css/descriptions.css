@@ -211,6 +211,10 @@
 .product-widgets ul :not(:last-child) {
   padding-bottom: 0.6em;
 }
+.product-widgets b,
+.product-widgets strong {
+  font-weight: var(--fw-700);
+}
 .product-widgets ol {
   --list-dot-width: 5px;
   list-style: none;

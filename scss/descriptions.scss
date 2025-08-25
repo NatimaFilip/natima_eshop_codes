@@ -255,6 +255,10 @@ $desktop-min: 1280px;
 			padding-bottom: 0.6em;
 		}
 	}
+	b,
+	strong {
+		font-weight: var(--fw-700);
+	}
 	ol {
 		--list-dot-width: 5px;
 		list-style: none;
