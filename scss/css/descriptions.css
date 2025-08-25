@@ -786,7 +786,7 @@ body .product-widgets[product-template=natios] .natios-icons-flex .description-i
           align-items: center;
   font-size: var(--fs-14);
   font-weight: var(--fw-700);
-  line-height: 1;
+  line-height: var(--lh-1-2);
   gap: 1em;
 }
 body .product-widgets.natios .natios-icons-flex .product-icon-svg-wrapper,
