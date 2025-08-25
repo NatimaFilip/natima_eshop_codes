@@ -683,12 +683,13 @@ body {
 		}
 
 		.widget-gray-background {
-			padding: 40px 62px;
+			padding: 30px 20px;
 		}
 
 		.widget-natios-gradient-background {
 			background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
-			padding: 44px 48px;
+
+			padding: 30px 20px;
 			border-radius: var(--br-12);
 			color: var(--color-white);
 			* {
@@ -1236,6 +1237,14 @@ body {
 	body:not(.mobile-view) {
 		.product-widgets.natios,
 		.product-widgets[product-template="natios"] {
+			.widget-gray-background {
+				padding: 40px 62px;
+			}
+
+			.widget-natios-gradient-background {
+				padding: 40px 62px;
+			}
+
 			.natios-transparent-product-image {
 				display: block;
 				position: relative;

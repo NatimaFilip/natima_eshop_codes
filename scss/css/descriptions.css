@@ -660,13 +660,13 @@ body .product-widgets[product-template=natios] ul li::before {
 }
 body .product-widgets.natios .widget-gray-background,
 body .product-widgets[product-template=natios] .widget-gray-background {
-  padding: 40px 62px;
+  padding: 30px 20px;
 }
 body .product-widgets.natios .widget-natios-gradient-background,
 body .product-widgets[product-template=natios] .widget-natios-gradient-background {
   background: -webkit-gradient(linear, left top, right top, from(var(--color-gradient-1)), to(var(--color-gradient-2)));
   background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
-  padding: 44px 48px;
+  padding: 30px 20px;
   border-radius: var(--br-12);
   color: var(--color-white);
 }
@@ -1351,6 +1351,14 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
 
 /*natios descriptions pc*/
 @media screen and (min-width: 768px) {
+  body:not(.mobile-view) .product-widgets.natios .widget-gray-background,
+  body:not(.mobile-view) .product-widgets[product-template=natios] .widget-gray-background {
+    padding: 40px 62px;
+  }
+  body:not(.mobile-view) .product-widgets.natios .widget-natios-gradient-background,
+  body:not(.mobile-view) .product-widgets[product-template=natios] .widget-natios-gradient-background {
+    padding: 40px 62px;
+  }
   body:not(.mobile-view) .product-widgets.natios .natios-transparent-product-image,
   body:not(.mobile-view) .product-widgets[product-template=natios] .natios-transparent-product-image {
     display: block;
