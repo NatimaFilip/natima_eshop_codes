@@ -156,6 +156,21 @@
   max-width: var(--description-natios-max-width);
 }
 .product-widgets p,
+.product-widgets span,
+.product-widgets h1,
+.product-widgets h2,
+.product-widgets h3,
+.product-widgets h4,
+.product-widgets h5,
+.product-widgets h6,
+.product-widgets b,
+.product-widgets strong,
+.product-widgets ul,
+.product-widgets li,
+.product-widgets ol {
+  font-family: var(--ff-m) !important;
+}
+.product-widgets p,
 .product-widgets h1,
 .product-widgets h2,
 .product-widgets h3,

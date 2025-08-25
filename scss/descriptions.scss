@@ -194,6 +194,23 @@ $desktop-min: 1280px;
 	&[product-template="natios"] {
 		max-width: var(--description-natios-max-width);
 	}
+
+	p,
+	span,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	b,
+	strong,
+	ul,
+	li,
+	ol {
+		font-family: var(--ff-m) !important;
+	}
+
 	p,
 	h1,
 	h2,
