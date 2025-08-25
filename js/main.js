@@ -15,7 +15,7 @@ const plLang = false;
 /*-------------------------------------- Custom events*/
 // Debounce function to limit the rate at which a function can fire
 let resizeTimer;
-/* window.addEventListener("resize", function () {
+window.addEventListener("resize", function () {
 	clearTimeout(resizeTimer);
 	resizeTimer = setTimeout(function () {
 		// Dispatch a custom event when resize is complete
@@ -23,7 +23,6 @@ let resizeTimer;
 		document.dispatchEvent(new CustomEvent("debouncedResize"));
 	}, 250);
 });
- */
 
 /*-------------------------------------- Media sizes*/
 const mediaSizes = {
@@ -2537,7 +2536,10 @@ if (body.classList.contains("type-product")) {
 /*------------------------------------------------- Index*/
 if (body.classList.contains("in-index")) {
 	let addedSlidingListener = false;
+
 	carouselSliding();
+	document.addEventListener("debouncedResize", carouselSliding);
+
 	function carouselSliding() {
 		let carousel = document.querySelector("#carousel");
 		if (carousel) {
@@ -2573,8 +2575,6 @@ if (body.classList.contains("in-index")) {
 			let activeItems = Array.from(carouselItems).filter((item) => {
 				return window.getComputedStyle(item).getPropertyValue("display") !== "none";
 			});
-			console.log("Active items count:", activeItems.length);
-			console.log("Active items:", activeItems);
 
 			let flexBasisFirstItem = parseFloat(
 				window.getComputedStyle(activeItems[0]).getPropertyValue("flex-basis").replace("%", "")
@@ -2582,9 +2582,6 @@ if (body.classList.contains("in-index")) {
 			let flexBasisOtherItems = parseFloat(
 				window.getComputedStyle(activeItems[1]).getPropertyValue("flex-basis").replace("%", "")
 			);
-
-			console.log("First item flex-basis:", flexBasisFirstItem);
-			console.log("Other items flex-basis:", flexBasisOtherItems);
 
 			let totalWidth = 0;
 			let initialDisplayedItems = 0;
@@ -2599,19 +2596,15 @@ if (body.classList.contains("in-index")) {
 					// Add the width of subsequent items
 					totalWidth += flexBasisOtherItems;
 				}
-
 				if (totalWidth <= 100) {
 					initialDisplayedItems++;
 				}
 			}
-			console.log("Initial displayed items:", initialDisplayedItems);
-			console.log("Total amount of items:", totalAmountOfItems);
 
 			if (initialDisplayedItems >= totalAmountOfItems) {
 				carousel.classList.add("carousel-no-sliding");
 				carouselLeftButton.classList.add("display-none");
 				carouselRightButton.classList.add("display-none");
-
 				return;
 			}
 
@@ -2626,7 +2619,18 @@ if (body.classList.contains("in-index")) {
 
 			let offsetPercentageForLastItems = 0;
 
-			carouselRightButton.addEventListener("click", function () {
+			if (addedSlidingListener) {
+				carouselRightButton.removeEventListener("click", carouselRightButtonClickHandler);
+				carouselLeftButton.removeEventListener("click", carouselLeftButtonClickHandler);
+				activeItems.forEach((item, index) => {
+					item.style.transform = `translateX(0%)`;
+				});
+			}
+
+			addedSlidingListener = true;
+
+			// Define the handlers
+			function carouselRightButtonClickHandler() {
 				carouselLeftButton.classList.remove("display-none");
 				lastVisibleItem = lastVisibleItem + transformItemIncrement;
 				if (lastVisibleItem >= totalAmountOfItems) {
@@ -2652,10 +2656,9 @@ if (body.classList.contains("in-index")) {
 						}%)`;
 					}
 				});
-				console.log("Last visible item after right click:", lastVisibleItem);
-			});
+			}
 
-			carouselLeftButton.addEventListener("click", function () {
+			function carouselLeftButtonClickHandler() {
 				carouselRightButton.classList.remove("display-none");
 				lastVisibleItem = lastVisibleItem - transformItemIncrement;
 				if (lastVisibleItem <= initialDisplayedItems) {
@@ -2668,13 +2671,14 @@ if (body.classList.contains("in-index")) {
 							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
 						}%)`;
 					} else {
-						item.style.transform = `translateX(-${
-							(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100
-						}%)`;
+						item.style.transform = `translateX(0%)`;
 					}
 				});
-				console.log("Last visible item after left click:", lastVisibleItem);
-			});
+			}
+
+			// Add the event listeners
+			carouselRightButton.addEventListener("click", carouselRightButtonClickHandler);
+			carouselLeftButton.addEventListener("click", carouselLeftButtonClickHandler);
 		}
 	}
 
