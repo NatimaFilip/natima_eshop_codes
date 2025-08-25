@@ -687,6 +687,10 @@ body .product-widgets.natios .widget-natios-gradient-background ul li::before,
 body .product-widgets[product-template=natios] .widget-natios-gradient-background ul li::before {
   background: var(--color-white);
 }
+body .product-widgets.natios .natios-main-icons-block,
+body .product-widgets[product-template=natios] .natios-main-icons-block {
+  padding: 20px 0;
+}
 body .product-widgets.natios .natios-transparent-product-image,
 body .product-widgets[product-template=natios] .natios-transparent-product-image {
   display: block;
@@ -1367,6 +1371,10 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
     max-height: 100%;
     height: auto;
     width: auto;
+  }
+  body:not(.mobile-view) .product-widgets.natios .natios-main-icons-block,
+  body:not(.mobile-view) .product-widgets[product-template=natios] .natios-main-icons-block {
+    padding: 54px 0;
   }
   body:not(.mobile-view) .product-widgets.natios .natios-lifestyle-product-image,
   body:not(.mobile-view) .product-widgets[product-template=natios] .natios-lifestyle-product-image {
