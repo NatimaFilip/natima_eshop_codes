@@ -2537,6 +2537,9 @@ if (body.classList.contains("type-product")) {
 if (body.classList.contains("in-index")) {
 	let addedSlidingListener = false;
 
+	let carouselRightButtonClickHandler;
+	let carouselLeftButtonClickHandler;
+
 	carouselSliding();
 	document.addEventListener("debouncedResize", carouselSliding);
 
@@ -2631,7 +2634,7 @@ if (body.classList.contains("in-index")) {
 			addedSlidingListener = true;
 
 			// Define the handlers
-			function carouselRightButtonClickHandler() {
+			carouselRightButtonClickHandler = function () {
 				carouselLeftButton.classList.remove("display-none");
 				lastVisibleItem = lastVisibleItem + transformItemIncrement;
 				if (lastVisibleItem >= totalAmountOfItems) {
@@ -2659,9 +2662,9 @@ if (body.classList.contains("in-index")) {
 				});
 
 				console.log("lastVisibleItem:", lastVisibleItem);
-			}
+			};
 
-			function carouselLeftButtonClickHandler() {
+			carouselLeftButtonClickHandler = function () {
 				carouselRightButton.classList.remove("display-none");
 				lastVisibleItem = lastVisibleItem - transformItemIncrement;
 				if (lastVisibleItem <= initialDisplayedItems) {
@@ -2679,7 +2682,7 @@ if (body.classList.contains("in-index")) {
 						}%)`;
 					}
 				});
-			}
+			};
 
 			// Add the event listeners
 			carouselRightButton.addEventListener("click", carouselRightButtonClickHandler);
