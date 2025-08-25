@@ -2609,6 +2609,7 @@ if (body.classList.contains("in-index")) {
 			}
 
 			carouselLeftButton.classList.add("display-none");
+			carouselRightButton.classList.remove("display-none");
 
 			let lastVisibleItem = initialDisplayedItems;
 			let offsetAmountForLargeItem = 0;
@@ -2671,7 +2672,7 @@ if (body.classList.contains("in-index")) {
 							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
 						}%)`;
 					} else {
-						item.style.transform = `translateX(0%)`;
+						`translateX(-${(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100}%)`;
 					}
 				});
 			}
