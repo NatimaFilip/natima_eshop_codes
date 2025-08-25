@@ -1209,7 +1209,7 @@ body .product-widgets.natios .natios-analysis .natios-analysis-content-right tab
     position: relative;
     --image-width: 37%;
   }
-  body:not(.mobile-view) .product-widgets.natios .natios-transparent-product-image .description-image-container {
+  body:not(.mobile-view) .product-widgets.natios .description-image-container {
     position: absolute;
     top: 0;
     height: 100%;
@@ -1225,7 +1225,7 @@ body .product-widgets.natios .natios-analysis .natios-analysis-content-right tab
             align-items: flex-start;
     padding: calc(var(--description-widget-gap) / 2) var(--description-widget-gap);
   }
-  body:not(.mobile-view) .product-widgets.natios .natios-transparent-product-image .description-image-container img {
+  body:not(.mobile-view) .product-widgets.natios .description-image-container img {
     max-width: 100%;
     max-height: 100%;
     height: auto;

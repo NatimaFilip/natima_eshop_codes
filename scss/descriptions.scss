@@ -1206,24 +1206,23 @@ body {
 				display: block;
 				position: relative;
 				--image-width: 37%;
+			}
+			.description-image-container {
+				position: absolute;
+				top: 0;
+				height: 100%;
+				width: var(--image-width);
+				display: flex;
+				justify-content: center;
+				align-items: flex-start;
 
-				.description-image-container {
-					position: absolute;
-					top: 0;
-					height: 100%;
-					width: var(--image-width);
-					display: flex;
-					justify-content: center;
-					align-items: flex-start;
+				padding: calc(var(--description-widget-gap) / 2) var(--description-widget-gap);
+				img {
+					max-width: 100%;
+					max-height: 100%;
 
-					padding: calc(var(--description-widget-gap) / 2) var(--description-widget-gap);
-					img {
-						max-width: 100%;
-						max-height: 100%;
-
-						height: auto;
-						width: auto;
-					}
+					height: auto;
+					width: auto;
 				}
 			}
 
