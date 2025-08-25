@@ -651,7 +651,8 @@ body {
 
 /*natios descriptions*/
 body {
-	.product-widgets.natios {
+	.product-widgets.natios,
+	.product-widgets[product-template="natios"] {
 		--color-gradient-1: #002376;
 		--color-gradient-2: #002aa7;
 		--color-compare: #29bbf5;
@@ -1201,7 +1202,8 @@ body {
 /*natios descriptions pc*/
 @media screen and (min-width: $tablet-min) {
 	body:not(.mobile-view) {
-		.product-widgets.natios {
+		.product-widgets.natios,
+		.product-widgets[product-template="natios"] {
 			.natios-transparent-product-image {
 				display: block;
 				position: relative;
