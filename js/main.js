@@ -2600,7 +2600,7 @@ if (body.classList.contains("in-index")) {
 					initialDisplayedItems++;
 				}
 			}
-
+			carousel.classList.remove("carousel-no-sliding");
 			if (initialDisplayedItems >= totalAmountOfItems) {
 				carousel.classList.add("carousel-no-sliding");
 				carouselLeftButton.classList.add("display-none");
@@ -2657,6 +2657,8 @@ if (body.classList.contains("in-index")) {
 						}%)`;
 					}
 				});
+
+				console.log("lastVisibleItem:", lastVisibleItem);
 			}
 
 			function carouselLeftButtonClickHandler() {
@@ -2672,7 +2674,9 @@ if (body.classList.contains("in-index")) {
 							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
 						}%)`;
 					} else {
-						`translateX(-${(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100}%)`;
+						item.style.transform = `translateX(-${
+							(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100
+						}%)`;
 					}
 				});
 			}
