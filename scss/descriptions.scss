@@ -1201,7 +1201,7 @@ body {
 /*natios descriptions pc*/
 @media screen and (min-width: $tablet-min) {
 	body:not(.mobile-view) {
-		.product-widgets {
+		.product-widgets.natios {
 			.natios-transparent-product-image {
 				display: block;
 				position: relative;
