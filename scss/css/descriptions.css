@@ -629,43 +629,43 @@ body .product-widgets .with-icon.widget-ingredients h3::before {
 /*Natima directions pc*/
 /*-----------------------------------------------------------------------NATIOS*/
 /*natios descriptions*/
-body .product-widgets {
+body .product-widgets.natios {
   --color-gradient-1: #002376;
   --color-gradient-2: #002aa7;
   --color-compare: #29bbf5;
 }
-body .product-widgets ul li::before {
+body .product-widgets.natios ul li::before {
   background: var(--color-gradient-1);
 }
-body .product-widgets .widget-natios-gradient-background {
+body .product-widgets.natios .widget-natios-gradient-background {
   background: -webkit-gradient(linear, left top, right top, from(var(--color-gradient-1)), to(var(--color-gradient-2)));
   background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
   padding: var(--description-widget-gap-bigger);
   border-radius: var(--br-12);
   color: var(--color-white);
 }
-body .product-widgets .widget-natios-gradient-background * {
+body .product-widgets.natios .widget-natios-gradient-background * {
   color: inherit;
 }
-body .product-widgets .widget-natios-gradient-background table {
+body .product-widgets.natios .widget-natios-gradient-background table {
   color: var(--color-black);
 }
-body .product-widgets .widget-natios-gradient-background .white-background-text {
+body .product-widgets.natios .widget-natios-gradient-background .white-background-text {
   color: var(--color-black);
 }
-body .product-widgets .widget-natios-gradient-background.with-icon h2::before {
+body .product-widgets.natios .widget-natios-gradient-background.with-icon h2::before {
   -webkit-filter: brightness(0) invert(100%);
           filter: brightness(0) invert(100%);
 }
-body .product-widgets .widget-natios-gradient-background ul li::before {
+body .product-widgets.natios .widget-natios-gradient-background ul li::before {
   background: var(--color-white);
 }
-body .product-widgets .natios-transparent-product-image {
+body .product-widgets.natios .natios-transparent-product-image {
   display: block;
   position: relative;
   --image-width: 37%;
 }
-body .product-widgets .natios-transparent-product-image .description-image-container {
+body .product-widgets.natios .natios-transparent-product-image .description-image-container {
   position: absolute;
   top: 0;
   height: 100%;
@@ -681,27 +681,27 @@ body .product-widgets .natios-transparent-product-image .description-image-conta
           align-items: flex-start;
   padding: calc(var(--description-widget-gap) / 2) var(--description-widget-gap);
 }
-body .product-widgets .natios-transparent-product-image .description-image-container img {
+body .product-widgets.natios .natios-transparent-product-image .description-image-container img {
   max-width: 100%;
   max-height: 100%;
   height: auto;
   width: auto;
 }
-body .product-widgets .natios-transparent-product-image.image-on-right .editable-content {
+body .product-widgets.natios .natios-transparent-product-image.image-on-right .editable-content {
   padding-right: var(--image-width);
 }
-body .product-widgets .natios-transparent-product-image.image-on-right .description-image-container {
+body .product-widgets.natios .natios-transparent-product-image.image-on-right .description-image-container {
   right: 0;
   left: auto;
 }
-body .product-widgets .natios-transparent-product-image.image-on-left .editable-content {
+body .product-widgets.natios .natios-transparent-product-image.image-on-left .editable-content {
   padding-left: var(--image-width);
 }
-body .product-widgets .natios-transparent-product-image.image-on-left .description-image-container {
+body .product-widgets.natios .natios-transparent-product-image.image-on-left .description-image-container {
   left: 0;
   right: auto;
 }
-body .product-widgets .natios-lifestyle-product-image {
+body .product-widgets.natios .natios-lifestyle-product-image {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -711,16 +711,16 @@ body .product-widgets .natios-lifestyle-product-image {
           flex-direction: column;
   gap: var(--description-widget-gap);
 }
-body .product-widgets .natios-lifestyle-product-image .description-image-container {
+body .product-widgets.natios .natios-lifestyle-product-image .description-image-container {
   padding: 0;
 }
-body .product-widgets .natios-lifestyle-product-image .description-image-container img {
+body .product-widgets.natios .natios-lifestyle-product-image .description-image-container img {
   max-width: 100%;
   width: auto;
   height: auto;
   border-radius: var(--br-10);
 }
-body .product-widgets .natios-icons-flex {
+body .product-widgets.natios .natios-icons-flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -730,7 +730,7 @@ body .product-widgets .natios-icons-flex {
           flex-direction: column;
   gap: var(--description-widget-gap);
 }
-body .product-widgets .natios-icons-flex .description-icon-container-with-text {
+body .product-widgets.natios .natios-icons-flex .description-icon-container-with-text {
   width: 100%;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -742,7 +742,7 @@ body .product-widgets .natios-icons-flex .description-icon-container-with-text {
   line-height: 1;
   gap: 1em;
 }
-body .product-widgets .natios-icons-flex .product-icon-svg-wrapper {
+body .product-widgets.natios .natios-icons-flex .product-icon-svg-wrapper {
   width: 58px;
   height: 58px;
   padding: 12px;
@@ -759,7 +759,7 @@ body .product-widgets .natios-icons-flex .product-icon-svg-wrapper {
   background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
   border-radius: var(--br-10);
 }
-body .product-widgets .natios-icons-flex .product-icon-svg-wrapper .product-icon-svg {
+body .product-widgets.natios .natios-icons-flex .product-icon-svg-wrapper .product-icon-svg {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -773,36 +773,36 @@ body .product-widgets .natios-icons-flex .product-icon-svg-wrapper .product-icon
       -ms-flex-align: center;
           align-items: center;
 }
-body .product-widgets .natios-icons-flex.large-flex .description-icon-container-with-text {
+body .product-widgets.natios .natios-icons-flex.large-flex .description-icon-container-with-text {
   gap: var(--description-widget-gap);
   font-size: var(--fs-16);
   font-weight: var(--fw-700);
 }
-body .product-widgets .natios-icons-flex.large-flex .product-icon-svg-wrapper {
+body .product-widgets.natios .natios-icons-flex.large-flex .product-icon-svg-wrapper {
   width: 80px;
   height: 80px;
   padding: 14px;
 }
-body .product-widgets .natios-icons-flex.small-flex .description-icon-container-with-text {
+body .product-widgets.natios .natios-icons-flex.small-flex .description-icon-container-with-text {
   font-size: var(--fs-14);
   font-weight: var(--fw-700);
   gap: 1em;
 }
-body .product-widgets .natios-compare-wrapper {
+body .product-widgets.natios .natios-compare-wrapper {
   overflow: hidden;
   background: -webkit-gradient(linear, left top, right top, from(var(--color-gradient-1)), to(var(--color-gradient-2)));
   background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
   border-radius: var(--br-10);
 }
-body .product-widgets .natios-compare {
+body .product-widgets.natios .natios-compare {
   display: grid;
   grid-template-columns: repeat(auto, 70%);
   overflow-x: auto;
   padding: 1.5em 1em 2.75em;
 }
-body .product-widgets .natios-compare > *,
-body .product-widgets .natios-compare .editable-content,
-body .product-widgets .natios-compare .editable-content > div.tiptap {
+body .product-widgets.natios .natios-compare > *,
+body .product-widgets.natios .natios-compare .editable-content,
+body .product-widgets.natios .natios-compare .editable-content > div.tiptap {
   width: 100%;
   display: grid;
   justify-items: center;
@@ -811,35 +811,35 @@ body .product-widgets .natios-compare .editable-content > div.tiptap {
           align-items: center;
   grid-column: 1/-1;
 }
-body .product-widgets .natios-compare.items-2 {
+body .product-widgets.natios .natios-compare.items-2 {
   grid-template-columns: repeat(2, 70%);
   --columns: 2;
 }
-body .product-widgets .natios-compare.items-2 > *,
-body .product-widgets .natios-compare.items-2 .editable-content,
-body .product-widgets .natios-compare.items-2 .editable-content > div.tiptap {
+body .product-widgets.natios .natios-compare.items-2 > *,
+body .product-widgets.natios .natios-compare.items-2 .editable-content,
+body .product-widgets.natios .natios-compare.items-2 .editable-content > div.tiptap {
   grid-template-columns: 50% 50%;
 }
-body .product-widgets .natios-compare.items-3 {
+body .product-widgets.natios .natios-compare.items-3 {
   grid-template-columns: repeat(3, 70%);
   --columns: 3;
 }
-body .product-widgets .natios-compare.items-3 > *,
-body .product-widgets .natios-compare.items-3 .editable-content,
-body .product-widgets .natios-compare.items-3 .editable-content > div.tiptap {
+body .product-widgets.natios .natios-compare.items-3 > *,
+body .product-widgets.natios .natios-compare.items-3 .editable-content,
+body .product-widgets.natios .natios-compare.items-3 .editable-content > div.tiptap {
   grid-template-columns: 33.33% 33.33% 33.33%;
 }
-body .product-widgets .natios-compare.items-4 {
+body .product-widgets.natios .natios-compare.items-4 {
   grid-template-columns: repeat(4, 70%);
   --columns: 4;
 }
-body .product-widgets .natios-compare.items-4 > *,
-body .product-widgets .natios-compare.items-4 .editable-content,
-body .product-widgets .natios-compare.items-4 .editable-content > div.tiptap {
+body .product-widgets.natios .natios-compare.items-4 > *,
+body .product-widgets.natios .natios-compare.items-4 .editable-content,
+body .product-widgets.natios .natios-compare.items-4 .editable-content > div.tiptap {
   grid-template-columns: 25% 25% 25% 25%;
 }
-body .product-widgets .natios-compare h4,
-body .product-widgets .natios-compare p {
+body .product-widgets.natios .natios-compare h4,
+body .product-widgets.natios .natios-compare p {
   position: relative;
   margin: 0;
   padding: 1em;
@@ -856,8 +856,8 @@ body .product-widgets .natios-compare p {
       -ms-flex-pack: center;
           justify-content: center;
 }
-body .product-widgets .natios-compare h4::after,
-body .product-widgets .natios-compare p::after {
+body .product-widgets.natios .natios-compare h4::after,
+body .product-widgets.natios .natios-compare p::after {
   content: "";
   display: none;
   position: absolute;
@@ -867,22 +867,22 @@ body .product-widgets .natios-compare p::after {
   left: 0;
   background: radial-gradient(circle, var(--color-compare) 0%, transparent 90%);
 }
-body .product-widgets .natios-compare .compare-names > h4:first-of-type::after {
+body .product-widgets.natios .natios-compare .compare-names > h4:first-of-type::after {
   display: block;
 }
-body .product-widgets .natios-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,
-body .product-widgets .natios-compare.items-2 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(2n + 1)::after {
+body .product-widgets.natios .natios-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,
+body .product-widgets.natios .natios-compare.items-2 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(2n + 1)::after {
   display: block;
 }
-body .product-widgets .natios-compare.items-3 .compare-texts > .editable-content > p:nth-of-type(3n-2)::after,
-body .product-widgets .natios-compare.items-3 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(3n-2)::after {
+body .product-widgets.natios .natios-compare.items-3 .compare-texts > .editable-content > p:nth-of-type(3n-2)::after,
+body .product-widgets.natios .natios-compare.items-3 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(3n-2)::after {
   display: block;
 }
-body .product-widgets .natios-compare.items-4 .compare-texts > .editable-content > p:nth-of-type(4n-3)::after,
-body .product-widgets .natios-compare.items-4 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(4n-3)::after {
+body .product-widgets.natios .natios-compare.items-4 .compare-texts > .editable-content > p:nth-of-type(4n-3)::after,
+body .product-widgets.natios .natios-compare.items-4 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(4n-3)::after {
   display: block;
 }
-body .product-widgets .natios-compare .compare-title {
+body .product-widgets.natios .natios-compare .compare-title {
   display: block;
   font-size: var(--fs-24);
   font-weight: var(--fw-700);
@@ -893,21 +893,21 @@ body .product-widgets .natios-compare .compare-title {
   padding-bottom: 0;
   margin-bottom: 1em;
 }
-body .product-widgets .natios-compare .compare-images {
+body .product-widgets.natios .natios-compare .compare-images {
   padding-bottom: 1em;
 }
-body .product-widgets .natios-compare .compare-images img {
+body .product-widgets.natios .natios-compare .compare-images img {
   max-width: 100px;
 }
-body .product-widgets .natios-compare .compare-names {
+body .product-widgets.natios .natios-compare .compare-names {
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
   color: var(--color-white);
 }
-body .product-widgets .natios-compare .compare-names h4 {
+body .product-widgets.natios .natios-compare .compare-names h4 {
   color: inherit;
 }
-body .product-widgets .natios-compare .compare-texts {
+body .product-widgets.natios .natios-compare .compare-texts {
   font-size: var(--fs-16);
   font-weight: var(--fw-500);
   color: var(--color-white);
@@ -915,11 +915,11 @@ body .product-widgets .natios-compare .compare-texts {
       -ms-flex-align: start;
           align-items: start;
 }
-body .product-widgets .natios-compare .compare-texts a {
+body .product-widgets.natios .natios-compare .compare-texts a {
   color: var(--color-white);
   text-decoration: underline;
 }
-body .product-widgets .natios-analysis {
+body .product-widgets.natios .natios-analysis {
   --analysis-color-green: #419f1f;
   --analysis-color-green-o10: hsla(104, 67%, 37%, 0.1);
   --analysis-gap: 30px;
@@ -927,21 +927,21 @@ body .product-widgets .natios-analysis {
   border-radius: var(--br-16);
   padding: var(--description-widget-gap-biggest);
 }
-body .product-widgets .natios-analysis .analysis-title {
+body .product-widgets.natios .natios-analysis .analysis-title {
   font-size: var(--fs-24);
   padding-bottom: var(--analysis-gap);
 }
-body .product-widgets .natios-analysis .natios-analysis-content {
+body .product-widgets.natios .natios-analysis .natios-analysis-content {
   display: grid;
   grid-template-columns: 0.44fr 1fr;
   gap: var(--analysis-gap);
 }
 @media screen and (max-width: 767px) {
-  body .product-widgets .natios-analysis .natios-analysis-content {
+  body .product-widgets.natios .natios-analysis .natios-analysis-content {
     grid-template-columns: 1fr;
   }
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -951,7 +951,7 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
           flex-direction: column;
   gap: var(--analysis-gap);
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -974,12 +974,12 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
   background-color: var(--color-white);
   padding: var(--analysis-gap) 10px;
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .analysis-icon {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .analysis-icon {
   -ms-flex-preferred-size: 24%;
       flex-basis: 24%;
   min-width: 50px;
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -988,30 +988,30 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
       -ms-flex-direction: column;
           flex-direction: column;
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-top {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-top {
   font-size: var(--fs-26);
   line-height: 1;
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-top .test-count-passed {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-top .test-count-passed {
   font-size: 2em;
   color: var(--analysis-color-green);
   font-weight: var(--fw-700);
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-top .test-count-total {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-top .test-count-total {
   color: var(--color-black-200);
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-bottom {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .amount-of-tests .count-texts .count-text-bottom {
   font-size: var(--fs-20);
   color: var(--color-black-200);
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .analysis-texts {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .analysis-texts {
   font-size: var(--fs-16);
   color: var(--color-black-200);
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .analysis-texts > p:last-child {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .analysis-texts > p:last-child {
   padding-bottom: 0;
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button {
   background: transparent;
   color: var(--color-black);
   border-radius: var(--br-16);
@@ -1025,81 +1025,81 @@ body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis
   display: flex;
   gap: 10px;
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:hover, body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:focus-within {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:hover, body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:focus-within {
   background: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-white);
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:hover .download-icon, body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:focus-within .download-icon {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:hover .download-icon, body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button:focus-within .download-icon {
   -webkit-filter: brightness(0) invert(100%);
           filter: brightness(0) invert(100%);
 }
-body .product-widgets .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button .download-icon {
+body .product-widgets.natios .natios-analysis .natios-analysis-content .natios-analysis-content-left .show-tests-button .download-icon {
   -ms-flex-preferred-size: 20px;
       flex-basis: 20px;
   min-width: 20px;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right {
   overflow-x: hidden;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > table,
-body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > table,
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table {
   margin-bottom: var(--analysis-gap);
   min-width: 550px !important;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > table:last-of-type,
-body .product-widgets .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table:last-of-type {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > table:last-of-type,
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table:last-of-type {
   margin-bottom: 0;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table {
   background: transparent;
   text-wrap: balance;
   overflow: visible;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr {
   border-bottom-style: solid !important;
   border-width: 1px;
   border-color: hsl(0, 0%, 86%);
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr th {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr th {
   background: var(--color-white);
   line-height: var(--lh-1-2);
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr td {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr td {
   line-height: var(--lh-1-2);
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr td,
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr th {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr td,
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr th {
   padding: 10px 10px;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:first-of-type,
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > th:first-of-type {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:first-of-type,
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > th:first-of-type {
   padding-left: 10px;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4),
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > th:nth-child(4) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4),
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > th:nth-child(4) {
   padding-right: 10px;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > th:first-of-type {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > th:first-of-type {
   border-radius: var(--br-10) 0 0 0;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > th:nth-child(4),
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > th:nth-child(5) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > th:nth-child(4),
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > th:nth-child(5) {
   border-radius: 0 var(--br-10) 0 0;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr {
   position: relative;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr em {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr em {
   font-size: var(--fs-12);
   font-style: normal;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4) {
   color: var(--analysis-color-green);
   position: relative;
   cursor: help;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4) p {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4) p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1108,7 +1108,7 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
           align-items: center;
   gap: 5px;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4) p::before {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4) p::before {
   content: "✓";
   font-weight: 700;
   width: var(--fs-16);
@@ -1127,7 +1127,7 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
       -ms-flex-pack: center;
           justify-content: center;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4) p::after {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4) p::after {
   content: "?";
   margin-left: 5px;
   font-weight: 800;
@@ -1147,11 +1147,11 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
       -ms-flex-pack: center;
           justify-content: center;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > th:nth-child(5) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > th:nth-child(5) {
   font-size: 0px !important;
   padding: 0 !important;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) {
   font-size: 0px !important;
   padding: 0 !important;
   position: absolute;
@@ -1166,13 +1166,13 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) p {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) p {
   text-align: left;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) > p:not(:last-child) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) > p:not(:last-child) {
   padding-bottom: 0.5em;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5) {
   font-size: var(--fs-14) !important;
   padding: 1em 0.5em !important;
   border-style: solid;
@@ -1181,24 +1181,24 @@ body .product-widgets .natios-analysis .natios-analysis-content-right table tr >
   -webkit-box-shadow: 0 4px 16px var(--color-black-o-10);
           box-shadow: 0 4px 16px var(--color-black-o-10);
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table colgroup col:first-child {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table colgroup col:first-child {
   width: 35%;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table colgroup col:nth-child(2) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table colgroup col:nth-child(2) {
   width: 22%;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table colgroup col:nth-child(3) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table colgroup col:nth-child(3) {
   width: 24%;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table colgroup col:nth-child(4) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table colgroup col:nth-child(4) {
   width: 20%;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table colgroup col:nth-child(5) {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table colgroup col:nth-child(5) {
   width: 0%;
   max-width: 0px;
   min-width: 0px !important;
 }
-body .product-widgets .natios-analysis .natios-analysis-content-right table p {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table p {
   padding-bottom: 0;
 }
 
