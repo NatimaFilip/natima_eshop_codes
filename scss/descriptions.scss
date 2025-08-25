@@ -682,9 +682,13 @@ body {
 			background: var(--color-gradient-1);
 		}
 
+		.widget-gray-background {
+			padding: 40px 62px;
+		}
+
 		.widget-natios-gradient-background {
 			background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
-			padding: var(--description-widget-gap-bigger);
+			padding: 44px 48px;
 			border-radius: var(--br-12);
 			color: var(--color-white);
 			* {
