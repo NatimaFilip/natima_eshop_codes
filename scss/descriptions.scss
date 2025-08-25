@@ -811,6 +811,10 @@ body {
 					height: 80px;
 					padding: 14px;
 				}
+				span {
+					max-width: 14em;
+					line-height: var(--lh-1-2);
+				}
 			}
 			&.small-flex {
 				.description-icon-container-with-text {
