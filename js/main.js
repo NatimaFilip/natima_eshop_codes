@@ -2641,7 +2641,8 @@ if (body.classList.contains("in-index")) {
 					lastVisibleItem = totalAmountOfItems;
 					carouselRightButton.classList.add("display-none");
 
-					/* if (initialDisplayedItems <= 2 && flexBasisFirstItem > 26) {
+					/* aby tam nezustalo volne misto, ale nejak to nevychazi 
+					if (initialDisplayedItems <= 2 && flexBasisFirstItem > 26) {
 						offsetPercentageForLastItems = -flexBasisFirstItem;
 					} */
 				} else {
@@ -2687,6 +2688,81 @@ if (body.classList.contains("in-index")) {
 			// Add the event listeners
 			carouselRightButton.addEventListener("click", carouselRightButtonClickHandler);
 			carouselLeftButton.addEventListener("click", carouselLeftButtonClickHandler);
+
+			// Add the event listeners for dragging
+			let isDragging = false;
+			let startX = 0;
+			let currentX = 0;
+			let dragThreshold = 50; // Minimum drag distance in pixels to trigger a slide
+			let dragDistance = 0;
+
+			carouselInner.addEventListener("mousedown", (e) => {
+				isDragging = true;
+				startX = e.pageX;
+				dragDistance = 0;
+				carouselInner.classList.add("dragging");
+			});
+
+			carouselInner.addEventListener("mousemove", (e) => {
+				if (!isDragging) return;
+				currentX = e.pageX;
+				dragDistance = currentX - startX;
+
+				// Optional: Add visual feedback for dragging
+				carouselInner.style.transform = `translateX(${dragDistance}px)`;
+			});
+
+			carouselInner.addEventListener("mouseup", () => {
+				if (!isDragging) return;
+				isDragging = false;
+				carouselInner.classList.remove("dragging");
+				carouselInner.style.transform = ""; // Reset transform
+
+				if (dragDistance > dragThreshold) {
+					// Dragged to the right, call left button handler
+					carouselLeftButtonClickHandler();
+				} else if (dragDistance < -dragThreshold) {
+					// Dragged to the left, call right button handler
+					carouselRightButtonClickHandler();
+				}
+			});
+
+			carouselInner.addEventListener("mouseleave", () => {
+				if (!isDragging) return;
+				isDragging = false;
+				carouselInner.classList.remove("dragging");
+				carouselInner.style.transform = ""; // Reset transform
+			});
+
+			// Add touch support for mobile
+			carouselInner.addEventListener("touchstart", (e) => {
+				isDragging = true;
+				startX = e.touches[0].pageX;
+				dragDistance = 0;
+			});
+
+			carouselInner.addEventListener("touchmove", (e) => {
+				if (!isDragging) return;
+				currentX = e.touches[0].pageX;
+				dragDistance = currentX - startX;
+
+				// Optional: Add visual feedback for dragging
+				carouselInner.style.transform = `translateX(${dragDistance}px)`;
+			});
+
+			carouselInner.addEventListener("touchend", () => {
+				if (!isDragging) return;
+				isDragging = false;
+				carouselInner.style.transform = ""; // Reset transform
+
+				if (dragDistance > dragThreshold) {
+					// Dragged to the right, call left button handler
+					carouselLeftButtonClickHandler();
+				} else if (dragDistance < -dragThreshold) {
+					// Dragged to the left, call right button handler
+					carouselRightButtonClickHandler();
+				}
+			});
 		}
 	}
 
