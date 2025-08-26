@@ -32,12 +32,33 @@
   -webkit-transform: translate(-50%, -50%) rotate(180deg);
           transform: translate(-50%, -50%) rotate(180deg);
 }
+@media screen and (max-width: 1024px) {
+  .in-index #carousel .carousel-control.left {
+    -webkit-transform: translate(0%, -50%) rotate(180deg);
+            transform: translate(0%, -50%) rotate(180deg);
+    left: -19px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .in-index #carousel .carousel-control.left {
+    -webkit-transform: translate(0%, -50%) rotate(180deg);
+            transform: translate(0%, -50%) rotate(180deg);
+    left: -9px;
+  }
+}
 .in-index #carousel .carousel-control.right {
   right: 0;
   -webkit-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
 }
 @media screen and (max-width: 1024px) {
+  .in-index #carousel .carousel-control.right {
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+    right: -19px;
+  }
+}
+@media screen and (max-width: 767px) {
   .in-index #carousel .carousel-control.right {
     -webkit-transform: translate(0%, -50%);
             transform: translate(0%, -50%);
@@ -205,14 +226,14 @@
     --padding-left: var(--gap-12);
   }
   .in-index #carousel .carousel-inner .item {
-    -ms-flex-preferred-size: 60%;
-        flex-basis: 60%;
+    -ms-flex-preferred-size: 55%;
+        flex-basis: 55%;
   }
 }
 @media screen and (max-width: 500px) {
   .in-index #carousel .carousel-inner .item {
-    -ms-flex-preferred-size: 80%;
-        flex-basis: 80%;
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
   }
 }
 .in-index .body-banners {
@@ -522,12 +543,33 @@
   -webkit-transform: translate(-50%, -50%) rotate(180deg);
           transform: translate(-50%, -50%) rotate(180deg);
 }
+@media screen and (max-width: 1024px) {
+  .in-index .products-block-wrapper .carousel-control.left {
+    -webkit-transform: translate(0%, -50%) rotate(180deg);
+            transform: translate(0%, -50%) rotate(180deg);
+    left: -19px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .in-index .products-block-wrapper .carousel-control.left {
+    -webkit-transform: translate(0%, -50%) rotate(180deg);
+            transform: translate(0%, -50%) rotate(180deg);
+    left: -9px;
+  }
+}
 .in-index .products-block-wrapper .carousel-control.right {
   right: 0;
   -webkit-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
 }
 @media screen and (max-width: 1024px) {
+  .in-index .products-block-wrapper .carousel-control.right {
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+    right: -19px;
+  }
+}
+@media screen and (max-width: 767px) {
   .in-index .products-block-wrapper .carousel-control.right {
     -webkit-transform: translate(0%, -50%);
             transform: translate(0%, -50%);
