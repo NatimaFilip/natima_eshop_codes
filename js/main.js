@@ -2638,8 +2638,6 @@ if (body.classList.contains("in-index")) {
 			});
 		}
 
-		addedSlidingListener = true;
-
 		// Define the handlers
 		carouselRightButtonClickHandler = function () {
 			carouselLeftButton.classList.remove("display-none");
@@ -2763,6 +2761,7 @@ if (body.classList.contains("in-index")) {
 				}
 			});
 		}
+		addedSlidingListener = true;
 	}
 
 	let allProductsBlocks = document.querySelectorAll(".products-block");
