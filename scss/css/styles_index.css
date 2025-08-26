@@ -390,11 +390,6 @@
 }
 @media screen and (max-width: 1024px) {
   .in-index .body-banners {
-    grid-template-columns: 1fr;
-  }
-}
-@media screen and (max-width: 767px) {
-  .in-index .body-banners {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -405,6 +400,13 @@
   .in-index .body-banners::-webkit-scrollbar {
     height: 6px;
   }
+  .in-index .body-banners > * {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    min-width: 50%;
+  }
+}
+@media screen and (max-width: 767px) {
   .in-index .body-banners > * {
     -ms-flex-preferred-size: 55%;
         flex-basis: 55%;

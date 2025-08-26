@@ -479,9 +479,6 @@ $desktop-large-min: 1680px;
 			}
 		}
 		@media screen and (max-width: $tablet-medium-min) {
-			grid-template-columns: 1fr;
-		}
-		@media screen and (max-width: $mobile-max) {
 			display: flex;
 			overflow: auto;
 			padding-bottom: 10px;
@@ -489,7 +486,12 @@ $desktop-large-min: 1680px;
 			&::-webkit-scrollbar {
 				height: 6px; // Reduce the height of the scrollbar
 			}
-
+			> * {
+				flex-basis: 50%;
+				min-width: 50%;
+			}
+		}
+		@media screen and (max-width: $mobile-max) {
 			> * {
 				flex-basis: 55%;
 				min-width: 55%;
