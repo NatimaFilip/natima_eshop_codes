@@ -2535,7 +2535,7 @@ if (body.classList.contains("type-product")) {
 
 /*------------------------------------------------- Index*/
 if (body.classList.contains("in-index")) {
-	let addedSlidingListener = false;
+	/* let addedSlidingListener = false;
 
 	let carouselRightButtonClickHandler;
 	let carouselLeftButtonClickHandler;
@@ -2641,10 +2641,10 @@ if (body.classList.contains("in-index")) {
 					lastVisibleItem = totalAmountOfItems;
 					carouselRightButton.classList.add("display-none");
 
-					/* aby tam nezustalo volne misto, ale nejak to nevychazi 
-					if (initialDisplayedItems <= 2 && flexBasisFirstItem > 26) {
-						offsetPercentageForLastItems = -flexBasisFirstItem;
-					} */
+					// aby tam nezustalo volne misto, ale nejak to nevychazi
+					// if (initialDisplayedItems <= 2 && flexBasisFirstItem > 26) {
+				//	offsetPercentageForLastItems = -flexBasisFirstItem;
+					// }} 
 				} else {
 					offsetPercentageForLastItems = 0;
 				}
@@ -2755,7 +2755,256 @@ if (body.classList.contains("in-index")) {
 				}
 			});
 		}
+	} */
+
+	/** Keep one instance per root element without leaking memory */
+	const instances = new WeakMap();
+
+	/** Utilities */
+	const toNumber = (v) => (Number.isFinite(parseFloat(v)) ? parseFloat(v) : 0);
+	const parseWhiteIndexes = (str) =>
+		(str || "")
+			.split(",")
+			.map((s) => parseInt(s, 10))
+			.filter((n) => Number.isFinite(n));
+
+	const getActiveItems = (nodes) =>
+		nodes.filter((el) => window.getComputedStyle(el).getPropertyValue("display") !== "none");
+
+	const measureItemsPx = (items) =>
+		items.map((el) => {
+			const rect = el.getBoundingClientRect();
+			const cs = window.getComputedStyle(el);
+			// include horizontal margins so stepping is accurate
+			return rect.width + toNumber(cs.marginLeft) + toNumber(cs.marginRight);
+		});
+
+	class Carousel {
+		constructor(root, { dragThreshold = 50, whiteIndexes = null } = {}) {
+			this.root = root;
+			this.inner = root.querySelector(".carousel-inner");
+			this.itemsAll = Array.from(root.querySelectorAll(".item"));
+			// Support either .left/.right or .prev/.next
+			this.btnPrev = root.querySelector(".carousel-control.left, .carousel-control.prev");
+			this.btnNext = root.querySelector(".carousel-control.right, .carousel-control.next");
+
+			if (!this.inner) return void console.warn("Carousel inner not found.");
+			if (!this.itemsAll || this.itemsAll.length === 0) return void console.warn("Carousel items not found.");
+			if (!this.btnPrev || !this.btnNext) return void console.warn("Carousel buttons not found.");
+
+			// Options / state
+			this.dragThreshold = dragThreshold;
+			this.state = {
+				index: 0, // index of the first item of the current page
+				offsetPx: 0, // current translateX in px
+				isPointerDown: false,
+				startX: 0,
+				startOffsetPx: 0,
+			};
+
+			// Apply white banner indices from either option or data attribute
+			const dataWhite = parseWhiteIndexes(this.root.dataset.whiteIndexes);
+			this.whiteIndexes = Array.isArray(whiteIndexes) ? whiteIndexes : dataWhite;
+			if (Array.isArray(this.whiteIndexes)) {
+				this.itemsAll.forEach((el, i) => el.classList.toggle("white", this.whiteIndexes.includes(i)));
+			}
+
+			// Make anchor controls behave like buttons
+			[this.btnPrev, this.btnNext].forEach((btn) => {
+				btn.removeAttribute("href");
+				btn.setAttribute("role", "button");
+				btn.setAttribute("tabindex", "0");
+				btn.addEventListener("click", (e) => e.preventDefault(), { passive: false });
+			});
+
+			// Improve performance
+			this.inner.style.willChange = "transform";
+			this.inner.style.transform = "translateX(0px)";
+
+			// Bind handlers
+			this.onPrevClick = this.onPrevClick.bind(this);
+			this.onNextClick = this.onNextClick.bind(this);
+			this.onKeydown = this.onKeydown.bind(this);
+			this.onPointerDown = this.onPointerDown.bind(this);
+			this.onPointerMove = this.onPointerMove.bind(this);
+			this.onPointerUp = this.onPointerUp.bind(this);
+			this.refresh = this.refresh.bind(this);
+
+			// Attach events
+			this.btnPrev.addEventListener("click", this.onPrevClick);
+			this.btnNext.addEventListener("click", this.onNextClick);
+			this.root.addEventListener("keydown", this.onKeydown);
+
+			// Use Pointer Events (works for mouse + touch)
+			this.inner.addEventListener("pointerdown", this.onPointerDown, { passive: true });
+			window.addEventListener("pointermove", this.onPointerMove, { passive: false });
+			window.addEventListener("pointerup", this.onPointerUp, { passive: true });
+			window.addEventListener("pointercancel", this.onPointerUp, { passive: true });
+
+			// Initial layout
+			this.refresh();
+		}
+
+		/** Recompute sizes and pages (call this on resize) */
+		refresh() {
+			this.activeItems = getActiveItems(this.itemsAll);
+			if (this.activeItems.length <= 1) {
+				this.root.classList.add("carousel-no-sliding");
+				this._setControlsDisabled({ atStart: true, atEnd: true });
+				this._translateTo(0, { animate: false });
+				return;
+			}
+
+			this.itemWidths = measureItemsPx(this.activeItems);
+			this.totalWidth = this.itemWidths.reduce((a, b) => a + b, 0);
+			// Viewport is the visible width of the outer carousel, not the inner track
+			this.viewportWidth = this.root.getBoundingClientRect().width;
+
+			// Determine how many items fit per page
+			let acc = 0;
+			let perView = 0;
+			for (const w of this.itemWidths) {
+				if (acc + w <= this.viewportWidth + 0.5) {
+					acc += w;
+					perView++;
+				} else {
+					break;
+				}
+			}
+			this.itemsPerView = Math.max(1, perView);
+			this.pageStep = this.itemsPerView; // step by page
+
+			if (this.totalWidth <= this.viewportWidth + 0.5) {
+				// Nothing to slide
+				this.root.classList.add("carousel-no-sliding");
+				this._setControlsDisabled({ atStart: true, atEnd: true });
+				this._translateTo(0, { animate: false });
+				return;
+			} else {
+				this.root.classList.remove("carousel-no-sliding");
+			}
+
+			// Clamp current index and snap to it without animation after layout changes
+			this._slideToIndex(this.state.index, { animate: false });
+		}
+
+		/** Navigation */
+		onPrevClick() {
+			this._slideToIndex(Math.max(0, this.state.index - this.pageStep));
+		}
+		onNextClick() {
+			this._slideToIndex(Math.min(this.activeItems.length - 1, this.state.index + this.pageStep));
+		}
+		onKeydown(e) {
+			if (e.key === "ArrowLeft") {
+				e.preventDefault();
+				this.onPrevClick();
+			}
+			if (e.key === "ArrowRight") {
+				e.preventDefault();
+				this.onNextClick();
+			}
+		}
+
+		/** Drag interactions */
+		onPointerDown(e) {
+			if (e.button != null && e.button !== 0) return; // left button only (mouse)
+			this.state.isPointerDown = true;
+			this.inner.classList.add("dragging");
+			this.inner.style.transition = "none";
+			this.state.startX = e.clientX;
+			this.state.startOffsetPx = this.state.offsetPx;
+		}
+		onPointerMove(e) {
+			if (!this.state.isPointerDown) return;
+			// prevent page scroll while dragging horizontally
+			e.preventDefault();
+
+			const delta = this.state.startX - e.clientX; // positive when dragging left
+			let nextOffset = this.state.startOffsetPx + delta;
+
+			// Rubber-banding at edges
+			const maxOffset = Math.max(0, this.totalWidth - this.viewportWidth);
+			if (nextOffset < 0) nextOffset *= 0.3;
+			if (nextOffset > maxOffset) nextOffset = maxOffset + (nextOffset - maxOffset) * 0.3;
+
+			this._translateTo(nextOffset, { animate: false });
+		}
+		onPointerUp(e) {
+			if (!this.state.isPointerDown) return;
+			this.state.isPointerDown = false;
+			this.inner.classList.remove("dragging");
+
+			const delta = this.state.startX - e.clientX;
+			if (Math.abs(delta) > this.dragThreshold) {
+				delta > 0 ? this.onNextClick() : this.onPrevClick();
+			} else {
+				// Snap back to current index
+				this._slideToIndex(this.state.index);
+			}
+		}
+
+		/** Internal helpers */
+		_setControlsDisabled({ atStart, atEnd }) {
+			this.btnPrev.classList.toggle("display-none", atStart);
+			this.btnNext.classList.toggle("display-none", atEnd);
+			this.btnPrev.setAttribute("aria-disabled", String(atStart));
+			this.btnNext.setAttribute("aria-disabled", String(atEnd));
+		}
+
+		_offsetForIndex(index) {
+			const i = Math.max(0, Math.min(index, this.activeItems.length - 1));
+			let px = 0;
+			for (let k = 0; k < i; k++) px += this.itemWidths[k] || 0;
+			const max = Math.max(0, this.totalWidth - this.viewportWidth);
+			return Math.max(0, Math.min(px, max));
+		}
+
+		_translateTo(px, { animate = true } = {}) {
+			this.state.offsetPx = px;
+			this.inner.style.transition = animate ? "transform 300ms ease" : "none";
+			// Clear any legacy per-item transforms
+			this.activeItems.forEach((el) => {
+				el.style.transform = "";
+			});
+			this.inner.style.transform = `translateX(-${px}px)`;
+
+			const max = Math.max(0, this.totalWidth - this.viewportWidth);
+			const atStart = px <= 0 + 0.5;
+			const atEnd = px >= max - 0.5;
+			this._setControlsDisabled({ atStart, atEnd });
+		}
+
+		_slideToIndex(index, { animate = true } = {}) {
+			this.state.index = Math.max(0, Math.min(index, this.activeItems.length - 1));
+			const px = this._offsetForIndex(this.state.index);
+			this._translateTo(px, { animate });
+		}
 	}
+
+	/** Public entry point (kept for compatibility) */
+	window.carouselSliding = function carouselSliding() {
+		const root = document.querySelector("#carousel");
+		if (!root) return console.warn("Carousel not found.");
+
+		// Reuse if already created
+		let instance = instances.get(root);
+		if (!instance) {
+			const whiteIndexes = Array.isArray(window.indexesOfWhiteBanners) ? window.indexesOfWhiteBanners : null;
+
+			instance = new Carousel(root, {
+				dragThreshold: 50,
+				whiteIndexes,
+			});
+			instances.set(root, instance);
+		} else {
+			instance.refresh();
+		}
+	};
+
+	// Initial run + listen to your debounced resize
+	window.addEventListener("load", () => window.carouselSliding());
+	document.addEventListener("debouncedResize", () => window.carouselSliding());
 
 	let allProductsBlocks = document.querySelectorAll(".products-block");
 	if (allProductsBlocks && allProductsBlocks.length > 0) {
