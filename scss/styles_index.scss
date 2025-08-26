@@ -105,15 +105,26 @@ $desktop-large-min: 1680px;
 	&.left {
 		left: 0;
 		transform: translate(-50%, -50%) rotate(180deg);
+			@media screen and (max-width: $tablet-medium-min) {
+			transform: translate(0%, -50%) rotate(180deg);
+			left: -19px;
+		}
+		@media screen and (max-width: $mobile-max) {
+			transform: translate(0%, -50%) rotate(180deg);
+			left: -9px;
+		}
 	}
 	&.right {
 		right: 0;
 		transform: translate(50%, -50%);
 		@media screen and (max-width: $tablet-medium-min) {
 			transform: translate(0%, -50%);
+			right: -19px;
+		}
+		@media screen and (max-width: $mobile-max) {
+			transform: translate(0%, -50%);
 			right: -9px;
 		}
-	}
 	span {
 		display: none;
 	}
@@ -417,13 +428,13 @@ $desktop-large-min: 1680px;
 			@media screen and (max-width: $mobile-max) {
 				--padding-left: var(--gap-12);
 				.item {
-					flex-basis: 60%;
+					flex-basis: 55%;
 				}
 			}
 
 			@media screen and (max-width: $large-mobile-min) {
 				.item {
-					flex-basis: 80%;
+					flex-basis: 70%;
 				}
 			}
 		}
