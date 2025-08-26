@@ -10,8 +10,8 @@
   position: absolute;
   top: 50%;
   background: var(--color-black);
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border-style: solid;
   border-width: 4px;
@@ -26,6 +26,12 @@
 }
 .in-index #carousel .carousel-control:hover, .in-index #carousel .carousel-control:focus-within {
   background-color: var(--color-primary);
+}
+@media screen and (max-width: 1024px) {
+  .in-index #carousel .carousel-control {
+    width: 36px;
+    height: 36px;
+  }
 }
 .in-index #carousel .carousel-control.left {
   left: 0;
@@ -520,8 +526,8 @@
   position: absolute;
   top: 50%;
   background: var(--color-black);
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border-style: solid;
   border-width: 4px;
@@ -537,6 +543,12 @@
 }
 .in-index .products-block-wrapper .carousel-control:hover, .in-index .products-block-wrapper .carousel-control:focus-within {
   background-color: var(--color-primary);
+}
+@media screen and (max-width: 1024px) {
+  .in-index .products-block-wrapper .carousel-control {
+    width: 36px;
+    height: 36px;
+  }
 }
 .in-index .products-block-wrapper .carousel-control.left {
   left: 0;
