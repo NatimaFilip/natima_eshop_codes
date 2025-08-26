@@ -2765,6 +2765,7 @@ if (body.classList.contains("in-index")) {
 	if (allProductsBlocks && allProductsBlocks.length > 0) {
 		allProductsBlocks.forEach((block) => {
 			productSlider(block);
+			document.addEventListener("debouncedResize", () => productSlider(block));
 		});
 	}
 
@@ -2775,34 +2776,6 @@ if (body.classList.contains("in-index")) {
 		if (!footerBanner) {
 			console.warn("Footer banner not found.");
 			return;
-		}
-
-		// Modify the header text
-		let headerText = footerBanner.querySelector("img")?.getAttribute("alt");
-		let bannerTexts = footerBanner.querySelector(".extended-banner-texts");
-		if (headerText && bannerTexts) {
-			let headerTextElement = document.createElement("h2");
-			headerTextElement.className = "footer-banner-header";
-			headerTextElement.textContent = headerText;
-			bannerTexts.prepend(headerTextElement);
-		}
-
-		// Modify the extended banner text
-		let extendedBannerTextElement = footerBanner.querySelector(".extended-banner-text");
-		if (extendedBannerTextElement) {
-			let extendedBannerText = extendedBannerTextElement.textContent;
-			extendedBannerTextElement.innerHTML = ""; // Clear existing content
-			let extendedBannerTextUl = document.createElement("ul");
-			extendedBannerTextUl.className = "extended-banner-text-list";
-
-			// Split the text by ";" and create list items
-			extendedBannerText.split(";").forEach((textItem) => {
-				let listItem = document.createElement("li");
-				listItem.textContent = textItem.trim();
-				extendedBannerTextUl.appendChild(listItem);
-			});
-
-			extendedBannerTextElement.appendChild(extendedBannerTextUl);
 		}
 
 		// Move the footer banner after the second products block
@@ -2901,65 +2874,181 @@ if (body.classList.contains("in-index")) {
 
 function productSlider(productBlock) {
 	//wrap product in product-block-wrapper
-	let productsBlockWrapper = document.createElement("div");
-	productsBlockWrapper.classList.add("products-block-wrapper");
-	productBlock.parentNode.insertBefore(productsBlockWrapper, productBlock);
-	productsBlockWrapper.appendChild(productBlock);
+	let sliderAdded = false;
+	if (productBlock.classList.contains("carousel-sliding-added")) {
+		sliderAdded = true;
+	}
+
+	let carouselControlLeft;
+	let carouselControlRight;
+
+	if (!sliderAdded) {
+		let productsBlockWrapper = document.createElement("div");
+		productsBlockWrapper.classList.add("products-block-wrapper");
+		productBlock.parentNode.insertBefore(productsBlockWrapper, productBlock);
+		productsBlockWrapper.appendChild(productBlock);
+
+		carouselControlLeft = document.createElement("div");
+		carouselControlLeft.classList.add("carousel-control", "left", "display-none");
+		carouselControlRight = document.createElement("div");
+		carouselControlRight.classList.add("carousel-control", "right");
+		productsBlockWrapper.appendChild(carouselControlLeft);
+		productsBlockWrapper.appendChild(carouselControlRight);
+	}
+
+	carouselControlLeft = productBlock.parentNode.querySelector(".carousel-control.left");
+	carouselControlRight = productBlock.parentNode.querySelector(".carousel-control.right");
 
 	let productsInSlider = productBlock.querySelectorAll(".product");
+	if (!productsInSlider || productsInSlider.length === 0) {
+		console.warn("Products not found");
+		return;
+	}
+	let productWidth = parseFloat(
+		window.getComputedStyle(productsInSlider[0]).getPropertyValue("flex-basis").replace("%", "")
+	);
 
-	let productWidth = getComputedStyle(productsInSlider[0]).getPropertyValue("flex-basis");
-	productWidth = parseFloat(productWidth) || productWidth.replace("%", ""); // Convert to number and remove percentage sign if present
+	let totalWidth = 0;
+	let initialDisplayedItems = 0;
+	let totalAmountOfItems = productsInSlider.length;
 
-	const displayedNumberOfProducts = Math.round(100 / productWidth);
+	// Calculate how many items fit into 100%
+	while (totalWidth < 101) {
+		// Add the width of subsequent items
+		totalWidth += productWidth;
+		console.log("Total width:", totalWidth);
 
-	const totalNumberOfProducts = productsInSlider.length;
-	if (totalNumberOfProducts <= displayedNumberOfProducts) {
+		if (totalWidth <= 101) {
+			initialDisplayedItems++;
+		}
+	}
+
+	productBlock.classList.remove("carousel-no-sliding");
+	if (initialDisplayedItems >= totalAmountOfItems) {
+		productBlock.classList.add("carousel-no-sliding");
+		carouselControlLeft.classList.add("display-none");
+		carouselControlRight.classList.add("display-none");
 		return;
 	}
 
-	let scrolledProducts = 0;
+	carouselControlLeft.classList.add("display-none");
+	carouselControlRight.classList.remove("display-none");
 
-	const carouselControlLeft = document.createElement("div");
-	carouselControlLeft.classList.add("carousel-control", "left", "display-none");
-	const carouselControlRight = document.createElement("div");
-	carouselControlRight.classList.add("carousel-control", "right");
-	productsBlockWrapper.appendChild(carouselControlLeft);
-	productsBlockWrapper.appendChild(carouselControlRight);
+	let lastVisibleItem = initialDisplayedItems;
+	const transformItemIncrement = initialDisplayedItems;
+	let offsetPercentageForLastItems = 0;
 
-	carouselControlRight.addEventListener("click", function () {
+	console.log("initialDisplayedItems:", initialDisplayedItems);
+
+	if (sliderAdded) {
+		if (carouselControlRight._productSliderHandler) {
+			carouselControlRight.removeEventListener("click", carouselControlRight._productSliderHandler);
+		}
+		if (carouselControlLeft._productSliderHandler) {
+			carouselControlLeft.removeEventListener("click", carouselControlLeft._productSliderHandler);
+		}
+		productsInSlider.forEach((item) => {
+			item.style.transform = `translateX(0%)`;
+		});
+	}
+
+	// Define the handlers
+	function carouselProductRightButtonClickHandler() {
 		carouselControlLeft.classList.remove("display-none");
-		scrolledProducts += displayedNumberOfProducts;
-
-		if (scrolledProducts + displayedNumberOfProducts < totalNumberOfProducts) {
-			productsInSlider.forEach((item) => {
-				item.style.transform = `translateX(-${100 * scrolledProducts}%)`;
-			});
-		} else {
-			scrolledProducts = totalNumberOfProducts - displayedNumberOfProducts;
-			productsInSlider.forEach((item) => {
-				item.style.transform = `translateX(-${100 * (totalNumberOfProducts - displayedNumberOfProducts)}%)`;
-			});
+		lastVisibleItem = lastVisibleItem + transformItemIncrement;
+		if (lastVisibleItem >= totalAmountOfItems) {
+			lastVisibleItem = totalAmountOfItems;
 			carouselControlRight.classList.add("display-none");
 		}
-	});
+		productsInSlider.forEach((item) => {
+			item.style.transform = `translateX(-${
+				(lastVisibleItem - transformItemIncrement) * 100 + offsetPercentageForLastItems
+			}%)`;
+		});
+	}
 
-	carouselControlLeft.addEventListener("click", function () {
-		console.log("Scrolled products before:", scrolledProducts);
+	function carouselProductLeftButtonClickHandler() {
 		carouselControlRight.classList.remove("display-none");
-		scrolledProducts -= displayedNumberOfProducts;
-
-		if (scrolledProducts > 0) {
-			productsInSlider.forEach((item) => {
-				item.style.transform = `translateX(-${100 * scrolledProducts}%)`;
-			});
-		} else {
-			scrolledProducts = 0;
-			productsInSlider.forEach((item) => {
-				item.style.transform = `translateX(0)`;
-			});
+		lastVisibleItem = lastVisibleItem - transformItemIncrement;
+		if (lastVisibleItem <= initialDisplayedItems) {
+			lastVisibleItem = initialDisplayedItems;
 			carouselControlLeft.classList.add("display-none");
 		}
-		console.log("Scrolled products after:", scrolledProducts);
-	});
+		productsInSlider.forEach((item) => {
+			item.style.transform = `translateX(-${(lastVisibleItem - transformItemIncrement) * 100}%)`;
+		});
+	}
+
+	// Add the event listeners and store the references
+	carouselControlRight._productSliderHandler = carouselProductRightButtonClickHandler;
+	carouselControlLeft._productSliderHandler = carouselProductLeftButtonClickHandler;
+	carouselControlRight.addEventListener("click", carouselProductRightButtonClickHandler);
+	carouselControlLeft.addEventListener("click", carouselProductLeftButtonClickHandler);
+
+	// Add the event listeners for dragging
+	let isDragging = false;
+	let startX = 0;
+	let currentX = 0;
+	let dragThreshold = 50; // Minimum drag distance in pixels to trigger a slide
+	let dragDistance = 0;
+
+	if (!sliderAdded) {
+		productBlock.addEventListener("mousedown", (e) => {
+			isDragging = true;
+			startX = e.pageX;
+			dragDistance = 0;
+		});
+
+		productBlock.addEventListener("mousemove", (e) => {
+			if (!isDragging) return;
+			currentX = e.pageX;
+			dragDistance = currentX - startX;
+		});
+
+		productBlock.addEventListener("mouseup", () => {
+			if (!isDragging) return;
+			isDragging = false;
+
+			if (dragDistance > dragThreshold) {
+				// Dragged to the right, call left button handler
+				carouselProductLeftButtonClickHandler();
+			} else if (dragDistance < -dragThreshold) {
+				// Dragged to the left, call right button handler
+				carouselProductRightButtonClickHandler();
+			}
+		});
+
+		productBlock.addEventListener("mouseleave", () => {
+			if (!isDragging) return;
+			isDragging = false;
+		});
+
+		// Add touch support for mobile
+		productBlock.addEventListener("touchstart", (e) => {
+			isDragging = true;
+			startX = e.touches[0].pageX;
+			dragDistance = 0;
+		});
+
+		productBlock.addEventListener("touchmove", (e) => {
+			if (!isDragging) return;
+			currentX = e.touches[0].pageX;
+			dragDistance = currentX - startX;
+		});
+
+		productBlock.addEventListener("touchend", () => {
+			if (!isDragging) return;
+			isDragging = false;
+
+			if (dragDistance > dragThreshold) {
+				// Dragged to the right, call left button handler
+				carouselProductLeftButtonClickHandler();
+			} else if (dragDistance < -dragThreshold) {
+				// Dragged to the left, call right button handler
+				carouselProductRightButtonClickHandler();
+			}
+		});
+	}
+
+	productBlock.classList.add("carousel-sliding-added");
 }

@@ -290,7 +290,22 @@ $desktop-large-min: 1680px;
 	position: relative;
 	color: var(--color-black);
 	transition: transform 0.3s ease-in-out;
+	.mobile-image {
+		display: none;
+	}
+	.pc-image {
+		display: block;
+	}
+	@media screen and (max-width: $tablet-medium-min) {
+		.mobile-image {
+			display: block;
+		}
+		.pc-image {
+			display: none;
+		}
+	}
 	a {
+		background: linear-gradient(to bottom, var(--color-white), var(--color-gray-500));
 		position: relative;
 		color: inherit;
 		text-decoration: none;
@@ -393,6 +408,7 @@ $desktop-large-min: 1680px;
 				flex-shrink: 0;
 				@include banner-item-preset;
 				a {
+					background: linear-gradient(to bottom, var(--color-white), var(--color-gray-500));
 					margin-left: var(--padding-left);
 				}
 			}
@@ -426,12 +442,12 @@ $desktop-large-min: 1680px;
 			}
 
 			@media screen and (max-width: $tablet-medium-min) {
+				--padding-left: var(--gap-10);
 				.item {
 					flex-basis: 40%;
 				}
 			}
 			@media screen and (max-width: $mobile-max) {
-				--padding-left: var(--gap-12);
 				.item {
 					flex-basis: 55%;
 				}
@@ -454,6 +470,36 @@ $desktop-large-min: 1680px;
 			.extended-banner-texts {
 				padding-right: 60%;
 				text-wrap: balance;
+				@media screen and (max-width: $desktop-medium-min) {
+					padding-right: 40%;
+				}
+				@media screen and (max-width: $tablet-medium-min) {
+					padding-right: 60%;
+				}
+			}
+		}
+		@media screen and (max-width: $tablet-medium-min) {
+			grid-template-columns: 1fr;
+		}
+		@media screen and (max-width: $mobile-max) {
+			display: flex;
+			overflow: auto;
+			padding-bottom: 10px;
+			margin-bottom: 50px;
+			&::-webkit-scrollbar {
+				height: 6px; // Reduce the height of the scrollbar
+			}
+
+			> * {
+				flex-basis: 55%;
+				min-width: 55%;
+			}
+		}
+
+		@media screen and (max-width: $large-mobile-min) {
+			> * {
+				flex-basis: 70%;
+				min-width: 70%;
 			}
 		}
 	}
@@ -466,6 +512,7 @@ $desktop-large-min: 1680px;
 				bottom: auto;
 				transform: translateY(-50%);
 				color: var(--color-white);
+
 				h2 {
 					color: inherit;
 					font-size: 3.875rem;
@@ -476,12 +523,31 @@ $desktop-large-min: 1680px;
 				padding-left: 25.8%;
 				padding-right: 50%;
 				text-wrap: balance;
+
+				@media screen and (max-width: $desktop-large-min) {
+					padding-left: 22%;
+					padding-right: 45%;
+					h2 {
+						font-size: 3.875rem;
+					}
+				}
+				@media screen and (max-width: $desktop-medium-min) {
+					padding-left: 22%;
+					padding-right: 45%;
+					h2 {
+						font-size: 2.875rem;
+					}
+				}
 			}
 			.extended-banner-title {
 				font-size: 1.875rem;
 				line-height: var(--lh-1-4);
 				font-weight: var(--fw-400);
 				padding-bottom: 1.4em;
+				@media screen and (max-width: $desktop-medium-min) {
+					padding-bottom: 1em;
+					font-size: 1.5rem;
+				}
 			}
 			.extended-banner-text {
 				font-size: var(--fs-16);
@@ -548,6 +614,20 @@ $desktop-large-min: 1680px;
 			flex-shrink: 0;
 			padding-left: var(--gap-20);
 			transition: transform 0.3s ease-in-out;
+
+			@media screen and (max-width: $desktop-medium-min) {
+				flex-basis: 20%;
+			}
+			@media screen and (max-width: $desktop-min) {
+				flex-basis: 25%;
+			}
+			@media screen and (max-width: $tablet-medium-min) {
+				flex-basis: 30%;
+				padding-left: var(--gap-10);
+			}
+			@media screen and (max-width: $mobile-max) {
+				flex-basis: 45%;
+			}
 		}
 	}
 	.homepage-blog-wrapper {

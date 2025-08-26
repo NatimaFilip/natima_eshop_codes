@@ -100,7 +100,23 @@
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
+.in-index #carousel .carousel-inner .item .mobile-image {
+  display: none;
+}
+.in-index #carousel .carousel-inner .item .pc-image {
+  display: block;
+}
+@media screen and (max-width: 1024px) {
+  .in-index #carousel .carousel-inner .item .mobile-image {
+    display: block;
+  }
+  .in-index #carousel .carousel-inner .item .pc-image {
+    display: none;
+  }
+}
 .in-index #carousel .carousel-inner .item a {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--color-white)), to(var(--color-gray-500)));
+  background: linear-gradient(to bottom, var(--color-white), var(--color-gray-500));
   position: relative;
   color: inherit;
   text-decoration: none;
@@ -185,6 +201,8 @@
   }
 }
 .in-index #carousel .carousel-inner .item a {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--color-white)), to(var(--color-gray-500)));
+  background: linear-gradient(to bottom, var(--color-white), var(--color-gray-500));
   margin-left: var(--padding-left);
 }
 .in-index #carousel .carousel-inner .item:first-child {
@@ -222,15 +240,15 @@
   }
 }
 @media screen and (max-width: 1024px) {
+  .in-index #carousel .carousel-inner {
+    --padding-left: var(--gap-10);
+  }
   .in-index #carousel .carousel-inner .item {
     -ms-flex-preferred-size: 40%;
         flex-basis: 40%;
   }
 }
 @media screen and (max-width: 767px) {
-  .in-index #carousel .carousel-inner {
-    --padding-left: var(--gap-12);
-  }
   .in-index #carousel .carousel-inner .item {
     -ms-flex-preferred-size: 55%;
         flex-basis: 55%;
@@ -256,7 +274,23 @@
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
+.in-index .body-banners .banner-wrapper .mobile-image {
+  display: none;
+}
+.in-index .body-banners .banner-wrapper .pc-image {
+  display: block;
+}
+@media screen and (max-width: 1024px) {
+  .in-index .body-banners .banner-wrapper .mobile-image {
+    display: block;
+  }
+  .in-index .body-banners .banner-wrapper .pc-image {
+    display: none;
+  }
+}
 .in-index .body-banners .banner-wrapper a {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--color-white)), to(var(--color-gray-500)));
+  background: linear-gradient(to bottom, var(--color-white), var(--color-gray-500));
   position: relative;
   color: inherit;
   text-decoration: none;
@@ -344,6 +378,46 @@
   padding-right: 60%;
   text-wrap: balance;
 }
+@media screen and (max-width: 1440px) {
+  .in-index .body-banners .banner-wrapper .extended-banner-texts {
+    padding-right: 40%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .in-index .body-banners .banner-wrapper .extended-banner-texts {
+    padding-right: 60%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .in-index .body-banners {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 767px) {
+  .in-index .body-banners {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: auto;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+  }
+  .in-index .body-banners::-webkit-scrollbar {
+    height: 6px;
+  }
+  .in-index .body-banners > * {
+    -ms-flex-preferred-size: 55%;
+        flex-basis: 55%;
+    min-width: 55%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .in-index .body-banners > * {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+    min-width: 70%;
+  }
+}
 .in-index .footer-banners {
   padding-bottom: 100px;
 }
@@ -355,7 +429,23 @@
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
+.in-index .footer-banners .footer-banner .mobile-image {
+  display: none;
+}
+.in-index .footer-banners .footer-banner .pc-image {
+  display: block;
+}
+@media screen and (max-width: 1024px) {
+  .in-index .footer-banners .footer-banner .mobile-image {
+    display: block;
+  }
+  .in-index .footer-banners .footer-banner .pc-image {
+    display: none;
+  }
+}
 .in-index .footer-banners .footer-banner a {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--color-white)), to(var(--color-gray-500)));
+  background: linear-gradient(to bottom, var(--color-white), var(--color-gray-500));
   position: relative;
   color: inherit;
   text-decoration: none;
@@ -456,11 +546,35 @@
   line-height: 1;
   padding-bottom: 0.15em;
 }
+@media screen and (max-width: 1680px) {
+  .in-index .footer-banners .footer-banner .extended-banner-texts {
+    padding-left: 22%;
+    padding-right: 45%;
+  }
+  .in-index .footer-banners .footer-banner .extended-banner-texts h2 {
+    font-size: 3.875rem;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .in-index .footer-banners .footer-banner .extended-banner-texts {
+    padding-left: 22%;
+    padding-right: 45%;
+  }
+  .in-index .footer-banners .footer-banner .extended-banner-texts h2 {
+    font-size: 2.875rem;
+  }
+}
 .in-index .footer-banners .footer-banner .extended-banner-title {
   font-size: 1.875rem;
   line-height: var(--lh-1-4);
   font-weight: var(--fw-400);
   padding-bottom: 1.4em;
+}
+@media screen and (max-width: 1440px) {
+  .in-index .footer-banners .footer-banner .extended-banner-title {
+    padding-bottom: 1em;
+    font-size: 1.5rem;
+  }
 }
 .in-index .footer-banners .footer-banner .extended-banner-text {
   font-size: var(--fs-16);
@@ -616,6 +730,31 @@
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+@media screen and (max-width: 1440px) {
+  .in-index .products-block > * {
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .in-index .products-block > * {
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .in-index .products-block > * {
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+    padding-left: var(--gap-10);
+  }
+}
+@media screen and (max-width: 767px) {
+  .in-index .products-block > * {
+    -ms-flex-preferred-size: 45%;
+        flex-basis: 45%;
+  }
 }
 .in-index .homepage-blog-wrapper {
   display: -webkit-box;
