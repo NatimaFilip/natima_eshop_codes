@@ -110,8 +110,8 @@ $desktop-large-min: 1680px;
 		right: 0;
 		transform: translate(50%, -50%);
 		@media screen and (max-width: $tablet-medium-min) {
-			transform: translate(100%, -50%);
-			right: calc(0 - var(--padding-sides) + 1px);
+			transform: translate(0%, -50%);
+			right: -9px;
 		}
 	}
 	span {

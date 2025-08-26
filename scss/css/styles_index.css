@@ -39,9 +39,9 @@
 }
 @media screen and (max-width: 1024px) {
   .in-index #carousel .carousel-control.right {
-    -webkit-transform: translate(100%, -50%);
-            transform: translate(100%, -50%);
-    right: calc(0 - var(--padding-sides) + 1px);
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+    right: -9px;
   }
 }
 .in-index #carousel .carousel-control span {
@@ -529,9 +529,9 @@
 }
 @media screen and (max-width: 1024px) {
   .in-index .products-block-wrapper .carousel-control.right {
-    -webkit-transform: translate(100%, -50%);
-            transform: translate(100%, -50%);
-    right: calc(0 - var(--padding-sides) + 1px);
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+    right: -9px;
   }
 }
 .in-index .products-block-wrapper .carousel-control span {
