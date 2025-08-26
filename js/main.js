@@ -2535,7 +2535,8 @@ if (body.classList.contains("type-product")) {
 
 /*------------------------------------------------- Index*/
 if (body.classList.contains("in-index")) {
-	/* let addedSlidingListener = false;
+	let addedSlidingListener = false;
+	let addedWhiteBanners = false;
 
 	let carouselRightButtonClickHandler;
 	let carouselLeftButtonClickHandler;
@@ -2545,19 +2546,22 @@ if (body.classList.contains("in-index")) {
 
 	function carouselSliding() {
 		let carousel = document.querySelector("#carousel");
-		if (carousel) {
-			let carouselInner = carousel.querySelector(".carousel-inner");
-			if (!carouselInner) {
-				console.warn("Carousel inner not found.");
-				return; // Exit if carousel inner is not found
-			}
-			let carouselItems = carousel.querySelectorAll(".item");
+		if (!carousel) {
+			console.warn("Carousel not found.");
+			return; // Exit if carousel is not found
+		}
+		let carouselInner = carousel.querySelector(".carousel-inner");
+		if (!carouselInner) {
+			console.warn("Carousel inner not found.");
+			return; // Exit if carousel inner is not found
+		}
+		let carouselItems = carousel.querySelectorAll(".item");
+		if (!carouselItems && carouselItems.length <= 0) {
+			console.warn("Carousel items not found.");
+			return; // Exit if carousel items are not found
+		}
 
-			if (!carouselItems && carouselItems.length <= 0) {
-				console.warn("Carousel items not found.");
-				return; // Exit if carousel items are not found
-			}
-
+		if (!addedWhiteBanners) {
 			if (indexesOfWhiteBanners) {
 				carouselItems.forEach((item, index) => {
 					if (indexesOfWhiteBanners.includes(index)) {
@@ -2565,137 +2569,141 @@ if (body.classList.contains("in-index")) {
 					}
 				});
 			}
-			let carouselLeftButton = carousel.querySelector(".carousel-control.left");
-			let carouselRightButton = carousel.querySelector(".carousel-control.right");
+			addedWhiteBanners = true;
+		}
 
-			if (!carouselLeftButton || !carouselRightButton) {
-				console.warn("Carousel buttons not found.");
-				return; // Exit if buttons are not found
+		let carouselLeftButton = carousel.querySelector(".carousel-control.left");
+		let carouselRightButton = carousel.querySelector(".carousel-control.right");
+		if (!carouselLeftButton || !carouselRightButton) {
+			console.warn("Carousel buttons not found.");
+			return; // Exit if buttons are not found
+		}
+		carouselLeftButton.removeAttribute("href");
+		carouselRightButton.removeAttribute("href");
+
+		let activeItems = Array.from(carouselItems).filter((item) => {
+			return window.getComputedStyle(item).getPropertyValue("display") !== "none";
+		});
+
+		let flexBasisFirstItem = parseFloat(
+			window.getComputedStyle(activeItems[0]).getPropertyValue("flex-basis").replace("%", "")
+		);
+		let flexBasisOtherItems = parseFloat(
+			window.getComputedStyle(activeItems[1]).getPropertyValue("flex-basis").replace("%", "")
+		);
+
+		let totalWidth = 0;
+		let initialDisplayedItems = 0;
+		let totalAmountOfItems = activeItems.length;
+
+		// Calculate how many items fit into 100%
+		while (totalWidth < 100) {
+			if (initialDisplayedItems === 0) {
+				// Add the first item's width
+				totalWidth += flexBasisFirstItem;
+			} else {
+				// Add the width of subsequent items
+				totalWidth += flexBasisOtherItems;
 			}
-			carouselLeftButton.removeAttribute("href");
-			carouselRightButton.removeAttribute("href");
+			if (totalWidth <= 100) {
+				initialDisplayedItems++;
+			}
+		}
 
-			let activeItems = Array.from(carouselItems).filter((item) => {
-				return window.getComputedStyle(item).getPropertyValue("display") !== "none";
+		carousel.classList.remove("carousel-no-sliding");
+		if (initialDisplayedItems >= totalAmountOfItems) {
+			carousel.classList.add("carousel-no-sliding");
+			carouselLeftButton.classList.add("display-none");
+			carouselRightButton.classList.add("display-none");
+			return;
+		}
+
+		carouselLeftButton.classList.add("display-none");
+		carouselRightButton.classList.remove("display-none");
+
+		let lastVisibleItem = initialDisplayedItems;
+		let offsetAmountForLargeItem = 0;
+
+		offsetAmountForLargeItem = Math.round(flexBasisFirstItem / flexBasisOtherItems) - 1;
+
+		const transformItemIncrement = initialDisplayedItems + offsetAmountForLargeItem;
+
+		let offsetPercentageForLastItems = 0;
+
+		if (addedSlidingListener) {
+			carouselRightButton.removeEventListener("click", carouselRightButtonClickHandler);
+			carouselLeftButton.removeEventListener("click", carouselLeftButtonClickHandler);
+			activeItems.forEach((item, index) => {
+				item.style.transform = `translateX(0%)`;
+			});
+		}
+
+		addedSlidingListener = true;
+
+		// Define the handlers
+		carouselRightButtonClickHandler = function () {
+			carouselLeftButton.classList.remove("display-none");
+			lastVisibleItem = lastVisibleItem + transformItemIncrement;
+			if (lastVisibleItem >= totalAmountOfItems) {
+				lastVisibleItem = totalAmountOfItems;
+				carouselRightButton.classList.add("display-none");
+
+				// aby tam nezustalo volne misto, ale nejak to nevychazi
+				//if (initialDisplayedItems <= 2 && flexBasisFirstItem > 26) {
+				//	offsetPercentageForLastItems = -flexBasisFirstItem;
+				// }
+			} else {
+				offsetPercentageForLastItems = 0;
+			}
+			activeItems.forEach((item, index) => {
+				if (index == 0 && offsetAmountForLargeItem !== 0) {
+					item.style.transform = `translateX(-${
+						((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 -
+							offsetPercentageForLastItems) /
+						2
+					}%)`;
+				} else {
+					item.style.transform = `translateX(-${
+						(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 + offsetPercentageForLastItems
+					}%)`;
+				}
 			});
 
-			let flexBasisFirstItem = parseFloat(
-				window.getComputedStyle(activeItems[0]).getPropertyValue("flex-basis").replace("%", "")
-			);
-			let flexBasisOtherItems = parseFloat(
-				window.getComputedStyle(activeItems[1]).getPropertyValue("flex-basis").replace("%", "")
-			);
+			console.log("lastVisibleItem:", lastVisibleItem);
+		};
 
-			let totalWidth = 0;
-			let initialDisplayedItems = 0;
-			let totalAmountOfItems = activeItems.length;
-
-			// Calculate how many items fit into 100%
-			while (totalWidth < 100) {
-				if (initialDisplayedItems === 0) {
-					// Add the first item's width
-					totalWidth += flexBasisFirstItem;
-				} else {
-					// Add the width of subsequent items
-					totalWidth += flexBasisOtherItems;
-				}
-				if (totalWidth <= 100) {
-					initialDisplayedItems++;
-				}
-			}
-			carousel.classList.remove("carousel-no-sliding");
-			if (initialDisplayedItems >= totalAmountOfItems) {
-				carousel.classList.add("carousel-no-sliding");
-				carouselLeftButton.classList.add("display-none");
-				carouselRightButton.classList.add("display-none");
-				return;
-			}
-
-			carouselLeftButton.classList.add("display-none");
+		carouselLeftButtonClickHandler = function () {
 			carouselRightButton.classList.remove("display-none");
-
-			let lastVisibleItem = initialDisplayedItems;
-			let offsetAmountForLargeItem = 0;
-
-			offsetAmountForLargeItem = Math.round(flexBasisFirstItem / flexBasisOtherItems) - 1;
-
-			const transformItemIncrement = initialDisplayedItems + offsetAmountForLargeItem;
-
-			let offsetPercentageForLastItems = 0;
-
-			if (addedSlidingListener) {
-				carouselRightButton.removeEventListener("click", carouselRightButtonClickHandler);
-				carouselLeftButton.removeEventListener("click", carouselLeftButtonClickHandler);
-				activeItems.forEach((item, index) => {
-					item.style.transform = `translateX(0%)`;
-				});
+			lastVisibleItem = lastVisibleItem - transformItemIncrement;
+			if (lastVisibleItem <= initialDisplayedItems) {
+				lastVisibleItem = initialDisplayedItems;
+				carouselLeftButton.classList.add("display-none");
 			}
-
-			addedSlidingListener = true;
-
-			// Define the handlers
-			carouselRightButtonClickHandler = function () {
-				carouselLeftButton.classList.remove("display-none");
-				lastVisibleItem = lastVisibleItem + transformItemIncrement;
-				if (lastVisibleItem >= totalAmountOfItems) {
-					lastVisibleItem = totalAmountOfItems;
-					carouselRightButton.classList.add("display-none");
-
-					// aby tam nezustalo volne misto, ale nejak to nevychazi
-					// if (initialDisplayedItems <= 2 && flexBasisFirstItem > 26) {
-				//	offsetPercentageForLastItems = -flexBasisFirstItem;
-					// }} 
+			activeItems.forEach((item, index) => {
+				if (index == 0 && offsetAmountForLargeItem !== 0) {
+					item.style.transform = `translateX(-${
+						((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
+					}%)`;
 				} else {
-					offsetPercentageForLastItems = 0;
+					item.style.transform = `translateX(-${
+						(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100
+					}%)`;
 				}
-				activeItems.forEach((item, index) => {
-					if (index == 0 && offsetAmountForLargeItem !== 0) {
-						item.style.transform = `translateX(-${
-							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 -
-								offsetPercentageForLastItems) /
-							2
-						}%)`;
-					} else {
-						item.style.transform = `translateX(-${
-							(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 + offsetPercentageForLastItems
-						}%)`;
-					}
-				});
+			});
+		};
 
-				console.log("lastVisibleItem:", lastVisibleItem);
-			};
+		// Add the event listeners
+		carouselRightButton.addEventListener("click", carouselRightButtonClickHandler);
+		carouselLeftButton.addEventListener("click", carouselLeftButtonClickHandler);
 
-			carouselLeftButtonClickHandler = function () {
-				carouselRightButton.classList.remove("display-none");
-				lastVisibleItem = lastVisibleItem - transformItemIncrement;
-				if (lastVisibleItem <= initialDisplayedItems) {
-					lastVisibleItem = initialDisplayedItems;
-					carouselLeftButton.classList.add("display-none");
-				}
-				activeItems.forEach((item, index) => {
-					if (index == 0 && offsetAmountForLargeItem !== 0) {
-						item.style.transform = `translateX(-${
-							((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
-						}%)`;
-					} else {
-						item.style.transform = `translateX(-${
-							(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100
-						}%)`;
-					}
-				});
-			};
+		// Add the event listeners for dragging
+		let isDragging = false;
+		let startX = 0;
+		let currentX = 0;
+		let dragThreshold = 50; // Minimum drag distance in pixels to trigger a slide
+		let dragDistance = 0;
 
-			// Add the event listeners
-			carouselRightButton.addEventListener("click", carouselRightButtonClickHandler);
-			carouselLeftButton.addEventListener("click", carouselLeftButtonClickHandler);
-
-			// Add the event listeners for dragging
-			let isDragging = false;
-			let startX = 0;
-			let currentX = 0;
-			let dragThreshold = 50; // Minimum drag distance in pixels to trigger a slide
-			let dragDistance = 0;
-
+		if (!addedSlidingListener) {
 			carouselInner.addEventListener("mousedown", (e) => {
 				isDragging = true;
 				startX = e.pageX;
@@ -2755,256 +2763,7 @@ if (body.classList.contains("in-index")) {
 				}
 			});
 		}
-	} */
-
-	/** Keep one instance per root element without leaking memory */
-	const instances = new WeakMap();
-
-	/** Utilities */
-	const toNumber = (v) => (Number.isFinite(parseFloat(v)) ? parseFloat(v) : 0);
-	const parseWhiteIndexes = (str) =>
-		(str || "")
-			.split(",")
-			.map((s) => parseInt(s, 10))
-			.filter((n) => Number.isFinite(n));
-
-	const getActiveItems = (nodes) =>
-		nodes.filter((el) => window.getComputedStyle(el).getPropertyValue("display") !== "none");
-
-	const measureItemsPx = (items) =>
-		items.map((el) => {
-			const rect = el.getBoundingClientRect();
-			const cs = window.getComputedStyle(el);
-			// include horizontal margins so stepping is accurate
-			return rect.width + toNumber(cs.marginLeft) + toNumber(cs.marginRight);
-		});
-
-	class Carousel {
-		constructor(root, { dragThreshold = 50, whiteIndexes = null } = {}) {
-			this.root = root;
-			this.inner = root.querySelector(".carousel-inner");
-			this.itemsAll = Array.from(root.querySelectorAll(".item"));
-			// Support either .left/.right or .prev/.next
-			this.btnPrev = root.querySelector(".carousel-control.left, .carousel-control.prev");
-			this.btnNext = root.querySelector(".carousel-control.right, .carousel-control.next");
-
-			if (!this.inner) return void console.warn("Carousel inner not found.");
-			if (!this.itemsAll || this.itemsAll.length === 0) return void console.warn("Carousel items not found.");
-			if (!this.btnPrev || !this.btnNext) return void console.warn("Carousel buttons not found.");
-
-			// Options / state
-			this.dragThreshold = dragThreshold;
-			this.state = {
-				index: 0, // index of the first item of the current page
-				offsetPx: 0, // current translateX in px
-				isPointerDown: false,
-				startX: 0,
-				startOffsetPx: 0,
-			};
-
-			// Apply white banner indices from either option or data attribute
-			const dataWhite = parseWhiteIndexes(this.root.dataset.whiteIndexes);
-			this.whiteIndexes = Array.isArray(whiteIndexes) ? whiteIndexes : dataWhite;
-			if (Array.isArray(this.whiteIndexes)) {
-				this.itemsAll.forEach((el, i) => el.classList.toggle("white", this.whiteIndexes.includes(i)));
-			}
-
-			// Make anchor controls behave like buttons
-			[this.btnPrev, this.btnNext].forEach((btn) => {
-				btn.removeAttribute("href");
-				btn.setAttribute("role", "button");
-				btn.setAttribute("tabindex", "0");
-				btn.addEventListener("click", (e) => e.preventDefault(), { passive: false });
-			});
-
-			// Improve performance
-			this.inner.style.willChange = "transform";
-			this.inner.style.transform = "translateX(0px)";
-
-			// Bind handlers
-			this.onPrevClick = this.onPrevClick.bind(this);
-			this.onNextClick = this.onNextClick.bind(this);
-			this.onKeydown = this.onKeydown.bind(this);
-			this.onPointerDown = this.onPointerDown.bind(this);
-			this.onPointerMove = this.onPointerMove.bind(this);
-			this.onPointerUp = this.onPointerUp.bind(this);
-			this.refresh = this.refresh.bind(this);
-
-			// Attach events
-			this.btnPrev.addEventListener("click", this.onPrevClick);
-			this.btnNext.addEventListener("click", this.onNextClick);
-			this.root.addEventListener("keydown", this.onKeydown);
-
-			// Use Pointer Events (works for mouse + touch)
-			this.inner.addEventListener("pointerdown", this.onPointerDown, { passive: true });
-			window.addEventListener("pointermove", this.onPointerMove, { passive: false });
-			window.addEventListener("pointerup", this.onPointerUp, { passive: true });
-			window.addEventListener("pointercancel", this.onPointerUp, { passive: true });
-
-			// Initial layout
-			this.refresh();
-		}
-
-		/** Recompute sizes and pages (call this on resize) */
-		refresh() {
-			this.activeItems = getActiveItems(this.itemsAll);
-			if (this.activeItems.length <= 1) {
-				this.root.classList.add("carousel-no-sliding");
-				this._setControlsDisabled({ atStart: true, atEnd: true });
-				this._translateTo(0, { animate: false });
-				return;
-			}
-
-			this.itemWidths = measureItemsPx(this.activeItems);
-			this.totalWidth = this.itemWidths.reduce((a, b) => a + b, 0);
-			// Viewport is the visible width of the outer carousel, not the inner track
-			this.viewportWidth = this.root.getBoundingClientRect().width;
-
-			// Determine how many items fit per page
-			let acc = 0;
-			let perView = 0;
-			for (const w of this.itemWidths) {
-				if (acc + w <= this.viewportWidth + 0.5) {
-					acc += w;
-					perView++;
-				} else {
-					break;
-				}
-			}
-			this.itemsPerView = Math.max(1, perView);
-			this.pageStep = this.itemsPerView; // step by page
-
-			if (this.totalWidth <= this.viewportWidth + 0.5) {
-				// Nothing to slide
-				this.root.classList.add("carousel-no-sliding");
-				this._setControlsDisabled({ atStart: true, atEnd: true });
-				this._translateTo(0, { animate: false });
-				return;
-			} else {
-				this.root.classList.remove("carousel-no-sliding");
-			}
-
-			// Clamp current index and snap to it without animation after layout changes
-			this._slideToIndex(this.state.index, { animate: false });
-		}
-
-		/** Navigation */
-		onPrevClick() {
-			this._slideToIndex(Math.max(0, this.state.index - this.pageStep));
-		}
-		onNextClick() {
-			this._slideToIndex(Math.min(this.activeItems.length - 1, this.state.index + this.pageStep));
-		}
-		onKeydown(e) {
-			if (e.key === "ArrowLeft") {
-				e.preventDefault();
-				this.onPrevClick();
-			}
-			if (e.key === "ArrowRight") {
-				e.preventDefault();
-				this.onNextClick();
-			}
-		}
-
-		/** Drag interactions */
-		onPointerDown(e) {
-			if (e.button != null && e.button !== 0) return; // left button only (mouse)
-			this.state.isPointerDown = true;
-			this.inner.classList.add("dragging");
-			this.inner.style.transition = "none";
-			this.state.startX = e.clientX;
-			this.state.startOffsetPx = this.state.offsetPx;
-		}
-		onPointerMove(e) {
-			if (!this.state.isPointerDown) return;
-			// prevent page scroll while dragging horizontally
-			e.preventDefault();
-
-			const delta = this.state.startX - e.clientX; // positive when dragging left
-			let nextOffset = this.state.startOffsetPx + delta;
-
-			// Rubber-banding at edges
-			const maxOffset = Math.max(0, this.totalWidth - this.viewportWidth);
-			if (nextOffset < 0) nextOffset *= 0.3;
-			if (nextOffset > maxOffset) nextOffset = maxOffset + (nextOffset - maxOffset) * 0.3;
-
-			this._translateTo(nextOffset, { animate: false });
-		}
-		onPointerUp(e) {
-			if (!this.state.isPointerDown) return;
-			this.state.isPointerDown = false;
-			this.inner.classList.remove("dragging");
-
-			const delta = this.state.startX - e.clientX;
-			if (Math.abs(delta) > this.dragThreshold) {
-				delta > 0 ? this.onNextClick() : this.onPrevClick();
-			} else {
-				// Snap back to current index
-				this._slideToIndex(this.state.index);
-			}
-		}
-
-		/** Internal helpers */
-		_setControlsDisabled({ atStart, atEnd }) {
-			this.btnPrev.classList.toggle("display-none", atStart);
-			this.btnNext.classList.toggle("display-none", atEnd);
-			this.btnPrev.setAttribute("aria-disabled", String(atStart));
-			this.btnNext.setAttribute("aria-disabled", String(atEnd));
-		}
-
-		_offsetForIndex(index) {
-			const i = Math.max(0, Math.min(index, this.activeItems.length - 1));
-			let px = 0;
-			for (let k = 0; k < i; k++) px += this.itemWidths[k] || 0;
-			const max = Math.max(0, this.totalWidth - this.viewportWidth);
-			return Math.max(0, Math.min(px, max));
-		}
-
-		_translateTo(px, { animate = true } = {}) {
-			this.state.offsetPx = px;
-			this.inner.style.transition = animate ? "transform 300ms ease" : "none";
-			// Clear any legacy per-item transforms
-			this.activeItems.forEach((el) => {
-				el.style.transform = "";
-			});
-			this.inner.style.transform = `translateX(-${px}px)`;
-
-			const max = Math.max(0, this.totalWidth - this.viewportWidth);
-			const atStart = px <= 0 + 0.5;
-			const atEnd = px >= max - 0.5;
-			this._setControlsDisabled({ atStart, atEnd });
-		}
-
-		_slideToIndex(index, { animate = true } = {}) {
-			this.state.index = Math.max(0, Math.min(index, this.activeItems.length - 1));
-			const px = this._offsetForIndex(this.state.index);
-			this._translateTo(px, { animate });
-		}
 	}
-
-	/** Public entry point (kept for compatibility) */
-	window.carouselSliding = function carouselSliding() {
-		const root = document.querySelector("#carousel");
-		if (!root) return console.warn("Carousel not found.");
-
-		// Reuse if already created
-		let instance = instances.get(root);
-		if (!instance) {
-			const whiteIndexes = Array.isArray(window.indexesOfWhiteBanners) ? window.indexesOfWhiteBanners : null;
-
-			instance = new Carousel(root, {
-				dragThreshold: 50,
-				whiteIndexes,
-			});
-			instances.set(root, instance);
-		} else {
-			instance.refresh();
-		}
-	};
-
-	// Initial run + listen to your debounced resize
-	window.addEventListener("load", () => window.carouselSliding());
-	document.addEventListener("debouncedResize", () => window.carouselSliding());
 
 	let allProductsBlocks = document.querySelectorAll(".products-block");
 	if (allProductsBlocks && allProductsBlocks.length > 0) {
