@@ -370,6 +370,10 @@ $desktop-large-min: 1680px;
 			margin-left: calc(-1 * var(--padding-left));
 			overflow: hidden;
 
+			&.dragging {
+				cursor: grabbing; /* Indicates dragging */
+			}
+
 			.item {
 				flex-basis: 25%;
 				flex-shrink: 0;

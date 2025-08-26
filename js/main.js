@@ -2707,16 +2707,12 @@ if (body.classList.contains("in-index")) {
 				if (!isDragging) return;
 				currentX = e.pageX;
 				dragDistance = currentX - startX;
-
-				// Optional: Add visual feedback for dragging
-				carouselInner.style.transform = `translateX(${dragDistance}px)`;
 			});
 
 			carouselInner.addEventListener("mouseup", () => {
 				if (!isDragging) return;
 				isDragging = false;
 				carouselInner.classList.remove("dragging");
-				carouselInner.style.transform = ""; // Reset transform
 
 				if (dragDistance > dragThreshold) {
 					// Dragged to the right, call left button handler
@@ -2731,7 +2727,6 @@ if (body.classList.contains("in-index")) {
 				if (!isDragging) return;
 				isDragging = false;
 				carouselInner.classList.remove("dragging");
-				carouselInner.style.transform = ""; // Reset transform
 			});
 
 			// Add touch support for mobile
@@ -2745,15 +2740,11 @@ if (body.classList.contains("in-index")) {
 				if (!isDragging) return;
 				currentX = e.touches[0].pageX;
 				dragDistance = currentX - startX;
-
-				// Optional: Add visual feedback for dragging
-				carouselInner.style.transform = `translateX(${dragDistance}px)`;
 			});
 
 			carouselInner.addEventListener("touchend", () => {
 				if (!isDragging) return;
 				isDragging = false;
-				carouselInner.style.transform = ""; // Reset transform
 
 				if (dragDistance > dragThreshold) {
 					// Dragged to the right, call left button handler

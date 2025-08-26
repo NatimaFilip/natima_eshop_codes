@@ -56,6 +56,10 @@
   margin-left: calc(-1 * var(--padding-left));
   overflow: hidden;
 }
+.in-index #carousel .carousel-inner.dragging {
+  cursor: -webkit-grabbing;
+  cursor: grabbing; /* Indicates dragging */
+}
 .in-index #carousel .carousel-inner .item {
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
