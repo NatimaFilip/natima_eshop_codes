@@ -2706,7 +2706,6 @@ if (body.classList.contains("in-index")) {
 				isDragging = true;
 				startX = e.pageX;
 				dragDistance = 0;
-				carouselInner.classList.add("dragging");
 			});
 
 			carouselInner.addEventListener("mousemove", (e) => {
@@ -2718,7 +2717,6 @@ if (body.classList.contains("in-index")) {
 			carouselInner.addEventListener("mouseup", () => {
 				if (!isDragging) return;
 				isDragging = false;
-				carouselInner.classList.remove("dragging");
 
 				if (dragDistance > dragThreshold) {
 					// Dragged to the right, call left button handler
@@ -2732,7 +2730,6 @@ if (body.classList.contains("in-index")) {
 			carouselInner.addEventListener("mouseleave", () => {
 				if (!isDragging) return;
 				isDragging = false;
-				carouselInner.classList.remove("dragging");
 			});
 
 			// Add touch support for mobile

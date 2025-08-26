@@ -2,11 +2,9 @@
 /*toto ↓ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
 /*mixinss*/
 /*toto ↑ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
-.in-index .homepage-box.before-carousel {
-  padding-top: 22px;
-}
 .in-index #carousel {
   position: relative;
+  padding-top: 22px;
 }
 .in-index #carousel .carousel-control {
   position: absolute;
@@ -39,6 +37,13 @@
   -webkit-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
 }
+@media screen and (max-width: 1024px) {
+  .in-index #carousel .carousel-control.right {
+    -webkit-transform: translate(100%, -50%);
+            transform: translate(100%, -50%);
+    right: calc(0 - var(--padding-sides) + 1px);
+  }
+}
 .in-index #carousel .carousel-control span {
   display: none;
 }
@@ -55,14 +60,6 @@
   min-height: auto !important;
   margin-left: calc(-1 * var(--padding-left));
   overflow: hidden;
-}
-.in-index #carousel .carousel-inner.dragging {
-  cursor: -webkit-grabbing;
-  cursor: grabbing; /* Indicates dragging */
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; /* Prevents text selection while dragging */
 }
 .in-index #carousel .carousel-inner .item {
   -ms-flex-preferred-size: 25%;
@@ -529,6 +526,13 @@
   right: 0;
   -webkit-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
+}
+@media screen and (max-width: 1024px) {
+  .in-index .products-block-wrapper .carousel-control.right {
+    -webkit-transform: translate(100%, -50%);
+            transform: translate(100%, -50%);
+    right: calc(0 - var(--padding-sides) + 1px);
+  }
 }
 .in-index .products-block-wrapper .carousel-control span {
   display: none;

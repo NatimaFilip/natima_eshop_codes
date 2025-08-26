@@ -109,6 +109,10 @@ $desktop-large-min: 1680px;
 	&.right {
 		right: 0;
 		transform: translate(50%, -50%);
+		@media screen and (max-width: $tablet-medium-min) {
+			transform: translate(100%, -50%);
+			right: calc(0 - var(--padding-sides) + 1px);
+		}
 	}
 	span {
 		display: none;
@@ -351,11 +355,9 @@ $desktop-large-min: 1680px;
 /*toto ↑ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
 
 .in-index {
-	.homepage-box.before-carousel {
-		padding-top: 22px;
-	}
 	#carousel {
 		position: relative;
+		padding-top: 22px;
 
 		.carousel-control {
 			@include slider-controls;
@@ -369,11 +371,6 @@ $desktop-large-min: 1680px;
 			min-height: auto !important;
 			margin-left: calc(-1 * var(--padding-left));
 			overflow: hidden;
-
-			&.dragging {
-				cursor: grabbing; /* Indicates dragging */
-				user-select: none; /* Prevents text selection while dragging */
-			}
 
 			.item {
 				flex-basis: 25%;
