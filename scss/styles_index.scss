@@ -372,6 +372,7 @@ $desktop-large-min: 1680px;
 
 			&.dragging {
 				cursor: grabbing; /* Indicates dragging */
+				user-select: none; /* Prevents text selection while dragging */
 			}
 
 			.item {

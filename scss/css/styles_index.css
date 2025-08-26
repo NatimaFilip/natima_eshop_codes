@@ -59,6 +59,10 @@
 .in-index #carousel .carousel-inner.dragging {
   cursor: -webkit-grabbing;
   cursor: grabbing; /* Indicates dragging */
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; /* Prevents text selection while dragging */
 }
 .in-index #carousel .carousel-inner .item {
   -ms-flex-preferred-size: 25%;
