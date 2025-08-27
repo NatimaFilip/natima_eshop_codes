@@ -112,6 +112,7 @@ if (body.classList.contains("id--16")) {
 			removeDeliveryFromRecap();
 		}
 		if (paymentMethodWrapper) {
+			paymentMethodWrapper.classList.add("disabled");
 			disableInputs(paymentMethodWrapper);
 			removePaymentFromRecap();
 		}
@@ -158,7 +159,6 @@ if (body.classList.contains("id--16")) {
 	}
 
 	rearangeRecap();
-
 	function rearangeRecap() {
 		let checkoutSidebar = document.querySelector("#checkoutSidebar");
 
@@ -174,6 +174,17 @@ if (body.classList.contains("id--16")) {
 		});
 		checkoutSidebar.insertAdjacentElement("beforeBegin", recapWrapper);
 	}
+
+	document.addEventListener(
+		"ShoptetShippingMethodUpdated",
+		function () {
+			removePaymentFromRecap();
+			disableInputs(paymentMethodWrapper);
+			paymentMethodWrapper.classList.remove("disabled");
+		},
+		{ once: true }
+	);
+
 	fetchImagesOfProductsInCart();
 }
 

@@ -1078,6 +1078,10 @@
   border-radius: var(--br-16);
   padding: 18px 21px 26px 16px;
 }
+.ordering-process.id--16 #order-form .disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
 .ordering-process.id--16 #order-form h4 {
   font-size: var(--fs-18);
   display: -webkit-box;
@@ -1329,8 +1333,13 @@
 .ordering-process.id--16 .recap-wrapper .cart-item-name .image-block {
   display: block;
   min-width: 60px;
+  width: 60px;
   aspect-ratio: 423/318;
   background: var(--color-gray-400);
+}
+.ordering-process.id--16 .recap-wrapper .cart-item-name .image-block:hover img {
+  -webkit-transform: scale(4) translate(35%, -35%);
+          transform: scale(4) translate(35%, -35%);
 }
 .ordering-process.id--16 .recap-wrapper .cart-item-name .product-appendix {
   display: none !important;

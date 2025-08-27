@@ -929,6 +929,10 @@ $desktop-large-min: 1680px;
 			border-radius: var(--br-16);
 			padding: 18px 21px 26px 16px;
 		}
+		.disabled {
+			opacity: 0.5;
+			pointer-events: none;
+		}
 		h4 {
 			font-size: var(--fs-18);
 			display: flex;
@@ -1144,8 +1148,14 @@ $desktop-large-min: 1680px;
 			.image-block {
 				display: block;
 				min-width: 60px;
+				width: 60px;
 				aspect-ratio: 423/318;
 				background: var(--color-gray-400);
+				&:hover {
+					img {
+						transform: scale(4) translate(35%, -35%);
+					}
+				}
 			}
 			.product-appendix {
 				display: none !important;
