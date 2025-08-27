@@ -2861,8 +2861,8 @@ if (body.classList.contains("in-index")) {
 
 			if (votesWrap) {
 				hodnoceniObchoduSection.appendChild(numberOfReviews);
-
 				hodnoceniObchoduSection.appendChild(votesWrap);
+				reviewSlider(hodnoceniObchoduSection);
 			} else {
 				console.warn("No .content-inner found in the fetched content.");
 			}
@@ -3051,4 +3051,186 @@ function productSlider(productBlock) {
 	}
 
 	productBlock.classList.add("carousel-sliding-added");
+}
+
+function reviewSlider(reviewBlock) {
+	//wrap product in product-block-wrapper
+	let sliderAdded = false;
+	if (reviewBlock.classList.contains("carousel-sliding-added")) {
+		sliderAdded = true;
+	}
+
+	let carouselControlLeft;
+	let carouselControlRight;
+
+	if (!sliderAdded) {
+		carouselControlLeft = document.createElement("div");
+		carouselControlLeft.classList.add("carousel-control", "left", "display-none");
+		carouselControlRight = document.createElement("div");
+		carouselControlRight.classList.add("carousel-control", "right");
+		reviewBlock.appendChild(carouselControlLeft);
+		reviewBlock.appendChild(carouselControlRight);
+	}
+
+	carouselControlLeft = reviewBlock.querySelector(".carousel-control.left");
+	carouselControlRight = reviewBlock.querySelector(".carousel-control.right");
+
+	let reviewsInSlider = reviewBlock.querySelectorAll(".vote-wrap");
+	if (!reviewsInSlider || reviewsInSlider.length === 0) {
+		console.warn("Products not found");
+		return;
+	}
+	let reviewWidth = parseFloat(
+		window.getComputedStyle(reviewsInSlider[0]).getPropertyValue("flex-basis").replace("%", "")
+	);
+	let reviewMarginRight = parseFloat(
+		window.getComputedStyle(reviewsInSlider[0]).getPropertyValue("margin-right").replace("px", "")
+	);
+	let reviewMinWidth = parseFloat(window.getComputedStyle(reviewsInSlider[0]).getPropertyValue("width"));
+
+	let totalWidth = 0;
+	let initialDisplayedItems = 0;
+	let totalAmountOfItems = reviewsInSlider.length;
+	let reviewWidthMarginRatio = (reviewMarginRight / reviewMinWidth) * 100;
+
+	// Calculate how many items fit into 100%
+	while (totalWidth < 101) {
+		// Add the width of subsequent items
+		totalWidth += reviewWidth;
+		console.log("Total width reviews:", totalWidth);
+
+		if (totalWidth <= 101) {
+			initialDisplayedItems++;
+		}
+	}
+
+	reviewBlock.classList.remove("carousel-no-sliding");
+	if (initialDisplayedItems >= totalAmountOfItems) {
+		reviewBlock.classList.add("carousel-no-sliding");
+		carouselControlLeft.classList.add("display-none");
+		carouselControlRight.classList.add("display-none");
+		return;
+	}
+
+	carouselControlLeft.classList.add("display-none");
+	carouselControlRight.classList.remove("display-none");
+
+	let lastVisibleItem = initialDisplayedItems;
+	const transformItemIncrement = initialDisplayedItems;
+	let offsetPercentageForLastItems = 0;
+
+	console.log("initialDisplayedItems:", initialDisplayedItems);
+
+	if (sliderAdded) {
+		if (carouselControlRight._productSliderHandler) {
+			carouselControlRight.removeEventListener("click", carouselControlRight._productSliderHandler);
+		}
+		if (carouselControlLeft._productSliderHandler) {
+			carouselControlLeft.removeEventListener("click", carouselControlLeft._productSliderHandler);
+		}
+		reviewsInSlider.forEach((item) => {
+			item.style.transform = `translateX(0%)`;
+		});
+	}
+
+	// Define the handlers
+	function carouselProductRightButtonClickHandler() {
+		carouselControlLeft.classList.remove("display-none");
+		lastVisibleItem = lastVisibleItem + transformItemIncrement;
+		if (lastVisibleItem >= totalAmountOfItems) {
+			lastVisibleItem = totalAmountOfItems;
+			carouselControlRight.classList.add("display-none");
+		}
+		reviewsInSlider.forEach((item) => {
+			item.style.transform = `translateX(-${
+				(lastVisibleItem - transformItemIncrement) * 100 +
+				reviewWidthMarginRatio * (lastVisibleItem - transformItemIncrement)
+			}%)`;
+		});
+	}
+
+	function carouselProductLeftButtonClickHandler() {
+		carouselControlRight.classList.remove("display-none");
+		lastVisibleItem = lastVisibleItem - transformItemIncrement;
+		if (lastVisibleItem <= initialDisplayedItems) {
+			lastVisibleItem = initialDisplayedItems;
+			carouselControlLeft.classList.add("display-none");
+		}
+		reviewsInSlider.forEach((item) => {
+			item.style.transform = `translateX(-${(lastVisibleItem - transformItemIncrement) * 100}%)`;
+		});
+	}
+
+	// Add the event listeners and store the references
+	carouselControlRight._productSliderHandler = carouselProductRightButtonClickHandler;
+	carouselControlLeft._productSliderHandler = carouselProductLeftButtonClickHandler;
+	carouselControlRight.addEventListener("click", carouselProductRightButtonClickHandler);
+	carouselControlLeft.addEventListener("click", carouselProductLeftButtonClickHandler);
+
+	// Add the event listeners for dragging
+	let isDragging = false;
+	let startX = 0;
+	let currentX = 0;
+	let dragThreshold = 50; // Minimum drag distance in pixels to trigger a slide
+	let dragDistance = 0;
+
+	if (!sliderAdded) {
+		reviewBlock.addEventListener("mousedown", (e) => {
+			isDragging = true;
+			startX = e.pageX;
+			dragDistance = 0;
+		});
+
+		reviewBlock.addEventListener("mousemove", (e) => {
+			if (!isDragging) return;
+			currentX = e.pageX;
+			dragDistance = currentX - startX;
+		});
+
+		reviewBlock.addEventListener("mouseup", () => {
+			if (!isDragging) return;
+			isDragging = false;
+
+			if (dragDistance > dragThreshold) {
+				// Dragged to the right, call left button handler
+				carouselProductLeftButtonClickHandler();
+			} else if (dragDistance < -dragThreshold) {
+				// Dragged to the left, call right button handler
+				carouselProductRightButtonClickHandler();
+			}
+		});
+
+		reviewBlock.addEventListener("mouseleave", () => {
+			if (!isDragging) return;
+			isDragging = false;
+		});
+
+		// Add touch support for mobile
+		reviewBlock.addEventListener("touchstart", (e) => {
+			isDragging = true;
+			startX = e.touches[0].pageX;
+			dragDistance = 0;
+		});
+
+		reviewBlock.addEventListener("touchmove", (e) => {
+			if (!isDragging) return;
+			currentX = e.touches[0].pageX;
+			dragDistance = currentX - startX;
+		});
+
+		reviewBlock.addEventListener("touchend", () => {
+			if (!isDragging) return;
+			isDragging = false;
+
+			if (dragDistance > dragThreshold) {
+				// Dragged to the right, call left button handler
+				carouselProductLeftButtonClickHandler();
+			} else if (dragDistance < -dragThreshold) {
+				// Dragged to the left, call right button handler
+				carouselProductRightButtonClickHandler();
+			}
+		});
+	}
+
+	reviewBlock.classList.add("carousel-sliding-added");
 }

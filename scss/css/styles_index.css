@@ -52,6 +52,11 @@
     left: -9px;
   }
 }
+@media screen and (max-width: 500px) {
+  .in-index #carousel .carousel-control.left {
+    top: 33%;
+  }
+}
 .in-index #carousel .carousel-control.right {
   right: 0;
   -webkit-transform: translate(50%, -50%);
@@ -69,6 +74,11 @@
     -webkit-transform: translate(0%, -50%);
             transform: translate(0%, -50%);
     right: -9px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .in-index #carousel .carousel-control.right {
+    top: 33%;
   }
 }
 .in-index #carousel .carousel-control span {
@@ -717,7 +727,7 @@
         flex-wrap: nowrap;
     overflow-x: auto;
     padding: 40px 0 16px;
-    margin-bottom: 24px;
+    margin-bottom: 34px;
     border-bottom-style: none;
   }
   .in-index .benefitBanner::-webkit-scrollbar {
@@ -729,11 +739,11 @@
     min-width: 60%;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 500px) {
   .in-index .benefitBanner > * {
-    -ms-flex-preferred-size: 75%;
-        flex-basis: 75%;
-    min-width: 75%;
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+    min-width: 70%;
   }
 }
 .in-index .homepage-group-title {
@@ -792,6 +802,11 @@
     left: -9px;
   }
 }
+@media screen and (max-width: 500px) {
+  .in-index .products-block-wrapper .carousel-control.left {
+    top: 33%;
+  }
+}
 .in-index .products-block-wrapper .carousel-control.right {
   right: 0;
   -webkit-transform: translate(50%, -50%);
@@ -809,6 +824,11 @@
     -webkit-transform: translate(0%, -50%);
             transform: translate(0%, -50%);
     right: -9px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .in-index .products-block-wrapper .carousel-control.right {
+    top: 33%;
   }
 }
 .in-index .products-block-wrapper .carousel-control span {
@@ -894,6 +914,16 @@
   padding-top: calc(var(--fs-24) * 2 + var(--gap-7));
   padding-bottom: calc(var(--fs-16) * 3 * 1.4 + var(--gap-18));
 }
+@media screen and (max-width: 1279px) {
+  .in-index .homepage-blog-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: calc(var(--fs-16) * 3 * 1.4 + var(--gap-18) + 5px);
+  }
+  .in-index .homepage-blog-wrapper::-webkit-scrollbar {
+    height: 6px;
+  }
+}
 .in-index .homepage-blog-wrapper > * {
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
@@ -904,6 +934,30 @@
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+@media screen and (max-width: 1440px) {
+  .in-index .homepage-blog-wrapper > * {
+    -ms-flex-preferred-size: 33.33%;
+        flex-basis: 33.33%;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .in-index .homepage-blog-wrapper > * {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .in-index .homepage-blog-wrapper > * {
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .in-index .homepage-blog-wrapper > * {
+    -ms-flex-preferred-size: 75%;
+        flex-basis: 75%;
+  }
 }
 .in-index .homepage-blog-wrapper .homepage-group-title {
   width: 100%;
@@ -936,14 +990,14 @@
   left: 0;
   width: 100%;
   height: auto;
-  padding: 18px 15% 20px 18px;
+  padding: 18px 15% 0 18px;
   color: var(--color-black);
   font-size: var(--fs-16);
   font-weight: var(--fw-400);
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  overflow: hidden;
   -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .in-index .homepage-blog-wrapper .news-item .read-article {
   display: none;
@@ -1005,8 +1059,9 @@
 @media screen and (max-width: 1024px) {
   .in-index .welcome-wrapper .welcome > div {
     padding: 40px 20px 40px 20px;
-    gap: 60px;
+    gap: 30px;
     grid-template-columns: 1fr;
+    text-align: center;
   }
   .in-index .welcome-wrapper .welcome > div .homepage-welcome-texts {
     font-size: var(--fs-16);
@@ -1026,5 +1081,133 @@
 .in-index .hodnoceni-obchodu-section {
   background-color: var(--color-gray-400);
   border-radius: var(--br-16);
-  padding: 44px 40px 58px 42px;
+  padding: 44px 24px 58px 42px;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.in-index .hodnoceni-obchodu-section .hodnoceni-obchodu-title {
+  padding-bottom: 1.4167em;
+}
+.in-index .hodnoceni-obchodu-section .stars-label {
+  text-align: right;
+  padding-right: var(--gap-16);
+}
+.in-index .hodnoceni-obchodu-section .votes-wrap {
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+  grid-column: 1/-1;
+  gap: 0;
+  grid-row: 2;
+}
+.in-index .hodnoceni-obchodu-section .vote-wrap {
+  background: var(--color-white);
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  max-width: calc(25% - var(--gap-16));
+  min-width: calc(25% - var(--gap-16));
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  padding: var(--gap-20);
+  margin-right: var(--gap-16);
+}
+.in-index .hodnoceni-obchodu-section .carousel-control {
+  position: absolute;
+  top: 50%;
+  background: var(--color-black);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 4px;
+  border-color: var(--color-white);
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_white.svg");
+  background-position: calc(50% + 1px) center;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  cursor: pointer;
+  position: relative;
+  grid-row: 2;
+}
+.in-index .hodnoceni-obchodu-section .carousel-control:hover, .in-index .hodnoceni-obchodu-section .carousel-control:focus-within {
+  background-color: var(--color-primary);
+}
+@media screen and (max-width: 1024px) {
+  .in-index .hodnoceni-obchodu-section .carousel-control {
+    width: 36px;
+    height: 36px;
+  }
+}
+.in-index .hodnoceni-obchodu-section .carousel-control.left {
+  left: 0;
+  -webkit-transform: translate(-50%, -50%) rotate(180deg);
+          transform: translate(-50%, -50%) rotate(180deg);
+}
+@media screen and (max-width: 1024px) {
+  .in-index .hodnoceni-obchodu-section .carousel-control.left {
+    -webkit-transform: translate(0%, -50%) rotate(180deg);
+            transform: translate(0%, -50%) rotate(180deg);
+    left: -19px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .in-index .hodnoceni-obchodu-section .carousel-control.left {
+    -webkit-transform: translate(0%, -50%) rotate(180deg);
+            transform: translate(0%, -50%) rotate(180deg);
+    left: -9px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .in-index .hodnoceni-obchodu-section .carousel-control.left {
+    top: 33%;
+  }
+}
+.in-index .hodnoceni-obchodu-section .carousel-control.right {
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+@media screen and (max-width: 1024px) {
+  .in-index .hodnoceni-obchodu-section .carousel-control.right {
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+    right: -19px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .in-index .hodnoceni-obchodu-section .carousel-control.right {
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+    right: -9px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .in-index .hodnoceni-obchodu-section .carousel-control.right {
+    top: 33%;
+  }
+}
+.in-index .hodnoceni-obchodu-section .carousel-control span {
+  display: none;
+}
+.in-index .hodnoceni-obchodu-section .carousel-control.left {
+  grid-column: 1;
+}
+.in-index .hodnoceni-obchodu-section .carousel-control.right {
+  grid-column: 2;
+}
+.in-index .hodnoceni-obchodu-section .carousel-control.display-none {
+  display: block !important;
+  visibility: hidden;
+  pointer-events: none;
 }
