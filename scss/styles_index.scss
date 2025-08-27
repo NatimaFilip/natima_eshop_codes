@@ -1196,16 +1196,54 @@ $desktop-large-min: 1680px;
 		display: none;
 	}
 	.hodnoceni-obchodu-section {
+		display: grid;
 		background-color: var(--color-gray-400);
 		border-radius: var(--br-16);
 		padding: 44px 24px 58px 42px;
 		align-items: baseline;
+		@media screen and (max-width: $tablet-max) {
+			padding: 34px 30px 34px 30px;
+			gap: 0;
+		}
 		.hodnoceni-obchodu-title {
 			padding-bottom: 1.4167em;
+			@media screen and (max-width: $tablet-max) {
+				padding-bottom: 0.75em;
+				text-align: center;
+				grid-column: 1/-1;
+			}
 		}
-		.stars-label {
+		.stars-label-link {
+			grid-row: 1;
+			grid-column: 2;
 			text-align: right;
 			padding-right: var(--gap-16);
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			gap: var(--gap-8);
+
+			.stars-label {
+				color: inherit;
+				@include text-underline;
+			}
+			&::before {
+				content: "";
+				width: 27px;
+				height: 27px;
+				background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_verified_primary.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			@media screen and (max-width: $tablet-max) {
+				justify-content: center;
+				grid-column: 1/-1;
+				grid-row: 3;
+				padding-right: 0;
+				text-align: center;
+				padding-top: var(--gap-16);
+			}
 		}
 		.votes-wrap {
 			flex-wrap: nowrap;
@@ -1225,6 +1263,34 @@ $desktop-large-min: 1680px;
 			flex-shrink: 1;
 			padding: var(--gap-20);
 			margin-right: var(--gap-16);
+			transition: transform 0.2s ease-in-out;
+			@media screen and (max-width: $desktop-medium-min) {
+				flex-basis: 33.3333%;
+				max-width: calc(33.3333% - var(--gap-16));
+				min-width: calc(33.3333% - var(--gap-16));
+			}
+			@media screen and (max-width: $tablet-medium-min) {
+				flex-basis: 40%;
+				max-width: calc(40% - var(--gap-16));
+				min-width: calc(40% - var(--gap-16));
+			}
+
+			@media screen and (max-width: $mobile-max) {
+				margin-right: var(--gap-10);
+				flex-basis: 60%;
+				max-width: calc(60% - var(--gap-10));
+				min-width: calc(60% - var(--gap-10));
+			}
+			@media screen and (max-width: $large-mobile-min) {
+				margin-right: var(--gap-10);
+				flex-basis: 75%;
+				max-width: calc(75% - var(--gap-10));
+				min-width: calc(75% - var(--gap-10));
+			}
+		}
+		.vote-content {
+			max-height: 4em;
+			overflow-y: auto;
 		}
 		.carousel-control {
 			@include slider-controls;
@@ -1232,9 +1298,19 @@ $desktop-large-min: 1680px;
 			grid-row: 2;
 			&.left {
 				grid-column: 1;
+				transform: translate(-50%, -50%) rotate(180deg);
+				@media screen and (max-width: $tablet-max) {
+					transform: translate(-10px, -50%) rotate(180deg);
+				}
 			}
 			&.right {
+				right: 0;
 				grid-column: 2;
+				transform: translate(calc(50% - 16px), -50%);
+				margin-left: auto;
+				@media screen and (max-width: $tablet-max) {
+					transform: translate(20px, -50%);
+				}
 			}
 			&.display-none {
 				display: block !important;

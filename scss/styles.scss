@@ -952,6 +952,9 @@ table {
 .display-none {
 	display: none !important;
 }
+.sr-only {
+	display: none;
+}
 
 .tooltip[role="tooltip"] {
 	width: 200px;
@@ -1789,7 +1792,7 @@ body {
 										calc(var(--gap-14) * 3);
 									border-radius: var(--br-16);
 									overflow: hidden;
-									 @include bottom-shadow;
+									@include bottom-shadow;
 									&::before {
 										content: "";
 										display: block;
@@ -3570,6 +3573,9 @@ body.type-category {
 				}
 
 				.flag-action {
+					display: none !important;
+				}
+				.flag-freeshipping {
 					display: none !important;
 				}
 			}

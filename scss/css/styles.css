@@ -322,6 +322,10 @@ table {
   display: none !important;
 }
 
+.sr-only {
+  display: none;
+}
+
 .tooltip[role=tooltip] {
   width: 200px;
   font-size: var(--fs-13);
@@ -3394,6 +3398,9 @@ body.type-category .category-header > div strong {
   }
 }
 .products-block .product .p .image .flag-action {
+  display: none !important;
+}
+.products-block .product .p .image .flag-freeshipping {
   display: none !important;
 }
 .products-block .product .p-in {

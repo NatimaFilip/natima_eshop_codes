@@ -2837,7 +2837,7 @@ if (body.classList.contains("in-index")) {
 
 		let fetchAddress;
 		if (csLang) {
-			fetchAddress = "/hodnoceni-obchodu.html"; //pak odstranit HTML
+			fetchAddress = "/hodnoceni-obchodu";
 		}
 		if (skLang) {
 			fetchAddress = "/hodnotenie-obchodu";
@@ -2857,12 +2857,20 @@ if (body.classList.contains("in-index")) {
 			const parser = new DOMParser();
 			const doc = parser.parseFromString(html, "text/html");
 			const votesWrap = doc.querySelector(".votes-wrap");
-			const numberOfReviews = doc.querySelector("#ratingWrapper .stars-label");
+			let numberOfReviews = doc.querySelector("#ratingWrapper .stars-label");
+			//change span number of reviews to a
+			let numberOfReviewsLink = document.createElement("a");
+			if (numberOfReviews) {
+				numberOfReviewsLink.href = fetchAddress;
+				numberOfReviewsLink.classList.add("stars-label-link");
+				numberOfReviewsLink.appendChild(numberOfReviews);
+			}
 
 			if (votesWrap) {
-				hodnoceniObchoduSection.appendChild(numberOfReviews);
+				hodnoceniObchoduSection.appendChild(numberOfReviewsLink);
 				hodnoceniObchoduSection.appendChild(votesWrap);
 				reviewSlider(hodnoceniObchoduSection);
+				document.addEventListener("debouncedResize", () => reviewSlider(hodnoceniObchoduSection));
 			} else {
 				console.warn("No .content-inner found in the fetched content.");
 			}
@@ -3157,7 +3165,10 @@ function reviewSlider(reviewBlock) {
 			carouselControlLeft.classList.add("display-none");
 		}
 		reviewsInSlider.forEach((item) => {
-			item.style.transform = `translateX(-${(lastVisibleItem - transformItemIncrement) * 100}%)`;
+			item.style.transform = `translateX(-${
+				(lastVisibleItem - transformItemIncrement) * 100 +
+				reviewWidthMarginRatio * (lastVisibleItem - transformItemIncrement)
+			}%)`;
 		});
 	}
 
