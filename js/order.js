@@ -117,9 +117,8 @@ if (body.classList.contains("id--16")) {
 			removePaymentFromRecap();
 		}
 		document.addEventListener("ShoptetShippingMethodUpdated", function () {
-			let activeDeliveryMethod = document.querySelector("#order-shipping-methods .radio-wrapper.active");
-			let activePaymentMethod = document.querySelector(".co-payment-method .radio-wrapper.active");
-			console.log(activePaymentMethod);
+			let activeDeliveryMethod = document.querySelector("#order-shipping-methods > .radio-wrapper.active");
+			let activePaymentMethod = document.querySelector("#order-billing-methods > .radio-wrapper.active");
 
 			if (!activePaymentMethod) {
 				removePaymentFromRecap();
@@ -131,15 +130,17 @@ if (body.classList.contains("id--16")) {
 			}
 		});
 		document.addEventListener("ShoptetBillingMethodUpdated", function () {
-			let activeDeliveryMethod = document.querySelector("#order-shipping-methods .radio-wrapper.active");
-			let activePaymentMethod = document.querySelector(".co-payment-method .radio-wrapper.active");
-			console.log(activePaymentMethod);
+			let activeDeliveryMethod = document.querySelector("#order-shipping-methods > .radio-wrapper.active");
+			let activePaymentMethod = document.querySelector("#order-billing-methods > .radio-wrapper.active");
+			console.log("-------test1");
 
 			if (!activePaymentMethod) {
+				console.log("-------test2");
 				removePaymentFromRecap();
 				disableInputs(paymentMethodWrapper);
 			}
 
+			console.log("-------test3");
 			if (activeDeliveryMethod) {
 				paymentMethodWrapper.classList.remove("disabled");
 			}
