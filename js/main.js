@@ -2741,24 +2741,20 @@ if (body.classList.contains("in-index")) {
 				}
 			});
 
-			document.addEventListener("touchstart", (e) => {
-				const touch = e.touches[0];
-				if (e.target === carousel || carousel.contains(e.target)) {
-					isDragging = true;
-					startX = touch.pageX;
-					dragDistance = 0;
-					dragTarget = carousel;
-					carousel.classList.add("dragging");
-				}
+			// Add touch support for mobile
+			carousel.addEventListener("touchstart", (e) => {
+				isDragging = true;
+				startX = e.touches[0].pageX;
+				dragDistance = 0;
+				carousel.classList.add("dragging");
 			});
 
-			document.addEventListener("touchmove", (e) => {
-				if (!isDragging || dragTarget !== carousel) return;
-				const touch = e.touches[0];
-				currentX = touch.pageX;
+			carousel.addEventListener("touchmove", (e) => {
+				if (!isDragging) return;
+				currentX = e.touches[0].pageX;
 				dragDistance = currentX - startX;
 				activeItems.forEach((item, index) => {
-					if (index === 0 && offsetAmountForLargeItem !== 0) {
+					if (index == 0 && offsetAmountForLargeItem !== 0) {
 						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
 					} else {
 						item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
@@ -2766,20 +2762,22 @@ if (body.classList.contains("in-index")) {
 				});
 			});
 
-			document.addEventListener("touchend", (e) => {
-				if (!isDragging || dragTarget !== carousel) return;
+			carousel.addEventListener("touchend", () => {
+				if (!isDragging) return;
 				isDragging = false;
-				dragTarget = null;
+
 				if (dragDistance > dragThreshold) {
+					// Dragged to the right, call left button handler
 					carouselLeftButtonClickHandler();
 				} else if (dragDistance < -dragThreshold) {
+					// Dragged to the left, call right button handler
 					carouselRightButtonClickHandler();
 				} else {
 					activeItems.forEach((item, index) => {
-						if (index === 0 && offsetAmountForLargeItem !== 0) {
-							item.style.transform = `translateX(-${currentTransform / 2}%)`;
+						if (index == 0 && offsetAmountForLargeItem !== 0) {
+							item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
 						} else {
-							item.style.transform = `translateX(-${currentTransform}%)`;
+							item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
 						}
 					});
 				}
@@ -3068,35 +3066,31 @@ function productSlider(productBlock) {
 		});
 
 		// Add touch support for mobile
-		document.addEventListener("touchstart", (e) => {
-			const touch = e.touches[0];
-			if (e.target === productBlock || productBlock.contains(e.target)) {
-				isDragging = true;
-				startX = touch.pageX;
-				dragDistance = 0;
-				dragTarget = productBlock;
-				productBlock.classList.add("dragging");
-			}
+		productBlock.addEventListener("touchstart", (e) => {
+			isDragging = true;
+			startX = e.touches[0].pageX;
+			dragDistance = 0;
+			productBlock.classList.add("dragging");
 		});
 
-		document.addEventListener("touchmove", (e) => {
-			if (!isDragging || dragTarget !== productBlock) return;
-			const touch = e.touches[0];
-			currentX = touch.pageX;
+		productBlock.addEventListener("touchmove", (e) => {
+			if (!isDragging) return;
+			currentX = e.touches[0].pageX;
 			dragDistance = currentX - startX;
 			productsInSlider.forEach((item) => {
 				item.style.transform = `translateX(-${currentTransform - dragDistance / 10}%)`;
 			});
 		});
 
-		document.addEventListener("touchend", (e) => {
-			if (!isDragging || dragTarget !== productBlock) return;
+		productBlock.addEventListener("touchend", () => {
+			if (!isDragging) return;
 			isDragging = false;
-			dragTarget = null;
-			productBlock.classList.remove("dragging");
+
 			if (dragDistance > dragThreshold) {
+				// Dragged to the right, call left button handler
 				carouselProductLeftButtonClickHandler();
 			} else if (dragDistance < -dragThreshold) {
+				// Dragged to the left, call right button handler
 				carouselProductRightButtonClickHandler();
 			} else {
 				productsInSlider.forEach((item) => {
