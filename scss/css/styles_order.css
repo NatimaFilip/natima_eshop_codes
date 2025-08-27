@@ -1009,7 +1009,7 @@
       flex-shrink: 1;
 }
 .ordering-process.id--16 #checkoutSidebar .order-summary-item.helper,
-.ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing {
+.ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1021,17 +1021,20 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.ordering-process.id--16 #checkoutSidebar .order-summary-item.helper span,
-.ordering-process.id--16 #checkoutSidebar .order-summary-item.helper strong,
-.ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing span,
-.ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing strong {
   font-weight: var(--fw-400);
 }
-.ordering-process.id--16 #checkoutSidebar .order-summary-item.helper .recapitulation-shipping-billing-info,
-.ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing .recapitulation-shipping-billing-info {
-  text-align: right;
-  max-width: 70%;
+.ordering-process.id--16 #checkoutSidebar .order-summary-item.helper strong,
+.ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing-info strong {
+  font-weight: var(--fw-400);
+}
+.ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing-info {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing-label {
+  display: none;
 }
 .ordering-process.id--16 #checkoutSidebar .price-wrapper {
   margin-top: 20px;
@@ -1165,6 +1168,9 @@
   border-radius: 50%;
   background-color: var(--color-white);
   border: 2px solid var(--color-primary);
+}
+.ordering-process.id--16 #order-form .radio-wrapper.active {
+  background: var(--color-primary-200);
 }
 .ordering-process.id--16 #order-form .radio-wrapper.active input::before {
   border: 6px solid var(--color-primary);

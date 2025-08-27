@@ -121,28 +121,35 @@ if (body.classList.contains("id--16")) {
 			let activePaymentMethod = document.querySelector("#order-billing-methods > .radio-wrapper.active");
 
 			if (!activePaymentMethod) {
-				removePaymentFromRecap();
-				disableInputs(paymentMethodWrapper);
+				setTimeout(() => {
+					removePaymentFromRecap();
+					disableInputs(paymentMethodWrapper);
+				}, 200);
 			}
 
 			if (activeDeliveryMethod) {
 				paymentMethodWrapper.classList.remove("disabled");
+				deliveryMethodWrapper.classList.add("selected");
+			} else {
+				deliveryMethodWrapper.classList.remove("selected");
 			}
 		});
 		document.addEventListener("ShoptetBillingMethodUpdated", function () {
 			let activeDeliveryMethod = document.querySelector("#order-shipping-methods > .radio-wrapper.active");
 			let activePaymentMethod = document.querySelector("#order-billing-methods > .radio-wrapper.active");
-			console.log("-------test1");
 
 			if (!activePaymentMethod) {
-				console.log("-------test2");
-				removePaymentFromRecap();
-				disableInputs(paymentMethodWrapper);
+				setTimeout(() => {
+					removePaymentFromRecap();
+					disableInputs(paymentMethodWrapper);
+				}, 200);
 			}
 
-			console.log("-------test3");
 			if (activeDeliveryMethod) {
 				paymentMethodWrapper.classList.remove("disabled");
+				deliveryMethodWrapper.classList.add("selected");
+			} else {
+				deliveryMethodWrapper.classList.remove("selected");
 			}
 		});
 	});

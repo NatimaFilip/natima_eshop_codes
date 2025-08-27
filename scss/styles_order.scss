@@ -879,20 +879,22 @@ $desktop-large-min: 1680px;
 		margin-top: 20px;
 		flex-shrink: 1;
 		.order-summary-item.helper,
-		.recapitulation-shipping-billing {
+		.recapitulation-shipping-billing-info {
 			display: flex;
 			justify-content: space-between;
 			padding-bottom: 8px;
 			gap: 10px;
 			align-items: center;
-			span,
+			font-weight: var(--fw-400);
 			strong {
 				font-weight: var(--fw-400);
 			}
-			.recapitulation-shipping-billing-info {
-				text-align: right;
-				max-width: 70%;
-			}
+		}
+		.recapitulation-shipping-billing-info {
+			flex-direction: row-reverse;
+		}
+		.recapitulation-shipping-billing-label {
+			display: none;
 		}
 		.price-wrapper {
 			margin-top: 20px;
@@ -1010,6 +1012,7 @@ $desktop-large-min: 1680px;
 				}
 			}
 			&.active {
+				background: var(--color-primary-200);
 				input {
 					&::before {
 						border: 6px solid var(--color-primary);
