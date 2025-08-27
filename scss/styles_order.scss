@@ -877,14 +877,21 @@ $desktop-large-min: 1680px;
 	#checkoutSidebar {
 		position: initial !important;
 		margin-top: 20px;
+		flex-shrink: 1;
 		.order-summary-item.helper,
 		.recapitulation-shipping-billing {
 			display: flex;
 			justify-content: space-between;
 			padding-bottom: 8px;
+			gap: 10px;
+			align-items: center;
 			span,
 			strong {
 				font-weight: var(--fw-400);
+			}
+			.recapitulation-shipping-billing-info {
+				text-align: right;
+				max-width: 70%;
 			}
 		}
 		.price-wrapper {
@@ -914,6 +921,9 @@ $desktop-large-min: 1680px;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 20px;
+		@media screen and (max-width: $tablet-max) {
+			grid-template-columns: 1fr;
+		}
 		> .box {
 			background: var(--color-gray-400);
 			border-radius: var(--br-16);
@@ -1064,7 +1074,9 @@ $desktop-large-min: 1680px;
 	}
 	.recap-wrapper {
 		margin-top: 31px;
-		width: 65%;
+		flex-basis: 65%;
+		flex-grow: 1;
+		flex-shrink: 1;
 
 		h4 {
 			padding-bottom: 1.25em;
@@ -1085,6 +1097,7 @@ $desktop-large-min: 1680px;
 			border-color: var(--color-gray-500);
 			padding: 15px 14px 15px 0;
 			display: grid;
+			align-items: center;
 			grid-template-columns: 1fr 3em 7em;
 			gap: 10px;
 			text-align: right;
@@ -1092,6 +1105,7 @@ $desktop-large-min: 1680px;
 			&.cart-item-gift {
 				border-top-style: none !important;
 				display: block;
+				padding-left: 70px;
 				.cart-item-name {
 					display: flex;
 					flex-direction: row-reverse;
@@ -1110,6 +1124,15 @@ $desktop-large-min: 1680px;
 		.cart-item-name {
 			padding-right: 100px;
 			text-align: left;
+			display: flex;
+			gap: 10px;
+			align-items: center;
+			@media screen and (max-width: $tablet-max) {
+				padding-right: 40px;
+			}
+			@media screen and (max-width: $mobile-max) {
+				padding-right: 10px;
+			}
 			a {
 				color: var(--color-black);
 				&:hover,
@@ -1117,6 +1140,12 @@ $desktop-large-min: 1680px;
 					color: var(--color-primary);
 					text-decoration: underline;
 				}
+			}
+			.image-block {
+				display: block;
+				min-width: 60px;
+				aspect-ratio: 423/318;
+				background: var(--color-gray-400);
 			}
 			.product-appendix {
 				display: none !important;

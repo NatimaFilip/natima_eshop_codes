@@ -109,35 +109,11 @@ if (body.classList.contains("id--16")) {
 	document.addEventListener("DOMContentLoaded", function () {
 		if (deliveryMethodWrapper) {
 			disableInputs(deliveryMethodWrapper);
-			let recapText = document.querySelector(".recapitulation-shipping-billing .recapitulation-shipping-billing-info");
-			if (recapText) {
-				if (csLang) {
-					recapText.textContent = "Zvolte způsob dopravy";
-				}
-				if (skLang) {
-					recapText.textContent = "Zvoľte spôsob dopravy";
-				}
-				if (plLang) {
-					recapText.textContent = "Wybierz sposób dostawy";
-				}
-			}
+			removeDeliveryFromRecap();
 		}
 		if (paymentMethodWrapper) {
 			disableInputs(paymentMethodWrapper);
-			let recapText = document.querySelector(
-				".recapitulation-shipping-billing.last .recapitulation-shipping-billing-info"
-			);
-			if (recapText) {
-				if (csLang) {
-					recapText.textContent = "Zvolte způsob platby";
-				}
-				if (skLang) {
-					recapText.textContent = "Zvoľte spôsob platby";
-				}
-				if (plLang) {
-					recapText.textContent = "Wybierz sposób płatności";
-				}
-			}
+			removePaymentFromRecap();
 		}
 	});
 
@@ -150,12 +126,42 @@ if (body.classList.contains("id--16")) {
 			input.parentElement.classList.remove("active");
 		});
 	}
+	function removeDeliveryFromRecap() {
+		let recapText = document.querySelector(".recapitulation-shipping-billing .recapitulation-shipping-billing-info");
+		if (recapText) {
+			if (csLang) {
+				recapText.textContent = "Zvolte způsob dopravy";
+			}
+			if (skLang) {
+				recapText.textContent = "Zvoľte spôsob dopravy";
+			}
+			if (plLang) {
+				recapText.textContent = "Wybierz sposób dostawy";
+			}
+		}
+	}
+	function removePaymentFromRecap() {
+		let recapText = document.querySelector(
+			".recapitulation-shipping-billing.last .recapitulation-shipping-billing-info"
+		);
+		if (recapText) {
+			if (csLang) {
+				recapText.textContent = "Zvolte způsob platby";
+			}
+			if (skLang) {
+				recapText.textContent = "Zvoľte spôsob platby";
+			}
+			if (plLang) {
+				recapText.textContent = "Wybierz sposób płatności";
+			}
+		}
+	}
 
 	rearangeRecap();
 
 	function rearangeRecap() {
 		let checkoutSidebar = document.querySelector("#checkoutSidebar");
-		console.log("test");
+
 		if (!checkoutSidebar) return;
 
 		recapTitle = checkoutSidebar.querySelector("h4");
@@ -168,49 +174,49 @@ if (body.classList.contains("id--16")) {
 		});
 		checkoutSidebar.insertAdjacentElement("beforeBegin", recapWrapper);
 	}
-	fetchImagesOfProducts();
-	async function fetchImagesOfProducts() {
-		console.log("test");
-		let itemNames = document.querySelectorAll(".cart-item .cart-item-name");
+	fetchImagesOfProductsInCart();
+}
 
-		if (!itemNames) return;
-		itemNames.forEach((itemName) => {
-			const imageBlock = document.createElement("div");
-			imageBlock.classList.add("image-block");
-			itemName.prepend(imageBlock);
-		});
-		itemNames.forEach(async (itemName) => {
-			let productLink = itemName.querySelector("a");
-			if (!productLink) return;
-			let productUrl = productLink.href;
+async function fetchImagesOfProductsInCart() {
+	let itemNames = document.querySelectorAll(".cart-item .cart-item-name");
+	if (!itemNames) return;
 
-			try {
-				let response = await fetch(productUrl);
-				/* let response = await fetch(window.location.origin + productUrl); */
+	itemNames.forEach(async (itemName) => {
+		let productLink = itemName.querySelector("a");
+		if (!productLink) return;
 
-				if (!response.ok) throw new Error("Network response was not ok");
+		const imageBlock = document.createElement("div");
+		imageBlock.classList.add("image-block");
+		itemName.prepend(imageBlock);
 
-				let html = await response.text();
+		let productUrl = productLink.href;
 
-				// Parse the HTML string into a document
-				let parser = new DOMParser();
-				let doc = parser.parseFromString(html, "text/html");
+		try {
+			let response = await fetch(productUrl);
+			/* let response = await fetch(window.location.origin + productUrl); */
 
-				// Get the image element
-				let img = doc.querySelector(".p-main-image > img");
+			if (!response.ok) throw new Error("Network response was not ok");
 
-				if (img) {
-					// Clone the image so it can be used in the current DOM
-					let newImg = document.createElement("img");
-					newImg.src = img.src;
-					newImg.alt = img.alt || "";
+			let html = await response.text();
 
-					// Prepend to itemName
-					itemName.querySelector(".image-block").append(newImg);
-				}
-			} catch (error) {
-				console.error("There has been a problem with your fetch operation:", error);
+			// Parse the HTML string into a document
+			let parser = new DOMParser();
+			let doc = parser.parseFromString(html, "text/html");
+
+			// Get the image element
+			let img = doc.querySelector(".p-main-image > img");
+
+			if (img) {
+				// Clone the image so it can be used in the current DOM
+				let newImg = document.createElement("img");
+				newImg.src = img.src.replace("/big/", "/detail/");
+				newImg.alt = img.alt || "";
+
+				// Prepend to itemName
+				itemName.querySelector(".image-block").append(newImg);
 			}
-		});
-	}
+		} catch (error) {
+			console.error("There has been a problem with your fetch operation:", error);
+		}
+	});
 }
