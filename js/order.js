@@ -119,6 +119,7 @@ if (body.classList.contains("id--16")) {
 		document.addEventListener("ShoptetShippingMethodUpdated", function () {
 			let activeDeliveryMethod = document.querySelector("#order-shipping-methods .radio-wrapper.active");
 			let activePaymentMethod = document.querySelector(".co-payment-method .radio-wrapper.active");
+			console.log(activePaymentMethod);
 
 			if (!activePaymentMethod) {
 				removePaymentFromRecap();
@@ -132,6 +133,7 @@ if (body.classList.contains("id--16")) {
 		document.addEventListener("ShoptetBillingMethodUpdated", function () {
 			let activeDeliveryMethod = document.querySelector("#order-shipping-methods .radio-wrapper.active");
 			let activePaymentMethod = document.querySelector(".co-payment-method .radio-wrapper.active");
+			console.log(activePaymentMethod);
 
 			if (!activePaymentMethod) {
 				removePaymentFromRecap();
