@@ -275,6 +275,10 @@
         flex-basis: 80%;
   }
 }
+.in-index #carousel.dragging .item {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
 .in-index .body-banners {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -895,6 +899,10 @@
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
   }
+}
+.in-index .products-block.dragging > * {
+  -webkit-transition: none !important;
+  transition: none !important;
 }
 .in-index .homepage-blog-wrapper {
   display: -webkit-box;

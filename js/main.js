@@ -2637,6 +2637,7 @@ if (body.classList.contains("in-index")) {
 				item.style.transform = `translateX(0%)`;
 			});
 		}
+		let currentTransform = 0;
 
 		// Define the handlers
 		carouselRightButtonClickHandler = function () {
@@ -2653,17 +2654,13 @@ if (body.classList.contains("in-index")) {
 			} else {
 				offsetPercentageForLastItems = 0;
 			}
+			currentTransform =
+				(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 + offsetPercentageForLastItems;
 			activeItems.forEach((item, index) => {
 				if (index == 0 && offsetAmountForLargeItem !== 0) {
-					item.style.transform = `translateX(-${
-						((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 -
-							offsetPercentageForLastItems) /
-						2
-					}%)`;
+					item.style.transform = `translateX(-${currentTransform / 2}%)`;
 				} else {
-					item.style.transform = `translateX(-${
-						(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 + offsetPercentageForLastItems
-					}%)`;
+					item.style.transform = `translateX(-${currentTransform}%)`;
 				}
 			});
 
@@ -2677,15 +2674,13 @@ if (body.classList.contains("in-index")) {
 				lastVisibleItem = initialDisplayedItems;
 				carouselLeftButton.classList.add("display-none");
 			}
+			currentTransform =
+				(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 + offsetPercentageForLastItems;
 			activeItems.forEach((item, index) => {
 				if (index == 0 && offsetAmountForLargeItem !== 0) {
-					item.style.transform = `translateX(-${
-						((lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100) / 2
-					}%)`;
+					item.style.transform = `translateX(-${currentTransform / 2}%)`;
 				} else {
-					item.style.transform = `translateX(-${
-						(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100
-					}%)`;
+					item.style.transform = `translateX(-${currentTransform}%)`;
 				}
 			});
 		};
@@ -2702,19 +2697,27 @@ if (body.classList.contains("in-index")) {
 		let dragDistance = 0;
 
 		if (!addedSlidingListener) {
-			carouselInner.addEventListener("mousedown", (e) => {
+			carousel.addEventListener("mousedown", (e) => {
 				isDragging = true;
 				startX = e.pageX;
 				dragDistance = 0;
+				carousel.classList.add("dragging");
 			});
 
-			carouselInner.addEventListener("mousemove", (e) => {
+			carousel.addEventListener("mousemove", (e) => {
 				if (!isDragging) return;
 				currentX = e.pageX;
 				dragDistance = currentX - startX;
+				activeItems.forEach((item, index) => {
+					if (index == 0 && offsetAmountForLargeItem !== 0) {
+						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
+					} else {
+						item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
+					}
+				});
 			});
 
-			carouselInner.addEventListener("mouseup", () => {
+			carousel.addEventListener("mouseup", () => {
 				if (!isDragging) return;
 				isDragging = false;
 
@@ -2724,28 +2727,46 @@ if (body.classList.contains("in-index")) {
 				} else if (dragDistance < -dragThreshold) {
 					// Dragged to the left, call right button handler
 					carouselRightButtonClickHandler();
+				} else {
+					activeItems.forEach((item, index) => {
+						if (index == 0 && offsetAmountForLargeItem !== 0) {
+							item.style.transform = `translateX(-${currentTransform / 2}%)`;
+						} else {
+							item.style.transform = `translateX(-${currentTransform}%)`;
+						}
+					});
 				}
+				carousel.classList.remove("dragging");
 			});
 
-			carouselInner.addEventListener("mouseleave", () => {
+			carousel.addEventListener("mouseleave", () => {
 				if (!isDragging) return;
 				isDragging = false;
+				activeItems.forEach((item, index) => {
+					if (index == 0 && offsetAmountForLargeItem !== 0) {
+						item.style.transform = `translateX(-${currentTransform / 2}%)`;
+					} else {
+						item.style.transform = `translateX(-${currentTransform}%)`;
+					}
+				});
+
+				carousel.classList.remove("dragging");
 			});
 
 			// Add touch support for mobile
-			carouselInner.addEventListener("touchstart", (e) => {
+			carousel.addEventListener("touchstart", (e) => {
 				isDragging = true;
 				startX = e.touches[0].pageX;
 				dragDistance = 0;
 			});
 
-			carouselInner.addEventListener("touchmove", (e) => {
+			carousel.addEventListener("touchmove", (e) => {
 				if (!isDragging) return;
 				currentX = e.touches[0].pageX;
 				dragDistance = currentX - startX;
 			});
 
-			carouselInner.addEventListener("touchend", () => {
+			carousel.addEventListener("touchend", () => {
 				if (!isDragging) return;
 				isDragging = false;
 
@@ -2960,6 +2981,8 @@ function productSlider(productBlock) {
 		});
 	}
 
+	let currentTransform = 0;
+
 	// Define the handlers
 	function carouselProductRightButtonClickHandler() {
 		carouselControlLeft.classList.remove("display-none");
@@ -2968,10 +2991,9 @@ function productSlider(productBlock) {
 			lastVisibleItem = totalAmountOfItems;
 			carouselControlRight.classList.add("display-none");
 		}
+		currentTransform = (lastVisibleItem - transformItemIncrement) * 100 + offsetPercentageForLastItems;
 		productsInSlider.forEach((item) => {
-			item.style.transform = `translateX(-${
-				(lastVisibleItem - transformItemIncrement) * 100 + offsetPercentageForLastItems
-			}%)`;
+			item.style.transform = `translateX(-${currentTransform}%)`;
 		});
 	}
 
@@ -2982,8 +3004,9 @@ function productSlider(productBlock) {
 			lastVisibleItem = initialDisplayedItems;
 			carouselControlLeft.classList.add("display-none");
 		}
+		currentTransform = (lastVisibleItem - transformItemIncrement) * 100 + offsetPercentageForLastItems;
 		productsInSlider.forEach((item) => {
-			item.style.transform = `translateX(-${(lastVisibleItem - transformItemIncrement) * 100}%)`;
+			item.style.transform = `translateX(-${currentTransform}%)`;
 		});
 	}
 
@@ -3005,12 +3028,16 @@ function productSlider(productBlock) {
 			isDragging = true;
 			startX = e.pageX;
 			dragDistance = 0;
+			productBlock.classList.add("dragging");
 		});
 
 		productBlock.addEventListener("mousemove", (e) => {
 			if (!isDragging) return;
 			currentX = e.pageX;
 			dragDistance = currentX - startX;
+			productsInSlider.forEach((item) => {
+				item.style.transform = `translateX(-${currentTransform - dragDistance / 10}%)`;
+			});
 		});
 
 		productBlock.addEventListener("mouseup", () => {
@@ -3023,12 +3050,21 @@ function productSlider(productBlock) {
 			} else if (dragDistance < -dragThreshold) {
 				// Dragged to the left, call right button handler
 				carouselProductRightButtonClickHandler();
+			} else {
+				productsInSlider.forEach((item) => {
+					item.style.transform = `translateX(-${currentTransform}%)`;
+				});
 			}
+			productBlock.classList.remove("dragging");
 		});
 
 		productBlock.addEventListener("mouseleave", () => {
 			if (!isDragging) return;
 			isDragging = false;
+			productsInSlider.forEach((item) => {
+				item.style.transform = `translateX(-${currentTransform}%)`;
+			});
+			carousel.classList.remove("dragging");
 		});
 
 		// Add touch support for mobile

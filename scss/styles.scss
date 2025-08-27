@@ -851,6 +851,10 @@ iframe {
 	user-select: none;
 	max-width: 100%;
 }
+img,
+a {
+	-webkit-user-drag: none; /* Non-standard, but some browsers support */
+}
 
 /* Inherit fonts for inputs and buttons */
 input,

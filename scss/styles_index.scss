@@ -772,6 +772,11 @@ $desktop-large-min: 1680px;
 				}
 			}
 		}
+		&.dragging {
+			.item {
+				transition: none !important;
+			}
+		}
 	}
 	.body-banners {
 		display: grid;
@@ -1029,6 +1034,11 @@ $desktop-large-min: 1680px;
 			}
 			@media screen and (max-width: $large-mobile-min) {
 				flex-basis: 50%;
+			}
+		}
+		&.dragging {
+			> * {
+				transition: none !important;
 			}
 		}
 	}
