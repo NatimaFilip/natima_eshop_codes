@@ -2758,12 +2758,20 @@ if (body.classList.contains("in-index")) {
 				isDragging = true;
 				startX = e.touches[0].pageX;
 				dragDistance = 0;
+				carousel.classList.add("dragging");
 			});
 
 			carousel.addEventListener("touchmove", (e) => {
 				if (!isDragging) return;
 				currentX = e.touches[0].pageX;
 				dragDistance = currentX - startX;
+				activeItems.forEach((item, index) => {
+					if (index == 0 && offsetAmountForLargeItem !== 0) {
+						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
+					} else {
+						item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
+					}
+				});
 			});
 
 			carousel.addEventListener("touchend", () => {
@@ -2776,6 +2784,14 @@ if (body.classList.contains("in-index")) {
 				} else if (dragDistance < -dragThreshold) {
 					// Dragged to the left, call right button handler
 					carouselRightButtonClickHandler();
+				} else {
+					activeItems.forEach((item, index) => {
+						if (index == 0 && offsetAmountForLargeItem !== 0) {
+							item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
+						} else {
+							item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
+						}
+					});
 				}
 			});
 		}
@@ -3072,12 +3088,16 @@ function productSlider(productBlock) {
 			isDragging = true;
 			startX = e.touches[0].pageX;
 			dragDistance = 0;
+			productBlock.classList.add("dragging");
 		});
 
 		productBlock.addEventListener("touchmove", (e) => {
 			if (!isDragging) return;
 			currentX = e.touches[0].pageX;
 			dragDistance = currentX - startX;
+			productsInSlider.forEach((item) => {
+				item.style.transform = `translateX(-${currentTransform - dragDistance / 10}%)`;
+			});
 		});
 
 		productBlock.addEventListener("touchend", () => {
@@ -3090,6 +3110,10 @@ function productSlider(productBlock) {
 			} else if (dragDistance < -dragThreshold) {
 				// Dragged to the left, call right button handler
 				carouselProductRightButtonClickHandler();
+			} else {
+				productsInSlider.forEach((item) => {
+					item.style.transform = `translateX(-${currentTransform}%)`;
+				});
 			}
 		});
 	}
