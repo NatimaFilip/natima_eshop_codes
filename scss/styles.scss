@@ -1788,7 +1788,8 @@ body {
 									padding: calc(var(--gap-14) * 3.5) calc(var(--gap-14) * 1) calc(var(--gap-14) * 3.5 - 10px)
 										calc(var(--gap-14) * 3);
 									border-radius: var(--br-16);
-									overflow: hidden @include bottom-shadow;
+									overflow: hidden;
+									 @include bottom-shadow;
 									&::before {
 										content: "";
 										display: block;

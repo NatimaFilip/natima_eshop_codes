@@ -1633,7 +1633,7 @@ document.addEventListener("ShoptetCartUpdated", function () {
 	/* 	ShoptetCartUpdated
 	ShoptetDOMCartContentLoaded */
 });
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("ShoptetDOMPageContentLoaded", function () {
 	changeAddToCartButtonToIncreaseDecrease();
 });
 
