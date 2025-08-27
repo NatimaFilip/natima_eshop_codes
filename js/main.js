@@ -15,13 +15,20 @@ const plLang = false;
 /*-------------------------------------- Custom events*/
 // Debounce function to limit the rate at which a function can fire
 let resizeTimer;
+let lastWindowWidth = window.innerWidth;
+
 window.addEventListener("resize", function () {
-	clearTimeout(resizeTimer);
-	resizeTimer = setTimeout(function () {
-		// Dispatch a custom event when resize is complete
-		console.log("CUSTOM EVENT DISPATCHED: debouncedResize");
-		document.dispatchEvent(new CustomEvent("debouncedResize"));
-	}, 250);
+	if (window.innerWidth !== lastWindowWidth) {
+		document.dispatchEvent(new CustomEvent("resizeX"));
+
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(function () {
+			lastWindowWidth = window.innerWidth;
+			// Dispatch a custom event when X axis resize is complete
+			console.log("CUSTOM EVENT DISPATCHED: debouncedResize");
+			document.dispatchEvent(new CustomEvent("debouncedResize"));
+		}, 250);
+	}
 });
 
 /*-------------------------------------- Media sizes*/
@@ -54,7 +61,7 @@ function checkMediaSizes() {
 }
 
 checkMediaSizes();
-window.addEventListener("resize", function () {
+document.addEventListener("resizeX", function () {
 	checkMediaSizes();
 });
 
@@ -164,6 +171,7 @@ function addAccountToHeaderTop() {
 	const accountButton = document.createElement("a");
 	accountButton.className = "login-button-custom";
 	accountButton.setAttribute("data-target", "login");
+
 	headerTop.appendChild(accountButton);
 
 	let originalAccountButton = document.querySelector(".top-navigation-tools .top-nav-button-login");
@@ -394,7 +402,7 @@ function inicializeMenu() {
 
 inicializeMenu();
 
-window.addEventListener("resize", function () {
+document.addEventListener("resizeX", function () {
 	inicializeMenu();
 });
 
@@ -691,7 +699,7 @@ if (body.classList.contains("type-category")) {
 		cleanEmptyActiveFiltersSection();
 	});
 
-	window.addEventListener("resize", function () {
+	document.addEventListener("resizeX", function () {
 		customMoveFilter();
 		moveSelectedFilters();
 	});
@@ -1270,7 +1278,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 	heurekaReviewsScroll();
 });
 
-window.addEventListener("resize", function () {
+document.addEventListener("resizeX", function () {
 	heurekaReviewsScroll();
 });
 
@@ -2766,6 +2774,7 @@ if (body.classList.contains("in-index")) {
 				if (!isDragging) return;
 				isDragging = false;
 
+				carousel.classList.remove("dragging");
 				if (dragDistance > dragThreshold) {
 					// Dragged to the right, call left button handler
 					carouselLeftButtonClickHandler();
@@ -2781,7 +2790,6 @@ if (body.classList.contains("in-index")) {
 						}
 					});
 				}
-				carousel.classList.remove("dragging");
 			});
 		}
 		addedSlidingListener = true;
