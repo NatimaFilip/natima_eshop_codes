@@ -2775,9 +2775,9 @@ if (body.classList.contains("in-index")) {
 				} else {
 					activeItems.forEach((item, index) => {
 						if (index == 0 && offsetAmountForLargeItem !== 0) {
-							item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
+							item.style.transform = `translateX(-${currentTransform / 2}%)`;
 						} else {
-							item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
+							item.style.transform = `translateX(-${currentTransform}%)`;
 						}
 					});
 				}
@@ -3085,6 +3085,7 @@ function productSlider(productBlock) {
 		productBlock.addEventListener("touchend", () => {
 			if (!isDragging) return;
 			isDragging = false;
+			productBlock.classList.remove("dragging");
 
 			if (dragDistance > dragThreshold) {
 				// Dragged to the right, call left button handler
