@@ -116,6 +116,15 @@ if (body.classList.contains("id--16")) {
 			disableInputs(paymentMethodWrapper);
 			removePaymentFromRecap();
 		}
+		document.addEventListener(
+			"ShoptetShippingMethodUpdated",
+			function () {
+				removePaymentFromRecap();
+				disableInputs(paymentMethodWrapper);
+				paymentMethodWrapper.classList.remove("disabled");
+			},
+			{ once: true }
+		);
 	});
 
 	function disableInputs(method) {
@@ -174,16 +183,6 @@ if (body.classList.contains("id--16")) {
 		});
 		checkoutSidebar.insertAdjacentElement("beforeBegin", recapWrapper);
 	}
-
-	document.addEventListener(
-		"ShoptetShippingMethodUpdated",
-		function () {
-			removePaymentFromRecap();
-			disableInputs(paymentMethodWrapper);
-			paymentMethodWrapper.classList.remove("disabled");
-		},
-		{ once: true }
-	);
 
 	fetchImagesOfProductsInCart();
 }
