@@ -2693,23 +2693,27 @@ if (body.classList.contains("in-index")) {
 		let isDragging = false;
 		let startX = 0;
 		let currentX = 0;
-		let dragThreshold = 50; // Minimum drag distance in pixels to trigger a slide
 		let dragDistance = 0;
+		let dragThreshold = 100;
+		let dragTarget = null;
 
 		if (!addedSlidingListener) {
-			carousel.addEventListener("mousedown", (e) => {
-				isDragging = true;
-				startX = e.pageX;
-				dragDistance = 0;
-				carousel.classList.add("dragging");
+			document.addEventListener("mousedown", (e) => {
+				if (e.target === carousel || carousel.contains(e.target)) {
+					isDragging = true;
+					startX = e.pageX;
+					dragDistance = 0;
+					dragTarget = carousel;
+					carousel.classList.add("dragging");
+				}
 			});
 
-			carousel.addEventListener("mousemove", (e) => {
-				if (!isDragging) return;
+			document.addEventListener("mousemove", (e) => {
+				if (!isDragging || dragTarget !== carousel) return;
 				currentX = e.pageX;
 				dragDistance = currentX - startX;
 				activeItems.forEach((item, index) => {
-					if (index == 0 && offsetAmountForLargeItem !== 0) {
+					if (index === 0 && offsetAmountForLargeItem !== 0) {
 						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
 					} else {
 						item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
@@ -2717,19 +2721,62 @@ if (body.classList.contains("in-index")) {
 				});
 			});
 
-			carousel.addEventListener("mouseup", () => {
-				if (!isDragging) return;
+			document.addEventListener("mouseup", (e) => {
+				if (!isDragging || dragTarget !== carousel) return;
 				isDragging = false;
-
+				dragTarget = null;
+				carousel.classList.remove("dragging");
 				if (dragDistance > dragThreshold) {
-					// Dragged to the right, call left button handler
 					carouselLeftButtonClickHandler();
 				} else if (dragDistance < -dragThreshold) {
-					// Dragged to the left, call right button handler
 					carouselRightButtonClickHandler();
 				} else {
 					activeItems.forEach((item, index) => {
-						if (index == 0 && offsetAmountForLargeItem !== 0) {
+						if (index === 0 && offsetAmountForLargeItem !== 0) {
+							item.style.transform = `translateX(-${currentTransform / 2}%)`;
+						} else {
+							item.style.transform = `translateX(-${currentTransform}%)`;
+						}
+					});
+				}
+			});
+
+			document.addEventListener("touchstart", (e) => {
+				const touch = e.touches[0];
+				if (e.target === carousel || carousel.contains(e.target)) {
+					isDragging = true;
+					startX = touch.pageX;
+					dragDistance = 0;
+					dragTarget = carousel;
+					carousel.classList.add("dragging");
+				}
+			});
+
+			document.addEventListener("touchmove", (e) => {
+				if (!isDragging || dragTarget !== carousel) return;
+				const touch = e.touches[0];
+				currentX = touch.pageX;
+				dragDistance = currentX - startX;
+				activeItems.forEach((item, index) => {
+					if (index === 0 && offsetAmountForLargeItem !== 0) {
+						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
+					} else {
+						item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
+					}
+				});
+			});
+
+			document.addEventListener("touchend", (e) => {
+				if (!isDragging || dragTarget !== carousel) return;
+				isDragging = false;
+				dragTarget = null;
+				if (dragDistance > dragThreshold) {
+					carouselLeftButtonClickHandler();
+				} else if (dragDistance < -dragThreshold) {
+					carouselRightButtonClickHandler();
+				} else {
+					activeItems.forEach((item, index) => {
+						if (index === 0 && offsetAmountForLargeItem !== 0) {
 							item.style.transform = `translateX(-${currentTransform / 2}%)`;
 						} else {
 							item.style.transform = `translateX(-${currentTransform}%)`;
@@ -2737,62 +2784,6 @@ if (body.classList.contains("in-index")) {
 					});
 				}
 				carousel.classList.remove("dragging");
-			});
-
-			carousel.addEventListener("mouseleave", () => {
-				if (!isDragging) return;
-				isDragging = false;
-				activeItems.forEach((item, index) => {
-					if (index == 0 && offsetAmountForLargeItem !== 0) {
-						item.style.transform = `translateX(-${currentTransform / 2}%)`;
-					} else {
-						item.style.transform = `translateX(-${currentTransform}%)`;
-					}
-				});
-
-				carousel.classList.remove("dragging");
-			});
-
-			// Add touch support for mobile
-			carousel.addEventListener("touchstart", (e) => {
-				isDragging = true;
-				startX = e.touches[0].pageX;
-				dragDistance = 0;
-				carousel.classList.add("dragging");
-			});
-
-			carousel.addEventListener("touchmove", (e) => {
-				if (!isDragging) return;
-				currentX = e.touches[0].pageX;
-				dragDistance = currentX - startX;
-				activeItems.forEach((item, index) => {
-					if (index == 0 && offsetAmountForLargeItem !== 0) {
-						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
-					} else {
-						item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
-					}
-				});
-			});
-
-			carousel.addEventListener("touchend", () => {
-				if (!isDragging) return;
-				isDragging = false;
-
-				if (dragDistance > dragThreshold) {
-					// Dragged to the right, call left button handler
-					carouselLeftButtonClickHandler();
-				} else if (dragDistance < -dragThreshold) {
-					// Dragged to the left, call right button handler
-					carouselRightButtonClickHandler();
-				} else {
-					activeItems.forEach((item, index) => {
-						if (index == 0 && offsetAmountForLargeItem !== 0) {
-							item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
-						} else {
-							item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
-						}
-					});
-				}
 			});
 		}
 		addedSlidingListener = true;
@@ -3036,79 +3027,76 @@ function productSlider(productBlock) {
 	let isDragging = false;
 	let startX = 0;
 	let currentX = 0;
-	let dragThreshold = 50; // Minimum drag distance in pixels to trigger a slide
+	let dragThreshold = 100; // Minimum drag distance in pixels to trigger a slide
 	let dragDistance = 0;
+	let dragTarget = null;
 
 	if (!sliderAdded) {
-		productBlock.addEventListener("mousedown", (e) => {
-			isDragging = true;
-			startX = e.pageX;
-			dragDistance = 0;
-			productBlock.classList.add("dragging");
+		document.addEventListener("mousedown", (e) => {
+			if (e.target === productBlock || productBlock.contains(e.target)) {
+				isDragging = true;
+				startX = e.pageX;
+				dragDistance = 0;
+				dragTarget = productBlock;
+				productBlock.classList.add("dragging");
+			}
 		});
 
-		productBlock.addEventListener("mousemove", (e) => {
-			if (!isDragging) return;
+		document.addEventListener("mousemove", (e) => {
+			if (!isDragging || dragTarget !== productBlock) return;
 			currentX = e.pageX;
 			dragDistance = currentX - startX;
-			productsInSlider.forEach((item) => {
+			productsInSlider.forEach((item, index) => {
 				item.style.transform = `translateX(-${currentTransform - dragDistance / 10}%)`;
 			});
 		});
 
-		productBlock.addEventListener("mouseup", () => {
-			if (!isDragging) return;
+		document.addEventListener("mouseup", (e) => {
+			if (!isDragging || dragTarget !== productBlock) return;
 			isDragging = false;
-
+			dragTarget = null;
+			productBlock.classList.remove("dragging");
 			if (dragDistance > dragThreshold) {
-				// Dragged to the right, call left button handler
 				carouselProductLeftButtonClickHandler();
 			} else if (dragDistance < -dragThreshold) {
-				// Dragged to the left, call right button handler
 				carouselProductRightButtonClickHandler();
 			} else {
-				productsInSlider.forEach((item) => {
+				productsInSlider.forEach((item, index) => {
 					item.style.transform = `translateX(-${currentTransform}%)`;
 				});
 			}
-			productBlock.classList.remove("dragging");
-		});
-
-		productBlock.addEventListener("mouseleave", () => {
-			if (!isDragging) return;
-			isDragging = false;
-			productsInSlider.forEach((item) => {
-				item.style.transform = `translateX(-${currentTransform}%)`;
-			});
-			carousel.classList.remove("dragging");
 		});
 
 		// Add touch support for mobile
-		productBlock.addEventListener("touchstart", (e) => {
-			isDragging = true;
-			startX = e.touches[0].pageX;
-			dragDistance = 0;
-			productBlock.classList.add("dragging");
+		document.addEventListener("touchstart", (e) => {
+			const touch = e.touches[0];
+			if (e.target === productBlock || productBlock.contains(e.target)) {
+				isDragging = true;
+				startX = touch.pageX;
+				dragDistance = 0;
+				dragTarget = productBlock;
+				productBlock.classList.add("dragging");
+			}
 		});
 
-		productBlock.addEventListener("touchmove", (e) => {
-			if (!isDragging) return;
-			currentX = e.touches[0].pageX;
+		document.addEventListener("touchmove", (e) => {
+			if (!isDragging || dragTarget !== productBlock) return;
+			const touch = e.touches[0];
+			currentX = touch.pageX;
 			dragDistance = currentX - startX;
 			productsInSlider.forEach((item) => {
 				item.style.transform = `translateX(-${currentTransform - dragDistance / 10}%)`;
 			});
 		});
 
-		productBlock.addEventListener("touchend", () => {
-			if (!isDragging) return;
+		document.addEventListener("touchend", (e) => {
+			if (!isDragging || dragTarget !== productBlock) return;
 			isDragging = false;
-
+			dragTarget = null;
+			productBlock.classList.remove("dragging");
 			if (dragDistance > dragThreshold) {
-				// Dragged to the right, call left button handler
 				carouselProductLeftButtonClickHandler();
 			} else if (dragDistance < -dragThreshold) {
-				// Dragged to the left, call right button handler
 				carouselProductRightButtonClickHandler();
 			} else {
 				productsInSlider.forEach((item) => {
@@ -3242,7 +3230,7 @@ function reviewSlider(reviewBlock) {
 	let isDragging = false;
 	let startX = 0;
 	let currentX = 0;
-	let dragThreshold = 50; // Minimum drag distance in pixels to trigger a slide
+	let dragThreshold = 100; // Minimum drag distance in pixels to trigger a slide
 	let dragDistance = 0;
 
 	if (!sliderAdded) {
