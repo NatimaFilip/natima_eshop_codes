@@ -3,9 +3,10 @@ if (body.classList.contains("id--9")) {
 	giftEdit();
 	giftSelectCustom();
 
-	document.addEventListener("DOMContentLoaded", function () {
+	document.addEventListener("ShoptetDOMContentLoaded", function () {
 		sidebarEdit();
 		giftEdit();
+		giftSelectCustom();
 	});
 	function sidebarEdit() {
 		let sidebarInCart = document.querySelector(".sidebar-in-cart");
@@ -97,6 +98,119 @@ if (body.classList.contains("id--9")) {
 					shoptet.cart.ajaxSubmitForm(form.getAttribute("action"), form, "functionsForCart", "cart", true);
 				}
 			});
+		});
+	}
+}
+
+if (body.classList.contains("id--16")) {
+	let deliveryMethodWrapper = document.querySelector(".co-delivery-method");
+	let paymentMethodWrapper = document.querySelector(".co-payment-method");
+
+	document.addEventListener("DOMContentLoaded", function () {
+		if (deliveryMethodWrapper) {
+			disableInputs(deliveryMethodWrapper);
+			let recapText = document.querySelector(".recapitulation-shipping-billing .recapitulation-shipping-billing-info");
+			if (recapText) {
+				if (csLang) {
+					recapText.textContent = "Zvolte způsob dopravy";
+				}
+				if (skLang) {
+					recapText.textContent = "Zvoľte spôsob dopravy";
+				}
+				if (plLang) {
+					recapText.textContent = "Wybierz sposób dostawy";
+				}
+			}
+		}
+		if (paymentMethodWrapper) {
+			disableInputs(paymentMethodWrapper);
+			let recapText = document.querySelector(
+				".recapitulation-shipping-billing.last .recapitulation-shipping-billing-info"
+			);
+			if (recapText) {
+				if (csLang) {
+					recapText.textContent = "Zvolte způsob platby";
+				}
+				if (skLang) {
+					recapText.textContent = "Zvoľte spôsob platby";
+				}
+				if (plLang) {
+					recapText.textContent = "Wybierz sposób płatności";
+				}
+			}
+		}
+	});
+
+	function disableInputs(method) {
+		let allInputs = method.querySelectorAll("input");
+
+		if (!allInputs) return;
+		allInputs.forEach((input) => {
+			input.checked = false;
+			input.parentElement.classList.remove("active");
+		});
+	}
+
+	rearangeRecap();
+
+	function rearangeRecap() {
+		let checkoutSidebar = document.querySelector("#checkoutSidebar");
+		console.log("test");
+		if (!checkoutSidebar) return;
+
+		recapTitle = checkoutSidebar.querySelector("h4");
+		cartItems = checkoutSidebar.querySelectorAll(".cart-items");
+		const recapWrapper = document.createElement("div");
+		recapWrapper.classList.add("recap-wrapper");
+		recapWrapper.appendChild(recapTitle);
+		cartItems.forEach((item) => {
+			recapWrapper.appendChild(item);
+		});
+		checkoutSidebar.insertAdjacentElement("beforeBegin", recapWrapper);
+	}
+	fetchImagesOfProducts();
+	async function fetchImagesOfProducts() {
+		console.log("test");
+		let itemNames = document.querySelectorAll(".cart-item .cart-item-name");
+
+		if (!itemNames) return;
+		itemNames.forEach((itemName) => {
+			const imageBlock = document.createElement("div");
+			imageBlock.classList.add("image-block");
+			itemName.prepend(imageBlock);
+		});
+		itemNames.forEach(async (itemName) => {
+			let productLink = itemName.querySelector("a");
+			if (!productLink) return;
+			let productUrl = productLink.href;
+
+			try {
+				let response = await fetch(productUrl);
+				/* let response = await fetch(window.location.origin + productUrl); */
+
+				if (!response.ok) throw new Error("Network response was not ok");
+
+				let html = await response.text();
+
+				// Parse the HTML string into a document
+				let parser = new DOMParser();
+				let doc = parser.parseFromString(html, "text/html");
+
+				// Get the image element
+				let img = doc.querySelector(".p-main-image > img");
+
+				if (img) {
+					// Clone the image so it can be used in the current DOM
+					let newImg = document.createElement("img");
+					newImg.src = img.src;
+					newImg.alt = img.alt || "";
+
+					// Prepend to itemName
+					itemName.querySelector(".image-block").append(newImg);
+				}
+			} catch (error) {
+				console.error("There has been a problem with your fetch operation:", error);
+			}
 		});
 	}
 }

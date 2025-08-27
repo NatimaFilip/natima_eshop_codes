@@ -1272,6 +1272,9 @@ let numberOfTotalViableReviews = 0;
 let heurekaScrolled = false;
 
 document.addEventListener("DOMContentLoaded", async function () {
+	if (!footer) {
+		return;
+	}
 	await downloadAndSaveHeurekaReviews();
 	insertHeurekaReviews();
 	heurekaReviewsScroll();
@@ -1282,6 +1285,9 @@ document.addEventListener("resizeX", function () {
 });
 
 async function insertHeurekaReviews() {
+	if (!footer) {
+		return;
+	}
 	let heurekaInsertElement = footer.querySelector("#heureka-reviews-insert");
 	if (!heurekaInsertElement) {
 		console.warn("Heureka reviews insert element not found.");
@@ -1399,6 +1405,9 @@ async function insertHeurekaReviews() {
 }
 
 function heurekaReviewsScroll() {
+	if (!footer) {
+		return;
+	}
 	let heurekaReviewlements = footer.querySelectorAll(".heureka-review");
 	let heurekaInsertElement = footer.querySelector("#heureka-reviews-insert");
 	if (!heurekaReviewlements.length || !heurekaInsertElement) {
@@ -1491,6 +1500,9 @@ async function downloadAndSaveHeurekaReviews() {
 /*------------------------------------------------- FOOTER Jazyky*/
 footerLanguagesToggle();
 function footerLanguagesToggle() {
+	if (!footer) {
+		return;
+	}
 	let footerLanguagesWrapper = footer.querySelector(".footer-languages-wrapper");
 	if (!footerLanguagesWrapper) {
 		return;
@@ -1507,6 +1519,9 @@ function footerLanguagesToggle() {
 /*------------------------------------------------- FOOTER Platby*/
 footerPaymentsMove();
 function footerPaymentsMove() {
+	if (!footer) {
+		return;
+	}
 	let footerPaymentsWrapper = footer.querySelector(".footer-online-payments");
 	if (!footerPaymentsWrapper) {
 		return;
