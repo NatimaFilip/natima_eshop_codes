@@ -1981,7 +1981,8 @@ body {
 			.responsive-tools {
 				display: none;
 			}
-			.top-nav-button-login {
+			.top-nav-button-login,
+			.top-nav-button-account {
 				display: flex;
 				align-items: center;
 				justify-content: flex-end;
@@ -2012,6 +2013,14 @@ body {
 				&:hover,
 				&:focus-within {
 					color: var(--color-primary);
+				}
+			}
+			.top-nav-button-account {
+				span {
+					display: block;
+				}
+				&::after {
+					display: none;
 				}
 			}
 		}

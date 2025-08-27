@@ -1531,7 +1531,8 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:f
 .top-navigation-bar > .container .top-navigation-tools .responsive-tools {
   display: none;
 }
-.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login {
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login,
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-account {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1545,10 +1546,12 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:f
   font-size: var(--fs-13);
   color: var(--color-black);
 }
-.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login span {
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login span,
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-account span {
   display: none;
 }
-.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login::before {
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login::before,
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-account::before {
   content: "";
   display: block;
   width: var(--fs-16);
@@ -1556,17 +1559,27 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:f
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_account.svg");
   background-size: cover;
 }
-.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login::after {
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login::after,
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-account::after {
   content: "Příhlásit / Registrovat";
   display: block;
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .top-navigation-bar > .container .top-navigation-tools .top-nav-button-login::after {
+  .top-navigation-bar > .container .top-navigation-tools .top-nav-button-login::after,
+  .top-navigation-bar > .container .top-navigation-tools .top-nav-button-account::after {
     content: "Příhlásit";
   }
 }
-.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login:hover, .top-navigation-bar > .container .top-navigation-tools .top-nav-button-login:focus-within {
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-login:hover, .top-navigation-bar > .container .top-navigation-tools .top-nav-button-login:focus-within,
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-account:hover,
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-account:focus-within {
   color: var(--color-primary);
+}
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-account span {
+  display: block;
+}
+.top-navigation-bar > .container .top-navigation-tools .top-nav-button-account::after {
+  display: none;
 }
 @media screen and (max-width: 767px) {
   .top-navigation-bar {

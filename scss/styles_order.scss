@@ -112,6 +112,9 @@ $desktop-large-min: 1680px;
 	#header {
 		position: relative !important;
 		top: 0 !important;
+		.navigation-buttons {
+			display: none !important;
+		}
 		.login-button-custom {
 			display: block !important;
 			order: 4;
@@ -119,16 +122,18 @@ $desktop-large-min: 1680px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 30px;
-			height: 100%;
+			width: 52px;
+			height: 52px;
 			cursor: pointer;
+			background: var(--color-gray-400);
+			border-radius: var(--br-16);
 			&::before {
 				display: block;
 				content: "";
-				width: 20px;
+				width: 100%;
 				height: 100%;
 				background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_account.svg");
-				background-size: contain;
+				background-size: 40%;
 				background-repeat: no-repeat;
 				background-position: center;
 			}
