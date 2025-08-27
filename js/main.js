@@ -171,7 +171,6 @@ function addAccountToHeaderTop() {
 	const accountButton = document.createElement("a");
 	accountButton.className = "login-button-custom";
 	accountButton.setAttribute("data-target", "login");
-
 	headerTop.appendChild(accountButton);
 
 	let originalAccountButton = document.querySelector(".top-navigation-tools .top-nav-button-login");
@@ -2773,8 +2772,8 @@ if (body.classList.contains("in-index")) {
 			carousel.addEventListener("touchend", () => {
 				if (!isDragging) return;
 				isDragging = false;
-
 				carousel.classList.remove("dragging");
+
 				if (dragDistance > dragThreshold) {
 					// Dragged to the right, call left button handler
 					carouselLeftButtonClickHandler();

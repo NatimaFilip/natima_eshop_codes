@@ -961,7 +961,7 @@ table {
 }
 
 .tooltip[role="tooltip"] {
-	width: 220px;
+	width: 250px;
 	font-size: var(--fs-13);
 	padding-bottom: 0.5em;
 
@@ -969,7 +969,7 @@ table {
 		background: var(--color-primary);
 		color: white;
 		border-radius: var(--br-16);
-		padding: 1em 1.5em 0.5em;
+		padding: 1em 1em 0.75em;
 		border-style: solid;
 		border-width: 1px;
 		border-color: var(--color-primary-hover);

@@ -1,6 +1,12 @@
 if (body.classList.contains("id--9")) {
 	sidebarEdit();
 	giftEdit();
+	giftSelectCustom();
+
+	document.addEventListener("DOMContentLoaded", function () {
+		sidebarEdit();
+		giftEdit();
+	});
 	function sidebarEdit() {
 		let sidebarInCart = document.querySelector(".sidebar-in-cart");
 		if (!sidebarInCart) return;
@@ -65,5 +71,32 @@ if (body.classList.contains("id--9")) {
 			}
 			giftSpan.innerHTML = darkyTextObjednejte + "<strong>" + darkyPrice + "</strong>" + darkyTextHodnotnejsi;
 		}
+	}
+	/* 	function giftSelectCustom() {
+		var t = $("html");
+		t.on("click", ".free-gifts-wrapper .free-gifts label", function (t) {
+			t.preventDefault();
+			var e = $(this).attr("for");
+			$(".free-gifts input").each(function () {
+				e == $(this).attr("id") ? $(this).prop("checked", !0) : $(this).prop("checked", !1);
+			});
+			var i = $(".free-gifts-wrapper form");
+			shoptet.cart.ajaxSubmitForm(i.attr("action"), i[0], "functionsForCart", "cart", !0);
+		});
+	} */
+	function giftSelectCustom() {
+		document.querySelectorAll(".free-gifts-wrapper .free-gifts label").forEach((label) => {
+			label.addEventListener("click", function (event) {
+				event.preventDefault();
+				const forId = label.getAttribute("for");
+				document.querySelectorAll(".free-gifts input").forEach((input) => {
+					input.checked = input.id === forId;
+				});
+				const form = document.querySelector(".free-gifts-wrapper form");
+				if (form && window.shoptet && shoptet.cart && typeof shoptet.cart.ajaxSubmitForm === "function") {
+					shoptet.cart.ajaxSubmitForm(form.getAttribute("action"), form, "functionsForCart", "cart", true);
+				}
+			});
+		});
 	}
 }
