@@ -855,22 +855,23 @@ $desktop-large-min: 1680px;
 		}
 	}
 	&.login-window-visible .login-widget {
-		right: calc((100vw - 1920px) / 2 + var(--padding-sides) - 26px);
+		right: var(--padding-sides);
+		@media screen and (min-width: 1920px) {
+			right: calc((100vw - 1920px) / 2 + var(--padding-sides) - 26px);
+		}
 	}
 
-	&.login-window-visible .login-widget {
-		top: calc(var(--header-height) + 1rem);
-	}
 	.extra.delivery,
 	.extra.gift {
 		width: max-content;
 		position: relative;
 		padding-bottom: 12px;
 		margin-bottom: 50px;
-		max-width: 100%;
+		width: auto;
+		max-width: max-content;
 		display: flex;
 		gap: 5px;
-		max-width: 100%;
+
 		align-items: center;
 		&:before {
 			display: block;
@@ -1353,6 +1354,7 @@ $desktop-large-min: 1680px;
 				input,
 				select {
 					width: 100%;
+					padding: 1em 1em;
 				}
 				@media screen and (max-width: $mobile-max) {
 					display: flex;

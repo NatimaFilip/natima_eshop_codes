@@ -990,10 +990,12 @@
   content: "Wybrany";
 }
 .ordering-process.login-window-visible .login-widget {
-  right: calc((100vw - 1920px) / 2 + var(--padding-sides) - 26px);
+  right: var(--padding-sides);
 }
-.ordering-process.login-window-visible .login-widget {
-  top: calc(var(--header-height) + 1rem);
+@media screen and (min-width: 1920px) {
+  .ordering-process.login-window-visible .login-widget {
+    right: calc((100vw - 1920px) / 2 + var(--padding-sides) - 26px);
+  }
 }
 .ordering-process .extra.delivery,
 .ordering-process .extra.gift {
@@ -1003,12 +1005,14 @@
   position: relative;
   padding-bottom: 12px;
   margin-bottom: 50px;
-  max-width: 100%;
+  width: auto;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 5px;
-  max-width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1625,6 +1629,7 @@
 .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper input,
 .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper select {
   width: 100%;
+  padding: 1em 1em;
 }
 @media screen and (max-width: 767px) {
   .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper {

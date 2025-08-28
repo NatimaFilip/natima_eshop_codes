@@ -1,0 +1,378 @@
+// Define SCSS variables for breakpoints
+$large-mobile-min: 500px;
+$mobile-max: 767px;
+
+$tablet-min: 768px;
+$tablet-medium-min: 1024px;
+$tablet-max: 1279px;
+$desktop-min: 1280px;
+$desktop-medium-min: 1440px;
+$desktop-large-min: 1680px;
+
+@mixin image-foreground-brightness {
+	filter: brightness(1.03);
+	margin: auto;
+}
+@mixin image-foreground-setup {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin image-foreground-margin-category {
+	margin-top: 55px;
+	margin-bottom: 50px;
+}
+
+@mixin image-foreground-block {
+	content: "";
+	position: absolute;
+	display: flex;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	width: 100%;
+	height: 100%;
+	background-color: hsla(0, 0%, 0%, 0.04);
+}
+
+.luigi-ac {
+	.luigi-ac-ribbon,
+	.luigi-ac-caret {
+		display: none;
+	}
+	.luigi-ac-other-content,
+	.luigi-ac-others .luigi-ac-title {
+		color: var(--color-primary) !important;
+	}
+	.luigi-ac-main .luigi-ac-name {
+		color: var(--color-black) !important;
+	}
+	.luigi-ac-query {
+		border-radius: var(--br-8);
+		color: var(--color-white) !important;
+		.luigi-ac-other-content {
+			color: var(--color-white) !important;
+		}
+	}
+
+	.luigi-ac-others {
+		height: auto !important;
+	}
+
+	.luigi-ac-image {
+		display: flex;
+		align-items: center !important;
+		align-content: center !important;
+		justify-content: center !important;
+
+		border-radius: var(--br-10);
+		overflow: hidden;
+		@include image-foreground-setup;
+		img {
+			width: var(--image-width);
+			height: auto;
+			@include image-foreground-brightness;
+			padding: 12.5% 25%;
+		}
+		&:after {
+			@include image-foreground-block;
+		}
+	}
+
+	.luigi-ac-products {
+		display: grid !important;
+		grid-template-columns: 40% 1fr;
+		align-content: stretch;
+		height: 100% !important;
+
+		.luigi-ac-first-main {
+			width: 100% !important;
+			height: 100% !important;
+			* {
+				text-align: left !important;
+			}
+			.luigi-ac-product {
+				padding: 0 10px;
+			}
+			.luigi-ac-action-primary {
+				position: relative;
+				inset: 0;
+				width: 100%;
+				border-radius: var(--br-16);
+				margin-top: auto !important;
+				.luigi-ac-button-block {
+					margin-bottom: 10px !important;
+				}
+
+				.luigi-ac-button-action {
+					text-align: center !important;
+					padding: 1em 0.5em;
+					background: var(--color-secondary) !important;
+					border-radius: var(--br-16);
+					&:hover {
+						background: var(--color-secondary-hover) !important;
+					}
+				}
+			}
+			.luigi-ac-image {
+				margin-top: 8px !important;
+				width: 100% !important;
+				height: auto !important;
+				max-width: none !important;
+				img {
+					padding: 10% 2.5%;
+				}
+			}
+			.luigi-ac-header {
+				padding-left: 10px;
+			}
+			.luigi-ac-text {
+				padding: 0;
+			}
+		}
+		.flag {
+			display: none !important;
+		}
+		.luigi-ac-price {
+			display: flex;
+			flex-direction: row !important;
+			gap: 10px;
+			align-items: center;
+			margin-top: 10px !important;
+			margin-bottom: 15px !important;
+		}
+
+		.luigi-ac-price-old,
+		.luigi-ac-price-new {
+			margin-bottom: 0 !important;
+		}
+		.luigi-ac-rest-main {
+			flex-direction: column !important;
+			width: 100% !important;
+			flex-wrap: nowrap !important;
+
+			> a {
+				width: 100% !important;
+				padding: 8px !important;
+				margin: 0 !important;
+			}
+			> a:last-of-type {
+				display: none !important;
+			}
+			.luigi-ac-image {
+				height: auto !important;
+			}
+			img {
+				margin: 0 !important;
+				max-height: 50px !important;
+			}
+			.luigi-ac-name {
+				font-size: var(--fs-13) !important;
+			}
+			.luigi-ac-header {
+				padding-left: 8px;
+			}
+			.luigi-ac-button-block {
+				margin-bottom: 10px !important;
+				position: relative;
+				inset: 0;
+				width: 100%;
+				padding: 0 8px !important;
+
+				.luigi-ac-button {
+					text-align: center !important;
+					padding: 0.5em 0.5em;
+					margin-top: 10px !important;
+					background: transparent !important;
+					border-style: solid !important;
+					border-color: var(--color-black);
+					border-radius: var(--br-16);
+					border-width: 1px;
+					color: var(--color-black) !important;
+					transition: none !important;
+					&:hover {
+						background: var(--color-primary) !important;
+						color: var(--color-white) !important;
+						border-color: var(--color-primary) !important;
+					}
+				}
+			}
+			.luigi-ac-price {
+				margin-top: 5px !important;
+				margin-bottom: 5px !important;
+			}
+			.luigi-ac-image {
+				height: auto !important;
+				max-width: none !important;
+				img {
+					padding: 5px !important;
+				}
+			}
+			.luigi-ac-action-hero {
+				right: 10px !important;
+				border-radius: 8px;
+				background-color: var(--color-secondary) !important;
+				&:hover {
+					background-color: var(--color-secondary-hover) !important;
+				}
+				&:before {
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 24px;
+					height: 24px;
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_add_to_cart.svg");
+					background-size: contain;
+					background-repeat: no-repeat;
+				}
+				img {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $mobile-max) {
+	body.custom-search-active {
+		overflow-y: hidden;
+		position: relative;
+		// Create a stacking context
+		input[type="search"] {
+			z-index: 9999 !important; // High enough to be above everything except your modal
+			&.active {
+				display: block !important;
+				position: fixed !important;
+				left: calc(var(--padding-sides) + 5%) !important;
+				top: 40px !important;
+				background: var(--color-white) !important;
+				font-size: var(--fs-16) !important;
+				padding: 1em 0.5em !important;
+				width: calc(100% - var(--padding-sides) * 2 - 10%) !important;
+
+				border-style: solid;
+				border-color: var(--color-black-o-60);
+				border-width: 1px;
+			}
+			&:focus {
+				border-color: var(--color-primary);
+				border-width: 2px;
+			}
+		}
+
+		#header {
+			&::before {
+				content: "";
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100vw;
+				height: 100vh;
+				background: var(--color-black-o-60);
+
+				backdrop-filter: blur(5px);
+				z-index: 9999; // High enough to be above everything except your modal
+				pointer-events: auto;
+			}
+		}
+		.luigi-ac {
+			position: fixed;
+			z-index: 10000; // Higher than ::before
+			width: 100%;
+			left: 0;
+			padding-bottom: 0;
+			margin-top: 15px !important;
+
+			.luigi-ac-inner {
+				.luigi-ac-products {
+					order: 1;
+					grid-template-columns: 1fr;
+					.luigi-ac-first-main {
+						flex-direction: column;
+						max-width: 100%;
+						height: auto !important;
+						.luigi-ac-product {
+							height: auto !important;
+							flex-direction: column;
+							.luigi-ac-description {
+								margin: 0 10px;
+							}
+							.luigi-ac-image {
+								img {
+									max-width: 400px;
+								}
+							}
+							.luigi-ac-price {
+								margin-top: 0 !important;
+							}
+							.luigi-ac-name {
+								white-space: normal;
+							}
+							.luigi-ac-action-primary {
+								width: 100%;
+							}
+						}
+					}
+					.luigi-ac-rest-main {
+						margin-top: 20px !important;
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 10px;
+						.luigi-ac-header {
+							grid-column: 1 / -1;
+						}
+						> a:last-of-type {
+							display: flex !important;
+						}
+						.luigi-ac-name {
+							white-space: normal;
+						}
+						.luigi-ac-product {
+							display: flex;
+							flex-direction: column;
+							padding: 0 !important;
+						}
+						.luigi-ac-image {
+							display: flex;
+							align-items: center !important;
+							max-height: none !important;
+							img {
+								margin: 0 auto !important;
+								max-width: 100% !important;
+								max-height: none !important;
+								padding: 10% !important;
+							}
+						}
+						.luigi-ac-text {
+							.luigi-ac-name {
+								padding-top: 5px;
+								display: -webkit-box;
+								-webkit-line-clamp: 3;
+								-webkit-box-orient: vertical;
+								overflow: hidden;
+							}
+						}
+						.luigi-ac-action-hero {
+							bottom: calc(5.5em + 5px);
+							right: 14px !important;
+						}
+						.luigi-ac-price {
+							margin: 0 !important;
+						}
+						.luigi-ac-button-block {
+							grid-column: 1 / -1;
+							margin-bottom: 20px !important;
+						}
+					}
+				}
+				.luigi-ac-others {
+					order: 2;
+					padding-bottom: 80px;
+				}
+			}
+		}
+	}
+}

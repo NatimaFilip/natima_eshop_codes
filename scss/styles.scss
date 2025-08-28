@@ -1280,8 +1280,8 @@ body {
 							@media screen and (max-width: $mobile-max) {
 								align-items: center;
 								justify-content: center;
-
 								cursor: pointer;
+								position: initial;
 							}
 
 							&::before {
@@ -7458,5 +7458,147 @@ body {
 .in-index {
 	.hodnoceni-obchodu-section {
 		@include ratingTab-shopRating;
+	}
+}
+@media screen and (max-width: $mobile-max) {
+	body.custom-search-active {
+		overflow-y: hidden;
+		position: relative;
+		// Create a stacking context
+		input[type="search"] {
+			z-index: 9999 !important; // High enough to be above everything except your modal
+			&.active {
+				display: block !important;
+				position: fixed !important;
+				left: calc(var(--padding-sides) + 5%) !important;
+				top: 40px !important;
+				background: var(--color-white) !important;
+				font-size: var(--fs-16) !important;
+				padding: 1em 0.5em !important;
+				width: calc(100% - var(--padding-sides) * 2 - 10%) !important;
+
+				border-style: solid;
+				border-color: var(--color-black-o-60);
+				border-width: 1px;
+			}
+			&:focus {
+				border-color: var(--color-primary);
+				border-width: 2px;
+			}
+		}
+
+		#header {
+			&::before {
+				content: "";
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100vw;
+				height: 100vh;
+				background: var(--color-black-o-60);
+
+				backdrop-filter: blur(5px);
+				z-index: 9999; // High enough to be above everything except your modal
+				pointer-events: auto;
+			}
+		}
+		.luigi-ac {
+			position: fixed;
+			z-index: 10000; // Higher than ::before
+			width: 100%;
+			left: 0;
+			padding-bottom: 0;
+			margin-top: 15px !important;
+			.luigi-ac-ribbon {
+				display: none;
+			}
+			.luigi-ac-inner {
+				.luigi-ac-products {
+					order: 1;
+					grid-template-columns: 1fr;
+					.luigi-ac-first-main {
+						flex-direction: column;
+						max-width: 100%;
+						height: auto !important;
+						.luigi-ac-product {
+							height: auto !important;
+							flex-direction: column;
+							.luigi-ac-description {
+								margin: 0 10px;
+							}
+							.luigi-ac-image {
+								img {
+									max-width: 400px;
+								}
+							}
+							.luigi-ac-price {
+								margin-top: 0 !important;
+							}
+							.luigi-ac-name {
+								white-space: normal;
+							}
+							.luigi-ac-action-primary {
+								width: 100%;
+							}
+						}
+					}
+					.luigi-ac-rest-main {
+						margin-top: 20px !important;
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 10px;
+						.luigi-ac-header {
+							grid-column: 1 / -1;
+						}
+						> a:last-of-type {
+							display: flex !important;
+						}
+						.luigi-ac-name {
+							white-space: normal;
+						}
+						.luigi-ac-product {
+							display: flex;
+							flex-direction: column;
+							padding: 0 !important;
+						}
+						.luigi-ac-image {
+							display: flex;
+							align-items: center !important;
+							max-height: none !important;
+							img {
+								margin: 0 auto !important;
+								max-width: 100% !important;
+								max-height: none !important;
+								padding: 10% !important;
+							}
+						}
+						.luigi-ac-text {
+							.luigi-ac-name {
+								padding-top: 5px;
+								display: -webkit-box;
+								-webkit-line-clamp: 3;
+								-webkit-box-orient: vertical;
+								overflow: hidden;
+							}
+						}
+						.luigi-ac-action-hero {
+							bottom: calc(5.5em + 5px);
+							right: 14px !important;
+						}
+						.luigi-ac-price {
+							margin: 0 !important;
+						}
+						.luigi-ac-button-block {
+							grid-column: 1 / -1;
+							margin-bottom: 20px !important;
+						}
+					}
+				}
+				.luigi-ac-others {
+					order: 2;
+					padding-bottom: 80px;
+				}
+			}
+		}
 	}
 }

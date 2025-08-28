@@ -678,6 +678,7 @@ body #header .navigation-wrapper .header-top .search form fieldset {
         -ms-flex-pack: center;
             justify-content: center;
     cursor: pointer;
+    position: initial;
   }
 }
 body #header .navigation-wrapper .header-top .search form fieldset::before {
@@ -9657,4 +9658,156 @@ body.sticky-header-off .messages > * {
 }
 .in-index .hodnoceni-obchodu-section .load-next-wrap a:hover, .in-index .hodnoceni-obchodu-section .load-next-wrap a:focus-within {
   color: var(--color-primary-hover);
+}
+
+@media screen and (max-width: 767px) {
+  body.custom-search-active {
+    overflow-y: hidden;
+    position: relative;
+  }
+  body.custom-search-active input[type=search] {
+    z-index: 9999 !important;
+  }
+  body.custom-search-active input[type=search].active {
+    display: block !important;
+    position: fixed !important;
+    left: calc(var(--padding-sides) + 5%) !important;
+    top: 40px !important;
+    background: var(--color-white) !important;
+    font-size: var(--fs-16) !important;
+    padding: 1em 0.5em !important;
+    width: calc(100% - var(--padding-sides) * 2 - 10%) !important;
+    border-style: solid;
+    border-color: var(--color-black-o-60);
+    border-width: 1px;
+  }
+  body.custom-search-active input[type=search]:focus {
+    border-color: var(--color-primary);
+    border-width: 2px;
+  }
+  body.custom-search-active #header::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-black-o-60);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    pointer-events: auto;
+  }
+  body.custom-search-active .luigi-ac {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    left: 0;
+    padding-bottom: 0;
+    margin-top: 15px !important;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-ribbon {
+    display: none;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    grid-template-columns: 1fr;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-width: 100%;
+    height: auto !important;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product {
+    height: auto !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-description {
+    margin: 0 10px;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-image img {
+    max-width: 400px;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-price {
+    margin-top: 0 !important;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-name {
+    white-space: normal;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-action-primary {
+    width: 100%;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main {
+    margin-top: 20px !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-header {
+    grid-column: 1/-1;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main > a:last-of-type {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-name {
+    white-space: normal;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-product {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0 !important;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+    max-height: none !important;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image img {
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    padding: 10% !important;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-text .luigi-ac-name {
+    padding-top: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero {
+    bottom: calc(5.5em + 5px);
+    right: 14px !important;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-price {
+    margin: 0 !important;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block {
+    grid-column: 1/-1;
+    margin-bottom: 20px !important;
+  }
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-others {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    padding-bottom: 80px;
+  }
 }

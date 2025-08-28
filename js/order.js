@@ -217,6 +217,20 @@ if (body.classList.contains("id--17")) {
 			boxBilling.appendChild(anotherShipping);
 		}
 		boxContact.appendChild(boxAdditional);
+
+		if (boxBilling) {
+			let billingAddressH4 = boxBilling.querySelector("h4");
+
+			if (csLang) {
+				billingAddressH4.textContent = "Doručovací a fakturační adresa";
+			}
+			if (skLang) {
+				billingAddressH4.textContent = "Doručovacia a fakturačná adresa";
+			}
+			if (plLang) {
+				billingAddressH4.textContent = "Adresy dostawy i fakturowania";
+			}
+		}
 	} catch (error) {
 		console.error("There has been a problem with your query:", error);
 	}

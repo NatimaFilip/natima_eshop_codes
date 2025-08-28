@@ -3310,3 +3310,44 @@ function reviewSlider(reviewBlock) {
 
 	reviewBlock.classList.add("carousel-sliding-added");
 }
+
+/*-------------------------------------------------- LUPA NA MOBILU VYHLEDEAVANI*/
+let searchElement = document.querySelector("#header .search");
+const searchInput = document.querySelector("#header .search .search-input");
+
+if (searchInput) {
+	searchElement.addEventListener("click", (e) => {
+		if (e.target !== searchInput) {
+			searchInput.classList.toggle("active");
+			if (searchInput.classList.contains("active")) {
+				body.classList.add("custom-search-active");
+				searchInput.focus();
+				setTimeout(() => {
+					function outsideClickHandler(f) {
+						const luigiAc = document.querySelector(".luigi-ac");
+						const luigiAcClose = document.querySelector(".luigi-ac-close");
+						if (f.target == luigiAcClose) {
+							searchInput.classList.remove("active");
+							document.removeEventListener("click", outsideClickHandler);
+							body.classList.remove("custom-search-active");
+						}
+						if (f.target !== searchInput && (!luigiAc || !luigiAc.contains(f.target))) {
+							searchInput.classList.remove("active");
+							document.removeEventListener("click", outsideClickHandler);
+							body.classList.remove("custom-search-active");
+						}
+					}
+					document.addEventListener("click", outsideClickHandler);
+				}, 200);
+			}
+		}
+	});
+}
+
+let luigiHero = document.querySelector(".luigi-ac-hero");
+
+if (searchElement && searchInput) {
+	searchElement.addEventListener("click", function () {
+		luigiHero.classList.toggle("active");
+	});
+}
