@@ -149,6 +149,7 @@ $desktop-large-min: 1680px;
 		grid-template-columns: 69% 1fr;
 		position: relative;
 		align-items: start;
+		column-gap: 45px;
 
 		@media screen and (max-width: 1350px) {
 			display: flex;
@@ -163,7 +164,7 @@ $desktop-large-min: 1680px;
 		> div:not(.sidebar-in-cart) {
 			display: flex;
 			flex-direction: column;
-			margin-right: 45px;
+
 			@media screen and (max-width: $tablet-medium-min) {
 				margin-right: 0;
 			}
@@ -623,6 +624,7 @@ $desktop-large-min: 1680px;
 					gap: 0.2em;
 					&:after {
 						margin-left: 8px;
+						order: 3;
 					}
 				}
 				.next-step-back {
@@ -1197,11 +1199,6 @@ $desktop-large-min: 1680px;
 			font-weight: var(--fw-700);
 		}
 	}
-	.co-contact-information {
-		.country-flags {
-			display: none;
-		}
-	}
 
 	input[type="checkbox"] {
 		appearance: none;
@@ -1335,8 +1332,10 @@ $desktop-large-min: 1680px;
 			color: var(--color-red-400);
 			grid-row: 1;
 			grid-column: 1/-1;
-			text-align: right;
-			padding-right: 10%;
+			text-align: left;
+			margin-left: 10px;
+			margin-bottom: -10px;
+			padding-left: 33.33%;
 		}
 		.js-validated-element-wrapper:has(.msg-error) input {
 			outline: solid 2px var(--color-red-400);
@@ -1354,6 +1353,22 @@ $desktop-large-min: 1680px;
 
 		textarea {
 			width: 100%;
+		}
+		.country-flag {
+			display: none;
+			width: 18px;
+			height: 18px;
+			svg {
+				width: 18px;
+				height: 18px;
+			}
+			.shp-flag-name {
+				display: none;
+			}
+
+			&.selected {
+				display: flex;
+			}
 		}
 	}
 	#checkoutSidebar {

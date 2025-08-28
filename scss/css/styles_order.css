@@ -56,6 +56,9 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
+  -webkit-column-gap: 45px;
+     -moz-column-gap: 45px;
+          column-gap: 45px;
 }
 @media screen and (max-width: 1350px) {
   .ordering-process .cart-row {
@@ -83,7 +86,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-right: 45px;
 }
 @media screen and (max-width: 1024px) {
   .ordering-process .cart-row > div:not(.sidebar-in-cart) {
@@ -733,6 +735,9 @@
 .ordering-process .cart-row .sidebar-in-cart .next-step .next-step-finish:after,
 .ordering-process .cart-row #checkoutSidebar .next-step .next-step-finish:after {
   margin-left: 8px;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
 }
 .ordering-process .cart-row .sidebar-in-cart .next-step .next-step-back,
 .ordering-process .cart-row #checkoutSidebar .next-step .next-step-back {
@@ -1459,10 +1464,6 @@
 .ordering-process.id--17 .recap-wrapper .cart-item-price {
   font-weight: var(--fw-700);
 }
-.ordering-process.id--16 .co-contact-information .country-flags,
-.ordering-process.id--17 .co-contact-information .country-flags {
-  display: none;
-}
 .ordering-process.id--16 input[type=checkbox],
 .ordering-process.id--17 input[type=checkbox] {
   -webkit-appearance: none;
@@ -1598,8 +1599,10 @@
   color: var(--color-red-400);
   grid-row: 1;
   grid-column: 1/-1;
-  text-align: right;
-  padding-right: 10%;
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: -10px;
+  padding-left: 33.33%;
 }
 .ordering-process.id--17 #checkoutContent .js-validated-element-wrapper:has(.msg-error) input {
   outline: solid 2px var(--color-red-400);
@@ -1616,6 +1619,23 @@
 }
 .ordering-process.id--17 #checkoutContent textarea {
   width: 100%;
+}
+.ordering-process.id--17 #checkoutContent .country-flag {
+  display: none;
+  width: 18px;
+  height: 18px;
+}
+.ordering-process.id--17 #checkoutContent .country-flag svg {
+  width: 18px;
+  height: 18px;
+}
+.ordering-process.id--17 #checkoutContent .country-flag .shp-flag-name {
+  display: none;
+}
+.ordering-process.id--17 #checkoutContent .country-flag.selected {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .ordering-process.id--17 #checkoutSidebar .cart-content {
   display: -webkit-box;
