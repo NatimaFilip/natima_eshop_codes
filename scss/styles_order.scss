@@ -8,6 +8,10 @@ $tablet-max: 1279px;
 $desktop-min: 1280px;
 $desktop-medium-min: 1440px;
 $desktop-large-min: 1680px;
+@mixin bottom-primary-shadow {
+	padding-bottom: 2px;
+	box-shadow: inset 0px -2px 0px var(--color-primary-500);
+}
 @mixin bottom-cta-shadow {
 	padding-bottom: 2px;
 	box-shadow: inset 0px -2px 0px var(--color-cta-600);
@@ -632,9 +636,8 @@ $desktop-large-min: 1680px;
 					gap: 10px;
 					justify-content: center;
 					align-items: center;
-					span {
-						text-decoration: underline;
-					}
+					text-decoration: underline;
+
 					&:before {
 						transform: rotate(180deg);
 						content: "";
@@ -907,6 +910,7 @@ $desktop-large-min: 1680px;
 			gap: 10px;
 			align-items: center;
 			font-weight: var(--fw-400);
+			font-size: var(--fs-13);
 			strong {
 				font-weight: var(--fw-400);
 			}
@@ -933,6 +937,7 @@ $desktop-large-min: 1680px;
 			display: flex;
 			align-items: center;
 			gap: 10px;
+			font-size: var(--fs-13);
 		}
 	}
 	#select-country-payment {
@@ -1287,14 +1292,34 @@ $desktop-large-min: 1680px;
 			padding: 0;
 			margin: 0;
 		}
+		.form-group:has(label[for="login"]) {
+			display: grid;
+			grid-template-columns: 33.33% max(45%, 300px);
+			margin-bottom: 8px;
+			a {
+				display: block;
+				width: 100%;
+				color: white;
+				background: var(--color-primary);
+				border-radius: var(--br-16);
+				@include bottom-primary-shadow;
+				padding: 1.25em 0.5em;
+				text-align: center;
+				&:hover,
+				&:focus {
+					background: var(--color-primary-hover);
+				}
+			}
+		}
 		.form-group {
 			display: flex;
 			gap: 10px;
 			align-items: center;
-			margin-bottom: 8px;
+			margin-bottom: 14px;
 			&.smart-label-wrapper {
 				display: grid;
 				grid-template-columns: 33.33% max(45%, 300px);
+				margin-bottom: 8px;
 
 				input,
 				select {
@@ -1412,6 +1437,35 @@ $desktop-large-min: 1680px;
 			gap: 8px;
 			@media screen and (max-width: $mobile-max) {
 				width: 100%;
+			}
+		}
+		.co-contact-information {
+			h4 {
+				&:before {
+					content: "";
+					width: 32px;
+					height: 32px;
+					display: block;
+					background: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_account.svg");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 80%;
+				}
+			}
+		}
+		.co-billing-address,
+		.co-shipping-address {
+			h4 {
+				&:before {
+					content: "";
+					width: 32px;
+					height: 32px;
+					display: block;
+					background: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_map_pin_primary.svg");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: contain;
+				}
 			}
 		}
 	}

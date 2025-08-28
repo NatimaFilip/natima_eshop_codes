@@ -751,9 +751,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.ordering-process .cart-row .sidebar-in-cart .next-step .next-step-back span,
-.ordering-process .cart-row #checkoutSidebar .next-step .next-step-back span {
   text-decoration: underline;
 }
 .ordering-process .cart-row .sidebar-in-cart .next-step .next-step-back:before,
@@ -1062,6 +1059,7 @@
       -ms-flex-align: center;
           align-items: center;
   font-weight: var(--fw-400);
+  font-size: var(--fs-13);
 }
 .ordering-process.id--16 #checkoutSidebar .order-summary-item.helper strong,
 .ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing-info strong,
@@ -1109,6 +1107,7 @@
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
+  font-size: var(--fs-13);
 }
 .ordering-process.id--16 #select-country-payment,
 .ordering-process.id--17 #select-country-payment {
@@ -1562,6 +1561,26 @@
   padding: 0;
   margin: 0;
 }
+.ordering-process.id--17 #checkoutContent .form-group:has(label[for=login]) {
+  display: grid;
+  grid-template-columns: 33.33% max(45%, 300px);
+  margin-bottom: 8px;
+}
+.ordering-process.id--17 #checkoutContent .form-group:has(label[for=login]) a {
+  display: block;
+  width: 100%;
+  color: white;
+  background: var(--color-primary);
+  border-radius: var(--br-16);
+  padding-bottom: 2px;
+  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
+          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding: 1.25em 0.5em;
+  text-align: center;
+}
+.ordering-process.id--17 #checkoutContent .form-group:has(label[for=login]) a:hover, .ordering-process.id--17 #checkoutContent .form-group:has(label[for=login]) a:focus {
+  background: var(--color-primary-hover);
+}
 .ordering-process.id--17 #checkoutContent .form-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1570,11 +1589,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper {
   display: grid;
   grid-template-columns: 33.33% max(45%, 300px);
+  margin-bottom: 8px;
 }
 .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper input,
 .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper select {
@@ -1705,6 +1725,27 @@
   .ordering-process.id--17 #checkoutContent .phone-combined-input {
     width: 100%;
   }
+}
+.ordering-process.id--17 #checkoutContent .co-contact-information h4:before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  display: block;
+  background: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_account.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+}
+.ordering-process.id--17 #checkoutContent .co-billing-address h4:before,
+.ordering-process.id--17 #checkoutContent .co-shipping-address h4:before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  display: block;
+  background: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_map_pin_primary.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .ordering-process.id--17 #checkoutSidebar .cart-content {
   display: -webkit-box;
