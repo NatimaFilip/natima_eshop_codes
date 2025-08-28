@@ -1998,7 +1998,12 @@ if (body.classList.contains("type-product")) {
 		}
 
 		if (productsAlternative) {
-			benefitBanner.insertAdjacentElement("beforebegin", productsAlternative);
+			let natiosBlockSelector = document.querySelector(".natios-brand-description-block-wrapper");
+			if (natiosBlockSelector) {
+				natiosBlockSelector.insertAdjacentElement("beforebegin", productsAlternative);
+			} else {
+				benefitBanner.insertAdjacentElement("beforebegin", productsAlternative);
+			}
 			const productsAlternativeTitle = document.createElement("p");
 			productsAlternativeTitle.className = "products-alternative-title";
 			if (csLang) {

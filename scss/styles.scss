@@ -7150,6 +7150,13 @@ body {
 				#ratingTab {
 					@include ratingTab-shopRating;
 					margin-bottom: var(--description-large-content-gap);
+					#ratingWrapper {
+						position: sticky;
+						top: calc(var(--gap-55) + 3em);
+						@media screen and (max-width: $tablet-max) {
+							position: initial;
+						}
+					}
 				}
 				.extended-description {
 					background: var(--color-gray-400);
@@ -7279,6 +7286,14 @@ body {
 			top: calc(
 				var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 2 * 16px + 1px + var(--gap-55) + 3em
 			) !important;
+		}
+		#ratingTab {
+			#ratingWrapper {
+				top: calc(
+					var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 2 * 16px + 1px + var(--gap-55) +
+						3em
+				) !important;
+			}
 		}
 	}
 	.products-related-header {
