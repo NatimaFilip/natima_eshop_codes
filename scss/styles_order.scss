@@ -868,25 +868,42 @@ $desktop-large-min: 1680px;
 		padding-bottom: 12px;
 		margin-bottom: 50px;
 		max-width: 100%;
-	}
-	.extra.gift {
 		display: flex;
 		gap: 5px;
 		max-width: 100%;
 		align-items: center;
-
 		&:before {
 			display: block;
 			content: "";
 			width: 24px;
 			height: 24px;
-			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_gift_primary.svg");
-			background-position: center;
-			background-repeat: no-repeat;
 			position: relative;
 			top: -3px;
 		}
 	}
+	.extra.delivery {
+		margin-bottom: 10px;
+		&:before {
+			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_delivery_primary.svg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			width: 20px;
+			height: 20px;
+			position: relative;
+			top: 0px;
+			margin-right: 5px;
+		}
+	}
+	.extra.gift {
+		&:before {
+			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_gift_primary.svg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+	}
+
 	.price-range {
 		position: absolute;
 		width: 100%;
