@@ -783,7 +783,9 @@
             align-items: flex-start;
   }
   .ordering-process .cart-row .sidebar-in-cart .next-step .next-step-forward,
-  .ordering-process .cart-row #checkoutSidebar .next-step .next-step-forward {
+  .ordering-process .cart-row .sidebar-in-cart .next-step .next-step-finish,
+  .ordering-process .cart-row #checkoutSidebar .next-step .next-step-forward,
+  .ordering-process .cart-row #checkoutSidebar .next-step .next-step-finish {
     width: 100%;
   }
   .ordering-process .cart-row .sidebar-in-cart .next-step .next-step-back,
@@ -1529,6 +1531,17 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+@media screen and (max-width: 1350px) {
+  .ordering-process.id--17 #checkoutContent .cart-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .ordering-process.id--17 #checkoutContent .cart-header {
   grid-column: 1/-1;
 }
@@ -1544,7 +1557,8 @@
   padding: 18px 21px 26px 16px;
 }
 .ordering-process.id--17 #checkoutContent .co-box-additional,
-.ordering-process.id--17 #checkoutContent .stay-in-touch {
+.ordering-process.id--17 #checkoutContent .stay-in-touch,
+.ordering-process.id--17 #checkoutContent fieldset {
   padding: 0;
   margin: 0;
 }
@@ -1560,16 +1574,29 @@
 }
 .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper {
   display: grid;
-  grid-template-columns: 33.33% 66.66%;
+  grid-template-columns: 33.33% max(45%, 300px);
 }
 .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper input,
 .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper select {
-  width: 90%;
-  max-width: 300px;
+  width: 100%;
 }
-.ordering-process.id--17 #checkoutContent .form-group.form-group-hasTooltip {
-  display: grid;
-  grid-template-columns: 33.33% 66.66%;
+@media screen and (max-width: 767px) {
+  .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 0;
+  }
+  .ordering-process.id--17 #checkoutContent .form-group.smart-label-wrapper label {
+    padding-top: 16px;
+  }
 }
 .ordering-process.id--17 #checkoutContent .form-group.form-group-hasTooltip label {
   grid-row: 1;
@@ -1600,9 +1627,9 @@
   grid-row: 1;
   grid-column: 1/-1;
   text-align: left;
-  margin-left: 10px;
   margin-bottom: -10px;
-  padding-left: 33.33%;
+  padding-right: 10px;
+  text-align: right;
 }
 .ordering-process.id--17 #checkoutContent .js-validated-element-wrapper:has(.msg-error) input {
   outline: solid 2px var(--color-red-400);
@@ -1622,20 +1649,62 @@
 }
 .ordering-process.id--17 #checkoutContent .country-flag {
   display: none;
-  width: 18px;
+  min-width: 18px;
   height: 18px;
-}
-.ordering-process.id--17 #checkoutContent .country-flag svg {
-  width: 18px;
-  height: 18px;
-}
-.ordering-process.id--17 #checkoutContent .country-flag .shp-flag-name {
-  display: none;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .ordering-process.id--17 #checkoutContent .country-flag.selected {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+.ordering-process.id--17 #checkoutContent .country-flag:not(.country-flag-CZ) {
+  position: relative;
+}
+.ordering-process.id--17 #checkoutContent .country-flag:not(.country-flag-CZ)::after {
+  content: "Pro doručení zásilky je nutno zadat české číslo, jinak nebude možno zásilku odeslat.";
+  display: block;
+  font-size: var(--fs-16);
+  position: absolute;
+  left: 0;
+  top: -20px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  background: white;
+  border-style: solid;
+  border-color: var(--color-red-400);
+  border-radius: var(--br-16);
+  border-width: 1px;
+  width: 18em;
+  padding: 10px;
+}
+.ordering-process.id--17 #checkoutContent .country-flag svg {
+  min-width: 18px;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+.ordering-process.id--17 #checkoutContent .shp-flag-name {
+  display: none;
+}
+.ordering-process.id--17 #checkoutContent .js-phone-code {
+  display: none;
+}
+.ordering-process.id--17 #checkoutContent .phone-combined-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+@media screen and (max-width: 767px) {
+  .ordering-process.id--17 #checkoutContent .phone-combined-input {
+    width: 100%;
+  }
 }
 .ordering-process.id--17 #checkoutSidebar .cart-content {
   display: -webkit-box;

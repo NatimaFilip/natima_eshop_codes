@@ -652,7 +652,8 @@ $desktop-large-min: 1680px;
 					flex-direction: column-reverse;
 					gap: 15px;
 					align-items: flex-start;
-					.next-step-forward {
+					.next-step-forward,
+					.next-step-finish {
 						width: 100%;
 					}
 					.next-step-back {
@@ -1261,6 +1262,10 @@ $desktop-large-min: 1680px;
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			gap: 20px;
+			@media screen and (max-width: 1350px) {
+				display: flex;
+				flex-direction: column;
+			}
 		}
 		.cart-header {
 			grid-column: 1/-1;
@@ -1277,7 +1282,8 @@ $desktop-large-min: 1680px;
 			padding: 18px 21px 26px 16px;
 		}
 		.co-box-additional,
-		.stay-in-touch {
+		.stay-in-touch,
+		fieldset {
 			padding: 0;
 			margin: 0;
 		}
@@ -1288,18 +1294,23 @@ $desktop-large-min: 1680px;
 			margin-bottom: 8px;
 			&.smart-label-wrapper {
 				display: grid;
-				grid-template-columns: 33.33% 66.66%;
-				label {
-				}
+				grid-template-columns: 33.33% max(45%, 300px);
+
 				input,
 				select {
-					width: 90%;
-					max-width: 300px;
+					width: 100%;
+				}
+				@media screen and (max-width: $mobile-max) {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 0;
+					label {
+						padding-top: 16px;
+					}
 				}
 			}
 			&.form-group-hasTooltip {
-				display: grid;
-				grid-template-columns: 33.33% 66.66%;
 				label {
 					grid-row: 1;
 					grid-column: 1;
@@ -1333,9 +1344,10 @@ $desktop-large-min: 1680px;
 			grid-row: 1;
 			grid-column: 1/-1;
 			text-align: left;
-			margin-left: 10px;
+
 			margin-bottom: -10px;
-			padding-left: 33.33%;
+			padding-right: 10px;
+			text-align: right;
 		}
 		.js-validated-element-wrapper:has(.msg-error) input {
 			outline: solid 2px var(--color-red-400);
@@ -1356,18 +1368,50 @@ $desktop-large-min: 1680px;
 		}
 		.country-flag {
 			display: none;
-			width: 18px;
+			min-width: 18px;
 			height: 18px;
-			svg {
-				width: 18px;
-				height: 18px;
-			}
-			.shp-flag-name {
-				display: none;
-			}
-
+			width: max-content;
 			&.selected {
 				display: flex;
+			}
+			&:not(.country-flag-CZ) {
+				position: relative;
+				&::after {
+					content: "Pro doručení zásilky je nutno zadat české číslo, jinak nebude možno zásilku odeslat.";
+					display: block;
+					font-size: var(--fs-16);
+					position: absolute;
+					left: 0;
+					top: -20px;
+					transform: translateY(-100%);
+					background: white;
+					border-style: solid;
+					border-color: var(--color-red-400);
+					border-radius: var(--br-16);
+					border-width: 1px;
+					width: 18em;
+					padding: 10px;
+				}
+			}
+			svg {
+				min-width: 18px;
+				width: 18px;
+				height: 18px;
+				margin-right: 5px;
+			}
+		}
+		.shp-flag-name {
+			display: none;
+		}
+		.js-phone-code {
+			display: none;
+		}
+		.phone-combined-input {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			@media screen and (max-width: $mobile-max) {
+				width: 100%;
 			}
 		}
 	}
@@ -1382,6 +1426,7 @@ $desktop-large-min: 1680px;
 				order: 2;
 				padding-bottom: 25px;
 			}
+
 			* {
 				order: 3;
 			}
