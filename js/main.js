@@ -1115,6 +1115,10 @@ document.addEventListener("ShoptetDOMContentLoaded", function (event) {
 	actionPriceToFinalPriceAndReviewsNumber();
 	measureUnitFromAppendixProducts();
 });
+document.addEventListener("luigiSearchDone", function (event) {
+	actionPriceToFinalPriceAndReviewsNumber();
+	measureUnitFromAppendixProducts();
+});
 /*---------ACTION PRICE AND REVIEWS NUMBER*/
 
 actionPriceToFinalPriceAndReviewsNumber();
@@ -3339,15 +3343,10 @@ if (searchInput) {
 						}
 					}
 					document.addEventListener("click", outsideClickHandler);
-
-					// Remove class and listener on Enter key
-					searchInput.addEventListener("keydown", function onEnter(e) {
-						if (e.key === "Enter") {
-							searchInput.classList.remove("active");
-							body.classList.remove("custom-search-active");
-							document.removeEventListener("click", outsideClickHandler);
-							searchInput.removeEventListener("keydown", onEnter);
-						}
+					document.addEventListener("luigiSearchDone", function () {
+						searchInput.classList.remove("active");
+						body.classList.remove("custom-search-active");
+						document.removeEventListener("click", outsideClickHandler);
 					});
 				}, 200);
 			}
