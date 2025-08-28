@@ -1232,8 +1232,10 @@ function measureUnitFromAppendixProducts() {
 			pricePerUnit_ValueSpan.textContent =
 				pricePerUnit_Value.toFixed(2).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
 
-			prices.appendChild(pricePerUnitDiv);
-			pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
+			if (prices && pricePerUnitDiv) {
+				prices.appendChild(pricePerUnitDiv);
+				pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
+			}
 
 			// Remove "Množství ...;" from the text
 			appendixText = appendixText.replace(/Množství:\s*[^;]+;/, "").trim();
@@ -3355,9 +3357,42 @@ if (searchInput) {
 }
 
 let luigiHero = document.querySelector(".luigi-ac-hero");
-
 if (searchElement && searchInput) {
 	searchElement.addEventListener("click", function () {
-		luigiHero.classList.toggle("active");
+		if (luigiHero) {
+			luigiHero.classList.toggle("active");
+		}
 	});
 }
+
+document.addEventListener("luigiSearchDone", function () {
+	addSwapImageLuigi();
+	function addSwapImageLuigi() {
+		let lbResults = document.querySelector("#lb-results");
+		console.log(lbResults);
+		if (!lbResults) {
+			return;
+		}
+		let luigiProducts = lbResults.querySelectorAll(".product");
+		if (!luigiProducts || luigiProducts.length < 1) {
+			return;
+		}
+
+		luigiProducts.forEach((product) => {
+			let swapImage = product.querySelector(".swap-image");
+			if (!swapImage) {
+				return;
+			}
+			let mainImage = swapImage.src;
+			let nextImage = swapImage.getAttribute("data-next");
+			if (mainImage && nextImage) {
+				product.addEventListener("mouseenter", function () {
+					swapImage.src = nextImage;
+				});
+				product.addEventListener("mouseleave", function () {
+					swapImage.src = mainImage;
+				});
+			}
+		});
+	}
+});

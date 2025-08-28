@@ -727,6 +727,7 @@ $desktop-large-min: 1680px;
 			overflow: hidden;
 
 			.item {
+				user-select: none;
 				flex-basis: 25%;
 				flex-shrink: 0;
 				@include banner-item-preset;
@@ -1012,7 +1013,7 @@ $desktop-large-min: 1680px;
 			top: 35%;
 		}
 	}
-	.products-block {
+	.products-block:not(.products-block-luigi) {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
