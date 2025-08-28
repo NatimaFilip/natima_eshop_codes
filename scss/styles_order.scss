@@ -156,6 +156,8 @@ $desktop-large-min: 1680px;
 		}
 		> * {
 			max-width: 100%;
+			flex-grow: 1;
+			width: 100%;
 		}
 
 		> div:not(.sidebar-in-cart) {
@@ -584,7 +586,8 @@ $desktop-large-min: 1680px;
 				align-items: center;
 				flex-wrap: wrap;
 
-				.next-step-forward {
+				.next-step-forward,
+				.next-step-finish {
 					width: 50%;
 					background: var(--color-secondary);
 					color: var(--color-white);
@@ -614,8 +617,15 @@ $desktop-large-min: 1680px;
 						background: var(--color-secondary-hover);
 					}
 				}
+				.next-step-finish {
+					width: 70%;
+					min-width: max-content;
+					gap: 0.2em;
+					&:after {
+						margin-left: 8px;
+					}
+				}
 				.next-step-back {
-					min-width: 5em;
 					display: flex;
 					gap: 10px;
 					justify-content: center;
@@ -878,13 +888,16 @@ $desktop-large-min: 1680px;
 	}
 }
 
-.ordering-process.id--16 {
+.ordering-process.id--16,
+.ordering-process.id--17 {
 	#checkoutSidebar {
 		position: initial !important;
 		margin-top: 20px;
 		flex-shrink: 1;
+
 		.order-summary-item.helper,
-		.recapitulation-shipping-billing-info {
+		.recapitulation-shipping-billing-info,
+		.recapitulation-single > strong {
 			display: flex;
 			justify-content: space-between;
 			padding-bottom: 8px;
@@ -895,10 +908,14 @@ $desktop-large-min: 1680px;
 				font-weight: var(--fw-400);
 			}
 		}
-		.recapitulation-shipping-billing-info {
+		.recapitulation-single .recapitulation-shipping-billing-info {
 			flex-direction: row-reverse;
 		}
-		.recapitulation-shipping-billing-label {
+		.recapitulation-single > strong {
+			flex-direction: row;
+		}
+		.recapitulation-shipping-billing-label,
+		.recapitulation-single > span {
 			display: none;
 		}
 		.price-wrapper {
@@ -908,14 +925,17 @@ $desktop-large-min: 1680px;
 			border-color: var(--color-gray-500);
 			padding-top: 20px;
 		}
+		.consents {
+			padding-bottom: 15px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
 	}
 	#select-country-payment {
 		display: none;
 	}
 	.cart-row {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
 		column-gap: 20px;
 		> * {
 			margin-right: 0 !important;
@@ -923,6 +943,7 @@ $desktop-large-min: 1680px;
 	}
 	#checkoutContent {
 		width: 100%;
+		grid-column: 1/-1;
 	}
 	#order-form {
 		display: grid;
@@ -931,7 +952,7 @@ $desktop-large-min: 1680px;
 		@media screen and (max-width: $tablet-max) {
 			grid-template-columns: 1fr;
 		}
-		> .box {
+		.box {
 			background: var(--color-gray-400);
 			border-radius: var(--br-16);
 			padding: 18px 21px 26px 16px;
@@ -947,28 +968,31 @@ $desktop-large-min: 1680px;
 
 			gap: 10px;
 
-			&::before {
-				content: "";
-				width: 34px;
-				height: 34px;
+			&.order-icon {
+				&::before {
+					content: "";
+					width: 34px;
+					height: 34px;
 
-				display: inline-block;
-				position: relative;
-			}
-			&.order-delivery {
-				&::before {
-					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_delivery_thin_primary.svg");
-					background-position: center;
-					background-repeat: no-repeat;
-					background-size: contain;
+					display: inline-block;
+					position: relative;
 				}
-			}
-			&.order-payment {
-				&::before {
-					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_payment_thin_primary.svg");
-					background-position: center;
-					background-repeat: no-repeat;
-					background-size: contain;
+
+				&.order-delivery {
+					&::before {
+						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_delivery_thin_primary.svg");
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: contain;
+					}
+				}
+				&.order-payment {
+					&::before {
+						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_payment_thin_primary.svg");
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: contain;
+					}
 				}
 			}
 		}
@@ -1171,6 +1195,181 @@ $desktop-large-min: 1680px;
 		}
 		.cart-item-price {
 			font-weight: var(--fw-700);
+		}
+	}
+	.co-contact-information {
+		.country-flags {
+			display: none;
+		}
+	}
+
+	input[type="checkbox"] {
+		appearance: none;
+		--box-width: 20px;
+		--box-radius: 6px;
+		display: flex;
+		align-items: center;
+		min-height: var(--box-width);
+		cursor: pointer;
+		position: relative;
+		margin: 0;
+		padding: 0;
+		border-style: none;
+		outline: none;
+
+		&::before {
+			content: "";
+			margin: 0;
+			width: var(--box-width);
+			min-width: var(--box-width);
+			height: var(--box-width);
+			border-radius: var(--box-radius);
+			border-style: solid;
+			border-width: 1px;
+			border-color: var(--color-primary);
+			outline-style: none;
+			background: transparent;
+		}
+		&:checked {
+			&::before {
+				background: var(--color-primary);
+				border-color: var(--color-primary);
+			}
+		}
+		&:checked {
+			&::after {
+				content: "";
+				margin: 0;
+				width: calc(var(--box-width) / 2);
+				height: var(--box-width);
+				background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_check_white.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				position: absolute;
+				left: 0;
+				top: 1px;
+				transform: translateX(50%);
+			}
+		}
+	}
+}
+
+.ordering-process.id--17 {
+	#order-form {
+		display: block;
+	}
+	#checkoutContent {
+		.cart-content {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 20px;
+		}
+		.cart-header {
+			grid-column: 1/-1;
+		}
+		#shipping-address {
+			grid-column: 2;
+		}
+		.box {
+			padding: 0;
+		}
+		.co-box {
+			background: var(--color-gray-400);
+			border-radius: var(--br-16);
+			padding: 18px 21px 26px 16px;
+		}
+		.co-box-additional,
+		.stay-in-touch {
+			padding: 0;
+			margin: 0;
+		}
+		.form-group {
+			display: flex;
+			gap: 10px;
+			align-items: center;
+			margin-bottom: 8px;
+			&.smart-label-wrapper {
+				display: grid;
+				grid-template-columns: 33.33% 66.66%;
+				label {
+				}
+				input,
+				select {
+					width: 90%;
+					max-width: 300px;
+				}
+			}
+			&.form-group-hasTooltip {
+				display: grid;
+				grid-template-columns: 33.33% 66.66%;
+				label {
+					grid-row: 1;
+					grid-column: 1;
+					text-decoration: underline;
+					text-decoration-style: dashed;
+				}
+				.show-tooltip {
+					grid-row: 1;
+					grid-column: 1;
+					width: 100%;
+					opacity: 0;
+				}
+				.vatId-description {
+					display: none;
+				}
+			}
+		}
+		.co-shipping-address {
+			> .form-group {
+				display: none;
+			}
+		}
+		.js-hidden {
+			display: none;
+		}
+		.js-hidden.visible {
+			display: block;
+		}
+		.js-validator-msg.msg-error {
+			color: var(--color-red-400);
+			grid-row: 1;
+			grid-column: 1/-1;
+			text-align: right;
+			padding-right: 10%;
+		}
+		.js-validated-element-wrapper:has(.msg-error) input {
+			outline: solid 2px var(--color-red-400);
+		}
+		.required-asterisk {
+			position: relative;
+			&::after {
+				content: "*";
+				color: var(--color-red-400);
+				position: absolute;
+				right: -0.75em;
+				top: 0;
+			}
+		}
+
+		textarea {
+			width: 100%;
+		}
+	}
+	#checkoutSidebar {
+		.cart-content {
+			display: flex;
+			flex-direction: column;
+			.order-summary {
+				order: 1;
+			}
+			.next-step {
+				order: 2;
+				padding-bottom: 25px;
+			}
+			* {
+				order: 3;
+			}
 		}
 	}
 }

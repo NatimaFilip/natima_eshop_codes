@@ -195,23 +195,54 @@ if (body.classList.contains("id--16")) {
 	}
 
 	rearangeRecap();
-	function rearangeRecap() {
-		let checkoutSidebar = document.querySelector("#checkoutSidebar");
+	fetchImagesOfProductsInCart();
+}
 
-		if (!checkoutSidebar) return;
+if (body.classList.contains("id--17")) {
+	rearangeRecap();
+	fetchImagesOfProductsInCart();
 
-		recapTitle = checkoutSidebar.querySelector("h4");
-		cartItems = checkoutSidebar.querySelectorAll(".cart-items");
-		const recapWrapper = document.createElement("div");
-		recapWrapper.classList.add("recap-wrapper");
+	try {
+		let boxContact = document.querySelector(".co-contact-information");
+		let boxBilling = document.querySelector(".co-billing-address");
+		let boxDelivery = document.querySelector(".co-shipping-address");
+		let boxAdditional = document.querySelector(".co-box-additional");
+		let companyShopping = document.querySelector(".company-shopping");
+
+		boxBilling.appendChild(companyShopping);
+
+		const anotherShippingElem = boxDelivery.querySelector("#another-shipping");
+		if (anotherShippingElem) {
+			anotherShipping = anotherShippingElem.parentElement;
+			boxBilling.appendChild(anotherShipping);
+		}
+		boxContact.appendChild(boxAdditional);
+	} catch (error) {
+		console.error("There has been a problem with your query:", error);
+	}
+}
+
+function rearangeRecap() {
+	let checkoutSidebar = document.querySelector("#checkoutSidebar");
+
+	if (!checkoutSidebar) return;
+
+	recapTitle = checkoutSidebar.querySelector("h4");
+	cartItems = checkoutSidebar.querySelectorAll(".cart-items");
+	const recapWrapper = document.createElement("div");
+	recapWrapper.classList.add("recap-wrapper");
+	if (recapTitle) {
 		recapWrapper.appendChild(recapTitle);
+	}
+	if (cartItems) {
 		cartItems.forEach((item) => {
+			if (item.querySelector(".recapitulation-single")) {
+				return;
+			}
 			recapWrapper.appendChild(item);
 		});
 		checkoutSidebar.insertAdjacentElement("beforeBegin", recapWrapper);
 	}
-
-	fetchImagesOfProductsInCart();
 }
 
 async function fetchImagesOfProductsInCart() {

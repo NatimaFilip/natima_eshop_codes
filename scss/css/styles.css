@@ -229,7 +229,8 @@ select {
 }
 
 input,
-textarea {
+textarea,
+select {
   border-radius: var(--br-16);
   border-style: solid;
   border-width: 1px;
@@ -239,7 +240,8 @@ textarea {
   transition: border-color 0.2s ease-out;
 }
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   outline: solid 2px var(--color-primary);
 }
 
@@ -328,6 +330,10 @@ table {
 }
 
 .sr-only {
+  display: none;
+}
+
+.no-display {
   display: none;
 }
 
