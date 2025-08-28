@@ -84,6 +84,16 @@
 .in-index #carousel .carousel-control span {
   display: none;
 }
+@media screen and (max-width: 500px) {
+  .in-index #carousel .carousel-control.left {
+    top: 50%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .in-index #carousel .carousel-control.right {
+    top: 50%;
+  }
+}
 .in-index #carousel .carousel-inner {
   --padding-left: var(--gap-20);
   display: -webkit-box;
@@ -852,6 +862,7 @@
   margin-left: calc(-1 * var(--gap-20));
   overflow: hidden;
   margin-bottom: 60px;
+  margin-right: 0;
 }
 @media screen and (max-width: 1024px) {
   .in-index .products-block {

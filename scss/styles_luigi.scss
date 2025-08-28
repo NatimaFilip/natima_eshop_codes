@@ -37,6 +37,8 @@ $desktop-large-min: 1680px;
 }
 
 .luigi-ac {
+	width: 1020px !important;
+	max-width: 100% !important;
 	.luigi-ac-ribbon,
 	.luigi-ac-caret {
 		display: none;
@@ -55,9 +57,19 @@ $desktop-large-min: 1680px;
 			color: var(--color-white) !important;
 		}
 	}
+	.luigi-ac-inner {
+		border-radius: 0 0 var(--br-12) var(--br-12);
+		overflow: hidden;
+		box-shadow: 0px 4px 12px 2px rgba(0, 0, 0, 0.2);
+	}
 
 	.luigi-ac-others {
 		height: auto !important;
+		border-style: none !important;
+		@media screen and (max-width: 1020px) {
+			order: 3;
+			padding-bottom: 40px !important;
+		}
 	}
 
 	.luigi-ac-image {
@@ -81,6 +93,7 @@ $desktop-large-min: 1680px;
 	}
 
 	.luigi-ac-products {
+		border-style: none !important;
 		display: grid !important;
 		grid-template-columns: 40% 1fr;
 		align-content: stretch;
@@ -94,6 +107,7 @@ $desktop-large-min: 1680px;
 			}
 			.luigi-ac-product {
 				padding: 0 10px;
+				flex-direction: column !important;
 			}
 			.luigi-ac-action-primary {
 				position: relative;
@@ -102,7 +116,7 @@ $desktop-large-min: 1680px;
 				border-radius: var(--br-16);
 				margin-top: auto !important;
 				.luigi-ac-button-block {
-					margin-bottom: 10px !important;
+					margin-bottom: 20px !important;
 				}
 
 				.luigi-ac-button-action {
@@ -169,6 +183,7 @@ $desktop-large-min: 1680px;
 			}
 			.luigi-ac-name {
 				font-size: var(--fs-13) !important;
+				white-space: normal;
 			}
 			.luigi-ac-header {
 				padding-left: 8px;
@@ -234,6 +249,17 @@ $desktop-large-min: 1680px;
 			}
 		}
 	}
+	.luigi-ac-close {
+		top: 10px !important;
+		width: 26px !important;
+		height: 26px !important;
+
+		&:before,
+		&:after {
+			background: var(--color-red-400) !important;
+			height: 2px !important;
+		}
+	}
 }
 
 @media screen and (max-width: $mobile-max) {
@@ -247,7 +273,7 @@ $desktop-large-min: 1680px;
 				display: block !important;
 				position: fixed !important;
 				left: calc(var(--padding-sides) + 5%) !important;
-				top: 40px !important;
+				top: 50px !important;
 				background: var(--color-white) !important;
 				font-size: var(--fs-16) !important;
 				padding: 1em 0.5em !important;
@@ -279,12 +305,14 @@ $desktop-large-min: 1680px;
 			}
 		}
 		.luigi-ac {
+			border-radius: var(--br-12);
 			position: fixed;
 			z-index: 10000; // Higher than ::before
 			width: 100%;
 			left: 0;
 			padding-bottom: 0;
-			margin-top: 15px !important;
+			padding-top: 0;
+			margin-top: 25px !important;
 
 			.luigi-ac-inner {
 				.luigi-ac-products {
@@ -294,6 +322,9 @@ $desktop-large-min: 1680px;
 						flex-direction: column;
 						max-width: 100%;
 						height: auto !important;
+						.luigi-ac-header {
+							margin-top: 20px !important;
+						}
 						.luigi-ac-product {
 							height: auto !important;
 							flex-direction: column;
@@ -302,15 +333,13 @@ $desktop-large-min: 1680px;
 							}
 							.luigi-ac-image {
 								img {
-									max-width: 400px;
+									max-width: 100%;
 								}
 							}
 							.luigi-ac-price {
 								margin-top: 0 !important;
 							}
-							.luigi-ac-name {
-								white-space: normal;
-							}
+
 							.luigi-ac-action-primary {
 								width: 100%;
 							}
@@ -321,15 +350,14 @@ $desktop-large-min: 1680px;
 						display: grid;
 						grid-template-columns: 1fr 1fr;
 						gap: 10px;
+						padding-bottom: 20px;
 						.luigi-ac-header {
 							grid-column: 1 / -1;
 						}
 						> a:last-of-type {
 							display: flex !important;
 						}
-						.luigi-ac-name {
-							white-space: normal;
-						}
+
 						.luigi-ac-product {
 							display: flex;
 							flex-direction: column;
@@ -350,13 +378,14 @@ $desktop-large-min: 1680px;
 							.luigi-ac-name {
 								padding-top: 5px;
 								display: -webkit-box;
-								-webkit-line-clamp: 3;
+								-webkit-line-clamp: 2;
 								-webkit-box-orient: vertical;
 								overflow: hidden;
+								height: 3em;
 							}
 						}
 						.luigi-ac-action-hero {
-							bottom: calc(5.5em + 5px);
+							bottom: calc(3.9em + 5px);
 							right: 14px !important;
 						}
 						.luigi-ac-price {
@@ -370,8 +399,106 @@ $desktop-large-min: 1680px;
 				}
 				.luigi-ac-others {
 					order: 2;
+
 					padding-bottom: 80px;
 				}
+			}
+		}
+	}
+}
+
+#lb-search-element {
+	.lb-search__body {
+		margin-top: 0;
+		border-style: none;
+		.lb-container {
+			display: grid;
+			grid-template-columns: 1fr 5fr;
+			.lb-search__aside {
+				width: 90% !important;
+				max-width: 248px;
+				padding: 0;
+				background-color: transparent;
+			}
+			.lb-aside-border {
+				border-style: none;
+			}
+			.lb-search__main {
+				width: 100% !important;
+				padding: 0 !important;
+				h1 {
+					padding-top: 0;
+					margin-bottom: 15px;
+				}
+				.lb-quick-searches__headings {
+					border-style: none;
+				}
+				.lb-sorts {
+					select {
+						width: auto;
+						border-style: none;
+						text-align: right;
+						padding-right: 10px;
+					}
+				}
+				.lb-quick-search-default__list {
+					border-style: none;
+					margin: 0;
+					padding: 20px 0;
+					gap: var(--gap-10);
+					font-size: var(--fs-13);
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					@media screen and (min-width: calc($tablet-min )) {
+						grid-template-columns: repeat(3, 1fr);
+					}
+					> a {
+						width: 100% !important;
+						border-style: none !important;
+						background-color: var(--color-gray-400);
+						border-radius: var(--br-8);
+						padding: 0.77em 1.5em 0.77em 0.77em !important;
+						@media screen and (min-width: $desktop-min) {
+							border-radius: var(--br-16);
+							padding: 0.75em 2em 0.75em 1em !important;
+						}
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						gap: clamp(0.25em, 10%, 1.5em);
+						&:after {
+							display: none;
+						}
+						.lb-quick-search-default__item-image-wrapper {
+							img {
+								width: auto !important;
+								max-width: 40px;
+								max-height: 40px;
+								@media screen and (min-width: $desktop-min) {
+									max-width: 56px;
+									max-height: 56px;
+								}
+							}
+						}
+						.lb-quick-search-default__item-title {
+							font-size: 1em;
+							color: var(--color-black);
+							max-width: 12em;
+							font-weight: var(--fw-400);
+							text-wrap: balance;
+							padding: 0;
+							line-height: var(--lh-1-4);
+						}
+						&:hover,
+						&:focus-within {
+							outline: solid 2px var(--color-primary);
+							background-color: var(--color-gray-200);
+						}
+					}
+				}
+			}
+			.lb-product {
+				padding: 0;
 			}
 		}
 	}

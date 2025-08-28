@@ -3326,7 +3326,8 @@ if (searchInput) {
 					function outsideClickHandler(f) {
 						const luigiAc = document.querySelector(".luigi-ac");
 						const luigiAcClose = document.querySelector(".luigi-ac-close");
-						if (f.target == luigiAcClose) {
+						const luigiShowAll = document.querySelector(".luigi-ac-button-block--show-all .luigi-ac-button");
+						if (f.target == luigiAcClose || f.target == luigiShowAll) {
 							searchInput.classList.remove("active");
 							document.removeEventListener("click", outsideClickHandler);
 							body.classList.remove("custom-search-active");
@@ -3338,6 +3339,16 @@ if (searchInput) {
 						}
 					}
 					document.addEventListener("click", outsideClickHandler);
+
+					// Remove class and listener on Enter key
+					searchInput.addEventListener("keydown", function onEnter(e) {
+						if (e.key === "Enter") {
+							searchInput.classList.remove("active");
+							body.classList.remove("custom-search-active");
+							document.removeEventListener("click", outsideClickHandler);
+							searchInput.removeEventListener("keydown", onEnter);
+						}
+					});
 				}, 200);
 			}
 		}

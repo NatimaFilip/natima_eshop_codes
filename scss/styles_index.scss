@@ -705,6 +705,16 @@ $desktop-large-min: 1680px;
 
 		.carousel-control {
 			@include slider-controls;
+			&.left {
+				@media screen and (max-width: $large-mobile-min) {
+					top: 50%;
+				}
+			}
+			&.right {
+				@media screen and (max-width: $large-mobile-min) {
+					top: 50%;
+				}
+			}
 		}
 
 		.carousel-inner {
@@ -1010,6 +1020,7 @@ $desktop-large-min: 1680px;
 		margin-left: calc(-1 * var(--gap-20));
 		overflow: hidden;
 		margin-bottom: 60px;
+		margin-right: 0;
 		@media screen and (max-width: $tablet-medium-min) {
 			margin-left: calc(-1 * var(--gap-10));
 		}
