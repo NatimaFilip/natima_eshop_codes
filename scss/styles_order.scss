@@ -1100,8 +1100,11 @@ $desktop-large-min: 1680px;
 				flex: 1;
 				display: grid;
 				grid-template-columns: 90px 1fr 5.5em;
-				gap: 5px;
+				gap: 10px;
 				align-items: center;
+				@media screen and (max-width: $mobile-max) {
+					grid-template-columns: 70px 1fr;
+				}
 			}
 
 			.payment-info {
@@ -1122,6 +1125,7 @@ $desktop-large-min: 1680px;
 			}
 			.payment-logo {
 				grid-column: 1;
+				grid-row: 1;
 			}
 
 			.sublabel,

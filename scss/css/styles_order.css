@@ -1306,10 +1306,16 @@
           flex: 1;
   display: grid;
   grid-template-columns: 90px 1fr 5.5em;
-  gap: 5px;
+  gap: 10px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media screen and (max-width: 767px) {
+  .ordering-process.id--16 #order-form .radio-wrapper label,
+  .ordering-process.id--17 #order-form .radio-wrapper label {
+    grid-template-columns: 70px 1fr;
+  }
 }
 .ordering-process.id--16 #order-form .radio-wrapper .payment-info,
 .ordering-process.id--17 #order-form .radio-wrapper .payment-info {
@@ -1337,6 +1343,7 @@
 .ordering-process.id--16 #order-form .radio-wrapper .payment-logo,
 .ordering-process.id--17 #order-form .radio-wrapper .payment-logo {
   grid-column: 1;
+  grid-row: 1;
 }
 .ordering-process.id--16 #order-form .radio-wrapper .sublabel,
 .ordering-process.id--16 #order-form .radio-wrapper .not-possible-info,
