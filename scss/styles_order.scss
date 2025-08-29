@@ -1105,9 +1105,8 @@ $desktop-large-min: 1680px;
 			}
 
 			.payment-info {
-				flex-wrap: wrap;
-				display: flex;
-				column-gap: 5px;
+				display: inline;
+
 				> span:not(.sublabel) {
 					font-size: var(--fs-13);
 					font-weight: var(--fw-700);
@@ -1133,6 +1132,8 @@ $desktop-large-min: 1680px;
 			}
 			.sublabel {
 				color: var(--color-primary);
+				display: block;
+				width: 100%;
 				&:hover,
 				&:focus {
 					text-decoration: underline;
@@ -1154,6 +1155,11 @@ $desktop-large-min: 1680px;
 				font-weight: var(--fw-700);
 				&.for-free {
 					color: var(--color-cta-400);
+				}
+				@media screen and (max-width: $mobile-max) {
+					grid-row: 2;
+					grid-column: 1/-1;
+					text-align: right;
 				}
 			}
 		}
@@ -1322,6 +1328,7 @@ $desktop-large-min: 1680px;
 		}
 		.box {
 			padding: 0;
+			border-style: none;
 		}
 		.co-box {
 			background: var(--color-gray-400);
@@ -1333,6 +1340,7 @@ $desktop-large-min: 1680px;
 		fieldset {
 			padding: 0;
 			margin: 0;
+			border-style: none;
 		}
 		.form-group:has(label[for="login"]) {
 			display: grid;
@@ -1351,6 +1359,11 @@ $desktop-large-min: 1680px;
 				&:focus {
 					background: var(--color-primary-hover);
 				}
+			}
+			@media screen and (max-width: $mobile-max) {
+				flex-direction: column;
+				display: flex;
+				align-items: stretch;
 			}
 		}
 		.form-group {
