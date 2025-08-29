@@ -1053,6 +1053,9 @@ $desktop-large-min: 1680px;
 			display: flex;
 			border-radius: var(--br-16);
 			padding: 2px 25px 2px 0;
+			@media screen and (max-width: $mobile-max) {
+				padding: 10px 15px 2px 0;
+			}
 			cursor: pointer;
 			* {
 				cursor: inherit;
@@ -1086,6 +1089,9 @@ $desktop-large-min: 1680px;
 					background-color: var(--color-white);
 					border: 2px solid var(--color-primary);
 				}
+				@media screen and (max-width: $mobile-max) {
+					padding-top: 0;
+				}
 			}
 			&.active {
 				background: var(--color-primary-200);
@@ -1104,6 +1110,7 @@ $desktop-large-min: 1680px;
 				align-items: center;
 				@media screen and (max-width: $mobile-max) {
 					grid-template-columns: 70px 1fr;
+					padding-top: 3px;
 				}
 			}
 
