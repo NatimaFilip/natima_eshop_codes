@@ -34,6 +34,14 @@
   background: var(--color-gray-400);
   border-radius: var(--br-16);
 }
+@media screen and (max-width: 767px) {
+  .ordering-process #header .login-button-custom {
+    background: transparent;
+    border-radius: 0;
+    width: 42px !important;
+    height: 100% !important;
+  }
+}
 .ordering-process #header .login-button-custom::before {
   display: block;
   content: "";
@@ -414,6 +422,11 @@
 .ordering-process .cart-row table.cart-table tbody > tr .p-quantity .quantity .decrease:hover,
 .ordering-process .cart-row table.cart-table tbody > tr .p-quantity .quantity .decrease:focus-within {
   background-color: var(--color-primary-500);
+}
+@media screen and (max-width: 767px) {
+  .ordering-process .cart-row table.cart-table tbody > tr .p-quantity {
+    padding: 8px;
+  }
 }
 .ordering-process .cart-row table.cart-table tbody > tr .p-price strong {
   font-weight: var(--fw-400);
@@ -1292,7 +1305,7 @@
       -ms-flex: 1;
           flex: 1;
   display: grid;
-  grid-template-columns: 1fr 90px 5.5em;
+  grid-template-columns: 90px 1fr 5.5em;
   gap: 5px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -1327,6 +1340,10 @@
           justify-content: center;
   background: var(--color-primary-200);
   border-radius: 50%;
+}
+.ordering-process.id--16 #order-form .radio-wrapper .payment-logo,
+.ordering-process.id--17 #order-form .radio-wrapper .payment-logo {
+  grid-column: 1;
 }
 .ordering-process.id--16 #order-form .radio-wrapper .sublabel,
 .ordering-process.id--16 #order-form .radio-wrapper .not-possible-info,
