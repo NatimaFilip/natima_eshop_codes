@@ -424,6 +424,13 @@
     grid-template-columns: 1fr 1fr;
     padding-bottom: 20px;
   }
+}
+@media screen and (max-width: 1279px) and (max-width: 767px) {
+  #lb-search-element .lb-search__body .lb-search__button-and-sorting {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 1279px) {
   #lb-search-element .lb-search__body .lb-search__button-and-sorting__button {
     display: block !important;
     -webkit-box-flex: 1;

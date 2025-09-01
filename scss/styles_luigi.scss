@@ -424,6 +424,11 @@ $desktop-large-min: 1680px;
 				grid-template-columns: 1fr 1fr;
 				padding-bottom: 20px;
 			}
+			@media screen and (max-width: $mobile-max) {
+				.lb-search__button-and-sorting {
+					grid-template-columns: 1fr;
+				}
+			}
 			.lb-search__button-and-sorting__button {
 				display: block !important;
 				flex: 1;
