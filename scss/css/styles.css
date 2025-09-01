@@ -3445,10 +3445,11 @@ body.type-category .category-header > div strong {
   margin-right: 6px;
   height: var(--fs-12);
   width: var(--fs-12);
-  background: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_flag_cz_circle.svg.svg");
+  background: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_flag_cz_circle.svg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 1;
 }
 @media screen and (max-width: 1279px) {
   .products-block .product .p .image .flags-default {
@@ -6247,10 +6248,11 @@ body.sticky-header-off .messages > * {
   margin-right: 6px;
   height: var(--fs-12);
   width: var(--fs-12);
-  background: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_flag_cz_circle.svg.svg");
+  background: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_flag_cz_circle.svg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 1;
 }
 @media screen and (max-width: 1279px) {
   .type-product .product-top .p-image-wrapper .p-image .flags-default {
