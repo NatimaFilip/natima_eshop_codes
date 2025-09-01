@@ -337,6 +337,22 @@ table {
   display: none;
 }
 
+.show-on-mobile {
+  display: none;
+}
+
+.show-on-pc {
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+  .show-on-mobile {
+    display: block;
+  }
+  .shopw-on-pc {
+    display: none;
+  }
+}
 .tooltip[role=tooltip] {
   width: 250px;
   font-size: var(--fs-13);

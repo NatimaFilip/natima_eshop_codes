@@ -462,6 +462,11 @@
 .in-index .footer-banners {
   padding-bottom: 100px;
 }
+@media screen and (max-width: 767px) {
+  .in-index .footer-banners {
+    padding-bottom: 40px;
+  }
+}
 .in-index .footer-banners .footer-banner {
   position: relative;
   color: var(--color-black);

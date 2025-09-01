@@ -1011,6 +1011,12 @@ body .product-widgets[product-template=natios] .natios-compare .compare-texts a 
   color: var(--color-white);
   text-decoration: underline;
 }
+body .product-widgets.natios .natios-compare .compare-texts p,
+body .product-widgets.natios .natios-compare .compare-texts span,
+body .product-widgets[product-template=natios] .natios-compare .compare-texts p,
+body .product-widgets[product-template=natios] .natios-compare .compare-texts span {
+  color: var(--color-white);
+}
 body .product-widgets.natios .natios-analysis,
 body .product-widgets[product-template=natios] .natios-analysis {
   --analysis-color-green: #419f1f;
