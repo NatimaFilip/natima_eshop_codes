@@ -241,7 +241,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-template-columns: 92px 1fr 7em 10.5em 8em auto 8.5em;
+  grid-template-columns: 92px 1fr auto 10.5em 8em auto 8.5em;
   padding: 15px 0;
   border-bottom-style: solid;
   border-width: 1px;
@@ -852,6 +852,20 @@
   background-color: var(--color-primary);
   color: white;
   border-color: var(--color-primary);
+}
+.ordering-process .cart-row .sidebar-in-cart .discount-coupon button .applied-coupon,
+.ordering-process .cart-row #checkoutSidebar .discount-coupon button .applied-coupon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ordering-process .cart-row .sidebar-in-cart .discount-coupon button .applied-coupon input,
+.ordering-process .cart-row #checkoutSidebar .discount-coupon button .applied-coupon input {
+  padding: 5px;
+  cursor: pointer;
 }
 @media screen and (max-width: 767px) {
   .ordering-process .cart-row .sidebar-in-cart .discount-coupon,

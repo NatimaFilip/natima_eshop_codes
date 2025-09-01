@@ -454,6 +454,9 @@
   display: grid;
   grid-template-columns: 1fr 5fr;
 }
+#lb-search-element .lb-search__body .lb-container:has(.lb-results-wrapper.is-no-results) {
+  grid-template-columns: 1fr;
+}
 @media screen and (max-width: 1279px) {
   #lb-search-element .lb-search__body .lb-container {
     grid-template-columns: 1fr;

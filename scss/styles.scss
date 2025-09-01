@@ -139,6 +139,7 @@ $desktop-large-min: 1680px;
 		color: var(--color-black) !important;
 		display: flex;
 		align-items: center;
+		z-index: 1;
 
 		&::before {
 			content: "";
@@ -150,7 +151,6 @@ $desktop-large-min: 1680px;
 			background-size: contain;
 			background-position: center;
 			background-repeat: no-repeat;
-			z-index: 1;
 		}
 	}
 	@media screen and (max-width: $tablet-max) {

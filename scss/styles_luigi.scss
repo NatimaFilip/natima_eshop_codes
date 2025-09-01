@@ -448,6 +448,9 @@ $desktop-large-min: 1680px;
 		.lb-container {
 			display: grid;
 			grid-template-columns: 1fr 5fr;
+			&:has(.lb-results-wrapper.is-no-results) {
+				grid-template-columns: 1fr;
+			}
 			@media screen and (max-width: $tablet-max) {
 				grid-template-columns: 1fr;
 			}

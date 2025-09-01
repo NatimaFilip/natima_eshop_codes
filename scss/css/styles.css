@@ -3438,6 +3438,7 @@ body.type-category .category-header > div strong {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
 }
 .products-block .product .p .image .flags-default .flag-cesky-produkt::before {
   content: "";
@@ -3449,7 +3450,6 @@ body.type-category .category-header > div strong {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 1;
 }
 @media screen and (max-width: 1279px) {
   .products-block .product .p .image .flags-default {
@@ -6241,6 +6241,7 @@ body.sticky-header-off .messages > * {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
 }
 .type-product .product-top .p-image-wrapper .p-image .flags-default .flag-cesky-produkt::before {
   content: "";
@@ -6252,7 +6253,6 @@ body.sticky-header-off .messages > * {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 1;
 }
 @media screen and (max-width: 1279px) {
   .type-product .product-top .p-image-wrapper .p-image .flags-default {

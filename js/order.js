@@ -248,8 +248,11 @@ function rearangeRecap() {
 	if (recapTitle) {
 		recapWrapper.appendChild(recapTitle);
 	}
+	console.log("ZDE-----------------------------------------");
 	if (cartItems) {
+		console.log(cartItems);
 		cartItems.forEach((item) => {
+			console.log(item);
 			if (item.querySelector(".recapitulation-single")) {
 				return;
 			}
