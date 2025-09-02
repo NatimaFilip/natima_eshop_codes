@@ -9341,6 +9341,13 @@ html.cookies-visible .siteCookies {
 .in-hodnoceni-obchodu .content-inner .load-next-wrap a:hover, .in-hodnoceni-obchodu .content-inner .load-next-wrap a:focus-within {
   color: var(--color-primary-hover);
 }
+@media screen and (min-width: 1280px) {
+  .in-hodnoceni-obchodu .content-inner #ratingWrapper {
+    grid-column: 1;
+    position: sticky;
+    top: 20px;
+  }
+}
 
 .in-index .hodnoceni-obchodu-section {
   max-width: 100%;
@@ -9783,11 +9790,4 @@ html.cookies-visible .siteCookies {
 }
 .in-index .hodnoceni-obchodu-section .load-next-wrap a:hover, .in-index .hodnoceni-obchodu-section .load-next-wrap a:focus-within {
   color: var(--color-primary-hover);
-}
-@media screen and (min-width: 1280px) {
-  .in-index .hodnoceni-obchodu-section #ratingWrapper {
-    grid-column: 1;
-    position: sticky;
-    top: 20px;
-  }
 }

@@ -7554,11 +7554,6 @@ html.cookies-visible .siteCookies {
 .in-hodnoceni-obchodu {
 	.content-inner {
 		@include ratingTab-shopRating;
-	}
-}
-.in-index {
-	.hodnoceni-obchodu-section {
-		@include ratingTab-shopRating;
 		#ratingWrapper {
 			@media screen and (min-width: $desktop-min) {
 				grid-column: 1;
@@ -7566,5 +7561,10 @@ html.cookies-visible .siteCookies {
 				top: 20px;
 			}
 		}
+	}
+}
+.in-index {
+	.hodnoceni-obchodu-section {
+		@include ratingTab-shopRating;
 	}
 }
