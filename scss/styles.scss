@@ -6354,6 +6354,7 @@ body {
 				grid-column: 2;
 				padding-bottom: 0;
 				text-align: right !important;
+				width: auto;
 				@media screen and (max-width: $tablet-max) {
 					position: absolute;
 					order: 8;
@@ -7651,6 +7652,31 @@ html.cookies-visible .siteCookies {
 		border-radius: var(--br-16);
 		border-width: 1px;
 		color: var(--color-black) !important;
+	}
+	.shipping-row {
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+		padding: 10px 0;
+		align-items: center;
+		.for-free {
+			color: var(--color-secondary);
+		}
+		.show-tooltip {
+			font-size: var(--fs-13);
+			font-weight: var(--fw-700);
+			color: var(--color-primary);
+			width: 1.385em;
+			height: 1.385em;
+
+			display: inline-flex;
+
+			align-items: center;
+
+			justify-content: center;
+			background: var(--color-primary-200);
+			border-radius: 50%;
+		}
 	}
 	#formProductQuestion {
 		fieldset {

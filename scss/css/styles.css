@@ -6984,6 +6984,7 @@ body.sticky-header-off .messages > * {
   grid-column: 2;
   padding-bottom: 0;
   text-align: right !important;
+  width: auto;
 }
 @media screen and (max-width: 1279px) {
   .type-product .product-top .p-info-wrapper p[data-testid=productCardDescr] {
@@ -9037,6 +9038,41 @@ html.cookies-visible .siteCookies {
   border-radius: var(--br-16);
   border-width: 1px;
   color: var(--color-black) !important;
+}
+.content-modal .shipping-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 10px;
+  padding: 10px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.content-modal .shipping-row .for-free {
+  color: var(--color-secondary);
+}
+.content-modal .shipping-row .show-tooltip {
+  font-size: var(--fs-13);
+  font-weight: var(--fw-700);
+  color: var(--color-primary);
+  width: 1.385em;
+  height: 1.385em;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: var(--color-primary-200);
+  border-radius: 50%;
 }
 .in-hodnoceni-obchodu .content-inner {
   max-width: 100%;
