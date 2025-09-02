@@ -3592,6 +3592,7 @@ body.type-category {
 		> * {
 			width: calc(20% - var(--column-gap));
 			flex-basis: calc(20% - var(--column-gap));
+			padding-left: 0;
 		}
 	}
 	grid-auto-rows: 1fr;
@@ -7355,6 +7356,7 @@ body {
 			padding-bottom: 1.25em;
 		}
 		.products-block {
+			display: grid;
 			grid-template-columns: repeat(4, 1fr);
 
 			@media screen and (max-width: $mobile-max) {

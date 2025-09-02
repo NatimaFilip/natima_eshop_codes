@@ -2067,7 +2067,7 @@ if (body.classList.contains("type-product")) {
 				productsAlternative.remove();
 				productsAlternativeTitle.remove();
 			}
-			if (productsAlternativeItems && productsAlternativeItems.length > 5) {
+			if (productsAlternativeItems && productsAlternativeItems.length > 4) {
 				productsAlternative.classList.add("multiple-rows-of-alternatives");
 				const showMoreAlternativesButton = document.createElement("div");
 				showMoreAlternativesButton.className = "show-more-alternatives-button";

@@ -3288,6 +3288,7 @@ body.type-category .category-header > div strong {
     width: calc(20% - var(--column-gap));
     -ms-flex-preferred-size: calc(20% - var(--column-gap));
         flex-basis: calc(20% - var(--column-gap));
+    padding-left: 0;
   }
 }
 @media screen and (min-width: 768px) {
@@ -8711,6 +8712,7 @@ body.sticky-header-off .messages > * {
   padding-bottom: 1.25em;
 }
 .type-product #productsAlternative .products-block {
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
   overflow-x: auto;
 }
