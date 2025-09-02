@@ -9127,6 +9127,14 @@ html.cookies-visible .siteCookies {
 .content-modal .delivery-point-form {
   padding-bottom: 10px;
 }
+.content-modal .delivery-point-form .table tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 .content-modal .delivery-point-logos {
   max-width: 200px;
   margin: 0 auto;
@@ -9159,6 +9167,10 @@ html.cookies-visible .siteCookies {
 }
 .content-modal .ui-menu li:hover, .content-modal .ui-menu li:focus-within {
   background: var(--color-primary-200);
+}
+.content-modal .delivery-point-result-table .btn {
+  width: 100%;
+  cursor: pointer;
 }
 
 .in-hodnoceni-obchodu .content-inner {
