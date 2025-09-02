@@ -1725,6 +1725,7 @@ let productsAlternative;
 let watchdog;
 let relatedFiles;
 let ratingTab;
+let loadNextRatings;
 
 if (body.classList.contains("type-product")) {
 	isNatiosProduct = false;
@@ -1763,6 +1764,7 @@ if (body.classList.contains("type-product")) {
 	watchdog = document.querySelector(".product-top .watchdog");
 	relatedFiles = document.querySelector("#relatedFiles");
 	ratingTab = document.querySelector("#ratingTab");
+	loadNextRatings = document.querySelector("#ratingTab .load-next-wrap");
 
 	moveElementsInProduct();
 
@@ -2131,6 +2133,19 @@ if (body.classList.contains("type-product")) {
 			measureUnitFromAppendixDetail();
 		} catch (error) {
 			console.error("Error in measureUnitFromAppendixDetail:", error);
+		}
+
+		if (loadNextRatings) {
+			loadNextRatings.addEventListener(
+				"click",
+				function (e) {
+					e.preventDefault();
+					if (ratingTab) {
+						ratingTab.classList.add("active-all");
+					}
+				},
+				{ once: true }
+			);
 		}
 
 		// Add sticky sell section - uplne poslední

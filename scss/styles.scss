@@ -6485,7 +6485,6 @@ body {
 				position: relative;
 				top: 3px;
 				pointer-events: none;
-				max-width: 10em;
 
 				font-size: var(--fs-11);
 				@include text-underline;
@@ -6562,6 +6561,7 @@ body {
 				pointer-events: none;
 				font-size: var(--fs-11);
 				@include text-underline;
+				max-width: 10em;
 			}
 			&.no-score {
 				.stars-label {

@@ -7174,7 +7174,6 @@ body.sticky-header-off .messages > * {
   position: relative;
   top: 3px;
   pointer-events: none;
-  max-width: 10em;
   font-size: var(--fs-11);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -7286,6 +7285,7 @@ body.sticky-header-off .messages > * {
   font-size: var(--fs-11);
   text-decoration: underline;
   text-underline-offset: 3px;
+  max-width: 10em;
 }
 .type-product .sticky-sell .stars-wrapper.no-score .stars-label {
   padding-left: 1em;
