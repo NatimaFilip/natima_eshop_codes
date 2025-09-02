@@ -3574,7 +3574,6 @@ body.type-category {
 	> * {
 		width: calc(50% - var(--column-gap));
 		flex-basis: calc(50% - var(--column-gap));
-		padding-left: 20px;
 	}
 	@media screen and (min-width: $tablet-min) {
 		> * {
@@ -3592,10 +3591,9 @@ body.type-category {
 		> * {
 			width: calc(20% - var(--column-gap));
 			flex-basis: calc(20% - var(--column-gap));
-			padding-left: 0;
 		}
 	}
-	grid-auto-rows: 1fr;
+
 	row-gap: var(--gap-10);
 	@media screen and (min-width: $tablet-min) {
 		row-gap: var(--gap-30);
@@ -7383,6 +7381,7 @@ body {
 				border-color: var(--color-gray-500);
 				border-radius: var(--br-16);
 				padding: 12px 20px 12px 12px;
+				width: 100%;
 				* {
 					display: block;
 				}
