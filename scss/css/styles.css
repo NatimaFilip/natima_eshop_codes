@@ -8994,7 +8994,11 @@ html.cookies-visible .siteCookies {
 }
 .content-modal .disclaimer {
   font-size: var(--fs-12);
-  color: var(--color-grey-600);
+  color: var(--color-black-o-60);
+  font-style: italic;
+}
+.content-modal #watchdog-form {
+  gap: 0;
 }
 .content-modal .watchdog-row {
   display: -webkit-box;
@@ -9005,10 +9009,13 @@ html.cookies-visible .siteCookies {
       -ms-flex-direction: row;
           flex-direction: row;
   gap: 10px;
-  padding: 5px 0;
+  padding: 2px 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--color-black-o-20);
 }
 .content-modal .watchdog-action-buttons {
   display: -webkit-box;
@@ -9095,7 +9102,7 @@ html.cookies-visible .siteCookies {
   background: var(--color-primary-200);
   border-radius: 50%;
 }
-.content-modal .shipping-row .extra.delivery {
+.content-modal .extra.delivery {
   margin-top: 10px;
   position: relative;
   padding-bottom: 20px;
