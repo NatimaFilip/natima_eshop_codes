@@ -9125,7 +9125,7 @@ html.cookies-visible .siteCookies {
   left: 0;
 }
 .content-modal .delivery-point-form {
-  padding-bottom: 60px;
+  padding-bottom: 10px;
 }
 .content-modal .delivery-point-logos {
   max-width: 200px;
@@ -9139,8 +9139,8 @@ html.cookies-visible .siteCookies {
 }
 .content-modal .ui-menu {
   list-style: none;
-  max-height: 120px;
-  height: 120px;
+  max-height: 1260px;
+  height: 160px;
   overflow-y: auto;
   overflow-x: hidden;
   margin: 0;
@@ -9155,6 +9155,7 @@ html.cookies-visible .siteCookies {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: var(--color-black-o-20);
+  cursor: pointer;
 }
 .content-modal .ui-menu li:hover, .content-modal .ui-menu li:focus-within {
   background: var(--color-primary-200);
