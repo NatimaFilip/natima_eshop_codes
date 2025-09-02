@@ -9142,15 +9142,18 @@ html.cookies-visible .siteCookies {
   max-height: 60px;
   overflow-y: auto;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 .content-modal .ui-menu li {
+  margin: 0;
   padding: 15px 0;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: var(--color-black-o-20);
 }
 .content-modal .ui-menu li:hover, .content-modal .ui-menu li:focus-within {
-  border-bottom-color: var(--color-primary-200);
+  background: var(--color-primary-200);
 }
 
 .in-hodnoceni-obchodu .content-inner {

@@ -7749,8 +7749,11 @@ html.cookies-visible .siteCookies {
 		max-height: 60px;
 		overflow-y: auto;
 		overflow-x: hidden;
+		margin: 0;
+		padding: 0;
 
 		li {
+			margin: 0;
 			padding: 15px 0;
 			border-bottom-style: solid;
 			border-bottom-width: 1px;
@@ -7758,7 +7761,7 @@ html.cookies-visible .siteCookies {
 
 			&:hover,
 			&:focus-within {
-				border-bottom-color: var(--color-primary-200);
+				background: var(--color-primary-200);
 			}
 		}
 	}
