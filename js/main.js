@@ -2604,12 +2604,17 @@ if (body.classList.contains("type-product")) {
 }
 
 /*------------------------------------------------- Index*/
-if (body.classList.contains("in-index")) {
-	let addedSlidingListener = false;
-	let addedWhiteBanners = false;
+let addedSlidingListener;
+let addedWhiteBanners;
+let allProductsBlocks = document.querySelectorAll(".products-block");
 
-	let carouselRightButtonClickHandler;
-	let carouselLeftButtonClickHandler;
+let carouselRightButtonClickHandler;
+let carouselLeftButtonClickHandler;
+
+let hodnoceniObchoduAdded = false;
+if (body.classList.contains("in-index")) {
+	addedSlidingListener = false;
+	addedWhiteBanners = false;
 
 	carouselSliding();
 	document.addEventListener("debouncedResize", carouselSliding);
@@ -2857,7 +2862,7 @@ if (body.classList.contains("in-index")) {
 		addedSlidingListener = true;
 	}
 
-	let allProductsBlocks = document.querySelectorAll(".products-block");
+	allProductsBlocks = document.querySelectorAll(".products-block");
 	if (allProductsBlocks && allProductsBlocks.length > 0) {
 		allProductsBlocks.forEach((block) => {
 			productSlider(block);
@@ -2875,14 +2880,14 @@ if (body.classList.contains("in-index")) {
 		}
 
 		// Move the footer banner after the second products block
-		let allProductsBlocks = document.querySelectorAll(".products-block");
+		allProductsBlocks = document.querySelectorAll(".products-block");
 		if (allProductsBlocks && allProductsBlocks.length >= 2) {
 			allProductsBlocks[1].parentElement.insertAdjacentElement("afterend", footerBanner.parentElement);
 		} else {
 			console.warn("Not enough products blocks to move the footer banner.");
 		}
 	}
-	let hodnoceniObchoduAdded = false;
+	hodnoceniObchoduAdded = false;
 	welcomeWrapper();
 	function welcomeWrapper() {
 		let welcomeSection = document.querySelector(".welcome-wrapper .welcome");
