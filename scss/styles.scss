@@ -7586,7 +7586,6 @@ html.cookies-visible .siteCookies {
 		flex-direction: column;
 		gap: 10px;
 
-		align-items: center;
 		fieldset {
 			border-style: none;
 			padding: 0;
@@ -7612,41 +7611,41 @@ html.cookies-visible .siteCookies {
 				background-color: var(--color-primary-hover);
 			}
 		}
-		.disclaimer {
-			font-size: var(--fs-12);
-			color: var(--color-grey-600);
-		}
-		.watchdog-row {
-			display: flex;
-			flex-direction: row;
-			gap: 10px;
-			padding: 5px 0;
-			align-items: center;
-		}
-		.watchdog-reset {
-			display: flex;
-			justify-content: flex-end;
-			text-align: center !important;
-			padding: 1em 0.5em;
-			margin-top: 10px !important;
-			margin-bottom: 10px;
-			background: rgba(0, 0, 0, 0) !important;
-			border-style: solid !important;
-			border-color: var(--color-black);
-			border-radius: var(--br-16);
-			border-width: 1px;
-			color: var(--color-black) !important;
-		}
-		h1,
-		h2,
-		h3 {
-			font-size: var(--fs-24);
+	}
+	h1,
+	h2,
+	h3 {
+		font-size: var(--fs-24);
+		font-weight: var(--fw-700);
+		line-height: var(--lh-1-2);
+		strong {
 			font-weight: var(--fw-700);
-			line-height: var(--lh-1-2);
-			strong {
-				font-weight: var(--fw-700);
-			}
 		}
+	}
+	.disclaimer {
+		font-size: var(--fs-12);
+		color: var(--color-grey-600);
+	}
+	.watchdog-row {
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+		padding: 5px 0;
+		align-items: center;
+	}
+	.watchdog-reset {
+		display: flex;
+		justify-content: flex-end;
+		text-align: center !important;
+		padding: 1em 0.5em;
+		margin-top: 10px !important;
+		margin-bottom: 10px;
+		background: rgba(0, 0, 0, 0) !important;
+		border-style: solid !important;
+		border-color: var(--color-black);
+		border-radius: var(--br-16);
+		border-width: 1px;
+		color: var(--color-black) !important;
 	}
 	#formProductQuestion {
 		fieldset {

@@ -8942,9 +8942,6 @@ html.cookies-visible .siteCookies {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 .content-modal form fieldset {
   border-style: none;
@@ -8981,11 +8978,23 @@ html.cookies-visible .siteCookies {
 .content-modal form input.btn:hover {
   background-color: var(--color-primary-hover);
 }
-.content-modal form .disclaimer {
+.content-modal h1,
+.content-modal h2,
+.content-modal h3 {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-1-2);
+}
+.content-modal h1 strong,
+.content-modal h2 strong,
+.content-modal h3 strong {
+  font-weight: var(--fw-700);
+}
+.content-modal .disclaimer {
   font-size: var(--fs-12);
   color: var(--color-grey-600);
 }
-.content-modal form .watchdog-row {
+.content-modal .watchdog-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8999,7 +9008,7 @@ html.cookies-visible .siteCookies {
       -ms-flex-align: center;
           align-items: center;
 }
-.content-modal form .watchdog-reset {
+.content-modal .watchdog-reset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9016,18 +9025,6 @@ html.cookies-visible .siteCookies {
   border-radius: var(--br-16);
   border-width: 1px;
   color: var(--color-black) !important;
-}
-.content-modal form h1,
-.content-modal form h2,
-.content-modal form h3 {
-  font-size: var(--fs-24);
-  font-weight: var(--fw-700);
-  line-height: var(--lh-1-2);
-}
-.content-modal form h1 strong,
-.content-modal form h2 strong,
-.content-modal form h3 strong {
-  font-weight: var(--fw-700);
 }
 .in-hodnoceni-obchodu .content-inner {
   max-width: 100%;
