@@ -2136,16 +2136,11 @@ if (body.classList.contains("type-product")) {
 		}
 
 		if (loadNextRatings) {
-			loadNextRatings.addEventListener(
-				"click",
-				function (e) {
-					e.preventDefault();
-					if (ratingTab) {
-						ratingTab.classList.add("active-all");
-					}
-				},
-				{ once: true }
-			);
+			loadNextRatings.addEventListener("click", function (e) {
+				if (ratingTab) {
+					ratingTab.classList.add("all-visible");
+				}
+			});
 		}
 
 		// Add sticky sell section - uplne poslední
