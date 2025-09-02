@@ -6252,7 +6252,8 @@ body {
 						align-items: center;
 						gap: var(--gap-16);
 					}
-					.add-to-cart-button {
+					.add-to-cart-button,
+					.custom-add-to-cart-button {
 						cursor: pointer;
 						background-color: var(--color-secondary);
 						border-radius: var(--br-16);
@@ -6316,7 +6317,8 @@ body {
 								width: 2.5em !important;
 							}
 						}
-						.add-to-cart-button {
+						.add-to-cart-button,
+						.custom-add-to-cart-button {
 							padding: 1.1667em 0.75em !important;
 						}
 					}
@@ -6723,7 +6725,8 @@ body {
 					gap: var(--gap-16);
 					grid-template-columns: 1fr auto;
 				}
-				.add-to-cart-button {
+				.add-to-cart-button,
+				.custom-add-to-cart-button {
 					cursor: pointer;
 					background-color: var(--color-secondary);
 					border-radius: var(--br-16);

@@ -1961,7 +1961,7 @@ if (body.classList.contains("type-product")) {
 			if (watchdog) {
 				const notifyMeButton = document.createElement("div");
 				notifyMeButton.classList.add("notify-me-button");
-				notifyMeButton.classList.add("add-to-cart-button");
+				notifyMeButton.classList.add("custom-add-to-cart-button");
 				if (csLang) {
 					notifyMeButton.textContent = "Hlídat dostupnost";
 				}
