@@ -9041,9 +9041,8 @@ html.cookies-visible .siteCookies {
   color: var(--color-black) !important;
 }
 .content-modal .shipping-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -9056,6 +9055,18 @@ html.cookies-visible .siteCookies {
 }
 .content-modal .shipping-row .for-free {
   color: var(--color-secondary);
+}
+.content-modal .shipping-row .payment-info {
+  grid-column: 2;
+  grid-row: 1;
+}
+.content-modal .shipping-row .payment-logo {
+  grid-column: 1;
+  grid-row: 1;
+}
+.content-modal .shipping-row .payment-shipping-price {
+  grid-column: 3;
+  grid-row: 1;
 }
 .content-modal .shipping-row .show-tooltip {
   font-size: var(--fs-13);

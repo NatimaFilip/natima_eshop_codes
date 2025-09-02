@@ -7655,13 +7655,26 @@ html.cookies-visible .siteCookies {
 		color: var(--color-black) !important;
 	}
 	.shipping-row {
-		display: flex;
+		display: grid;
+		grid-template-columns: 90px 1fr auto;
 		flex-direction: row;
 		gap: 10px;
 		padding: 10px 0;
 		align-items: center;
 		.for-free {
 			color: var(--color-secondary);
+		}
+		.payment-info {
+			grid-column: 2;
+			grid-row: 1;
+		}
+		.payment-logo {
+			grid-column: 1;
+			grid-row: 1;
+		}
+		.payment-shipping-price {
+			grid-column: 3;
+			grid-row: 1;
 		}
 
 		.show-tooltip {
