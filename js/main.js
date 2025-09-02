@@ -664,6 +664,7 @@ let categoryContentWrapper;
 let selectedFiltersInSidebar;
 let customOpenFilterButtonListenerAdded;
 let asideElement;
+let customOpenFilterButton;
 
 /*------------------------------------------------- CATEGORY Filtry*/
 if (body.classList.contains("type-category")) {
@@ -678,7 +679,7 @@ if (body.classList.contains("type-category")) {
 	selectedFiltersInSidebar = true;
 	customOpenFilterButtonListenerAdded = false;
 
-	const customOpenFilterButton = document.createElement("a");
+	customOpenFilterButton = document.createElement("a");
 	customOpenFilterButton.className = "custom-open-filter-button";
 	if (csLang) {
 		customOpenFilterButton.innerHTML = "Filtrování výsledků";
@@ -1021,9 +1022,10 @@ if (body.classList.contains("type-category")) {
 	}
 }
 /*------------------------------------------------- CATEGORY Obecné*/
+let perexTrimmedIsVisible;
 if (body.classList.contains("type-category")) {
 	/*------------------------------PEREX*/
-	let perexTrimmedIsVisible = false;
+	perexTrimmedIsVisible = false;
 	if (isMobile) {
 		trimPerex();
 	}
@@ -1697,43 +1699,70 @@ function shortenBreadcrumbs() {
 }
 
 /*------------------------------------------------- Detail produktu*/
+let isNatiosProduct;
+let isAvailableProduct;
+let infoWrapper;
+let productName;
+let productCode;
+let productCodeValue;
+let productBrand;
+let starsWrapper;
+let tabContent;
+let extendedDescription;
+let detailParameters;
+let shortDescription;
+let longDescription;
+let dostupnost;
+let shippingOptions;
+let addToCartBtn;
+let priceWrapper;
+let finalProductPrice;
+let continueReadingShortDescription;
+let souvisejiciProdukty;
+let souvisejiciProduktyTitle;
+let benefitBanner;
+let productsAlternative;
+let watchdog;
+let relatedFiles;
+let ratingTab;
+
 if (body.classList.contains("type-product")) {
-	let isNatiosProduct = false;
-	let isAvailableProduct = false;
+	isNatiosProduct = false;
+	isAvailableProduct = false;
 
-	let infoWrapper = document.querySelector(".product-top .p-info-wrapper");
-	let productName = document.querySelector(".p-detail-inner-header h1");
-	let productCode = document.querySelector(".p-detail-inner-header .p-code");
-	let productCodeValue = "";
+	infoWrapper = document.querySelector(".product-top .p-info-wrapper");
+	productName = document.querySelector(".p-detail-inner-header h1");
+	productCode = document.querySelector(".p-detail-inner-header .p-code");
+	productCodeValue = "";
 
-	let productBrand = document.querySelector(".product-top a[data-testid='productCardBrandName']");
-	let starsWrapper = document.querySelector(".product-top .stars-wrapper");
+	productBrand = document.querySelector(".product-top a[data-testid='productCardBrandName']");
+	starsWrapper = document.querySelector(".product-top .stars-wrapper");
 
-	let tabContent = document.querySelector("#tab-content");
-	let extendedDescription = document.querySelector("#description .extended-description");
-	let detailParameters = document.querySelector(".description-inner .detail-parameters");
-	let shortDescription = document.querySelector(".p-short-description");
-	let longDescription = document.querySelector("#description");
+	tabContent = document.querySelector("#tab-content");
+	extendedDescription = document.querySelector("#description .extended-description");
+	detailParameters = document.querySelector(".description-inner .detail-parameters");
+	shortDescription = document.querySelector(".p-short-description");
+	longDescription = document.querySelector("#description");
 
-	let dostupnost = document.querySelector(".product-top .availability-value");
-	let shippingOptions = document.querySelector(".product-top .shipping-options")?.closest("table") || null;
+	dostupnost = document.querySelector(".product-top .availability-value");
+	shippingOptions = document.querySelector(".product-top .shipping-options")?.closest("table") || null;
 
-	let addToCartBtn = document.querySelector(".product-top .add-to-cart");
-	let priceWrapper = document.querySelector(".product-top .p-final-price-wrapper");
+	addToCartBtn = document.querySelector(".product-top .add-to-cart");
+	priceWrapper = document.querySelector(".product-top .p-final-price-wrapper");
 
-	let finalProductPrice = document.querySelector(".product-top .price-final");
+	finalProductPrice = document.querySelector(".product-top .price-final");
 
-	let continueReadingShortDescription = document.querySelector(".product-top p[data-testid='productCardDescr']");
+	continueReadingShortDescription = document.querySelector(".product-top p[data-testid='productCardDescr']");
 
-	let souvisejiciProdukty = document.querySelector(".products-block.products-related");
-	let souvisejiciProduktyTitle = document.querySelector(".products-related-header");
+	souvisejiciProdukty = document.querySelector(".products-block.products-related");
+	souvisejiciProduktyTitle = document.querySelector(".products-related-header");
 
-	let benefitBanner = document.querySelector(".benefitBanner");
+	benefitBanner = document.querySelector(".benefitBanner");
 
-	let productsAlternative = document.querySelector("#productsAlternative");
-	let watchdog = document.querySelector(".product-top .watchdog");
-	let relatedFiles = document.querySelector("#relatedFiles");
-	let ratingTab = document.querySelector("#ratingTab");
+	productsAlternative = document.querySelector("#productsAlternative");
+	watchdog = document.querySelector(".product-top .watchdog");
+	relatedFiles = document.querySelector("#relatedFiles");
+	ratingTab = document.querySelector("#ratingTab");
 
 	moveElementsInProduct();
 
