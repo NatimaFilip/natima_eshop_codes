@@ -8958,9 +8958,6 @@ html.cookies-visible .siteCookies {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 .content-modal form .form-group {
   display: -webkit-box;
@@ -8998,6 +8995,9 @@ html.cookies-visible .siteCookies {
           flex-direction: row;
   gap: 10px;
   padding: 5px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .content-modal form .watchdog-reset {
   display: -webkit-box;

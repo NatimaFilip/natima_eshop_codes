@@ -615,6 +615,7 @@ $desktop-large-min: 1680px;
 					align-items: center;
 					line-height: 1;
 					gap: 10%;
+					cursor: pointer;
 					&:after {
 						content: "";
 						width: 10px;

@@ -7594,8 +7594,6 @@ html.cookies-visible .siteCookies {
 			display: flex;
 			flex-direction: column;
 			gap: 10px;
-
-			align-items: center;
 		}
 		.form-group {
 			display: flex;
@@ -7623,6 +7621,7 @@ html.cookies-visible .siteCookies {
 			flex-direction: row;
 			gap: 10px;
 			padding: 5px 0;
+			align-items: center;
 		}
 		.watchdog-reset {
 			display: flex;

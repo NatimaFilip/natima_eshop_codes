@@ -713,6 +713,7 @@
           align-items: center;
   line-height: 1;
   gap: 10%;
+  cursor: pointer;
 }
 .ordering-process .cart-row .sidebar-in-cart .next-step .next-step-forward:after,
 .ordering-process .cart-row .sidebar-in-cart .next-step .next-step-finish:after,
