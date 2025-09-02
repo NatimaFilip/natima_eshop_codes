@@ -1064,6 +1064,7 @@ table {
 	width: 250px;
 	font-size: var(--fs-13);
 	padding-bottom: 0.5em;
+	z-index: 10000;
 
 	.tooltip-inner {
 		background: var(--color-primary);
@@ -7662,10 +7663,21 @@ html.cookies-visible .siteCookies {
 		.for-free {
 			color: var(--color-secondary);
 		}
-		.payment-info {
-			text-decoration: underline;
-			text-decoration-style: dashed;
-			cursor: help;
+
+		.show-tooltip {
+			font-size: var(--fs-13);
+			font-weight: var(--fw-700);
+			color: var(--color-primary);
+			width: 1.385em;
+			height: 1.385em;
+
+			display: inline-flex;
+
+			align-items: center;
+
+			justify-content: center;
+			background: var(--color-primary-200);
+			border-radius: 50%;
 		}
 	}
 	#formProductQuestion {
