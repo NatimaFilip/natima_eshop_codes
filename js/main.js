@@ -665,7 +665,7 @@ if (body.classList.contains("type-category")) {
 	let filtersElement = document.querySelector("#filters");
 	/* 	let filtersWrapperElement = document.querySelector(".filters-wrapper"); */
 	let filterSections = filtersElement.querySelectorAll(".filter-section");
-	let asideElement = document.querySelector("aside");
+
 	let categoryContentWrapper = document.querySelector(".category-content-wrapper");
 	let selectedFiltersInSidebar = true;
 	let customOpenFilterButtonListenerAdded = false;
@@ -731,6 +731,7 @@ if (body.classList.contains("type-category")) {
 	});
 
 	function moveAsideToCategoryContent() {
+		let asideElement = document.querySelector("aside");
 		if (asideElement) {
 			categoryContentWrapper.prepend(asideElement);
 		}

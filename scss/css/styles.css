@@ -9760,3 +9760,10 @@ html.cookies-visible .siteCookies {
 .in-index .hodnoceni-obchodu-section .load-next-wrap a:hover, .in-index .hodnoceni-obchodu-section .load-next-wrap a:focus-within {
   color: var(--color-primary-hover);
 }
+@media screen and (min-width: 1280px) {
+  .in-index .hodnoceni-obchodu-section #ratingWrapper {
+    grid-column: 1;
+    position: sticky;
+    top: 0;
+  }
+}

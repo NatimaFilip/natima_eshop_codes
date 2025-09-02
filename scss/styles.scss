@@ -7534,5 +7534,12 @@ html.cookies-visible .siteCookies {
 .in-index {
 	.hodnoceni-obchodu-section {
 		@include ratingTab-shopRating;
+		#ratingWrapper {
+			@media screen and (min-width: $desktop-min) {
+				grid-column: 1;
+				position: sticky;
+				top: 0;
+			}
+		}
 	}
 }
