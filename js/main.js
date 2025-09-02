@@ -656,19 +656,27 @@ function addCartWidgetToCartMobileListener() {
 		}
 	});
 }
+let categoryTop;
+let filterInOriginalPosition;
+let filtersElement;
+let filterSections;
+let categoryContentWrapper;
+let selectedFiltersInSidebar;
+let customOpenFilterButtonListenerAdded;
+let asideElement;
 
 /*------------------------------------------------- CATEGORY Filtry*/
 if (body.classList.contains("type-category")) {
 	/*------------------------------FILTRY*/
-	let categoryTop = document.querySelector(".category-top");
-	let filterInOriginalPosition = true;
-	let filtersElement = document.querySelector("#filters");
+	categoryTop = document.querySelector(".category-top");
+	filterInOriginalPosition = true;
+	filtersElement = document.querySelector("#filters");
+	asideElement = document.querySelector("aside");
 	/* 	let filtersWrapperElement = document.querySelector(".filters-wrapper"); */
-	let filterSections = filtersElement.querySelectorAll(".filter-section");
-
-	let categoryContentWrapper = document.querySelector(".category-content-wrapper");
-	let selectedFiltersInSidebar = true;
-	let customOpenFilterButtonListenerAdded = false;
+	filterSections = filtersElement.querySelectorAll(".filter-section");
+	categoryContentWrapper = document.querySelector(".category-content-wrapper");
+	selectedFiltersInSidebar = true;
+	customOpenFilterButtonListenerAdded = false;
 
 	const customOpenFilterButton = document.createElement("a");
 	customOpenFilterButton.className = "custom-open-filter-button";
@@ -731,7 +739,6 @@ if (body.classList.contains("type-category")) {
 	});
 
 	function moveAsideToCategoryContent() {
-		let asideElement = document.querySelector("aside");
 		if (asideElement) {
 			categoryContentWrapper.prepend(asideElement);
 		}
