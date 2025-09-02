@@ -7585,6 +7585,8 @@ html.cookies-visible .siteCookies {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+
+		align-items: center;
 		fieldset {
 			border-style: none;
 			padding: 0;
@@ -7592,6 +7594,8 @@ html.cookies-visible .siteCookies {
 			display: flex;
 			flex-direction: column;
 			gap: 10px;
+
+			align-items: center;
 		}
 		.form-group {
 			display: flex;
@@ -7618,6 +7622,21 @@ html.cookies-visible .siteCookies {
 			display: flex;
 			flex-direction: row;
 			gap: 10px;
+			padding: 5px 0;
+		}
+		.watchdog-reset {
+			display: flex;
+			justify-content: flex-end;
+			text-align: center !important;
+			padding: 1em 0.5em;
+			margin-top: 10px !important;
+			margin-bottom: 10px;
+			background: rgba(0, 0, 0, 0) !important;
+			border-style: solid !important;
+			border-color: var(--color-black);
+			border-radius: var(--br-16);
+			border-width: 1px;
+			color: var(--color-black) !important;
 		}
 		h1,
 		h2,
