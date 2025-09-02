@@ -7619,6 +7619,16 @@ html.cookies-visible .siteCookies {
 			flex-direction: row;
 			gap: 10px;
 		}
+		h1,
+		h2,
+		h3 {
+			font-size: var(--fs-24);
+			font-weight: var(--fw-700);
+			line-height: var(--lh-1-2);
+			strong {
+				font-weight: var(--fw-700);
+			}
+		}
 	}
 	#formProductQuestion {
 		fieldset {
