@@ -8992,6 +8992,18 @@ html.cookies-visible .siteCookies {
           flex-direction: row;
   gap: 10px;
 }
+.content-modal form h1,
+.content-modal form h2,
+.content-modal form h3 {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-1-2);
+}
+.content-modal form h1 strong,
+.content-modal form h2 strong,
+.content-modal form h3 strong {
+  font-weight: var(--fw-700);
+}
 .in-hodnoceni-obchodu .content-inner {
   max-width: 100%;
   margin: 0 auto;
