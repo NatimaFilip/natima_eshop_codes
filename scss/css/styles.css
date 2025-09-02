@@ -9009,7 +9009,7 @@ html.cookies-visible .siteCookies {
       -ms-flex-direction: row;
           flex-direction: row;
   gap: 10px;
-  padding: 2px 0;
+  padding: 20px 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -9124,6 +9124,20 @@ html.cookies-visible .siteCookies {
   bottom: 0;
   left: 0;
 }
+.content-modal .delivery-point-form {
+  padding-bottom: 40px;
+}
+.content-modal .delivery-point-logos {
+  max-width: 200px;
+  margin: 0 auto;
+}
+.content-modal .pickup-point-opening-hours {
+  display: none;
+}
+.content-modal .pickup-point-opening-hours.active {
+  display: table;
+}
+
 .in-hodnoceni-obchodu .content-inner {
   max-width: 100%;
   margin: 0 auto;
