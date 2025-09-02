@@ -9042,7 +9042,7 @@ html.cookies-visible .siteCookies {
 }
 .content-modal .shipping-row {
   display: grid;
-  grid-template-columns: 90px 1fr auto;
+  grid-template-columns: 120px 1fr auto;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -9052,9 +9052,6 @@ html.cookies-visible .siteCookies {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.content-modal .shipping-row .for-free {
-  color: var(--color-secondary);
 }
 .content-modal .shipping-row .payment-info {
   grid-column: 2;
@@ -9067,6 +9064,15 @@ html.cookies-visible .siteCookies {
 .content-modal .shipping-row .payment-shipping-price {
   grid-column: 3;
   grid-row: 1;
+}
+@media screen and (max-width: 767px) {
+  .content-modal .shipping-row {
+    grid-template-columns: 700px 1fr auto;
+    gap: 5px;
+  }
+}
+.content-modal .shipping-row .for-free {
+  color: var(--color-secondary);
 }
 .content-modal .shipping-row .show-tooltip {
   font-size: var(--fs-13);
@@ -9089,7 +9095,7 @@ html.cookies-visible .siteCookies {
 .content-modal .shipping-row .extra.delivery {
   margin-top: 10px;
 }
-.content-modal .shipping-row .price-range {
+.content-modal .price-range {
   position: absolute;
   width: 100%;
   height: 6px;
@@ -9098,7 +9104,7 @@ html.cookies-visible .siteCookies {
   bottom: 0;
   left: 0;
 }
-.content-modal .shipping-row .price-range > div {
+.content-modal .price-range > div {
   position: absolute;
   height: 6px;
   background: var(--color-primary);
