@@ -272,6 +272,7 @@ $desktop-large-min: 1680px;
 @media screen and (max-width: $mobile-max) {
 	body.custom-search-active {
 		overflow-y: hidden;
+		overflow-x: hidden;
 		position: relative;
 		// Create a stacking context
 		input[type="search"] {

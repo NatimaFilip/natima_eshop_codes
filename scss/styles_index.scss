@@ -1316,6 +1316,7 @@ $desktop-large-min: 1680px;
 		.vote-content {
 			max-height: 4em;
 			overflow-y: auto;
+			overflow-x: hidden;
 		}
 		.carousel-control {
 			@include slider-controls;

@@ -1096,6 +1096,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-
     width: 100%;
     background: transparent;
     overflow-y: scroll;
+    overflow-x: hidden;
     -webkit-box-shadow: none;
             box-shadow: none;
     padding: var(--gap-18) var(--padding-sides) 40px;
@@ -1705,6 +1706,7 @@ body.cart-window-visible #cart-widget .cart-widget-products {
   grid-column: 1/-1;
   max-height: 340px;
   overflow-y: auto;
+  overflow-x: hidden;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-color: var(--color-gray-500);
@@ -4725,6 +4727,7 @@ body.type-category .category-header > div strong {
   min-height: 11.25em;
   max-height: 16em;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: var(--gap-20) var(--gap-24) var(--gap-24);
   margin-right: var(--gap-20);
   display: -webkit-box;
@@ -9764,6 +9767,6 @@ html.cookies-visible .siteCookies {
   .in-index .hodnoceni-obchodu-section #ratingWrapper {
     grid-column: 1;
     position: sticky;
-    top: 0;
+    top: 20px;
   }
 }

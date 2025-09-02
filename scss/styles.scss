@@ -1641,6 +1641,7 @@ body {
 								width: 100%;
 								background: transparent;
 								overflow-y: scroll;
+								overflow-x: hidden;
 								box-shadow: none;
 								padding: var(--gap-18) var(--padding-sides) 40px;
 
@@ -2220,6 +2221,7 @@ body {
 				grid-column: 1/-1;
 				max-height: 340px;
 				overflow-y: auto;
+				overflow-x: hidden;
 				border-bottom-style: solid;
 				border-bottom-width: 1px;
 				border-color: var(--color-gray-500);
@@ -4581,6 +4583,7 @@ body.type-category {
 					min-height: 11.25em;
 					max-height: 16em;
 					overflow-y: auto;
+					overflow-x: hidden;
 					padding: var(--gap-20) var(--gap-24) var(--gap-24);
 					margin-right: var(--gap-20);
 					display: flex;
@@ -7538,7 +7541,7 @@ html.cookies-visible .siteCookies {
 			@media screen and (min-width: $desktop-min) {
 				grid-column: 1;
 				position: sticky;
-				top: 0;
+				top: 20px;
 			}
 		}
 	}

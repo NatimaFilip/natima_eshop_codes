@@ -1241,6 +1241,7 @@
 .in-index .hodnoceni-obchodu-section .vote-content {
   max-height: 4em;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .in-index .hodnoceni-obchodu-section .carousel-control {
   position: absolute;
