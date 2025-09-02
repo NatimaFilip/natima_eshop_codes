@@ -9125,7 +9125,7 @@ html.cookies-visible .siteCookies {
   left: 0;
 }
 .content-modal .delivery-point-form {
-  padding-bottom: 40px;
+  padding-bottom: 60px;
 }
 .content-modal .delivery-point-logos {
   max-width: 200px;
@@ -9136,6 +9136,21 @@ html.cookies-visible .siteCookies {
 }
 .content-modal .pickup-point-opening-hours.active {
   display: table;
+}
+.content-modal .ui-menu {
+  list-style: none;
+  max-height: 60px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.content-modal .ui-menu li {
+  padding: 15px 0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--color-black-o-20);
+}
+.content-modal .ui-menu li:hover, .content-modal .ui-menu li:focus-within {
+  border-bottom-color: var(--color-primary-200);
 }
 
 .in-hodnoceni-obchodu .content-inner {

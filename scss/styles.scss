@@ -7732,7 +7732,7 @@ html.cookies-visible .siteCookies {
 	}
 
 	.delivery-point-form {
-		padding-bottom: 40px;
+		padding-bottom: 60px;
 	}
 	.delivery-point-logos {
 		max-width: 200px;
@@ -7742,6 +7742,24 @@ html.cookies-visible .siteCookies {
 		display: none;
 		&.active {
 			display: table;
+		}
+	}
+	.ui-menu {
+		list-style: none;
+		max-height: 60px;
+		overflow-y: auto;
+		overflow-x: hidden;
+
+		li {
+			padding: 15px 0;
+			border-bottom-style: solid;
+			border-bottom-width: 1px;
+			border-bottom-color: var(--color-black-o-20);
+
+			&:hover,
+			&:focus-within {
+				border-bottom-color: var(--color-primary-200);
+			}
 		}
 	}
 }
