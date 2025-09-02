@@ -1510,6 +1510,18 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
         flex-basis: 50%;
     width: 50%;
   }
+  body:not(.mobile-view) .product-widgets.natios .natios-icons-flex.large-flex,
+  body:not(.mobile-view) .product-widgets[product-template=natios] .natios-icons-flex.large-flex {
+    row-gap: 35px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 767px) {
+  body:not(.mobile-view) .product-widgets.natios .natios-icons-flex.large-flex,
+  body:not(.mobile-view) .product-widgets[product-template=natios] .natios-icons-flex.large-flex {
+    row-gap: 20px;
+  }
+}
+@media screen and (min-width: 768px) {
   body:not(.mobile-view) .product-widgets.natios .natios-icons-flex.small-flex,
   body:not(.mobile-view) .product-widgets[product-template=natios] .natios-icons-flex.small-flex {
     row-gap: var(--description-widget-gap-bigger);

@@ -1352,6 +1352,12 @@ body {
 						width: 50%;
 					}
 				}
+				&.large-flex {
+					row-gap: 35px;
+					@media screen and (max-width: $mobile-max) {
+						row-gap: 20px;
+					}
+				}
 				&.small-flex {
 					row-gap: var(--description-widget-gap-bigger);
 					padding-top: 30px;
