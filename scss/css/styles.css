@@ -8558,10 +8558,10 @@ body.sticky-header-off .messages > * {
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .votes-wrap > * {
   display: none;
 }
-.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .votes-wrap > :nth-child(-n+6) {
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .votes-wrap > :nth-child(-n+7) {
   display: block;
 }
-.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .votes-wrap.all-visible > * {
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab.all-visible .votes-wrap > * {
   display: block;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content .extended-description {
