@@ -822,6 +822,16 @@ body .product-widgets[product-template=natios] .natios-icons-flex .product-icon-
       -ms-flex-align: center;
           align-items: center;
 }
+body .product-widgets.natios .natios-icons-flex.large-flex,
+body .product-widgets[product-template=natios] .natios-icons-flex.large-flex {
+  padding: 54px 0;
+}
+@media screen and (max-width: 767px) {
+  body .product-widgets.natios .natios-icons-flex.large-flex,
+  body .product-widgets[product-template=natios] .natios-icons-flex.large-flex {
+    padding: 20px 0;
+  }
+}
 body .product-widgets.natios .natios-icons-flex.large-flex .description-icon-container-with-text,
 body .product-widgets[product-template=natios] .natios-icons-flex.large-flex .description-icon-container-with-text {
   gap: var(--description-widget-gap);

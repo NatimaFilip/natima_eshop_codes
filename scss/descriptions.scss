@@ -806,6 +806,10 @@ body {
 				}
 			}
 			&.large-flex {
+				padding: 54px 0;
+				@media screen and (max-width: $mobile-max) {
+					padding: 20px 0;
+				}
 				.description-icon-container-with-text {
 					gap: var(--description-widget-gap);
 					font-size: var(--fs-16);
