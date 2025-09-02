@@ -1040,6 +1040,9 @@ table {
 .no-display {
 	display: none;
 }
+.hidden {
+	display: none;
+}
 
 .show-on-mobile {
 	display: none;
@@ -7575,7 +7578,7 @@ html.cookies-visible .siteCookies {
 			padding-left: 2px;
 		}
 	}
-	#formProductQuestion {
+	form {
 		fieldset {
 			border-style: none;
 			padding: 0;
@@ -7588,15 +7591,22 @@ html.cookies-visible .siteCookies {
 			display: flex;
 			flex-direction: column;
 			gap: 5px;
+			padding-bottom: 10px;
 		}
 		input.btn {
 			width: 100%;
 			background-color: var(--color-primary);
 			border-style: none;
+			color: var(--color-white);
+			font-weight: var(--fw-700);
 			cursor: pointer;
 			&:hover {
 				background-color: var(--color-primary-hover);
 			}
+		}
+	}
+	#formProductQuestion {
+		fieldset {
 		}
 	}
 }
