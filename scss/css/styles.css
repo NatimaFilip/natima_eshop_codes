@@ -8899,6 +8899,10 @@ html.cookies-visible .siteCookies {
   display: none;
 }
 
+.content-modal {
+  padding: 40px;
+}
+
 .in-hodnoceni-obchodu .content-inner {
   max-width: 100%;
   margin: 0 auto;

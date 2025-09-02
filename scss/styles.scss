@@ -7551,6 +7551,10 @@ html.cookies-visible .siteCookies {
 	display: none;
 }
 
+.content-modal {
+	padding: 40px;
+}
+
 .in-hodnoceni-obchodu {
 	.content-inner {
 		@include ratingTab-shopRating;
