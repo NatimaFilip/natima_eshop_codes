@@ -7746,11 +7746,15 @@ html.cookies-visible .siteCookies {
 	}
 	.ui-menu {
 		list-style: none;
-		max-height: 60px;
+		max-height: 120px;
+		height: 120px;
 		overflow-y: auto;
 		overflow-x: hidden;
 		margin: 0;
 		padding: 0;
+		position: relative !important;
+		inset: 0 !important;
+		width: 100% !important;
 
 		li {
 			margin: 0;
