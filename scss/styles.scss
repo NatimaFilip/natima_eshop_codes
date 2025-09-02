@@ -7633,7 +7633,12 @@ html.cookies-visible .siteCookies {
 		padding: 5px 0;
 		align-items: center;
 	}
-	.watchdog-reset {
+	.watchdog-action-buttons {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+	#watchdog-reset {
 		display: flex;
 		justify-content: flex-end;
 		text-align: center !important;

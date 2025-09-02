@@ -9008,7 +9008,19 @@ html.cookies-visible .siteCookies {
       -ms-flex-align: center;
           align-items: center;
 }
-.content-modal .watchdog-reset {
+.content-modal .watchdog-action-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.content-modal #watchdog-reset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
