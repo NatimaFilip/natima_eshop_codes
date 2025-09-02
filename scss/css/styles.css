@@ -7170,10 +7170,11 @@ body.sticky-header-off .messages > * {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
-  line-height: 1;
+  line-height: var(--lh-1-2);
   position: relative;
   top: 3px;
   pointer-events: none;
+  max-width: 10em;
   font-size: var(--fs-11);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -8546,11 +8547,22 @@ body.sticky-header-off .messages > * {
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #ratingWrapper {
   position: sticky;
   top: calc(var(--gap-55) + 3em);
+  -webkit-transition: top 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out;
 }
 @media screen and (max-width: 1279px) {
   .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #ratingWrapper {
     position: initial;
   }
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .votes-wrap > * {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .votes-wrap > :nth-child(-n+6) {
+  display: block;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .votes-wrap.all-visible > * {
+  display: block;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content .extended-description {
   background: var(--color-gray-400);

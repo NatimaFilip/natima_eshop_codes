@@ -6481,10 +6481,11 @@ body {
 			}
 			.stars-label {
 				order: 3;
-				line-height: 1;
+				line-height: var(--lh-1-2);
 				position: relative;
 				top: 3px;
 				pointer-events: none;
+				max-width: 10em;
 
 				font-size: var(--fs-11);
 				@include text-underline;
@@ -7194,8 +7195,24 @@ body {
 					#ratingWrapper {
 						position: sticky;
 						top: calc(var(--gap-55) + 3em);
+						transition: top 0.3s ease-in-out;
 						@media screen and (max-width: $tablet-max) {
 							position: initial;
+						}
+					}
+					.votes-wrap {
+						// Hide all children by default
+						> * {
+							display: none;
+						}
+						// Show only the first 6 children
+						> :nth-child(-n + 6) {
+							display: block;
+						}
+						&.all-visible {
+							> * {
+								display: block;
+							}
 						}
 					}
 				}
