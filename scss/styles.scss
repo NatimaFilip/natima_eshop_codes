@@ -1027,6 +1027,10 @@ table {
 	@include body-max-width;
 }
 
+.red {
+	color: var(--color-red-400);
+}
+
 .display-none {
 	display: none !important;
 }
@@ -7552,7 +7556,37 @@ html.cookies-visible .siteCookies {
 }
 
 .content-modal {
-	padding: 40px;
+	padding: 20px 40px;
+	@media screen and (max-width: $tablet-max) {
+		padding: 20px 20px;
+	}
+	@media screen and (max-width: $mobile-max) {
+		padding: 20px 10px;
+	}
+	#formProductQuestion {
+		fieldset {
+			border-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			gap: var(--gap-20);
+		}
+		.form-group {
+			display: flex;
+			flex-direction: column;
+			gap: var(--gap-10);
+		}
+		input.btn {
+			width: 100%;
+			background-color: var(--color-primary);
+			border-style: none;
+			cursor: pointer;
+			&:hover {
+				background-color: var(--color-primary-hover);
+			}
+		}
+	}
 }
 
 .in-hodnoceni-obchodu {
