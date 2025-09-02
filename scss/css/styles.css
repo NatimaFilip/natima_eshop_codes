@@ -8930,6 +8930,19 @@ html.cookies-visible .siteCookies {
   color: var(--color-red-400);
   padding-left: 2px;
 }
+.content-modal form {
+  border-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
 .content-modal form fieldset {
   border-style: none;
   padding: 0;
@@ -8964,6 +8977,20 @@ html.cookies-visible .siteCookies {
 }
 .content-modal form input.btn:hover {
   background-color: var(--color-primary-hover);
+}
+.content-modal form .disclaimer {
+  font-size: var(--fs-12);
+  color: var(--color-grey-600);
+}
+.content-modal form .watchdog-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 10px;
 }
 .in-hodnoceni-obchodu .content-inner {
   max-width: 100%;

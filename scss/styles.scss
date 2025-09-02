@@ -7579,6 +7579,12 @@ html.cookies-visible .siteCookies {
 		}
 	}
 	form {
+		border-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 		fieldset {
 			border-style: none;
 			padding: 0;
@@ -7603,6 +7609,15 @@ html.cookies-visible .siteCookies {
 			&:hover {
 				background-color: var(--color-primary-hover);
 			}
+		}
+		.disclaimer {
+			font-size: var(--fs-12);
+			color: var(--color-grey-600);
+		}
+		.watchdog-row {
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
 		}
 	}
 	#formProductQuestion {
