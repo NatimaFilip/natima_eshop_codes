@@ -9060,25 +9060,6 @@ html.cookies-visible .siteCookies {
   text-decoration: underline;
   text-decoration-style: dashed;
   cursor: help;
-  position: relative;
-}
-.content-modal .shipping-row .payment-info .show-tooltip {
-  display: none;
-}
-.content-modal .shipping-row .payment-info:hover .show-tooltip, .content-modal .shipping-row .payment-info:focus-within .show-tooltip {
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 250px;
-  font-size: var(--fs-13);
-  background: var(--color-primary);
-  color: white;
-  border-radius: var(--br-16);
-  padding: 1em;
-  border-style: solid;
-  border-width: 1px;
-  border-color: var(--color-primary-hover);
 }
 .in-hodnoceni-obchodu .content-inner {
   max-width: 100%;
