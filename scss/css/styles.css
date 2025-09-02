@@ -8916,6 +8916,16 @@ html.cookies-visible .siteCookies {
     padding: 20px 10px;
   }
 }
+.content-modal input,
+.content-modal textarea,
+.content-modal select {
+  padding: 1em 0.5em;
+}
+.content-modal .required-asterisk:after {
+  content: "*";
+  color: var(--color-red-400);
+  padding-left: 2px;
+}
 .content-modal #formProductQuestion fieldset {
   border-style: none;
   padding: 0;
@@ -8927,7 +8937,7 @@ html.cookies-visible .siteCookies {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: var(--gap-20);
+  gap: 10px;
 }
 .content-modal #formProductQuestion .form-group {
   display: -webkit-box;
@@ -8937,7 +8947,7 @@ html.cookies-visible .siteCookies {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: var(--gap-10);
+  gap: 5px;
 }
 .content-modal #formProductQuestion input.btn {
   width: 100%;
