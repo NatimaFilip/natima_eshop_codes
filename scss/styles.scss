@@ -132,6 +132,7 @@ $desktop-large-min: 1680px;
 		border-radius: var(--br-20);
 		line-height: var(--lh-1-4);
 		padding: var(--padding-capsules);
+		order: 99;
 	}
 
 	.flag-cesky-produkt {
@@ -140,6 +141,7 @@ $desktop-large-min: 1680px;
 		display: flex;
 		align-items: center;
 		z-index: 1;
+		order: 3;
 
 		&::before {
 			content: "";
