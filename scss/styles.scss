@@ -2692,84 +2692,84 @@ body {
 							}
 						}
 					}
-					.social-login-buttons {
-						display: flex;
-						flex-direction: column;
-						gap: var(--gap-10);
-						margin-top: var(--gap-16);
-						.social-login-buttons-divider {
-							display: flex;
-							align-items: center;
-							justify-content: center;
-							gap: var(--gap-10);
-							color: var(--color-gray-600);
-							font-size: var(--fs-13);
-							margin-bottom: var(--gap-10);
-							&::before,
-							&::after {
-								content: "";
-								flex-grow: 1;
-								height: 1px;
-								background-color: var(--color-gray-500);
-							}
-						}
-						.login-btn {
-							position: relative;
-							display: block;
-							padding: 1em 4em;
+				}
+			}
+		}
+	}
+	.social-login-buttons {
+		display: flex;
+		flex-direction: column;
+		gap: var(--gap-10);
+		margin-top: var(--gap-16);
+		.social-login-buttons-divider {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: var(--gap-10);
+			color: var(--color-gray-600);
+			font-size: var(--fs-13);
+			margin-bottom: var(--gap-10);
+			&::before,
+			&::after {
+				content: "";
+				flex-grow: 1;
+				height: 1px;
+				background-color: var(--color-gray-500);
+			}
+		}
+		.login-btn {
+			position: relative;
+			display: block;
+			padding: 1em 4em;
 
-							width: 100%;
-							border-radius: var(--br-16);
-							border-style: solid;
-							border-width: 1px;
-							border-color: var(--color-black);
-							color: var(--color-black);
-							font-size: var(--fs-14);
-							font-weight: var(--fw-700);
-							text-align: center;
-							transition: background-color 0.1s ease, border-color 0.1s ease;
-							&:hover,
-							&:focus-within {
-								background-color: var(--color-primary-hover);
-								border-color: var(--color-primary-hover);
-								color: var(--color-white);
-							}
-							&::before {
-								content: "";
-								display: block;
-								width: 1.715em;
-								height: 100%;
-								position: absolute;
-								left: 1.715em;
-								top: 50%;
-								transform: translateY(-50%);
-							}
-							&.facebook {
-								&::before {
-									background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_login_facebook.svg");
-									background-position: center;
-									background-repeat: no-repeat;
-									background-size: contain;
-								}
-							}
-							&.google {
-								&::before {
-									background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_login_google.svg");
-									background-position: center;
-									background-repeat: no-repeat;
-									background-size: contain;
-								}
-							}
-							&.seznam {
-								&::before {
-									background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_login_seznam.svg");
-									background-position: center;
-									background-repeat: no-repeat;
-									background-size: contain;
-								}
-							}
-						}
-					}
+			width: 100%;
+			border-radius: var(--br-16);
+			border-style: solid;
+			border-width: 1px;
+			border-color: var(--color-black);
+			color: var(--color-black);
+			font-size: var(--fs-14);
+			font-weight: var(--fw-700);
+			text-align: center;
+			transition: background-color 0.1s ease, border-color 0.1s ease;
+			&:hover,
+			&:focus-within {
+				background-color: var(--color-primary-hover);
+				border-color: var(--color-primary-hover);
+				color: var(--color-white);
+			}
+			&::before {
+				content: "";
+				display: block;
+				width: 1.715em;
+				height: 100%;
+				position: absolute;
+				left: 1.715em;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			&.facebook {
+				&::before {
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_login_facebook.svg");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: contain;
+				}
+			}
+			&.google {
+				&::before {
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_login_google.svg");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: contain;
+				}
+			}
+			&.seznam {
+				&::before {
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_login_seznam.svg");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: contain;
 				}
 			}
 		}
