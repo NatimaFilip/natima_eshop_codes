@@ -1302,31 +1302,28 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
 }
 body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5),
 body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) {
+  position: relative;
   font-size: 0px !important;
   padding: 0 !important;
-  position: absolute;
-  width: 350px;
-  max-width: 90%;
-  right: 0;
-  top: 7px;
-  background: var(--color-white);
   color: var(--color-black);
-  border-radius: var(--br-10);
   pointer-events: none;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
 }
-body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) p,
-body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) p {
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) ul,
+body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) ul {
   text-align: left;
-}
-body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) > p:not(:last-child),
-body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right table tr > td:nth-child(5) > p:not(:last-child) {
-  padding-bottom: 0.5em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  width: 350px;
 }
 body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5),
 body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5) {
   font-size: var(--fs-14) !important;
+}
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5) ul,
+body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5) ul {
   padding: 1em 0.5em !important;
   border-style: solid;
   border-width: 1px;
