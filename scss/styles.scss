@@ -7862,6 +7862,11 @@ html.cookies-visible .siteCookies {
 				width: 100%;
 				padding: 1em 1em;
 			}
+			@media screen and (max-width: $mobile-max) {
+				flex-direction: column;
+				display: flex;
+				align-items: stretch;
+			}
 		}
 		> fieldset.co-registration {
 			display: none;
@@ -7909,7 +7914,6 @@ html.cookies-visible .siteCookies {
 			}
 		}
 		.stay-in-touch {
-			border-top-style: solid;
 			border-bottom-style: solid;
 			border-width: 1px;
 			padding-bottom: var(--gap-20);
