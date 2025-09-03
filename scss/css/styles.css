@@ -2412,16 +2412,6 @@ body .register-soc .login-btn.seznam::before {
   background-repeat: no-repeat;
   background-size: contain;
 }
-body .register-soc {
-  border-top-style: solid;
-  border-width: 1px;
-  border-color: var(--color-gray-500);
-  padding-bottom: var(--gap-20);
-  padding-top: var(--gap-20);
-}
-body .register-soc h4 {
-  padding-bottom: 1em;
-}
 
 /*-------------------------------------- COMMON BODY FEATURES*/
 body .breadcrumbs-wrapper {
@@ -10144,8 +10134,9 @@ html.cookies-visible .siteCookies {
 }
 .type-page #register-form h4 {
   padding-bottom: 0.75em;
+  padding-top: 1em;
 }
-.type-page #register-form .form-group:has(.smart-label-wrapper) {
+.type-page #register-form .form-group.smart-label-wrapper {
   display: grid;
   grid-template-columns: 33.33% max(45%, 300px);
   gap: 10px;
@@ -10154,8 +10145,8 @@ html.cookies-visible .siteCookies {
           align-items: center;
   margin-bottom: 8px;
 }
-.type-page #register-form .form-group:has(.smart-label-wrapper) input,
-.type-page #register-form .form-group:has(.smart-label-wrapper) select {
+.type-page #register-form .form-group.smart-label-wrapper input,
+.type-page #register-form .form-group.smart-label-wrapper select {
   width: 100%;
   padding: 1em 1em;
 }
@@ -10189,4 +10180,12 @@ html.cookies-visible .siteCookies {
   position: absolute;
   right: -0.75em;
   top: 0;
+}
+.type-page .register-soc {
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: var(--color-gray-500);
+  padding-bottom: var(--gap-20);
+  padding-top: var(--gap-20);
+  margin-top: var(--gap-20);
 }

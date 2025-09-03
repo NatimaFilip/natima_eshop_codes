@@ -2775,16 +2775,6 @@ body {
 			}
 		}
 	}
-	.register-soc {
-		border-top-style: solid;
-		border-width: 1px;
-		border-color: var(--color-gray-500);
-		padding-bottom: var(--gap-20);
-		padding-top: var(--gap-20);
-		h4 {
-			padding-bottom: 1em;
-		}
-	}
 }
 
 /*-------------------------------------- COMMON BODY FEATURES*/
@@ -7857,8 +7847,9 @@ html.cookies-visible .siteCookies {
 		margin: var(--gap-30) auto var(--gap-30);
 		h4 {
 			padding-bottom: 0.75em;
+			padding-top: 1em;
 		}
-		.form-group:has(.smart-label-wrapper) {
+		.form-group.smart-label-wrapper {
 			display: grid;
 			grid-template-columns: 33.33% max(45%, 300px);
 			gap: 10px;
@@ -7902,5 +7893,13 @@ html.cookies-visible .siteCookies {
 				top: 0;
 			}
 		}
+	}
+	.register-soc {
+		border-top-style: solid;
+		border-width: 1px;
+		border-color: var(--color-gray-500);
+		padding-bottom: var(--gap-20);
+		padding-top: var(--gap-20);
+		margin-top: var(--gap-20);
 	}
 }
