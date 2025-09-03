@@ -10185,3 +10185,55 @@ html.cookies-visible .siteCookies {
 .type-page #register-form .submit-wrapper .btn {
   width: 100%;
 }
+.type-page #register-form input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  --box-width: 20px;
+  --box-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: var(--box-width);
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border-style: none;
+  outline: none;
+}
+.type-page #register-form input[type=checkbox]::before {
+  content: "";
+  margin: 0;
+  width: var(--box-width);
+  min-width: var(--box-width);
+  height: var(--box-width);
+  border-radius: var(--box-radius);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-primary);
+  outline-style: none;
+  background: transparent;
+}
+.type-page #register-form input[type=checkbox]:checked::before {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.type-page #register-form input[type=checkbox]:checked::after {
+  content: "";
+  margin: 0;
+  width: calc(var(--box-width) / 2);
+  height: var(--box-width);
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_check_white.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  top: 1px;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+}
