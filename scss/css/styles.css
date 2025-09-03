@@ -10156,6 +10156,16 @@ html.cookies-visible .siteCookies {
   margin-top: var(--gap-20);
   margin-bottom: var(--gap-20);
 }
+.type-page #register-form .register-soc h4 {
+  padding-top: 0.25em;
+}
+.type-page #register-form .stay-in-touch {
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-width: 1px;
+  padding-bottom: var(--gap-20);
+  margin-bottom: var(--gap-20);
+}
 .type-page #register-form .submit-wrapper {
   margin-top: var(--gap-20);
 }

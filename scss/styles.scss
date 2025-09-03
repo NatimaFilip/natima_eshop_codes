@@ -7904,6 +7904,16 @@ html.cookies-visible .siteCookies {
 			padding-top: var(--gap-20);
 			margin-top: var(--gap-20);
 			margin-bottom: var(--gap-20);
+			h4 {
+				padding-top: 0.25em;
+			}
+		}
+		.stay-in-touch {
+			border-top-style: solid;
+			border-bottom-style: solid;
+			border-width: 1px;
+			padding-bottom: var(--gap-20);
+			margin-bottom: var(--gap-20);
 		}
 		.submit-wrapper {
 			margin-top: var(--gap-20);
