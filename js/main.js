@@ -1884,6 +1884,18 @@ if (body.classList.contains("type-product")) {
 						if (ratingTab) {
 							ratingTab.classList.add("no-score");
 						}
+						let starsLabel = starsWrapper.querySelector(".stars-label");
+						if (starsLabel) {
+							if (csLang) {
+								starsLabel.textContent = "Vložit první hodnocení";
+							}
+							if (skLang) {
+								starsLabel.textContent = "Vložiť prvé hodnotenie";
+							}
+							if (plLang) {
+								starsLabel.textContent = "Wstaw pierwszą ocenę";
+							}
+						}
 					}
 				}
 			}
