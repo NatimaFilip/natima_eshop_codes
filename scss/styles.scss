@@ -2848,6 +2848,8 @@ body {
 			.navigation-bullet {
 				display: none;
 			}
+			@media screen and (max-width: $mobile-max) {
+			}
 		}
 		@media screen and (min-width: $tablet-min) {
 			margin-top: var(--gap-14);
@@ -6573,7 +6575,7 @@ body {
 				pointer-events: none;
 				font-size: var(--fs-11);
 				@include text-underline;
-				max-width: 10em;
+				max-width: 12em;
 			}
 			&.no-score {
 				.stars-label {
@@ -7184,6 +7186,10 @@ body {
 						color: var(--color-black);
 						padding-bottom: 0.375em;
 						text-align: center;
+
+						@media screen and (max-width: $mobile-max) {
+							text-align: left;
+						}
 					}
 					@media screen and (max-width: $tablet-max) {
 						padding: 20px 0;
@@ -7371,6 +7377,9 @@ body {
 	.products-related-header {
 		text-align: center;
 		padding-bottom: 1.25em;
+		@media screen and (max-width: $mobile-max) {
+			text-align: left;
+		}
 	}
 	.products-related {
 		margin-bottom: var(--gap-55);

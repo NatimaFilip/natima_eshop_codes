@@ -7334,7 +7334,7 @@ body.sticky-header-off .messages > * {
   font-size: var(--fs-11);
   text-decoration: underline;
   text-underline-offset: 3px;
-  max-width: 10em;
+  max-width: 12em;
 }
 .type-product .sticky-sell .stars-wrapper.no-score .stars-label {
   padding-left: 1em;
@@ -8134,6 +8134,11 @@ body.sticky-header-off .messages > * {
   padding-bottom: 0.375em;
   text-align: center;
 }
+@media screen and (max-width: 767px) {
+  .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles h3 {
+    text-align: left;
+  }
+}
 @media screen and (max-width: 1279px) {
   .type-product .p-detail-tabs-wrapper > .row #tab-content #relatedFiles {
     padding: 20px 0;
@@ -8742,6 +8747,11 @@ body.sticky-header-off .messages > * {
 .type-product .products-related-header {
   text-align: center;
   padding-bottom: 1.25em;
+}
+@media screen and (max-width: 767px) {
+  .type-product .products-related-header {
+    text-align: left;
+  }
 }
 .type-product .products-related {
   margin-bottom: var(--gap-55);
