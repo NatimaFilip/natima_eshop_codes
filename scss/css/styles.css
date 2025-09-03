@@ -10142,7 +10142,10 @@ html.cookies-visible .siteCookies {
   max-width: 600px;
   margin: var(--gap-30) auto var(--gap-30);
 }
-.type-page #register-form .form-group {
+.type-page #register-form h4 {
+  padding-bottom: 0.75em;
+}
+.type-page #register-form .form-group:has(.smart-label-wrapper) {
   display: grid;
   grid-template-columns: 33.33% max(45%, 300px);
   gap: 10px;
@@ -10151,16 +10154,13 @@ html.cookies-visible .siteCookies {
           align-items: center;
   margin-bottom: 8px;
 }
-.type-page #register-form .form-group input,
-.type-page #register-form .form-group select {
+.type-page #register-form .form-group:has(.smart-label-wrapper) input,
+.type-page #register-form .form-group:has(.smart-label-wrapper) select {
   width: 100%;
   padding: 1em 1em;
 }
 .type-page #register-form > fieldset.co-registration {
   display: none;
-}
-.type-page #register-form > fieldset.co-registration .form-group {
-  display: block;
 }
 .type-page #register-form .js-hidden {
   display: none;

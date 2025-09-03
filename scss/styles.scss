@@ -7855,7 +7855,10 @@ html.cookies-visible .siteCookies {
 	#register-form {
 		max-width: 600px;
 		margin: var(--gap-30) auto var(--gap-30);
-		.form-group {
+		h4 {
+			padding-bottom: 0.75em;
+		}
+		.form-group:has(.smart-label-wrapper) {
 			display: grid;
 			grid-template-columns: 33.33% max(45%, 300px);
 			gap: 10px;
@@ -7869,9 +7872,6 @@ html.cookies-visible .siteCookies {
 		}
 		> fieldset.co-registration {
 			display: none;
-			.form-group {
-				display: block;
-			}
 		}
 		.js-hidden {
 			display: none;
