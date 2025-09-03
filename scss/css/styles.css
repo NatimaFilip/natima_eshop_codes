@@ -2317,7 +2317,8 @@ body.login-window-visible .login-widget .popup-widget-inner #customerLogin form 
 body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .login-wrapper .password-helper a:hover, body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .login-wrapper .password-helper a:focus-within {
   color: var(--color-primary-500);
 }
-body .social-login-buttons {
+body .social-login-buttons,
+body .register-soc {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2328,7 +2329,8 @@ body .social-login-buttons {
   gap: var(--gap-10);
   margin-top: var(--gap-16);
 }
-body .social-login-buttons .social-login-buttons-divider {
+body .social-login-buttons .social-login-buttons-divider,
+body .register-soc .social-login-buttons-divider {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2343,7 +2345,9 @@ body .social-login-buttons .social-login-buttons-divider {
   font-size: var(--fs-13);
   margin-bottom: var(--gap-10);
 }
-body .social-login-buttons .social-login-buttons-divider::before, body .social-login-buttons .social-login-buttons-divider::after {
+body .social-login-buttons .social-login-buttons-divider::before, body .social-login-buttons .social-login-buttons-divider::after,
+body .register-soc .social-login-buttons-divider::before,
+body .register-soc .social-login-buttons-divider::after {
   content: "";
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -2351,7 +2355,8 @@ body .social-login-buttons .social-login-buttons-divider::before, body .social-l
   height: 1px;
   background-color: var(--color-gray-500);
 }
-body .social-login-buttons .login-btn {
+body .social-login-buttons .login-btn,
+body .register-soc .login-btn {
   position: relative;
   display: block;
   padding: 1em 4em;
@@ -2367,12 +2372,15 @@ body .social-login-buttons .login-btn {
   -webkit-transition: background-color 0.1s ease, border-color 0.1s ease;
   transition: background-color 0.1s ease, border-color 0.1s ease;
 }
-body .social-login-buttons .login-btn:hover, body .social-login-buttons .login-btn:focus-within {
+body .social-login-buttons .login-btn:hover, body .social-login-buttons .login-btn:focus-within,
+body .register-soc .login-btn:hover,
+body .register-soc .login-btn:focus-within {
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
   color: var(--color-white);
 }
-body .social-login-buttons .login-btn::before {
+body .social-login-buttons .login-btn::before,
+body .register-soc .login-btn::before {
   content: "";
   display: block;
   width: 1.715em;
@@ -2383,19 +2391,22 @@ body .social-login-buttons .login-btn::before {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
-body .social-login-buttons .login-btn.facebook::before {
+body .social-login-buttons .login-btn.facebook::before,
+body .register-soc .login-btn.facebook::before {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_login_facebook.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
-body .social-login-buttons .login-btn.google::before {
+body .social-login-buttons .login-btn.google::before,
+body .register-soc .login-btn.google::before {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_login_google.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
-body .social-login-buttons .login-btn.seznam::before {
+body .social-login-buttons .login-btn.seznam::before,
+body .register-soc .login-btn.seznam::before {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_login_seznam.svg");
   background-position: center;
   background-repeat: no-repeat;
