@@ -2775,6 +2775,16 @@ body {
 			}
 		}
 	}
+	.register-soc {
+		border-top-style: solid;
+		border-width: 1px;
+		border-color: var(--color-gray-500);
+		padding-bottom: var(--gap-20);
+		padding-top: var(--gap-20);
+		h4 {
+			padding-bottom: 1em;
+		}
+	}
 }
 
 /*-------------------------------------- COMMON BODY FEATURES*/
@@ -7839,6 +7849,46 @@ html.cookies-visible .siteCookies {
 		.contact-block > svg > image {
 			width: 50px;
 			height: 50px;
+		}
+	}
+	/*REGISTRACE*/
+	#register-form {
+		max-width: 600px;
+		margin: var(--gap-30) auto var(--gap-30);
+		> fieldset.co-registration {
+			display: none;
+		}
+		.js-hidden {
+			display: none;
+		}
+		.form-group {
+			display: grid;
+			grid-template-columns: 33.33% max(45%, 300px);
+		}
+		.js-hidden.visible {
+			display: block;
+		}
+		.js-validator-msg.msg-error {
+			color: var(--color-red-400);
+			grid-row: 1;
+			grid-column: 1/-1;
+			text-align: left;
+			margin-bottom: -10px;
+			padding-right: 10px;
+			text-align: right;
+		}
+		.js-validated-element-wrapper:has(.msg-error) input {
+			outline: solid 2px var(--color-red-400);
+		}
+		.required-asterisk {
+			position: relative;
+			&::after {
+				content: "*";
+				color: var(--color-red-400);
+				position: absolute;
+				right: -0.75em;
+				top: 0;
+			}
 		}
 	}
 }
