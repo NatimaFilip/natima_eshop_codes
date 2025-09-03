@@ -940,6 +940,12 @@ select {
 	font-size: inherit;
 }
 
+fieldset {
+	padding: 0;
+	margin: 0;
+	border-style: none;
+}
+
 input,
 textarea,
 select {
@@ -1315,9 +1321,7 @@ body {
 						height: 100%;
 						fieldset {
 							height: 100%;
-							padding: 0;
-							margin: 0;
-							border-style: none;
+
 							display: flex;
 							gap: var(--gap-10);
 							position: relative;
@@ -3115,9 +3119,6 @@ body.type-category {
 			}
 		}
 		fieldset {
-			padding: 0;
-			margin: 0;
-			border-style: none;
 			div {
 				input {
 					display: none;
@@ -3427,9 +3428,7 @@ body.type-category {
 			fieldset {
 				display: flex;
 				flex-direction: column;
-				padding: 0;
-				margin: 0;
-				border-style: none;
+
 				position: relative;
 				gap: var(--gap-10);
 
@@ -4952,9 +4951,6 @@ body.type-category {
 				}
 				form {
 					fieldset {
-						border: none;
-						padding: 0;
-						margin: 0;
 						display: grid;
 						grid-template-columns: 1fr auto;
 						grid-template-rows: auto auto;
@@ -7591,9 +7587,6 @@ html.cookies-visible .siteCookies {
 		gap: 10px;
 
 		fieldset {
-			border-style: none;
-			padding: 0;
-			margin: 0;
 			display: flex;
 			flex-direction: column;
 			gap: 10px;

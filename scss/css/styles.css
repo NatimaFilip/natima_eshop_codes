@@ -228,6 +228,12 @@ select {
   font-size: inherit;
 }
 
+fieldset {
+  padding: 0;
+  margin: 0;
+  border-style: none;
+}
+
 input,
 textarea,
 select {
@@ -685,9 +691,6 @@ body #header .navigation-wrapper .header-top .search form {
 }
 body #header .navigation-wrapper .header-top .search form fieldset {
   height: 100%;
-  padding: 0;
-  margin: 0;
-  border-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2796,11 +2799,6 @@ body.type-category #filters .slider-wrapper .slider-content #slider span {
   position: absolute;
   margin-left: calc(var(--box-width) / -2);
 }
-body.type-category #filters fieldset {
-  padding: 0;
-  margin: 0;
-  border-style: none;
-}
 body.type-category #filters fieldset div input {
   display: none;
 }
@@ -3154,9 +3152,6 @@ body.type-category .category-header form fieldset {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 0;
-  margin: 0;
-  border-style: none;
   position: relative;
   gap: var(--gap-10);
 }
@@ -5182,9 +5177,6 @@ body.type-category .category-header > div strong {
   padding-bottom: 1.125em;
 }
 #footer .footer-newsletter .footer-newsletter-wrapper .footer-newsletter-wrapper-inner form fieldset {
-  border: none;
-  padding: 0;
-  margin: 0;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
@@ -8958,9 +8950,6 @@ html.cookies-visible .siteCookies {
   gap: 10px;
 }
 .content-modal form fieldset {
-  border-style: none;
-  padding: 0;
-  margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
