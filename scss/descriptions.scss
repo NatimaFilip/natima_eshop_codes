@@ -1186,8 +1186,8 @@ body {
 								text-align: left;
 								position: absolute;
 								left: 0;
-								top: 0;
-								transform: translateX(-100%);
+								top: 5px;
+								transform: translate(-100%, -100%);
 								width: 350px;
 							}
 						}
@@ -1204,6 +1204,9 @@ body {
 									border-radius: var(--br-10);
 									background: var(--color-white);
 									box-shadow: 0 4px 16px var(--color-black-o-10);
+									p {
+										text-align: left;
+									}
 								}
 							}
 						}

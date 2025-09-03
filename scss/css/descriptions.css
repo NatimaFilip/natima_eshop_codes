@@ -1309,9 +1309,9 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
   text-align: left;
   position: absolute;
   left: 0;
-  top: 0;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  top: 5px;
+  -webkit-transform: translate(-100%, -100%);
+          transform: translate(-100%, -100%);
   width: 350px;
 }
 body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5),
@@ -1329,6 +1329,10 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
   background: var(--color-white);
   -webkit-box-shadow: 0 4px 16px var(--color-black-o-10);
           box-shadow: 0 4px 16px var(--color-black-o-10);
+}
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5) ul p,
+body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5) ul p {
+  text-align: left;
 }
 body .product-widgets.natios .natios-analysis .natios-analysis-content-right table colgroup col:first-child,
 body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right table colgroup col:first-child {
