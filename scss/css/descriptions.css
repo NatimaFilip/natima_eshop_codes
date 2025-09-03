@@ -1163,10 +1163,6 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
       flex-basis: 20px;
   min-width: 20px;
 }
-body .product-widgets.natios .natios-analysis .natios-analysis-content-right,
-body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right {
-  overflow-x: hidden;
-}
 body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > table,
 body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table,
 body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right .editable-content > table,
@@ -1324,10 +1320,13 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
 }
 body .product-widgets.natios .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5) ul,
 body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right table tr > td:nth-child(4):hover ~ td:nth-child(5) ul {
+  z-index: 999;
   padding: 1em 0.5em !important;
   border-style: solid;
   border-width: 1px;
   border-color: var(--color-primary);
+  border-radius: var(--br-10);
+  background: var(--color-white);
   -webkit-box-shadow: 0 4px 16px var(--color-black-o-10);
           box-shadow: 0 4px 16px var(--color-black-o-10);
 }

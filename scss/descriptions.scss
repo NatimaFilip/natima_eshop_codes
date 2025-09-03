@@ -1081,7 +1081,6 @@ body {
 				}
 			}
 			.natios-analysis-content-right {
-				overflow-x: hidden;
 				.editable-content,
 				.editable-content > div.tiptap {
 					> table {
@@ -1197,10 +1196,13 @@ body {
 							& ~ td:nth-child(5) {
 								font-size: var(--fs-14) !important;
 								ul {
+									z-index: 999;
 									padding: 1em 0.5em !important;
 									border-style: solid;
 									border-width: 1px;
 									border-color: var(--color-primary);
+									border-radius: var(--br-10);
+									background: var(--color-white);
 									box-shadow: 0 4px 16px var(--color-black-o-10);
 								}
 							}
