@@ -10146,11 +10146,19 @@ html.cookies-visible .siteCookies {
   right: -0.75em;
   top: 0;
 }
-.type-page .register-soc {
+.type-page #register-form .register-soc {
   border-top-style: solid;
+  border-bottom-style: solid;
   border-width: 1px;
   border-color: var(--color-gray-500);
   padding-bottom: var(--gap-20);
   padding-top: var(--gap-20);
   margin-top: var(--gap-20);
+  margin-bottom: var(--gap-20);
+}
+.type-page #register-form .submit-wrapper {
+  margin-top: var(--gap-20);
+}
+.type-page #register-form .submit-wrapper .btn {
+  width: 100%;
 }
