@@ -486,22 +486,7 @@ $desktop-large-min: 1680px;
 			width: 100%;
 			margin: var(--gap-6) 0;
 		}
-		input[type="submit"] {
-			background-color: var(--color-primary);
-			border-radius: var(--br-16);
-			color: var(--color-white);
-			font-size: var(--fs-18);
-			font-weight: var(--fw-700);
-			@include bottom-primary-shadow;
-			padding: 1.1667em;
-			transition: background-color 0.2s ease-out;
-			text-align: center;
-			cursor: pointer;
 
-			&:hover {
-				background-color: var(--color-primary-hover);
-			}
-		}
 		.stars {
 			@include star-list;
 			gap: var(--gap-8);
@@ -957,6 +942,23 @@ select {
 	transition: border-color 0.2s ease-out;
 	&:focus {
 		outline: solid 2px var(--color-primary);
+	}
+}
+input[type="submit"] {
+	background-color: var(--color-primary);
+	border-radius: var(--br-16);
+	color: var(--color-white);
+	font-size: var(--fs-18);
+	font-weight: var(--fw-700);
+	@include bottom-primary-shadow;
+	padding: 1.1667em;
+	transition: background-color 0.2s ease-out;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover,
+	&:focus-within {
+		background-color: var(--color-primary-hover);
 	}
 }
 
