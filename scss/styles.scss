@@ -2696,7 +2696,8 @@ body {
 			}
 		}
 	}
-	.social-login-buttons {
+	.social-login-buttons,
+	.register-soc {
 		display: flex;
 		flex-direction: column;
 		gap: var(--gap-10);
