@@ -7843,6 +7843,109 @@ html.cookies-visible .siteCookies {
 			height: 50px;
 		}
 	}
+
+	.contact-faq {
+		/*faq*/
+
+		.contact-faq-box {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: var(--gap-20);
+			align-items: flex-start;
+		}
+		h2 {
+			margin-bottom: 24px;
+		}
+		.contact-faq-questions {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+		.contact-faq-question {
+			border-radius: 5px;
+			border-style: solid;
+			border-width: 1px;
+			border-color: var(--color-gray-600);
+			padding: 0px 20px 0px 20px;
+			margin-bottom: 20px;
+			position: relative;
+			width: 100%;
+		}
+		.contact-faq-question > p {
+			margin-bottom: 0px;
+			font-weight: 400;
+			text-align: left;
+			padding-right: 20px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			position: relative;
+			cursor: pointer;
+		}
+		.contact-faq-question > .contact-faq-answer {
+			display: grid;
+			grid-template-rows: 0fr;
+			transition: grid-template-rows 0.3s ease;
+			overflow: hidden;
+		}
+		.contact-faq-question > .contact-faq-answer > p {
+			height: auto;
+			overflow: hidden;
+			margin: 0;
+			border-radius: var(--br-16);
+		}
+		.contact-faq-question > p::before {
+			content: "";
+			position: absolute;
+			bottom: -10px;
+			left: 30px;
+			width: 0;
+			height: 0;
+			border: 16px solid transparent;
+			border-bottom-color: #f6f6f6;
+			border-top: 0;
+			border-left: 0;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+		.contact-faq-question.active > p::before {
+			opacity: 1;
+		}
+
+		.contact-faq-question > p::after {
+			content: "+";
+			position: absolute;
+			right: 20px;
+
+			color: var(--color-primary);
+			top: 16px;
+			transition: transform 0.2s ease;
+		}
+
+		.contact-faq-question.active > .contact-faq-answer {
+			grid-template-rows: 1fr;
+		}
+		.contact-faq-answer > p > span {
+			display: block;
+			padding: 10px;
+			margin-top: 10px;
+			margin-bottom: 14px;
+			border-radius: var(--br-16);
+			background: #f6f6f6;
+		}
+		.contact-faq-question.active > p::after {
+			transform: rotate(180deg);
+		}
+
+		@media screen and (max-width: $mobile-max) {
+			.contact-faq-box {
+				grid-template-columns: 1fr;
+			}
+			.contact-faq-question > p::after {
+				right: -10px;
+			}
+		}
+	}
+
 	/*REGISTRACE*/
 	#register-form {
 		max-width: 600px;
@@ -7918,6 +8021,11 @@ html.cookies-visible .siteCookies {
 			border-width: 1px;
 			padding-bottom: var(--gap-20);
 			margin-bottom: var(--gap-20);
+			.form-group {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+			}
 		}
 		.submit-wrapper {
 			margin-top: var(--gap-20);
