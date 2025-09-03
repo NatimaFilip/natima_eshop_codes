@@ -7855,16 +7855,28 @@ html.cookies-visible .siteCookies {
 	#register-form {
 		max-width: 600px;
 		margin: var(--gap-30) auto var(--gap-30);
+		.form-group {
+			display: grid;
+			grid-template-columns: 33.33% max(45%, 300px);
+			gap: 10px;
+			align-items: center;
+			margin-bottom: 8px;
+			input,
+			select {
+				width: 100%;
+				padding: 1em 1em;
+			}
+		}
 		> fieldset.co-registration {
 			display: none;
+			.form-group {
+				display: block;
+			}
 		}
 		.js-hidden {
 			display: none;
 		}
-		.form-group {
-			display: grid;
-			grid-template-columns: 33.33% max(45%, 300px);
-		}
+
 		.js-hidden.visible {
 			display: block;
 		}
