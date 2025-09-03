@@ -10051,7 +10051,7 @@ html.cookies-visible .siteCookies {
   /*REGISTRACE*/
 }
 .type-page #content {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 .type-page .contact-blocks {
@@ -10148,6 +10148,7 @@ html.cookies-visible .siteCookies {
   overflow: hidden;
   margin: 0;
   border-radius: var(--br-16);
+  padding: 0;
 }
 .type-page .contact-faq .contact-faq-question > p::before {
   content: "";
