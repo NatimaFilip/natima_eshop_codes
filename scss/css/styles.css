@@ -979,7 +979,8 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 {
 }
 body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom {
   color: var(--color-white);
-  font-weight: var(--fw-600);
+  /* font-weight: var(--fw-600); */
+  font-weight: var(--fw-700);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1343,7 +1344,8 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li >
 }
 @media screen and (min-width: 768px) {
   body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li > a b {
-    font-weight: var(--fw-600);
+    /* font-weight: var(--fw-600); */
+    font-weight: var(--fw-700);
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
