@@ -10219,15 +10219,18 @@ html.cookies-visible .siteCookies {
     right: -10px;
   }
 }
-.type-page #register-form {
+.type-page #register-form,
+.type-page #formLogin {
   max-width: 600px;
   margin: var(--gap-30) auto var(--gap-30);
 }
-.type-page #register-form h4 {
+.type-page #register-form h4,
+.type-page #formLogin h4 {
   padding-bottom: 0.75em;
   padding-top: 1em;
 }
-.type-page #register-form .form-group.smart-label-wrapper {
+.type-page #register-form .form-group.smart-label-wrapper,
+.type-page #formLogin .form-group.smart-label-wrapper {
   display: grid;
   grid-template-columns: 33.33% max(45%, 300px);
   gap: 10px;
@@ -10237,12 +10240,15 @@ html.cookies-visible .siteCookies {
   margin-bottom: 8px;
 }
 .type-page #register-form .form-group.smart-label-wrapper input,
-.type-page #register-form .form-group.smart-label-wrapper select {
+.type-page #register-form .form-group.smart-label-wrapper select,
+.type-page #formLogin .form-group.smart-label-wrapper input,
+.type-page #formLogin .form-group.smart-label-wrapper select {
   width: 100%;
   padding: 1em 1em;
 }
 @media screen and (max-width: 767px) {
-  .type-page #register-form .form-group.smart-label-wrapper {
+  .type-page #register-form .form-group.smart-label-wrapper,
+  .type-page #formLogin .form-group.smart-label-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -10255,16 +10261,20 @@ html.cookies-visible .siteCookies {
             align-items: stretch;
   }
 }
-.type-page #register-form > fieldset.co-registration {
+.type-page #register-form > fieldset.co-registration,
+.type-page #formLogin > fieldset.co-registration {
   display: none;
 }
-.type-page #register-form .js-hidden {
+.type-page #register-form .js-hidden,
+.type-page #formLogin .js-hidden {
   display: none;
 }
-.type-page #register-form .js-hidden.visible {
+.type-page #register-form .js-hidden.visible,
+.type-page #formLogin .js-hidden.visible {
   display: block;
 }
-.type-page #register-form .js-validator-msg.msg-error {
+.type-page #register-form .js-validator-msg.msg-error,
+.type-page #formLogin .js-validator-msg.msg-error {
   color: var(--color-red-400);
   grid-row: 1;
   grid-column: 1/-1;
@@ -10273,20 +10283,24 @@ html.cookies-visible .siteCookies {
   padding-right: 10px;
   text-align: right;
 }
-.type-page #register-form .js-validated-element-wrapper:has(.msg-error) input {
+.type-page #register-form .js-validated-element-wrapper:has(.msg-error) input,
+.type-page #formLogin .js-validated-element-wrapper:has(.msg-error) input {
   outline: solid 2px var(--color-red-400);
 }
-.type-page #register-form .required-asterisk {
+.type-page #register-form .required-asterisk,
+.type-page #formLogin .required-asterisk {
   position: relative;
 }
-.type-page #register-form .required-asterisk::after {
+.type-page #register-form .required-asterisk::after,
+.type-page #formLogin .required-asterisk::after {
   content: "*";
   color: var(--color-red-400);
   position: absolute;
   right: -0.75em;
   top: 0;
 }
-.type-page #register-form .register-soc {
+.type-page #register-form .register-soc,
+.type-page #formLogin .register-soc {
   border-top-style: solid;
   border-bottom-style: solid;
   border-width: 1px;
@@ -10296,16 +10310,19 @@ html.cookies-visible .siteCookies {
   margin-top: var(--gap-20);
   margin-bottom: var(--gap-20);
 }
-.type-page #register-form .register-soc h4 {
+.type-page #register-form .register-soc h4,
+.type-page #formLogin .register-soc h4 {
   padding-top: 0.25em;
 }
-.type-page #register-form .stay-in-touch {
+.type-page #register-form .stay-in-touch,
+.type-page #formLogin .stay-in-touch {
   border-bottom-style: solid;
   border-width: 1px;
   padding-bottom: var(--gap-20);
   margin-bottom: var(--gap-20);
 }
-.type-page #register-form .stay-in-touch .form-group {
+.type-page #register-form .stay-in-touch .form-group,
+.type-page #formLogin .stay-in-touch .form-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10314,13 +10331,16 @@ html.cookies-visible .siteCookies {
           align-items: center;
   gap: 5px;
 }
-.type-page #register-form .submit-wrapper {
+.type-page #register-form .submit-wrapper,
+.type-page #formLogin .submit-wrapper {
   margin-top: var(--gap-20);
 }
-.type-page #register-form .submit-wrapper .btn {
+.type-page #register-form .submit-wrapper .btn,
+.type-page #formLogin .submit-wrapper .btn {
   width: 100%;
 }
-.type-page #register-form input[type=checkbox] {
+.type-page #register-form input[type=checkbox],
+.type-page #formLogin input[type=checkbox] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -10340,7 +10360,8 @@ html.cookies-visible .siteCookies {
   border-style: none;
   outline: none;
 }
-.type-page #register-form input[type=checkbox]::before {
+.type-page #register-form input[type=checkbox]::before,
+.type-page #formLogin input[type=checkbox]::before {
   content: "";
   margin: 0;
   width: var(--box-width);
@@ -10353,11 +10374,13 @@ html.cookies-visible .siteCookies {
   outline-style: none;
   background: transparent;
 }
-.type-page #register-form input[type=checkbox]:checked::before {
+.type-page #register-form input[type=checkbox]:checked::before,
+.type-page #formLogin input[type=checkbox]:checked::before {
   background: var(--color-primary);
   border-color: var(--color-primary);
 }
-.type-page #register-form input[type=checkbox]:checked::after {
+.type-page #register-form input[type=checkbox]:checked::after,
+.type-page #formLogin input[type=checkbox]:checked::after {
   content: "";
   margin: 0;
   width: calc(var(--box-width) / 2);
