@@ -257,9 +257,9 @@ input[type=submit] {
   color: var(--color-white);
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
   padding: 1.1667em;
   -webkit-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
@@ -786,9 +786,9 @@ body #header .navigation-wrapper .header-top .search form fieldset button {
   font-weight: var(--fw-700);
   cursor: pointer;
   position: relative;
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
 }
 body #header .navigation-wrapper .header-top .search form fieldset button:hover, body #header .navigation-wrapper .header-top .search form fieldset button:focus-within {
   background: var(--color-primary-500);
@@ -955,9 +955,9 @@ body #header .navigation-wrapper .header-top .login-button-custom {
 body #header .navigation-wrapper #navigation {
   background: var(--color-primary);
   border-radius: var(--br-16);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
 }
 body #header .navigation-wrapper #navigation ul,
 body #header .navigation-wrapper #navigation li {
@@ -979,7 +979,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 {
 }
 body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-custom {
   color: var(--color-white);
-  font-weight: var(--fw-700);
+  font-weight: var(--fw-600);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1340,6 +1340,11 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li >
   width: max-content;
   padding: 16px 20px;
   color: var(--color-white);
+}
+@media screen and (min-width: 768px) {
+  body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li > a b {
+    font-weight: var(--fw-600);
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li > a {
@@ -2029,9 +2034,9 @@ body.cart-window-visible #cart-widget .cart-widget-button a {
   background: var(--color-secondary);
   border-radius: var(--br-16);
   color: var(--color-white);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
-          box-shadow: inset 0px -2px 0px var(--color-cta-600);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-cta-600);
+          box-shadow: inset 0px -1px 0px var(--color-cta-600);
   padding: 1.1em 0 calc(1.1em + 2px);
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
@@ -2306,9 +2311,9 @@ body.login-window-visible .login-widget .popup-widget-inner #customerLogin form 
   color: var(--color-white);
   font-size: var(--fs-14);
   font-weight: var(--fw-700);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
   padding: 1em 3.75em calc(1em + 2px);
   cursor: pointer;
   -webkit-transition: background-color 0.1s ease;
@@ -2702,9 +2707,9 @@ body.type-category .custom-open-filter-button {
     font-size: var(--fs-13);
     gap: 0.7em;
     font-weight: var(--fw-600);
-    padding-bottom: 2px;
-    -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-            box-shadow: inset 0px -2px 0px var(--color-primary-500);
+    padding-bottom: 1px;
+    -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+            box-shadow: inset 0px -1px 0px var(--color-primary-500);
     padding: calc(0.8em + 2px) 0.77em 0.8em;
   }
   body.type-category .custom-open-filter-button:hover, body.type-category .custom-open-filter-button:focus-within {
@@ -5252,9 +5257,9 @@ body.type-category .category-header > div strong {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: var(--color-primary);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
 }
 #footer .footer-newsletter .footer-newsletter-wrapper .footer-newsletter-wrapper-inner form fieldset button.btn::before {
   content: "";
@@ -6858,9 +6863,9 @@ body.sticky-header-off .messages > * {
   color: var(--color-white);
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
-          box-shadow: inset 0px -2px 0px var(--color-cta-600);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-cta-600);
+          box-shadow: inset 0px -1px 0px var(--color-cta-600);
   padding: 1.1667em;
   -webkit-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
@@ -6873,9 +6878,9 @@ body.sticky-header-off .messages > * {
 .type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart .add-to-cart-button.notify-me-button,
 .type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart .custom-add-to-cart-button.notify-me-button {
   background-color: var(--color-primary);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
   padding: 1.1667em;
 }
 .type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart .add-to-cart-button.notify-me-button:hover,
@@ -7525,9 +7530,9 @@ body.sticky-header-off .messages > * {
   color: var(--color-white);
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-cta-600);
-          box-shadow: inset 0px -2px 0px var(--color-cta-600);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-cta-600);
+          box-shadow: inset 0px -1px 0px var(--color-cta-600);
   padding: 1.1667em;
   -webkit-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
@@ -7540,9 +7545,9 @@ body.sticky-header-off .messages > * {
 .type-product .sticky-sell .p-final-price-wrapper .add-to-cart .add-to-cart-button.notify-me-button,
 .type-product .sticky-sell .p-final-price-wrapper .add-to-cart .custom-add-to-cart-button.notify-me-button {
   background-color: var(--color-primary);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
   padding: 1.1667em;
 }
 .type-product .sticky-sell .p-final-price-wrapper .add-to-cart .add-to-cart-button.notify-me-button:hover,
