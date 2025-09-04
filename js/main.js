@@ -3465,3 +3465,21 @@ document.addEventListener("luigiSearchDone", function () {
 		});
 	}
 });
+
+/*custom scroll to anchor*/
+document.addEventListener("DOMContentLoaded", function () {
+	// Check if there's an anchor in the URL
+	if (window.location.hash) {
+		const anchor = window.location.hash.substring(1); // Remove the '#'
+		const target = document.getElementById(anchor);
+		if (target) {
+			// Scroll to the element with a small offset (e.g., 80px)
+			const offset = 80;
+			const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+			window.scrollTo({
+				top: elementPosition - offset,
+				behavior: "smooth",
+			});
+		}
+	}
+});
