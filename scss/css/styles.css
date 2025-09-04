@@ -2348,10 +2348,8 @@ body .register-soc .login-btn.seznam::before {
   background-repeat: no-repeat;
   background-size: contain;
 }
-body #customerLogin .no-display {
-  display: none !important;
-}
-body #customerLogin form {
+body #customerLogin form,
+body #formLogin {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2361,7 +2359,8 @@ body #customerLogin form {
           flex-direction: column;
   gap: var(--gap-16);
 }
-body #customerLogin form input {
+body #customerLogin form input,
+body #formLogin input {
   font-size: var(--fs-16);
   padding: 1em;
   color: var(--color-black);
@@ -2369,28 +2368,35 @@ body #customerLogin form input {
   width: 100%;
   border: 1px solid var(--color-black-o-20);
 }
-body #customerLogin form input:hover {
+body #customerLogin form input:hover,
+body #formLogin input:hover {
   outline: none;
   border-color: var(--color-primary);
 }
-body #customerLogin form input:focus, body #customerLogin form input:focus-within {
+body #customerLogin form input:focus, body #customerLogin form input:focus-within,
+body #formLogin input:focus,
+body #formLogin input:focus-within {
   outline: none;
   border-color: var(--color-primary-hover);
 }
-body #customerLogin form input.error-field {
+body #customerLogin form input.error-field,
+body #formLogin input.error-field {
   border-color: var(--color-red-400);
 }
 @media screen and (max-width: 767px) {
-  body #customerLogin form input {
+  body #customerLogin form input,
+  body #formLogin input {
     font-size: var(--fs-14);
   }
 }
-body #customerLogin form .msg-error {
+body #customerLogin form .msg-error,
+body #formLogin .msg-error {
   color: var(--color-red-400);
   font-size: var(--fs-13);
   margin-top: 0.5em;
 }
-body #customerLogin form .login-wrapper {
+body #customerLogin form .login-wrapper,
+body #formLogin .login-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2402,7 +2408,8 @@ body #customerLogin form .login-wrapper {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-body #customerLogin form .login-wrapper button {
+body #customerLogin form .login-wrapper button,
+body #formLogin .login-wrapper button {
   background-color: var(--color-primary);
   border-radius: var(--br-16);
   color: var(--color-white);
@@ -2416,10 +2423,13 @@ body #customerLogin form .login-wrapper button {
   -webkit-transition: background-color 0.1s ease;
   transition: background-color 0.1s ease;
 }
-body #customerLogin form .login-wrapper button:hover, body #customerLogin form .login-wrapper button:focus-within {
+body #customerLogin form .login-wrapper button:hover, body #customerLogin form .login-wrapper button:focus-within,
+body #formLogin .login-wrapper button:hover,
+body #formLogin .login-wrapper button:focus-within {
   background-color: var(--color-primary-500);
 }
-body #customerLogin form .login-wrapper .password-helper {
+body #customerLogin form .login-wrapper .password-helper,
+body #formLogin .login-wrapper .password-helper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2429,13 +2439,16 @@ body #customerLogin form .login-wrapper .password-helper {
           flex-direction: column;
   gap: var(--gap-8);
 }
-body #customerLogin form .login-wrapper .password-helper a {
+body #customerLogin form .login-wrapper .password-helper a,
+body #formLogin .login-wrapper .password-helper a {
   color: var(--color-primary);
   font-size: var(--fs-13);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-body #customerLogin form .login-wrapper .password-helper a:hover, body #customerLogin form .login-wrapper .password-helper a:focus-within {
+body #customerLogin form .login-wrapper .password-helper a:hover, body #customerLogin form .login-wrapper .password-helper a:focus-within,
+body #formLogin .login-wrapper .password-helper a:hover,
+body #formLogin .login-wrapper .password-helper a:focus-within {
   color: var(--color-primary-500);
 }
 
