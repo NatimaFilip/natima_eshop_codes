@@ -9,12 +9,12 @@ $desktop-min: 1280px;
 $desktop-medium-min: 1440px;
 $desktop-large-min: 1680px;
 @mixin bottom-primary-shadow {
-	padding-bottom: 2px;
-	box-shadow: inset 0px -2px 0px var(--color-primary-500);
+	padding-bottom: 1px;
+	box-shadow: inset 0px -1px 0px var(--color-primary-500);
 }
 @mixin bottom-cta-shadow {
-	padding-bottom: 2px;
-	box-shadow: inset 0px -2px 0px var(--color-cta-600);
+	padding-bottom: 1px;
+	box-shadow: inset 0px -1px 0px var(--color-cta-600);
 }
 @mixin image-foreground-brightness {
 	filter: brightness(1.03);

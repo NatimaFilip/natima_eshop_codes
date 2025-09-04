@@ -15,8 +15,8 @@ $desktop-large-min: 1680px;
 	box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
 }
 @mixin bottom-primary-shadow {
-	padding-bottom: 2px;
-	box-shadow: inset 0px -2px 0px var(--color-primary-500);
+	padding-bottom: 1px;
+	box-shadow: inset 0px -1px 0px var(--color-primary-500);
 }
 
 @mixin bottom-primary-shadow-small {
@@ -24,8 +24,8 @@ $desktop-large-min: 1680px;
 	box-shadow: inset 0px -1px 0px var(--color-primary-500);
 }
 @mixin bottom-cta-shadow {
-	padding-bottom: 2px;
-	box-shadow: inset 0px -2px 0px var(--color-cta-600);
+	padding-bottom: 1px;
+	box-shadow: inset 0px -1px 0px var(--color-cta-600);
 }
 @mixin bottom-cta-shadow-small {
 	padding-bottom: 1px;

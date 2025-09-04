@@ -196,9 +196,9 @@
   line-height: 1;
   border-radius: var(--br-12);
   background-color: var(--color-primary);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
   padding: 1em 1.538em;
   z-index: 1;
   -webkit-transition: background-color 0.2s ease-out;
@@ -379,9 +379,9 @@
   line-height: 1;
   border-radius: var(--br-12);
   background-color: var(--color-primary);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
   padding: 1em 1.538em;
   z-index: 1;
   -webkit-transition: background-color 0.2s ease-out;
@@ -547,9 +547,9 @@
   line-height: 1;
   border-radius: var(--br-12);
   background-color: var(--color-primary);
-  padding-bottom: 2px;
-  -webkit-box-shadow: inset 0px -2px 0px var(--color-primary-500);
-          box-shadow: inset 0px -2px 0px var(--color-primary-500);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
   padding: 1em 1.538em;
   z-index: 1;
   -webkit-transition: background-color 0.2s ease-out;
