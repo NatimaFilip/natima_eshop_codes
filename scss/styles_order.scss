@@ -1150,6 +1150,16 @@ $desktop-large-min: 1680px;
 				font-size: var(--fs-13);
 				font-weight: var(--fw-400);
 			}
+			.not-possible-info {
+				display: none;
+			}
+			&.inactive-child {
+				.not-possible-info {
+					display: inline;
+					color: var(--color-red-400);
+					font-weight: 700;
+				}
+			}
 			.sublabel {
 				color: var(--color-primary);
 				display: block;

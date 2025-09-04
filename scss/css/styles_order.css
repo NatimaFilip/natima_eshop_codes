@@ -1381,6 +1381,16 @@
   font-size: var(--fs-13);
   font-weight: var(--fw-400);
 }
+.ordering-process.id--16 #order-form .radio-wrapper .not-possible-info,
+.ordering-process.id--17 #order-form .radio-wrapper .not-possible-info {
+  display: none;
+}
+.ordering-process.id--16 #order-form .radio-wrapper.inactive-child .not-possible-info,
+.ordering-process.id--17 #order-form .radio-wrapper.inactive-child .not-possible-info {
+  display: inline;
+  color: var(--color-red-400);
+  font-weight: 700;
+}
 .ordering-process.id--16 #order-form .radio-wrapper .sublabel,
 .ordering-process.id--17 #order-form .radio-wrapper .sublabel {
   color: var(--color-primary);
