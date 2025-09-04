@@ -1705,7 +1705,7 @@ body.cart-window-visible #cart-widget {
 body.cart-window-visible #cart-widget .cart-widget-inner {
   display: grid;
   grid-template-columns: var(--first-column-width) calc(var(--second-column-width));
-  grid-template-rows: auto;
+  grid-template-rows: auto minmax(8em, auto);
 }
 @media screen and (max-width: 767px) {
   body.cart-window-visible #cart-widget .cart-widget-inner {
