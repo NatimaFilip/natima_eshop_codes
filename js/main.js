@@ -3470,7 +3470,7 @@ document.addEventListener("luigiSearchDone", function () {
 document.addEventListener("DOMContentLoaded", function () {
 	// Check if there's an anchor in the URL
 	if (window.location.hash) {
-		const anchor = window.location.hash.replace(/^#\/?/, "");
+		const anchor = window.location.hash.replace(/^[#\/]+|\/+$/g, "");
 		const target = document.getElementById(anchor);
 		if (target) {
 			// Scroll to the element with a small offset (e.g., 80px)
