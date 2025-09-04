@@ -2630,78 +2630,6 @@ body {
 					font-size: var(--fs-24);
 					padding-bottom: 1em;
 				}
-				#customerLogin {
-					.no-display {
-						display: none !important;
-					}
-					form {
-						display: flex;
-						flex-direction: column;
-						gap: var(--gap-16);
-						input {
-							font-size: var(--fs-16);
-							padding: 1em;
-							color: var(--color-black);
-							border-radius: var(--br-16);
-							width: 100%;
-							border: 1px solid var(--color-black-o-20);
-							&:hover {
-								outline: none;
-								border-color: var(--color-primary);
-							}
-							&:focus,
-							&:focus-within {
-								outline: none;
-								border-color: var(--color-primary-hover);
-							}
-							&.error-field {
-								border-color: var(--color-red-400);
-							}
-							@media screen and (max-width: $mobile-max) {
-								font-size: var(--fs-14);
-							}
-						}
-						.msg-error {
-							color: var(--color-red-400);
-							font-size: var(--fs-13);
-							margin-top: 0.5em;
-						}
-						.login-wrapper {
-							display: flex;
-							flex-direction: row-reverse;
-							justify-content: space-between;
-							button {
-								background-color: var(--color-primary);
-								border-radius: var(--br-16);
-								color: var(--color-white);
-								font-size: var(--fs-14);
-								font-weight: var(--fw-700);
-								@include bottom-primary-shadow;
-								padding: 1em 3.75em calc(1em + 2px);
-								cursor: pointer;
-								transition: background-color 0.1s ease;
-								&:hover,
-								&:focus-within {
-									background-color: var(--color-primary-500);
-								}
-							}
-							.password-helper {
-								display: flex;
-								flex-direction: column;
-								gap: var(--gap-8);
-								a {
-									color: var(--color-primary);
-									font-size: var(--fs-13);
-									@include text-underline;
-									&:hover,
-									&:focus-within {
-										color: var(--color-primary-500);
-									}
-								}
-							}
-						}
-					}
-				}
 			}
 		}
 	}
@@ -2780,6 +2708,78 @@ body {
 					background-position: center;
 					background-repeat: no-repeat;
 					background-size: contain;
+				}
+			}
+		}
+	}
+	#customerLogin {
+		.no-display {
+			display: none !important;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: var(--gap-16);
+			input {
+				font-size: var(--fs-16);
+				padding: 1em;
+				color: var(--color-black);
+				border-radius: var(--br-16);
+				width: 100%;
+				border: 1px solid var(--color-black-o-20);
+				&:hover {
+					outline: none;
+					border-color: var(--color-primary);
+				}
+				&:focus,
+				&:focus-within {
+					outline: none;
+					border-color: var(--color-primary-hover);
+				}
+				&.error-field {
+					border-color: var(--color-red-400);
+				}
+				@media screen and (max-width: $mobile-max) {
+					font-size: var(--fs-14);
+				}
+			}
+			.msg-error {
+				color: var(--color-red-400);
+				font-size: var(--fs-13);
+				margin-top: 0.5em;
+			}
+			.login-wrapper {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: space-between;
+				button {
+					background-color: var(--color-primary);
+					border-radius: var(--br-16);
+					color: var(--color-white);
+					font-size: var(--fs-14);
+					font-weight: var(--fw-700);
+					@include bottom-primary-shadow;
+					padding: 1em 3.75em calc(1em + 2px);
+					cursor: pointer;
+					transition: background-color 0.1s ease;
+					&:hover,
+					&:focus-within {
+						background-color: var(--color-primary-500);
+					}
+				}
+				.password-helper {
+					display: flex;
+					flex-direction: column;
+					gap: var(--gap-8);
+					a {
+						color: var(--color-primary);
+						font-size: var(--fs-13);
+						@include text-underline;
+						&:hover,
+						&:focus-within {
+							color: var(--color-primary-500);
+						}
+					}
 				}
 			}
 		}

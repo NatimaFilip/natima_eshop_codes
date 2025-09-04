@@ -2253,96 +2253,6 @@ body.login-window-visible .login-widget .popup-widget-inner h2 {
   font-size: var(--fs-24);
   padding-bottom: 1em;
 }
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin .no-display {
-  display: none !important;
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: var(--gap-16);
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form input {
-  font-size: var(--fs-16);
-  padding: 1em;
-  color: var(--color-black);
-  border-radius: var(--br-16);
-  width: 100%;
-  border: 1px solid var(--color-black-o-20);
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form input:hover {
-  outline: none;
-  border-color: var(--color-primary);
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form input:focus, body.login-window-visible .login-widget .popup-widget-inner #customerLogin form input:focus-within {
-  outline: none;
-  border-color: var(--color-primary-hover);
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form input.error-field {
-  border-color: var(--color-red-400);
-}
-@media screen and (max-width: 767px) {
-  body.login-window-visible .login-widget .popup-widget-inner #customerLogin form input {
-    font-size: var(--fs-14);
-  }
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .msg-error {
-  color: var(--color-red-400);
-  font-size: var(--fs-13);
-  margin-top: 0.5em;
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .login-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .login-wrapper button {
-  background-color: var(--color-primary);
-  border-radius: var(--br-16);
-  color: var(--color-white);
-  font-size: var(--fs-14);
-  font-weight: var(--fw-700);
-  padding-bottom: 1px;
-  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
-          box-shadow: inset 0px -1px 0px var(--color-primary-500);
-  padding: 1em 3.75em calc(1em + 2px);
-  cursor: pointer;
-  -webkit-transition: background-color 0.1s ease;
-  transition: background-color 0.1s ease;
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .login-wrapper button:hover, body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .login-wrapper button:focus-within {
-  background-color: var(--color-primary-500);
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .login-wrapper .password-helper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: var(--gap-8);
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .login-wrapper .password-helper a {
-  color: var(--color-primary);
-  font-size: var(--fs-13);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .login-wrapper .password-helper a:hover, body.login-window-visible .login-widget .popup-widget-inner #customerLogin form .login-wrapper .password-helper a:focus-within {
-  color: var(--color-primary-500);
-}
 body .social-login-buttons,
 body .register-soc {
   display: -webkit-box;
@@ -2437,6 +2347,96 @@ body .register-soc .login-btn.seznam::before {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+body #customerLogin .no-display {
+  display: none !important;
+}
+body #customerLogin form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--gap-16);
+}
+body #customerLogin form input {
+  font-size: var(--fs-16);
+  padding: 1em;
+  color: var(--color-black);
+  border-radius: var(--br-16);
+  width: 100%;
+  border: 1px solid var(--color-black-o-20);
+}
+body #customerLogin form input:hover {
+  outline: none;
+  border-color: var(--color-primary);
+}
+body #customerLogin form input:focus, body #customerLogin form input:focus-within {
+  outline: none;
+  border-color: var(--color-primary-hover);
+}
+body #customerLogin form input.error-field {
+  border-color: var(--color-red-400);
+}
+@media screen and (max-width: 767px) {
+  body #customerLogin form input {
+    font-size: var(--fs-14);
+  }
+}
+body #customerLogin form .msg-error {
+  color: var(--color-red-400);
+  font-size: var(--fs-13);
+  margin-top: 0.5em;
+}
+body #customerLogin form .login-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+body #customerLogin form .login-wrapper button {
+  background-color: var(--color-primary);
+  border-radius: var(--br-16);
+  color: var(--color-white);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
+  padding: 1em 3.75em calc(1em + 2px);
+  cursor: pointer;
+  -webkit-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
+}
+body #customerLogin form .login-wrapper button:hover, body #customerLogin form .login-wrapper button:focus-within {
+  background-color: var(--color-primary-500);
+}
+body #customerLogin form .login-wrapper .password-helper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--gap-8);
+}
+body #customerLogin form .login-wrapper .password-helper a {
+  color: var(--color-primary);
+  font-size: var(--fs-13);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+body #customerLogin form .login-wrapper .password-helper a:hover, body #customerLogin form .login-wrapper .password-helper a:focus-within {
+  color: var(--color-primary-500);
 }
 
 /*-------------------------------------- COMMON BODY FEATURES*/
