@@ -8121,9 +8121,23 @@ html.cookies-visible .siteCookies {
 				border-bottom-style: solid;
 				border-color: var(--color-gray-500);
 				border-width: 1px;
+				@media screen and (max-width: $mobile-max) {
+					flex-direction: column;
+					display: flex;
+					align-items: center;
+					gap: 0;
+				}
 				td,
 				th {
 					padding: 15px 0;
+				}
+				@media screen and (max-width: $mobile-max) {
+					th {
+						padding: 7px 0 3px;
+					}
+					td {
+						padding: 3px 0 7px;
+					}
 				}
 
 				td {
@@ -8136,6 +8150,9 @@ html.cookies-visible .siteCookies {
 						content: ":";
 						position: relative;
 						left: -3px;
+						@media screen and (max-width: $mobile-max) {
+							display: none;
+						}
 					}
 				}
 			}
@@ -8169,6 +8186,25 @@ html.cookies-visible .siteCookies {
 				border-width: 1px;
 				border-color: var(--color-gray-500);
 				justify-items: end;
+				@media screen and (max-width: $mobile-max) {
+					grid-template-columns: 80px 1fr 1fr 1fr;
+					grid-template-rows: auto auto;
+					gap: 10px;
+					justify-items: start;
+
+					.p-name {
+						grid-column: 2 / -1;
+						grid-row: 1;
+					}
+					.p-quantity {
+						grid-column: 1/2;
+						grid-row: 2;
+					}
+					.p-price {
+						grid-column: 3/4;
+						grid-row: 2;
+					}
+				}
 				> *:not(:last-child) {
 					margin-right: 25px;
 				}
@@ -8214,14 +8250,13 @@ html.cookies-visible .siteCookies {
 			border-style: none;
 			border-radius: var(--br-16);
 			color: var(--color-white);
-		
 
 			font-size: var(--fs-16);
 			font-weight: var(--fw-700);
 			cursor: pointer;
 			position: relative;
 			@include bottom-primary-shadow;
-				padding: 1em 1.6em;
+			padding: 1em 1.6em;
 
 			&:hover,
 			&:focus-within {
