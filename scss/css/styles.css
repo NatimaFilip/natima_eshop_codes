@@ -1163,7 +1163,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-
     background-repeat: no-repeat;
     background-size: 0.857em;
     border-radius: 0 var(--br-12) var(--br-12) 0;
-    border-left: 1px solid var(--color-gray-500);
+    border-left: 1px solid #dcdcdc;
     cursor: pointer;
   }
   body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu > li.ext .menu-level-2 .show-all-categories {
@@ -5813,7 +5813,7 @@ body.type-category .category-header > div strong {
 }
 #footer .footer-final-block .footer-vydejni-mista .footer-vydejni-mista-map {
   padding: 10px;
-  max-width: 40%;
+  max-width: 45%;
 }
 #footer .footer-final-block .footer-vydejni-mista .footer-vydejni-mista-dopravci {
   display: -webkit-box;

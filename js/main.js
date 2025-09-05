@@ -1677,7 +1677,7 @@ document.addEventListener("ShoptetDOMPageContentLoaded", function () {
 
 /*------------------------------------------------- Shorten breadcrumbs*/
 shortenBreadcrumbs();
-function shortenBreadcrumbs() {
+/* function shortenBreadcrumbs() {
 	if (isDesktop) {
 		return; // Skip if on desktop
 	}
@@ -1694,6 +1694,28 @@ function shortenBreadcrumbs() {
 		let breadcrumbText = breadcrumbTextElement.textContent.trim();
 		if (breadcrumbText.length > 20) {
 			breadcrumb.textContent = breadcrumbText.slice(0, 20) + "...";
+		}
+	});
+} */
+
+function shortenBreadcrumbs() {
+	if (isDesktop) {
+		return; // Skip if on desktop
+	}
+	let breadcrumbs = document.querySelector(".breadcrumbs");
+	if (!breadcrumbs) {
+		return;
+	}
+	// Find all ">" spans (assuming they have a class or are just text nodes)
+	const separatorSpans = Array.from(breadcrumbs.querySelectorAll("span")).filter(
+		(span) => span.textContent.trim() === ">"
+	);
+	if (separatorSpans.length <= 1) return;
+
+	// Keep only the second last ">" span, remove the rest
+	separatorSpans.forEach((span, idx) => {
+		if (idx !== separatorSpans.length - 2) {
+			span.remove();
 		}
 	});
 }
