@@ -1677,7 +1677,7 @@ document.addEventListener("ShoptetDOMPageContentLoaded", function () {
 
 /*------------------------------------------------- Shorten breadcrumbs*/
 shortenBreadcrumbs();
-/* function shortenBreadcrumbs() {
+function shortenBreadcrumbs() {
 	if (isDesktop) {
 		return; // Skip if on desktop
 	}
@@ -1696,9 +1696,9 @@ shortenBreadcrumbs();
 			breadcrumb.textContent = breadcrumbText.slice(0, 20) + "...";
 		}
 	});
-} */
+}
 
-function shortenBreadcrumbs() {
+/* function shortenBreadcrumbs() {
 	if (isDesktop) {
 		return; // Skip if on desktop
 	}
@@ -1718,7 +1718,7 @@ function shortenBreadcrumbs() {
 			span.remove();
 		}
 	});
-}
+} */
 
 /*------------------------------------------------- Detail produktu*/
 let isNatiosProduct;
