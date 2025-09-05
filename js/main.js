@@ -1676,7 +1676,7 @@ document.addEventListener("ShoptetDOMPageContentLoaded", function () {
 });
 
 /*------------------------------------------------- Shorten breadcrumbs*/
-/* shortenBreadcrumbs(); */
+shortenBreadcrumbs();
 /* function shortenBreadcrumbs() {
 	if (isDesktop) {
 		return; // Skip if on desktop
@@ -1706,7 +1706,7 @@ function shortenBreadcrumbs() {
 	if (!breadcrumbs) {
 		return;
 	}
-	const breadcrumbsSpans = Array.from(breadcrumbs.querySelectorAll("span"));
+	const breadcrumbsSpans = Array.from(breadcrumbs.querySelectorAll("span[itemprop='itemListElement']"));
 	if (breadcrumbsSpans.length <= 2) {
 		// Keep only the first one, remove the rest
 		breadcrumbsSpans.forEach((span, idx) => {

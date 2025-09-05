@@ -2818,6 +2818,12 @@ body {
 						padding-left: var(--gap-6);
 					}
 				}
+				@media screen and (max-width: $tablet-max) {
+					border-left-style: none;
+					&::before {
+						content: "←";
+					}
+				}
 			}
 			#navigation-first {
 				display: flex;

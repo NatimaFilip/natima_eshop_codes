@@ -2507,6 +2507,14 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
     padding-left: var(--gap-6);
   }
 }
+@media screen and (max-width: 1279px) {
+  body .breadcrumbs-wrapper .breadcrumbs > span {
+    border-left-style: none;
+  }
+  body .breadcrumbs-wrapper .breadcrumbs > span::before {
+    content: "←";
+  }
+}
 body .breadcrumbs-wrapper .breadcrumbs #navigation-first {
   display: -webkit-box;
   display: -ms-flexbox;
