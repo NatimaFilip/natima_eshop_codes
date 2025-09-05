@@ -10529,6 +10529,7 @@ html.cookies-visible .siteCookies {
   text-align: center;
   font-size: var(--fs-20);
   padding: 0.5em 0 1.5em 0;
+  font-weight: var(--fw-700);
 }
 .id--15 .order-complete-links {
   text-align: center;
@@ -10538,7 +10539,6 @@ html.cookies-visible .siteCookies {
   border-style: none;
   border-radius: var(--br-16);
   color: var(--color-white);
-  padding: 0 1.6em;
   font-size: var(--fs-16);
   font-weight: var(--fw-700);
   cursor: pointer;
@@ -10546,6 +10546,7 @@ html.cookies-visible .siteCookies {
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
           box-shadow: inset 0px -1px 0px var(--color-primary-500);
+  padding: 1em 1.6em;
 }
 .id--15 .order-complete-links .btn:hover, .id--15 .order-complete-links .btn:focus-within {
   background: var(--color-primary-500);
