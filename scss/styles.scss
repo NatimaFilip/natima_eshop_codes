@@ -7747,6 +7747,17 @@ html.cookies-visible .siteCookies {
 			tr {
 				display: flex;
 				justify-content: space-between;
+				@media screen and (max-width: $mobile-max) {
+					flex-direction: column;
+					align-items: center;
+					gap: 10px;
+					td {
+						width: 100%;
+						input {
+							width: 100%;
+						}
+					}
+				}
 			}
 		}
 	}

@@ -979,7 +979,8 @@
   gap: 10px;
 }
 .ordering-process .free-gift .free-gifts-wrapper ul li label .free-gifts-img {
-  width: 60px;
+  width: 50px;
+  min-width: 50px;
 }
 .ordering-process .free-gift .free-gifts-wrapper ul li input {
   display: none;
