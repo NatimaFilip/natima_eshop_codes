@@ -1676,7 +1676,7 @@ document.addEventListener("ShoptetDOMPageContentLoaded", function () {
 });
 
 /*------------------------------------------------- Shorten breadcrumbs*/
-shortenBreadcrumbs();
+/* shortenBreadcrumbs(); */
 /* function shortenBreadcrumbs() {
 	if (isDesktop) {
 		return; // Skip if on desktop
