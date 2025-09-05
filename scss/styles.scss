@@ -2821,11 +2821,13 @@ body {
 				@media screen and (max-width: $tablet-max) {
 					border-left-style: none;
 					a {
+						display: flex;
+						align-items: center;
 						&::before {
 							content: "";
 							display: block;
-							width: 0.857em;
-							height: 100%;
+							width: 0.75em;
+							height: 1em;
 							margin-right: 0.57em;
 							background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
 							background-position: center;

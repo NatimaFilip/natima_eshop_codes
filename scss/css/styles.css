@@ -2511,11 +2511,19 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
   body .breadcrumbs-wrapper .breadcrumbs > span {
     border-left-style: none;
   }
+  body .breadcrumbs-wrapper .breadcrumbs > span a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
   body .breadcrumbs-wrapper .breadcrumbs > span a::before {
     content: "";
     display: block;
-    width: 0.857em;
-    height: 100%;
+    width: 0.75em;
+    height: 1em;
     margin-right: 0.57em;
     background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
     background-position: center;
