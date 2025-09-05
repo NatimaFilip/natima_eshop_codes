@@ -1960,6 +1960,19 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-amount .quantity .decrease:focus-within {
   background-color: var(--color-primary-500);
 }
+body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-amount .quantity .increase span,
+body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-amount .quantity .decrease span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  line-height: 1;
+}
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-unit {
   display: none;
 }
@@ -5799,7 +5812,8 @@ body.type-category .category-header > div strong {
   font-size: var(--fs-13);
 }
 #footer .footer-final-block .footer-vydejni-mista .footer-vydejni-mista-map {
-  padding: 20px;
+  padding: 10px;
+  max-width: 40%;
 }
 #footer .footer-final-block .footer-vydejni-mista .footer-vydejni-mista-dopravci {
   display: -webkit-box;
@@ -5835,6 +5849,7 @@ body.type-category .category-header > div strong {
   }
   #footer .footer-final-block .footer-vydejni-mista .footer-vydejni-mista-map {
     padding-bottom: var(--gap-8);
+    max-width: 70%;
   }
   #footer .footer-final-block .footer-vydejni-mista .footer-vydejni-mista-dopravci {
     -webkit-box-orient: horizontal;
@@ -6984,6 +6999,19 @@ body.sticky-header-off .messages > * {
 .type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart .quantity .decrease:focus-within {
   background-color: var(--color-primary-500);
 }
+.type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart .quantity .increase span,
+.type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart .quantity .decrease span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  line-height: 1;
+}
 .type-product .product-top .p-info-wrapper .p-final-price-wrapper .add-to-cart .quantity label input {
   min-height: 2.5em;
   border-radius: 0;
@@ -7660,6 +7688,19 @@ body.sticky-header-off .messages > * {
 .type-product .sticky-sell .p-final-price-wrapper .add-to-cart .quantity .decrease:hover,
 .type-product .sticky-sell .p-final-price-wrapper .add-to-cart .quantity .decrease:focus-within {
   background-color: var(--color-primary-500);
+}
+.type-product .sticky-sell .p-final-price-wrapper .add-to-cart .quantity .increase span,
+.type-product .sticky-sell .p-final-price-wrapper .add-to-cart .quantity .decrease span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  line-height: 1;
 }
 .type-product .sticky-sell .p-final-price-wrapper .add-to-cart .quantity label input {
   min-height: 2.5em;
@@ -10449,9 +10490,9 @@ html.cookies-visible .siteCookies {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     gap: 0;
   }
 }

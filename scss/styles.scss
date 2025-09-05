@@ -209,6 +209,12 @@ $desktop-large-min: 1680px;
 		&:focus-within {
 			background-color: var(--color-primary-500);
 		}
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			line-height: 1;
+		}
 	}
 }
 
@@ -5453,7 +5459,8 @@ body.type-category {
 				}
 			}
 			.footer-vydejni-mista-map {
-				padding: 20px;
+				padding: 10px;
+				max-width: 40%;
 			}
 			.footer-vydejni-mista-dopravci {
 				display: flex;
@@ -5478,6 +5485,7 @@ body.type-category {
 				}
 				.footer-vydejni-mista-map {
 					padding-bottom: var(--gap-8);
+					max-width: 70%;
 				}
 				.footer-vydejni-mista-dopravci {
 					flex-direction: row;
@@ -8124,7 +8132,7 @@ html.cookies-visible .siteCookies {
 				@media screen and (max-width: $mobile-max) {
 					flex-direction: column;
 					display: flex;
-					align-items: center;
+					align-items: flex-start;
 					gap: 0;
 				}
 				td,
