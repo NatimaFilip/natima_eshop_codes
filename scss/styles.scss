@@ -8149,11 +8149,6 @@ html.cookies-visible .siteCookies {
 		}
 	}
 	table.cart-table {
-		grid-row: 2;
-		grid-column: 1;
-		border-top-style: solid;
-		border-width: 1px;
-		border-color: var(--color-gray-500);
 		margin-bottom: 30px;
 		tbody {
 			td {
@@ -8168,7 +8163,6 @@ html.cookies-visible .siteCookies {
 			> tr {
 				display: grid;
 				align-items: center;
-
 				grid-template-columns: 92px 1fr 10.5em 8.5em;
 				padding: 15px 0;
 				border-bottom-style: solid;
@@ -8180,230 +8174,27 @@ html.cookies-visible .siteCookies {
 				}
 
 				.cart-p-image {
-					a {
-						border-radius: var(--br-10);
-						overflow: hidden;
-						padding: 10px 10px;
-						@include image-foreground-setup;
-						img {
-							width: var(--image-width);
-							height: auto;
-							@include image-foreground-brightness;
-							padding: 2px 5px;
-						}
-						&:after {
-							@include image-foreground-block;
-						}
+					border-radius: var(--br-10);
+					overflow: hidden;
+					padding: 10px 10px;
+					@include image-foreground-setup;
+					img {
+						width: var(--image-width);
+						height: auto;
+						@include image-foreground-brightness;
+						padding: 2px 5px;
+					}
+					&:after {
+						@include image-foreground-block;
 					}
 				}
 				.p-name {
 					justify-self: flex-start;
-					a {
-						color: var(--color-black);
-						&:hover,
-						&:focus {
-							color: var(--color-primary);
-							text-decoration: underline;
-						}
-					}
 				}
-				.p-availability {
-					display: flex;
-					align-items: center;
-					justify-content: flex-start;
-					flex-direction: column;
 
-					.availability-label {
-						display: flex;
-						align-items: center;
-						--padding-capsules: 2px 8px;
-						padding: var(--padding-capsules);
-						background: var(--color-cta-200);
-						border-radius: var(--br-20);
-						max-width: fit-content;
-						color: var(--color-cta-400);
-					}
-					span {
-						font-weight: var(--fw-700);
-					}
-
-					.availability-amount {
-						font-weight: var(--fw-400);
-					}
-					&:not(:has(.availability-amount)) {
-						.availability-label {
-							background: var(--color-red-200);
-							color: var(--color-red-400) !important;
-							white-space: nowrap;
-							overflow: hidden;
-							@media screen and (max-width: 380px) {
-								font-size: calc(1em - 2px);
-							}
-						}
-					}
-				}
 				.p-quantity {
 					padding: 11px;
-					border-style: solid;
-					border-width: 1px;
-					border-color: var(--color-black-o-20);
-					border-radius: var(--br-16);
-
-					.quantity {
-						@include quantity-setup;
-					}
-					@media screen and (max-width: $mobile-max) {
-						padding: 8px;
-					}
 				}
-				.p-price {
-					strong {
-						font-weight: var(--fw-400);
-					}
-				}
-				.p-total {
-					grid-column: 7;
-					position: relative;
-					padding-right: 2.5rem;
-					display: flex;
-					align-items: center;
-					form {
-						position: absolute;
-						top: calc(50% - 1px);
-						right: 0;
-						z-index: 3;
-
-						transform: translatey(-50%);
-						left: auto;
-						@media screen and (max-width: $mobile-max) {
-							left: auto;
-							top: auto;
-							bottom: 22px;
-							transform: translateY(-50%);
-						}
-
-						button {
-							--component-width: 1.315rem;
-							--component-padding-for-click: 0.5rem;
-							width: calc(var(--component-width) + var(--component-padding-for-click));
-							height: calc(var(--component-width) + var(--component-padding-for-click));
-							cursor: pointer;
-							display: flex;
-							transition: transform 0.1s ease;
-
-							justify-content: center;
-							align-items: center;
-							&:after {
-								content: "";
-								display: block;
-								position: absolute;
-								top: 50%;
-								width: var(--component-width);
-								height: var(--component-width);
-
-								transform: translateY(-50%);
-								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_close_black.svg");
-								background-position: center;
-								background-repeat: no-repeat;
-							}
-							&:hover,
-							&:focus-within {
-								transform: scale(1.3);
-							}
-						}
-					}
-				}
-				@media screen and (max-width: $tablet-medium-min) {
-					grid-template-columns: 8.75em auto auto 1fr;
-					grid-template-rows: 1fr auto auto;
-					position: relative;
-					> * {
-						margin-right: 0 !important;
-					}
-					.cart-p-image {
-						grid-row: 1/3;
-						grid-column: 1;
-					}
-					.p-name {
-						grid-row: 1;
-						grid-column: 2/-1;
-						margin-bottom: auto;
-						padding-bottom: 10px;
-					}
-					.p-availability {
-						grid-row: 2;
-						grid-column: 2/-1;
-						padding-bottom: 10px;
-					}
-					.p-quantity {
-						grid-row: 3;
-						grid-column: 1;
-					}
-					.p-price {
-						grid-row: 3;
-						grid-column: 2;
-					}
-					.p-discount {
-						grid-row: 3;
-						grid-column: 3;
-						padding-left: 20px;
-					}
-					.p-total {
-						grid-row: 3;
-						grid-column: 4;
-					}
-					.cart-p-image {
-						margin: 0;
-						padding-right: 40px;
-						padding-bottom: 20px;
-					}
-					.p-name {
-						position: relative;
-						left: -20px;
-						padding-right: 20px;
-						margin-right: auto !important;
-					}
-					.p-availability {
-						flex-direction: row;
-						width: 100%;
-						position: relative;
-						left: -20px;
-					}
-					.p-price {
-						padding-left: 20px;
-					}
-					.p-total {
-						padding-left: 20px;
-						padding-right: 0;
-						font-size: var(--fs-18);
-						display: flex;
-						position: initial;
-						form {
-							bottom: 0;
-							top: -0.45em;
-							transform: translateY(100%);
-							height: max-content;
-						}
-					}
-				}
-				@media screen and (max-width: 400px) {
-					grid-template-columns: 8.75em auto auto 1fr;
-					grid-template-rows: 1fr auto auto auto;
-					position: relative;
-					.p-discount {
-						grid-row: 4;
-						grid-column: 1;
-						padding-left: 0;
-					}
-					.p-total {
-						grid-row: 4;
-						grid-column: 2/-1;
-					}
-				}
-			}
-			.show-tooltip {
-				text-decoration: underline;
-				text-decoration-style: dashed;
 			}
 		}
 	}
