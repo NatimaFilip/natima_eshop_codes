@@ -8186,25 +8186,7 @@ html.cookies-visible .siteCookies {
 				border-width: 1px;
 				border-color: var(--color-gray-500);
 				justify-items: end;
-				@media screen and (max-width: $mobile-max) {
-					grid-template-columns: 80px 1fr 1fr 1fr;
-					grid-template-rows: auto auto;
-					gap: 10px;
-					justify-items: start;
-
-					.p-name {
-						grid-column: 2 / -1;
-						grid-row: 1;
-					}
-					.p-quantity {
-						grid-column: 1/2;
-						grid-row: 2;
-					}
-					.p-price {
-						grid-column: 3/4;
-						grid-row: 2;
-					}
-				}
+			
 				> *:not(:last-child) {
 					margin-right: 25px;
 				}
@@ -8230,8 +8212,36 @@ html.cookies-visible .siteCookies {
 
 				.p-quantity {
 					padding: 11px;
+					strong {
+						font-weight: var(--fw-400);
+					}
 				}
+				.p-price {
+					
+						font-weight: var(--fw-700);
+					
 			}
+				@media screen and (max-width: $mobile-max) {
+					grid-template-columns: 80px 1fr 1fr 1fr;
+					grid-template-rows: auto auto;
+					gap: 10px;
+					justify-items: start;
+	> * {
+					margin-right: 0;
+				}
+					.p-name {
+						grid-column: 2 / -1;
+						grid-row: 1;
+					}
+					.p-quantity {
+						grid-column: 1/3;
+						grid-row: 2;
+					}
+					.p-price {
+						grid-column: 3/-1;
+						grid-row: 2;
+					}
+				}
 		}
 	}
 	.order-summary-item.total {
