@@ -10507,26 +10507,6 @@ html.cookies-visible .siteCookies {
   border-color: var(--color-gray-500);
   justify-items: end;
 }
-@media screen and (max-width: 767px) {
-  .id--15 table.cart-table tbody > tr {
-    grid-template-columns: 80px 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 10px;
-    justify-items: start;
-  }
-  .id--15 table.cart-table tbody > tr .p-name {
-    grid-column: 2/-1;
-    grid-row: 1;
-  }
-  .id--15 table.cart-table tbody > tr .p-quantity {
-    grid-column: 1/2;
-    grid-row: 2;
-  }
-  .id--15 table.cart-table tbody > tr .p-price {
-    grid-column: 3/4;
-    grid-row: 2;
-  }
-}
 .id--15 table.cart-table tbody > tr > *:not(:last-child) {
   margin-right: 25px;
 }
@@ -10570,19 +10550,48 @@ html.cookies-visible .siteCookies {
 .id--15 table.cart-table tbody > tr .p-quantity {
   padding: 11px;
 }
-.id--15 .order-summary-item.total {
+.id--15 table.cart-table tbody > tr .p-quantity strong {
+  font-weight: var(--fw-400);
+}
+.id--15 table.cart-table tbody > tr .p-price {
+  font-weight: var(--fw-700);
+}
+@media screen and (max-width: 767px) {
+  .id--15 table.cart-table tbody > tr {
+    grid-template-columns: 80px 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    justify-items: start;
+  }
+  .id--15 table.cart-table tbody > tr > * {
+    margin-right: 0;
+  }
+  .id--15 table.cart-table tbody > tr .p-name {
+    grid-column: 2/-1;
+    grid-row: 1;
+  }
+  .id--15 table.cart-table tbody > tr .p-quantity {
+    grid-column: 1/3;
+    grid-row: 2;
+  }
+  .id--15 table.cart-table tbody > tr .p-price {
+    grid-column: 3/-1;
+    grid-row: 2;
+  }
+}
+.id--15 table.cart-table .order-summary-item.total {
   text-align: center;
 }
-.id--15 .order-summary-item.summary-thx {
+.id--15 table.cart-table .order-summary-item.summary-thx {
   text-align: center;
   font-size: var(--fs-20);
   padding: 0.5em 0 1.5em 0;
   font-weight: var(--fw-700);
 }
-.id--15 .order-complete-links {
+.id--15 table.cart-table .order-complete-links {
   text-align: center;
 }
-.id--15 .order-complete-links .btn {
+.id--15 table.cart-table .order-complete-links .btn {
   background: var(--color-primary);
   border-style: none;
   border-radius: var(--br-16);
@@ -10596,7 +10605,7 @@ html.cookies-visible .siteCookies {
           box-shadow: inset 0px -1px 0px var(--color-primary-500);
   padding: 1em 1.6em;
 }
-.id--15 .order-complete-links .btn:hover, .id--15 .order-complete-links .btn:focus-within {
+.id--15 table.cart-table .order-complete-links .btn:hover, .id--15 table.cart-table .order-complete-links .btn:focus-within {
   background: var(--color-primary-500);
 }
 

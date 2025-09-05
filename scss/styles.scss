@@ -8186,7 +8186,7 @@ html.cookies-visible .siteCookies {
 				border-width: 1px;
 				border-color: var(--color-gray-500);
 				justify-items: end;
-			
+
 				> *:not(:last-child) {
 					margin-right: 25px;
 				}
@@ -8217,18 +8217,16 @@ html.cookies-visible .siteCookies {
 					}
 				}
 				.p-price {
-					
-						font-weight: var(--fw-700);
-					
-			}
+					font-weight: var(--fw-700);
+				}
 				@media screen and (max-width: $mobile-max) {
 					grid-template-columns: 80px 1fr 1fr 1fr;
 					grid-template-rows: auto auto;
 					gap: 10px;
 					justify-items: start;
-	> * {
-					margin-right: 0;
-				}
+					> * {
+						margin-right: 0;
+					}
 					.p-name {
 						grid-column: 2 / -1;
 						grid-row: 1;
@@ -8242,35 +8240,36 @@ html.cookies-visible .siteCookies {
 						grid-row: 2;
 					}
 				}
+			}
 		}
-	}
-	.order-summary-item.total {
-		text-align: center;
-	}
-	.order-summary-item.summary-thx {
-		text-align: center;
-		font-size: var(--fs-20);
-		padding: 0.5em 0 1.5em 0;
-		font-weight: var(--fw-700);
-	}
-	.order-complete-links {
-		text-align: center;
-		.btn {
-			background: var(--color-primary);
-			border-style: none;
-			border-radius: var(--br-16);
-			color: var(--color-white);
-
-			font-size: var(--fs-16);
+		.order-summary-item.total {
+			text-align: center;
+		}
+		.order-summary-item.summary-thx {
+			text-align: center;
+			font-size: var(--fs-20);
+			padding: 0.5em 0 1.5em 0;
 			font-weight: var(--fw-700);
-			cursor: pointer;
-			position: relative;
-			@include bottom-primary-shadow;
-			padding: 1em 1.6em;
+		}
+		.order-complete-links {
+			text-align: center;
+			.btn {
+				background: var(--color-primary);
+				border-style: none;
+				border-radius: var(--br-16);
+				color: var(--color-white);
 
-			&:hover,
-			&:focus-within {
-				background: var(--color-primary-500);
+				font-size: var(--fs-16);
+				font-weight: var(--fw-700);
+				cursor: pointer;
+				position: relative;
+				@include bottom-primary-shadow;
+				padding: 1em 1.6em;
+
+				&:hover,
+				&:focus-within {
+					background: var(--color-primary-500);
+				}
 			}
 		}
 	}
