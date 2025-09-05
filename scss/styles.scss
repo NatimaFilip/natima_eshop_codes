@@ -8225,7 +8225,7 @@ html.cookies-visible .siteCookies {
 					gap: 10px;
 					justify-items: start;
 					> * {
-						margin-right: 0;
+						margin-right: 0 !important;
 					}
 					.p-name {
 						grid-column: 2 / -1;
@@ -8238,38 +8238,40 @@ html.cookies-visible .siteCookies {
 					.p-price {
 						grid-column: 3/-1;
 						grid-row: 2;
+						width: 100%;
+						text-align: right;
 					}
 				}
 			}
 		}
-		.order-summary-item.total {
-			text-align: center;
-		}
-		.order-summary-item.summary-thx {
-			text-align: center;
-			font-size: var(--fs-20);
-			padding: 0.5em 0 1.5em 0;
+	}
+	.order-summary-item.total {
+		text-align: center;
+	}
+	.order-summary-item.summary-thx {
+		text-align: center;
+		font-size: var(--fs-20);
+		padding: 0.5em 0 1.5em 0;
+		font-weight: var(--fw-700);
+	}
+	.order-complete-links {
+		text-align: center;
+		.btn {
+			background: var(--color-primary);
+			border-style: none;
+			border-radius: var(--br-16);
+			color: var(--color-white);
+
+			font-size: var(--fs-16);
 			font-weight: var(--fw-700);
-		}
-		.order-complete-links {
-			text-align: center;
-			.btn {
-				background: var(--color-primary);
-				border-style: none;
-				border-radius: var(--br-16);
-				color: var(--color-white);
+			cursor: pointer;
+			position: relative;
+			@include bottom-primary-shadow;
+			padding: 1em 1.6em;
 
-				font-size: var(--fs-16);
-				font-weight: var(--fw-700);
-				cursor: pointer;
-				position: relative;
-				@include bottom-primary-shadow;
-				padding: 1em 1.6em;
-
-				&:hover,
-				&:focus-within {
-					background: var(--color-primary-500);
-				}
+			&:hover,
+			&:focus-within {
+				background: var(--color-primary-500);
 			}
 		}
 	}
