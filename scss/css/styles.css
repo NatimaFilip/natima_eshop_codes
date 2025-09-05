@@ -2511,8 +2511,18 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
   body .breadcrumbs-wrapper .breadcrumbs > span {
     border-left-style: none;
   }
-  body .breadcrumbs-wrapper .breadcrumbs > span::before {
-    content: "←";
+  body .breadcrumbs-wrapper .breadcrumbs > span a::before {
+    content: "";
+    display: block;
+    width: 0.857em;
+    height: 100%;
+    margin-right: 0.57em;
+    background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
 }
 body .breadcrumbs-wrapper .breadcrumbs #navigation-first {
