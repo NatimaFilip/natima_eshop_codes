@@ -1712,6 +1712,7 @@ function shortenBreadcrumbs() {
 		breadcrumbsSpans.forEach((span, idx) => {
 			if (idx > 0) span.remove();
 		});
+		breadcrumbs.classList.add("only-home");
 	} else {
 		// Remove all except the second last one
 		breadcrumbsSpans.forEach((span, idx) => {
