@@ -1677,7 +1677,7 @@ document.addEventListener("ShoptetDOMPageContentLoaded", function () {
 
 /*------------------------------------------------- Shorten breadcrumbs*/
 shortenBreadcrumbs();
-function shortenBreadcrumbs() {
+/* function shortenBreadcrumbs() {
 	if (isDesktop) {
 		return; // Skip if on desktop
 	}
@@ -1696,9 +1696,9 @@ function shortenBreadcrumbs() {
 			breadcrumb.textContent = breadcrumbText.slice(0, 20) + "...";
 		}
 	});
-}
+} */
 
-/* function shortenBreadcrumbs() {
+function shortenBreadcrumbs() {
 	if (isDesktop) {
 		return; // Skip if on desktop
 	}
@@ -1706,19 +1706,21 @@ function shortenBreadcrumbs() {
 	if (!breadcrumbs) {
 		return;
 	}
-	// Find all ">" spans (assuming they have a class or are just text nodes)
-	const separatorSpans = Array.from(breadcrumbs.querySelectorAll("span")).filter(
-		(span) => span.textContent.trim() === ">"
-	);
-	if (separatorSpans.length <= 1) return;
-
-	// Keep only the second last ">" span, remove the rest
-	separatorSpans.forEach((span, idx) => {
-		if (idx !== separatorSpans.length - 2) {
-			span.remove();
-		}
-	});
-} */
+	const breadcrumbsSpans = Array.from(breadcrumbs.querySelectorAll("span"));
+	if (breadcrumbsSpans.length <= 2) {
+		// Keep only the first one, remove the rest
+		breadcrumbsSpans.forEach((span, idx) => {
+			if (idx > 0) span.remove();
+		});
+	} else {
+		// Remove all except the second last one
+		breadcrumbsSpans.forEach((span, idx) => {
+			if (idx !== breadcrumbsSpans.length - 2) {
+				span.remove();
+			}
+		});
+	}
+}
 
 /*------------------------------------------------- Detail produktu*/
 let isNatiosProduct;
@@ -2615,7 +2617,7 @@ if (body.classList.contains("type-product")) {
 					let numberOfReviews = section.querySelector(".stars-label").textContent.trim().match(/^\d+/)?.[0];
 					tab.innerHTML = `<span class="shp-tab-link" data-tab="${sectionId}">${tabTitleText}<span class="number-of-reviews">${numberOfReviews}</span></span>`;
 				} catch (error) {
-					console.error("Error parsing number of reviews:", error);
+					console.warn("Error parsing number of reviews:", error);
 				}
 			}
 			detailTabs.appendChild(tab);
