@@ -8198,6 +8198,35 @@ html.cookies-visible .siteCookies {
 			}
 		}
 	}
+	.order-summary-item.total {
+		text-align: center;
+	}
+	.order-summary-item.summary-thx {
+		text-align: center;
+		font-size: var(--fs-20);
+		padding: 0.5em 0 1.5em 0;
+	}
+	.order-complete-links {
+		text-align: center;
+		.btn {
+			background: var(--color-primary);
+			border-style: none;
+			border-radius: var(--br-16);
+			color: var(--color-white);
+			padding: 0 1.6em;
+
+			font-size: var(--fs-16);
+			font-weight: var(--fw-700);
+			cursor: pointer;
+			position: relative;
+			@include bottom-primary-shadow;
+
+			&:hover,
+			&:focus-within {
+				background: var(--color-primary-500);
+			}
+		}
+	}
 }
 
 .type-page,

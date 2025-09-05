@@ -10522,6 +10522,34 @@ html.cookies-visible .siteCookies {
 .id--15 table.cart-table tbody > tr .p-quantity {
   padding: 11px;
 }
+.id--15 .order-summary-item.total {
+  text-align: center;
+}
+.id--15 .order-summary-item.summary-thx {
+  text-align: center;
+  font-size: var(--fs-20);
+  padding: 0.5em 0 1.5em 0;
+}
+.id--15 .order-complete-links {
+  text-align: center;
+}
+.id--15 .order-complete-links .btn {
+  background: var(--color-primary);
+  border-style: none;
+  border-radius: var(--br-16);
+  color: var(--color-white);
+  padding: 0 1.6em;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
+}
+.id--15 .order-complete-links .btn:hover, .id--15 .order-complete-links .btn:focus-within {
+  background: var(--color-primary-500);
+}
 
 .type-page,
 .id--15 {
