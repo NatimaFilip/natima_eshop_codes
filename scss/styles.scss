@@ -8205,6 +8205,7 @@ html.cookies-visible .siteCookies {
 		text-align: center;
 		font-size: var(--fs-20);
 		padding: 0.5em 0 1.5em 0;
+		font-weight: var(--fw-700);
 	}
 	.order-complete-links {
 		text-align: center;
@@ -8213,13 +8214,14 @@ html.cookies-visible .siteCookies {
 			border-style: none;
 			border-radius: var(--br-16);
 			color: var(--color-white);
-			padding: 0 1.6em;
+		
 
 			font-size: var(--fs-16);
 			font-weight: var(--fw-700);
 			cursor: pointer;
 			position: relative;
 			@include bottom-primary-shadow;
+				padding: 1em 1.6em;
 
 			&:hover,
 			&:focus-within {
