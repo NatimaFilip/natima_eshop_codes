@@ -989,39 +989,6 @@ if (body.classList.contains("type-category")) {
 			});
 		});
 	}
-
-	function editProductSorting() {
-		let categoryHeader = document.querySelector("#category-header");
-		if (!categoryHeader) return;
-
-		let sortingForm = categoryHeader.querySelector("form");
-		if (!sortingForm) return;
-
-		const toggleOpenSortingForm = document.createElement("span");
-		toggleOpenSortingForm.className = "toggle-open-sorting-form";
-		sortingForm.append(toggleOpenSortingForm);
-
-		// Find all inputs within the category header
-		let sortingInputs = sortingForm.querySelectorAll("fieldset input[type='radio']");
-
-		sortingInputs.forEach((input) => {
-			let label = categoryHeader.querySelector(`label[for='${input.id}']`);
-			if (input.checked && label) {
-				label.classList.add("active"); // Add 'active' class to the label of the checked input
-				if (!isDesktop) {
-					sortingForm.querySelector("fieldset").prepend(label); // Move the label to the end of the fieldset
-				}
-			} else if (label) {
-				label.classList.remove("active"); // Remove 'active' class from other labels
-			}
-		});
-
-		// Add event listener to the toggle button
-		addSmartTouchClickListener(toggleOpenSortingForm, function () {
-			sortingForm.classList.toggle("active");
-			toggleOpenSortingForm.classList.toggle("active");
-		});
-	}
 }
 /*------------------------------------------------- CATEGORY Obecné*/
 let perexTrimmedIsVisible;
@@ -1120,6 +1087,45 @@ if (body.classList.contains("type-category")) {
 		allProducts = document.querySelectorAll(".product");
 		showAmountOfProducts();
 	});
+}
+
+function editProductSorting() {
+	let categoryHeader = document.querySelector("#category-header");
+	if (!categoryHeader) return;
+
+	let sortingForm = categoryHeader.querySelector("form");
+	if (!sortingForm) return;
+
+	const toggleOpenSortingForm = document.createElement("span");
+	toggleOpenSortingForm.className = "toggle-open-sorting-form";
+	sortingForm.append(toggleOpenSortingForm);
+
+	// Find all inputs within the category header
+	let sortingInputs = sortingForm.querySelectorAll("fieldset input[type='radio']");
+
+	sortingInputs.forEach((input) => {
+		let label = categoryHeader.querySelector(`label[for='${input.id}']`);
+		if (input.checked && label) {
+			label.classList.add("active"); // Add 'active' class to the label of the checked input
+			if (!isDesktop) {
+				sortingForm.querySelector("fieldset").prepend(label); // Move the label to the end of the fieldset
+			}
+		} else if (label) {
+			label.classList.remove("active"); // Remove 'active' class from other labels
+		}
+	});
+
+	// Add event listener to the toggle button
+	addSmartTouchClickListener(toggleOpenSortingForm, function () {
+		sortingForm.classList.toggle("active");
+		toggleOpenSortingForm.classList.toggle("active");
+	});
+}
+
+/*------------------------------------------------- Brand*/
+if (body.classList.contains("type-manufacturer-detail")) {
+	/*------------------------------------------------- PRODUCT Stránka produktu*/
+	editProductSorting();
 }
 
 /*---------------------------------------------------------Uprava zobrazení produktu v product listu*/
