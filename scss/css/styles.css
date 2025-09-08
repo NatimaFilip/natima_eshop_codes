@@ -3486,13 +3486,13 @@ body.type-manufacturer-detail .category-header > div strong {
 }
 .type-manufacturer-detail #content #filters-wrapper {
   grid-column: 1;
-  grid-row: 1/10;
+  grid-row: 2/-1;
 }
 .type-manufacturer-detail #content .manufacturerDetail {
   grid-column: 1/-1;
   grid-row: 1;
 }
-.type-manufacturer-detail #content > #filters {
+.type-manufacturer-detail #content #filters {
   width: 90%;
   max-width: 248px;
 }
