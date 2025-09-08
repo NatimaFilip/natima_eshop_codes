@@ -1928,7 +1928,7 @@ if (body.classList.contains("type-product")) {
 			return; // Exit if any of the elements are not found
 		}
 
-		if (isDesktop) {
+		if (!isMobile) {
 			if (productName) {
 				infoWrapper.prepend(productName);
 			}
@@ -2011,7 +2011,7 @@ if (body.classList.contains("type-product")) {
 		}
 
 		if (starsWrapper) {
-			if (isDesktop) {
+			if (!isMobile) {
 				infoWrapper.appendChild(starsWrapper);
 			} else {
 				if (productName) {
