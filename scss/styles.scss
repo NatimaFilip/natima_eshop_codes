@@ -2812,12 +2812,7 @@ body {
 				border-left-style: solid;
 				border-left-width: 1px;
 				border-color: var(--color-black-o-10);
-				@media screen and (max-width: $mobile-max) {
-					&#navigation-1 {
-						border-left-style: none;
-						padding-left: var(--gap-6);
-					}
-				}
+
 				@media screen and (max-width: $tablet-max) {
 					border-left-style: none;
 					a {
@@ -2838,38 +2833,41 @@ body {
 					}
 				}
 			}
-			#navigation-first {
-				display: flex;
-				padding-left: 0;
-				padding-right: 0;
-				border-left-style: none;
-				a {
-					margin-left: calc(var(--padding-for-click) * -1);
-					padding: var(--padding-for-click) var(--padding-for-click);
-					height: calc(var(--fs-16) + var(--padding-for-click) * 2);
-					&::before {
-						content: "";
-						width: 14px;
-						height: 100%;
-						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
-						background-position: center;
-						background-repeat: no-repeat;
-						display: block;
-						transform: rotate(180deg);
-						transition: transform 0.2s ease-out;
-					}
-					&:hover,
-					&:focus-within {
+			@media screen and (min-width: $desktop-min) {
+				#navigation-first {
+					display: flex;
+					padding-left: 0;
+					padding-right: 0;
+					border-left-style: none;
+					a {
+						margin-left: calc(var(--padding-for-click) * -1);
+						padding: var(--padding-for-click) var(--padding-for-click);
+						height: calc(var(--fs-16) + var(--padding-for-click) * 2);
 						&::before {
-							transform: rotate(180deg) scale(1.2);
+							content: "";
+							width: 14px;
+							height: 100%;
+							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+							background-position: center;
+							background-repeat: no-repeat;
+							display: block;
+							transform: rotate(180deg);
+							transition: transform 0.2s ease-out;
 						}
-					}
+						&:hover,
+						&:focus-within {
+							&::before {
+								transform: rotate(180deg) scale(1.2);
+							}
+						}
 
-					span {
-						display: none;
+						span {
+							display: none;
+						}
 					}
 				}
 			}
+
 			.appendix {
 				display: none;
 			}
