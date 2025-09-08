@@ -3590,7 +3590,12 @@ body.type-manufacturer-detail {
 		@media screen and (min-width: $desktop-large-min) {
 			grid-template-columns: 1fr 5fr;
 		}
-		.filters-wrapper {
+
+		> * {
+			grid-column: 2;
+			padding-bottom: var(--gap-30);
+		}
+		#filters-wrapper {
 			grid-column: 1;
 			grid-row: 1/10;
 		}
@@ -3599,10 +3604,6 @@ body.type-manufacturer-detail {
 			grid-row: 1;
 		}
 
-		> * {
-			grid-column: 2;
-			padding-bottom: var(--gap-30);
-		}
 		> #filters {
 			width: 90%;
 			max-width: 248px;
