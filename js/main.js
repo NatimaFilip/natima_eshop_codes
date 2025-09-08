@@ -740,6 +740,8 @@ if (body.classList.contains("type-category") || body.classList.contains("type-ma
 	});
 
 	function moveAsideToCategoryContent() {
+		console.log("moveAsideToCategoryContent");
+		console.log("asideElement", asideElement);
 		if (asideElement) {
 			categoryContentWrapper.prepend(asideElement);
 		}
