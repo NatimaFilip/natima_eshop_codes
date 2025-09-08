@@ -5237,6 +5237,8 @@ body.type-category {
 				--component-width: 60px;
 				@media screen and (max-width: $mobile-max) {
 					--component-width: 46px;
+					grid-template-columns: 1fr;
+					gap: var(--gap-18);
 				}
 
 				.footer-socials {
@@ -5289,6 +5291,10 @@ body.type-category {
 					border-color: var(--color-black-o-20);
 					position: relative;
 					user-select: none;
+
+					@media screen and (max-width: $mobile-max) {
+						margin-left: 0;
+					}
 
 					.footer-language-link {
 						img {
