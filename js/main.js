@@ -1840,10 +1840,10 @@ function shortenBreadcrumbs() {
 	const breadcrumbsSpans = Array.from(breadcrumbs.querySelectorAll("span[itemprop='itemListElement']"));
 	if (breadcrumbsSpans.length <= 2) {
 		// Keep only the first one, remove the rest
-		breadcrumbsSpans.forEach((span, idx) => {
+		/* 		breadcrumbsSpans.forEach((span, idx) => {
 			if (idx > 0) span.remove();
 		});
-		breadcrumbs.classList.add("only-home");
+		breadcrumbs.classList.add("only-home"); */
 	} else {
 		// Remove all except the second last one
 		breadcrumbsSpans.forEach((span, idx) => {
