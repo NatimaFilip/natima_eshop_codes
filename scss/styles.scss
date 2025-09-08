@@ -2817,6 +2817,7 @@ body {
 				&.only-home {
 					#navigation-first {
 						padding-right: 0;
+
 						a {
 							display: flex;
 							align-items: center;
@@ -2833,6 +2834,9 @@ body {
 								transform: rotate(180deg);
 							}
 						}
+					}
+					span {
+						border-left-style: none;
 					}
 					#navigation-1 {
 						padding-left: 0;

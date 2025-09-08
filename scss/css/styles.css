@@ -2526,6 +2526,9 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
   }
+  body .breadcrumbs-wrapper .breadcrumbs.only-home span {
+    border-left-style: none;
+  }
   body .breadcrumbs-wrapper .breadcrumbs.only-home #navigation-1 {
     padding-left: 0;
   }
