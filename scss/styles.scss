@@ -2947,9 +2947,12 @@ body.type-category {
 	.manufacturerDetail {
 		font-size: var(--fs-16);
 		padding-bottom: 0.9375em;
-		max-width: 1260px;
+
 		@media screen and (min-width: $desktop-min) {
 			margin-bottom: 1.5em;
+		}
+		p {
+			max-width: 1260px;
 		}
 
 		&.category-perex-has-shortened {

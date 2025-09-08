@@ -2629,13 +2629,16 @@ body.type-category .category-perex,
 body.type-category .manufacturerDetail {
   font-size: var(--fs-16);
   padding-bottom: 0.9375em;
-  max-width: 1260px;
 }
 @media screen and (min-width: 1280px) {
   body.type-category .category-perex,
   body.type-category .manufacturerDetail {
     margin-bottom: 1.5em;
   }
+}
+body.type-category .category-perex p,
+body.type-category .manufacturerDetail p {
+  max-width: 1260px;
 }
 body.type-category .category-perex.category-perex-has-shortened > *,
 body.type-category .manufacturerDetail.category-perex-has-shortened > * {
