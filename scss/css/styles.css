@@ -5524,8 +5524,7 @@ body.type-category .category-header > div strong {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    padding: var(--gap-30) var(--gap-10);
-    padding-left: 2.25em;
+    padding: var(--gap-30) var(--gap-10) var(--gap-30) var(--gap-20);
   }
   #footer .footer-final-block .footer-contact-us-socials-languages .footer-contacts h4 .footer-contacts-block .footer-customer-support-icon,
   #footer .footer-final-block .footer-contact-us-socials-languages .footer-contacts .footer-contacts-blocks .footer-contacts-block .footer-customer-support-icon {
@@ -5841,6 +5840,11 @@ body.type-category .category-header > div strong {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media screen and (max-width: 1280px) {
+  #footer .footer-final-block .footer-vydejni-mista {
+    margin-top: -20px;
+  }
 }
 #footer .footer-final-block .footer-vydejni-mista .footer-vydejni-mista-texts {
   text-wrap: balance;
