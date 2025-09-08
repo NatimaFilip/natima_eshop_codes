@@ -6686,7 +6686,12 @@ body.sticky-header-off .messages > * {
   row-gap: var(--gap-20);
   position: relative;
 }
-@media screen and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .type-product .product-top .p-info-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 767px) {
   .type-product .product-top .p-info-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
