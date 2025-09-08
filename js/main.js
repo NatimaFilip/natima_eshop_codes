@@ -667,9 +667,9 @@ let asideElement;
 let customOpenFilterButton;
 
 /*------------------------------------------------- CATEGORY Filtry*/
-if (body.classList.contains("type-category")) {
+if (body.classList.contains("type-category") || body.classList.contains("type-manufacturer")) {
 	/*------------------------------FILTRY*/
-	categoryTop = document.querySelector(".category-top");
+	let categoryTop = document.querySelector(".category-top") || document.querySelector(".manufacturerDetails") || null;
 	filterInOriginalPosition = true;
 	filtersElement = document.querySelector("#filters");
 	asideElement = document.querySelector("aside");
@@ -1177,9 +1177,7 @@ async function downloadAndSaveMeasureUnitFilter() {
 	if (expiry && cached && now < parseInt(expiry)) {
 		// Data is still valid
 		console.log("Measure filters loaded from localStorage.");
-
 		measureFiltersData = JSON.parse(cached);
-		console.log(measureFiltersData);
 		return;
 	}
 
@@ -1192,9 +1190,8 @@ async function downloadAndSaveMeasureUnitFilter() {
 		localStorage.setItem(expiryKey, (now + 24 * 60 * 60 * 1000).toString());
 		console.log("Measure filters saved to localStorage.");
 		measureFiltersData = data;
-		console.log(measureFiltersData);
 	} catch (error) {
-		console.error("Failed to fetch Measure filters:", error);
+		console.warn("Failed to fetch Measure filters:", error);
 	}
 }
 function measureUnitFromFiltersProducts() {
