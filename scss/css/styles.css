@@ -3469,6 +3469,33 @@ body.type-manufacturer-detail .category-header > div strong {
   display: -ms-flexbox !important;
   display: flex !important;
 }
+.type-manufacturer-detail #content {
+  display: grid;
+  margin-top: calc(var(--gap-24) * 1.5);
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+@media screen and (min-width: 1680px) {
+  .type-manufacturer-detail #content {
+    grid-template-columns: 1fr 5fr;
+  }
+}
+.type-manufacturer-detail #content .filters-wrapper {
+  grid-column: 1;
+  grid-row: 1/10;
+}
+.type-manufacturer-detail #content .manufacturerDetail {
+  grid-column: 1/-1;
+  grid-row: 1;
+}
+.type-manufacturer-detail #content > * {
+  grid-column: 2;
+  padding-bottom: var(--gap-30);
+}
+.type-manufacturer-detail #content > #filters {
+  width: 90%;
+  max-width: 248px;
+}
 
 /* .sidebar {
 	display: none;

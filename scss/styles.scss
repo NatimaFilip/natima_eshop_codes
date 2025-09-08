@@ -3580,7 +3580,33 @@ body.type-manufacturer-detail {
 }
 .type-manufacturer-detail {
 	#filters {
-		display: flex!important;
+		display: flex !important;
+	}
+	#content {
+		display: grid;
+		margin-top: calc(var(--gap-24) * 1.5);
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+		@media screen and (min-width: $desktop-large-min) {
+			grid-template-columns: 1fr 5fr;
+		}
+		.filters-wrapper {
+			grid-column: 1;
+			grid-row: 1/10;
+		}
+		.manufacturerDetail {
+			grid-column: 1/-1;
+			grid-row: 1;
+		}
+
+		> * {
+			grid-column: 2;
+			padding-bottom: var(--gap-30);
+		}
+		> #filters {
+			width: 90%;
+			max-width: 248px;
+		}
 	}
 }
 /* .sidebar {
