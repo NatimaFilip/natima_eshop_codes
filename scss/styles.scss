@@ -5872,7 +5872,7 @@ body {
 			grid-template-columns: 45% 1fr;
 			gap: var(--gap-30);
 		}
-		@media screen and (max-width: $tablet-max) {
+		@media screen and (max-width: $mobile-max) {
 			display: flex;
 			flex-direction: column;
 			gap: var(--gap-24);
@@ -6551,6 +6551,9 @@ body {
 				}
 			}
 			@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+				> * {
+					grid-column: 1 !important;
+				}
 			}
 		}
 	}
