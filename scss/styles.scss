@@ -2825,6 +2825,8 @@ body {
 				&.shortened {
 					> span:not(:nth-last-child(2)) {
 						display: none;
+					}
+					> span:nth-last-child(2) {
 						border-left-style: none;
 
 						a {
