@@ -3578,11 +3578,6 @@ body.type-manufacturer-detail {
 	}
 }
 .type-manufacturer-detail {
-	#filters {
-		display: flex !important;
-		width: 90%;
-		max-width: 248px;/*t*/
-	}
 	#content {
 		display: grid;
 		margin-top: calc(var(--gap-24) * 1.5);
@@ -3598,11 +3593,28 @@ body.type-manufacturer-detail {
 		}
 		#filters-wrapper {
 			grid-column: 1;
-			grid-row: 2/-1;
+			grid-row: 2/10;
 		}
 		.manufacturerDetail {
 			grid-column: 1/-1;
 			grid-row: 1;
+		}
+		#filters {
+			display: flex !important;
+			width: 90%;
+			max-width: 248px;
+		}
+		@media screen and (max-width: $mobile-max) {
+			display: flex;
+			flex-direction: column;
+			#filters {
+				width: 100%;
+				max-width: none;
+			}
+			> * {
+				grid-column: 2;
+				padding-bottom: var(--gap-16);
+			}
 		}
 	}
 }
