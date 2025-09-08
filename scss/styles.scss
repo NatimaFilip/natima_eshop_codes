@@ -2954,6 +2954,9 @@ body.type-category {
 		p {
 			max-width: 1260px;
 		}
+		p:has(img) {
+			max-width: none;
+		}
 
 		&.category-perex-has-shortened {
 			> * {
