@@ -6549,6 +6549,29 @@ body {
 				> * {
 					grid-column: 1 !important;
 				}
+				.right-content-wrapper {
+					grid-row: 4 !important;
+				}
+				.dostupnost-doruceni-wrapper {
+					grid-row: 5 !important;
+				}
+				.p-final-price-wrapper {
+					grid-row: 6 !important;
+					grid-template-columns: auto 1fr;
+					grid-template-rows: auto auto auto;
+					.add-to-cart {
+						grid-row: 3 !important;
+						grid-column: 1 / -1 !important;
+						padding-left: 0 !important;
+						margin-top: var(--gap-12);
+					}
+				}
+				.p-short-description {
+					grid-row: 7 !important;
+				}
+				.social-buttons-wrapper {
+					grid-row: 8 !important;
+				}
 			}
 		}
 	}
