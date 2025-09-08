@@ -2527,6 +2527,14 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
             transform: rotate(180deg);
   }
 }
+@media screen and (max-width: 1279px) {
+  body .breadcrumbs-wrapper .breadcrumbs.only-home #navigation-first {
+    padding-right: 0;
+  }
+  body .breadcrumbs-wrapper .breadcrumbs.only-home #navigation-1 {
+    padding-left: 0;
+  }
+}
 @media screen and (min-width: 1280px) {
   body .breadcrumbs-wrapper .breadcrumbs #navigation-first {
     display: -webkit-box;

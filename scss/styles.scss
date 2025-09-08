@@ -2833,6 +2833,16 @@ body {
 					}
 				}
 			}
+			@media screen and (max-width: $tablet-max) {
+				&.only-home {
+					#navigation-first {
+						padding-right: 0;
+					}
+					#navigation-1 {
+						padding-left: 0;
+					}
+				}
+			}
 			@media screen and (min-width: $desktop-min) {
 				#navigation-first {
 					display: flex;
