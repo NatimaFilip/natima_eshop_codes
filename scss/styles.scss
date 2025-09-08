@@ -3305,6 +3305,7 @@ body.type-manufacturer-detail {
 			background-color: transparent;
 		}
 	}
+
 	&.has-filters-active {
 		#filters {
 			display: flex;
@@ -3575,6 +3576,11 @@ body.type-manufacturer-detail {
 				display: none;
 			}
 		}
+	}
+}
+.type-manufacturer-detail {
+	#filters {
+		display: flex!important;
 	}
 }
 /* .sidebar {

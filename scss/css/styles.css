@@ -3464,6 +3464,12 @@ body.type-manufacturer-detail .category-header > div strong {
   }
 }
 
+.type-manufacturer-detail #filters {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
 /* .sidebar {
 	display: none;
 } */

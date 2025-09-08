@@ -667,9 +667,9 @@ let asideElement;
 let customOpenFilterButton;
 
 /*------------------------------------------------- CATEGORY Filtry*/
-if (body.classList.contains("type-category") || body.classList.contains("type-manufacturer-detail")) {
+if (body.classList.contains("type-category")) {
 	/*------------------------------FILTRY*/
-	let categoryTop = document.querySelector(".category-top") || document.querySelector(".manufacturerDetails") || null;
+	let categoryTop = document.querySelector(".category-top");
 	filterInOriginalPosition = true;
 	filtersElement = document.querySelector("#filters");
 	asideElement = document.querySelector("aside");
