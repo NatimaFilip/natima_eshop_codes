@@ -2813,7 +2813,7 @@ body {
 				border-left-width: 1px;
 				border-color: var(--color-black-o-10);
 			}
-			@media screen and (max-width: $tablet-max) {
+			@media screen and (max-width: $mobile-max) {
 				&.only-home {
 					#navigation-first {
 						padding-right: 0;

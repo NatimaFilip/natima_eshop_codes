@@ -1830,22 +1830,14 @@ shortenBreadcrumbs();
 } */
 
 function shortenBreadcrumbs() {
-	if (isDesktop) {
-		return; // Skip if on desktop
-	}
 	let breadcrumbs = document.querySelector(".breadcrumbs");
 	if (!breadcrumbs) {
 		return;
 	}
 	const breadcrumbsSpans = Array.from(breadcrumbs.querySelectorAll("span[itemprop='itemListElement']"));
 	if (breadcrumbsSpans.length <= 2) {
-		// Keep only the first one, remove the rest
-		/* 				breadcrumbsSpans.forEach((span, idx) => {
-			if (idx > 0) span.remove();
-		}); */
 		breadcrumbs.classList.add("only-home");
 	} else {
-		// Remove all except the second last one
 		breadcrumbs.classList.add("shortened");
 	}
 }
