@@ -7124,6 +7124,9 @@ body {
 					@media screen and (max-width: $desktop-medium-min) {
 						padding-right: var(--gap-30);
 					}
+					@media screen and (max-width: $mobile-max) {
+						padding-right: var(--gap-10);
+					}
 
 					.product-thumbnail-image-wrapper {
 						border-radius: var(--br-10);
@@ -7158,6 +7161,9 @@ body {
 							max-height: 2.8em;
 							.product-appendix {
 								display: none;
+							}
+							@media screen and (max-width: $mobile-max) {
+								max-width: 45vw;
 							}
 						}
 						.product-thumbnail-price-button-wrapper {
