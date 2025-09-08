@@ -4345,6 +4345,7 @@ body.type-manufacturer-detail .category-header > div strong {
   display: flex;
   text-align: center;
   width: 3em;
+  min-width: 3em;
   border-radius: 0;
   -moz-appearance: textfield; /* For Firefox */
   -webkit-appearance: none; /* For WebKit browsers like Chrome and Safari */

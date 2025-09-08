@@ -4132,6 +4132,7 @@ body.type-manufacturer-detail {
 							display: flex;
 							text-align: center;
 							width: 3em;
+							min-width: 3em;
 							border-radius: 0;
 							@include disable-input-controls;
 							transition: background-color 0.1s ease;

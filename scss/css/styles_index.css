@@ -953,6 +953,7 @@
   }
 }
 .in-index .homepage-blog-wrapper > * {
+  display: block;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
   -ms-flex-negative: 0;
@@ -1111,9 +1112,9 @@
   background-color: var(--color-gray-400);
   border-radius: var(--br-16);
   padding: 44px 24px 58px 42px;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 @media screen and (max-width: 1279px) {
   .in-index .hodnoceni-obchodu-section {

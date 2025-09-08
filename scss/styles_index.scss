@@ -1077,6 +1077,7 @@ $desktop-large-min: 1680px;
 			}
 		}
 		> * {
+			display: block;
 			flex-basis: 25%;
 			flex-shrink: 0;
 			padding-left: var(--gap-20);
@@ -1225,7 +1226,7 @@ $desktop-large-min: 1680px;
 		background-color: var(--color-gray-400);
 		border-radius: var(--br-16);
 		padding: 44px 24px 58px 42px;
-		align-items: baseline;
+		align-items: start;
 		@media screen and (max-width: $tablet-max) {
 			padding: 34px 30px 34px 30px;
 			gap: 0;
