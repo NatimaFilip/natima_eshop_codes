@@ -2812,26 +2812,6 @@ body {
 				border-left-style: solid;
 				border-left-width: 1px;
 				border-color: var(--color-black-o-10);
-
-				@media screen and (max-width: $tablet-max) {
-					border-left-style: none;
-					a {
-						display: flex;
-						align-items: center;
-						&::before {
-							content: "";
-							display: block;
-							width: 0.75em;
-							height: 1em;
-							margin-right: 0.57em;
-							background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
-							background-position: center;
-							background-repeat: no-repeat;
-							background-size: 100%;
-							transform: rotate(180deg);
-						}
-					}
-				}
 			}
 			@media screen and (max-width: $tablet-max) {
 				&.only-home {
@@ -2840,6 +2820,29 @@ body {
 					}
 					#navigation-1 {
 						padding-left: 0;
+					}
+				}
+				&.shortened {
+					> span:not(:nth-last-child(-n + 2)) {
+						display: none;
+						border-left-style: none;
+
+						a {
+							display: flex;
+							align-items: center;
+							&::before {
+								content: "";
+								display: block;
+								width: 0.75em;
+								height: 1em;
+								margin-right: 0.57em;
+								background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
+								background-position: center;
+								background-repeat: no-repeat;
+								background-size: 100%;
+								transform: rotate(180deg);
+							}
+						}
 					}
 				}
 			}
