@@ -2528,7 +2528,7 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
     width: 0.75em;
     height: 1em;
     margin-right: 0.57em;
-    background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
+    background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -2536,7 +2536,7 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
             transform: rotate(180deg);
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   body .breadcrumbs-wrapper .breadcrumbs #navigation-first {
     display: -webkit-box;
     display: -ms-flexbox;

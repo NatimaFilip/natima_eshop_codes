@@ -2838,7 +2838,7 @@ body {
 								width: 0.75em;
 								height: 1em;
 								margin-right: 0.57em;
-								background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
+								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
 								background-position: center;
 								background-repeat: no-repeat;
 								background-size: 100%;
@@ -2848,7 +2848,7 @@ body {
 					}
 				}
 			}
-			@media screen and (min-width: $desktop-min) {
+			@media screen and (min-width: $tablet-min) {
 				#navigation-first {
 					display: flex;
 					padding-left: 0;
