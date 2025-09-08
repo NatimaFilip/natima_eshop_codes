@@ -6653,6 +6653,12 @@ body.sticky-header-off .messages > * {
   margin: auto;
   padding: var(--image-padding-top) var(--image-padding-side);
 }
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnails-inner > div > a.p-thumbnail img {
+    --image-padding-side: 10px;
+    --image-padding-top: 8px;
+  }
+}
 @media screen and (max-width: 767px) {
   .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnails-inner > div > a.p-thumbnail img {
     --image-padding-side: 20px;

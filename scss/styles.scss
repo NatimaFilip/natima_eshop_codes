@@ -5988,6 +5988,10 @@ body {
 									height: auto;
 									@include image-foreground-brightness;
 									padding: var(--image-padding-top) var(--image-padding-side);
+									@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+										--image-padding-side: 10px;
+										--image-padding-top: 8px;
+									}
 									@media screen and (max-width: $mobile-max) {
 										--image-padding-side: 20px;
 										--image-padding-top: 8px;
