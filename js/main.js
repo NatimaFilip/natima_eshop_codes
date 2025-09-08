@@ -667,7 +667,7 @@ let asideElement;
 let customOpenFilterButton;
 
 /*------------------------------------------------- CATEGORY Filtry*/
-if (body.classList.contains("type-category") || body.classList.contains("type-manufacturer")) {
+if (body.classList.contains("type-category") || body.classList.contains("type-manufacturer-detail")) {
 	/*------------------------------FILTRY*/
 	let categoryTop = document.querySelector(".category-top") || document.querySelector(".manufacturerDetails") || null;
 	filterInOriginalPosition = true;
