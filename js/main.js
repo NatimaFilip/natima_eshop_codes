@@ -1121,16 +1121,20 @@ if (body.classList.contains("type-category")) {
 }
 
 /*---------------------------------------------------------Uprava zobrazení produktu v product listu*/
+let measureFiltersData = [];
+measureUnitFromFiltersProducts();
 document.addEventListener("ShoptetDOMContentLoaded", function (event) {
 	actionPriceToFinalPriceAndReviewsNumber();
-	measureUnitFromAppendixProducts();
+	measureUnitFromFiltersProducts();
+	/* measureUnitFromAppendixProducts(); */
 });
 document.addEventListener("luigiSearchDone", function (event) {
 	actionPriceToFinalPriceAndReviewsNumber();
-	measureUnitFromAppendixProducts();
+	measureUnitFromFiltersProducts();
+	/* measureUnitFromAppendixProducts(); */
 });
-/*---------ACTION PRICE AND REVIEWS NUMBER*/
 
+/*---------ACTION PRICE AND REVIEWS NUMBER*/
 actionPriceToFinalPriceAndReviewsNumber();
 function actionPriceToFinalPriceAndReviewsNumber() {
 	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
@@ -1160,8 +1164,135 @@ function actionPriceToFinalPriceAndReviewsNumber() {
 	});
 }
 
+/*NEW MEASURE UNIT - JSON GITHUB*/
+async function downloadAndSaveMeasureUnitFilter() {
+	const url = "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/filters_cz.json";
+	const storageKey = "measureFilters_cz";
+	const expiryKey = "measureFilters_cz_expiry";
+
+	// Check if data is already in localStorage and not expired
+	const now = Date.now();
+	const expiry = localStorage.getItem(expiryKey);
+	const cached = localStorage.getItem(storageKey);
+	if (expiry && cached && now < parseInt(expiry)) {
+		// Data is still valid
+		console.log("Measure filters loaded from localStorage.");
+
+		measureFiltersData = JSON.parse(cached);
+		console.log(measureFiltersData);
+		return;
+	}
+
+	// Fetch and save
+	try {
+		const response = await fetch(url);
+		if (!response.ok) throw new Error("Network response was not ok");
+		const data = await response.json();
+		localStorage.setItem(storageKey, JSON.stringify(data));
+		localStorage.setItem(expiryKey, (now + 24 * 60 * 60 * 1000).toString());
+		console.log("Measure filters saved to localStorage.");
+		measureFiltersData = data;
+		console.log(measureFiltersData);
+	} catch (error) {
+		console.error("Failed to fetch Measure filters:", error);
+	}
+}
+function measureUnitFromFiltersProducts() {
+	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
+	if (!allProductsInProductsBlock || allProductsInProductsBlock.length === 0) {
+		return; // No products found
+	}
+	downloadAndSaveMeasureUnitFilter();
+	let productFilterData = measureFiltersData;
+	if (!productFilterData || productFilterData.length === 0) {
+		return; // No filter data available
+	}
+
+	allProductsInProductsBlock.forEach((product) => {
+		if (product.classList.contains("product-edited-measure")) {
+			return; // Skip if already processed
+		}
+		product.classList.add("product-edited-measure");
+		let productCodeForFilter = product.querySelector("span[data-micro='sku']")?.textContent.trim();
+		if (!productCodeForFilter) {
+			console.warn("Product code not found for a product.");
+			return;
+		}
+
+		let amountText = productFilterData.find((item) => item.code === productCodeForFilter)?.value;
+		if (!amountText) {
+			console.warn("No measure unit found for product code:", productCodeForFilter);
+			return;
+		}
+
+		let productMeasureAmount = amountText.replace(/[^\d]/g, ""); //keep only digits from the measure unit
+		let productMeasureUnit = amountText.replace(/[\d\s]/g, ""); //keep only letters from the measure unit
+
+		let ratingsWrapper = product.querySelector(".ratings-wrapper");
+		if (ratingsWrapper) {
+			// Create a new span element to display the amount
+			let measureUnitSpan = document.createElement("span");
+			measureUnitSpan.className = "product-measure-unit";
+			measureUnitSpan.textContent = amountText;
+
+			// Append the amount span to the ratings wrapper
+			ratingsWrapper.appendChild(measureUnitSpan);
+		}
+
+		const pricePerUnitDiv = document.createElement("div");
+		pricePerUnitDiv.className = "product-price-per-unit";
+		let prices = product.querySelector(".prices");
+
+		let priceFinal = product.querySelector(".price-final strong");
+		let priceFinalValue;
+
+		if (priceFinal) {
+			// Extract the text content, trim it, and remove everything but numbers
+			priceFinalValue = priceFinal.textContent.trim().replace(/[^\d.,]/g, ""); // Keep only digits, commas, and dots
+			priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
+		}
+
+		let signleMeasuringUnit = {
+			kapslí: "kapsle",
+			tablet: "tableta",
+			tobolek: "tobolka",
+			tabletek: "tabletka",
+		};
+
+		let pricePerUnit_Unit;
+
+		let foundUnitMatch = false;
+
+		// Iterate over the keys in the object
+		for (let key in signleMeasuringUnit) {
+			if (productMeasureUnit.includes(key)) {
+				foundUnitMatch = true;
+				pricePerUnit_Unit = signleMeasuringUnit[key];
+				break; // Exit the loop once a match is found
+			}
+		}
+		if (!foundUnitMatch) {
+			// If no match is found, use the original measure unit
+			pricePerUnit_Unit = productMeasureUnit;
+		}
+
+		const pricePerUnit_Value = priceFinalValue / productMeasureAmount;
+
+		const pricePerUnit_ValueSpan = document.createElement("span");
+		pricePerUnit_ValueSpan.className = "product-price-per-unit-value";
+
+		pricePerUnit_ValueSpan.textContent =
+			pricePerUnit_Value.toFixed(2).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
+
+		if (prices && pricePerUnitDiv) {
+			prices.appendChild(pricePerUnitDiv);
+			pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
+		}
+	});
+}
+
 /*--------------------MEASURE UNIT FROM APENDIX INTO CAPSULE*/
-measureUnitFromAppendixProducts();
+/* measureUnitFromAppendixProducts();
 function measureUnitFromAppendixProducts() {
 	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
 	if (!allProductsInProductsBlock || allProductsInProductsBlock.length === 0) {
@@ -1252,7 +1383,7 @@ function measureUnitFromAppendixProducts() {
 			productAppendix.textContent = appendixText; // Update the element's text content
 		}
 	});
-}
+} */
 
 /*------------------------------------------------- FOOTER*/
 let footer = document.querySelector("#footer");
@@ -1793,7 +1924,7 @@ if (body.classList.contains("type-product")) {
 
 	moveElementsInProduct();
 
-	measureUnitFromAppendixDetail();
+	/* 	measureUnitFromAppendixDetail(); */
 
 	function moveElementsInProduct() {
 		if (!infoWrapper) {
@@ -2167,9 +2298,10 @@ if (body.classList.contains("type-product")) {
 
 		//merne jednotky v detailu produktu
 		try {
-			measureUnitFromAppendixDetail();
+			/* 	measureUnitFromAppendixDetail */
+			measureUnitFromFiltersDetail();
 		} catch (error) {
-			console.error("Error in measureUnitFromAppendixDetail:", error);
+			console.error("Error in measureUnitFromFiltersDetail:", error);
 		}
 
 		if (loadNextRatings) {
@@ -2264,7 +2396,86 @@ if (body.classList.contains("type-product")) {
 		}
 	}
 
-	function measureUnitFromAppendixDetail() {
+	function measureUnitFromFiltersDetail() {
+		let product = document.querySelector(".product-top");
+
+		if (product.classList.contains("product-edited-measure")) {
+			return; // Skip if already processed
+		}
+		downloadAndSaveMeasureUnitFilter();
+		product.classList.add("product-edited-measure");
+
+		let productFilterData = measureFiltersData;
+		if (!productFilterData || productFilterData.length === 0) {
+			return; // No filter data available
+		}
+
+		if (!productCodeValue) {
+			console.warn("Product code not found for a product.");
+			return;
+		}
+
+		console.log("productCodeValue:", productCodeValue);
+
+		let amountText = productFilterData.find((item) => item.code === productCodeValue)?.value;
+		if (!amountText) {
+			console.warn("No measure unit found for product code:", productCodeValue);
+			return;
+		}
+
+		let productMeasureAmount = amountText.replace(/[^\d]/g, ""); //keep only digits from the measure unit
+		let productMeasureUnit = amountText.replace(/[\d\s]/g, ""); //keep only letters from the measure unit
+
+		let priceFinalWrapper = product.querySelector(".p-final-price-wrapper");
+
+		const pricePerUnitDiv = document.createElement("div");
+		pricePerUnitDiv.className = "product-price-per-unit-detail";
+		let priceFinal = product.querySelector(".price-final");
+		let priceFinalValue;
+
+		if (priceFinal) {
+			// Extract the text content, trim it, and remove everything but numbers
+			priceFinalValue = priceFinal.textContent.trim().replace(/[^\d.,]/g, ""); // Keep only digits, commas, and dots
+			priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
+		}
+
+		let signleMeasuringUnit = {
+			kapslí: "kapsle",
+			tablet: "tableta",
+			tobolek: "tobolka",
+			tabletek: "tabletka",
+		};
+
+		let pricePerUnit_Unit;
+
+		let foundUnitMatch = false;
+
+		// Iterate over the keys in the object
+		for (let key in signleMeasuringUnit) {
+			if (productMeasureUnit.includes(key)) {
+				foundUnitMatch = true;
+				pricePerUnit_Unit = signleMeasuringUnit[key];
+				break; // Exit the loop once a match is found
+			}
+		}
+		if (!foundUnitMatch) {
+			// If no match is found, use the original measure unit
+			pricePerUnit_Unit = productMeasureUnit;
+		}
+
+		const pricePerUnit_Value = priceFinalValue / productMeasureAmount;
+
+		const pricePerUnit_ValueSpan = document.createElement("span");
+		pricePerUnit_ValueSpan.className = "product-price-per-unit-value-detail";
+
+		pricePerUnit_ValueSpan.textContent =
+			pricePerUnit_Value.toFixed(2).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
+
+		priceFinalWrapper.appendChild(pricePerUnitDiv);
+		pricePerUnitDiv.appendChild(pricePerUnit_ValueSpan);
+	}
+
+	/* function measureUnitFromAppendixDetail() {
 		let product = document.querySelector(".product-top");
 
 		if (product.classList.contains("product-edited-measure")) {
@@ -2340,7 +2551,7 @@ if (body.classList.contains("type-product")) {
 			appendixText = appendixText.replace(/Množství:\s*[^;]+;/, "").trim();
 			productAppendix.textContent = appendixText; // Update the element's text content
 		}
-	}
+	} */
 
 	document.addEventListener("DOMContentLoaded", function () {
 		productThumbnailInNavigation();
