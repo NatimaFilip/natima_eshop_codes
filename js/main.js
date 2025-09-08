@@ -1846,11 +1846,7 @@ function shortenBreadcrumbs() {
 		breadcrumbs.classList.add("only-home");
 	} else {
 		// Remove all except the second last one
-		breadcrumbsSpans.forEach((span, idx) => {
-			if (idx !== breadcrumbsSpans.length - 2) {
-				span.remove();
-			}
-		});
+		breadcrumbs.classList.add("shortened");
 	}
 }
 
