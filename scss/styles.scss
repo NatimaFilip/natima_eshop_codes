@@ -2823,7 +2823,7 @@ body {
 					}
 				}
 				&.shortened {
-					> span:not(:nth-last-child(-n + 2)) {
+					> span:not(:nth-last-child(2)) {
 						display: none;
 						border-left-style: none;
 

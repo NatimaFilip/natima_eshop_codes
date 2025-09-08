@@ -2508,11 +2508,11 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
   body .breadcrumbs-wrapper .breadcrumbs.only-home #navigation-1 {
     padding-left: 0;
   }
-  body .breadcrumbs-wrapper .breadcrumbs.shortened > span:not(:nth-last-child(-n+2)) {
+  body .breadcrumbs-wrapper .breadcrumbs.shortened > span:not(:nth-last-child(2)) {
     display: none;
     border-left-style: none;
   }
-  body .breadcrumbs-wrapper .breadcrumbs.shortened > span:not(:nth-last-child(-n+2)) a {
+  body .breadcrumbs-wrapper .breadcrumbs.shortened > span:not(:nth-last-child(2)) a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2520,7 +2520,7 @@ body .breadcrumbs-wrapper .breadcrumbs > span {
         -ms-flex-align: center;
             align-items: center;
   }
-  body .breadcrumbs-wrapper .breadcrumbs.shortened > span:not(:nth-last-child(-n+2)) a::before {
+  body .breadcrumbs-wrapper .breadcrumbs.shortened > span:not(:nth-last-child(2)) a::before {
     content: "";
     display: block;
     width: 0.75em;
