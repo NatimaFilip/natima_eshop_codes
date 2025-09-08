@@ -1126,6 +1126,9 @@ function editProductSorting() {
 if (body.classList.contains("type-manufacturer-detail")) {
 	/*------------------------------------------------- PRODUCT Stránka produktu*/
 	editProductSorting();
+	document.addEventListener("ShoptetDOMPageContentLoaded", function (event) {
+		editProductSorting();
+	});
 }
 
 /*---------------------------------------------------------Uprava zobrazení produktu v product listu*/
