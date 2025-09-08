@@ -3597,14 +3597,14 @@ body.type-manufacturer-detail {
 		}
 		#filters-wrapper {
 			grid-column: 1;
-			grid-row: 1/10;
+			grid-row: 2/-1;
 		}
 		.manufacturerDetail {
 			grid-column: 1/-1;
 			grid-row: 1;
 		}
 
-		> #filters {
+		#filters {
 			width: 90%;
 			max-width: 248px;
 		}
