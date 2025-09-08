@@ -3464,7 +3464,6 @@ body.type-manufacturer-detail {
 			}
 		}
 	}
-
 	.category-header {
 		@media screen and (max-width: $tablet-max) {
 			margin-top: var(--gap-24);
@@ -3581,6 +3580,8 @@ body.type-manufacturer-detail {
 .type-manufacturer-detail {
 	#filters {
 		display: flex !important;
+		width: 90%;
+		max-width: 248px;/*t*/
 	}
 	#content {
 		display: grid;
@@ -3602,11 +3603,6 @@ body.type-manufacturer-detail {
 		.manufacturerDetail {
 			grid-column: 1/-1;
 			grid-row: 1;
-		}
-
-		#filters {
-			width: 90%;
-			max-width: 248px;
 		}
 	}
 }
