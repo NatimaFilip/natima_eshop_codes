@@ -8198,6 +8198,13 @@ html.cookies-visible .siteCookies {
 			gap: 5px;
 		}
 	}
+	.company-shopping {
+		.form-group {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+	}
 	.submit-wrapper {
 		margin-top: var(--gap-20);
 		.btn {
@@ -8436,7 +8443,7 @@ html.cookies-visible .siteCookies {
 		max-width: 1200px;
 		margin: 0 auto;
 		grid-template-columns: 300px 1fr;
-		gap: var(--gap-30);
+		gap: 40px;
 		padding: 40px var(--gap-30);
 		align-items: start;
 		aside {
@@ -8497,6 +8504,9 @@ html.cookies-visible .siteCookies {
 		}
 	}
 	.js-phone-code {
+		display: none;
+	}
+	.shp-flag-name {
 		display: none;
 	}
 	.phone-combined-input {
