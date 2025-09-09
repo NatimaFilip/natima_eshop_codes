@@ -145,6 +145,7 @@ $desktop-large-min: 1680px;
 	padding: 0 var(--contentPad);
 	font-size: var(--fs-16);
 	text-wrap: pretty;
+	margin: 0 auto;
 }
 
 .in-blog.type-post:not(.old-blog) #content img {
@@ -251,33 +252,33 @@ $desktop-large-min: 1680px;
 
 @media (min-width: 1200px) {
 	.in-blog.type-post:not(.old-blog) #content {
-		padding: 0 3rem;
+		padding: 0 var(--fs-30);
 	}
 	.in-blog.type-post:not(.old-blog) #content h1 {
 		font-size: var(--fs-32);
 	}
 	.in-blog.type-post:not(.old-blog) #content h2 {
 		font-size: var(--fs-32);
-		margin-top: 4.8rem;
+		margin-top: var(--fs-48);
 		margin-bottom: var(--fs-24);
 	}
 	.in-blog.type-post:not(.old-blog) #content h3 {
-		margin-top: 4rem;
+		margin-top: var(--fs-40);
 	}
 
 	.in-blog.type-post:not(.old-blog) #content ul,
 	.in-blog.type-post:not(.old-blog) #content ol {
-		margin: 4rem 0;
+		margin: var(--fs-40) 0;
 	}
 	.in-blog.type-post:not(.old-blog) #content ul li {
-		padding-left: 5.6rem;
+		padding-left: 56px;
 	}
 	.in-blog.type-post:not(.old-blog) #content ul li::before {
 		left: var(--fs-24);
 		transform: translate(-50%, -50%);
 	}
 	.in-blog.type-post:not(.old-blog) #content ol li {
-		padding-left: 5.6rem;
+		padding-left: 56px;
 	}
 	.in-blog.type-post:not(.old-blog) #content ol li::before {
 		left: var(--fs-12);
@@ -291,7 +292,7 @@ $desktop-large-min: 1680px;
 	gap: var(--fs-24);
 	background: var(--color-gray-200);
 	border-radius: var(--br-16);
-	padding: var(--fs-24) 3.6rem 0.9rem 3.6rem;
+	padding: var(--fs-24) 36px 9px 36px;
 	align-items: start;
 }
 
@@ -310,19 +311,19 @@ $desktop-large-min: 1680px;
 #blog-author .author-name {
 	font-size: var(--fs-22) !important;
 	font-weight: var(--fw-700) !important;
-	margin-top: 0.4rem !important;
-	margin-bottom: 0.8rem !important;
+	margin-top: 4px !important;
+	margin-bottom: 8px !important;
 }
 #blog-author .author-text .author-label {
 	font-size: var(--fs-12) !important;
 	margin: 0 !important;
 }
 .author-text {
-	font-size: 1.5rem !important;
-	line-height: 1.5 !important;
+	font-size: 15px !important;
+	line-height: 15px !important;
 }
 #blog-author .author-text p {
-	margin-bottom: 1.5rem !important;
+	margin-bottom: 15px !important;
 }
 @media (max-width: 767px) {
 	#blog-author {
@@ -441,7 +442,7 @@ $desktop-large-min: 1680px;
 	width: 300px;
 	flex-shrink: 0;
 	padding: calc(var(--gap-10) / 1.5);
-	margin-bottom: 4rem;
+	margin-bottom: 40px;
 	position: relative;
 }
 
