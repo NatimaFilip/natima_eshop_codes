@@ -43,6 +43,9 @@ $desktop-large-min: 1680px;
 .luigi-ac {
 	width: 1020px !important;
 	max-width: 100% !important;
+	@media screen and (min-width: $desktop-large-min) {
+		left: -200px !important;
+	}
 	.luigi-ac-ribbon,
 	.luigi-ac-caret {
 		display: none;

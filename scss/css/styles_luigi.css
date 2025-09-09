@@ -6,6 +6,11 @@
   width: 1020px !important;
   max-width: 100% !important;
 }
+@media screen and (min-width: 1680px) {
+  .luigi-ac {
+    left: -200px !important;
+  }
+}
 .luigi-ac .luigi-ac-ribbon,
 .luigi-ac .luigi-ac-caret {
   display: none;
