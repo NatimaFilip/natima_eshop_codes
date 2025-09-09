@@ -585,12 +585,12 @@ $desktop-large-min: 1680px;
 }
 
 /*----------------------------------------------------------------------------------BLOG NAVIGACE*/
-/*
+
 .article-nav {
-	background-color: var(--color-gray-100);
+	background-color: var(--color-gray-200);
 	border-radius: var(--br-16);
 	margin-top: var(--fs-32);
-	margin-bottom: -0.4rem;
+	margin-bottom: -4px;
 }
 .article-content {
 	display: grid;
@@ -616,7 +616,7 @@ $desktop-large-min: 1680px;
 	margin: 0 !important;
 }
 .article-content ul li {
-	margin: 1rem 0 !important;
+	margin: 10px 0 !important;
 	padding: 0 !important;
 }
 .article-content > ul > li::before {
@@ -624,15 +624,15 @@ $desktop-large-min: 1680px;
 }
 .article-content ul li::before {
 	background-color: var(--color-primary) !important;
-	width: 0.6rem !important;
-	height: 0.6rem !important;
+	width: 6px !important;
+	height: 6px !important;
 }
 .article-content ul li a {
 	text-decoration: none !important;
 	color: var(--color-primary) !important;
 }
 .article-content > ul > li li {
-	padding-left: 3.8rem !important;
+	padding-left: 38px !important;
 }
 .article-content > ul > li > a {
 	font-weight: var(--fw-700);
@@ -667,7 +667,7 @@ $desktop-large-min: 1680px;
 	text-decoration: underline;
 }
 #open-article-nav > span {
-	padding-top: 0.8rem;
+	padding-top: 8px;
 }
 #open-article-nav > span:first-child {
 	font-weight: 700;
@@ -675,19 +675,11 @@ $desktop-large-min: 1680px;
 	margin-right: 2em;
 }
 #open-article-nav > span:nth-child(2)::after {
-	content: "\e910";
-	font-family: shoptet;
-	font-size: 0.5em;
-	top: -0.2em;
-	display: inline-block;
-	position: relative;
-	margin-left: 1em;
-	transition: transform 0.3s ease;
-	transform: rotate(90deg);
+	content: "↓";
 }
 
 .article-nav.open #open-article-nav > span:nth-child(2)::after {
-	transform: rotate(-90deg);
+	transform: rotate(180deg);
 }
 .article-nav.open .show-article,
 .hide-article {
@@ -703,5 +695,5 @@ $desktop-large-min: 1680px;
 	.article-content > ul > li li {
 		padding-left: var(--fs-28) !important;
 	}
-}*/
+}
 /*----------------------------------------------------------------------------------KONEC BLOG NAVIGACE*/
