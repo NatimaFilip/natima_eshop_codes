@@ -195,6 +195,9 @@ if (body.classList.contains("id--16")) {
 	}
 
 	rearangeRecap();
+	document.addEventListener("DOMContentLoaded", function () {
+		rearangeRecap();
+	});
 	fetchImagesOfProductsInCart();
 }
 
@@ -248,11 +251,9 @@ function rearangeRecap() {
 	if (recapTitle) {
 		recapWrapper.appendChild(recapTitle);
 	}
-	console.log("ZDE-----------------------------------------");
+
 	if (cartItems) {
-		console.log(cartItems);
 		cartItems.forEach((item) => {
-			console.log(item);
 			if (item.querySelector(".recapitulation-single")) {
 				return;
 			}
