@@ -10689,6 +10689,16 @@ html.cookies-visible .siteCookies {
           align-items: center;
   gap: 5px;
 }
+#register-form .company-shopping .form-group,
+#formLogin .company-shopping .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
 #register-form .submit-wrapper,
 #formLogin .submit-wrapper {
   margin-top: var(--gap-20);
@@ -10948,7 +10958,7 @@ html.cookies-visible .siteCookies {
   max-width: 1200px;
   margin: 0 auto;
   grid-template-columns: 300px 1fr;
-  gap: var(--gap-30);
+  gap: 40px;
   padding: 40px var(--gap-30);
   -webkit-box-align: start;
       -ms-flex-align: start;
@@ -11018,6 +11028,9 @@ html.cookies-visible .siteCookies {
   margin-right: 5px;
 }
 .customer-page .js-phone-code {
+  display: none;
+}
+.customer-page .shp-flag-name {
   display: none;
 }
 .customer-page .phone-combined-input {
