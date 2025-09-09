@@ -8534,7 +8534,8 @@ form[data-np-autofill-form-type="identity"] {
 			display: none;
 		}
 	}
-	#register-form {
+	#register-form,
+	form {
 		margin-left: 0 !important;
 		margin-right: 0 !important;
 	}
