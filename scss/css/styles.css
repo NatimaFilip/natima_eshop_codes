@@ -11009,6 +11009,25 @@ form[data-np-autofill-form-type=identity] input[type=checkbox]:checked::after {
 .customer-page .content-wrapper-in aside ul a:hover, .customer-page .content-wrapper-in aside ul a:focus {
   text-decoration: underline;
 }
+.customer-page .content-wrapper-in aside .btn-primary {
+  display: block;
+  background-color: var(--color-primary);
+  border-radius: var(--br-16);
+  color: var(--color-white);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
+  padding: 0.5em;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  text-align: center;
+  cursor: pointer;
+}
+.customer-page .content-wrapper-in aside .btn-primary:hover, .customer-page .content-wrapper-in aside .btn-primary:focus-within {
+  background-color: var(--color-primary-hover);
+}
 .customer-page .content-wrapper-in h1 {
   padding-top: 0;
 }
@@ -11163,6 +11182,29 @@ form[data-np-autofill-form-type=identity] input[type=checkbox]:checked::after {
   content: "✓";
   color: var(--color-secondary);
   font-weight: var(--fw-700);
+}
+.customer-page .content-inner .btn-primary {
+  display: block;
+  background-color: var(--color-secondary);
+  border-radius: var(--br-16);
+  color: var(--color-white);
+  font-size: var(--fs-18);
+  font-weight: var(--fw-700);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
+  padding: 1.1667em;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  text-align: center;
+  cursor: pointer;
+}
+.customer-page .content-inner .btn-primary:hover, .customer-page .content-inner .btn-primary:focus-within {
+  background-color: var(--color-secondary-hover);
+}
+.customer-page .content-inner .list-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .type-page,

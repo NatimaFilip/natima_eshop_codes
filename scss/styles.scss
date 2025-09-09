@@ -8461,6 +8461,23 @@ form[data-np-autofill-form-type="identity"] {
 					}
 				}
 			}
+			.btn-primary {
+				display: block;
+				background-color: var(--color-primary);
+				border-radius: var(--br-16);
+				color: var(--color-white);
+				font-size: var(--fs-16);
+				font-weight: var(--fw-700);
+				@include bottom-primary-shadow;
+				padding: 0.5em;
+				transition: background-color 0.2s ease-out;
+				text-align: center;
+				cursor: pointer;
+				&:hover,
+				&:focus-within {
+					background-color: var(--color-primary-hover);
+				}
+			}
 		}
 		h1 {
 			padding-top: 0;
@@ -8597,6 +8614,29 @@ form[data-np-autofill-form-type="identity"] {
 				color: var(--color-secondary);
 				font-weight: var(--fw-700);
 			}
+		}
+	}
+	.content-inner {
+		.btn-primary {
+			display: block;
+			background-color: var(--color-secondary);
+			border-radius: var(--br-16);
+			color: var(--color-white);
+			font-size: var(--fs-18);
+			font-weight: var(--fw-700);
+			@include bottom-primary-shadow;
+			padding: 1.1667em;
+			transition: background-color 0.2s ease-out;
+			text-align: center;
+			cursor: pointer;
+			&:hover,
+			&:focus-within {
+				background-color: var(--color-secondary-hover);
+			}
+		}
+		.list-summary {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
 		}
 	}
 }
