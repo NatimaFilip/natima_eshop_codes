@@ -11094,6 +11094,76 @@ form[data-np-autofill-form-type=identity] input[type=checkbox]:checked::after {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+.customer-page #register-form p > a.btn.btn-secondary,
+.customer-page form p > a.btn.btn-secondary {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  display: block;
+  text-align: center;
+}
+.customer-page #register-form p > a.btn.btn-secondary,
+.customer-page #register-form .cell--actions a,
+.customer-page form p > a.btn.btn-secondary,
+.customer-page form .cell--actions a {
+  color: var(--color-black);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-black);
+  border-radius: var(--br-16);
+  padding: 10px 27px;
+  font-weight: var(--fw-700);
+  font-size: var(--fs-16);
+  cursor: pointer;
+}
+.customer-page #register-form p > a.btn.btn-secondary:hover, .customer-page #register-form p > a.btn.btn-secondary:focus-within,
+.customer-page #register-form .cell--actions a:hover,
+.customer-page #register-form .cell--actions a:focus-within,
+.customer-page form p > a.btn.btn-secondary:hover,
+.customer-page form p > a.btn.btn-secondary:focus-within,
+.customer-page form .cell--actions a:hover,
+.customer-page form .cell--actions a:focus-within {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+.customer-page .table-shipping-addresses {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.customer-page .table-shipping-addresses thead {
+  display: none;
+}
+.customer-page .table-shipping-addresses tr .client-table-heading {
+  width: 200px;
+}
+.customer-page .table-shipping-addresses tr .client-table-heading:after {
+  content: ":";
+}
+.customer-page .table-shipping-addresses tr td {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 0;
+}
+.customer-page .table-shipping-addresses tr > td:first-child {
+  padding-top: 30px;
+}
+.customer-page .table-shipping-addresses tr > td:last-child {
+  padding-bottom: 30px;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: var(--color-gray-600);
+}
+.customer-page .table-shipping-addresses .icon-tick:after {
+  content: "✓";
+  color: var(--color-secondary);
+  font-weight: var(--fw-700);
+}
 
 .type-page,
 .id--15 {

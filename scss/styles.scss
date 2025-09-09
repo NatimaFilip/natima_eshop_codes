@@ -8538,6 +8538,66 @@ form[data-np-autofill-form-type="identity"] {
 	form {
 		margin-left: 0 !important;
 		margin-right: 0 !important;
+
+		p > a.btn.btn-secondary {
+			margin-top: 30px;
+			margin-bottom: 40px;
+			display: block;
+			text-align: center;
+		}
+		p > a.btn.btn-secondary,
+		.cell--actions a {
+			color: var(--color-black);
+			border-style: solid;
+			border-width: 1px;
+			border-color: var(--color-black);
+			border-radius: var(--br-16);
+			padding: 10px 27px;
+			font-weight: var(--fw-700);
+			font-size: var(--fs-16);
+			cursor: pointer;
+			&:hover,
+			&:focus-within {
+				background-color: var(--color-primary);
+				color: white;
+				border-color: var(--color-primary);
+			}
+		}
+	}
+	.table-shipping-addresses {
+		display: flex;
+		flex-direction: column;
+		thead {
+			display: none;
+		}
+		tr {
+			.client-table-heading {
+				width: 200px;
+				&:after {
+					content: ":";
+				}
+			}
+			td {
+				display: flex;
+				padding: 10px 0;
+			}
+			> td:first-child {
+				padding-top: 30px;
+			}
+			> td:last-child {
+				padding-bottom: 30px;
+				border-bottom-style: solid;
+				border-width: 1px;
+				border-color: var(--color-gray-600);
+			}
+		}
+		.icon-tick {
+			&:after {
+				content: "✓";
+				color: var(--color-secondary);
+				font-weight: var(--fw-700);
+			}
+		}
 	}
 }
 
