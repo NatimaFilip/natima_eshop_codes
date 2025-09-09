@@ -8433,19 +8433,23 @@ html.cookies-visible .siteCookies {
 .in-klient {
 	.content-wrapper-in {
 		display: grid;
+		max-width: 1000px;
+		margin: 0 auto;
 		grid-template-columns: 200px 1fr;
 		gap: var(--gap-30);
 		aside {
 			ul {
-				@include list-reset;
+				list-style: none;
+				display: flex;
+				flex-direction: column;
+				gap: var(--gap-10);
 			}
 		}
 	}
 }
 
 .type-page,
-.id--15,
-.in-klient {
+.id--15 {
 	/*děkujeme*/
 	#content {
 		max-width: 1000px;
