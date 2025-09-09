@@ -10689,8 +10689,8 @@ html.cookies-visible .siteCookies {
           align-items: center;
   gap: 5px;
 }
-#register-form .company-shopping .form-group,
-#formLogin .company-shopping .form-group {
+#register-form .company-shopping.form-group,
+#formLogin .company-shopping.form-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11046,6 +11046,21 @@ html.cookies-visible .siteCookies {
   .customer-page .phone-combined-input {
     width: 100%;
   }
+}
+.customer-page .form-group-hasTooltip label {
+  grid-row: 1;
+  grid-column: 1;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+.customer-page .form-group-hasTooltip .show-tooltip {
+  grid-row: 1;
+  grid-column: 1;
+  width: 100%;
+  opacity: 0;
+}
+.customer-page .form-group-hasTooltip .vatId-description {
+  display: none;
 }
 .customer-page #register-form {
   margin-left: 0 !important;

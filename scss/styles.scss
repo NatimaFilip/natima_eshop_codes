@@ -7860,11 +7860,8 @@ html.cookies-visible .siteCookies {
 			color: var(--color-primary);
 			width: 1.385em;
 			height: 1.385em;
-
 			display: inline-flex;
-
 			align-items: center;
-
 			justify-content: center;
 			background: var(--color-primary-200);
 			border-radius: 50%;
@@ -8198,13 +8195,12 @@ html.cookies-visible .siteCookies {
 			gap: 5px;
 		}
 	}
-	.company-shopping {
-		.form-group {
-			display: flex;
-			align-items: center;
-			gap: 5px;
-		}
+	.company-shopping.form-group {
+		display: flex;
+		align-items: center;
+		gap: 5px;
 	}
+
 	.submit-wrapper {
 		margin-top: var(--gap-20);
 		.btn {
@@ -8515,6 +8511,23 @@ html.cookies-visible .siteCookies {
 		gap: 8px;
 		@media screen and (max-width: $mobile-max) {
 			width: 100%;
+		}
+	}
+	.form-group-hasTooltip {
+		label {
+			grid-row: 1;
+			grid-column: 1;
+			text-decoration: underline;
+			text-decoration-style: dashed;
+		}
+		.show-tooltip {
+			grid-row: 1;
+			grid-column: 1;
+			width: 100%;
+			opacity: 0;
+		}
+		.vatId-description {
+			display: none;
 		}
 	}
 	#register-form {
