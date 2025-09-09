@@ -2344,10 +2344,12 @@ if (body.classList.contains("type-product")) {
 
 			let stickySellButton = document.querySelector(".sticky-sell .p-final-price-wrapper .add-to-cart-button");
 			let productTopSellButton = document.querySelector(".product-top .p-final-price-wrapper .add-to-cart-button");
-			stickySellButton.addEventListener("click", function (event) {
-				event.preventDefault();
-				productTopSellButton.click();
-			});
+			if (stickySellButton) {
+				stickySellButton.addEventListener("click", function (event) {
+					event.preventDefault();
+					productTopSellButton.click();
+				});
+			}
 
 			let stickySellInput = document.querySelector(".sticky-sell input.amount");
 			let productTopInput = document.querySelector(".product-top input.amount");

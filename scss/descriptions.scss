@@ -1064,6 +1064,7 @@ body {
 						padding: 1em 2.25em;
 						display: flex;
 						gap: 10px;
+						cursor: pointer;
 						&:hover,
 						&:focus-within {
 							background: var(--color-primary);
