@@ -1106,6 +1106,8 @@ $desktop-large-min: 1680px;
 		}
 		.news-item {
 			a {
+				display: block;
+				width: 100%;
 				position: relative;
 				border-radius: var(--br-16);
 			}

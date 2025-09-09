@@ -997,6 +997,8 @@
   left: 0;
 }
 .in-index .homepage-blog-wrapper .news-item a {
+  display: block;
+  width: 100%;
   position: relative;
   border-radius: var(--br-16);
 }
