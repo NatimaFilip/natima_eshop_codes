@@ -10942,12 +10942,40 @@ html.cookies-visible .siteCookies {
   background: var(--color-primary-500);
 }
 
+/*-------------------------------------------------------------------------KLIENTSKA ZONA*/
+.in-klient .content-wrapper-in {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--gap-30);
+}
+.in-klient .content-wrapper-in aside ul {
+  list-style: none;
+}
+.in-klient .content-wrapper-in aside ul li {
+  padding: 0.375em 0 0.375em 1.25em;
+  position: relative;
+}
+.in-klient .content-wrapper-in aside ul li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0.375em;
+  height: 0.375em;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
 .type-page,
-.id--15 {
+.id--15,
+.in-klient {
   /*děkujeme*/
 }
 .type-page #content,
-.id--15 #content {
+.id--15 #content,
+.in-klient #content {
   max-width: 1000px;
   margin: 0 auto;
 }

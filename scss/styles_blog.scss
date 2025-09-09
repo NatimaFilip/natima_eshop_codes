@@ -20,7 +20,7 @@ $desktop-large-min: 1680px;
 		list-style: none;
 
 		padding: 0;
-		gap: var(--gap-10-10);
+		gap: var(--gap-10);
 		display: flex;
 		flex-wrap: wrap;
 		font-size: var(--fs-16);
@@ -676,6 +676,7 @@ $desktop-large-min: 1680px;
 }
 #open-article-nav > span:nth-child(2)::after {
 	content: "↓";
+	padding-left: 8px;
 }
 
 .article-nav.open #open-article-nav > span:nth-child(2)::after {

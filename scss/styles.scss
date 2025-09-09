@@ -8429,8 +8429,23 @@ html.cookies-visible .siteCookies {
 	}
 }
 
+/*-------------------------------------------------------------------------KLIENTSKA ZONA*/
+.in-klient {
+	.content-wrapper-in {
+		display: grid;
+		grid-template-columns: 200px 1fr;
+		gap: var(--gap-30);
+		aside {
+			ul {
+				@include list-reset;
+			}
+		}
+	}
+}
+
 .type-page,
-.id--15 {
+.id--15,
+.in-klient {
 	/*děkujeme*/
 	#content {
 		max-width: 1000px;
