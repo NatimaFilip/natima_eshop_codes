@@ -10988,6 +10988,19 @@ form[data-np-autofill-form-type=identity] input[type=checkbox]:checked::after {
       -ms-flex-align: start;
           align-items: start;
 }
+@media screen and (max-width: 1279px) {
+  .customer-page .content-wrapper-in {
+    grid-template-columns: 270px 1fr;
+    gap: 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .customer-page .content-wrapper-in {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+}
 .customer-page .content-wrapper-in aside {
   background: var(--color-gray-400);
   border-radius: var(--br-16);

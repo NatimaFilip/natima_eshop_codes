@@ -8443,6 +8443,15 @@ form[data-np-autofill-form-type="identity"] {
 		gap: 40px;
 		padding: 40px var(--gap-30);
 		align-items: start;
+		@media screen and (max-width: $tablet-max) {
+			grid-template-columns: 270px 1fr;
+			gap: 30px;
+		}
+		@media screen and (max-width: $mobile-max) {
+			grid-template-columns: 1fr;
+			padding: 20px 10px;
+			gap: 20px;
+		}
 		aside {
 			background: var(--color-gray-400);
 			border-radius: var(--br-16);
