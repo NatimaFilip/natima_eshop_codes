@@ -11324,3 +11324,17 @@ form[data-np-autofill-form-type=identity] input[type=checkbox]:checked::after {
     color: var(--color-primary);
   }
 }
+
+.site-msg.information {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  text-align: center;
+  background: var(--color-red-400);
+  color: white;
+  z-index: 10000;
+  font-weight: var(--fw-700);
+  font-size: 20px;
+}
