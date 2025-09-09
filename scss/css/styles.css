@@ -10949,7 +10949,10 @@ html.cookies-visible .siteCookies {
   margin: 0 auto;
   grid-template-columns: 300px 1fr;
   gap: var(--gap-30);
-  padding: var(--gap-30) 0;
+  padding: 40px var(--gap-30);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 .customer-page .content-wrapper-in aside {
   background: var(--color-gray-400);
@@ -10971,6 +10974,69 @@ html.cookies-visible .siteCookies {
 }
 .customer-page .content-wrapper-in aside ul a:hover, .customer-page .content-wrapper-in aside ul a:focus {
   text-decoration: underline;
+}
+.customer-page .content-wrapper-in h1 {
+  padding-top: 0;
+}
+.customer-page .country-flag {
+  display: none;
+  min-width: 18px;
+  height: 18px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.customer-page .country-flag.selected {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.customer-page .country-flag:not(.country-flag-CZ) {
+  position: relative;
+}
+.customer-page .country-flag:not(.country-flag-CZ)::after {
+  content: "Pro doručení zásilky je nutno zadat české číslo, jinak nebude možno zásilku odeslat.";
+  display: block;
+  font-size: var(--fs-16);
+  position: absolute;
+  left: 0;
+  top: -20px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  background: white;
+  border-style: solid;
+  border-color: var(--color-red-400);
+  border-radius: var(--br-16);
+  border-width: 1px;
+  width: 18em;
+  padding: 10px;
+}
+.customer-page .country-flag svg {
+  min-width: 18px;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+.customer-page .js-phone-code {
+  display: none;
+}
+.customer-page .phone-combined-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+@media screen and (max-width: 767px) {
+  .customer-page .phone-combined-input {
+    width: 100%;
+  }
+}
+.customer-page #register-form {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .type-page,

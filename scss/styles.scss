@@ -8437,7 +8437,8 @@ html.cookies-visible .siteCookies {
 		margin: 0 auto;
 		grid-template-columns: 300px 1fr;
 		gap: var(--gap-30);
-		padding: var(--gap-30) 0;
+		padding: 40px var(--gap-30);
+		align-items: start;
 		aside {
 			background: var(--color-gray-400);
 			border-radius: var(--br-16);
@@ -8457,6 +8458,58 @@ html.cookies-visible .siteCookies {
 				}
 			}
 		}
+		h1 {
+			padding-top: 0;
+		}
+	}
+	.country-flag {
+		display: none;
+		min-width: 18px;
+		height: 18px;
+		width: max-content;
+		&.selected {
+			display: flex;
+		}
+		&:not(.country-flag-CZ) {
+			position: relative;
+			&::after {
+				content: "Pro doručení zásilky je nutno zadat české číslo, jinak nebude možno zásilku odeslat.";
+				display: block;
+				font-size: var(--fs-16);
+				position: absolute;
+				left: 0;
+				top: -20px;
+				transform: translateY(-100%);
+				background: white;
+				border-style: solid;
+				border-color: var(--color-red-400);
+				border-radius: var(--br-16);
+				border-width: 1px;
+				width: 18em;
+				padding: 10px;
+			}
+		}
+		svg {
+			min-width: 18px;
+			width: 18px;
+			height: 18px;
+			margin-right: 5px;
+		}
+	}
+	.js-phone-code {
+		display: none;
+	}
+	.phone-combined-input {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		@media screen and (max-width: $mobile-max) {
+			width: 100%;
+		}
+	}
+	#register-form {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
 	}
 }
 
