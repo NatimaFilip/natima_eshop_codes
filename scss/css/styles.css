@@ -11126,7 +11126,7 @@ form[data-np-autofill-form-type=identity] input[type=checkbox]:checked::after {
   color: white;
   border-color: var(--color-primary);
 }
-.customer-page .table-shipping-addresses {
+.customer-page table {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11135,31 +11135,31 @@ form[data-np-autofill-form-type=identity] input[type=checkbox]:checked::after {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.customer-page .table-shipping-addresses thead {
+.customer-page table thead {
   display: none;
 }
-.customer-page .table-shipping-addresses tr .client-table-heading {
+.customer-page table tr .client-table-heading {
   width: 200px;
 }
-.customer-page .table-shipping-addresses tr .client-table-heading:after {
+.customer-page table tr .client-table-heading:after {
   content: ":";
 }
-.customer-page .table-shipping-addresses tr td {
+.customer-page table tr td {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 10px 0;
 }
-.customer-page .table-shipping-addresses tr > td:first-child {
+.customer-page table tr > td:first-child {
   padding-top: 30px;
 }
-.customer-page .table-shipping-addresses tr > td:last-child {
+.customer-page table tr > td:last-child {
   padding-bottom: 30px;
   border-bottom-style: solid;
   border-width: 1px;
   border-color: var(--color-gray-600);
 }
-.customer-page .table-shipping-addresses .icon-tick:after {
+.customer-page table .icon-tick:after {
   content: "✓";
   color: var(--color-secondary);
   font-weight: var(--fw-700);
