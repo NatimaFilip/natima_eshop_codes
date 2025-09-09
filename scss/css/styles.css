@@ -10988,6 +10988,9 @@ html.cookies-visible .siteCookies {
 .customer-page .content-wrapper-in h1 {
   padding-top: 0;
 }
+.customer-page .form-group {
+  margin: 10px 0;
+}
 .customer-page .country-flag {
   display: none;
   min-width: 18px;
