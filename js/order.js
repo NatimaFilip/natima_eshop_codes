@@ -194,7 +194,6 @@ if (body.classList.contains("id--16")) {
 		}
 	}
 
-	rearangeRecap();
 	document.addEventListener("DOMContentLoaded", function () {
 		rearangeRecap();
 	});
