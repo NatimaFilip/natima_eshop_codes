@@ -10943,7 +10943,7 @@ html.cookies-visible .siteCookies {
 }
 
 /*-------------------------------------------------------------------------KLIENTSKA ZONA*/
-.in-klient .content-wrapper-in {
+.in-klient .customer-page {
   display: grid;
   max-width: 1200px;
   margin: 0 auto;
@@ -10951,7 +10951,12 @@ html.cookies-visible .siteCookies {
   gap: var(--gap-30);
   padding: var(--gap-30) 0;
 }
-.in-klient .content-wrapper-in aside ul {
+.in-klient .customer-page aside {
+  background: var(--color-gray-400);
+  border-radius: var(--br-16);
+  padding: 20px;
+}
+.in-klient .customer-page aside ul {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -10963,6 +10968,9 @@ html.cookies-visible .siteCookies {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: var(--gap-10);
+}
+.in-klient .customer-page aside ul a:hover, .in-klient .customer-page aside ul a:focus {
+  text-decoration: underline;
 }
 
 .type-page,
