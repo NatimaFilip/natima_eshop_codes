@@ -3,15 +3,6 @@ function moveFilters() {
 	console.log("moveFilters");
 }
 
-/*-------------------------------------- CS SK PL*/
-const csLang = true;
-document.body.classList.add("cs");
-
-const skLang = false;
-/* document.body.classList.add("sk"); */
-const plLang = false;
-/* document.body.classList.add("pl"); */
-
 /*-------------------------------------- Custom events*/
 // Debounce function to limit the rate at which a function can fire
 let resizeTimer;
