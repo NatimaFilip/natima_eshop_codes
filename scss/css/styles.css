@@ -6237,7 +6237,7 @@ body.type-manufacturer-detail .category-header > div strong {
 }
 
 /* --------------------------------------------------- Messages	*/
-body .messages > * {
+body .messages .msg {
   position: fixed;
   top: calc(var(--header-height) + var(--padding-top-header) + 1em + var(--gap-18) + 0.5em);
   right: 0;
@@ -6254,14 +6254,14 @@ body .messages > * {
   -webkit-transition: top 0.2s ease-in-out;
   transition: top 0.2s ease-in-out;
 }
-body .messages > * a {
+body .messages .msg a {
   color: var(--color-white);
   font-size: var(--fs-14);
   font-weight: var(--fw-700);
   text-decoration: underline;
 }
 @media screen and (max-width: 767px) {
-  body .messages > * {
+  body .messages .msg {
     top: calc(var(--header-height) + var(--padding-top-header) + 1em + var(--gap-6));
   }
 }
