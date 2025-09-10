@@ -643,7 +643,7 @@ body #header .navigation-wrapper .header-top.header-loaded .top-navigation-conta
   height: calc(var(--header-height) - 2px);
   background-color: var(--color-gray-400);
   border-radius: var(--br-16);
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/contact-image.jpg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/contact-image_3.jpg");
   background-position: center;
   background-repeat: no-repeat;
 }
