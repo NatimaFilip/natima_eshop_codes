@@ -1973,7 +1973,7 @@ if (body.classList.contains("type-product")) {
 					if (benefitBanner) {
 						benefitBanner.classList.add("natios-block-added");
 					}
-					natiosLargeBrandBlock.innerHTML = `<div class="natios-support-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/NatiosDarujeFNO_2.svg" alt="Natios daruje 1 Kč" width="174" height="174"></div><div class="natios-support-wrapper-content"><div class="natios-support-wrapper-content-title"><h3>Pomáháme</h3><span>&nbsp;dětské hematoonkologii</span></div><p>Natios z každého prodaného produktu daruje 1 Kč dětské hematoonkologii ve Fakultní nemocnici v Ostravě. Léčba každého onkologického pacienta v České republice se odhaduje na přibližně 8&nbsp;000&nbsp;Kč měsíčně. Věříme tedy, že tímto krokem společně dokážeme pomoci několika rodinám.</p><p>Společně jsme již dokázali přispět přes 750&nbsp;000&nbsp;Kč. Děkujeme!</p><p><a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více o pomoci</a></p></div>`;
+					natiosLargeBrandBlock.innerHTML = `<div class="natios-support-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/NatiosDarujeFNO_2.svg" alt="Natios daruje 1 Kč" width="174" height="174"></div><div class="natios-support-wrapper-content"><div class="natios-support-wrapper-content-title"><h3>Pomáháme</h3><span>&nbsp;dětské hematoonkologii</span></div><p>Natios z každého prodaného produktu daruje 1 Kč dětské hematoonkologii ve Fakultní nemocnici v Ostravě. Léčba každého onkologického pacienta v České republice se odhaduje na přibližně 8&nbsp;000&nbsp;Kč měsíčně. Věříme tedy, že tímto krokem společně dokážeme pomoci několika rodinám.</p><p>Společně jsme již dokázali přispět přes 650&nbsp;000&nbsp;Kč. Děkujeme!</p><p><a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více o pomoci</a></p></div>`;
 					if (tabContent) {
 						tabContent.appendChild(natiosLargeBrandBlock);
 					}
@@ -1983,7 +1983,7 @@ if (body.classList.contains("type-product")) {
 					if (benefitBanner) {
 						benefitBanner.classList.add("natios-block-added");
 					}
-					natiosLargeBrandBlock.innerHTML = `<div class="natios-support-wrapper-content"><p class="natios-support-wrapper-content-title"><h3>Pomáháme</h3> dětské hematoonkologii</p><p>Natios z každého prodaného produktu daruje 1 Kč dětské hematoonkologii ve Fakultní nemocnici v Ostravě. Léčba každého onkologického pacienta v České republice se odhaduje na přibližně 8&nbsp;000&nbsp;Kč měsíčně. Věříme tedy, že tímto krokem společně dokážeme pomoci několika rodinám.</p><p>Společně jsme již dokázali přispět přes 750&nbsp;000&nbsp;Kč. Děkujeme!</p><p><a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více o pomoci</a></p></div>`;
+					natiosLargeBrandBlock.innerHTML = `<div class="natios-support-wrapper-content"><p class="natios-support-wrapper-content-title"><h3>Pomáháme</h3> dětské hematoonkologii</p><p>Natios z každého prodaného produktu daruje 1 Kč dětské hematoonkologii ve Fakultní nemocnici v Ostravě. Léčba každého onkologického pacienta v České republice se odhaduje na přibližně 8&nbsp;000&nbsp;Kč měsíčně. Věříme tedy, že tímto krokem společně dokážeme pomoci několika rodinám.</p><p>Společně jsme již dokázali přispět přes 650&nbsp;000&nbsp;Kč. Děkujeme!</p><p><a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více o pomoci</a></p></div>`;
 					if (tabContent) {
 						tabContent.appendChild(natiosLargeBrandBlock);
 					}
@@ -2761,7 +2761,7 @@ if (body.classList.contains("type-product")) {
 			);
 
 			createTabForSection(
-				"#relatedFiles",
+				".natios-analysis",
 				csLang ? "Certifikáty" : skLang ? "Certifikáty" : plLang ? "Certyfikaty" : "Certificates",
 				false,
 				detailTabs
