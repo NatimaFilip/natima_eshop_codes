@@ -1082,8 +1082,10 @@ body {
 				}
 			}
 			.natios-analysis-content-right {
-				overflow-x: auto;
-				max-width: 100%;
+				@media screen and (max-width: $mobile-max) {
+					overflow-x: auto;
+					max-width: 100%;
+				}
 
 				.editable-content,
 				.editable-content > div.tiptap {
