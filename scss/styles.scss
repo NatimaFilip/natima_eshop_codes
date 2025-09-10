@@ -7393,8 +7393,8 @@ body {
 							display: none;
 						}
 						a {
-							font-size: var(--fs-16);
-							font-weight: var(--fw-700);
+							font-size: var(--fs-14) !important;
+							font-weight: var(--fw-700) !important;
 							color: var(--color-black);
 							background: transparent;
 							border-style: solid;
@@ -7425,11 +7425,11 @@ body {
 							}
 							&:hover,
 							&:focus-within {
-								color: var(--color-white);
-								background: var(--color-primary);
-								border-color: var(--color-primary);
+								color: var(--color-white) !important;
+								background: var(--color-primary) !important;
+								border-color: var(--color-primary) !important;
 								span {
-									color: var(--color-white);
+									color: var(--color-white) !important;
 								}
 								&::before {
 									filter: brightness(0) invert(1);

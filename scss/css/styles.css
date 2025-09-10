@@ -8542,8 +8542,8 @@ body.sticky-header-off .messages > * {
   display: none;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a {
-  font-size: var(--fs-16);
-  font-weight: var(--fw-700);
+  font-size: var(--fs-14) !important;
+  font-weight: var(--fw-700) !important;
   color: var(--color-black);
   background: transparent;
   border-style: solid;
@@ -8579,12 +8579,12 @@ body.sticky-header-off .messages > * {
   margin-right: 10px;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:focus-within {
-  color: var(--color-white);
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  color: var(--color-white) !important;
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:hover span, .type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:focus-within span {
-  color: var(--color-white);
+  color: var(--color-white) !important;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:hover::before, .type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:focus-within::before {
   -webkit-filter: brightness(0) invert(1);
