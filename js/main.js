@@ -3659,7 +3659,7 @@ if (searchElement && searchInput) {
 	});
 }
 
-document.addEventListener("luigiSearchDone", function () {
+/* document.addEventListener("luigiSearchDone", function () {
 	addSwapImageLuigi();
 	function addSwapImageLuigi() {
 		let lbResults = document.querySelector("#lb-results");
@@ -3689,7 +3689,7 @@ document.addEventListener("luigiSearchDone", function () {
 			}
 		});
 	}
-});
+}); */
 
 /*custom scroll to anchor*/
 document.addEventListener("DOMContentLoaded", function () {
