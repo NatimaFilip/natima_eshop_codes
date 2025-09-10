@@ -2728,9 +2728,6 @@ body.type-manufacturer-detail .subcategories {
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: var(--fs-13);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 @media screen and (min-width: 617px) {
   body.type-category .subcategories,
@@ -2762,6 +2759,9 @@ body.type-manufacturer-detail .subcategories li {
   background-color: var(--color-gray-400);
   border-radius: var(--br-8);
   padding: 0.77em 1.5em 0.77em 0.77em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 @media screen and (min-width: 1280px) {
   body.type-category .subcategories li,
@@ -8087,6 +8087,8 @@ body.sticky-header-off .messages > * {
           align-items: center;
   padding-left: 0.25em;
   gap: var(--gap-4);
+  color: var(--color-primary);
+  cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
