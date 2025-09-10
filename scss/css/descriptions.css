@@ -955,6 +955,23 @@ body .product-widgets.natios .natios-compare .compare-names > h4:first-of-type::
 body .product-widgets[product-template=natios] .natios-compare .compare-names > h4:first-of-type::after {
   display: block;
 }
+body .product-widgets.natios .natios-compare .custom-extra-compare-content,
+body .product-widgets[product-template=natios] .natios-compare .custom-extra-compare-content {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px 40px 10px;
+}
+body .product-widgets.natios .natios-compare .custom-extra-compare-content p,
+body .product-widgets[product-template=natios] .natios-compare .custom-extra-compare-content p {
+  color: var(--color-white);
+  font-weight: var(--fw-500);
+  max-width: 800px;
+}
 body .product-widgets.natios .natios-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,
 body .product-widgets.natios .natios-compare.items-2 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(2n + 1)::after,
 body .product-widgets[product-template=natios] .natios-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,

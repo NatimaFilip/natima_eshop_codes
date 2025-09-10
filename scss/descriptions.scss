@@ -910,6 +910,16 @@ body {
 					}
 				}
 			}
+			.custom-extra-compare-content {
+				display: flex !important;
+				flex-direction: column;
+				padding: 30px 40px 10px;
+				p {
+					color: var(--color-white);
+					font-weight: var(--fw-500);
+					max-width: 800px;
+				}
+			}
 			&.items-2 {
 				.compare-texts > .editable-content,
 				.compare-texts > .editable-content > div.tiptap {
