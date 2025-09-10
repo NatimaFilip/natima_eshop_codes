@@ -8079,7 +8079,8 @@ body.sticky-header-off .messages > * {
 .type-product .natios-brand-description-block-wrapper p {
   padding-bottom: 0;
 }
-.type-product .natios-brand-description-block-wrapper a {
+.type-product .natios-brand-description-block-wrapper a,
+.type-product .natios-brand-description-block-wrapper span.scroll-to-FNO {
   display: inline-block;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -8089,7 +8090,8 @@ body.sticky-header-off .messages > * {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.type-product .natios-brand-description-block-wrapper a:after {
+.type-product .natios-brand-description-block-wrapper a:after,
+.type-product .natios-brand-description-block-wrapper span.scroll-to-FNO:after {
   content: "";
   display: inline-block;
   width: 20px;
