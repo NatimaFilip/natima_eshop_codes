@@ -986,7 +986,7 @@ body {
 			--analysis-color-green-o10: hsla(104, 67%, 37%, 0.1);
 
 			--analysis-gap: 30px;
-			overflow: hidden;
+			overflow-x: hidden;
 			background: var(--analysis-color-green-o10);
 			border-radius: var(--br-16);
 			padding: var(--description-widget-gap-biggest);
@@ -1082,8 +1082,6 @@ body {
 				}
 			}
 			.natios-analysis-content-right {
-				overflow-x: auto;
-				overflow-y: visible;
 				.editable-content,
 				.editable-content > div.tiptap {
 					> table {
