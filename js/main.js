@@ -2267,11 +2267,27 @@ if (body.classList.contains("type-product")) {
 		}
 
 		if (relatedFiles) {
+			const natiosAnalysis = document.querySelector(".product-widgets .natios-analysis .natios-analysis-content-left");
+			if (natiosAnalysis) {
+				relatedFiles.prepend(natiosAnalysis);
+				const showTestsButton = natiosAnalysis.querySelector(".show-tests-button");
+				if (showTestsButton) {
+					showTestsButton.remove();
+				}
+			} else {
+				const basicDescription = document.querySelector("#description .basic-description");
+				if (basicDescription) {
+					basicDescription.insertAdjacentElement("afterend", relatedFiles);
+				}
+			}
+		}
+
+		/* 	if (relatedFiles) {
 			const basicDescription = document.querySelector("#description .basic-description");
 			if (basicDescription) {
 				basicDescription.insertAdjacentElement("afterend", relatedFiles);
 			}
-		}
+		} */
 
 		if (extendedDescription) {
 			if (tabContent) {
