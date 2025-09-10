@@ -7407,7 +7407,8 @@ body {
 
 							justify-content: flex-start;
 
-							margin-left: auto;
+							width: 100%;
+							margin-left: 0 !important;
 							span {
 								font-weight: var(--fw-400);
 								color: var(--color-gray-600);
