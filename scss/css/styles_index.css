@@ -240,9 +240,9 @@
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 1280px) {
   .in-index #carousel .carousel-inner .item:first-child .extended-banner-texts {
-    width: 45%;
+    width: 55%;
   }
   .in-index #carousel .carousel-inner .item:first-child .extended-banner-title {
     font-size: var(--fs-32);
