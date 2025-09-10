@@ -254,6 +254,9 @@ function rearangeRecap() {
 			if (item.querySelector(".recapitulation-single")) {
 				if (!item.querySelector(".recapitulation-single").textContent.toUpperCase().includes("KUPON")) {
 					return;
+				} else {
+					let summaryInner = document.querySelector("#checkoutSidebar .summary-inner");
+					summaryInner.appendChild(item.querySelector(".recapitulation-single"));
 				}
 			}
 			recapWrapper.appendChild(item);
