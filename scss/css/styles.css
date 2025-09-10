@@ -2669,7 +2669,7 @@ body.type-category .category-perex p,
 body.type-category .manufacturerDetail p,
 body.type-manufacturer-detail .category-perex p,
 body.type-manufacturer-detail .manufacturerDetail p {
-  max-width: 1260px;
+  /* max-width: 1260px; */
 }
 body.type-category .category-perex p:has(img),
 body.type-category .manufacturerDetail p:has(img),
@@ -2714,7 +2714,7 @@ body.type-manufacturer-detail .manufacturerDetail .read-more-perex {
 body.type-category .category__secondDescription,
 body.type-manufacturer-detail .category__secondDescription {
   font-size: var(--fs-16);
-  max-width: 1260px;
+  /* max-width: 1260px; */
 }
 body.type-category .subcategories,
 body.type-manufacturer-detail .subcategories {

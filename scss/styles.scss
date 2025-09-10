@@ -2974,7 +2974,7 @@ body.type-manufacturer-detail {
 			margin-bottom: 1.5em;
 		}
 		p {
-			max-width: 1260px;
+			/* max-width: 1260px; */
 		}
 		p:has(img) {
 			max-width: none;
@@ -3005,7 +3005,7 @@ body.type-manufacturer-detail {
 	}
 	.category__secondDescription {
 		font-size: var(--fs-16);
-		max-width: 1260px;
+		/* max-width: 1260px; */
 	}
 	.subcategories {
 		list-style: none;
