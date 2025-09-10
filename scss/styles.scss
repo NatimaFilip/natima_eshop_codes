@@ -8816,3 +8816,77 @@ body:has(.new-gen-modal) {
 	height: var(--logistics-modal-height) !important;
 	width: 100% !important;
 }
+
+/*ADMIN BAR*/
+.admin-bar {
+	display: flex;
+	background-color: #484848;
+	border-color: #333;
+	color: #dbdbdb;
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	#bar-menu {
+		display: flex;
+		flex-direction: row;
+		column-gap: 10px;
+
+		li {
+			min-width: max-content;
+		}
+	}
+}
+
+.admin-bar .container > ul > li {
+	border-color: #636363;
+}
+
+.admin-bar .container > ul > li > a,
+.admin-bar .container > ul > li > span {
+	color: #dbdbdb;
+}
+
+.admin-bar .container > ul > li:hover {
+	background-color: #636363;
+	color: #fff;
+}
+
+.admin-bar .container > ul > li:hover > a,
+.admin-bar .container > ul > li:hover > span {
+	color: #fff;
+}
+
+.admin-bar .container > ul > li ul {
+	background-color: #f5fcfe;
+	border-color: #dbe0e2;
+}
+
+.admin-bar .container > ul > li ul li a,
+.admin-bar .container > ul > li ul li span {
+	border-color: #d0effc;
+	color: #000;
+}
+
+.admin-bar .container > ul > li ul li a:hover,
+.admin-bar .container > ul > li ul li span:hover {
+	background-color: #e1f4fa;
+}
+
+.admin-bar .container > ul > li > ul {
+	border-top-color: #333;
+}
+
+.admin-bar .container > a,
+.admin-bar .container > span {
+	background-color: #636363;
+	border-color: #333;
+	color: #dbdbdb;
+}
+
+.admin-bar .container > a:hover,
+.admin-bar .container > span:hover {
+	background-color: #555;
+	color: #fff;
+}
