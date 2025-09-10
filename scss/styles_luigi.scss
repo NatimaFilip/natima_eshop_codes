@@ -495,6 +495,11 @@ $desktop-large-min: 1680px;
 				}
 				.lb-quick-searches__headings {
 					border-style: none;
+					@media screen and (max-width: $tablet-max) {
+						h2 {
+							font-size: var(--fs-16);
+						}
+					}
 				}
 				.lb-sorts {
 					select {
@@ -508,12 +513,13 @@ $desktop-large-min: 1680px;
 					border-style: none;
 					margin: 0;
 					padding: 20px 0;
-					gap: var(--gap-10);
+					gap: 6px;
 					font-size: var(--fs-13);
 					display: grid;
 					grid-template-columns: 1fr 1fr;
 					@media screen and (min-width: $tablet-max) {
 						grid-template-columns: repeat(3, 1fr);
+						gap: var(--gap-10);
 					}
 					> a {
 						margin: 0 !important;
@@ -521,7 +527,7 @@ $desktop-large-min: 1680px;
 						border-style: none !important;
 						background-color: var(--color-gray-400);
 						border-radius: var(--br-8);
-						padding: 0.77em 1.5em 0.77em 0.77em !important;
+						padding: 0.77em 0.5em 0.77em 0.5em !important;
 						@media screen and (min-width: $desktop-min) {
 							border-radius: var(--br-16);
 							padding: 0.75em 2em 0.75em 1em !important;
