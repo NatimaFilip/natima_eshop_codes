@@ -1049,6 +1049,12 @@ body .product-widgets[product-template=natios] .natios-analysis {
   border-radius: var(--br-16);
   padding: var(--description-widget-gap-biggest);
 }
+@media screen and (max-width: 767px) {
+  body .product-widgets.natios .natios-analysis,
+  body .product-widgets[product-template=natios] .natios-analysis {
+    padding: var(--description-widget-gap-smaller);
+  }
+}
 body .product-widgets.natios .natios-analysis .analysis-title,
 body .product-widgets[product-template=natios] .natios-analysis .analysis-title {
   font-size: var(--fs-24);

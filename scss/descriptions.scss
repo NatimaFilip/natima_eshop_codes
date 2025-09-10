@@ -1000,6 +1000,10 @@ body {
 			background: var(--analysis-color-green-o10);
 			border-radius: var(--br-16);
 			padding: var(--description-widget-gap-biggest);
+
+			@media screen and (max-width: $mobile-max) {
+				padding: var(--description-widget-gap-smaller);
+			}
 			.analysis-title {
 				font-size: var(--fs-24);
 				padding-bottom: var(--analysis-gap);
