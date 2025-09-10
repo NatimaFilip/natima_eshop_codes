@@ -1103,7 +1103,11 @@ body {
 						margin-bottom: var(--analysis-gap);
 						min-width: 550px !important;
 					}
-					> table:last-of-type {
+					> .scroll-wrapper {
+						margin-bottom: var(--analysis-gap);
+					}
+					> table:last-of-type,
+					> .scroll-wrapper:last-of-type {
 						margin-bottom: 0;
 					}
 				}

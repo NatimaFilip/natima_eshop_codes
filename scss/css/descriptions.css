@@ -1195,10 +1195,20 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
   margin-bottom: var(--analysis-gap);
   min-width: 550px !important;
 }
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > .scroll-wrapper,
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > .scroll-wrapper,
+body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right .editable-content > .scroll-wrapper,
+body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > .scroll-wrapper {
+  margin-bottom: var(--analysis-gap);
+}
 body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > table:last-of-type,
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > .scroll-wrapper:last-of-type,
 body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table:last-of-type,
+body .product-widgets.natios .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > .scroll-wrapper:last-of-type,
 body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right .editable-content > table:last-of-type,
-body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table:last-of-type {
+body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right .editable-content > .scroll-wrapper:last-of-type,
+body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > table:last-of-type,
+body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right .editable-content > div.tiptap > .scroll-wrapper:last-of-type {
   margin-bottom: 0;
 }
 body .product-widgets.natios .natios-analysis .natios-analysis-content-right table,

@@ -1105,6 +1105,9 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-
 body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu .menu-level-2 {
   display: none;
 }
+body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 #nav-manufacturers {
+  display: none !important;
+}
 @media screen and (max-width: 767px) {
   body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.active {
     display: -webkit-box;

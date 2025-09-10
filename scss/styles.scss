@@ -1645,6 +1645,10 @@ body {
 							}
 						}
 
+						#nav-manufacturers {
+							display: none!important;
+						}
+
 						@media screen and (max-width: $mobile-max) {
 							.menu-helper-submenu.active {
 								display: flex;
