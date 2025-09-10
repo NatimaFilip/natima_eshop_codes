@@ -2265,7 +2265,7 @@ if (body.classList.contains("type-product")) {
 				rateAverageWrap.prepend(ratingTabTitleElement);
 			}
 		}
-
+		/* 
 		if (relatedFiles) {
 			const natiosAnalysis = document.querySelector(".product-widgets .natios-analysis .natios-analysis-content-left");
 			if (natiosAnalysis) {
@@ -2280,14 +2280,13 @@ if (body.classList.contains("type-product")) {
 					basicDescription.insertAdjacentElement("afterend", relatedFiles);
 				}
 			}
-		}
-
-		/* 	if (relatedFiles) {
+		} */
+		if (relatedFiles) {
 			const basicDescription = document.querySelector("#description .basic-description");
 			if (basicDescription) {
 				basicDescription.insertAdjacentElement("afterend", relatedFiles);
 			}
-		} */
+		}
 
 		if (extendedDescription) {
 			if (tabContent) {
