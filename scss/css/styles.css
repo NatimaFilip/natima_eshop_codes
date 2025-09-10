@@ -8526,6 +8526,73 @@ body.sticky-header-off .messages > * {
     width: 100%;
   }
 }
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles {
+  margin: 0;
+  background: transparent;
+  padding: 0;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles h3 {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles li {
+  background: transparent;
+  padding: 0;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles li::before {
+  display: none;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+  background: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-black);
+  border-radius: var(--br-16);
+  padding: 1em 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: auto;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a span {
+  font-weight: var(--fw-400);
+  color: var(--color-gray-600);
+  padding-left: 0.25em;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_protocol_download.svg");
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:focus-within {
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:hover span, .type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:focus-within span {
+  color: var(--color-white);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:hover::before, .type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis #relatedFiles a:focus-within::before {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content .natios-analysis a.btn {
+  display: none !important;
+}
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab {
   max-width: 100%;
   margin: 0 auto;

@@ -7377,6 +7377,70 @@ body {
 						}
 					}
 				}
+				.natios-analysis {
+					#relatedFiles {
+						margin: 0;
+						background: transparent;
+						padding: 0;
+						h3 {
+							display: none;
+						}
+						li {
+							background: transparent;
+							padding: 0;
+						}
+						li::before {
+							display: none;
+						}
+						a {
+							font-size: var(--fs-16);
+							font-weight: var(--fw-700);
+							color: var(--color-black);
+							background: transparent;
+							border-style: solid;
+							border-width: 1px;
+							border-color: var(--color-black);
+							border-radius: var(--br-16);
+							padding: 1em 2em;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
+							margin-left: auto;
+							span {
+								font-weight: var(--fw-400);
+								color: var(--color-gray-600);
+								padding-left: 0.25em;
+							}
+							&:before {
+								content: "";
+								width: 20px;
+								height: 20px;
+								min-width: 20px;
+								min-height: 20px;
+								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_protocol_download.svg");
+								background-size: cover;
+								background-position: center;
+								margin-right: 10px;
+							}
+							&:hover,
+							&:focus-within {
+								color: var(--color-white);
+								background: var(--color-primary);
+								border-color: var(--color-primary);
+								span {
+									color: var(--color-white);
+								}
+								&::before {
+									filter: brightness(0) invert(1);
+								}
+							}
+						}
+					}
+					a.btn {
+						display: none !important;
+					}
+				}
 				#ratingTab {
 					@include ratingTab-shopRating;
 					margin-bottom: var(--description-large-content-gap);
