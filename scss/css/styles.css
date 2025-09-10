@@ -6317,6 +6317,7 @@ body.sticky-header-off .messages > * {
 
 #colorbox {
   z-index: 10000;
+  outline: none;
 }
 #colorbox #cboxContent {
   /* margin-top: 32px; */
@@ -6326,6 +6327,7 @@ body.sticky-header-off .messages > * {
   border-color: var(--color-gray-500);
   position: relative;
   background: white;
+  outline: none;
 }
 #colorbox #cboxContent #cboxLoadedContent {
   display: -webkit-box;

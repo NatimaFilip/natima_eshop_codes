@@ -356,7 +356,7 @@ $desktop-large-min: 1680px;
 		border-radius: var(--br-12);
 		background-color: var(--color-primary);
 		@include bottom-primary-shadow;
-		padding: 1em 1.538em;
+		padding: 1.077em 1.538em;
 		z-index: 1;
 		transition: background-color 0.2s ease-out;
 		&:hover,
@@ -739,6 +739,14 @@ $desktop-large-min: 1680px;
 			.item:first-child {
 				flex-basis: 50%;
 				flex-shrink: 0;
+				@media screen and (max-width: $desktop-medium-min) {
+					.extended-banner-texts {
+						width: 45%;
+					}
+					.extended-banner-title {
+						font-size: var(--fs-32);
+					}
+				}
 			}
 			.item:nth-child(2) {
 				display: none;

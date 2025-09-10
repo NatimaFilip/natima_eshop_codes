@@ -5796,6 +5796,7 @@ body {
 }
 #colorbox {
 	z-index: 10000;
+	outline: none;
 	#cboxContent {
 		/* margin-top: 32px; */
 		overflow: hidden;
@@ -5804,6 +5805,7 @@ body {
 		border-color: var(--color-gray-500);
 		position: relative;
 		background: white;
+		outline: none;
 		#cboxLoadedContent {
 			display: flex;
 			justify-content: center;

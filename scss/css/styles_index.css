@@ -199,7 +199,7 @@
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
           box-shadow: inset 0px -1px 0px var(--color-primary-500);
-  padding: 1em 1.538em;
+  padding: 1.077em 1.538em;
   z-index: 1;
   -webkit-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
@@ -239,6 +239,14 @@
       flex-basis: 50%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+}
+@media screen and (max-width: 1440px) {
+  .in-index #carousel .carousel-inner .item:first-child .extended-banner-texts {
+    width: 45%;
+  }
+  .in-index #carousel .carousel-inner .item:first-child .extended-banner-title {
+    font-size: var(--fs-32);
+  }
 }
 .in-index #carousel .carousel-inner .item:nth-child(2) {
   display: none;
@@ -382,7 +390,7 @@
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
           box-shadow: inset 0px -1px 0px var(--color-primary-500);
-  padding: 1em 1.538em;
+  padding: 1.077em 1.538em;
   z-index: 1;
   -webkit-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
@@ -550,7 +558,7 @@
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
           box-shadow: inset 0px -1px 0px var(--color-primary-500);
-  padding: 1em 1.538em;
+  padding: 1.077em 1.538em;
   z-index: 1;
   -webkit-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
