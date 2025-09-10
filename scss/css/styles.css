@@ -2728,6 +2728,9 @@ body.type-manufacturer-detail .subcategories {
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: var(--fs-13);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 @media screen and (min-width: 617px) {
   body.type-category .subcategories,
@@ -2797,7 +2800,7 @@ body.type-category .subcategories li a .text,
 body.type-manufacturer-detail .subcategories li a .text {
   font-size: 1em;
   color: var(--color-black);
-  max-width: 7em;
+  max-width: 9em;
   text-wrap: balance;
 }
 body.type-category .subcategories li:hover, body.type-category .subcategories li:focus-within,
