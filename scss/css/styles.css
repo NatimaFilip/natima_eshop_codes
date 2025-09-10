@@ -10579,19 +10579,19 @@ html.cookies-visible .siteCookies {
 /*REGISTRACE*/
 #register-form,
 #formLogin,
-form[data-np-autofill-form-type=identity] {
+form[data-np-autofill-form-type=identity]:not(#order-form) {
   max-width: 600px;
   margin: var(--gap-30) auto var(--gap-30);
 }
 #register-form h4,
 #formLogin h4,
-form[data-np-autofill-form-type=identity] h4 {
+form[data-np-autofill-form-type=identity]:not(#order-form) h4 {
   padding-bottom: 0.75em;
   padding-top: 1em;
 }
 #register-form .form-group.smart-label-wrapper,
 #formLogin .form-group.smart-label-wrapper,
-form[data-np-autofill-form-type=identity] .form-group.smart-label-wrapper {
+form[data-np-autofill-form-type=identity]:not(#order-form) .form-group.smart-label-wrapper {
   display: grid;
   grid-template-columns: 33.33% max(45%, 300px);
   gap: 10px;
@@ -10604,15 +10604,15 @@ form[data-np-autofill-form-type=identity] .form-group.smart-label-wrapper {
 #register-form .form-group.smart-label-wrapper select,
 #formLogin .form-group.smart-label-wrapper input,
 #formLogin .form-group.smart-label-wrapper select,
-form[data-np-autofill-form-type=identity] .form-group.smart-label-wrapper input,
-form[data-np-autofill-form-type=identity] .form-group.smart-label-wrapper select {
+form[data-np-autofill-form-type=identity]:not(#order-form) .form-group.smart-label-wrapper input,
+form[data-np-autofill-form-type=identity]:not(#order-form) .form-group.smart-label-wrapper select {
   width: 100%;
   padding: 1em 1em;
 }
 @media screen and (max-width: 767px) {
   #register-form .form-group.smart-label-wrapper,
   #formLogin .form-group.smart-label-wrapper,
-  form[data-np-autofill-form-type=identity] .form-group.smart-label-wrapper {
+  form[data-np-autofill-form-type=identity]:not(#order-form) .form-group.smart-label-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -10627,22 +10627,22 @@ form[data-np-autofill-form-type=identity] .form-group.smart-label-wrapper select
 }
 #register-form > fieldset.co-registration,
 #formLogin > fieldset.co-registration,
-form[data-np-autofill-form-type=identity] > fieldset.co-registration {
+form[data-np-autofill-form-type=identity]:not(#order-form) > fieldset.co-registration {
   display: none;
 }
 #register-form .js-hidden,
 #formLogin .js-hidden,
-form[data-np-autofill-form-type=identity] .js-hidden {
+form[data-np-autofill-form-type=identity]:not(#order-form) .js-hidden {
   display: none;
 }
 #register-form .js-hidden.visible,
 #formLogin .js-hidden.visible,
-form[data-np-autofill-form-type=identity] .js-hidden.visible {
+form[data-np-autofill-form-type=identity]:not(#order-form) .js-hidden.visible {
   display: block;
 }
 #register-form .js-validator-msg.msg-error,
 #formLogin .js-validator-msg.msg-error,
-form[data-np-autofill-form-type=identity] .js-validator-msg.msg-error {
+form[data-np-autofill-form-type=identity]:not(#order-form) .js-validator-msg.msg-error {
   color: var(--color-red-400);
   grid-row: 1;
   grid-column: 1/-1;
@@ -10653,17 +10653,17 @@ form[data-np-autofill-form-type=identity] .js-validator-msg.msg-error {
 }
 #register-form .js-validated-element-wrapper:has(.msg-error) input,
 #formLogin .js-validated-element-wrapper:has(.msg-error) input,
-form[data-np-autofill-form-type=identity] .js-validated-element-wrapper:has(.msg-error) input {
+form[data-np-autofill-form-type=identity]:not(#order-form) .js-validated-element-wrapper:has(.msg-error) input {
   outline: solid 2px var(--color-red-400);
 }
 #register-form .required-asterisk,
 #formLogin .required-asterisk,
-form[data-np-autofill-form-type=identity] .required-asterisk {
+form[data-np-autofill-form-type=identity]:not(#order-form) .required-asterisk {
   position: relative;
 }
 #register-form .required-asterisk::after,
 #formLogin .required-asterisk::after,
-form[data-np-autofill-form-type=identity] .required-asterisk::after {
+form[data-np-autofill-form-type=identity]:not(#order-form) .required-asterisk::after {
   content: "*";
   color: var(--color-red-400);
   position: absolute;
@@ -10672,7 +10672,7 @@ form[data-np-autofill-form-type=identity] .required-asterisk::after {
 }
 #register-form .register-soc,
 #formLogin .register-soc,
-form[data-np-autofill-form-type=identity] .register-soc {
+form[data-np-autofill-form-type=identity]:not(#order-form) .register-soc {
   border-top-style: solid;
   border-bottom-style: solid;
   border-width: 1px;
@@ -10684,12 +10684,12 @@ form[data-np-autofill-form-type=identity] .register-soc {
 }
 #register-form .register-soc h4,
 #formLogin .register-soc h4,
-form[data-np-autofill-form-type=identity] .register-soc h4 {
+form[data-np-autofill-form-type=identity]:not(#order-form) .register-soc h4 {
   padding-top: 0.25em;
 }
 #register-form .stay-in-touch,
 #formLogin .stay-in-touch,
-form[data-np-autofill-form-type=identity] .stay-in-touch {
+form[data-np-autofill-form-type=identity]:not(#order-form) .stay-in-touch {
   border-bottom-style: solid;
   border-width: 1px;
   padding-bottom: var(--gap-20);
@@ -10697,7 +10697,7 @@ form[data-np-autofill-form-type=identity] .stay-in-touch {
 }
 #register-form .stay-in-touch .form-group,
 #formLogin .stay-in-touch .form-group,
-form[data-np-autofill-form-type=identity] .stay-in-touch .form-group {
+form[data-np-autofill-form-type=identity]:not(#order-form) .stay-in-touch .form-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10708,7 +10708,7 @@ form[data-np-autofill-form-type=identity] .stay-in-touch .form-group {
 }
 #register-form .company-shopping.form-group,
 #formLogin .company-shopping.form-group,
-form[data-np-autofill-form-type=identity] .company-shopping.form-group {
+form[data-np-autofill-form-type=identity]:not(#order-form) .company-shopping.form-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10719,17 +10719,17 @@ form[data-np-autofill-form-type=identity] .company-shopping.form-group {
 }
 #register-form .submit-wrapper,
 #formLogin .submit-wrapper,
-form[data-np-autofill-form-type=identity] .submit-wrapper {
+form[data-np-autofill-form-type=identity]:not(#order-form) .submit-wrapper {
   margin-top: var(--gap-20);
 }
 #register-form .submit-wrapper .btn,
 #formLogin .submit-wrapper .btn,
-form[data-np-autofill-form-type=identity] .submit-wrapper .btn {
+form[data-np-autofill-form-type=identity]:not(#order-form) .submit-wrapper .btn {
   width: 100%;
 }
 #register-form input[type=checkbox],
 #formLogin input[type=checkbox],
-form[data-np-autofill-form-type=identity] input[type=checkbox] {
+form[data-np-autofill-form-type=identity]:not(#order-form) input[type=checkbox] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -10751,7 +10751,7 @@ form[data-np-autofill-form-type=identity] input[type=checkbox] {
 }
 #register-form input[type=checkbox]::before,
 #formLogin input[type=checkbox]::before,
-form[data-np-autofill-form-type=identity] input[type=checkbox]::before {
+form[data-np-autofill-form-type=identity]:not(#order-form) input[type=checkbox]::before {
   content: "";
   margin: 0;
   width: var(--box-width);
@@ -10766,13 +10766,13 @@ form[data-np-autofill-form-type=identity] input[type=checkbox]::before {
 }
 #register-form input[type=checkbox]:checked::before,
 #formLogin input[type=checkbox]:checked::before,
-form[data-np-autofill-form-type=identity] input[type=checkbox]:checked::before {
+form[data-np-autofill-form-type=identity]:not(#order-form) input[type=checkbox]:checked::before {
   background: var(--color-primary);
   border-color: var(--color-primary);
 }
 #register-form input[type=checkbox]:checked::after,
 #formLogin input[type=checkbox]:checked::after,
-form[data-np-autofill-form-type=identity] input[type=checkbox]:checked::after {
+form[data-np-autofill-form-type=identity]:not(#order-form) input[type=checkbox]:checked::after {
   content: "";
   margin: 0;
   width: calc(var(--box-width) / 2);

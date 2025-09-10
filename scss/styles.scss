@@ -8116,7 +8116,7 @@ html.cookies-visible .siteCookies {
 /*REGISTRACE*/
 #register-form,
 #formLogin,
-form[data-np-autofill-form-type="identity"] {
+form[data-np-autofill-form-type="identity"]:not(#order-form) {
 	max-width: 600px;
 	margin: var(--gap-30) auto var(--gap-30);
 	h4 {

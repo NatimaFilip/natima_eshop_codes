@@ -194,9 +194,8 @@ if (body.classList.contains("id--16")) {
 		}
 	}
 
-	document.addEventListener("DOMContentLoaded", function () {
-		rearangeRecap();
-	});
+	rearangeRecap();
+
 	fetchImagesOfProductsInCart();
 }
 
@@ -240,7 +239,6 @@ if (body.classList.contains("id--17")) {
 
 function rearangeRecap() {
 	let checkoutSidebar = document.querySelector("#checkoutSidebar");
-
 	if (!checkoutSidebar) return;
 
 	recapTitle = checkoutSidebar.querySelector("h4");
@@ -254,7 +252,9 @@ function rearangeRecap() {
 	if (cartItems) {
 		cartItems.forEach((item) => {
 			if (item.querySelector(".recapitulation-single")) {
-				return;
+				if (!item.querySelector(".recapitulation-single").textContent.toUpperCase().includes("KUPON")) {
+					return;
+				}
 			}
 			recapWrapper.appendChild(item);
 		});
