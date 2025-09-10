@@ -1646,7 +1646,7 @@ body {
 						}
 
 						#nav-manufacturers {
-							display: none!important;
+							display: none !important;
 						}
 
 						@media screen and (max-width: $mobile-max) {
@@ -3019,6 +3019,7 @@ body.type-manufacturer-detail {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		font-size: var(--fs-13);
+		display: flex;
 
 		@media screen and (min-width: calc($mobile-max - 150px)) {
 			grid-template-columns: repeat(3, 1fr);
@@ -3059,7 +3060,7 @@ body.type-manufacturer-detail {
 				.text {
 					font-size: 1em;
 					color: var(--color-black);
-					max-width: 7em;
+					max-width: 9em;
 					text-wrap: balance;
 				}
 			}
