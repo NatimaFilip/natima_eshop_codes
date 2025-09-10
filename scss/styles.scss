@@ -6154,6 +6154,9 @@ body {
 						@include list-reset;
 						li {
 							font-size: var(--fs-16);
+							p {
+								padding: 0;
+							}
 						}
 					}
 				}

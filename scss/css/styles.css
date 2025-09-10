@@ -6863,6 +6863,9 @@ body.sticky-header-off .messages > * {
 .type-product .product-top .p-info-wrapper .right-content-wrapper .short-benefits-wrapper ul li {
   font-size: var(--fs-16);
 }
+.type-product .product-top .p-info-wrapper .right-content-wrapper .short-benefits-wrapper ul li p {
+  padding: 0;
+}
 .type-product .product-top .p-info-wrapper .right-content-wrapper .vhodne-pro-wrapper {
   padding: var(--gap-16) 0;
   border-bottom-style: solid;
