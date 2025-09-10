@@ -2269,7 +2269,7 @@ if (body.classList.contains("type-product")) {
 		if (relatedFiles) {
 			const natiosAnalysis = document.querySelector(".product-widgets .natios-analysis .natios-analysis-content-left");
 			if (natiosAnalysis) {
-				relatedFiles.prepend(natiosAnalysis);
+				natiosAnalysis.appendChild(relatedFiles);
 				const showTestsButton = natiosAnalysis.querySelector(".show-tests-button");
 				if (showTestsButton) {
 					showTestsButton.remove();
