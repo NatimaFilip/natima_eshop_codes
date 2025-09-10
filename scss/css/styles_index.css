@@ -242,7 +242,7 @@
 }
 @media screen and (min-width: 1280px) {
   .in-index #carousel .carousel-inner .item:first-child .extended-banner-texts {
-    width: 55%;
+    width: 60%;
   }
   .in-index #carousel .carousel-inner .item:first-child .extended-banner-title {
     font-size: var(--fs-32);
