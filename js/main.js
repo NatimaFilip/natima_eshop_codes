@@ -3047,9 +3047,9 @@ if (body.classList.contains("in-index")) {
 		}
 
 		let dragMultiplier = 1;
-		if (!isDesktop) {
+		/* 		if (!isDesktop) {
 			dragMultiplier = 3;
-		}
+		} */
 		let dragTarget = null;
 
 		if (!addedSlidingListener) {
