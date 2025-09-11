@@ -9566,7 +9566,7 @@ html.cookies-visible .siteCookies {
 }
 @media screen and (max-width: 767px) {
   .content-modal .shipping-row {
-    grid-template-columns: 700px 1fr auto;
+    grid-template-columns: 70px 1fr auto;
     gap: 5px;
   }
 }
