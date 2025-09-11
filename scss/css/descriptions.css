@@ -1187,7 +1187,7 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
       flex-basis: 20px;
   min-width: 20px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1279px) {
   body .product-widgets.natios .natios-analysis .natios-analysis-content-right,
   body .product-widgets[product-template=natios] .natios-analysis .natios-analysis-content-right {
     overflow-x: auto;

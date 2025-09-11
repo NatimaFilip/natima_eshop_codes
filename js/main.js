@@ -3042,6 +3042,14 @@ if (body.classList.contains("in-index")) {
 		let currentX = 0;
 		let dragDistance = 0;
 		let dragThreshold = 100;
+		if (!isDesktop) {
+			dragThreshold = 50;
+		}
+
+		let dragMultiplier = 1;
+		if (!isDesktop) {
+			dragMultiplier = 3;
+		}
 		let dragTarget = null;
 
 		if (!addedSlidingListener) {
@@ -3061,9 +3069,9 @@ if (body.classList.contains("in-index")) {
 				dragDistance = currentX - startX;
 				activeItems.forEach((item, index) => {
 					if (index === 0 && offsetAmountForLargeItem !== 0) {
-						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
+						item.style.transform = `translateX(-${((currentTransform - dragDistance / 30) / 2) * dragMultiplier}%)`;
 					} else {
-						item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
+						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) * dragMultiplier}%)`;
 					}
 				});
 			});
@@ -3102,9 +3110,9 @@ if (body.classList.contains("in-index")) {
 				dragDistance = currentX - startX;
 				activeItems.forEach((item, index) => {
 					if (index == 0 && offsetAmountForLargeItem !== 0) {
-						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
+						item.style.transform = `translateX(-${((currentTransform - dragDistance / 30) / 2) * dragMultiplier}%)`;
 					} else {
-						item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
+						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) * dragMultiplier}%)`;
 					}
 				});
 			});
@@ -3373,7 +3381,14 @@ function productSlider(productBlock) {
 	let startX = 0;
 	let currentX = 0;
 	let dragThreshold = 100; // Minimum drag distance in pixels to trigger a slide
+	if (!isDesktop) {
+		dragThreshold = 50; // Less distance on mobile
+	}
 	let dragDistance = 0;
+	let dragMultiplier = 1;
+	if (!isDesktop) {
+		dragMultiplier = 3; // More drag on mobile
+	}
 	let dragTarget = null;
 
 	if (!sliderAdded) {
@@ -3392,7 +3407,7 @@ function productSlider(productBlock) {
 			currentX = e.pageX;
 			dragDistance = currentX - startX;
 			productsInSlider.forEach((item, index) => {
-				item.style.transform = `translateX(-${currentTransform - dragDistance / 10}%)`;
+				item.style.transform = `translateX(-${currentTransform - (dragDistance / 10) * dragMultiplier}%)`;
 			});
 		});
 
@@ -3425,7 +3440,7 @@ function productSlider(productBlock) {
 			currentX = e.touches[0].pageX;
 			dragDistance = currentX - startX;
 			productsInSlider.forEach((item) => {
-				item.style.transform = `translateX(-${currentTransform - dragDistance / 10}%)`;
+				item.style.transform = `translateX(-${currentTransform - (dragDistance / 10) * dragMultiplier}%)`;
 			});
 		});
 
@@ -3573,6 +3588,13 @@ function reviewSlider(reviewBlock) {
 	let startX = 0;
 	let currentX = 0;
 	let dragThreshold = 100; // Minimum drag distance in pixels to trigger a slide
+	if (!isDesktop) {
+		dragThreshold = 50; // Less distance on mobile
+	}
+	let dragMultiplier = 1;
+	if (!isDesktop) {
+		dragMultiplier = 3; // More drag on mobile
+	}
 	let dragDistance = 0;
 
 	if (!sliderAdded) {
@@ -3585,7 +3607,7 @@ function reviewSlider(reviewBlock) {
 		reviewBlock.addEventListener("mousemove", (e) => {
 			if (!isDragging) return;
 			currentX = e.pageX;
-			dragDistance = currentX - startX;
+			dragDistance = (currentX - startX) * dragMultiplier;
 		});
 
 		reviewBlock.addEventListener("mouseup", () => {
@@ -3616,7 +3638,7 @@ function reviewSlider(reviewBlock) {
 		reviewBlock.addEventListener("touchmove", (e) => {
 			if (!isDragging) return;
 			currentX = e.touches[0].pageX;
-			dragDistance = currentX - startX;
+			dragDistance = (currentX - startX) * dragMultiplier;
 		});
 
 		reviewBlock.addEventListener("touchend", () => {

@@ -1096,7 +1096,7 @@ body {
 				}
 			}
 			.natios-analysis-content-right {
-				@media screen and (max-width: $mobile-max) {
+				@media screen and (max-width: $tablet-max) {
 					overflow-x: auto;
 					max-width: 100%;
 				}

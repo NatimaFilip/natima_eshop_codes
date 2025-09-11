@@ -146,6 +146,7 @@ body {
   margin: 0;
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
 }
 
 /* Balance text wrapping on headings */
