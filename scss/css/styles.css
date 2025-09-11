@@ -6999,6 +6999,11 @@ body.sticky-header-off .messages > * {
   font-size: var(--fs-16);
   padding: 0.25em 0.75em;
 }
+@media screen and (max-width: 1279px) {
+  .type-product .product-top .p-info-wrapper .dostupnost-doruceni-wrapper .availability-value {
+    margin-left: -0.5em;
+  }
+}
 .type-product .product-top .p-info-wrapper .dostupnost-doruceni-wrapper .availability-value span {
   font-weight: var(--fw-700);
 }
@@ -7742,6 +7747,7 @@ body.sticky-header-off .messages > * {
   color: var(--color-cta-400);
   font-size: var(--fs-16);
   padding: 0.25em 0.75em;
+  margin-left: -0.75em;
 }
 .type-product .sticky-sell .dostupnost-doruceni-wrapper .availability-value span {
   font-weight: var(--fw-700);

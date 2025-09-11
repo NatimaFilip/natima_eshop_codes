@@ -9,6 +9,10 @@ $desktop-min: 1280px;
 $desktop-medium-min: 1440px;
 $desktop-large-min: 1680px;
 
+.articleAnalytics_statsValue {
+	display: none !important;
+}
+
 .type-posts-listing {
 	#content {
 		max-width: 1280px;

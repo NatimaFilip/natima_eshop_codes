@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.articleAnalytics_statsValue {
+  display: none !important;
+}
+
 .type-posts-listing #content {
   max-width: 1280px;
   margin: 0 auto;

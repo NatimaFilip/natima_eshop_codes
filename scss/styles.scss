@@ -6267,6 +6267,9 @@ body {
 					color: var(--color-cta-400);
 					font-size: var(--fs-16);
 					padding: 0.25em 0.75em;
+					@media screen and (max-width: $tablet-max) {
+						margin-left: -0.5em;
+					}
 					span {
 						font-weight: var(--fw-700);
 					}
@@ -6788,6 +6791,7 @@ body {
 				color: var(--color-cta-400);
 				font-size: var(--fs-16);
 				padding: 0.25em 0.75em;
+				margin-left: -0.75em;
 				span {
 					font-weight: var(--fw-700);
 				}
