@@ -8901,13 +8901,14 @@ body:has(.new-gen-modal) {
 	display: flex;
 	background-color: #484848;
 	border-color: #333;
-	color: #dbdbdb;
+	color: white;
 	z-index: 9999999999;
 	position: relative;
 	font-size: 12px;
 	max-width: none;
 	padding: 0 10px;
 	justify-content: center;
+
 	ul {
 		list-style: none;
 		padding: 0;
@@ -8921,6 +8922,16 @@ body:has(.new-gen-modal) {
 			min-width: max-content;
 			padding: 10px;
 			position: relative;
+			> a {
+				a {
+					color: white;
+				}
+				text-decoration: none;
+				&:hover,
+				&:focus {
+					text-decoration: underline;
+				}
+			}
 			ul {
 				left: 0;
 				top: calc(100% - 1px);
@@ -8942,6 +8953,11 @@ body:has(.new-gen-modal) {
 							padding: 10px;
 							display: block;
 							border-bottom: solid 1px var(--color-gray-500);
+							&:hover,
+							&:focus {
+								background: white;
+								text-decoration: underline;
+							}
 						}
 					}
 				}
