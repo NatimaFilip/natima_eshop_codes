@@ -481,6 +481,14 @@ body.sticky-header-on #header {
             transform: translateY(0);
   }
 }
+body.sticky-header-off {
+  padding-top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px) !important;
+}
+@media screen and (max-width: 767px) {
+  body.sticky-header-off {
+    padding-top: calc(var(--padding-top-header) + var(--gap-6) + var(--header-height)) !important;
+  }
+}
 body.sticky-header-off #header {
   position: fixed;
   width: 100%;
