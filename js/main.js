@@ -3110,9 +3110,9 @@ if (body.classList.contains("in-index")) {
 				dragDistance = currentX - startX;
 				activeItems.forEach((item, index) => {
 					if (index == 0 && offsetAmountForLargeItem !== 0) {
-						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
+						item.style.transform = `translateX(-${((currentTransform - dragDistance / 30) / 2) * dragMultiplier}%)`;
 					} else {
-						item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
+						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) * dragMultiplier}%)`;
 					}
 				});
 			});
