@@ -1,7 +1,5 @@
 /*--------------------------------------- Přepsání funkcí*/
-function moveFilters() {
-	console.log("moveFilters");
-}
+function moveFilters() {}
 
 /*-------------------------------------- Custom events*/
 // Debounce function to limit the rate at which a function can fire
@@ -637,7 +635,6 @@ function addCartWidgetToCartMobileListener() {
 	}
 
 	addSmartTouchClickListener(cartButton, function (event) {
-		console.log("Cart button clicked, checking if mobile.");
 		if (!isDesktop) {
 			console.log("Cart button clicked on mobile, redirecting to cart page.");
 			event.preventDefault();
@@ -731,8 +728,6 @@ if (body.classList.contains("type-category")) {
 	});
 
 	function moveAsideToCategoryContent() {
-		console.log("moveAsideToCategoryContent");
-		console.log("asideElement", asideElement);
 		if (asideElement) {
 			categoryContentWrapper.prepend(asideElement);
 		}
@@ -1683,7 +1678,7 @@ function footerPaymentsMove() {
 function changeAddToCartButtonToIncreaseDecrease() {
 	// Check if cartItems exist in the dataLayer
 	let cartItems = window.dataLayer[0]?.shoptet?.cartInfo?.cartItems || [];
-	console.log("Cart Items from dataLayer:", cartItems);
+
 	if (!cartItems || cartItems.length === 0) {
 		console.warn("No cart items found in the dataLayer.");
 		return;
@@ -1695,9 +1690,6 @@ function changeAddToCartButtonToIncreaseDecrease() {
 		priceId: item.priceId, // Include priceId if needed
 		itemId: item.itemId, // Include itemId if needed
 	}));
-
-	// Log the result
-	console.log("Cart Item Codes and Quantities:", cartItemCodesAndQuantities);
 
 	let allProducts = document.querySelectorAll(".product");
 	if (!allProducts || allProducts.length === 0) {
@@ -2429,8 +2421,6 @@ if (body.classList.contains("type-product")) {
 			return;
 		}
 
-		console.log("productCodeValue:", productCodeValue);
-
 		let amountText = productFilterData.find((item) => item.code === productCodeValue)?.value;
 		if (!amountText) {
 			console.warn("No measure unit found for product code:", productCodeValue);
@@ -3011,8 +3001,6 @@ if (body.classList.contains("in-index")) {
 					item.style.transform = `translateX(-${currentTransform}%)`;
 				}
 			});
-
-			console.log("lastVisibleItem:", lastVisibleItem);
 		};
 
 		carouselLeftButtonClickHandler = function () {
@@ -3307,7 +3295,6 @@ function productSlider(productBlock) {
 	while (totalWidth < 101) {
 		// Add the width of subsequent items
 		totalWidth += productWidth;
-		console.log("Total width:", totalWidth);
 
 		if (totalWidth <= 101) {
 			initialDisplayedItems++;
@@ -3328,8 +3315,6 @@ function productSlider(productBlock) {
 	let lastVisibleItem = initialDisplayedItems;
 	const transformItemIncrement = initialDisplayedItems;
 	let offsetPercentageForLastItems = 0;
-
-	console.log("initialDisplayedItems:", initialDisplayedItems);
 
 	if (sliderAdded) {
 		if (carouselControlRight._productSliderHandler) {
@@ -3512,7 +3497,6 @@ function reviewSlider(reviewBlock) {
 	while (totalWidth < 101) {
 		// Add the width of subsequent items
 		totalWidth += reviewWidth;
-		console.log("Total width reviews:", totalWidth);
 
 		if (totalWidth <= 101) {
 			initialDisplayedItems++;
@@ -3533,8 +3517,6 @@ function reviewSlider(reviewBlock) {
 	let lastVisibleItem = initialDisplayedItems;
 	const transformItemIncrement = initialDisplayedItems;
 	let offsetPercentageForLastItems = 0;
-
-	console.log("initialDisplayedItems:", initialDisplayedItems);
 
 	if (sliderAdded) {
 		if (carouselControlRight._productSliderHandler) {

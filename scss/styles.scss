@@ -8897,13 +8897,17 @@ body:has(.new-gen-modal) {
 	width: 100% !important;
 }
 
-/*ADMIN BAR*/
 .admin-bar {
 	display: flex;
 	background-color: #484848;
 	border-color: #333;
 	color: #dbdbdb;
-
+	z-index: 9999999999;
+	position: relative;
+	font-size: 12px;
+	max-width: none;
+	padding: 0 10px;
+	justify-content: center;
 	ul {
 		list-style: none;
 		padding: 0;
@@ -8911,62 +8915,37 @@ body:has(.new-gen-modal) {
 	#bar-menu {
 		display: flex;
 		flex-direction: row;
-		column-gap: 10px;
-
+		column-gap: 0;
+		margin: 0;
 		li {
 			min-width: max-content;
+			padding: 10px;
+			position: relative;
+			ul {
+				left: 0;
+				top: calc(100% - 1px);
+				width: 100%;
+				position: absolute;
+				display: none;
+				border: solid 1px var(--color-primary);
+			}
+			&:hover {
+				ul {
+					display: flex;
+					flex-direction: column;
+					background: var(--color-gray-400);
+					li {
+						min-width: auto;
+						max-width: 100%;
+						padding: 0;
+						a {
+							padding: 10px;
+							display: block;
+							border-bottom: solid 1px var(--color-gray-500);
+						}
+					}
+				}
+			}
 		}
 	}
-}
-
-.admin-bar .container > ul > li {
-	border-color: #636363;
-}
-
-.admin-bar .container > ul > li > a,
-.admin-bar .container > ul > li > span {
-	color: #dbdbdb;
-}
-
-.admin-bar .container > ul > li:hover {
-	background-color: #636363;
-	color: #fff;
-}
-
-.admin-bar .container > ul > li:hover > a,
-.admin-bar .container > ul > li:hover > span {
-	color: #fff;
-}
-
-.admin-bar .container > ul > li ul {
-	background-color: #f5fcfe;
-	border-color: #dbe0e2;
-}
-
-.admin-bar .container > ul > li ul li a,
-.admin-bar .container > ul > li ul li span {
-	border-color: #d0effc;
-	color: #000;
-}
-
-.admin-bar .container > ul > li ul li a:hover,
-.admin-bar .container > ul > li ul li span:hover {
-	background-color: #e1f4fa;
-}
-
-.admin-bar .container > ul > li > ul {
-	border-top-color: #333;
-}
-
-.admin-bar .container > a,
-.admin-bar .container > span {
-	background-color: #636363;
-	border-color: #333;
-	color: #dbdbdb;
-}
-
-.admin-bar .container > a:hover,
-.admin-bar .container > span:hover {
-	background-color: #555;
-	color: #fff;
 }
