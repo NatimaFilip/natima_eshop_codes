@@ -3181,8 +3181,13 @@ if (body.classList.contains("in-index")) {
 						source.setAttribute("src", dataSrc);
 					}
 				});
+				// Listen for the video to be fully loaded
+				video.addEventListener("loadeddata", function onLoaded() {
+					videoLink.classList.add("loaded");
+					video.classList.add("loaded");
+					video.removeEventListener("loadeddata", onLoaded);
+				});
 				video.load();
-				videoLink.classList.add("loaded");
 			}
 		});
 	}
