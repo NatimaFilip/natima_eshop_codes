@@ -1134,7 +1134,7 @@ body {
 			position: fixed;
 			width: 100%;
 			top: 0;
-			left: var(--padding-sides);
+			left: 0;
 			@media screen and (min-width: 1920px) {
 				left: calc((100vw - 1920px) / 2);
 			}
@@ -1168,7 +1168,7 @@ body {
 			position: fixed;
 			width: 100%;
 			top: 0;
-			left: var(--padding-sides);
+			left: 0;
 			@media screen and (min-width: 1920px) {
 				left: calc((100vw - 1920px) / 2);
 			}
@@ -8925,7 +8925,7 @@ body:has(.new-gen-modal) {
 	background-color: #484848;
 	border-color: #333;
 	color: white;
-	z-index: 9999999999;
+	z-index: 99;
 	position: relative;
 	font-size: 12px;
 	max-width: none;
