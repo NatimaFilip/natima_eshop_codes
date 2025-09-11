@@ -11583,13 +11583,13 @@ body:has(.new-gen-modal) {
 @media screen and (max-width: 767px) {
   .admin-bar {
     font-size: 10px;
+  }
+  .admin-bar #bar-menu {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    overflow: auto;
-  }
-  .admin-bar::-webkit-scrollbar {
-    height: 2px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   .admin-bar #bar-menu li {
     padding: 5px;
