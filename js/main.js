@@ -2996,7 +2996,7 @@ if (body.classList.contains("in-index")) {
 
 				// aby tam nezustalo volne misto, ale nejak to nevychazi
 				if (initialDisplayedItems <= 2 && flexBasisOtherItems > 26) {
-					offsetPercentageForLastItems = -flexBasisOtherItems;
+					offsetPercentageForLastItems = flexBasisOtherItems - 100;
 				}
 			} else {
 				offsetPercentageForLastItems = 0;
