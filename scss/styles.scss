@@ -8970,4 +8970,19 @@ body:has(.new-gen-modal) {
 			}
 		}
 	}
+	@media screen and (max-width: $mobile-max) {
+		font-size: 10px;
+		justify-content: flex-start;
+
+		#bar-menu {
+			li {
+				padding: 5px;
+				ul {
+					a {
+						padding: 5px !important;
+					}
+				}
+			}
+		}
+	}
 }

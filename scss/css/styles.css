@@ -11579,3 +11579,17 @@ body:has(.new-gen-modal) {
   background: white;
   text-decoration: underline;
 }
+@media screen and (max-width: 767px) {
+  .admin-bar {
+    font-size: 10px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .admin-bar #bar-menu li {
+    padding: 5px;
+  }
+  .admin-bar #bar-menu li ul a {
+    padding: 5px !important;
+  }
+}
