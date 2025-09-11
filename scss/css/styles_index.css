@@ -149,7 +149,8 @@
   border-radius: var(--br-16);
   overflow: hidden;
 }
-.in-index #carousel .carousel-inner .item img {
+.in-index #carousel .carousel-inner .item img,
+.in-index #carousel .carousel-inner .item video {
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
@@ -208,12 +209,23 @@
 .in-index #carousel .carousel-inner .item .extended-banner-link:hover, .in-index #carousel .carousel-inner .item .extended-banner-link:focus-within {
   background-color: var(--color-primary-hover);
 }
-.in-index #carousel .carousel-inner .item:hover img, .in-index #carousel .carousel-inner .item:focus-within img {
+.in-index #carousel .carousel-inner .item:hover img,
+.in-index #carousel .carousel-inner .item:hover video, .in-index #carousel .carousel-inner .item:focus-within img,
+.in-index #carousel .carousel-inner .item:focus-within video {
   -webkit-transform: scale(1.025);
           transform: scale(1.025);
 }
 .in-index #carousel .carousel-inner .item.white {
   color: var(--color-white);
+}
+.in-index #carousel .carousel-inner .item .carousel-video-lazy video {
+  display: none;
+}
+.in-index #carousel .carousel-inner .item .carousel-video-lazy.loaded video {
+  display: block;
+}
+.in-index #carousel .carousel-inner .item .carousel-video-lazy.loaded img {
+  display: none !important;
 }
 @media screen and (max-width: 1440px) {
   .in-index #carousel .carousel-inner .item .extended-banner-texts {
@@ -341,7 +353,8 @@
   border-radius: var(--br-16);
   overflow: hidden;
 }
-.in-index .body-banners .banner-wrapper img {
+.in-index .body-banners .banner-wrapper img,
+.in-index .body-banners .banner-wrapper video {
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
@@ -400,12 +413,23 @@
 .in-index .body-banners .banner-wrapper .extended-banner-link:hover, .in-index .body-banners .banner-wrapper .extended-banner-link:focus-within {
   background-color: var(--color-primary-hover);
 }
-.in-index .body-banners .banner-wrapper:hover img, .in-index .body-banners .banner-wrapper:focus-within img {
+.in-index .body-banners .banner-wrapper:hover img,
+.in-index .body-banners .banner-wrapper:hover video, .in-index .body-banners .banner-wrapper:focus-within img,
+.in-index .body-banners .banner-wrapper:focus-within video {
   -webkit-transform: scale(1.025);
           transform: scale(1.025);
 }
 .in-index .body-banners .banner-wrapper.white {
   color: var(--color-white);
+}
+.in-index .body-banners .banner-wrapper .carousel-video-lazy video {
+  display: none;
+}
+.in-index .body-banners .banner-wrapper .carousel-video-lazy.loaded video {
+  display: block;
+}
+.in-index .body-banners .banner-wrapper .carousel-video-lazy.loaded img {
+  display: none !important;
 }
 @media screen and (max-width: 1440px) {
   .in-index .body-banners .banner-wrapper .extended-banner-texts {
@@ -510,7 +534,8 @@
   border-radius: var(--br-16);
   overflow: hidden;
 }
-.in-index .footer-banners .footer-banner img {
+.in-index .footer-banners .footer-banner img,
+.in-index .footer-banners .footer-banner video {
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
@@ -569,12 +594,23 @@
 .in-index .footer-banners .footer-banner .extended-banner-link:hover, .in-index .footer-banners .footer-banner .extended-banner-link:focus-within {
   background-color: var(--color-primary-hover);
 }
-.in-index .footer-banners .footer-banner:hover img, .in-index .footer-banners .footer-banner:focus-within img {
+.in-index .footer-banners .footer-banner:hover img,
+.in-index .footer-banners .footer-banner:hover video, .in-index .footer-banners .footer-banner:focus-within img,
+.in-index .footer-banners .footer-banner:focus-within video {
   -webkit-transform: scale(1.025);
           transform: scale(1.025);
 }
 .in-index .footer-banners .footer-banner.white {
   color: var(--color-white);
+}
+.in-index .footer-banners .footer-banner .carousel-video-lazy video {
+  display: none;
+}
+.in-index .footer-banners .footer-banner .carousel-video-lazy.loaded video {
+  display: block;
+}
+.in-index .footer-banners .footer-banner .carousel-video-lazy.loaded img {
+  display: none !important;
 }
 @media screen and (max-width: 1440px) {
   .in-index .footer-banners .footer-banner .extended-banner-texts {

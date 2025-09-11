@@ -320,7 +320,8 @@ $desktop-large-min: 1680px;
 		border-radius: var(--br-16);
 		overflow: hidden;
 	}
-	img {
+	img,
+	video {
 		transition: transform 0.2s ease-in-out;
 	}
 	.extended-banner-texts {
@@ -368,12 +369,26 @@ $desktop-large-min: 1680px;
 
 	&:hover,
 	&:focus-within {
-		img {
+		img,
+		video {
 			transform: scale(1.025);
 		}
 	}
 	&.white {
 		color: var(--color-white);
+	}
+	.carousel-video-lazy {
+		video {
+			display: none;
+		}
+		&.loaded {
+			video {
+				display: block;
+			}
+			img {
+				display: none !important;
+			}
+		}
 	}
 
 	@media screen and (max-width: $desktop-medium-min) {
