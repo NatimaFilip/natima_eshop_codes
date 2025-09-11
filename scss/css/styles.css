@@ -11509,6 +11509,7 @@ body:has(.new-gen-modal) {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: auto;
 }
 .admin-bar ul {
   list-style: none;
@@ -11585,6 +11586,10 @@ body:has(.new-gen-modal) {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+    overflow: auto;
+  }
+  .admin-bar::-webkit-scrollbar {
+    height: 2px;
   }
   .admin-bar #bar-menu li {
     padding: 5px;
