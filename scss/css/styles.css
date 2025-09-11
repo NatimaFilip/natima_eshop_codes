@@ -441,7 +441,7 @@ body.sticky-header-on {
 body.sticky-header-on #header {
   position: fixed;
   width: 100%;
-  top: 0;
+  top: -1px;
   left: 0;
   -webkit-animation: slideDown 0.3s ease-in-out;
           animation: slideDown 0.3s ease-in-out; /* Apply the animation */
@@ -492,7 +492,7 @@ body.sticky-header-off {
 body.sticky-header-off #header {
   position: fixed;
   width: 100%;
-  top: 0;
+  top: -1px;
   left: 0;
   -webkit-transform: translateY(-101%);
           transform: translateY(-101%); /* Start off-screen */
@@ -9209,7 +9209,7 @@ body.sticky-header-off .messages > * {
 }
 .type-product.sticky-header-on .shp-tabs-row {
   position: sticky;
-  top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px) !important;
+  top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px) !important;
 }
 @media screen and (max-width: 767px) {
   .type-product.sticky-header-on .shp-tabs-row {
@@ -9217,10 +9217,10 @@ body.sticky-header-off .messages > * {
   }
 }
 .type-product.sticky-header-on .sticky-sell {
-  top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px + var(--gap-55) + 3em) !important;
+  top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + var(--gap-55) + 3em) !important;
 }
 .type-product.sticky-header-on #ratingTab #ratingWrapper {
-  top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px + var(--gap-55) + 3em) !important;
+  top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + var(--gap-55) + 3em) !important;
 }
 .type-product .products-related-header {
   text-align: center;
@@ -9355,6 +9355,34 @@ body.sticky-header-off .messages > * {
 .type-product #productsAlternative.active-all .product {
   display: block !important;
 }
+.type-product .laboratory-analysis-element {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.type-product .laboratory-analysis-element:after {
+  display: block;
+  content: "";
+  position: relative;
+  width: 1.1em;
+  height: 1.1em;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_lab_tested_primary.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.type-product .laboratory-analysis-element:hover, .type-product .laboratory-analysis-element:focus {
+  color: var(--color-primary-hover);
+}
+
 .type-product #tab-content {
   width: calc(var(--description-natima-max-width) + var(--description-sticky-sell-max-width) + var(--description-sticky-sell-gap));
   max-width: 100%;

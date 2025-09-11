@@ -2863,6 +2863,36 @@ if (body.classList.contains("type-product")) {
 			observer.observe(section);
 		}
 	}
+
+	addLaboratoryAnalysisToTop();
+	function addLaboratoryAnalysisToTop() {
+		let natiosAnalysis = document.querySelector(".natios-analysis");
+		if (natiosAnalysis) {
+			let shortBenefitsWrapper = document.querySelector(".product-top .short-benefits-wrapper ul");
+			if (shortBenefitsWrapper) {
+				let laboratoryAnalysisElement = document.createElement("li");
+				laboratoryAnalysisElement.classList.add("laboratory-analysis-element");
+				laboratoryAnalysisElement.setAttribute("tabindex", "0");
+
+				let laboratoryAnalysisText = "";
+				if (document.body.classList.contains("cs")) {
+					laboratoryAnalysisText = "Laboratorně testováno";
+				}
+				if (document.body.classList.contains("sk")) {
+					laboratoryAnalysisText = "Laboratórne testované";
+				}
+				if (document.body.classList.contains("pl")) {
+					laboratoryAnalysisText = "Testowane laboratoryjnie";
+				}
+				laboratoryAnalysisElement.textContent = laboratoryAnalysisText;
+
+				shortBenefitsWrapper.appendChild(laboratoryAnalysisElement);
+				laboratoryAnalysisElement.addEventListener("click", function () {
+					scrollToElement(natiosAnalysis);
+				});
+			}
+		}
+	}
 }
 
 /*------------------------------------------------- Index*/
