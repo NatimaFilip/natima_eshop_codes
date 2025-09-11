@@ -8754,15 +8754,6 @@ form[data-np-autofill-form-type="identity"]:not(#order-form) {
 	}
 }
 
-.type-page,
-.id--15 {
-	/*děkujeme*/
-	#content {
-		max-width: 1000px;
-		margin: 0 auto;
-	}
-}
-
 /*-------------------------------------------------------------------------404 not found */
 /*404 not found*/
 .not-found-grid {
@@ -9008,5 +8999,47 @@ body:has(.new-gen-modal) {
 				}
 			}
 		}
+	}
+}
+
+.type-manufacturers-listing {
+	.manufacturers,
+	.manufacturers ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.manufacturers {
+		display: flex;
+		flex-direction: column;
+		gap: var(--gap-30);
+		padding: 60px 0;
+		ul {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: var(--gap-16);
+			li {
+				border-radius: var(--br-16);
+				padding: 0.75em 1em;
+				background-color: var(--color-gray-400);
+				font-size: var(--fs-18);
+				&:hover,
+				&:focus-within {
+					outline: solid 2px var(--color-primary);
+					background-color: var(--color-gray-200);
+				}
+			}
+		}
+	}
+}
+
+.type-page,
+.id--15,
+.type-manufacturers-listing {
+	/*děkujeme*/
+	#content {
+		max-width: 1000px;
+		margin: 0 auto;
 	}
 }

@@ -11335,16 +11335,6 @@ form[data-np-autofill-form-type=identity]:not(#order-form) input[type=checkbox]:
   grid-template-columns: 1fr 1fr;
 }
 
-.type-page,
-.id--15 {
-  /*děkujeme*/
-}
-.type-page #content,
-.id--15 #content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
 /*-------------------------------------------------------------------------404 not found */
 /*404 not found*/
 .not-found-grid {
@@ -11627,4 +11617,56 @@ body:has(.new-gen-modal) {
   .admin-bar #bar-menu li ul a {
     padding: 5px !important;
   }
+}
+
+.type-manufacturers-listing .manufacturers,
+.type-manufacturers-listing .manufacturers ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.type-manufacturers-listing .manufacturers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--gap-30);
+  padding: 60px 0;
+}
+.type-manufacturers-listing .manufacturers ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: var(--gap-16);
+}
+.type-manufacturers-listing .manufacturers ul li {
+  border-radius: var(--br-16);
+  padding: 0.75em 1em;
+  background-color: var(--color-gray-400);
+  font-size: var(--fs-18);
+}
+.type-manufacturers-listing .manufacturers ul li:hover, .type-manufacturers-listing .manufacturers ul li:focus-within {
+  outline: solid 2px var(--color-primary);
+  background-color: var(--color-gray-200);
+}
+
+.type-page,
+.id--15,
+.type-manufacturers-listing {
+  /*děkujeme*/
+}
+.type-page #content,
+.id--15 #content,
+.type-manufacturers-listing #content {
+  max-width: 1000px;
+  margin: 0 auto;
 }
