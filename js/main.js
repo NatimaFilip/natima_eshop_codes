@@ -3047,9 +3047,9 @@ if (body.classList.contains("in-index")) {
 		}
 
 		let dragMultiplier = 1;
-		/* 		if (!isDesktop) {
+		if (!isDesktop) {
 			dragMultiplier = 3;
-		} */
+		}
 		let dragTarget = null;
 
 		if (!addedSlidingListener) {
@@ -3110,9 +3110,9 @@ if (body.classList.contains("in-index")) {
 				dragDistance = currentX - startX;
 				activeItems.forEach((item, index) => {
 					if (index == 0 && offsetAmountForLargeItem !== 0) {
-						item.style.transform = `translateX(-${((currentTransform - dragDistance / 30) / 2) * dragMultiplier}%)`;
+						item.style.transform = `translateX(-${(currentTransform - (dragDistance / 30) * dragMultiplier) / 2}%)`;
 					} else {
-						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) * dragMultiplier}%)`;
+						item.style.transform = `translateX(-${currentTransform - (dragDistance / 30) * dragMultiplier}%)`;
 					}
 				});
 			});
