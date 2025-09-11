@@ -3038,7 +3038,7 @@ if (body.classList.contains("in-index")) {
 
 		let dragMultiplier = 1;
 		if (!isDesktop) {
-			dragMultiplier = 3;
+			dragMultiplier = 5;
 		}
 		let dragTarget = null;
 

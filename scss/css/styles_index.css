@@ -123,6 +123,7 @@
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  text-wrap: pretty;
 }
 .in-index #carousel .carousel-inner .item .mobile-image {
   display: none;
@@ -314,6 +315,7 @@
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  text-wrap: pretty;
 }
 .in-index .body-banners .banner-wrapper .mobile-image {
   display: none;
@@ -482,6 +484,7 @@
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  text-wrap: pretty;
 }
 .in-index .footer-banners .footer-banner .mobile-image {
   display: none;

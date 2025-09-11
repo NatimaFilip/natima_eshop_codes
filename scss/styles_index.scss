@@ -296,6 +296,7 @@ $desktop-large-min: 1680px;
 	position: relative;
 	color: var(--color-black);
 	transition: transform 0.3s ease-in-out;
+	text-wrap: pretty;
 	.mobile-image {
 		display: none;
 	}
