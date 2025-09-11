@@ -11527,21 +11527,25 @@ body:has(.new-gen-modal) {
           column-gap: 0;
   margin: 0;
 }
+.admin-bar #bar-menu > li {
+  border-right: solid 1px var(--color-gray-600);
+}
+.admin-bar #bar-menu > li:first-child {
+  border-left: solid 1px var(--color-gray-600);
+}
+.admin-bar #bar-menu > li > a {
+  color: white;
+  text-decoration: none;
+}
+.admin-bar #bar-menu > li > a:hover, .admin-bar #bar-menu > li > a:focus {
+  text-decoration: underline;
+}
 .admin-bar #bar-menu li {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
   padding: 10px;
   position: relative;
-}
-.admin-bar #bar-menu li > a {
-  text-decoration: none;
-}
-.admin-bar #bar-menu li > a a {
-  color: white;
-}
-.admin-bar #bar-menu li > a:hover, .admin-bar #bar-menu li > a:focus {
-  text-decoration: underline;
 }
 .admin-bar #bar-menu li ul {
   left: 0;
