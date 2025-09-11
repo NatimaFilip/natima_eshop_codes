@@ -6651,6 +6651,7 @@ body {
 			align-items: center;
 			padding-bottom: var(--gap-15);
 			cursor: pointer;
+			max-width: max-content;
 
 			&.no-score {
 				.star-list {
@@ -7776,6 +7777,7 @@ body {
 		display: flex;
 		gap: 5px;
 		align-items: center;
+		max-width: max-content;
 		&:after {
 			display: block;
 			content: "";

@@ -7533,6 +7533,9 @@ body.sticky-header-off .messages > * {
           align-items: center;
   padding-bottom: var(--gap-15);
   cursor: pointer;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
 }
 .type-product #product-detail-form .stars-wrapper.no-score .star-list,
 .type-product .p-detail-inner-header .stars-wrapper.no-score .star-list {
@@ -9367,6 +9370,9 @@ body.sticky-header-off .messages > * {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
 }
 .type-product .laboratory-analysis-element:after {
   display: block;
