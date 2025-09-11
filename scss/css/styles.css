@@ -430,11 +430,26 @@ table {
 }
 
 /*-------------------------------------- HEADER*/
+body.sticky-header-on {
+  padding-top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px) !important;
+}
+@media screen and (max-width: 767px) {
+  body.sticky-header-on {
+    padding-top: calc(var(--padding-top-header) + var(--gap-6) + var(--header-height)) !important;
+  }
+}
 body.sticky-header-on #header {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
+  left: var(--padding-sides);
   -webkit-animation: slideDown 0.3s ease-in-out;
           animation: slideDown 0.3s ease-in-out; /* Apply the animation */
+}
+@media screen and (min-width: 1920px) {
+  body.sticky-header-on #header {
+    left: calc((100vw - 1920px) / 2);
+  }
 }
 @media screen and (max-width: 767px) {
   body.sticky-header-on #header {
@@ -467,14 +482,21 @@ body.sticky-header-on #header {
   }
 }
 body.sticky-header-off #header {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
+  left: var(--padding-sides);
   -webkit-transform: translateY(-101%);
           transform: translateY(-101%); /* Start off-screen */
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out; /* Smooth transition */
+}
+@media screen and (min-width: 1920px) {
+  body.sticky-header-off #header {
+    left: calc((100vw - 1920px) / 2);
+  }
 }
 body.sticky-header-off #header .navigation-wrapper:before {
   display: none;

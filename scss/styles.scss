@@ -1124,9 +1124,20 @@ table {
 /*-------------------------------------- HEADER*/
 body {
 	&.sticky-header-on {
+		padding-top: calc(
+			var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px
+		) !important;
+		@media screen and (max-width: $mobile-max) {
+			padding-top: calc(var(--padding-top-header) + var(--gap-6) + var(--header-height)) !important;
+		}
 		#header {
-			position: sticky;
+			position: fixed;
+			width: 100%;
 			top: 0;
+			left: var(--padding-sides);
+			@media screen and (min-width: 1920px) {
+				left: calc((100vw - 1920px) / 2);
+			}
 			animation: slideDown 0.3s ease-in-out; /* Apply the animation */
 
 			@media screen and (max-width: $mobile-max) {
@@ -1148,8 +1159,14 @@ body {
 	}
 	&.sticky-header-off {
 		#header {
-			position: sticky;
+			position: fixed;
+			width: 100%;
 			top: 0;
+			left: var(--padding-sides);
+			@media screen and (min-width: 1920px) {
+				left: calc((100vw - 1920px) / 2);
+			}
+
 			transform: translateY(-101%); /* Start off-screen */
 			transition: transform 0.3s ease-in-out; /* Smooth transition */
 			.navigation-wrapper {
