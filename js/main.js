@@ -2995,14 +2995,15 @@ if (body.classList.contains("in-index")) {
 				carouselRightButton.classList.add("display-none");
 
 				// aby tam nezustalo volne misto, ale nejak to nevychazi
-				//if (initialDisplayedItems <= 2 && flexBasisFirstItem > 26) {
-				//	offsetPercentageForLastItems = -flexBasisFirstItem;
-				// }
+				if (initialDisplayedItems <= 2 && flexBasisOtherItems > 26) {
+					offsetPercentageForLastItems = -flexBasisOtherItems;
+				}
 			} else {
 				offsetPercentageForLastItems = 0;
 			}
 			currentTransform =
 				(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 + offsetPercentageForLastItems;
+
 			activeItems.forEach((item, index) => {
 				if (index == 0 && offsetAmountForLargeItem !== 0) {
 					item.style.transform = `translateX(-${currentTransform / 2}%)`;
