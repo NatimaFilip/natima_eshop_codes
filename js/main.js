@@ -3022,6 +3022,7 @@ if (body.classList.contains("in-index")) {
 				lastVisibleItem = initialDisplayedItems;
 				carouselLeftButton.classList.add("display-none");
 			}
+			offsetPercentageForLastItems = 0;
 			currentTransform =
 				(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 + offsetPercentageForLastItems;
 			activeItems.forEach((item, index) => {
