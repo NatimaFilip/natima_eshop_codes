@@ -3162,6 +3162,31 @@ if (body.classList.contains("in-index")) {
 		addedSlidingListener = true;
 	}
 
+	document.addEventListener("DOMContentLoaded", function () {
+		customLazyVideos();
+	});
+
+	function customLazyVideos() {
+		let lazyVideos = document.querySelectorAll("a.carousel-video-lazy");
+		if (!lazyVideos || lazyVideos.length === 0) {
+			return;
+		}
+		lazyVideos.forEach(function (videoLink) {
+			let video = videoLink.querySelector("video");
+			if (video && !video.classList.contains("loaded")) {
+				let sources = video.querySelectorAll("source");
+				sources.forEach(function (source) {
+					let dataSrc = source.getAttribute("data-src");
+					if (dataSrc) {
+						source.setAttribute("src", dataSrc);
+					}
+				});
+				video.load();
+				videoLink.classList.add("loaded");
+			}
+		});
+	}
+
 	allProductsBlocks = document.querySelectorAll(".products-block");
 	if (allProductsBlocks && allProductsBlocks.length > 0) {
 		allProductsBlocks.forEach((block) => {

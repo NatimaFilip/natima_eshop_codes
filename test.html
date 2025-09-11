@@ -1,30 +1,106 @@
-<a href="/natios">
-	<img class="mobile-image"
-		src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/Bannery/new/natios_banner_mobile.jpg"
-		fetchpriority="low" alt="Natios" width="900" height="1350" loading="lazy">
-	<img class="tablet-image"
-		src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/Bannery/new/natios_banner_tablet.jpg"
-		fetchpriority="low" alt="Natios" width="1024" height="442" loading="lazy">
-	<img class="pc-image"
-		src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/Bannery/new/natios_banner_pc.jpg"
-		fetchpriority="low" alt="Natios" width="1840" height="669" loading="lazy">
+<!--   ODKAZ   -->
+<a class="carousel-video lazy" href="https://www.natima.cz/novinky/">
+
+	<!--   ADRESA OBRÁZKU A VIDEÍ   --> <!--   NÁZEV OBRÁZKU   -->
+	<img src="/user/documents/upload/Bannery/vyska/Natima doprava zdarma banner webp.webp" alt="Natima doprava zdarma">
+	<video width="100%" height="100%" autoplay loop muted playsinline>
+		<source data-src="/user/documents/upload/Bannery/vyska/Natima doprava zdarma banner webm.webm"
+			type="video/webm">
+		<source data-src="/user/documents/upload/Bannery/vyska/Natima doprava zdarma banner mp4.mp4" type="video/mp4">
+	</video>
+
+	<!--   "DARK PRO TMAVÉ OBRÁZKY"  "for-logged-in-only" -->
+	<div class="carousel-banner-content">
+		<h3 class="carousel-banner-heading show-on-pc">
+
+			<!--   TEXT NADPISU PRO PC  -->
+			Doprava zdarma při nákupu nad 500,- Kč.
+
+		</h3>
+
+		<h3 class="carousel-banner-heading show-on-mobile">
+
+			<!--   TEXT NADPISU PRO MOBIL   -->
+			Doprava zdarma při nákupu nad 500,- Kč.
+
+		</h3>
+
+
+		<p class="carousel-banner-text show-on-pc">
+
+			<!--   TEXT BANNERU PRO PC  -->
+			Pouze do dnešní půlnoci, tak ať Vám doprava neujede!⏰
+		</p>
+
+		<p class="carousel-banner-text show-on-mobile">
+
+			<!--   TEXT BANNERU PRO MOBIL  -->
+			Pouze do dnešní půlnoci, tak ať Vám doprava neujede!⏰
+		</p>
+
+		<div class="carousel-banner-button">
+
+			<!--   TEXT TLAČÍTKA   -->
+			Zobrazit novinky
+
+		</div>
+	</div>
+</a>
+
+
+<a class="carousel-video-lazy" data-priority="1"
+	href="https://www.natima.cz/natios-kids-multivitamin--21-vitaminu-a-mineralu--180-jahodovych-cucacich-tabletek"
+	data-ec-promo-id="1131">
+	<img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/Bannery/vyska/Natima doprava zdarma banner webp.webp"
+		width="900" height="1350" alt="Natima doprava zdarma">
+	<video width="100%" height="100%" autoplay loop muted playsinline>
+		<source
+			data-src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/Bannery/vyska/Natima doprava zdarma banner webm.webm"
+			type="video/webm">
+		<source
+			data-src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/Bannery/vyska/Natima doprava zdarma banner mp4.mp4"
+			type="video/mp4">
+	</video>
+
 	<span class="extended-banner-texts">
-		<h2 class="footer-banner-header">
-			Natios
-		</h2>
 		<span class="extended-banner-title">
-			České produkty s vysokou vstřebatelností
+			Doprava zdarma při nákupu nad 500,- Kč.
 		</span>
 		<span class="extended-banner-text">
-			<ul class="extended-banner-text-list">
-				<li>Čisté složení bez éček</li>
-				<li>Vlastní návrh a výroba made in Czech Republic</li>
-				<li>Vědecky ověřené složení</li>
-				<li>100% veganské</li>
-			</ul>
+			Pouze do dnešní půlnoci, tak ať Vám doprava neujede!⏰
 		</span>
 		<span class="extended-banner-link">
-			Více o Natios
+			Zobrazit bestsellery
 		</span>
 	</span>
 </a>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+
+		customLazyVideos();
+
+
+	});
+
+	function customLazyVideos() {
+		let lazyVideos = document.querySelectorAll("a.carousel-video-lazy");
+		if (!lazyVideos || lazyVideos.length === 0) {
+			return;
+		}
+		lazyVideos.forEach(function (videoLink) {
+			let video = videoLink.querySelector("video");
+			if (video && !video.classList.contains("loaded")) {
+				let sources = video.querySelectorAll("source");
+				sources.forEach(function (source) {
+					let dataSrc = source.getAttribute("data-src");
+					if (dataSrc) {
+						source.setAttribute("src", dataSrc);
+					}
+				});
+				video.load();
+				videoLink.classList.add("loaded");
+			}
+		});
+	}
+</script>
