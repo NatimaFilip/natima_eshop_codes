@@ -383,7 +383,7 @@ table {
   .show-on-mobile {
     display: block;
   }
-  .shopw-on-pc {
+  .show-on-pc {
     display: none;
   }
 }
@@ -2789,7 +2789,6 @@ body.type-category .subcategories li,
 body.type-manufacturer-detail .subcategories li {
   background-color: var(--color-gray-400);
   border-radius: var(--br-8);
-  padding: 0.77em 1.5em 0.77em 0.77em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2798,7 +2797,6 @@ body.type-manufacturer-detail .subcategories li {
   body.type-category .subcategories li,
   body.type-manufacturer-detail .subcategories li {
     border-radius: var(--br-16);
-    padding: 0.75em 2em 0.75em 1em;
   }
 }
 body.type-category .subcategories li a,
@@ -2815,6 +2813,13 @@ body.type-manufacturer-detail .subcategories li a {
           align-items: center;
   gap: clamp(0.25em, 10%, 1.5em);
   width: 100%;
+  padding: 0.77em 1.5em 0.77em 0.77em;
+}
+@media screen and (min-width: 1280px) {
+  body.type-category .subcategories li a,
+  body.type-manufacturer-detail .subcategories li a {
+    padding: 0.75em 2em 0.75em 1em;
+  }
 }
 body.type-category .subcategories li a .image img,
 body.type-manufacturer-detail .subcategories li a .image img {

@@ -1072,7 +1072,7 @@ table {
 	.show-on-mobile {
 		display: block;
 	}
-	.shopw-on-pc {
+	.show-on-pc {
 		display: none;
 	}
 }
@@ -3060,11 +3060,9 @@ body.type-manufacturer-detail {
 		li {
 			background-color: var(--color-gray-400);
 			border-radius: var(--br-8);
-			padding: 0.77em 1.5em 0.77em 0.77em;
 			display: flex;
 			@media screen and (min-width: $desktop-min) {
 				border-radius: var(--br-16);
-				padding: 0.75em 2em 0.75em 1em;
 			}
 			a {
 				display: flex;
@@ -3072,6 +3070,10 @@ body.type-manufacturer-detail {
 				align-items: center;
 				gap: clamp(0.25em, 10%, 1.5em);
 				width: 100%;
+				padding: 0.77em 1.5em 0.77em 0.77em;
+				@media screen and (min-width: $desktop-min) {
+					padding: 0.75em 2em 0.75em 1em;
+				}
 				.image {
 					img {
 						max-width: 40px;
