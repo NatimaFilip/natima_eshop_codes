@@ -3071,6 +3071,7 @@ body.type-manufacturer-detail {
 				flex-direction: row;
 				align-items: center;
 				gap: clamp(0.25em, 10%, 1.5em);
+				width: 100%;
 				.image {
 					img {
 						max-width: 40px;

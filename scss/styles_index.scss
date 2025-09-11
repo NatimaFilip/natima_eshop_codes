@@ -1012,12 +1012,7 @@ $desktop-large-min: 1680px;
 			}
 		}
 	}
-	.homepage-group-title {
-		font-size: var(--fs-24);
-		font-weight: var(--fw-700);
-		line-height: var(--lh-1-4);
-		padding-bottom: 1em;
-	}
+
 	.products-block-wrapper {
 		position: relative;
 		.carousel-control {
@@ -1036,6 +1031,9 @@ $desktop-large-min: 1680px;
 		margin-right: 0;
 		@media screen and (max-width: $tablet-medium-min) {
 			margin-left: calc(-1 * var(--gap-10));
+		}
+		@media screen and (max-width: $mobile-max) {
+			margin-bottom: 20px;
 		}
 		> * {
 			flex-basis: 16.6667%;
@@ -1355,6 +1353,71 @@ $desktop-large-min: 1680px;
 				visibility: hidden;
 				pointer-events: none;
 			}
+		}
+	}
+	.homepage-group-title {
+		font-size: var(--fs-24);
+		font-weight: var(--fw-700);
+		line-height: var(--lh-1-4);
+		padding-bottom: 1em;
+		display: flex !important;
+		align-items: center;
+		justify-content: space-between;
+		.homepage-group-title-link {
+			color: var(--color-black);
+			&:hover,
+			&:focus {
+				color: var(--color-primary);
+				text-decoration: underline;
+			}
+		}
+		@media screen and (max-width: 768px) {
+			justify-content: center;
+		}
+	}
+
+	.homepage-group-title-show-all {
+		font-size: var(--fs-16);
+		font-weight: var(--fw-400);
+		text-decoration: underline;
+		&:after {
+			content: "";
+			display: inline-block;
+			width: 20px;
+			height: 0.75em;
+			margin-left: var(--gap-4);
+			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_long_right_primary.svg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+		&.desktop {
+			@media screen and (max-width: 768px) {
+				display: none;
+			}
+		}
+		&.mobile {
+			display: none;
+			@media screen and (max-width: 768px) {
+				display: block;
+				text-align: center;
+				margin-bottom: 40px;
+			}
+		}
+	}
+
+	.homepage-blog-wrapper {
+		.homepage-group-title-link {
+			padding-left: 20px;
+		}
+		.homepage-group-title-show-all.mobile {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			margin: 0;
+			flex-basis: auto;
+			margin-right: 20px;
+			font-size: var(--fs-20);
 		}
 	}
 }

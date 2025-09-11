@@ -780,12 +780,6 @@
     min-width: 70%;
   }
 }
-.in-index .homepage-group-title {
-  font-size: var(--fs-24);
-  font-weight: var(--fw-700);
-  line-height: var(--lh-1-4);
-  padding-bottom: 1em;
-}
 .in-index .products-block-wrapper {
   position: relative;
 }
@@ -887,6 +881,11 @@
 @media screen and (max-width: 1024px) {
   .in-index .products-block:not(.products-block-luigi) {
     margin-left: calc(-1 * var(--gap-10));
+  }
+}
+@media screen and (max-width: 767px) {
+  .in-index .products-block:not(.products-block-luigi) {
+    margin-bottom: 20px;
   }
 }
 .in-index .products-block:not(.products-block-luigi) > * {
@@ -1365,4 +1364,83 @@
   display: block !important;
   visibility: hidden;
   pointer-events: none;
+}
+.in-index .homepage-group-title {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-1-4);
+  padding-bottom: 1em;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.in-index .homepage-group-title .homepage-group-title-link {
+  color: var(--color-black);
+}
+.in-index .homepage-group-title .homepage-group-title-link:hover, .in-index .homepage-group-title .homepage-group-title-link:focus {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+  .in-index .homepage-group-title {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+.in-index .homepage-group-title-show-all {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-400);
+  text-decoration: underline;
+}
+.in-index .homepage-group-title-show-all:after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 0.75em;
+  margin-left: var(--gap-4);
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_long_right_primary.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media screen and (max-width: 768px) {
+  .in-index .homepage-group-title-show-all.desktop {
+    display: none;
+  }
+}
+.in-index .homepage-group-title-show-all.mobile {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .in-index .homepage-group-title-show-all.mobile {
+    display: block;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+.in-index .homepage-blog-wrapper .homepage-group-title-link {
+  padding-left: 20px;
+}
+.in-index .homepage-blog-wrapper .homepage-group-title-show-all.mobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  margin-right: 20px;
+  font-size: var(--fs-20);
 }

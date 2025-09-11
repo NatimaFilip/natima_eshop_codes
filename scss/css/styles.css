@@ -2814,6 +2814,7 @@ body.type-manufacturer-detail .subcategories li a {
       -ms-flex-align: center;
           align-items: center;
   gap: clamp(0.25em, 10%, 1.5em);
+  width: 100%;
 }
 body.type-category .subcategories li a .image img,
 body.type-manufacturer-detail .subcategories li a .image img {

@@ -3249,6 +3249,90 @@ if (body.classList.contains("in-index")) {
 			console.error("Error fetching or processing hodnoceni obchodu:", error);
 		}
 	}
+
+	homepageGroupTitlesFunc();
+	function homepageGroupTitlesFunc() {
+		let homepageGroupTitles = document.querySelectorAll(".homepage-group-title");
+		if (!homepageGroupTitles || homepageGroupTitles.length === 0) {
+			return;
+		}
+		let zobrazitVseTexty = [];
+		let nejprodavanejsiUrl = "";
+		let novinkyUrl = "";
+		let akceUrl = "";
+		let blogUrl = "";
+		if (document.body.classList.contains("cs")) {
+			zobrazitVseTexty = [
+				"Zobrazit všechny nejprodávanější",
+				"Zobrazit všechny novinky",
+				"Zobrazit všechny akce",
+				"Zobrazit všechny články",
+			];
+			nejprodavanejsiUrl = "/nejprodavanejsi/";
+			novinkyUrl = "/novinky/";
+			akceUrl = "/-akce-mesice/";
+			blogUrl = "/blog/";
+		}
+		if (document.body.classList.contains("sk")) {
+			zobrazitVseTexty = [
+				"Zobraziť všetky najpredávanejšie",
+				"Zobraziť všetky novinky",
+				"Zobraziť všetky akcie",
+				"Zobraziť všetky články",
+			];
+			nejprodavanejsiUrl = "/najpredavanejsie/";
+			novinkyUrl = "/novinky/";
+			akceUrl = "/--akcie-mesiaca/";
+			blogUrl = "/blog/";
+		}
+		if (document.body.classList.contains("pl")) {
+			zobrazitVseTexty = [
+				"Zobacz wszystkie najczęściej kupowane",
+				"Zobacz wszystkie nowości",
+				"Zobacz wszystkie promocje",
+				"Zobacz wszystkie artykuły",
+			];
+			nejprodavanejsiUrl = "/najczesciej-kupowane/";
+			novinkyUrl = "/nowosci/";
+			akceUrl = "/promocja-miesiaca/";
+			blogUrl = "/blog/";
+		}
+		const titleUrlMap = [nejprodavanejsiUrl, novinkyUrl, akceUrl, blogUrl];
+
+		homepageGroupTitles.forEach((titleElement, index) => {
+			const titleHref = document.createElement("a");
+			titleHref.href = titleUrlMap[index] || "#";
+			titleHref.classList.add("homepage-group-title-link");
+			titleHref.textContent = titleElement.textContent;
+			titleElement.innerHTML = titleHref.outerHTML;
+
+			const titleHrefShowAll = document.createElement("a");
+			titleHrefShowAll.href = titleUrlMap[index] || "#";
+			titleHrefShowAll.classList.add("homepage-group-title-show-all");
+			titleHrefShowAll.classList.add("desktop");
+			titleHrefShowAll.textContent = zobrazitVseTexty[index] || "Show All";
+			titleElement.appendChild(titleHrefShowAll);
+
+			let titleHrefShowAllBottom = titleHrefShowAll.cloneNode(true);
+			titleHrefShowAllBottom.classList.remove("desktop");
+			titleHrefShowAllBottom.classList.add("mobile");
+			if (index !== 3) {
+				// Find the next sibling .products-block-wrapper
+				let sibling = titleElement.nextElementSibling;
+				while (sibling && !sibling.classList.contains("products-block-wrapper")) {
+					sibling = sibling.nextElementSibling;
+				}
+				if (sibling) {
+					sibling.appendChild(titleHrefShowAllBottom);
+				}
+			} else {
+				const homepageBlogWrapper = document.querySelector(".homepage-blog-wrapper");
+				if (homepageBlogWrapper) {
+					homepageBlogWrapper.appendChild(titleHrefShowAllBottom);
+				}
+			}
+		});
+	}
 }
 
 function productSlider(productBlock) {
