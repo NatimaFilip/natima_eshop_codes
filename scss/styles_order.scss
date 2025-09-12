@@ -121,6 +121,7 @@ $desktop-large-min: 1680px;
 	#header {
 		position: relative !important;
 		top: 0 !important;
+		animation: none !important;
 		.navigation-buttons {
 			display: none !important;
 		}
