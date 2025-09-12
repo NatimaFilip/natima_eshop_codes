@@ -601,3 +601,7 @@
     display: flex;
   }
 }
+
+.luigi-ac .luigi-ac-footer {
+  display: none;
+}
