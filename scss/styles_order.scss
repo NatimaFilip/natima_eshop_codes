@@ -106,7 +106,12 @@ $desktop-large-min: 1680px;
 
 /*SMAZAT MIXINY A SJEDNOTIT*/
 
-.ordering-process:not(.id--15) {
+.ordering-process:not(.id--15) /*not in dekujeme*/ {
+	padding-top: 0 !important;
+	&.sticky-header-on,
+	&.sticky-header-off {
+		padding-top: 0 !important;
+	}
 	#content {
 		padding-bottom: 100px;
 	}

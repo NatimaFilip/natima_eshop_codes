@@ -1,5 +1,11 @@
 @charset "UTF-8";
 /*SMAZAT MIXINY A SJEDNOTIT*/
+.ordering-process:not(.id--15) {
+  padding-top: 0 !important;
+}
+.ordering-process:not(.id--15).sticky-header-on, .ordering-process:not(.id--15).sticky-header-off {
+  padding-top: 0 !important;
+}
 .ordering-process:not(.id--15) #content {
   padding-bottom: 100px;
 }
