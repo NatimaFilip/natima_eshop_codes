@@ -1943,8 +1943,10 @@ if (body.classList.contains("type-product")) {
 		}
 
 		if (productBrand || document.querySelector(".product-widgets[product-template='natios']")) {
-			manufacturerAndCodeWrapper.appendChild(productBrand);
-			manufacturerAndCodeWrapper.classList.add("active");
+			if (productBrand) {
+				manufacturerAndCodeWrapper.appendChild(productBrand);
+				manufacturerAndCodeWrapper.classList.add("active");
+			}
 
 			if (
 				document.querySelector(".product-widgets[product-template='natios']") ||
