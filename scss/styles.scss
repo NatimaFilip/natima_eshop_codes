@@ -7884,12 +7884,14 @@ body {
 		padding: 0.75em 20px 0.75em 50px;
 		border-radius: var(--br-16);
 		margin-bottom: calc(var(--gap) * 2);
+		margin-bottom: 1em;
 	}
 	.nelze-uplatnit-slevovy-kod p,
 	.nelze-uplatnit-vernostni-slevu p,
 	.upozorneni-produkt p {
 		font-size: inherit !important;
 		margin: 8px 0;
+		padding: 0 !important;
 	}
 	.nelze-uplatnit-slevovy-kod::before,
 	.nelze-uplatnit-vernostni-slevu::before,

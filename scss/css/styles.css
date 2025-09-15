@@ -9462,12 +9462,14 @@ body.sticky-header-off .messages > * {
   padding: 0.75em 20px 0.75em 50px;
   border-radius: var(--br-16);
   margin-bottom: calc(var(--gap) * 2);
+  margin-bottom: 1em;
 }
 .type-product .nelze-uplatnit-slevovy-kod p,
 .type-product .nelze-uplatnit-vernostni-slevu p,
 .type-product .upozorneni-produkt p {
   font-size: inherit !important;
   margin: 8px 0;
+  padding: 0 !important;
 }
 .type-product .nelze-uplatnit-slevovy-kod::before,
 .type-product .nelze-uplatnit-vernostni-slevu::before,
