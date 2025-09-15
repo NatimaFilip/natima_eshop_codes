@@ -2893,6 +2893,29 @@ if (body.classList.contains("type-product")) {
 			}
 		}
 	}
+
+	if ($(".nelze-uplatnit-slevovy-kod").length > 0) {
+		if (csLang) {
+			$(".nelze-uplatnit-slevovy-kod").html("<p>U tohoto produktu není možné uplatnit slevový kód.</p>");
+		}
+		if (skLang) {
+			$(".nelze-uplatnit-slevovy-kod").html("<p>U tohoto produktu nie je možné uplatniť zľavový kód.</p>");
+		}
+		if (plLang) {
+			$(".nelze-uplatnit-slevovy-kod").html("<p>Do tego produktu nie można zastosować kodu rabatowego.</p>");
+		}
+	}
+	if ($(".nelze-uplatnit-vernostni-slevu").length > 0) {
+		if (csLang) {
+			$(".nelze-uplatnit-vernostni-slevu").html("<p>U tohoto produktu není možné uplatnit věrnostní slevu.</p>");
+		}
+		if (skLang) {
+			$(".nelze-uplatnit-vernostni-slevu").html("<p>U tohoto produktu nie je možné uplatniť vernostnú zľavu.</p>");
+		}
+		if (plLang) {
+			$(".nelze-uplatnit-vernostni-slevu").html("<p>Do tego produktu nie można zastosować zniżki lojalnościowej.</p>");
+		}
+	}
 }
 
 /*------------------------------------------------- Index*/
