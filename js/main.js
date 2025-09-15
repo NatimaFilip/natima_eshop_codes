@@ -1871,7 +1871,7 @@ if (body.classList.contains("type-product")) {
 	productCode = document.querySelector(".p-detail-inner-header .p-code");
 	productCodeValue = "";
 
-	productBrand = document.querySelector(".product-top a[data-testid='productCardBrandName']");
+	productBrand = document.querySelector(".product-top a[data-testid='productCardBrandName']") || "noname";
 	starsWrapper = document.querySelector(".product-top .stars-wrapper");
 
 	tabContent = document.querySelector("#tab-content");
@@ -1943,8 +1943,11 @@ if (body.classList.contains("type-product")) {
 		}
 
 		if (productBrand) {
-			manufacturerAndCodeWrapper.appendChild(productBrand);
-			manufacturerAndCodeWrapper.classList.add("active");
+			if (productBrand !== "noname") {
+				manufacturerAndCodeWrapper.appendChild(productBrand);
+				manufacturerAndCodeWrapper.classList.add("active");
+			}
+
 			if (
 				productBrand.textContent.toLowerCase().includes("natios") ||
 				document.querySelector(".product-widgets[product-template='natios']")
