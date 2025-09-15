@@ -9442,6 +9442,47 @@ body.sticky-header-off .messages > * {
     display: none;
   }
 }
+.type-product .nelze-uplatnit-slevovy-kod,
+.type-product .nelze-uplatnit-vernostni-slevu,
+.type-product .upozorneni-produkt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: var(--color-primary-200);
+  text-align: left;
+  font-weight: 400;
+  font-size: var(--fs-14) !important;
+  position: relative;
+  padding: 0.75em 20px 0.75em 50px;
+  border-radius: var(--br-16);
+  margin-bottom: calc(var(--gap) * 2);
+}
+.type-product .nelze-uplatnit-slevovy-kod p,
+.type-product .nelze-uplatnit-vernostni-slevu p,
+.type-product .upozorneni-produkt p {
+  font-size: inherit !important;
+  margin: 8px 0;
+}
+.type-product .nelze-uplatnit-slevovy-kod::before,
+.type-product .nelze-uplatnit-vernostni-slevu::before,
+.type-product .upozorneni-produkt::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 0;
+  height: 100%;
+  width: 30px;
+  background-image: url("https://www.natima.cz/user/documents/upload/vykricnik_icon_2.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 html.cookies-visible .siteCookies {
   display: none;
