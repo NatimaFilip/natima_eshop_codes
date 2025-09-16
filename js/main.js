@@ -1252,6 +1252,7 @@ function measureUnitFromFiltersProducts() {
 			tobolek: "tobolka",
 			tabletek: "tabletka",
 			dávek: "dávka",
+			dávky: "dávka",
 		};
 
 		let pricePerUnit_Unit;
