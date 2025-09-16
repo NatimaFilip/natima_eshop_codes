@@ -1165,7 +1165,7 @@ function actionPriceToFinalPriceAndReviewsNumber() {
 async function downloadAndSaveMeasureUnitFilter() {
 	const url = "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/filters_cz.json";
 	const storageKey = "measureFilters_cz";
-	const expiryKey = "measureFilters_cz_expiry";
+	const expiryKey = "measureFilters_cz_expiry_01";
 
 	// Check if data is already in localStorage and not expired
 	const now = Date.now();
