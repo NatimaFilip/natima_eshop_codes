@@ -1607,3 +1607,240 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
     max-width: 100px;
   }
 }
+/*HOTFIX SK PL*/
+.sk #tab-content #relatedFiles,
+.pl #tab-content #relatedFiles {
+  list-style: none;
+  background: var(--color-gray-400);
+  border-radius: var(--br-16);
+  padding: 44px 48px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--gap-20);
+  margin: 20px auto 0;
+}
+.sk #tab-content #relatedFiles li,
+.pl #tab-content #relatedFiles li {
+  background: var(--color-white);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 31px 31px 31px 40px;
+  border-radius: var(--br-10);
+  gap: var(--gap-20);
+}
+.sk #tab-content #relatedFiles li::before,
+.pl #tab-content #relatedFiles li::before {
+  content: "";
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  min-height: 64px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_certificate_primary.svg");
+  background-size: cover;
+  background-position: center;
+}
+.sk #tab-content #relatedFiles li > img,
+.pl #tab-content #relatedFiles li > img {
+  display: none;
+}
+.sk #tab-content #relatedFiles li > a:not(.btn),
+.pl #tab-content #relatedFiles li > a:not(.btn) {
+  font-size: var(--fs-18);
+  color: var(--color-black);
+  font-weight: var(--fw-700);
+}
+.sk #tab-content #relatedFiles li > a:not(.btn):hover, .sk #tab-content #relatedFiles li > a:not(.btn):focus-within,
+.pl #tab-content #relatedFiles li > a:not(.btn):hover,
+.pl #tab-content #relatedFiles li > a:not(.btn):focus-within {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+.sk #tab-content #relatedFiles li a.btn,
+.pl #tab-content #relatedFiles li a.btn {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+  background: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-black);
+  border-radius: var(--br-16);
+  padding: 1em 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: auto;
+}
+.sk #tab-content #relatedFiles li a.btn span,
+.pl #tab-content #relatedFiles li a.btn span {
+  font-weight: var(--fw-400);
+  color: var(--color-gray-600);
+  padding-left: 0.25em;
+}
+.sk #tab-content #relatedFiles li a.btn:before,
+.pl #tab-content #relatedFiles li a.btn:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_protocol_download.svg");
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+}
+.sk #tab-content #relatedFiles li a.btn:hover, .sk #tab-content #relatedFiles li a.btn:focus-within,
+.pl #tab-content #relatedFiles li a.btn:hover,
+.pl #tab-content #relatedFiles li a.btn:focus-within {
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.sk #tab-content #relatedFiles li a.btn:hover span, .sk #tab-content #relatedFiles li a.btn:focus-within span,
+.pl #tab-content #relatedFiles li a.btn:hover span,
+.pl #tab-content #relatedFiles li a.btn:focus-within span {
+  color: var(--color-white);
+}
+.sk #tab-content #relatedFiles li a.btn:hover::before, .sk #tab-content #relatedFiles li a.btn:focus-within::before,
+.pl #tab-content #relatedFiles li a.btn:hover::before,
+.pl #tab-content #relatedFiles li a.btn:focus-within::before {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+}
+.sk #tab-content #relatedFiles h3,
+.pl #tab-content #relatedFiles h3 {
+  font-size: var(--fs-24);
+  display: block;
+  width: 100%;
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+  padding-bottom: 0.375em;
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  .sk #tab-content #relatedFiles h3,
+  .pl #tab-content #relatedFiles h3 {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .sk #tab-content #relatedFiles,
+  .pl #tab-content #relatedFiles {
+    padding: 20px 0;
+    background: transparent;
+  }
+  .sk #tab-content #relatedFiles li,
+  .pl #tab-content #relatedFiles li {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    background: var(--color-gray-400);
+    padding: 27px;
+  }
+  .sk #tab-content #relatedFiles li > a:not(.btn),
+  .pl #tab-content #relatedFiles li > a:not(.btn) {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .sk #tab-content #relatedFiles li a.btn,
+  .pl #tab-content #relatedFiles li a.btn {
+    width: 100%;
+  }
+}
+.sk #tab-content .natios-analysis #relatedFiles,
+.pl #tab-content .natios-analysis #relatedFiles {
+  margin: 0;
+  background: transparent;
+  padding: 0;
+}
+.sk #tab-content .natios-analysis #relatedFiles h3,
+.pl #tab-content .natios-analysis #relatedFiles h3 {
+  display: none;
+}
+.sk #tab-content .natios-analysis #relatedFiles li,
+.pl #tab-content .natios-analysis #relatedFiles li {
+  background: transparent;
+  padding: 0;
+}
+.sk #tab-content .natios-analysis #relatedFiles li::before,
+.pl #tab-content .natios-analysis #relatedFiles li::before {
+  display: none;
+}
+.sk #tab-content .natios-analysis #relatedFiles a,
+.pl #tab-content .natios-analysis #relatedFiles a {
+  font-size: var(--fs-14) !important;
+  font-weight: var(--fw-700) !important;
+  color: var(--color-black);
+  background: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-black);
+  border-radius: var(--br-16);
+  padding: 1em 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+  margin-left: 0 !important;
+}
+.sk #tab-content .natios-analysis #relatedFiles a span,
+.pl #tab-content .natios-analysis #relatedFiles a span {
+  font-weight: var(--fw-400);
+  color: var(--color-gray-600);
+  padding-left: 0.25em;
+}
+.sk #tab-content .natios-analysis #relatedFiles a:before,
+.pl #tab-content .natios-analysis #relatedFiles a:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_protocol_download.svg");
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+}
+.sk #tab-content .natios-analysis #relatedFiles a:hover, .sk #tab-content .natios-analysis #relatedFiles a:focus-within,
+.pl #tab-content .natios-analysis #relatedFiles a:hover,
+.pl #tab-content .natios-analysis #relatedFiles a:focus-within {
+  color: var(--color-white) !important;
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+.sk #tab-content .natios-analysis #relatedFiles a:hover span, .sk #tab-content .natios-analysis #relatedFiles a:focus-within span,
+.pl #tab-content .natios-analysis #relatedFiles a:hover span,
+.pl #tab-content .natios-analysis #relatedFiles a:focus-within span {
+  color: var(--color-white) !important;
+}
+.sk #tab-content .natios-analysis #relatedFiles a:hover::before, .sk #tab-content .natios-analysis #relatedFiles a:focus-within::before,
+.pl #tab-content .natios-analysis #relatedFiles a:hover::before,
+.pl #tab-content .natios-analysis #relatedFiles a:focus-within::before {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+}
+.sk #tab-content .natios-analysis a.btn,
+.pl #tab-content .natios-analysis a.btn {
+  display: none !important;
+}
