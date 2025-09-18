@@ -1246,7 +1246,7 @@ function measureUnitFromFiltersProducts() {
 			priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
 		}
 
-		let signleMeasuringUnit = {
+		let singleMeasuringUnit = {
 			kapslí: "kapsle",
 			tablet: "tableta",
 			tobolek: "tobolka",
@@ -1260,10 +1260,10 @@ function measureUnitFromFiltersProducts() {
 		let foundUnitMatch = false;
 
 		// Iterate over the keys in the object
-		for (let key in signleMeasuringUnit) {
+		for (let key in singleMeasuringUnit) {
 			if (productMeasureUnit.includes(key)) {
 				foundUnitMatch = true;
-				pricePerUnit_Unit = signleMeasuringUnit[key];
+				pricePerUnit_Unit = singleMeasuringUnit[key];
 				break; // Exit the loop once a match is found
 			}
 		}
@@ -1337,7 +1337,7 @@ function measureUnitFromAppendixProducts() {
 				priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
 			}
 
-			let signleMeasuringUnit = {
+			let singleMeasuringUnit = {
 				kapslí: "kapsle",
 				tablet: "tableta",
 				tobolek: "tobolka",
@@ -1349,10 +1349,10 @@ function measureUnitFromAppendixProducts() {
 			let foundUnitMatch = false;
 
 			// Iterate over the keys in the object
-			for (let key in signleMeasuringUnit) {
+			for (let key in singleMeasuringUnit) {
 				if (productMeasureUnit.includes(key)) {
 					foundUnitMatch = true;
-					pricePerUnit_Unit = signleMeasuringUnit[key];
+					pricePerUnit_Unit = singleMeasuringUnit[key];
 					break; // Exit the loop once a match is found
 				}
 			}
@@ -2452,11 +2452,13 @@ if (body.classList.contains("type-product")) {
 			priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
 		}
 
-		let signleMeasuringUnit = {
+		let singleMeasuringUnit = {
 			kapslí: "kapsle",
 			tablet: "tableta",
 			tobolek: "tobolka",
 			tabletek: "tabletka",
+			dávek: "dávka",
+			dávky: "dávka",
 		};
 
 		let pricePerUnit_Unit;
@@ -2464,10 +2466,10 @@ if (body.classList.contains("type-product")) {
 		let foundUnitMatch = false;
 
 		// Iterate over the keys in the object
-		for (let key in signleMeasuringUnit) {
+		for (let key in singleMeasuringUnit) {
 			if (productMeasureUnit.includes(key)) {
 				foundUnitMatch = true;
-				pricePerUnit_Unit = signleMeasuringUnit[key];
+				pricePerUnit_Unit = singleMeasuringUnit[key];
 				break; // Exit the loop once a match is found
 			}
 		}
@@ -2525,7 +2527,7 @@ if (body.classList.contains("type-product")) {
 				priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
 			}
 
-			let signleMeasuringUnit = {
+			let singleMeasuringUnit = {
 				kapslí: "kapsle",
 				tablet: "tableta",
 				tobolek: "tobolka",
@@ -2537,10 +2539,10 @@ if (body.classList.contains("type-product")) {
 			let foundUnitMatch = false;
 
 			// Iterate over the keys in the object
-			for (let key in signleMeasuringUnit) {
+			for (let key in singleMeasuringUnit) {
 				if (productMeasureUnit.includes(key)) {
 					foundUnitMatch = true;
-					pricePerUnit_Unit = signleMeasuringUnit[key];
+					pricePerUnit_Unit = singleMeasuringUnit[key];
 					break; // Exit the loop once a match is found
 				}
 			}
