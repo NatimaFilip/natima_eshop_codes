@@ -61,3 +61,34 @@ function carouselSlider() {
 		});
 	}
 }
+
+let marks = document.querySelectorAll("#souvisejici .mark-to-remove");
+//for each mark wait 100 ms and click on it
+marks.forEach((mark, index) => {
+	setTimeout(() => {
+		mark.click();
+	}, index * 100);
+});
+
+if (document.querySelector("body").classList.contains("type-product")) {
+	let relatedFiles = document.querySelector("#relatedFiles");
+	if (relatedFiles) {
+		relatedFiles.style.opacity = "1";
+		const natiosAnalysis = document.querySelector(".product-widgets .natios-analysis .natios-analysis-content-left");
+		if (natiosAnalysis) {
+			document.querySelector(".shp-tab[data-testid='tabRelatedFiles']").style.display = "none";
+			let allHrefsInRelatedFiles = relatedFiles.querySelectorAll("a:not(.btn)");
+			if (allHrefsInRelatedFiles && allHrefsInRelatedFiles.length > 0) {
+				allHrefsInRelatedFiles.forEach((a) => {
+					// Remove any text in parentheses with "kB" or "MB" etc.
+					a.textContent = a.textContent.replace(/\(\s*[\d.,]+\s*[kMGT]?B\s*\)/gi, "").trim();
+				});
+			}
+			natiosAnalysis.appendChild(relatedFiles);
+			const showTestsButton = natiosAnalysis.querySelector(".show-tests-button");
+			if (showTestsButton) {
+				showTestsButton.remove();
+			}
+		}
+	}
+}
