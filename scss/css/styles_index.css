@@ -2,6 +2,10 @@
 /*toto ↓ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
 /*mixinss*/
 /*toto ↑ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
+.in-index #carousel.test-element {
+  position: relative;
+  padding-top: 22px;
+}
 .in-index #carousel.test-element .item {
   position: relative;
   color: var(--color-black);
