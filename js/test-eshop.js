@@ -3,4 +3,4 @@ if (carousel) {
 	carousel.classList.add("test-element");
 }
 
-function inicializeSliderElement(sliderParent, sliderItem, hasDifferentDimensions) {}
+function inicializeSliderElement(sliderWrapper, sliderParent, sliderItem, hasDifferentDimensions) {}

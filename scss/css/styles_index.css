@@ -2,6 +2,133 @@
 /*toto ↓ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
 /*mixinss*/
 /*toto ↑ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
+.in-index #carousel.test-element .item {
+  position: relative;
+  color: var(--color-black);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  text-wrap: pretty;
+}
+.in-index #carousel.test-element .item .mobile-image {
+  display: none;
+}
+.in-index #carousel.test-element .item .pc-image {
+  display: block;
+}
+@media screen and (max-width: 1024px) {
+  .in-index #carousel.test-element .item .mobile-image {
+    display: block;
+  }
+  .in-index #carousel.test-element .item .pc-image {
+    display: none;
+  }
+}
+.in-index #carousel.test-element .item a {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--color-white)), to(var(--color-gray-500)));
+  background: linear-gradient(to bottom, var(--color-white), var(--color-gray-500));
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  border-radius: var(--br-16);
+  overflow: hidden;
+}
+.in-index #carousel.test-element .item img,
+.in-index #carousel.test-element .item video {
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+.in-index #carousel.test-element .item .extended-banner-texts {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 10px 30px 33px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  color: inherit;
+}
+@media screen and (max-width: 1024px) {
+  .in-index #carousel.test-element .item .extended-banner-texts {
+    padding: 20px 14px 30px 33px;
+  }
+}
+.in-index #carousel.test-element .item .extended-banner-title {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-1-4);
+  padding-bottom: 0.375em;
+}
+.in-index #carousel.test-element .item .extended-banner-text {
+  font-size: var(--fs-20);
+  line-height: var(--lh-1-4);
+  padding-bottom: 1.111em;
+}
+.in-index #carousel.test-element .item .extended-banner-link {
+  color: var(--color-white);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-700);
+  line-height: 1;
+  border-radius: var(--br-12);
+  background-color: var(--color-primary);
+  padding-bottom: 1px;
+  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
+          box-shadow: inset 0px -1px 0px var(--color-primary-500);
+  padding: 1.077em 1.538em;
+  z-index: 1;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+.in-index #carousel.test-element .item .extended-banner-link:hover, .in-index #carousel.test-element .item .extended-banner-link:focus-within {
+  background-color: var(--color-primary-hover);
+}
+.in-index #carousel.test-element .item:hover img,
+.in-index #carousel.test-element .item:hover video, .in-index #carousel.test-element .item:focus-within img,
+.in-index #carousel.test-element .item:focus-within video {
+  -webkit-transform: scale(1.025);
+          transform: scale(1.025);
+}
+.in-index #carousel.test-element .item.white {
+  color: var(--color-white);
+}
+.in-index #carousel.test-element .item .carousel-video-lazy video {
+  display: none;
+}
+.in-index #carousel.test-element .item .carousel-video-lazy.loaded video {
+  display: block;
+}
+.in-index #carousel.test-element .item .carousel-video-lazy.loaded img {
+  display: none !important;
+}
+@media screen and (max-width: 1440px) {
+  .in-index #carousel.test-element .item .extended-banner-texts {
+    padding: 20px 10px 20px 20px;
+  }
+  .in-index #carousel.test-element .item .extended-banner-title {
+    font-size: var(--fs-20);
+  }
+  .in-index #carousel.test-element .item .extended-banner-text {
+    font-size: var(--fs-16);
+    padding-bottom: 1em;
+  }
+  .in-index #carousel.test-element .item .extended-banner-link {
+    font-size: var(--fs-13);
+  }
+}
+
 .in-index #carousel:not(.test-element) {
   position: relative;
   padding-top: 22px;

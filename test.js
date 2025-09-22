@@ -62,7 +62,7 @@ function carouselSlider() {
 	}
 }
 
-let marks = document.querySelectorAll("#souvisejici .mark-to-remove");
+/* let marks = document.querySelectorAll("#souvisejici .mark-to-remove");
 //for each mark wait 100 ms and click on it
 marks.forEach((mark, index) => {
 	setTimeout(() => {
@@ -73,9 +73,10 @@ marks.forEach((mark, index) => {
 if (document.querySelector("body").classList.contains("type-product")) {
 	let relatedFiles = document.querySelector("#relatedFiles");
 	if (relatedFiles) {
-		relatedFiles.style.opacity = "1";
+
 		const natiosAnalysis = document.querySelector(".product-widgets .natios-analysis .natios-analysis-content-left");
 		if (natiosAnalysis) {
+					relatedFiles.style.opacity = "1";
 			document.querySelector(".shp-tab[data-testid='tabRelatedFiles']").style.display = "none";
 			let allHrefsInRelatedFiles = relatedFiles.querySelectorAll("a:not(.btn)");
 			if (allHrefsInRelatedFiles && allHrefsInRelatedFiles.length > 0) {
@@ -92,3 +93,4 @@ if (document.querySelector("body").classList.contains("type-product")) {
 		}
 	}
 }
+ */
