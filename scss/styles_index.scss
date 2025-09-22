@@ -1035,55 +1035,56 @@ $desktop-large-min: 1680px;
 			}
 		}
 	}
-
-	.products-block-wrapper {
-		position: relative;
-		.carousel-control {
-			@include slider-controls;
-			top: 35%;
-		}
-	}
-	.products-block:not(.products-block-luigi) {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		gap: 0;
-		margin-left: calc(-1 * var(--gap-20));
-		overflow: hidden;
-		margin-bottom: 60px;
-		margin-right: 0;
-		@media screen and (max-width: $tablet-medium-min) {
-			margin-left: calc(-1 * var(--gap-10));
-		}
-		@media screen and (max-width: $mobile-max) {
-			margin-bottom: 20px;
-		}
-		> * {
-			flex-basis: 16.6667%;
-			flex-shrink: 0;
-			padding-left: var(--gap-20);
-			transition: transform 0.3s ease-in-out;
-
-			@media screen and (max-width: $desktop-medium-min) {
-				flex-basis: 20%;
+	&:not(.test-eshop) {
+		.products-block-wrapper {
+			position: relative;
+			.carousel-control {
+				@include slider-controls;
+				top: 35%;
 			}
-			@media screen and (max-width: $desktop-min) {
-				flex-basis: 25%;
-			}
+		}
+		.products-block:not(.products-block-luigi) {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			gap: 0;
+			margin-left: calc(-1 * var(--gap-20));
+			overflow: hidden;
+			margin-bottom: 60px;
+			margin-right: 0;
 			@media screen and (max-width: $tablet-medium-min) {
-				flex-basis: 30%;
-				padding-left: var(--gap-10);
+				margin-left: calc(-1 * var(--gap-10));
 			}
 			@media screen and (max-width: $mobile-max) {
-				flex-basis: 45%;
+				margin-bottom: 20px;
 			}
-			@media screen and (max-width: $large-mobile-min) {
-				flex-basis: 50%;
-			}
-		}
-		&.dragging {
 			> * {
-				transition: none !important;
+				flex-basis: 16.6667%;
+				flex-shrink: 0;
+				padding-left: var(--gap-20);
+				transition: transform 0.3s ease-in-out;
+
+				@media screen and (max-width: $desktop-medium-min) {
+					flex-basis: 20%;
+				}
+				@media screen and (max-width: $desktop-min) {
+					flex-basis: 25%;
+				}
+				@media screen and (max-width: $tablet-medium-min) {
+					flex-basis: 30%;
+					padding-left: var(--gap-10);
+				}
+				@media screen and (max-width: $mobile-max) {
+					flex-basis: 45%;
+				}
+				@media screen and (max-width: $large-mobile-min) {
+					flex-basis: 50%;
+				}
+			}
+			&.dragging {
+				> * {
+					transition: none !important;
+				}
 			}
 		}
 	}

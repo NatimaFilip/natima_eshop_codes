@@ -3434,6 +3434,9 @@ if (body.classList.contains("in-index")) {
 
 function productSlider(productBlock) {
 	//wrap product in product-block-wrapper
+	if (isTestEshop) {
+		return;
+	}
 	let sliderAdded = false;
 	if (productBlock.classList.contains("carousel-sliding-added")) {
 		sliderAdded = true;

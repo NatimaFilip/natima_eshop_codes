@@ -8,6 +8,13 @@ let carouselItems = document.querySelectorAll("#carousel .item");
 
 inicializeSliderElement(carousel, carouselInner, carouselItems, false);
 
+let productsBlock = document.querySelectorAll(".products-block");
+
+productsBlock.forEach((block) => {
+	let productsBlockItems = block.querySelectorAll(".product");
+	inicializeSliderElement(null, block, productsBlockItems, false);
+});
+
 /* function inicializeSliderElement(sliderWrapper, sliderParent, sliderItem, hasDifferentDimensions) {
 	if (!sliderWrapper || !sliderParent || !sliderItem || sliderItem.length === 0) {
 		console.warn("inicializeSliderElement has been tried to be initialized with invalid parameters.");
@@ -85,9 +92,17 @@ inicializeSliderElement(carousel, carouselInner, carouselItems, false);
 } */
 
 function inicializeSliderElement(sliderWrapper, sliderParent, sliderItem, hasDifferentDimensions) {
-	if (!sliderWrapper || !sliderParent || !sliderItem || sliderItem.length === 0) {
+	if (!sliderParent || !sliderItem || sliderItem.length === 0) {
 		console.warn("inicializeSliderElement has been tried to be initialized with invalid parameters.");
 		return;
+	}
+
+	if (!sliderWrapper) {
+		const sliderWrapperElement = document.createElement("div");
+		sliderWrapperElement.classList.add("slider-custom-wrapper");
+		sliderParent.parentNode.insertBefore(sliderWrapperElement, sliderParent);
+		sliderWrapperElement.appendChild(sliderParent);
+		sliderWrapper = sliderWrapperElement;
 	}
 
 	createControls();
@@ -114,14 +129,30 @@ function inicializeSliderElement(sliderWrapper, sliderParent, sliderItem, hasDif
 
 		leftControl.addEventListener("click", () => slide("left"));
 		rightControl.addEventListener("click", () => slide("right"));
+
+		setTopPositionOfControls();
+		document.addEventListener("DOMContentLoaded", setTopPositionOfControls);
+		window.addEventListener("resize", setTopPositionOfControls);
+
+		function setTopPositionOfControls() {
+			const heightOfItem = sliderItem[1].querySelector("a")?.offsetHeight || 0;
+			leftControl.style.top = heightOfItem / 2 + "px";
+			rightControl.style.top = heightOfItem / 2 + "px";
+			console.log("heightOfItem", heightOfItem);
+		}
 	}
 
 	function slide(direction) {
 		if (sliderParent.classList.contains("sliding")) return;
 		sliderParent.classList.add("sliding");
 
-		const item = sliderParent.querySelector(".item");
-		const scrollAmount = item?.offsetWidth || 200;
+		const numberOfItems = parseInt(getComputedStyle(sliderWrapper).getPropertyValue("--number-of-items")) || 1;
+		const gapValue = parseInt(getComputedStyle(sliderWrapper).getPropertyValue("--gap")) || 0;
+		const largeItemMultiplier =
+			parseFloat(getComputedStyle(sliderWrapper).getPropertyValue("--width-multiplier-of-1st-item")) - 1 || 0;
+
+		const scrollAmount =
+			sliderItem[1]?.offsetWidth * numberOfItems + gapValue * (numberOfItems - largeItemMultiplier) || 200;
 
 		const to = direction === "left" ? sliderParent.scrollLeft - scrollAmount : sliderParent.scrollLeft + scrollAmount;
 
