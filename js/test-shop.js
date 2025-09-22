@@ -1,0 +1,6 @@
+let carousel = document.querySelector("#carousel");
+if (carousel) {
+	carousel.classList.add("test-element");
+}
+
+function inicializeSliderElement(sliderParent, sliderItem, hasDifferentDimensions) {}
