@@ -2946,6 +2946,9 @@ if (body.classList.contains("in-index")) {
 	document.addEventListener("debouncedResize", carouselSliding);
 
 	function carouselSliding() {
+		if (isTestEshop) {
+			return;
+		}
 		let carousel = document.querySelector("#carousel");
 		if (!carousel) {
 			console.warn("Carousel not found.");
