@@ -715,7 +715,7 @@ $desktop-large-min: 1680px;
 /*toto ↑ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
 
 .in-index {
-	#carousel {
+	#carousel:not(.test-element) {
 		position: relative;
 		padding-top: 22px;
 
