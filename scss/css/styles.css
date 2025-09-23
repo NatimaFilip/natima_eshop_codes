@@ -11778,7 +11778,7 @@ body:has(.new-gen-modal) {
 @media screen and (max-width: 500px) {
   .in-index #carousel {
     --number-of-items: 1;
-    --next-item-preview: 100px;
+    --next-item-preview: 50px;
   }
 }
 .in-index #carousel:not(.content) > *, .in-index #carousel.content > .products-block {
@@ -11924,7 +11924,7 @@ body:has(.new-gen-modal) {
   .in-index .content,
   .in-index .products-slider {
     --number-of-items: 2;
-    --next-item-preview: 40px;
+    --next-item-preview: 24px;
   }
 }
 .in-index .content:not(.content) > *, .in-index .content.content > .products-block,

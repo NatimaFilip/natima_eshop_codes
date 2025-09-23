@@ -9172,7 +9172,7 @@ body:has(.new-gen-modal) {
 		}
 		@media screen and (max-width: $large-mobile-min) {
 			--number-of-items: 1;
-			--next-item-preview: 100px;
+			--next-item-preview: 50px;
 		}
 		@include customSlider;
 	}
@@ -9201,7 +9201,7 @@ body:has(.new-gen-modal) {
 		}
 		@media screen and (max-width: $large-mobile-min) {
 			--number-of-items: 2;
-			--next-item-preview: 40px;
+			--next-item-preview: 24px;
 		}
 		@include customSlider;
 	}
