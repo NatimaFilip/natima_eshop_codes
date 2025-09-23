@@ -186,6 +186,17 @@
     font-size: var(--fs-13);
   }
 }
+.in-index #carousel .item:nth-child(2) {
+  display: none;
+}
+@media screen and (max-width: 1280px) {
+  .in-index #carousel .item:first-child {
+    display: none;
+  }
+  .in-index #carousel .item:nth-child(2) {
+    display: block;
+  }
+}
 .in-index .body-banners {
   display: grid;
   grid-template-columns: 1fr 1fr;

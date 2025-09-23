@@ -719,6 +719,17 @@ $desktop-large-min: 1680px;
 		.item {
 			@include banner-item-preset;
 		}
+		.item:nth-child(2) {
+			display: none;
+		}
+		@media screen and (max-width: $desktop-min) {
+			.item:first-child {
+				display: none;
+			}
+			.item:nth-child(2) {
+				display: block;
+			}
+		}
 	}
 	.body-banners {
 		display: grid;
