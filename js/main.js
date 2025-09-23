@@ -2887,6 +2887,19 @@ if (body.classList.contains("in-index")) {
 	let carouselItems = document.querySelectorAll("#carousel .item");
 	inicializeSliderElement(carousel, carouselInner, carouselItems, "carousel-slider", "a");
 
+	addedWhiteBanners = false;
+
+	if (!addedWhiteBanners) {
+		if (indexesOfWhiteBanners) {
+			carouselItems.forEach((item, index) => {
+				if (indexesOfWhiteBanners.includes(index)) {
+					item.classList.add("white");
+				}
+			});
+		}
+		addedWhiteBanners = true;
+	}
+
 	document.addEventListener("DOMContentLoaded", function () {
 		customLazyVideos();
 	});
