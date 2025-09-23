@@ -1418,13 +1418,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 	if (!footer) {
 		return;
 	}
-	await downloadAndSaveHeurekaReviews();
-	insertHeurekaReviews();
-	heurekaReviewsScroll();
-});
-
-document.addEventListener("resizeX", function () {
-	heurekaReviewsScroll();
+	document.addEventListener("downloadAndSaveHeurekaReviews", () => {
+		insertHeurekaReviews();
+		let heurekaWrapper = document.querySelector(".heureka-reviews-wrapper");
+		let heurekaParent = document.querySelector("#heureka-reviews-insert");
+		let heurekaReviews = document.querySelectorAll(".heureka-review");
+		inicializeSliderElement(heurekaWrapper, heurekaParent, heurekaReviews, "heureka-slider", null);
+	});
+	downloadAndSaveHeurekaReviews();
 });
 
 async function insertHeurekaReviews() {
@@ -1547,68 +1548,6 @@ async function insertHeurekaReviews() {
 	});
 }
 
-function heurekaReviewsScroll() {
-	if (!footer) {
-		return;
-	}
-	let heurekaReviewlements = footer.querySelectorAll(".heureka-review");
-	let heurekaInsertElement = footer.querySelector("#heureka-reviews-insert");
-	if (!heurekaReviewlements.length || !heurekaInsertElement) {
-		return;
-	}
-
-	// Get the computed style
-	let styles = window.getComputedStyle(heurekaReviewlements[0]);
-	// Get the CSS variable
-	let heurekaReviewWidthProperty = styles.getPropertyValue("--width").trim();
-	//remove % from the value
-	heurekaReviewWidthProperty = heurekaReviewWidthProperty.replace("%", "");
-	// calculate how many to 100
-	heurekaReviewVisibleAmount = (100 / heurekaReviewWidthProperty).toFixed(0);
-
-	//figure if there are more reviews than visible amount
-	if (numberOfTotalViableReviews <= heurekaReviewVisibleAmount) {
-		return;
-	}
-
-	let scrolledAmount = 0;
-	let arrowRight = footer.querySelector("#heureka-reviews-scroll-right");
-	let arrowLeft = footer.querySelector("#heureka-reviews-scroll-left");
-	if (!arrowRight || !arrowLeft) {
-		console.warn("Heureka reviews scroll arrows not found.");
-		return;
-	}
-	arrowRight.classList.add("active");
-	arrowRight.addEventListener("click", function () {
-		scrolledAmount += 1;
-		scrollHeurekaReviews();
-	});
-	arrowLeft.addEventListener("click", function () {
-		scrolledAmount -= 1;
-		scrollHeurekaReviews();
-	});
-
-	function scrollHeurekaReviews() {
-		heurekaScrolled = true;
-		if (scrolledAmount > 0) {
-			arrowLeft.classList.add("active");
-		}
-		if (scrolledAmount <= 0) {
-			arrowLeft.classList.remove("active");
-		}
-		if (scrolledAmount >= numberOfTotalViableReviews - heurekaReviewVisibleAmount) {
-			arrowRight.classList.remove("active");
-		} else {
-			arrowRight.classList.add("active");
-		}
-		heurekaInsertElement.style.transform = `translateX(-${scrolledAmount * parseFloat(heurekaReviewWidthProperty)}%)`;
-	}
-	if (heurekaScrolled) {
-		heurekaInsertElement.style.transform = "translateX(0)";
-		arrowLeft.classList.remove("active");
-	}
-}
-
 async function downloadAndSaveHeurekaReviews() {
 	const url =
 		"https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_cz.json";
@@ -1621,8 +1560,12 @@ async function downloadAndSaveHeurekaReviews() {
 	const cached = localStorage.getItem(storageKey);
 	if (expiry && cached && now < parseInt(expiry)) {
 		// Data is still valid
-		console.log("Heureka reviews loaded from localStorage.");
+
 		heurekaReviewsData = JSON.parse(cached).reviews.review;
+
+		console.log("Heureka reviews loaded from localStorage.");
+		console.log("CUSTOM EVENT DISPATCHED: downloadAndSaveHeurekaReviews");
+		document.dispatchEvent(new CustomEvent("downloadAndSaveHeurekaReviews"));
 		return;
 	}
 
@@ -1633,8 +1576,12 @@ async function downloadAndSaveHeurekaReviews() {
 		const data = await response.json();
 		localStorage.setItem(storageKey, JSON.stringify(data));
 		localStorage.setItem(expiryKey, (now + 24 * 60 * 60 * 1000).toString());
-		console.log("Heureka reviews saved to localStorage.");
+
 		heurekaReviewsData = data.reviews.review;
+
+		console.log("Heureka reviews saved to localStorage.");
+		console.log("CUSTOM EVENT DISPATCHED: downloadAndSaveHeurekaReviews");
+		document.dispatchEvent(new CustomEvent("downloadAndSaveHeurekaReviews"));
 	} catch (error) {
 		console.error("Failed to fetch Heureka reviews:", error);
 	}
@@ -2930,274 +2877,15 @@ if (body.classList.contains("type-product")) {
 }
 
 /*------------------------------------------------- Index*/
-let addedSlidingListener;
 let addedWhiteBanners;
 let allProductsBlocks = document.querySelectorAll(".products-block");
-
-let carouselRightButtonClickHandler;
-let carouselLeftButtonClickHandler;
-
 let hodnoceniObchoduAdded = false;
+
 if (body.classList.contains("in-index")) {
-	addedSlidingListener = false;
-	addedWhiteBanners = false;
-
-	carouselSliding();
-	document.addEventListener("debouncedResize", carouselSliding);
-
-	function carouselSliding() {
-		if (isTestEshop) {
-			return;
-		}
-		let carousel = document.querySelector("#carousel");
-		if (!carousel) {
-			console.warn("Carousel not found.");
-			return; // Exit if carousel is not found
-		}
-		let carouselInner = carousel.querySelector(".carousel-inner");
-		if (!carouselInner) {
-			console.warn("Carousel inner not found.");
-			return; // Exit if carousel inner is not found
-		}
-		let carouselItems = carousel.querySelectorAll(".item");
-		if (!carouselItems && carouselItems.length <= 0) {
-			console.warn("Carousel items not found.");
-			return; // Exit if carousel items are not found
-		}
-
-		if (!addedWhiteBanners) {
-			if (indexesOfWhiteBanners) {
-				carouselItems.forEach((item, index) => {
-					if (indexesOfWhiteBanners.includes(index)) {
-						item.classList.add("white");
-					}
-				});
-			}
-			addedWhiteBanners = true;
-		}
-
-		let carouselLeftButton = carousel.querySelector(".carousel-control.left");
-		let carouselRightButton = carousel.querySelector(".carousel-control.right");
-		if (!carouselLeftButton || !carouselRightButton) {
-			console.warn("Carousel buttons not found.");
-			return; // Exit if buttons are not found
-		}
-		carouselLeftButton.removeAttribute("href");
-		carouselRightButton.removeAttribute("href");
-
-		let activeItems = Array.from(carouselItems).filter((item) => {
-			return window.getComputedStyle(item).getPropertyValue("display") !== "none";
-		});
-
-		let flexBasisFirstItem = parseFloat(
-			window.getComputedStyle(activeItems[0]).getPropertyValue("flex-basis").replace("%", "")
-		);
-		let flexBasisOtherItems = parseFloat(
-			window.getComputedStyle(activeItems[1]).getPropertyValue("flex-basis").replace("%", "")
-		);
-
-		let totalWidth = 0;
-		let initialDisplayedItems = 0;
-		let totalAmountOfItems = activeItems.length;
-
-		// Calculate how many items fit into 100%
-		while (totalWidth < 100) {
-			if (initialDisplayedItems === 0) {
-				// Add the first item's width
-				totalWidth += flexBasisFirstItem;
-			} else {
-				// Add the width of subsequent items
-				totalWidth += flexBasisOtherItems;
-			}
-			if (totalWidth <= 100) {
-				initialDisplayedItems++;
-			}
-		}
-
-		carousel.classList.remove("carousel-no-sliding");
-		if (initialDisplayedItems >= totalAmountOfItems) {
-			carousel.classList.add("carousel-no-sliding");
-			carouselLeftButton.classList.add("display-none");
-			carouselRightButton.classList.add("display-none");
-			return;
-		}
-
-		carouselLeftButton.classList.add("display-none");
-		carouselRightButton.classList.remove("display-none");
-
-		let lastVisibleItem = initialDisplayedItems;
-		let offsetAmountForLargeItem = 0;
-
-		offsetAmountForLargeItem = Math.round(flexBasisFirstItem / flexBasisOtherItems) - 1;
-
-		const transformItemIncrement = initialDisplayedItems + offsetAmountForLargeItem;
-
-		let offsetPercentageForLastItems = 0;
-
-		if (addedSlidingListener) {
-			carouselRightButton.removeEventListener("click", carouselRightButtonClickHandler);
-			carouselLeftButton.removeEventListener("click", carouselLeftButtonClickHandler);
-			activeItems.forEach((item, index) => {
-				item.style.transform = `translateX(0%)`;
-			});
-		}
-		let currentTransform = 0;
-
-		// Define the handlers
-		carouselRightButtonClickHandler = function () {
-			carouselLeftButton.classList.remove("display-none");
-			lastVisibleItem = lastVisibleItem + transformItemIncrement;
-			if (lastVisibleItem >= totalAmountOfItems) {
-				lastVisibleItem = totalAmountOfItems;
-				carouselRightButton.classList.add("display-none");
-
-				// aby tam nezustalo volne misto, ale nejak to nevychazi
-				if (initialDisplayedItems <= 2 && flexBasisOtherItems > 26) {
-					offsetPercentageForLastItems = flexBasisOtherItems - 100;
-				}
-			} else {
-				offsetPercentageForLastItems = 0;
-			}
-			currentTransform =
-				(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 + offsetPercentageForLastItems;
-
-			activeItems.forEach((item, index) => {
-				if (index == 0 && offsetAmountForLargeItem !== 0) {
-					item.style.transform = `translateX(-${currentTransform / 2}%)`;
-				} else {
-					item.style.transform = `translateX(-${currentTransform}%)`;
-				}
-			});
-		};
-
-		carouselLeftButtonClickHandler = function () {
-			carouselRightButton.classList.remove("display-none");
-			lastVisibleItem = lastVisibleItem - transformItemIncrement;
-			if (lastVisibleItem <= initialDisplayedItems) {
-				lastVisibleItem = initialDisplayedItems;
-				carouselLeftButton.classList.add("display-none");
-			}
-			offsetPercentageForLastItems = 0;
-			currentTransform =
-				(lastVisibleItem - transformItemIncrement + offsetAmountForLargeItem) * 100 + offsetPercentageForLastItems;
-			activeItems.forEach((item, index) => {
-				if (index == 0 && offsetAmountForLargeItem !== 0) {
-					item.style.transform = `translateX(-${currentTransform / 2}%)`;
-				} else {
-					item.style.transform = `translateX(-${currentTransform}%)`;
-				}
-			});
-		};
-
-		// Add the event listeners
-		carouselRightButton.addEventListener("click", carouselRightButtonClickHandler);
-		carouselLeftButton.addEventListener("click", carouselLeftButtonClickHandler);
-
-		// Add the event listeners for dragging
-		let isDragging = false;
-		let startX = 0;
-		let currentX = 0;
-		let dragDistance = 0;
-		let dragThreshold = 100;
-		if (!isDesktop) {
-			dragThreshold = 50;
-		}
-
-		let dragMultiplier = 1;
-		if (!isDesktop) {
-			dragMultiplier = 5;
-		}
-		let dragTarget = null;
-
-		if (!addedSlidingListener) {
-			document.addEventListener("mousedown", (e) => {
-				if (e.target === carousel || carousel.contains(e.target)) {
-					isDragging = true;
-					startX = e.pageX;
-					dragDistance = 0;
-					dragTarget = carousel;
-					carousel.classList.add("dragging");
-				}
-			});
-
-			document.addEventListener("mousemove", (e) => {
-				if (!isDragging || dragTarget !== carousel) return;
-				currentX = e.pageX;
-				dragDistance = currentX - startX;
-				activeItems.forEach((item, index) => {
-					if (index === 0 && offsetAmountForLargeItem !== 0) {
-						item.style.transform = `translateX(-${(currentTransform - dragDistance / 30) / 2}%)`;
-					} else {
-						item.style.transform = `translateX(-${currentTransform - dragDistance / 30}%)`;
-					}
-				});
-			});
-
-			document.addEventListener("mouseup", (e) => {
-				if (!isDragging || dragTarget !== carousel) return;
-				isDragging = false;
-				dragTarget = null;
-				carousel.classList.remove("dragging");
-				if (dragDistance > dragThreshold) {
-					carouselLeftButtonClickHandler();
-				} else if (dragDistance < -dragThreshold) {
-					carouselRightButtonClickHandler();
-				} else {
-					activeItems.forEach((item, index) => {
-						if (index === 0 && offsetAmountForLargeItem !== 0) {
-							item.style.transform = `translateX(-${currentTransform / 2}%)`;
-						} else {
-							item.style.transform = `translateX(-${currentTransform}%)`;
-						}
-					});
-				}
-			});
-
-			// Add touch support for mobile
-			carousel.addEventListener("touchstart", (e) => {
-				isDragging = true;
-				startX = e.touches[0].pageX;
-				dragDistance = 0;
-				carousel.classList.add("dragging");
-			});
-
-			carousel.addEventListener("touchmove", (e) => {
-				if (!isDragging) return;
-				currentX = e.touches[0].pageX;
-				dragDistance = currentX - startX;
-				activeItems.forEach((item, index) => {
-					if (index == 0 && offsetAmountForLargeItem !== 0) {
-						item.style.transform = `translateX(-${(currentTransform - (dragDistance / 30) * dragMultiplier) / 2}%)`;
-					} else {
-						item.style.transform = `translateX(-${currentTransform - (dragDistance / 30) * dragMultiplier}%)`;
-					}
-				});
-			});
-
-			carousel.addEventListener("touchend", () => {
-				if (!isDragging) return;
-				isDragging = false;
-				carousel.classList.remove("dragging");
-
-				if (dragDistance > dragThreshold) {
-					// Dragged to the right, call left button handler
-					carouselLeftButtonClickHandler();
-				} else if (dragDistance < -dragThreshold) {
-					// Dragged to the left, call right button handler
-					carouselRightButtonClickHandler();
-				} else {
-					activeItems.forEach((item, index) => {
-						if (index == 0 && offsetAmountForLargeItem !== 0) {
-							item.style.transform = `translateX(-${currentTransform / 2}%)`;
-						} else {
-							item.style.transform = `translateX(-${currentTransform}%)`;
-						}
-					});
-				}
-			});
-		}
-		addedSlidingListener = true;
-	}
+	let carousel = document.querySelector("#carousel");
+	let carouselInner = document.querySelector(".carousel-inner");
+	let carouselItems = document.querySelectorAll("#carousel .item");
+	inicializeSliderElement(carousel, carouselInner, carouselItems, "carousel-slider", "a");
 
 	document.addEventListener("DOMContentLoaded", function () {
 		customLazyVideos();
@@ -3232,8 +2920,8 @@ if (body.classList.contains("in-index")) {
 	allProductsBlocks = document.querySelectorAll(".products-block");
 	if (allProductsBlocks && allProductsBlocks.length > 0) {
 		allProductsBlocks.forEach((block) => {
-			productSlider(block);
-			document.addEventListener("debouncedResize", () => productSlider(block));
+			let productsBlockItems = block.querySelectorAll(".product");
+			inicializeSliderElement(null, block, productsBlockItems, "products-slider", "img");
 		});
 	}
 
@@ -3255,6 +2943,7 @@ if (body.classList.contains("in-index")) {
 		}
 	}
 	hodnoceniObchoduAdded = false;
+
 	welcomeWrapper();
 	function welcomeWrapper() {
 		let welcomeSection = document.querySelector(".welcome-wrapper .welcome");
@@ -3275,6 +2964,12 @@ if (body.classList.contains("in-index")) {
 			}
 		}
 	}
+
+	document.addEventListener("votesWrapLoaded", () => {
+		let votesWrap = document.querySelector(".votes-wrap");
+		let votesItems = document.querySelectorAll(".votes-wrap .vote-wrap");
+		inicializeSliderElement(null, votesWrap, votesItems, "votes-slider", null);
+	});
 
 	hodnoceniObchodu();
 	async function hodnoceniObchodu() {
@@ -3313,6 +3008,9 @@ if (body.classList.contains("in-index")) {
 		if (plLang) {
 			fetchAddress = "/opinie-o-sklepie";
 		}
+		if (isTestEshop) {
+			fetchAddress = "/hodnoceni-obchodu.html";
+		}
 
 		//get .content-inner from the adress and append it to the hodnoceniObchoduSection
 		try {
@@ -3337,8 +3035,12 @@ if (body.classList.contains("in-index")) {
 			if (votesWrap) {
 				hodnoceniObchoduSection.appendChild(numberOfReviewsLink);
 				hodnoceniObchoduSection.appendChild(votesWrap);
-				reviewSlider(hodnoceniObchoduSection);
-				document.addEventListener("debouncedResize", () => reviewSlider(hodnoceniObchoduSection));
+				console.log("CUSTOM EVENT DISPATCHED: votesWrapLoaded");
+				document.dispatchEvent(new CustomEvent("votesWrapLoaded"));
+				if (!isTestEshop) {
+					reviewSlider(hodnoceniObchoduSection);
+					document.addEventListener("debouncedResize", () => reviewSlider(hodnoceniObchoduSection));
+				}
 			} else {
 				console.warn("No .content-inner found in the fetched content.");
 			}
@@ -3416,7 +3118,7 @@ if (body.classList.contains("in-index")) {
 			if (index !== 3) {
 				// Find the next sibling .products-block-wrapper
 				let sibling = titleElement.nextElementSibling;
-				while (sibling && !sibling.classList.contains("products-block-wrapper")) {
+				while (sibling && !sibling.classList.contains("products-slider")) {
 					sibling = sibling.nextElementSibling;
 				}
 				if (sibling) {
@@ -4326,4 +4028,200 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 			}
 		}
 	});
+}
+
+function inicializeSliderElement(sliderWrapper, sliderParent, sliderItem, customClass, itemForHeightForControls) {
+	if (!sliderParent || !sliderItem || sliderItem.length === 0) {
+		console.warn("inicializeSliderElement has been tried to be initialized with invalid parameters.");
+		return;
+	}
+
+	if (!sliderWrapper) {
+		const sliderWrapperElement = document.createElement("div");
+		sliderWrapperElement.classList.add("slider-custom-wrapper");
+		sliderParent.parentNode.insertBefore(sliderWrapperElement, sliderParent);
+		sliderWrapperElement.appendChild(sliderParent);
+		sliderWrapper = sliderWrapperElement;
+	}
+	sliderWrapper.classList.add(customClass, "slider-custom-wrapper");
+
+	createControls();
+	enableDragging();
+
+	function createControls() {
+		let initialControls = sliderWrapper.querySelectorAll(".carousel-control");
+		if (initialControls && initialControls.length > 0) {
+			initialControls.forEach((control) => control.remove());
+		}
+
+		const leftControl = document.createElement("div");
+		leftControl.classList.add("carousel-control", "left", "hidden-control");
+		leftControl.setAttribute("role", "button");
+		leftControl.setAttribute("data-slide", "prev");
+
+		const rightControl = document.createElement("div");
+		rightControl.classList.add("carousel-control", "right");
+		rightControl.setAttribute("role", "button");
+		rightControl.setAttribute("data-slide", "next");
+
+		sliderWrapper.appendChild(leftControl);
+		sliderWrapper.appendChild(rightControl);
+
+		leftControl.addEventListener("click", () => slide("left"));
+		rightControl.addEventListener("click", () => slide("right"));
+
+		setTopPositionOfControls();
+		document.addEventListener("DOMContentLoaded", setTopPositionOfControls);
+		window.addEventListener("resize", setTopPositionOfControls);
+
+		function setTopPositionOfControls() {
+			let heightItem;
+			if (itemForHeightForControls) {
+				heightItem = sliderItem[0].querySelector(itemForHeightForControls);
+			} else {
+				heightItem = sliderItem[0];
+			}
+			if (heightItem) {
+				const style = window.getComputedStyle(heightItem);
+				const marginTop = parseFloat(style.marginTop) || 0;
+				const marginBottom = parseFloat(style.marginBottom) || 0;
+				const heightOfItem = heightItem.offsetHeight || 0;
+				const totalHeight = heightOfItem + marginTop + marginBottom;
+				leftControl.style.top = totalHeight / 2 + "px";
+				rightControl.style.top = totalHeight / 2 + "px";
+				if (totalHeight === 0) {
+					leftControl.style.top = "50%";
+					rightControl.style.top = "50%";
+				}
+			} else {
+				leftControl.style.top = "50%";
+				rightControl.style.top = "50%";
+			}
+		}
+
+		//if sliderParent is not scrollable hide controls
+		if (sliderParent.scrollWidth <= sliderParent.clientWidth) {
+			leftControl.classList.add("hidden-control");
+			rightControl.classList.add("hidden-control");
+		}
+	}
+
+	function slide(direction) {
+		if (sliderParent.classList.contains("sliding")) return;
+		sliderParent.classList.add("sliding");
+
+		const numberOfItems = parseInt(getComputedStyle(sliderWrapper).getPropertyValue("--number-of-items")) || 1;
+		const gapValue = parseInt(getComputedStyle(sliderWrapper).getPropertyValue("--gap")) || 0;
+		const largeItemMultiplier =
+			parseFloat(getComputedStyle(sliderWrapper).getPropertyValue("--width-multiplier-of-1st-item")) - 1 || 0;
+
+		let scrollAmount;
+		if (sliderItem.length > 1) {
+			scrollAmount =
+				sliderItem[1]?.offsetWidth * numberOfItems + gapValue * (numberOfItems - largeItemMultiplier) || 200;
+		} else {
+			scrollAmount =
+				sliderItem[0]?.offsetWidth * numberOfItems + gapValue * (numberOfItems - largeItemMultiplier) || 200;
+		}
+
+		const to = direction === "left" ? sliderParent.scrollLeft - scrollAmount : sliderParent.scrollLeft + scrollAmount;
+
+		sliderParent.scrollTo({ left: to, behavior: "smooth" });
+
+		setTimeout(() => {
+			sliderParent.classList.remove("sliding");
+		}, 300);
+	}
+
+	function enableDragging() {
+		let isDragging = false;
+		let startX = 0;
+		let startScrollLeft = 0;
+		let moved = false;
+		let activePointerId = null;
+		let moveThreshold = 5; // px
+
+		// Start drag
+		const onPointerDown = (e) => {
+			// Only primary button if mouse
+			if (e.pointerType === "mouse" && e.button !== 0) return;
+
+			isDragging = true;
+			moved = false;
+			activePointerId = e.pointerId;
+
+			startX = e.clientX;
+			startScrollLeft = sliderParent.scrollLeft;
+
+			sliderParent.classList.add("grabbing");
+
+			// Attach move/up/cancel to window for robust dragging
+			window.addEventListener("pointermove", onPointerMove);
+			window.addEventListener("pointerup", endDrag);
+			window.addEventListener("pointercancel", endDrag);
+			window.addEventListener("pointerleave", endDrag);
+		};
+
+		// Drag move
+		const onPointerMove = (e) => {
+			if (!isDragging || e.pointerId !== activePointerId) return;
+
+			const dx = e.clientX - startX;
+			if (Math.abs(dx) > moveThreshold) moved = true;
+			sliderParent.scrollLeft = startScrollLeft - dx;
+
+			e.preventDefault();
+		};
+
+		// End/cancel drag
+		const endDrag = (e) => {
+			if (e && activePointerId !== null && e.pointerId !== activePointerId) return;
+			isDragging = false;
+			activePointerId = null;
+			sliderParent.classList.remove("grabbing");
+
+			window.removeEventListener("pointermove", onPointerMove);
+			window.removeEventListener("pointerup", endDrag);
+			window.removeEventListener("pointercancel", endDrag);
+			window.removeEventListener("pointerleave", endDrag);
+		};
+
+		// Suppress clicks if a drag happened (avoids accidental link/card clicks)
+		const onClick = (e) => {
+			if (moved) {
+				e.preventDefault();
+				e.stopPropagation();
+				moved = false; // reset
+			}
+		};
+
+		// Attach pointerdown to sliderWrapper so dragging works from wrapper or any child
+		sliderWrapper.addEventListener("pointerdown", onPointerDown);
+		sliderParent.addEventListener("click", onClick);
+
+		function removeHiddenControl(element) {
+			element.classList.remove("hidden-control");
+		}
+		function addHiddenControl(element) {
+			element.classList.add("hidden-control");
+		}
+
+		let leftControl = sliderWrapper.querySelector(".carousel-control.left");
+		let rightControl = sliderWrapper.querySelector(".carousel-control.right");
+		if (leftControl && rightControl) {
+			sliderParent.addEventListener("scroll", () => {
+				if (sliderParent.scrollLeft <= 0) {
+					addHiddenControl(leftControl);
+				} else {
+					removeHiddenControl(leftControl);
+				}
+
+				if (sliderParent.scrollLeft >= sliderParent.scrollWidth - sliderParent.clientWidth - 1) {
+					addHiddenControl(rightControl);
+				} else {
+					removeHiddenControl(rightControl);
+				}
+			});
+		}
+	}
 }

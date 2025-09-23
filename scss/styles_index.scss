@@ -712,113 +712,12 @@ $desktop-large-min: 1680px;
 	}
 }
 
-/*toto ↑ smazat, je to tu jen, ať to pak můžu jednoduše sjednotit*/
 .in-index {
-	#carousel.test-element {
+	#carousel {
 		position: relative;
 		padding-top: 22px;
 		.item {
 			@include banner-item-preset;
-		}
-	}
-}
-.in-index {
-	#carousel:not(.test-element) {
-		position: relative;
-		padding-top: 22px;
-
-		.carousel-control {
-			@include slider-controls;
-			&.left {
-				@media screen and (max-width: $large-mobile-min) {
-					top: 50%;
-				}
-			}
-			&.right {
-				@media screen and (max-width: $large-mobile-min) {
-					top: 50%;
-				}
-			}
-		}
-
-		.carousel-inner {
-			--padding-left: var(--gap-20);
-			display: flex;
-			flex: row;
-			flex-wrap: nowrap;
-			min-height: auto !important;
-			margin-left: calc(-1 * var(--padding-left));
-			overflow: hidden;
-
-			.item {
-				user-select: none;
-				flex-basis: 25%;
-				flex-shrink: 0;
-				@include banner-item-preset;
-				a {
-					background: linear-gradient(to bottom, var(--color-white), var(--color-gray-500));
-					margin-left: var(--padding-left);
-				}
-			}
-			.item:first-child {
-				flex-basis: 50%;
-				flex-shrink: 0;
-				@media screen and (min-width: $desktop-min) {
-					.extended-banner-texts {
-						width: 60%;
-					}
-					.extended-banner-title {
-						font-size: var(--fs-32);
-					}
-				}
-			}
-			.item:nth-child(2) {
-				display: none;
-			}
-			@media screen and (max-width: $desktop-medium-min) {
-				.item {
-					flex-basis: 33.333%;
-				}
-				.item:first-child {
-					flex-basis: 66.666%;
-				}
-			}
-			@media screen and (max-width: $desktop-min) {
-				--padding-left: var(--gap-16);
-
-				.item {
-					flex-basis: 33.333%;
-				}
-				.item:first-child {
-					display: none;
-				}
-				.item:nth-child(2) {
-					display: block;
-				}
-			}
-
-			@media screen and (max-width: $tablet-medium-min) {
-				--padding-left: var(--gap-10);
-				.item {
-					flex-basis: 40%;
-				}
-			}
-			@media screen and (max-width: $mobile-max) {
-				.item {
-					flex-basis: 55%;
-				}
-			}
-
-			@media screen and (max-width: $large-mobile-min) {
-				.item {
-					flex-basis: 80%;
-				}
-			}
-		}
-		&.dragging {
-			.item {
-				transition: none !important;
-			}
 		}
 	}
 	.body-banners {
@@ -1035,7 +934,15 @@ $desktop-large-min: 1680px;
 			}
 		}
 	}
-	&:not(.test-eshop) {
+	.products-block:not(.products-block-luigi) {
+		margin-bottom: 60px;
+		@media screen and (max-width: $mobile-max) {
+			margin-bottom: 20px;
+		}
+	}
+	.products-slider {
+	}
+	/* &:not(.test-eshop) {
 		.products-block-wrapper {
 			position: relative;
 			.carousel-control {
@@ -1087,7 +994,7 @@ $desktop-large-min: 1680px;
 				}
 			}
 		}
-	}
+	} */
 	.homepage-blog-wrapper {
 		display: flex;
 		flex-direction: row;
@@ -1255,7 +1162,8 @@ $desktop-large-min: 1680px;
 		display: none;
 	}
 	.hodnoceni-obchodu-section {
-		display: grid;
+		display: flex;
+		flex-wrap: wrap;
 		background-color: var(--color-gray-400);
 		border-radius: var(--br-16);
 		padding: 44px 24px 58px 42px;
@@ -1266,15 +1174,16 @@ $desktop-large-min: 1680px;
 		}
 		.hodnoceni-obchodu-title {
 			padding-bottom: 1.4167em;
+			width: auto;
 			@media screen and (max-width: $tablet-max) {
+				width: 100%;
 				padding-bottom: 0.75em;
 				text-align: center;
-				grid-column: 1/-1;
 			}
 		}
 		.stars-label-link {
-			grid-row: 1;
-			grid-column: 2;
+			width: auto;
+			margin-left: auto;
 			text-align: right;
 			padding-right: var(--gap-16);
 			display: flex;
@@ -1297,12 +1206,16 @@ $desktop-large-min: 1680px;
 			}
 			@media screen and (max-width: $tablet-max) {
 				justify-content: center;
-				grid-column: 1/-1;
-				grid-row: 3;
+
 				padding-right: 0;
 				text-align: center;
 				padding-top: var(--gap-16);
+				order: 3;
+				margin: auto;
 			}
+		}
+		.slider-custom-wrapper {
+			width: 100%;
 		}
 		.votes-wrap {
 			flex-wrap: nowrap;
@@ -1315,68 +1228,12 @@ $desktop-large-min: 1680px;
 		}
 		.vote-wrap {
 			background: var(--color-white);
-			flex-basis: 25%;
-			max-width: calc(25% - var(--gap-16));
-			min-width: calc(25% - var(--gap-16));
-			flex-grow: 0;
-			flex-shrink: 1;
 			padding: var(--gap-20);
-			margin-right: var(--gap-16);
-			transition: transform 0.2s ease-in-out;
-			@media screen and (max-width: $desktop-medium-min) {
-				flex-basis: 33.3333%;
-				max-width: calc(33.3333% - var(--gap-16));
-				min-width: calc(33.3333% - var(--gap-16));
-			}
-			@media screen and (max-width: $tablet-medium-min) {
-				flex-basis: 40%;
-				max-width: calc(40% - var(--gap-16));
-				min-width: calc(40% - var(--gap-16));
-			}
-
-			@media screen and (max-width: $mobile-max) {
-				margin-right: var(--gap-10);
-				flex-basis: 60%;
-				max-width: calc(60% - var(--gap-10));
-				min-width: calc(60% - var(--gap-10));
-			}
-			@media screen and (max-width: $large-mobile-min) {
-				margin-right: var(--gap-10);
-				flex-basis: 75%;
-				max-width: calc(75% - var(--gap-10));
-				min-width: calc(75% - var(--gap-10));
-			}
 		}
 		.vote-content {
 			max-height: 4em;
 			overflow-y: auto;
 			overflow-x: hidden;
-		}
-		.carousel-control {
-			@include slider-controls;
-			position: relative;
-			grid-row: 2;
-			&.left {
-				grid-column: 1;
-				transform: translate(-50%, -50%) rotate(180deg);
-				@media screen and (max-width: $tablet-max) {
-					transform: translate(-10px, -50%) rotate(180deg);
-				}
-			}
-			&.right {
-				right: 0;
-				grid-column: 2;
-				transform: translate(calc(50% - 16px), -50%);
-				margin-left: auto;
-				@media screen and (max-width: $tablet-max) {
-					transform: translate(20px, -50%);
-				}
-			}
-			&.display-none {
-				display: block !important;
-				visibility: hidden;
-				pointer-events: none;
-			}
 		}
 	}
 	.homepage-group-title {
@@ -1416,16 +1273,20 @@ $desktop-large-min: 1680px;
 			background-size: contain;
 		}
 		&.desktop {
+			display: block !important;
 			@media screen and (max-width: 768px) {
-				display: none;
+				display: none !important;
 			}
 		}
 		&.mobile {
-			display: none;
+			display: none !important;
 			@media screen and (max-width: 768px) {
-				display: block;
+				display: block !important;
 				text-align: center;
 				margin-bottom: 40px;
+				width: 100%;
+				align-items: center;
+				justify-content: center;
 			}
 		}
 	}

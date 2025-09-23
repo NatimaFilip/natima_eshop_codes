@@ -4662,17 +4662,21 @@ body.type-manufacturer-detail {
 		align-items: center;
 		justify-content: space-evenly;
 		max-width: 100%;
-		overflow: hidden;
 		text-wrap: balance;
 		gap: var(--gap-30);
-		padding: var(--gap-55) var(--padding-sides-footer);
+		padding: var(--gap-55) 0 var(--gap-55) calc(var(--padding-sides-footer) * 3);
 
 		@media screen and (max-width: $tablet-max) {
 			flex-wrap: wrap;
+			padding-left: 0;
+			padding-right: 0;
 		}
 		@media screen and (max-width: $mobile-max) {
-			padding: 2.5em 2em 3.4375em 1em;
+			padding: 2.5em 0 3.4375em 0;
 			gap: var(--gap-30);
+		}
+		> * {
+			min-width: 0;
 		}
 
 		p {
@@ -4709,44 +4713,16 @@ body.type-manufacturer-detail {
 			}
 		}
 		.heureka-reviews-wrapper {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: flex-start;
-			position: relative;
-			flex-grow: 0;
 			flex-shrink: 1;
-			max-width: 50%;
-			overflow: hidden;
+
 			@media screen and (max-width: $tablet-max) {
 				max-width: 100%;
 			}
 			@media screen and (max-width: $mobile-max) {
 				overflow: visible;
 			}
-
 			#heureka-reviews-insert {
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: flex-start;
-				flex-wrap: nowrap;
-				transition: transform 0.2s ease-in-out;
-				width: 100%;
-
 				.heureka-review {
-					--width: 33.34%;
-					@media screen and (max-width: $desktop-medium-min) {
-						--width: 50%;
-					}
-					@media screen and (max-width: $tablet-max) {
-						--width: 33.34%;
-					}
-					@media screen and (max-width: $mobile-max) {
-						--width: 80%;
-					}
-					width: calc(var(--width) - var(--gap-20));
-					flex-shrink: 0;
 					border-radius: var(--br-16);
 					border-style: solid;
 					border-width: 1px;
@@ -4756,7 +4732,7 @@ body.type-manufacturer-detail {
 					overflow-y: auto;
 					overflow-x: hidden;
 					padding: var(--gap-20) var(--gap-24) var(--gap-24);
-					margin-right: var(--gap-20);
+
 					display: flex;
 					gap: var(--gap-16);
 					flex-direction: column;
@@ -4813,64 +4789,6 @@ body.type-manufacturer-detail {
 							background-color: var(--color-red-200);
 						}
 					}
-				}
-			}
-
-			#heureka-reviews-scroll-right,
-			#heureka-reviews-scroll-left {
-				position: absolute;
-				--component-width: 3.25em;
-				right: 0;
-
-				top: 50%;
-				transform: translateY(-50%);
-				width: var(--component-width);
-				height: var(--component-width);
-				background-color: var(--color-white);
-				display: none;
-
-				align-items: center;
-				justify-content: center;
-				cursor: pointer;
-				border-radius: var(--br-16);
-				@media screen and (max-width: $mobile-max) {
-					top: 50%;
-				}
-				&.active {
-					display: flex;
-				}
-				&::before {
-					content: "";
-					display: block;
-					width: 0.625em;
-					height: 0.625em;
-					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
-					background-position: center;
-					background-repeat: no-repeat;
-					background-size: contain;
-					transform: rotate(90deg);
-				}
-				&:hover,
-				&:focus-within {
-					&::before {
-						background-size: 0.875em;
-					}
-				}
-				@media screen and (max-width: $mobile-max) {
-					right: calc(var(--component-width) / -2 - var(--padding-sides) / 2 - 1px);
-					/* 	right: calc(20% + var(--component-width) / -5); */
-					background-color: var(--color-gray-400);
-				}
-			}
-			#heureka-reviews-scroll-left {
-				top: 8px;
-				transform: translateY(0);
-				@media screen and (max-width: $mobile-max) {
-					top: 0%;
-					transform: translateY(-50%);
-				}
-				&::before {
-					transform: rotate(-90deg);
 				}
 			}
 		}
@@ -9125,4 +9043,243 @@ body:has(.new-gen-modal) {
 		max-width: 1000px;
 		margin: 0 auto;
 	}
+}
+
+@mixin customSlider {
+	position: relative; /*carousel inner, .products-block*/
+	user-select: none;
+	display: block;
+	&:not(.content) > *,
+	&.content > .products-block {
+		display: flex;
+		flex-direction: row;
+		overflow-x: scroll;
+		--gap: var(--gap-20);
+		@media screen and (max-width: $tablet-medium-min) {
+			--gap: var(--gap-10);
+		}
+		gap: var(--gap);
+		flex-wrap: nowrap;
+		margin-left: 0;
+		margin-right: 0;
+
+		&.grabbing,
+		&.grabbing * {
+			cursor: grabbing !important;
+		}
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		/*.item, .product*/
+		> * {
+			width: calc(
+				100% / var(--number-of-items) - var(--gap) * ((var(--number-of-items) - 1) / var(--number-of-items)) -
+					var(--next-item-preview) / var(--number-of-items)
+			);
+			flex-shrink: 0;
+			scroll-snap-align: start;
+			flex-basis: auto;
+		}
+		> *:first-child {
+			width: calc(
+				(
+						100% / var(--number-of-items) - var(--gap) * ((var(--number-of-items) - 1) / var(--number-of-items)) -
+							var(--next-item-preview) / var(--number-of-items)
+					) * var(--width-multiplier-of-1st-item)
+			);
+		}
+	}
+	.carousel-control {
+		position: absolute;
+		top: 50%;
+		background: var(--color-black);
+		width: 52px;
+		height: 52px;
+		border-radius: 50%;
+		border-style: solid;
+		border-width: 4px;
+		border-color: var(--color-white);
+		background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_white.svg");
+		background-position: calc(50% + 1px) center;
+		background-repeat: no-repeat;
+		background-size: 25%;
+		transform-origin: center;
+		transition: background-color 0.2s ease-out, transform 0.2s ease-in-out;
+
+		cursor: pointer;
+		&:hover,
+		&:focus-within {
+			background-color: var(--color-primary);
+		}
+
+		@media screen and (max-width: $tablet-medium-min) {
+			width: 36px;
+			height: 36px;
+		}
+		&.left {
+			left: 0;
+			transform: translate(-50%, -50%) rotate(180deg) scale(1);
+			&.hidden-control {
+				transform: translate(-50%, -50%) rotate(180deg) scale(0);
+			}
+			@media screen and (max-width: $tablet-medium-min) {
+				left: 5px;
+			}
+		}
+		&.right {
+			right: 0;
+			transform: translate(50%, -50%) scale(1);
+			&.hidden-control {
+				transform: translate(50%, -50%) scale(0);
+			}
+			@media screen and (max-width: $tablet-medium-min) {
+				right: 5px;
+			}
+		}
+	}
+}
+
+.slider-custom-wrapper {
+	@include customSlider;
+}
+
+.in-index {
+	#carousel {
+		--width-multiplier-of-1st-item: 2;
+		--number-of-items: 4;
+		--next-item-preview: 60px;
+		@media screen and (max-width: $desktop-medium-min) {
+			--number-of-items: 3;
+			--next-item-preview: 40px;
+		}
+		@media screen and (max-width: $desktop-min) {
+			--number-of-items: 3;
+			--next-item-preview: 40px;
+			--width-multiplier-of-1st-item: 1;
+			> * > *:first-child {
+				display: none;
+			}
+		}
+		@media screen and (max-width: $tablet-medium-min) {
+			--number-of-items: 2;
+			--next-item-preview: 150px;
+		}
+		@media screen and (max-width: $mobile-max) {
+			--number-of-items: 1;
+			--next-item-preview: 200px;
+		}
+		@media screen and (max-width: $large-mobile-min) {
+			--number-of-items: 1;
+			--next-item-preview: 100px;
+		}
+		@include customSlider;
+	}
+
+	.content,
+	.products-slider {
+		--width-multiplier-of-1st-item: 1;
+		--number-of-items: 6;
+		--next-item-preview: 80px;
+
+		@media screen and (max-width: $desktop-medium-min) {
+			--number-of-items: 5;
+			--next-item-preview: 40px;
+		}
+		@media screen and (max-width: $desktop-min) {
+			--number-of-items: 4;
+			--next-item-preview: 40px;
+		}
+		@media screen and (max-width: $tablet-medium-min) {
+			--number-of-items: 3;
+			--next-item-preview: 50px;
+		}
+		@media screen and (max-width: $mobile-max) {
+			--number-of-items: 2;
+			--next-item-preview: 50px;
+		}
+		@media screen and (max-width: $large-mobile-min) {
+			--number-of-items: 2;
+			--next-item-preview: 40px;
+		}
+		@include customSlider;
+	}
+
+	.votes-slider {
+		--width-multiplier-of-1st-item: 1;
+		--number-of-items: 4;
+		--next-item-preview: 100px;
+
+		@media screen and (max-width: $desktop-medium-min) {
+			--number-of-items: 3;
+			--next-item-preview: 100px;
+		}
+		@media screen and (max-width: $desktop-min) {
+			--number-of-items: 3;
+			--next-item-preview: 60px;
+		}
+		@media screen and (max-width: $tablet-medium-min) {
+			--number-of-items: 2;
+			--next-item-preview: 100px;
+		}
+		@media screen and (max-width: $mobile-max) {
+			--number-of-items: 1;
+			--next-item-preview: 200px;
+		}
+		@media screen and (max-width: 600px) {
+			--number-of-items: 1;
+			--next-item-preview: 100px;
+		}
+		@media screen and (max-width: $large-mobile-min) {
+			--number-of-items: 1;
+			--next-item-preview: 40px;
+		}
+		@include customSlider;
+	}
+
+	.carousel-inner {
+		min-height: auto !important;
+		/*img*/
+		a:has(img) {
+			background: linear-gradient(to bottom, var(--color-white), var(--color-gray-500));
+		}
+	}
+}
+
+.heureka-reviews-wrapper {
+	--width-multiplier-of-1st-item: 1;
+	--number-of-items: 3;
+	--next-item-preview: 160px;
+
+	@media screen and (max-width: $desktop-large-min) {
+		--number-of-items: 2;
+		--next-item-preview: 160px;
+	}
+
+	@media screen and (max-width: $desktop-medium-min) {
+		--number-of-items: 2;
+		--next-item-preview: 60px;
+	}
+	@media screen and (max-width: $desktop-min) {
+		--number-of-items: 3;
+		--next-item-preview: 160px;
+	}
+	@media screen and (max-width: $tablet-medium-min) {
+		--number-of-items: 3;
+		--next-item-preview: 60px;
+	}
+	@media screen and (max-width: $mobile-max) {
+		--number-of-items: 2;
+		--next-item-preview: 60px;
+	}
+	@media screen and (max-width: 600px) {
+		--number-of-items: 1;
+		--next-item-preview: 200px;
+	}
+	@media screen and (max-width: $large-mobile-min) {
+		--number-of-items: 1;
+		--next-item-preview: 80px;
+	}
+	@include customSlider;
 }
