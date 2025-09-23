@@ -1229,13 +1229,7 @@ $desktop-large-min: 1680px;
 			width: 100%;
 		}
 		.votes-wrap {
-			flex-wrap: nowrap;
-			flex-direction: row;
-			overflow: hidden;
 			width: 100%;
-			grid-column: 1/-1;
-			gap: 0;
-			grid-row: 2;
 		}
 		.vote-wrap {
 			background: var(--color-white);

@@ -970,17 +970,7 @@
   width: 100%;
 }
 .in-index .hodnoceni-obchodu-section .votes-wrap {
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  overflow: hidden;
   width: 100%;
-  grid-column: 1/-1;
-  gap: 0;
-  grid-row: 2;
 }
 .in-index .hodnoceni-obchodu-section .vote-wrap {
   background: var(--color-white);
