@@ -215,7 +215,7 @@ const translationsStrings = {
 		sk: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/filters_sk.json",
 		pl: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/filters_pl.json",
 	},
-	gitHeurekaUrl: {
+	gitHeurekaReviewsUrl: {
 		cs: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_cz.json",
 		sk: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_sk.json",
 		pl: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_pl.json" /*ceneo*/,
@@ -1296,8 +1296,8 @@ function actionPriceToFinalPriceAndReviewsNumber() {
 /*NEW MEASURE UNIT - JSON GITHUB*/
 async function downloadAndSaveMeasureUnitFilter() {
 	const url = translationsStrings.gitFiltersUrl[activeLang];
-	const storageKey = "measureFilters_cz";
-	const expiryKey = "measureFilters_cz_expiry_01";
+	const storageKey = "measureFilters";
+	const expiryKey = "measureFilters_expiry_01";
 
 	// Check if data is already in localStorage and not expired
 	const now = Date.now();
