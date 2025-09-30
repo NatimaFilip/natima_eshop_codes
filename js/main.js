@@ -1323,12 +1323,12 @@ async function downloadAndSaveMeasureUnitFilter() {
 		console.warn("Failed to fetch Measure filters:", error);
 	}
 }
-function measureUnitFromFiltersProducts() {
+async function measureUnitFromFiltersProducts() {
 	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
 	if (!allProductsInProductsBlock || allProductsInProductsBlock.length === 0) {
 		return; // No products found
 	}
-	downloadAndSaveMeasureUnitFilter();
+	await downloadAndSaveMeasureUnitFilter();
 	let productFilterData = measureFiltersData;
 	if (!productFilterData || productFilterData.length === 0) {
 		return; // No filter data available
