@@ -1422,8 +1422,17 @@ async function measureUnitFromFiltersProducts() {
 		const pricePerUnit_ValueSpan = document.createElement("span");
 		pricePerUnit_ValueSpan.className = "product-price-per-unit-value";
 
-		pricePerUnit_ValueSpan.textContent =
-			pricePerUnit_Value.toFixed(2).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
+		if (csLang) {
+			pricePerUnit_ValueSpan.textContent =
+				pricePerUnit_Value.toFixed(2).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
+		}
+		if (skLang) {
+			pricePerUnit_Value.toFixed(2).replace(".", ",") + " € / 1 " + pricePerUnit_Unit;
+		}
+		if (plLang) {
+			pricePerUnit_ValueSpan.textContent =
+				pricePerUnit_Value.toFixed(2).replace(".", ",") + " zł / 1 " + pricePerUnit_Unit;
+		}
 
 		if (prices && pricePerUnitDiv) {
 			prices.appendChild(pricePerUnitDiv);
