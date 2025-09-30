@@ -1427,7 +1427,8 @@ async function measureUnitFromFiltersProducts() {
 				pricePerUnit_Value.toFixed(2).replace(".", ",") + " Kč / 1 " + pricePerUnit_Unit;
 		}
 		if (skLang) {
-			pricePerUnit_Value.toFixed(2).replace(".", ",") + " € / 1 " + pricePerUnit_Unit;
+			pricePerUnit_ValueSpan.textContent =
+				pricePerUnit_Value.toFixed(2).replace(".", ",") + " € / 1 " + pricePerUnit_Unit;
 		}
 		if (plLang) {
 			pricePerUnit_ValueSpan.textContent =
