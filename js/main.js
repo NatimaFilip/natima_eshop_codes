@@ -1378,14 +1378,27 @@ async function measureUnitFromFiltersProducts() {
 			priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
 		}
 
-		let singleMeasuringUnit = {
-			kapslí: "kapsle",
-			tablet: "tableta",
-			tobolek: "tobolka",
-			tabletek: "tabletka",
-			dávek: "dávka",
-			dávky: "dávka",
-		};
+		let singleMeasuringUnit = {};
+		if (csLang) {
+			singleMeasuringUnit = {
+				kapslí: "kapsle",
+				tablet: "tableta",
+				tobolek: "tobolka",
+				tabletek: "tabletka",
+				dávek: "dávka",
+				dávky: "dávka",
+			};
+		}
+		if (skLang) {
+			singleMeasuringUnit = {
+				kapsúl: "kapsula",
+				kapsula: "kapsula",
+				tabliet: "tableta",
+				tablietek: "tabletka",
+				dávok: "dávka",
+				dávky: "dávka",
+			};
+		}
 
 		let pricePerUnit_Unit;
 
