@@ -210,6 +210,16 @@ const translationsStrings = {
 		sk: "Upozorniť",
 		pl: "Powiadom",
 	},
+	gitFiltersUrl: {
+		cs: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/filters_cz.json",
+		sk: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/filters_sk.json",
+		pl: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/filters_pl.json",
+	},
+	gitHeurekaUrl: {
+		cs: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_cz.json",
+		sk: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_sk.json",
+		pl: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_pl.json" /*ceneo*/,
+	},
 };
 
 /*--------------------------------------- Přepsání funkcí*/
@@ -1285,7 +1295,7 @@ function actionPriceToFinalPriceAndReviewsNumber() {
 
 /*NEW MEASURE UNIT - JSON GITHUB*/
 async function downloadAndSaveMeasureUnitFilter() {
-	const url = "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/filters_cz.json";
+	const url = translationsStrings.gitFiltersUrl[activeLang];
 	const storageKey = "measureFilters_cz";
 	const expiryKey = "measureFilters_cz_expiry_01";
 
@@ -1671,10 +1681,9 @@ async function insertHeurekaReviews() {
 }
 
 async function downloadAndSaveHeurekaReviews() {
-	const url =
-		"https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_cz.json";
-	const storageKey = "heurekaReviewsCZ";
-	const expiryKey = "heurekaReviewsCZ_expiry";
+	const url = translationsStrings.gitHeurekaReviewsUrl[activeLang];
+	const storageKey = "heurekaReviews";
+	const expiryKey = "heurekaReviews_expiry";
 
 	// Check if data is already in localStorage and not expired
 	const now = Date.now();
@@ -2470,14 +2479,28 @@ if (body.classList.contains("type-product")) {
 			priceFinalValue = parseFloat(priceFinalValue.replace(",", ".")).toFixed(2);
 		}
 
-		let singleMeasuringUnit = {
-			kapslí: "kapsle",
-			tablet: "tableta",
-			tobolek: "tobolka",
-			tabletek: "tabletka",
-			dávek: "dávka",
-			dávky: "dávka",
-		};
+		let singleMeasuringUnit = {};
+
+		if (csLang) {
+			singleMeasuringUnit = {
+				kapslí: "kapsle",
+				tablet: "tableta",
+				tobolek: "tobolka",
+				tabletek: "tabletka",
+				dávek: "dávka",
+				dávky: "dávka",
+			};
+		}
+		if (skLang) {
+			singleMeasuringUnit = {
+				kapsúl: "kapsula",
+				kapsula: "kapsula",
+				tabliet: "tableta",
+				tablietek: "tabletka",
+				dávok: "dávka",
+				dávky: "dávka",
+			};
+		}
 
 		let pricePerUnit_Unit;
 
