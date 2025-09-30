@@ -1,3 +1,217 @@
+const translationsStrings = {
+	phoneCode: {
+		cs: "+420 ",
+		sk: "+421 ",
+		pl: "+48 ",
+	},
+	contactHours: {
+		cs: "Po–Pá 8:00–16:00",
+		sk: "Po–Pá 8:00–16:00",
+		pl: "Pn–Pt 8:00–16:00",
+	},
+	showAllCategories: {
+		cs: "Zobrazit další kategorie",
+		sk: "Zobraziť ďalšie kategórie",
+		pl: "Pokaż więcej kategorii",
+	},
+	moreButtonMoreThanFour: {
+		cs: "dalších ",
+		sk: "ďalších ",
+		pl: "dalszych ",
+	},
+	moreButtonLessThanFour: {
+		cs: "další ",
+		sk: "ďalšie ",
+		pl: "dalsze ",
+	},
+	more: {
+		cs: "Více",
+		sk: "Viac",
+		pl: "Więcej",
+	},
+	moreThan: {
+		cs: "více než ",
+		sk: "viac ako ",
+		pl: "więcej niż ",
+	},
+	cartTotalLabel: {
+		cs: "Cena celkem",
+		sk: "Cena spolu",
+		pl: "Cena całkowita",
+	},
+	customFilterButton: {
+		cs: "Filtrování výsledků",
+		sk: "Filtrovanie výsledkov",
+		pl: "Filtrowanie wyników",
+	},
+	selectedFilters: {
+		cs: "Vybrané filtry",
+		sk: "Vybrané filtre",
+		pl: "Wybrane filtry",
+	},
+	product: {
+		cs: "Produkt",
+		sk: "Produkt",
+		pl: "Produkt",
+	},
+	verifiedReviews: {
+		cs: "Ověřená hodnocení",
+		sk: "Overené hodnotenia",
+		pl: "Zweryfikowane opinie",
+	},
+	shopRatingUrl: {
+		cs: "/hodnoceni-obchodu",
+		sk: "/hodnotenie-obchodu",
+		pl: "/opinie-o-sklepie",
+	},
+	noSaleCoupon: {
+		cs: "U tohoto produktu není možné uplatnit slevový kód.",
+		sk: "U tohto produktu nie je možné uplatniť zľavový kód.",
+		pl: "U tego produktu nie można zastosować kodu rabatowego.",
+	},
+	noLoyaltySale: {
+		cs: "U tohoto produktu není možné uplatnit věrnostní slevu.",
+		sk: "U tohto produktu nie je možné uplatniť vernostnú zľavu.",
+		pl: "U tego produktu nie można zastosować zniżki lojalnościowej.",
+	},
+	descriptionTitle: {
+		cs: "Popis",
+		sk: "Popis",
+		pl: "Opis",
+	},
+	directionsTitle: {
+		cs: "Dávkování",
+		sk: "Dávkovanie",
+		pl: "Dawkowanie",
+	},
+	ingredientsTitle: {
+		cs: "Složení",
+		sk: "Zloženie",
+		pl: "Składniki",
+	},
+	certificatesTitle: {
+		cs: "Certifikáty",
+		sk: "Certifikáty",
+		pl: "Certyfikaty",
+	},
+	reviewsTitle: {
+		cs: "Hodnocení",
+		sk: "Hodnotenie",
+		pl: "Oceny",
+	},
+	weSupportTitle: {
+		cs: "Pomáháme",
+		sk: "Pomáhame",
+		pl: "Pomagamy",
+	},
+	relatedProductsTitle: {
+		cs: "Související produkty",
+		sk: "Súvisiace produkty",
+		pl: "Produkty powiązane",
+	},
+	showRelatedProducts: {
+		cs: "Zobrazit související produkty",
+		sk: "Zobraziť súvisiace produkty",
+		pl: "Pokaż produkty powiązane",
+	},
+	relatedFilesTitle: {
+		cs: "Dokumenty",
+		sk: "Dokumenty",
+		pl: "Dokumenty",
+	},
+	show: {
+		cs: "Zobrazit",
+		sk: "Zobraziť",
+		pl: "Pokaż",
+	},
+	showCertificate: {
+		cs: "Zobrazit certifikát",
+		sk: "Zobraziť certifikát",
+		pl: "Pokaż certyfikat",
+	},
+	outOf: {
+		cs: "z",
+		sk: "z",
+		pl: "z",
+	},
+	natiosDescription: {
+		cs: "Natios je česká značka, která se zaměřuje na výrobu kvalitních doplňků stravy s čistým složením bezzbytečných příměsí, konzervantů a éček.",
+		sk: "Natios je česká značka, ktorá sa zameriava na výrobu kvalitných doplnkov stravy s čistým zložením bez zbytočných prísad, konzervantov a éčok.",
+		pl: "Natios to czeska marka, która koncentruje się na produkcji wysokiej jakości suplementów diety o czystym składzie, bez zbędnych dodatków, konserwantów i E-sklepów.",
+	},
+
+	natiosSupportTextTop: {
+		cs: "Nákupem <b>přispějete</b> 1 Kč dětské hematoonkologii.",
+		sk: "Nákupom <b>prispievate</b> 1 Kč detskej hematoonkológii.",
+		pl: "Kupując, <b>przyczyniasz się</b> 1 Kč do pediatrycznej onkologii krwi.",
+	},
+	natiosSupportHeaderBottom: {
+		cs: "<h3>Pomáháme</h3><span>&nbsp;dětské hematoonkologii</span>",
+		sk: "<h3>Pomáhame</h3><span>&nbsp;detskej hematoonkológii</span>",
+		pl: "<h3>Pomagamy</h3><span>&nbsp;pediatrycznej onkologii krwi</span>",
+	},
+	natiosSupportTextBottom: {
+		cs: "Natios z každého prodaného produktu daruje 1 Kč dětské hematoonkologii ve Fakultní nemocnici v Ostravě. Léčba každého onkologického pacienta v České republice se odhaduje na přibližně 8&nbsp;000&nbsp;Kč měsíčně. Věříme tedy, že tímto krokem společně dokážeme pomoci několika rodinám.",
+		sk: "Natios z každého predaného produktu daruje 1 Kč detskej hematoonkológii vo Fakultnej nemocnici v Ostrave. Liečba každého onkologického pacienta v České republice sa odhaduje na približne 8&nbsp;000&nbsp;Kč mesačne. Veríme teda, že týmto krokom spoločne dokážeme pomôcť niekoľkým rodinám.",
+		pl: "Natios z każdego sprzedanego produktu przekazuje 1 Kč na pediatryczną onkologię krwi w Szpitalu Uniwersyteckim w Ostrawie. Leczenie każdego pacjenta onkologicznego w Czechach szacuje się na około 8&nbsp;000&nbsp;Kč miesięcznie. Wierzymy, że tym krokiem wspólnie możemy pomóc kilku rodzinom.",
+	},
+	natiosSupportTotalAmount: {
+		cs: "Společně jsme již dokázali přispět přes 650&nbsp;000&nbsp;Kč. Děkujeme!",
+		sk: "Spoločne sme už dokázali prispieť cez 650&nbsp;000&nbsp;Kč. Ďakujeme!",
+		pl: "Wspólnie udało nam się już przekazać ponad 650&nbsp;000&nbsp;Kč. Dziękujemy!",
+	},
+	natiosSupportBlogUrl: {
+		cs: "/blog/natios-pomaha-hematoonkologii-v-ostrave/",
+		sk: "/blog/natios-pomaha-hematoonkologii-v-ostrave/",
+		pl: "/",
+	},
+	moreAboutSupport: {
+		cs: "Více o pomoci",
+		sk: "Viac o pomoci",
+		pl: "Więcej o pomocy",
+	},
+	insertFirstReview: {
+		cs: "Vložit první hodnocení",
+		sk: "Vložiť prvé hodnotenie",
+		pl: "Wstaw pierwszą ocenę",
+	},
+	watchDog: {
+		cs: "Hlídat dostupnost",
+		sk: "Strážiť dostupnosť",
+		pl: "Obserwuj dostępność",
+	},
+	readMore: {
+		cs: "Číst dále",
+		sk: "Čítať ďalej",
+		pl: "Czytaj dalej",
+	},
+	productVariants: {
+		cs: "Varianty produktu",
+		sk: "Varianty produktu",
+		pl: "Warianty produktu",
+	},
+	showMoreVariants: {
+		cs: "Zobrazit více variant",
+		sk: "Zobraziť viac variantov",
+		pl: "Pokaż więcej wariantów",
+	},
+	withVAT: {
+		cs: "s DPH",
+		sk: "s DPH",
+		pl: "z VAT",
+	},
+	toCart: {
+		cs: "Do košíku",
+		sk: "Do košíka",
+		pl: "Do koszyka",
+	},
+	alertMe: {
+		cs: "Upozornit",
+		sk: "Upozorniť",
+		pl: "Powiadom",
+	},
+};
+
 /*--------------------------------------- Přepsání funkcí*/
 function moveFilters() {}
 
@@ -140,18 +354,8 @@ function addContactToHeaderTop() {
 	const contactHoursSpan = document.createElement("span");
 	contactHoursSpan.className = "contact-hours";
 
-	if (csLang) {
-		projectPhone.innerHTML = projectPhone.innerHTML.replace("+420 ", "");
-		contactHoursSpan.innerHTML = "Po–Pá 8:00–16:00";
-	}
-	if (skLang) {
-		projectPhone.innerHTML = projectPhone.innerHTML.replace("+421 ", "");
-		contactHoursSpan.innerHTML = "Po–Pá 8:00–16:00";
-	}
-	if (plLang) {
-		projectPhone.innerHTML = projectPhone.innerHTML.replace("+48 ", "");
-		contactHoursSpan.innerHTML = "Pn–Pt 8:00–16:00";
-	}
+	projectPhone.innerHTML = projectPhone.innerHTML.replace(translationsStrings.phoneCode[activeLang], "");
+	contactHoursSpan.innerHTML = translationsStrings.contactHours[activeLang];
 
 	projectPhone.appendChild(contactHoursSpan);
 }
@@ -442,15 +646,9 @@ function removeCommasFromMenu() {
 				const showAllCategoriesButton = document.createElement("a");
 				showAllCategoriesButton.setAttribute("href", menuLinkHref);
 				showAllCategoriesButton.className = "show-all-categories";
-				if (csLang) {
-					showAllCategoriesButton.innerHTML = "<span>Zobrazit další kategorie (" + numberOfHiddenItems + ")</span>";
-				}
-				if (skLang) {
-					showAllCategoriesButton.innerHTML = "<span>Zobraziť ďalšie kategórie (" + numberOfHiddenItems + ")</span>";
-				}
-				if (plLang) {
-					showAllCategoriesButton.innerHTML = "<span>Pokaż więcej kategorii (" + numberOfHiddenItems + ")</span>";
-				}
+
+				showAllCategoriesButton.innerHTML =
+					"<span>" + translationsStrings.showAllCategories[activeLang] + " (" + numberOfHiddenItems + ")</span>";
 
 				menuLevelTwo.appendChild(showAllCategoriesButton);
 			}
@@ -472,26 +670,12 @@ function removeCommasFromMenu() {
 						showAllSubcategoriesButton.setAttribute("href", menuLevelThreeLinkHref);
 						showAllSubcategoriesButton.className = "show-all-subcategories";
 
-						if (csLang) {
-							if (numberOfHiddenItems > 4) {
-								showAllSubcategoriesButton.innerHTML = "+ dalších " + numberOfHiddenItems;
-							} else {
-								showAllSubcategoriesButton.innerHTML = "+ další " + numberOfHiddenItems;
-							}
-						}
-						if (skLang) {
-							if (numberOfHiddenItems > 4) {
-								showAllSubcategoriesButton.innerHTML = "+ ďalších " + numberOfHiddenItems;
-							} else {
-								showAllSubcategoriesButton.innerHTML = "+ ďalšie " + numberOfHiddenItems;
-							}
-						}
-						if (plLang) {
-							if (numberOfHiddenItems > 4) {
-								showAllSubcategoriesButton.innerHTML = "+ dalszych " + numberOfHiddenItems;
-							} else {
-								showAllSubcategoriesButton.innerHTML = "+ dalsze " + numberOfHiddenItems;
-							}
+						if (numberOfHiddenItems > 4) {
+							showAllSubcategoriesButton.innerHTML =
+								"+ " + translationsStrings.moreButtonMoreThanFour[activeLang] + " " + numberOfHiddenItems;
+						} else {
+							showAllSubcategoriesButton.innerHTML =
+								"+ " + translationsStrings.moreButtonLessThanFour[activeLang] + " " + numberOfHiddenItems;
 						}
 
 						menuLevelThree.appendChild(showAllSubcategoriesButton);
@@ -600,15 +784,9 @@ function insertTotalPriceToCartWidget() {
 	totalPriceStrong.innerHTML = totalPrice;
 
 	const totalPriceLabel = document.createElement("span");
-	if (csLang) {
-		totalPriceLabel.innerHTML = "Cena celkem";
-	}
-	if (skLang) {
-		totalPriceLabel.innerHTML = "Cena spolu";
-	}
-	if (plLang) {
-		totalPriceLabel.innerHTML = "Cena całkowita";
-	}
+
+	totalPriceLabel.innerHTML = translationsStrings.cartTotalLabel[activeLang];
+
 	totalPriceInCartWidgetElement.appendChild(totalPriceLabel);
 	totalPriceInCartWidgetElement.appendChild(totalPriceStrong);
 	cartWidgetButton.appendChild(totalPriceInCartWidgetElement);
@@ -669,15 +847,7 @@ if (body.classList.contains("type-category")) {
 
 	customOpenFilterButton = document.createElement("a");
 	customOpenFilterButton.className = "custom-open-filter-button";
-	if (csLang) {
-		customOpenFilterButton.innerHTML = "Filtrování výsledků";
-	}
-	if (skLang) {
-		customOpenFilterButton.innerHTML = "Filtrovanie výsledkov";
-	}
-	if (plLang) {
-		customOpenFilterButton.innerHTML = "Filtrowanie wyników";
-	}
+	customOpenFilterButton.innerHTML = translationsStrings.customFilterButton[activeLang];
 
 	moveAsideToCategoryContent();
 
@@ -774,15 +944,7 @@ if (body.classList.contains("type-category")) {
 		const selectedFiltersSpan = document.createElement("span");
 		selectedFiltersSpan.className = "selected-filters-text";
 
-		if (csLang) {
-			selectedFiltersSpan.innerHTML = "Vybrané filtry";
-		}
-		if (skLang) {
-			selectedFiltersSpan.innerHTML = "Vybrané filtre";
-		}
-		if (plLang) {
-			selectedFiltersSpan.innerHTML = "Wybrane filtry";
-		}
+		selectedFiltersSpan.innerHTML = translationsStrings.selectedFilters[activeLang];
 
 		filtersElement.prepend(selectedFiltersDiv);
 		selectedFiltersDiv.appendChild(selectedFiltersSpan);
@@ -800,17 +962,7 @@ if (body.classList.contains("type-category")) {
 			if (fieldsetHeader) {
 				activeFilterSection.innerHTML = `<span class="active-filter-section-header">${fieldsetHeader.textContent}</span>`;
 			} else {
-				let defaultHeader = "";
-				if (csLang) {
-					defaultHeader = "Produkt";
-				}
-				if (skLang) {
-					defaultHeader = "Produkt";
-				}
-				if (plLang) {
-					defaultHeader = "Produkt";
-				}
-				activeFilterSection.innerHTML = `<span class="active-filter-section-header">${defaultHeader}</span>`;
+				activeFilterSection.innerHTML = `<span class="active-filter-section-header">${translationsStrings.product[activeLang]}</span>`;
 			}
 			selectedFiltersDiv.appendChild(activeFilterSection);
 			activeLabels.forEach((label) => {
@@ -935,27 +1087,14 @@ if (body.classList.contains("type-category")) {
 		}
 		const showAllManufacturersButton = document.createElement("a");
 		showAllManufacturersButton.className = "show-all-manufacturers";
-		if (csLang) {
-			if (manufacturersNumberMinusVisible > 4) {
-				showAllManufacturersButton.innerHTML = "+ dalších " + manufacturersNumberMinusVisible;
-			} else {
-				showAllManufacturersButton.innerHTML = "+ další " + manufacturersNumberMinusVisible;
-			}
+		if (manufacturersNumberMinusVisible > 4) {
+			showAllManufacturersButton.innerHTML =
+				"+ " + translationsStrings.moreButtonMoreThanFour + " " + manufacturersNumberMinusVisible;
+		} else {
+			showAllManufacturersButton.innerHTML =
+				"+ " + translationsStrings.moreButtonLessThanFour + " " + manufacturersNumberMinusVisible;
 		}
-		if (skLang) {
-			if (manufacturersNumberMinusVisible > 4) {
-				showAllManufacturersButton.innerHTML = "+ ďalších " + manufacturersNumberMinusVisible;
-			} else {
-				showAllManufacturersButton.innerHTML = "+ ďalšie " + manufacturersNumberMinusVisible;
-			}
-		}
-		if (plLang) {
-			if (manufacturersNumberMinusVisible > 4) {
-				showAllManufacturersButton.innerHTML = "+ dalszych " + manufacturersNumberMinusVisible;
-			} else {
-				showAllManufacturersButton.innerHTML = "+ dalsze " + manufacturersNumberMinusVisible;
-			}
-		}
+
 		manufacturerFilter.appendChild(showAllManufacturersButton);
 		addSmartTouchClickListener(showAllManufacturersButton, function () {
 			manufacturerFilter.classList.add("active");
@@ -1014,15 +1153,9 @@ if (body.classList.contains("type-category")) {
 
 		const readMoreButton = document.createElement("span");
 		readMoreButton.className = "read-more-perex";
-		if (csLang) {
-			readMoreButton.innerHTML = "Více";
-		}
-		if (skLang) {
-			readMoreButton.innerHTML = "Viac";
-		}
-		if (plLang) {
-			readMoreButton.innerHTML = "Więcej";
-		}
+
+		readMoreButton.innerHTML = translationsStrings.more[activeLang];
+
 		categoryPerexShortened.appendChild(readMoreButton);
 
 		addSmartTouchClickListener(readMoreButton, function () {
@@ -1040,17 +1173,6 @@ if (body.classList.contains("type-category")) {
 		let categoryHeaderInsideDiv = document.querySelector("#category-header > div");
 		if (!amountOfProducts) return;
 		if (!categoryHeaderInsideDiv) return;
-		let amountOfProductsText = "";
-
-		if (csLang) {
-			amountOfProductsText = "z";
-		}
-		if (skLang) {
-			amountOfProductsText = "z";
-		}
-		if (plLang) {
-			amountOfProductsText = "z";
-		}
 
 		if (document.querySelector(".amount-of-products")) {
 			document.querySelector(".amount-of-products").remove();
@@ -1058,7 +1180,7 @@ if (body.classList.contains("type-category")) {
 
 		const amountOfProductsSpan = document.createElement("span");
 		amountOfProductsSpan.className = "amount-of-products";
-		amountOfProductsSpan.textContent = amountOfProducts.toString() + " " + amountOfProductsText;
+		amountOfProductsSpan.textContent = amountOfProducts.toString() + " " + translationsStrings.outOf[activeLang];
 
 		categoryHeaderInsideDiv.prepend(amountOfProductsSpan);
 	}
@@ -1916,29 +2038,39 @@ if (body.classList.contains("type-product")) {
 
 				const natiosLargeBrandBlock = document.createElement("div");
 				natiosLargeBrandBlock.className = "natios-support-wrapper";
-				if (csLang) {
-					natiosBrandBlock.innerHTML = `<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>Natios je česká značka, která se zaměřuje na výrobu kvalitních doplňků stravy s čistým složením bezzbytečných příměsí, konzervantů a éček. <a href="/natios/">Více</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Přispíváme"></div><p>Nákupem <b>přispějete</b> 1 Kč dětské hematoonkologii. <span class="scroll-to-FNO">Více</span></p></div></div>`;
-					if (benefitBanner) {
-						benefitBanner.classList.add("natios-block-added");
-					}
-					natiosLargeBrandBlock.innerHTML = `<div class="natios-support-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/NatiosDarujeFNO_2.svg" alt="Natios daruje 1 Kč" width="174" height="174"></div><div class="natios-support-wrapper-content"><div class="natios-support-wrapper-content-title"><h3>Pomáháme</h3><span>&nbsp;dětské hematoonkologii</span></div><p>Natios z každého prodaného produktu daruje 1 Kč dětské hematoonkologii ve Fakultní nemocnici v Ostravě. Léčba každého onkologického pacienta v České republice se odhaduje na přibližně 8&nbsp;000&nbsp;Kč měsíčně. Věříme tedy, že tímto krokem společně dokážeme pomoci několika rodinám.</p><p>Společně jsme již dokázali přispět přes 650&nbsp;000&nbsp;Kč. Děkujeme!</p><p><a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více o pomoci</a></p></div>`;
-					if (tabContent) {
-						tabContent.appendChild(natiosLargeBrandBlock);
-					}
-				}
-				if (skLang) {
-					natiosBrandBlock.innerHTML = `<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>Natios je česká značka, ktorá sa zameriava na výrobu kvalitných výživových doplnkov s čistým zložením bez zbytočných prísad, konzervantov a éčok. <a href="/natios/">Viac</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Prispievame"></div><p>Nákupom <b>prispejete</b> 1 Kč detskej hematoonkologii. <span class="scroll-to-FNO">Viac</span></p></div></div>`;
-					if (benefitBanner) {
-						benefitBanner.classList.add("natios-block-added");
-					}
-					natiosLargeBrandBlock.innerHTML = `<div class="natios-support-wrapper-content"><p class="natios-support-wrapper-content-title"><h3>Pomáháme</h3> dětské hematoonkologii</p><p>Natios z každého prodaného produktu daruje 1 Kč dětské hematoonkologii ve Fakultní nemocnici v Ostravě. Léčba každého onkologického pacienta v České republice se odhaduje na přibližně 8&nbsp;000&nbsp;Kč měsíčně. Věříme tedy, že tímto krokem společně dokážeme pomoci několika rodinám.</p><p>Společně jsme již dokázali přispět přes 650&nbsp;000&nbsp;Kč. Děkujeme!</p><p><a href="/blog/natios-pomaha-hematoonkologii-v-ostrave/">Více o pomoci</a></p></div>`;
-					if (tabContent) {
-						tabContent.appendChild(natiosLargeBrandBlock);
-					}
-				}
 				if (plLang) {
 					return;
 				}
+
+				natiosBrandBlock.innerHTML =
+					'<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>' +
+					translationsStrings.natiosDescription[activeLang] +
+					'<a href="/natios/">' +
+					translationsStrings.more[activeLang] +
+					'</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Charity"></div><p>' +
+					translationsStrings.natiosSupportTextTop[activeLang] +
+					'<span class="scroll-to-FNO">' +
+					translationsStrings.more[activeLang] +
+					"</span></p></div></div>";
+				if (benefitBanner) {
+					benefitBanner.classList.add("natios-block-added");
+				}
+				natiosLargeBrandBlock.innerHTML =
+					'<div class="natios-support-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/NatiosDarujeFNO_2.svg" alt="Natios Charity" width="174" height="174"></div><div class="natios-support-wrapper-content"><div class="natios-support-wrapper-content-title">' +
+					translationsStrings.natiosSupportHeaderBottom[activeLang] +
+					" </div><p>" +
+					translationsStrings.natiosSupportTextBottom[activeLang] +
+					"</p><p>" +
+					translationsStrings.natiosSupportTotalAmount[activeLang] +
+					'</p><p><a href="' +
+					translationsStrings.natiosSupportBlogUrl[activeLang] +
+					'">' +
+					translationsStrings.moreAboutSupport[activeLang] +
+					"</a></p></div>";
+				if (tabContent) {
+					tabContent.appendChild(natiosLargeBrandBlock);
+				}
+
 				document.querySelector(".product-top").insertAdjacentElement("afterend", natiosBrandBlock);
 				document.querySelector(".scroll-to-FNO").addEventListener("click", function () {
 					scrollToElement(natiosLargeBrandBlock);
@@ -1980,15 +2112,7 @@ if (body.classList.contains("type-product")) {
 						}
 						let starsLabel = starsWrapper.querySelector(".stars-label");
 						if (starsLabel) {
-							if (csLang) {
-								starsLabel.textContent = "Vložit první hodnocení";
-							}
-							if (skLang) {
-								starsLabel.textContent = "Vložiť prvé hodnotenie";
-							}
-							if (plLang) {
-								starsLabel.textContent = "Wstaw pierwszą ocenę";
-							}
+							starsLabel.textContent = translationsStrings.insertFirstReview[activeLang];
 						}
 					}
 				}
@@ -2020,15 +2144,10 @@ if (body.classList.contains("type-product")) {
 				isAvailableProduct = true;
 				body.classList.add("product-is-available");
 				availabilityAmount.textContent = availabilityAmount.textContent.replace(/[()]/g, "");
-				if (csLang) {
-					availabilityAmount.textContent = availabilityAmount.textContent.replace(">", "více než ");
-				}
-				if (skLang) {
-					availabilityAmount.textContent = availabilityAmount.textContent.replace(">", "viac ako ");
-				}
-				if (plLang) {
-					availabilityAmount.textContent = availabilityAmount.textContent.replace(">", "więcej niż ");
-				}
+				availabilityAmount.textContent = availabilityAmount.textContent.replace(
+					">",
+					translationsStrings.moreThan[activeLang]
+				);
 
 				if (souvisejiciProdukty) {
 					document.querySelector(".p-detail").appendChild(souvisejiciProdukty);
@@ -2068,15 +2187,9 @@ if (body.classList.contains("type-product")) {
 				const notifyMeButton = document.createElement("div");
 				notifyMeButton.classList.add("notify-me-button");
 				notifyMeButton.classList.add("custom-add-to-cart-button");
-				if (csLang) {
-					notifyMeButton.textContent = "Hlídat dostupnost";
-				}
-				if (skLang) {
-					notifyMeButton.textContent = "Hliadnuť dostupnosť";
-				}
-				if (plLang) {
-					notifyMeButton.textContent = "Obserwuj dostępność";
-				}
+
+				notifyMeButton.textContent = translationsStrings.watchDog[activeLang];
+
 				notifyMeButtonWrapper.appendChild(notifyMeButton);
 				notifyMeButton.addEventListener("click", function () {
 					watchdog.click();
@@ -2090,15 +2203,9 @@ if (body.classList.contains("type-product")) {
 			if (souvisejiciProdukty) {
 				const showSimiliarProductsButton = document.createElement("div");
 				showSimiliarProductsButton.className = "show-similiar-products-button";
-				if (csLang) {
-					showSimiliarProductsButton.textContent = "Zobrazit související produkty";
-				}
-				if (skLang) {
-					showSimiliarProductsButton.textContent = "Zobraziť súvisiace produkty";
-				}
-				if (plLang) {
-					showSimiliarProductsButton.textContent = "Pokaż produkty powiązane";
-				}
+
+				showSimiliarProductsButton.textContent = translationsStrings.showRelatedProducts[activeLang];
+
 				notifyMeButtonWrapper.prepend(showSimiliarProductsButton);
 				showSimiliarProductsButton.addEventListener("click", function () {
 					scrollToElement(souvisejiciProdukty);
@@ -2115,30 +2222,16 @@ if (body.classList.contains("type-product")) {
 		if (finalProductPrice) {
 			const withVATElement = document.createElement("span");
 			withVATElement.className = "with-vat";
-			if (csLang) {
-				withVATElement.textContent = "s DPH";
-			}
-			if (skLang) {
-				withVATElement.textContent = "s DPH";
-			}
-			if (plLang) {
-				withVATElement.textContent = "z VAT";
-			}
+
+			withVATElement.textContent = translationsStrings.withVAT[activeLang];
+
 			finalProductPrice.appendChild(withVATElement);
 		}
 
 		if (continueReadingShortDescription) {
 			let continueReadingShortDescriptionA = continueReadingShortDescription.querySelector("a");
 			if (continueReadingShortDescriptionA) {
-				if (csLang) {
-					continueReadingShortDescriptionA.textContent = "Číst dále";
-				}
-				if (skLang) {
-					continueReadingShortDescriptionA.textContent = "Čítať ďalej";
-				}
-				if (plLang) {
-					continueReadingShortDescriptionA.textContent = "Czytaj dalej";
-				}
+				continueReadingShortDescriptionA.textContent = translationsStrings.readMore[activeLang];
 			}
 		}
 
@@ -2151,15 +2244,9 @@ if (body.classList.contains("type-product")) {
 			}
 			const productsAlternativeTitle = document.createElement("p");
 			productsAlternativeTitle.className = "products-alternative-title";
-			if (csLang) {
-				productsAlternativeTitle.textContent = "Varianty produktu";
-			}
-			if (skLang) {
-				productsAlternativeTitle.textContent = "Varianty produktu";
-			}
-			if (plLang) {
-				productsAlternativeTitle.textContent = "Warianty produktu";
-			}
+
+			productsAlternativeTitle.textContent = translationsStrings.productVariants[activeLang];
+
 			productsAlternative.prepend(productsAlternativeTitle);
 			let productsAlternativeItems = productsAlternative.querySelectorAll(".product");
 			if (productsAlternativeItems && productsAlternativeItems.length > 0) {
@@ -2179,15 +2266,9 @@ if (body.classList.contains("type-product")) {
 				productsAlternative.classList.add("multiple-rows-of-alternatives");
 				const showMoreAlternativesButton = document.createElement("div");
 				showMoreAlternativesButton.className = "show-more-alternatives-button";
-				if (csLang) {
-					showMoreAlternativesButton.textContent = "Zobrazit více variant";
-				}
-				if (skLang) {
-					showMoreAlternativesButton.textContent = "Zobraziť viac variantov";
-				}
-				if (plLang) {
-					showMoreAlternativesButton.textContent = "Pokaż więcej wariantów";
-				}
+
+				showMoreAlternativesButton.textContent = translationsStrings.showMoreVariants[activeLang];
+
 				productsAlternative.appendChild(showMoreAlternativesButton);
 				showMoreAlternativesButton.addEventListener("click", function () {
 					productsAlternative.classList.add("active-all");
@@ -2196,18 +2277,8 @@ if (body.classList.contains("type-product")) {
 		}
 
 		if (ratingTab) {
-			let ratingTabTitleText = "Reviews";
-			if (csLang) {
-				ratingTabTitleText = "Hodnocení";
-			}
-			if (skLang) {
-				ratingTabTitleText = "Hodnotenie";
-			}
-			if (plLang) {
-				ratingTabTitleText = "Oceny";
-			}
 			const ratingTabTitleElement = document.createElement("h3");
-			ratingTabTitleElement.textContent = ratingTabTitleText;
+			ratingTabTitleElement.textContent = translationsStrings.reviewsTitle[activeLang];
 			let rateAverageWrap = ratingTab.querySelector(".rate-average-wrap");
 			if (rateAverageWrap) {
 				rateAverageWrap.prepend(ratingTabTitleElement);
@@ -2534,28 +2605,12 @@ if (body.classList.contains("type-product")) {
 
 		if (isAvailableProduct) {
 			productThumbnailButton.className = "product-thumbnail-add-to-cart-button";
-			if (csLang) {
-				productThumbnailButton.textContent = "Do košíku";
-			}
-			if (skLang) {
-				productThumbnailButton.textContent = "Do košíka";
-			}
-			if (plLang) {
-				productThumbnailButton.textContent = "Do koszyka";
-			}
+			productThumbnailButton.textContent = translationsStrings.toCart[activeLang];
 		}
 
 		if (!isAvailableProduct) {
 			productThumbnailButton.className = "product-thumbnail-notice-me-button";
-			if (csLang) {
-				productThumbnailButton.textContent = "Upozornit";
-			}
-			if (skLang) {
-				productThumbnailButton.textContent = "Upozorniť";
-			}
-			if (plLang) {
-				productThumbnailButton.textContent = "Powiadom";
-			}
+			productThumbnailButton.textContent = translationsStrings.alertMe[activeLang];
 		}
 
 		const productThumbnail = document.createElement("div");
@@ -2654,18 +2709,8 @@ if (body.classList.contains("type-product")) {
 		let filesButtonDesc = document.querySelector("#show-tests-button");
 
 		if (relatedFiles) {
-			let filesTabTitle = "Certificates";
-			if (csLang) {
-				filesTabTitle = "Certifikáty";
-			}
-			if (skLang) {
-				filesTabTitle = "Certifikáty";
-			}
-			if (plLang) {
-				filesTabTitle = "Certyfikaty";
-			}
 			const filesTabTitleElement = document.createElement("h3");
-			filesTabTitleElement.textContent = filesTabTitle;
+			filesTabTitleElement.textContent = translationsStrings.relatedFilesTitle[activeLang];
 			relatedFiles.prepend(filesTabTitleElement);
 
 			let productFiles = relatedFiles.querySelectorAll("li");
@@ -2678,15 +2723,12 @@ if (body.classList.contains("type-product")) {
 					showFileBtn.classList.add("btn", "show-file");
 					showFileBtn.setAttribute("target", "_blank");
 
-					if (csLang) {
-						showFileBtn.textContent = "Zobrazit certifikát";
+					if (document.querySelector(".natios-analysis")) {
+						showFileBtn.textContent = translationsStrings.showCertificate[activeLang];
+					} else {
+						showFileBtn.textContent = translationsStrings.show[activeLang];
 					}
-					if (skLang) {
-						showFileBtn.textContent = "Zobraziť certifikát";
-					}
-					if (plLang) {
-						showFileBtn.textContent = "Pokaż certyfikat";
-					}
+
 					const fileTypeSpan = document.createElement("span");
 					fileTypeSpan.className = "file-type";
 					fileTypeSpan.textContent = "(" + fileType + ")";
@@ -2703,63 +2745,27 @@ if (body.classList.contains("type-product")) {
 		}
 
 		if (detailTabs) {
-			createTabForSection(
-				"#description",
-				csLang ? "Popis" : skLang ? "Popis" : plLang ? "Opis" : "Description",
-				true,
-				detailTabs
-			);
+			createTabForSection("#description", translationsStrings.descriptionTitle[activeLang], true, detailTabs);
 
 			createTabForSection(
 				".product-widget[widget-type='directions']",
-				csLang ? "Dávkování" : skLang ? "Dávkovanie" : plLang ? "Dawkowanie" : "Directions",
+				translationsStrings.directionsTitle[activeLang],
 				false,
 				detailTabs
 			);
 
 			createTabForSection(
 				".product-widget[widget-type='ingredients']",
-				csLang ? "Složení" : skLang ? "Zloženie" : plLang ? "Składniki" : "Ingredients",
+				translationsStrings.ingredientsTitle[activeLang],
 				false,
 				detailTabs
 			);
-			createTabForSection(
-				"table.ingredients",
-				csLang ? "Složení" : skLang ? "Zloženie" : plLang ? "Składniki" : "Ingredients",
-				true,
-				detailTabs
-			);
+			createTabForSection("table.ingredients", translationsStrings.ingredientsTitle[activeLang], true, detailTabs);
 
-			createTabForSection(
-				".natios-analysis",
-				csLang ? "Certifikáty" : skLang ? "Certifikáty" : plLang ? "Certyfikaty" : "Certificates",
-				true,
-				detailTabs
-			);
-			createTabForSection(
-				"#ratingTab",
-				csLang ? "Hodnocení" : skLang ? "Hodnotenie" : plLang ? "Ocena" : "Rating",
-				false,
-				detailTabs
-			);
-			createTabForSection(
-				".natios-support-wrapper",
-				csLang ? "Pomáháme" : skLang ? "Pomáhame" : plLang ? "Pomagamy" : "Helping",
-				false,
-				detailTabs
-			);
-			createTabForSection(
-				".products-related",
-				csLang
-					? "Související produkty"
-					: skLang
-					? "Súvisiaci tovar"
-					: plLang
-					? "Produkty powiązane"
-					: "Related Products",
-				false,
-				detailTabs
-			);
+			createTabForSection(".natios-analysis", translationsStrings.certificatesTitle[activeLang], true, detailTabs);
+			createTabForSection("#ratingTab", translationsStrings.reviewsTitle[activeLang], false, detailTabs);
+			createTabForSection(".natios-support-wrapper", translationsStrings.weSupportTitle[activeLang], false, detailTabs);
+			createTabForSection(".products-related", translationsStrings.relatedProductsTitle[activeLang], false, detailTabs);
 		}
 
 		function createTabForSection(sectionId, tabTitle, isHardcoded, detailTabs) {
@@ -2853,26 +2859,10 @@ if (body.classList.contains("type-product")) {
 	}
 
 	if ($(".nelze-uplatnit-slevovy-kod").length > 0) {
-		if (csLang) {
-			$(".nelze-uplatnit-slevovy-kod").html("<p>U tohoto produktu není možné uplatnit slevový kód.</p>");
-		}
-		if (skLang) {
-			$(".nelze-uplatnit-slevovy-kod").html("<p>U tohoto produktu nie je možné uplatniť zľavový kód.</p>");
-		}
-		if (plLang) {
-			$(".nelze-uplatnit-slevovy-kod").html("<p>Do tego produktu nie można zastosować kodu rabatowego.</p>");
-		}
+		$(".nelze-uplatnit-slevovy-kod").html("<p>" + translationsStrings.noSaleCoupon[activeLang] + "</p>");
 	}
 	if ($(".nelze-uplatnit-vernostni-slevu").length > 0) {
-		if (csLang) {
-			$(".nelze-uplatnit-vernostni-slevu").html("<p>U tohoto produktu není možné uplatnit věrnostní slevu.</p>");
-		}
-		if (skLang) {
-			$(".nelze-uplatnit-vernostni-slevu").html("<p>U tohoto produktu nie je možné uplatniť vernostnú zľavu.</p>");
-		}
-		if (plLang) {
-			$(".nelze-uplatnit-vernostni-slevu").html("<p>Do tego produktu nie można zastosować zniżki lojalnościowej.</p>");
-		}
+		$(".nelze-uplatnit-vernostni-slevu").html("<p>" + translationsStrings.noLoyaltySale[activeLang] + "</p>");
 	}
 }
 
@@ -2995,15 +2985,8 @@ if (body.classList.contains("in-index")) {
 
 		const hodnoceniTitle = document.createElement("h2");
 		hodnoceniTitle.className = "hodnoceni-obchodu-title";
-		if (csLang) {
-			hodnoceniTitle.textContent = "Ověřená hodnocení";
-		}
-		if (skLang) {
-			hodnoceniTitle.textContent = "Overené hodnotenia";
-		}
-		if (plLang) {
-			hodnoceniTitle.textContent = "Zweryfikowane opinie";
-		}
+		hodnoceniTitle.textContent = translationsStrings.verifiedReviews[activeLang];
+
 		let welcomeWrapper = document.querySelector(".welcome-wrapper");
 		if (welcomeWrapper) {
 			welcomeWrapper.parentNode.insertBefore(hodnoceniObchoduSection, welcomeWrapper);
@@ -3011,16 +2994,7 @@ if (body.classList.contains("in-index")) {
 
 		hodnoceniObchoduSection.appendChild(hodnoceniTitle);
 
-		let fetchAddress;
-		if (csLang) {
-			fetchAddress = "/hodnoceni-obchodu";
-		}
-		if (skLang) {
-			fetchAddress = "/hodnotenie-obchodu";
-		}
-		if (plLang) {
-			fetchAddress = "/opinie-o-sklepie";
-		}
+		let fetchAddress = translationsStrings.shopRatingUrl[activeLang];
 		if (isTestEshop) {
 			fetchAddress = "/hodnoceni-obchodu.html";
 		}
