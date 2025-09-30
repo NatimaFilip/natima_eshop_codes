@@ -1099,10 +1099,10 @@ if (body.classList.contains("type-category")) {
 		showAllManufacturersButton.className = "show-all-manufacturers";
 		if (manufacturersNumberMinusVisible > 4) {
 			showAllManufacturersButton.innerHTML =
-				"+ " + translationsStrings.moreButtonMoreThanFour + " " + manufacturersNumberMinusVisible;
+				"+ " + translationsStrings.moreButtonMoreThanFour[activeLang] + " " + manufacturersNumberMinusVisible;
 		} else {
 			showAllManufacturersButton.innerHTML =
-				"+ " + translationsStrings.moreButtonLessThanFour + " " + manufacturersNumberMinusVisible;
+				"+ " + translationsStrings.moreButtonLessThanFour[activeLang] + " " + manufacturersNumberMinusVisible;
 		}
 
 		manufacturerFilter.appendChild(showAllManufacturersButton);
