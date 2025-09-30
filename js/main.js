@@ -2495,8 +2495,16 @@ if (body.classList.contains("type-product")) {
 			return;
 		}
 
-		let productMeasureAmount = amountText.replace(/[^\d]/g, ""); //keep only digits from the measure unit
-		let productMeasureUnit = amountText.replace(/[\d\s]/g, ""); //keep only letters from the measure unit
+		let normalizedAmountText = amountText.replace(",", ".").trim();
+
+		// Extract the numeric part (including decimal)
+		let productMeasureAmount = normalizedAmountText.match(/[\d.]+/) ? normalizedAmountText.match(/[\d.]+/)[0] : "";
+
+		// Extract the unit part (letters and spaces after the number)
+		let productMeasureUnit = normalizedAmountText.replace(/[\d.\s]+/, "").trim();
+
+		/* 		let productMeasureAmount = amountText.replace(/[^\d]/g, ""); //keep only digits from the measure unit
+		let productMeasureUnit = amountText.replace(/[\d\s]/g, ""); //keep only letters from the measure unit */
 
 		let priceFinalWrapper = product.querySelector(".p-final-price-wrapper");
 
