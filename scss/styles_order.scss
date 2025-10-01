@@ -1098,10 +1098,11 @@ $desktop-large-min: 1680px;
 				display: flex;
 				align-items: center;
 				outline: none;
+
 				&::before {
 					content: "";
 					width: 20px;
-					min-height: 20px;
+					min-width: 20px;
 					display: block;
 					height: 20px;
 					border-radius: 50%;
