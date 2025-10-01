@@ -6535,6 +6535,7 @@ body {
 					border-radius: var(--br-20);
 				}
 				.price-final {
+					display: inline;
 					grid-row: 1;
 					grid-column: 2;
 					font-size: var(--fs-24);
@@ -7049,6 +7050,7 @@ body {
 				border-radius: var(--br-20);
 			}
 			.price-final {
+				display: inline;
 				grid-row: 1;
 				grid-column: 3;
 				font-size: var(--fs-24);
