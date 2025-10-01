@@ -4901,17 +4901,23 @@ body.type-manufacturer-detail .category-header > div strong {
   background-size: 0.875em;
   background-color: var(--color-gray-300);
 }
-.pagination-wrapper .pagination .pagination-link.pagination__link--next::before,
+.pagination-wrapper .pagination .pagination-link.next::before, .pagination-wrapper .pagination .pagination-link.pagination__link--next::before,
+.pagination-wrapper .pagination .pagination__link.next::before,
 .pagination-wrapper .pagination .pagination__link.pagination__link--next::before,
+.listingControls .pagination .pagination-link.next::before,
 .listingControls .pagination .pagination-link.pagination__link--next::before,
+.listingControls .pagination .pagination__link.next::before,
 .listingControls .pagination .pagination__link.pagination__link--next::before {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
-.pagination-wrapper .pagination .pagination-link.pagination__link--prev::before,
+.pagination-wrapper .pagination .pagination-link.prev::before, .pagination-wrapper .pagination .pagination-link.pagination__link--prev::before,
+.pagination-wrapper .pagination .pagination__link.prev::before,
 .pagination-wrapper .pagination .pagination__link.pagination__link--prev::before,
+.listingControls .pagination .pagination-link.prev::before,
 .listingControls .pagination .pagination-link.pagination__link--prev::before,
+.listingControls .pagination .pagination__link.prev::before,
 .listingControls .pagination .pagination__link.pagination__link--prev::before {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
   -webkit-transform: rotate(-90deg);
