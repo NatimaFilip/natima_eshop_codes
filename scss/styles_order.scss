@@ -762,7 +762,8 @@ $desktop-large-min: 1680px;
 		padding-bottom: 1em;
 	}
 	.free-gift {
-		.free-gifts-wrapper {
+		.free-gifts-wrapper,
+		.free-product-gifts-wrapper {
 			.free-gifts-img-hover {
 				display: none !important;
 			}
