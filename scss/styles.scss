@@ -874,6 +874,18 @@ body {
 	overflow-wrap: break-word;
 }
 
+p,
+span,
+li,
+ol,
+a,
+ul,
+input,
+button,
+textarea {
+	font-family: inherit !important;
+}
+
 /* Balance text wrapping on headings */
 h1,
 h2,
@@ -6118,7 +6130,8 @@ body {
 						margin: 0;
 						@include list-reset;
 						li {
-							font-size: var(--fs-16);
+							font-weight: var(--fw-400) !important;
+							font-size: var(--fs-16) !important;
 							p {
 								padding: 0;
 							}

@@ -149,6 +149,18 @@ body {
   overflow-wrap: break-word;
 }
 
+p,
+span,
+li,
+ol,
+a,
+ul,
+input,
+button,
+textarea {
+  font-family: inherit !important;
+}
+
 /* Balance text wrapping on headings */
 h1,
 h2,
@@ -6772,7 +6784,8 @@ body.sticky-header-off .messages > * {
   background: var(--color-primary);
 }
 .type-product .product-top .p-info-wrapper .right-content-wrapper .short-benefits-wrapper ul li {
-  font-size: var(--fs-16);
+  font-weight: var(--fw-400) !important;
+  font-size: var(--fs-16) !important;
 }
 .type-product .product-top .p-info-wrapper .right-content-wrapper .short-benefits-wrapper ul li p {
   padding: 0;
