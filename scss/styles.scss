@@ -4576,12 +4576,14 @@ body.type-manufacturer-detail {
 					background-color: var(--color-gray-300);
 				}
 			}
+			&.next,
 			&.pagination__link--next {
 				&::before {
 					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
 					transform: rotate(90deg);
 				}
 			}
+			&.prev,
 			&.pagination__link--prev {
 				&::before {
 					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");

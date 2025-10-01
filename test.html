@@ -1,0 +1,16 @@
+<!-- START Formbricks Surveys -->
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function () {
+		!function () {
+			if (!document.body.classList.contains("type-product")) {
+				console.log("Formbricks Surveys: Not a product page, skipping survey script.");
+				return;
+			}
+
+			var appUrl = "https://app.formbricks.com";
+			var environmentId = "cmg6loqwi0bznx101m3p0wm9s";
+			var t = document.createElement("script"); t.type = "text/javascript", t.async = !0, t.src = appUrl + "/js/formbricks.umd.cjs", t.onload = function () { window.formbricks ? window.formbricks.setup({ environmentId: environmentId, appUrl: appUrl }) : console.error("Formbricks library failed to load properly. The formbricks object is not available."); }; var e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(t, e)
+		}();
+	});
+</script>
+<!-- END Formbricks Surveys -->
