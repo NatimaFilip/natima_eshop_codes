@@ -1332,6 +1332,7 @@
 .ordering-process.id--17 #order-form .radio-wrapper input::before {
   content: "";
   width: 20px;
+  min-height: 20px;
   height: 20px;
   border-radius: 50%;
   background-color: var(--color-white);
