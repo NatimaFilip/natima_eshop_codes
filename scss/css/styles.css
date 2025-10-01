@@ -4952,21 +4952,37 @@ body.type-manufacturer-detail .category-header > div strong {
     font-size: var(--fs-13);
   }
   .pagination-wrapper .pagination-top,
-  .listingControls .pagination-top {
+  .pagination-wrapper .goToTop,
+  .listingControls .pagination-top,
+  .listingControls .goToTop {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
   }
   .pagination-wrapper .pagination-top strong.js-scroll-top,
-  .listingControls .pagination-top strong.js-scroll-top {
+  .pagination-wrapper .pagination-top .goToTop__button,
+  .pagination-wrapper .goToTop strong.js-scroll-top,
+  .pagination-wrapper .goToTop .goToTop__button,
+  .listingControls .pagination-top strong.js-scroll-top,
+  .listingControls .pagination-top .goToTop__button,
+  .listingControls .goToTop strong.js-scroll-top,
+  .listingControls .goToTop .goToTop__button {
     gap: var(--gap-11);
   }
   .pagination-wrapper .pagination-top strong.js-scroll-top::before,
-  .listingControls .pagination-top strong.js-scroll-top::before {
+  .pagination-wrapper .pagination-top .goToTop__button::before,
+  .pagination-wrapper .goToTop strong.js-scroll-top::before,
+  .pagination-wrapper .goToTop .goToTop__button::before,
+  .listingControls .pagination-top strong.js-scroll-top::before,
+  .listingControls .pagination-top .goToTop__button::before,
+  .listingControls .goToTop strong.js-scroll-top::before,
+  .listingControls .goToTop .goToTop__button::before {
     border-radius: var(--br-12);
   }
   .pagination-wrapper .pagination-loader,
-  .listingControls .pagination-loader {
+  .pagination-wrapper .loadMore,
+  .listingControls .pagination-loader,
+  .listingControls .loadMore {
     width: 100%;
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
@@ -4979,13 +4995,21 @@ body.type-manufacturer-detail .category-header > div strong {
             order: 3;
     gap: var(--gap-16);
   }
+  .pagination-wrapper .pagination .pagination__list,
+  .listingControls .pagination .pagination__list {
+    gap: var(--gap-16);
+  }
   .pagination-wrapper .pagination .pagination-link,
-  .listingControls .pagination .pagination-link {
+  .pagination-wrapper .pagination .pagination__link,
+  .listingControls .pagination .pagination-link,
+  .listingControls .pagination .pagination__link {
     width: 100%;
     text-align: center;
   }
   .pagination-wrapper .pagination .pagination-link::before,
-  .listingControls .pagination .pagination-link::before {
+  .pagination-wrapper .pagination .pagination__link::before,
+  .listingControls .pagination .pagination-link::before,
+  .listingControls .pagination .pagination__link::before {
     border-radius: var(--br-12);
   }
 }

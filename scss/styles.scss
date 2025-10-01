@@ -4611,28 +4611,36 @@ body.type-manufacturer-detail {
 
 	@media screen and (max-width: $mobile-max) {
 		--component-height: 2.77em;
-
 		gap: var(--gap-30);
 		flex-wrap: wrap;
 		font-size: var(--fs-13);
 
-		.pagination-top {
+		.pagination-top,
+		.goToTop {
 			order: 2;
-			strong.js-scroll-top {
+			strong.js-scroll-top,
+			.goToTop__button {
 				gap: var(--gap-11);
 				&::before {
 					border-radius: var(--br-12);
 				}
 			}
 		}
-		.pagination-loader {
+		.pagination-loader,
+		.loadMore {
 			width: 100%;
 			order: 1;
 		}
 		.pagination {
 			order: 3;
 			gap: var(--gap-16);
-			.pagination-link {
+
+			.pagination__list {
+				gap: var(--gap-16);
+			}
+
+			.pagination-link,
+			.pagination__link {
 				width: 100%;
 				text-align: center;
 				&::before {
