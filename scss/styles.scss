@@ -4271,7 +4271,7 @@ body.type-manufacturer-detail {
 }
 
 /*-------------------------------------- PAGINATION */
-.pagination-wrapper {
+/* .pagination-wrapper {
 	padding-top: var(--gap-16);
 	padding-bottom: var(--gap-11);
 
@@ -4395,6 +4395,207 @@ body.type-manufacturer-detail {
 				}
 			}
 		}
+		a {
+			color: var(--color-black);
+			&:hover,
+			&:focus-within {
+				color: var(--color-primary);
+			}
+		}
+	}
+	@media screen and (max-width: $tablet-max) {
+		padding-top: var(--gap-24);
+		padding-bottom: var(--gap-30);
+	}
+
+	@media screen and (max-width: $mobile-max) {
+		--component-height: 2.77em;
+
+		gap: var(--gap-30);
+		flex-wrap: wrap;
+		font-size: var(--fs-13);
+
+		.pagination-top {
+			order: 2;
+			strong.js-scroll-top {
+				gap: var(--gap-11);
+				&::before {
+					border-radius: var(--br-12);
+				}
+			}
+		}
+		.pagination-loader {
+			width: 100%;
+			order: 1;
+		}
+		.pagination {
+			order: 3;
+			gap: var(--gap-16);
+			.pagination-link {
+				width: 100%;
+				text-align: center;
+				&::before {
+					border-radius: var(--br-12);
+				}
+			}
+		}
+	}
+} */
+
+.pagination-wrapper,
+.listingControls {
+	padding-top: var(--gap-16);
+	padding-bottom: var(--gap-11);
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: var(--fs-16);
+	--component-height: 3.25em;
+	min-height: var(--component-height);
+
+	.itemsTotal {
+		display: none;
+	}
+
+	@media screen and (min-width: $tablet-min) {
+		> * {
+			width: 33.3333%;
+		}
+		.pagination-loader,
+		.loadMore {
+			display: flex;
+			justify-content: center;
+		}
+		.pagination-top,
+		.goToTop {
+			justify-content: flex-start;
+		}
+		.pagination {
+			justify-content: flex-end;
+		}
+	}
+
+	.pagination-top,
+	.goToTop {
+		order: 1;
+		strong.js-scroll-top,
+		.goToTop__button {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: var(--gap-16);
+			color: var(--color-black);
+			font-weight: var(--fw-700);
+			&::before {
+				content: "";
+				display: block;
+				width: var(--component-height);
+				height: var(--component-height);
+				background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 0.625em;
+				background-color: var(--color-gray-400);
+				border-radius: var(--br-16);
+			}
+			&:hover,
+			&:focus-within {
+				color: var(--color-primary);
+				&::before {
+					background-size: 0.875em;
+					background-color: var(--color-gray-300);
+				}
+			}
+		}
+	}
+	.pagination-loader,
+	.loadMore {
+		order: 2;
+		span,
+		button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: var(--component-height);
+			border-style: solid;
+			border-width: 1px;
+			border-color: var(--color-black);
+			color: var(--color-black);
+			font-size: var(--fs-16);
+			font-weight: var(--fw-700);
+			border-radius: var(--br-16);
+			cursor: pointer;
+			padding: 0 2em;
+			&:hover,
+			&:focus-within {
+				color: var(--color-white);
+				background-color: var(--color-primary);
+				border-color: var(--color-primary-hover);
+			}
+		}
+	}
+	.pagination {
+		order: 3;
+		display: flex;
+		flex-direction: row;
+		gap: var(--gap-24);
+		align-items: center;
+
+		.pagination__list {
+			list-style: none;
+			display: flex;
+			flex-direction: row;
+			gap: var(--gap-24);
+			align-items: center;
+		}
+
+		.pagination-link,
+		.pagination__link {
+			span {
+				display: none;
+			}
+
+			&::before {
+				content: "";
+				display: block;
+				width: var(--component-height);
+				height: var(--component-height);
+
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 0.625em;
+				background-color: var(--color-gray-400);
+				border-radius: var(--br-16);
+			}
+			&:hover,
+			&:focus-within {
+				&::before {
+					background-size: 0.875em;
+					background-color: var(--color-gray-300);
+				}
+			}
+			&.pagination__link--next {
+				&::before {
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+					transform: rotate(90deg);
+				}
+			}
+			&.pagination__link--prev {
+				&::before {
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+					transform: rotate(-90deg);
+				}
+			}
+			&.pagination__link--first,
+			&.pagination__link--last {
+				&::before {
+					display: none;
+				}
+			}
+		}
+
 		a {
 			color: var(--color-black);
 			&:hover,

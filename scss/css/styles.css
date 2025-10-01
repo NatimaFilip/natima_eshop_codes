@@ -4477,7 +4477,178 @@ body.type-manufacturer-detail .category-header > div strong {
 }
 
 /*-------------------------------------- PAGINATION */
-.pagination-wrapper {
+/* .pagination-wrapper {
+	padding-top: var(--gap-16);
+	padding-bottom: var(--gap-11);
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: var(--fs-16);
+	--component-height: 3.25em;
+	min-height: var(--component-height);
+
+	@media screen and (min-width: $tablet-min) {
+		> * {
+			width: 33.3333%;
+		}
+		.pagination-loader {
+			display: flex;
+			justify-content: center;
+		}
+		.pagination-top {
+			justify-content: flex-start;
+		}
+		.pagination {
+			justify-content: flex-end;
+		}
+	}
+
+	.pagination-top {
+		strong.js-scroll-top {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: var(--gap-16);
+			color: var(--color-black);
+			&::before {
+				content: "";
+				display: block;
+				width: var(--component-height);
+				height: var(--component-height);
+				background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 0.625em;
+				background-color: var(--color-gray-400);
+				border-radius: var(--br-16);
+			}
+			&:hover,
+			&:focus-within {
+				color: var(--color-primary);
+
+				&::before {
+					background-size: 0.875em;
+					background-color: var(--color-gray-300);
+				}
+			}
+		}
+	}
+	.pagination-loader {
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: var(--component-height);
+			border-style: solid;
+			border-width: 1px;
+			border-color: var(--color-black);
+			color: var(--color-black);
+			font-size: var(--fs-16);
+			font-weight: var(--fw-700);
+			border-radius: var(--br-16);
+			cursor: pointer;
+			padding: 0 2em;
+
+			&:hover,
+			&:focus-within {
+				color: var(--color-white);
+				background-color: var(--color-primary);
+				border-color: var(--color-primary-hover);
+			}
+		}
+	}
+	.pagination {
+		display: flex;
+		flex-direction: row;
+		gap: var(--gap-24);
+		align-items: center;
+
+		.pagination-link {
+			span {
+				display: none;
+			}
+			&::before {
+				content: "";
+				display: block;
+				width: var(--component-height);
+				height: var(--component-height);
+
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 0.625em;
+				background-color: var(--color-gray-400);
+				border-radius: var(--br-16);
+			}
+			&:hover,
+			&:focus-within {
+				&::before {
+					background-size: 0.875em;
+					background-color: var(--color-gray-300);
+				}
+			}
+			&.next {
+				&::before {
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+					transform: rotate(90deg);
+				}
+			}
+			&.prev {
+				&::before {
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+					transform: rotate(-90deg);
+				}
+			}
+		}
+		a {
+			color: var(--color-black);
+			&:hover,
+			&:focus-within {
+				color: var(--color-primary);
+			}
+		}
+	}
+	@media screen and (max-width: $tablet-max) {
+		padding-top: var(--gap-24);
+		padding-bottom: var(--gap-30);
+	}
+
+	@media screen and (max-width: $mobile-max) {
+		--component-height: 2.77em;
+
+		gap: var(--gap-30);
+		flex-wrap: wrap;
+		font-size: var(--fs-13);
+
+		.pagination-top {
+			order: 2;
+			strong.js-scroll-top {
+				gap: var(--gap-11);
+				&::before {
+					border-radius: var(--br-12);
+				}
+			}
+		}
+		.pagination-loader {
+			width: 100%;
+			order: 1;
+		}
+		.pagination {
+			order: 3;
+			gap: var(--gap-16);
+			.pagination-link {
+				width: 100%;
+				text-align: center;
+				&::before {
+					border-radius: var(--br-12);
+				}
+			}
+		}
+	}
+} */
+.pagination-wrapper,
+.listingControls {
   padding-top: var(--gap-16);
   padding-bottom: var(--gap-11);
   display: -webkit-box;
@@ -4497,11 +4668,19 @@ body.type-manufacturer-detail .category-header > div strong {
   --component-height: 3.25em;
   min-height: var(--component-height);
 }
+.pagination-wrapper .itemsTotal,
+.listingControls .itemsTotal {
+  display: none;
+}
 @media screen and (min-width: 768px) {
-  .pagination-wrapper > * {
+  .pagination-wrapper > *,
+  .listingControls > * {
     width: 33.3333%;
   }
-  .pagination-wrapper .pagination-loader {
+  .pagination-wrapper .pagination-loader,
+  .pagination-wrapper .loadMore,
+  .listingControls .pagination-loader,
+  .listingControls .loadMore {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4509,18 +4688,37 @@ body.type-manufacturer-detail .category-header > div strong {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .pagination-wrapper .pagination-top {
+  .pagination-wrapper .pagination-top,
+  .pagination-wrapper .goToTop,
+  .listingControls .pagination-top,
+  .listingControls .goToTop {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
   }
-  .pagination-wrapper .pagination {
+  .pagination-wrapper .pagination,
+  .listingControls .pagination {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
 }
-.pagination-wrapper .pagination-top strong.js-scroll-top {
+.pagination-wrapper .pagination-top,
+.pagination-wrapper .goToTop,
+.listingControls .pagination-top,
+.listingControls .goToTop {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+.pagination-wrapper .pagination-top strong.js-scroll-top,
+.pagination-wrapper .pagination-top .goToTop__button,
+.pagination-wrapper .goToTop strong.js-scroll-top,
+.pagination-wrapper .goToTop .goToTop__button,
+.listingControls .pagination-top strong.js-scroll-top,
+.listingControls .pagination-top .goToTop__button,
+.listingControls .goToTop strong.js-scroll-top,
+.listingControls .goToTop .goToTop__button {
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4530,8 +4728,16 @@ body.type-manufacturer-detail .category-header > div strong {
           align-items: center;
   gap: var(--gap-16);
   color: var(--color-black);
+  font-weight: var(--fw-700);
 }
-.pagination-wrapper .pagination-top strong.js-scroll-top::before {
+.pagination-wrapper .pagination-top strong.js-scroll-top::before,
+.pagination-wrapper .pagination-top .goToTop__button::before,
+.pagination-wrapper .goToTop strong.js-scroll-top::before,
+.pagination-wrapper .goToTop .goToTop__button::before,
+.listingControls .pagination-top strong.js-scroll-top::before,
+.listingControls .pagination-top .goToTop__button::before,
+.listingControls .goToTop strong.js-scroll-top::before,
+.listingControls .goToTop .goToTop__button::before {
   content: "";
   display: block;
   width: var(--component-height);
@@ -4543,14 +4749,57 @@ body.type-manufacturer-detail .category-header > div strong {
   background-color: var(--color-gray-400);
   border-radius: var(--br-16);
 }
-.pagination-wrapper .pagination-top strong.js-scroll-top:hover, .pagination-wrapper .pagination-top strong.js-scroll-top:focus-within {
+.pagination-wrapper .pagination-top strong.js-scroll-top:hover, .pagination-wrapper .pagination-top strong.js-scroll-top:focus-within,
+.pagination-wrapper .pagination-top .goToTop__button:hover,
+.pagination-wrapper .pagination-top .goToTop__button:focus-within,
+.pagination-wrapper .goToTop strong.js-scroll-top:hover,
+.pagination-wrapper .goToTop strong.js-scroll-top:focus-within,
+.pagination-wrapper .goToTop .goToTop__button:hover,
+.pagination-wrapper .goToTop .goToTop__button:focus-within,
+.listingControls .pagination-top strong.js-scroll-top:hover,
+.listingControls .pagination-top strong.js-scroll-top:focus-within,
+.listingControls .pagination-top .goToTop__button:hover,
+.listingControls .pagination-top .goToTop__button:focus-within,
+.listingControls .goToTop strong.js-scroll-top:hover,
+.listingControls .goToTop strong.js-scroll-top:focus-within,
+.listingControls .goToTop .goToTop__button:hover,
+.listingControls .goToTop .goToTop__button:focus-within {
   color: var(--color-primary);
 }
-.pagination-wrapper .pagination-top strong.js-scroll-top:hover::before, .pagination-wrapper .pagination-top strong.js-scroll-top:focus-within::before {
+.pagination-wrapper .pagination-top strong.js-scroll-top:hover::before, .pagination-wrapper .pagination-top strong.js-scroll-top:focus-within::before,
+.pagination-wrapper .pagination-top .goToTop__button:hover::before,
+.pagination-wrapper .pagination-top .goToTop__button:focus-within::before,
+.pagination-wrapper .goToTop strong.js-scroll-top:hover::before,
+.pagination-wrapper .goToTop strong.js-scroll-top:focus-within::before,
+.pagination-wrapper .goToTop .goToTop__button:hover::before,
+.pagination-wrapper .goToTop .goToTop__button:focus-within::before,
+.listingControls .pagination-top strong.js-scroll-top:hover::before,
+.listingControls .pagination-top strong.js-scroll-top:focus-within::before,
+.listingControls .pagination-top .goToTop__button:hover::before,
+.listingControls .pagination-top .goToTop__button:focus-within::before,
+.listingControls .goToTop strong.js-scroll-top:hover::before,
+.listingControls .goToTop strong.js-scroll-top:focus-within::before,
+.listingControls .goToTop .goToTop__button:hover::before,
+.listingControls .goToTop .goToTop__button:focus-within::before {
   background-size: 0.875em;
   background-color: var(--color-gray-300);
 }
-.pagination-wrapper .pagination-loader span {
+.pagination-wrapper .pagination-loader,
+.pagination-wrapper .loadMore,
+.listingControls .pagination-loader,
+.listingControls .loadMore {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+.pagination-wrapper .pagination-loader span,
+.pagination-wrapper .pagination-loader button,
+.pagination-wrapper .loadMore span,
+.pagination-wrapper .loadMore button,
+.listingControls .pagination-loader span,
+.listingControls .pagination-loader button,
+.listingControls .loadMore span,
+.listingControls .loadMore button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4571,12 +4820,30 @@ body.type-manufacturer-detail .category-header > div strong {
   cursor: pointer;
   padding: 0 2em;
 }
-.pagination-wrapper .pagination-loader span:hover, .pagination-wrapper .pagination-loader span:focus-within {
+.pagination-wrapper .pagination-loader span:hover, .pagination-wrapper .pagination-loader span:focus-within,
+.pagination-wrapper .pagination-loader button:hover,
+.pagination-wrapper .pagination-loader button:focus-within,
+.pagination-wrapper .loadMore span:hover,
+.pagination-wrapper .loadMore span:focus-within,
+.pagination-wrapper .loadMore button:hover,
+.pagination-wrapper .loadMore button:focus-within,
+.listingControls .pagination-loader span:hover,
+.listingControls .pagination-loader span:focus-within,
+.listingControls .pagination-loader button:hover,
+.listingControls .pagination-loader button:focus-within,
+.listingControls .loadMore span:hover,
+.listingControls .loadMore span:focus-within,
+.listingControls .loadMore button:hover,
+.listingControls .loadMore button:focus-within {
   color: var(--color-white);
   background-color: var(--color-primary);
   border-color: var(--color-primary-hover);
 }
-.pagination-wrapper .pagination {
+.pagination-wrapper .pagination,
+.listingControls .pagination {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4589,10 +4856,31 @@ body.type-manufacturer-detail .category-header > div strong {
       -ms-flex-align: center;
           align-items: center;
 }
-.pagination-wrapper .pagination .pagination-link span {
+.pagination-wrapper .pagination .pagination__list,
+.listingControls .pagination .pagination__list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: var(--gap-24);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.pagination-wrapper .pagination .pagination-link span,
+.pagination-wrapper .pagination .pagination__link span,
+.listingControls .pagination .pagination-link span,
+.listingControls .pagination .pagination__link span {
   display: none;
 }
-.pagination-wrapper .pagination .pagination-link::before {
+.pagination-wrapper .pagination .pagination-link::before,
+.pagination-wrapper .pagination .pagination__link::before,
+.listingControls .pagination .pagination-link::before,
+.listingControls .pagination .pagination__link::before {
   content: "";
   display: block;
   width: var(--component-height);
@@ -4603,68 +4891,101 @@ body.type-manufacturer-detail .category-header > div strong {
   background-color: var(--color-gray-400);
   border-radius: var(--br-16);
 }
-.pagination-wrapper .pagination .pagination-link:hover::before, .pagination-wrapper .pagination .pagination-link:focus-within::before {
+.pagination-wrapper .pagination .pagination-link:hover::before, .pagination-wrapper .pagination .pagination-link:focus-within::before,
+.pagination-wrapper .pagination .pagination__link:hover::before,
+.pagination-wrapper .pagination .pagination__link:focus-within::before,
+.listingControls .pagination .pagination-link:hover::before,
+.listingControls .pagination .pagination-link:focus-within::before,
+.listingControls .pagination .pagination__link:hover::before,
+.listingControls .pagination .pagination__link:focus-within::before {
   background-size: 0.875em;
   background-color: var(--color-gray-300);
 }
-.pagination-wrapper .pagination .pagination-link.next::before {
+.pagination-wrapper .pagination .pagination-link.pagination__link--next::before,
+.pagination-wrapper .pagination .pagination__link.pagination__link--next::before,
+.listingControls .pagination .pagination-link.pagination__link--next::before,
+.listingControls .pagination .pagination__link.pagination__link--next::before {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
-.pagination-wrapper .pagination .pagination-link.prev::before {
+.pagination-wrapper .pagination .pagination-link.pagination__link--prev::before,
+.pagination-wrapper .pagination .pagination__link.pagination__link--prev::before,
+.listingControls .pagination .pagination-link.pagination__link--prev::before,
+.listingControls .pagination .pagination__link.pagination__link--prev::before {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
-.pagination-wrapper .pagination a {
+.pagination-wrapper .pagination .pagination-link.pagination__link--first::before, .pagination-wrapper .pagination .pagination-link.pagination__link--last::before,
+.pagination-wrapper .pagination .pagination__link.pagination__link--first::before,
+.pagination-wrapper .pagination .pagination__link.pagination__link--last::before,
+.listingControls .pagination .pagination-link.pagination__link--first::before,
+.listingControls .pagination .pagination-link.pagination__link--last::before,
+.listingControls .pagination .pagination__link.pagination__link--first::before,
+.listingControls .pagination .pagination__link.pagination__link--last::before {
+  display: none;
+}
+.pagination-wrapper .pagination a,
+.listingControls .pagination a {
   color: var(--color-black);
 }
-.pagination-wrapper .pagination a:hover, .pagination-wrapper .pagination a:focus-within {
+.pagination-wrapper .pagination a:hover, .pagination-wrapper .pagination a:focus-within,
+.listingControls .pagination a:hover,
+.listingControls .pagination a:focus-within {
   color: var(--color-primary);
 }
 @media screen and (max-width: 1279px) {
-  .pagination-wrapper {
+  .pagination-wrapper,
+  .listingControls {
     padding-top: var(--gap-24);
     padding-bottom: var(--gap-30);
   }
 }
 @media screen and (max-width: 767px) {
-  .pagination-wrapper {
+  .pagination-wrapper,
+  .listingControls {
     --component-height: 2.77em;
     gap: var(--gap-30);
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     font-size: var(--fs-13);
   }
-  .pagination-wrapper .pagination-top {
+  .pagination-wrapper .pagination-top,
+  .listingControls .pagination-top {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
   }
-  .pagination-wrapper .pagination-top strong.js-scroll-top {
+  .pagination-wrapper .pagination-top strong.js-scroll-top,
+  .listingControls .pagination-top strong.js-scroll-top {
     gap: var(--gap-11);
   }
-  .pagination-wrapper .pagination-top strong.js-scroll-top::before {
+  .pagination-wrapper .pagination-top strong.js-scroll-top::before,
+  .listingControls .pagination-top strong.js-scroll-top::before {
     border-radius: var(--br-12);
   }
-  .pagination-wrapper .pagination-loader {
+  .pagination-wrapper .pagination-loader,
+  .listingControls .pagination-loader {
     width: 100%;
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
   }
-  .pagination-wrapper .pagination {
+  .pagination-wrapper .pagination,
+  .listingControls .pagination {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
     gap: var(--gap-16);
   }
-  .pagination-wrapper .pagination .pagination-link {
+  .pagination-wrapper .pagination .pagination-link,
+  .listingControls .pagination .pagination-link {
     width: 100%;
     text-align: center;
   }
-  .pagination-wrapper .pagination .pagination-link::before {
+  .pagination-wrapper .pagination .pagination-link::before,
+  .listingControls .pagination .pagination-link::before {
     border-radius: var(--br-12);
   }
 }
