@@ -1091,13 +1091,14 @@ $desktop-large-min: 1680px;
 				pointer-events: none;
 			}
 			input {
-				margin: 0;
 				appearance: none;
 				border-style: none;
 				height: auto;
 				display: flex;
 				align-items: center;
 				outline: none;
+				margin: 0 1em 1.5em;
+				padding: 0;
 
 				&::before {
 					content: "";
