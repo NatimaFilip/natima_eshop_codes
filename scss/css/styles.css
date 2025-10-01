@@ -7374,7 +7374,13 @@ body.sticky-header-off .messages > * {
   border-radius: var(--br-20);
 }
 .type-product .product-top .p-info-wrapper .p-final-price-wrapper .price-final {
-  display: inline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.25em;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   grid-row: 1;
   grid-column: 2;
   font-size: var(--fs-24);
@@ -8101,7 +8107,13 @@ body.sticky-header-off .messages > * {
   border-radius: var(--br-20);
 }
 .type-product .sticky-sell .p-final-price-wrapper .price-final {
-  display: inline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.25em;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   grid-row: 1;
   grid-column: 3;
   font-size: var(--fs-24);
