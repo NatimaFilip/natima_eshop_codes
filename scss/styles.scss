@@ -4629,7 +4629,11 @@ body.type-manufacturer-detail {
 		.pagination-loader,
 		.loadMore {
 			width: 100%;
+			display: flex;
 			order: 1;
+			button {
+				width: 100%;
+			}
 		}
 		.pagination {
 			order: 3;

@@ -4984,9 +4984,18 @@ body.type-manufacturer-detail .category-header > div strong {
   .listingControls .pagination-loader,
   .listingControls .loadMore {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+  }
+  .pagination-wrapper .pagination-loader button,
+  .pagination-wrapper .loadMore button,
+  .listingControls .pagination-loader button,
+  .listingControls .loadMore button {
+    width: 100%;
   }
   .pagination-wrapper .pagination,
   .listingControls .pagination {
