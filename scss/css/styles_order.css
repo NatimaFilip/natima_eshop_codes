@@ -1940,7 +1940,7 @@
   position: relative;
 }
 .ordering-process.id--17.pl #checkoutContent .country-flag:not(.country-flag-PL)::after {
-  content: "Aby było możliwe dostarczenie przesyłki, należy podać polski numer, w przeciwnym razie nie będzie można jej wysłać.";
+  content: "Podanie polskiego numeru telefonu jest niezbędne do dostarczenia przesyłki, w przeciwnym razie nie będzie można jej nadać";
   display: block;
   font-size: var(--fs-16);
   position: absolute;
