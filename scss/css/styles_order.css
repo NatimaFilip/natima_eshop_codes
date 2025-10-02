@@ -1326,8 +1326,9 @@
       -ms-flex-align: center;
           align-items: center;
   outline: none;
-  margin: 0 1em 1.5em;
-  padding: 0;
+  margin: auto 1em;
+  padding-left: 0;
+  padding-right: 0;
 }
 .ordering-process.id--16 #order-form .radio-wrapper input::before,
 .ordering-process.id--17 #order-form .radio-wrapper input::before {

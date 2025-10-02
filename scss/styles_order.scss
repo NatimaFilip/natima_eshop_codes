@@ -1097,8 +1097,9 @@ $desktop-large-min: 1680px;
 				display: flex;
 				align-items: center;
 				outline: none;
-				margin: 0 1em 1.5em;
-				padding: 0;
+				margin: auto 1em;
+				padding-left: 0;
+				padding-right: 0;
 
 				&::before {
 					content: "";
