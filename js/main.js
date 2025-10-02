@@ -2937,6 +2937,13 @@ if (body.classList.contains("type-product")) {
 	if ($(".nelze-uplatnit-vernostni-slevu").length > 0) {
 		$(".nelze-uplatnit-vernostni-slevu").html("<p>" + translationsStrings.noLoyaltySale[activeLang] + "</p>");
 	}
+
+	let thumbnailsWrapper = document.querySelector(".p-thumbnails-inner");
+	let thumbnailsParent = document.querySelector(".p-thumbnails-inner > div");
+	let thumbnails = document.querySelectorAll(".p-thumbnail");
+	if (thumbnails && thumbnailsParent && thumbnailsWrapper) {
+		inicializeSliderElement(thumbnailsWrapper, thumbnailsParent, thumbnails, "thumbnails-slider", null);
+	}
 }
 
 /*------------------------------------------------- Index*/
