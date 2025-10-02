@@ -3020,6 +3020,7 @@ body.type-manufacturer-detail #filters .slider-wrapper .slider-content #slider {
 body.type-category #filters .slider-wrapper .slider-content #slider .ui-slider-range,
 body.type-manufacturer-detail #filters .slider-wrapper .slider-content #slider .ui-slider-range {
   height: 6px;
+  position: relative;
   background-color: var(--color-primary);
 }
 body.type-category #filters .slider-wrapper .slider-content #slider span,
