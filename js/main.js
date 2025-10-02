@@ -2938,12 +2938,14 @@ if (body.classList.contains("type-product")) {
 		$(".nelze-uplatnit-vernostni-slevu").html("<p>" + translationsStrings.noLoyaltySale[activeLang] + "</p>");
 	}
 
-	let thumbnailsWrapper = document.querySelector(".p-thumbnails-inner");
-	let thumbnailsParent = document.querySelector(".p-thumbnails-inner > div");
-	let thumbnails = document.querySelectorAll(".p-thumbnail");
-	if (thumbnails && thumbnailsParent && thumbnailsWrapper) {
-		inicializeSliderElement(thumbnailsWrapper, thumbnailsParent, thumbnails, "thumbnails-slider", null);
-	}
+	document.addEventListener("DOMContentLoaded", function () {
+		let thumbnailsWrapper = document.querySelector(".p-thumbnails-inner");
+		let thumbnailsParent = document.querySelector(".p-thumbnails-inner > div");
+		let thumbnails = document.querySelectorAll(".p-thumbnail");
+		if (thumbnails && thumbnailsParent && thumbnailsWrapper) {
+			inicializeSliderElement(thumbnailsWrapper, thumbnailsParent, thumbnails, "thumbnails-slider", null);
+		}
+	});
 }
 
 /*------------------------------------------------- Index*/
@@ -3784,7 +3786,7 @@ function inicializeSliderElement(sliderWrapper, sliderParent, sliderItem, custom
 		sliderParent.classList.add("sliding");
 
 		const numberOfItems = parseInt(getComputedStyle(sliderWrapper).getPropertyValue("--number-of-items")) || 1;
-		const gapValue = parseInt(getComputedStyle(sliderWrapper).getPropertyValue("--gap")) || 0;
+		const gapValue = parseInt(getComputedStyle(sliderParent).getPropertyValue("--gap")) || 0;
 		const largeItemMultiplier =
 			parseFloat(getComputedStyle(sliderWrapper).getPropertyValue("--width-multiplier-of-1st-item")) - 1 || 0;
 
