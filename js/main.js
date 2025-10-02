@@ -3793,10 +3793,10 @@ function inicializeSliderElement(sliderWrapper, sliderParent, sliderItem, custom
 		let scrollAmount;
 		if (sliderItem.length > 2) {
 			scrollAmount =
-				sliderItem[2]?.offsetWidth * numberOfItems + gapValue * (numberOfItems - largeItemMultiplier) || 200;
+				sliderItem[2]?.offsetWidth * numberOfItems + gapValue * (numberOfItems - largeItemMultiplier - 1) || 200;
 		} else {
 			scrollAmount =
-				sliderItem[0]?.offsetWidth * numberOfItems + gapValue * (numberOfItems - largeItemMultiplier) || 200;
+				sliderItem[0]?.offsetWidth * numberOfItems + gapValue * (numberOfItems - largeItemMultiplier - 1) || 200;
 		}
 
 		const to = direction === "left" ? sliderParent.scrollLeft - scrollAmount : sliderParent.scrollLeft + scrollAmount;
