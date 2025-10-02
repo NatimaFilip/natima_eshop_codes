@@ -1820,26 +1820,6 @@
   display: -ms-flexbox;
   display: flex;
 }
-.ordering-process.id--17 #checkoutContent .country-flag:not(.country-flag-CZ) {
-  position: relative;
-}
-.ordering-process.id--17 #checkoutContent .country-flag:not(.country-flag-CZ)::after {
-  content: "Pro doručení zásilky je nutno zadat české číslo, jinak nebude možno zásilku odeslat.";
-  display: block;
-  font-size: var(--fs-16);
-  position: absolute;
-  left: 0;
-  top: -20px;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  background: white;
-  border-style: solid;
-  border-color: var(--color-red-400);
-  border-radius: var(--br-16);
-  border-width: 1px;
-  width: 18em;
-  padding: 10px;
-}
 .ordering-process.id--17 #checkoutContent .country-flag svg {
   min-width: 18px;
   width: 18px;
@@ -1911,4 +1891,67 @@
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
+}
+
+.ordering-process.id--17.cs #checkoutContent .country-flag:not(.country-flag-CZ) {
+  position: relative;
+}
+.ordering-process.id--17.cs #checkoutContent .country-flag:not(.country-flag-CZ)::after {
+  content: "Pro doručení zásilky je nutno zadat české číslo, jinak nebude možno zásilku odeslat.";
+  display: block;
+  font-size: var(--fs-16);
+  position: absolute;
+  left: 0;
+  top: -20px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  background: white;
+  border-style: solid;
+  border-color: var(--color-red-400);
+  border-radius: var(--br-16);
+  border-width: 1px;
+  width: 18em;
+  padding: 10px;
+}
+
+.ordering-process.id--17.sk #checkoutContent .country-flag:not(.country-flag-SK) {
+  position: relative;
+}
+.ordering-process.id--17.sk #checkoutContent .country-flag:not(.country-flag-SK)::after {
+  content: "Pre doručenie zásielky je nutné zadať slovenské číslo, inak nebude možné zásielku odoslať.";
+  display: block;
+  font-size: var(--fs-16);
+  position: absolute;
+  left: 0;
+  top: -20px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  background: white;
+  border-style: solid;
+  border-color: var(--color-red-400);
+  border-radius: var(--br-16);
+  border-width: 1px;
+  width: 18em;
+  padding: 10px;
+}
+
+.ordering-process.id--17.pl #checkoutContent .country-flag:not(.country-flag-PL) {
+  position: relative;
+}
+.ordering-process.id--17.pl #checkoutContent .country-flag:not(.country-flag-PL)::after {
+  content: "Aby było możliwe dostarczenie przesyłki, należy podać polski numer, w przeciwnym razie nie będzie można jej wysłać.";
+  display: block;
+  font-size: var(--fs-16);
+  position: absolute;
+  left: 0;
+  top: -20px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  background: white;
+  border-style: solid;
+  border-color: var(--color-red-400);
+  border-radius: var(--br-16);
+  border-width: 1px;
+  width: 18em;
+  padding: 10px;
 }
