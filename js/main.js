@@ -3883,15 +3883,23 @@ function inicializeSliderElement(sliderWrapper, sliderParent, sliderItem, custom
 		const gapValue = parseInt(getComputedStyle(sliderParent).getPropertyValue("--gap")) || 0;
 		const largeItemMultiplier =
 			parseFloat(getComputedStyle(sliderWrapper).getPropertyValue("--width-multiplier-of-1st-item")) - 1 || 0;
+		const nextItemPreview = parseInt(getComputedStyle(sliderWrapper).getPropertyValue("--next-item-preview")) || 0;
 
 		let scrollAmount;
-		if (sliderItem.length > 2) {
+		/* 	if (sliderItem.length > 2) {
 			scrollAmount =
-				sliderItem[2]?.offsetWidth * numberOfItems + gapValue * (numberOfItems - largeItemMultiplier) || 200;
+				sliderItem[2]?.offsetWidth * numberOfItems +
+					gapValue * (numberOfItems - largeItemMultiplier - 1) +
+					nextItemPreview || 200;
+			
 		} else {
 			scrollAmount =
-				sliderItem[0]?.offsetWidth * numberOfItems + gapValue * (numberOfItems - largeItemMultiplier) || 200;
-		}
+				sliderItem[0]?.offsetWidth * numberOfItems +
+					gapValue * (numberOfItems - largeItemMultiplier - 1) +
+					nextItemPreview || 200;
+		} */
+
+		scrollAmount = sliderParent.offsetWidth - (nextItemPreview - gapValue);
 
 		const to = direction === "left" ? sliderParent.scrollLeft - scrollAmount : sliderParent.scrollLeft + scrollAmount;
 
