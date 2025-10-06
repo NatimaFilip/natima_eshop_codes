@@ -37,7 +37,7 @@ const translationsStrings = {
 	cartTotalLabel: {
 		cs: "Cena celkem",
 		sk: "Cena spolu",
-		pl: "Cena całkowita",
+		pl: "Cena łącznie",
 	},
 	customFilterButton: {
 		cs: "Filtrování výsledků",
@@ -87,7 +87,7 @@ const translationsStrings = {
 	ingredientsTitle: {
 		cs: "Složení",
 		sk: "Zloženie",
-		pl: "Składniki",
+		pl: "Skład",
 	},
 	certificatesTitle: {
 		cs: "Certifikáty",
@@ -97,7 +97,7 @@ const translationsStrings = {
 	reviewsTitle: {
 		cs: "Hodnocení",
 		sk: "Hodnotenie",
-		pl: "Oceny",
+		pl: "Opinie",
 	},
 	weSupportTitle: {
 		cs: "Pomáháme",
@@ -135,30 +135,30 @@ const translationsStrings = {
 		pl: "z",
 	},
 	natiosDescription: {
-		cs: "Natios je česká značka, která se zaměřuje na výrobu kvalitních doplňků stravy s čistým složením bezzbytečných příměsí, konzervantů a éček.",
+		cs: "Natios je česká značka, která se zaměřuje na výrobu kvalitních doplňků stravy s čistým složením bez zbytečných příměsí, konzervantů a éček.",
 		sk: "Natios je česká značka, ktorá sa zameriava na výrobu kvalitných doplnkov stravy s čistým zložením bez zbytočných prísad, konzervantov a éčok.",
-		pl: "Natios to czeska marka, która koncentruje się na produkcji wysokiej jakości suplementów diety o czystym składzie, bez zbędnych dodatków, konserwantów i E-sklepów.",
+		pl: "Natios to czeska marka, która koncentruje się na produkcji wysokiej jakości suplementów diety o czystym składzie – bez zbędnych domieszek, konserwantów i sztucznych dodatków (E).",
 	},
 
 	natiosSupportTextTop: {
 		cs: "Nákupem <b>přispějete</b> 1 Kč dětské hematoonkologii.",
 		sk: "Nákupom <b>prispievate</b> 1 Kč detskej hematoonkológii.",
-		pl: "Kupując, <b>przyczyniasz się</b> 1 Kč do pediatrycznej onkologii krwi.",
+		pl: "Kupując, <b>wspierasz</b> dziecięcą hematoonkologię kwotą 1 CZK.",
 	},
 	natiosSupportHeaderBottom: {
 		cs: "<h3>Pomáháme</h3><span>&nbsp;dětské hematoonkologii</span>",
 		sk: "<h3>Pomáhame</h3><span>&nbsp;detskej hematoonkológii</span>",
-		pl: "<h3>Pomagamy</h3><span>&nbsp;pediatrycznej onkologii krwi</span>",
+		pl: "<h3>Pomagamy</h3><span>&nbsp;pediatrycznej hematoonkologii</span>",
 	},
 	natiosSupportTextBottom: {
 		cs: "Natios z každého prodaného produktu daruje 1 Kč dětské hematoonkologii ve Fakultní nemocnici v Ostravě. Léčba každého onkologického pacienta v České republice se odhaduje na přibližně 8&nbsp;000&nbsp;Kč měsíčně. Věříme tedy, že tímto krokem společně dokážeme pomoci několika rodinám.",
 		sk: "Natios z každého predaného produktu daruje 1 Kč detskej hematoonkológii vo Fakultnej nemocnici v Ostrave. Liečba každého onkologického pacienta v České republice sa odhaduje na približne 8&nbsp;000&nbsp;Kč mesačne. Veríme teda, že týmto krokom spoločne dokážeme pomôcť niekoľkým rodinám.",
-		pl: "Natios z każdego sprzedanego produktu przekazuje 1 Kč na pediatryczną onkologię krwi w Szpitalu Uniwersyteckim w Ostrawie. Leczenie każdego pacjenta onkologicznego w Czechach szacuje się na około 8&nbsp;000&nbsp;Kč miesięcznie. Wierzymy, że tym krokiem wspólnie możemy pomóc kilku rodzinom.",
+		pl: "Natios z każdego sprzedanego produktu przekazuje 1 CZK na rzecz pediatrycznej hematoonkologii w Szpitalu Uniwersyteckim w Ostrawie. Leczenie jednego pacjenta onkologicznego w Czechach szacuje się na około 8&nbsp;000&nbsp;CZK miesięcznie. Wierzymy, że tym krokiem wspólnie możemy pomóc wielu rodzinom.",
 	},
 	natiosSupportTotalAmount: {
 		cs: "Společně jsme již dokázali přispět přes 650&nbsp;000&nbsp;Kč. Děkujeme!",
 		sk: "Spoločne sme už dokázali prispieť cez 650&nbsp;000&nbsp;Kč. Ďakujeme!",
-		pl: "Wspólnie udało nam się już przekazać ponad 650&nbsp;000&nbsp;Kč. Dziękujemy!",
+		pl: "Wspólnie udało nam się już przekazać ponad 650&nbsp;000&nbsp;CZK. Dziękujemy!",
 	},
 	natiosSupportBlogUrl: {
 		cs: "/blog/natios-pomaha-hematoonkologii-v-ostrave/",
@@ -173,7 +173,7 @@ const translationsStrings = {
 	insertFirstReview: {
 		cs: "Vložit první hodnocení",
 		sk: "Vložiť prvé hodnotenie",
-		pl: "Wstaw pierwszą ocenę",
+		pl: "Wstaw pierwszą opinię",
 	},
 	watchDog: {
 		cs: "Hlídat dostupnost",
@@ -218,7 +218,7 @@ const translationsStrings = {
 	gitHeurekaReviewsUrl: {
 		cs: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_cz.json",
 		sk: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_sk.json",
-		pl: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_pl.json" /*ceneo*/,
+		pl: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/data/ceneo_reviews_pl.json" /*ceneo*/,
 	},
 };
 
@@ -1632,66 +1632,68 @@ async function insertHeurekaReviews() {
 			}
 		}
 
-		//review pros
-		if (review.pros && review.pros._cdata) {
-			let reviesEditedProData = [];
-			const reviewPros = document.createElement("div");
-			reviewPros.className = "heureka-review-pros";
-			let prosString = review.pros._cdata; // Extract the string from _cdata
-			let prosStringEdited = prosString.match(/[A-Z][^A-Z]*/g); // Split by sequences starting with a capital letter
+		if (csLang || skLang) {
+			//review pros
+			if (review.pros && review.pros._cdata) {
+				let reviesEditedProData = [];
+				const reviewPros = document.createElement("div");
+				reviewPros.className = "heureka-review-pros";
+				let prosString = review.pros._cdata; // Extract the string from _cdata
+				let prosStringEdited = prosString.match(/[A-Z][^A-Z]*/g); // Split by sequences starting with a capital letter
 
-			if (prosStringEdited && prosStringEdited.length > 0) {
-				reviesEditedProData = prosStringEdited;
-			} else {
-				reviesEditedProData[0] = prosString;
+				if (prosStringEdited && prosStringEdited.length > 0) {
+					reviesEditedProData = prosStringEdited;
+				} else {
+					reviesEditedProData[0] = prosString;
+				}
+				//return if there are more than 3 pros (praveděpodobně chyba)
+
+				if (reviesEditedProData.length > 3) {
+					return;
+				}
+				reviesEditedProData.forEach((pro) => {
+					const proElement = document.createElement("span");
+					proElement.className = "heureka-review-pro";
+					proElement.textContent = pro.trim();
+					reviewPros.appendChild(proElement);
+				});
+				reviewElement.appendChild(reviewPros);
+				contentLength += review.pros._cdata.length * 1.5;
 			}
-			//return if there are more than 3 pros (praveděpodobně chyba)
 
-			if (reviesEditedProData.length > 3) {
+			// Review cons
+			if (review.cons && review.cons._cdata) {
+				let reviewsEditedConsData = [];
+				const reviewCons = document.createElement("div");
+				let consString = review.cons._cdata; // Extract the string from _cdata
+				let consStringEdited = consString.match(/[A-Z][^A-Z]*/g); // Split by sequences starting with a capital letter
+
+				if (consStringEdited && consStringEdited.length > 0) {
+					reviewsEditedConsData = consStringEdited;
+				} else {
+					reviewsEditedConsData[0] = consString;
+				}
+
+				// Return if there are more than 3 cons (likely an error)
+				if (reviewsEditedConsData.length > 3) {
+					return;
+				}
+
+				reviewsEditedConsData.forEach((con) => {
+					const conElement = document.createElement("span");
+					conElement.className = "heureka-review-con";
+					conElement.textContent = con.trim();
+					reviewCons.appendChild(conElement);
+				});
+
+				reviewElement.appendChild(reviewCons);
+				contentLength += review.pros._cdata.length * 1.5;
+			}
+
+			//return if content is less than 40 and more than 150
+			if (contentLength < 50 || contentLength > 100) {
 				return;
 			}
-			reviesEditedProData.forEach((pro) => {
-				const proElement = document.createElement("span");
-				proElement.className = "heureka-review-pro";
-				proElement.textContent = pro.trim();
-				reviewPros.appendChild(proElement);
-			});
-			reviewElement.appendChild(reviewPros);
-			contentLength += review.pros._cdata.length * 1.5;
-		}
-
-		// Review cons
-		if (review.cons && review.cons._cdata) {
-			let reviewsEditedConsData = [];
-			const reviewCons = document.createElement("div");
-			let consString = review.cons._cdata; // Extract the string from _cdata
-			let consStringEdited = consString.match(/[A-Z][^A-Z]*/g); // Split by sequences starting with a capital letter
-
-			if (consStringEdited && consStringEdited.length > 0) {
-				reviewsEditedConsData = consStringEdited;
-			} else {
-				reviewsEditedConsData[0] = consString;
-			}
-
-			// Return if there are more than 3 cons (likely an error)
-			if (reviewsEditedConsData.length > 3) {
-				return;
-			}
-
-			reviewsEditedConsData.forEach((con) => {
-				const conElement = document.createElement("span");
-				conElement.className = "heureka-review-con";
-				conElement.textContent = con.trim();
-				reviewCons.appendChild(conElement);
-			});
-
-			reviewElement.appendChild(reviewCons);
-			contentLength += review.pros._cdata.length * 1.5;
-		}
-
-		//return if content is less than 40 and more than 150
-		if (contentLength < 50 || contentLength > 100) {
-			return;
 		}
 		numberOfTotalViableReviews = numberOfTotalViableReviews + 1;
 
