@@ -2304,38 +2304,44 @@ body {
 }
 .cs {
 	.top-nav-button-login,
-	.top-nav-button-account &::after {
-		content: "Příhlásit / Registrovat";
-		display: block;
-	}
-	@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+	.top-nav-button-account {
 		&::after {
-			content: "Příhlásit";
+			content: "Příhlásit / Registrovat";
+			display: block;
+		}
+		@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+			&::after {
+				content: "Příhlásit";
+			}
 		}
 	}
 }
 .sk {
 	.top-nav-button-login,
-	.top-nav-button-account &::after {
-		content: "Prihlásiť / Registrovať";
-		display: block;
-	}
-	@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+	.top-nav-button-account {
 		&::after {
-			content: "Prihlásiť";
+			content: "Prihlásiť / Registrovať";
+			display: block;
+		}
+		@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+			&::after {
+				content: "Prihlásiť";
+			}
 		}
 	}
 }
 
 .pl {
 	.top-nav-button-login,
-	.top-nav-button-account &::after {
-		content: "Zaloguj się / Zarejestruj";
-		display: block;
-	}
-	@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+	.top-nav-button-account {
 		&::after {
-			content: "Zaloguj się";
+			content: "Zaloguj się / Zarejestruj";
+			display: block;
+		}
+		@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+			&::after {
+				content: "Zaloguj się";
+			}
 		}
 	}
 }

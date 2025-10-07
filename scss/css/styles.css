@@ -1692,32 +1692,38 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:f
   }
 }
 
-.cs .top-nav-button-login, .top-nav-button-account .cs::after {
+.cs .top-nav-button-login::after,
+.cs .top-nav-button-account::after {
   content: "Příhlásit / Registrovat";
   display: block;
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .cs::after {
+  .cs .top-nav-button-login::after,
+  .cs .top-nav-button-account::after {
     content: "Příhlásit";
   }
 }
 
-.sk .top-nav-button-login, .top-nav-button-account .sk::after {
+.sk .top-nav-button-login::after,
+.sk .top-nav-button-account::after {
   content: "Prihlásiť / Registrovať";
   display: block;
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .sk::after {
+  .sk .top-nav-button-login::after,
+  .sk .top-nav-button-account::after {
     content: "Prihlásiť";
   }
 }
 
-.pl .top-nav-button-login, .top-nav-button-account .pl::after {
+.pl .top-nav-button-login::after,
+.pl .top-nav-button-account::after {
   content: "Zaloguj się / Zarejestruj";
   display: block;
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .pl::after {
+  .pl .top-nav-button-login::after,
+  .pl .top-nav-button-account::after {
     content: "Zaloguj się";
   }
 }
