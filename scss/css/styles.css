@@ -13152,6 +13152,9 @@ body:has(.new-gen-modal) {
   color: var(--color-black);
   font-size: var(--fs-13);
 }
+#dkLabFavHeaderWrapper a:hover:after, #dkLabFavHeaderWrapper a:focus:after {
+  color: var(--color-primary);
+}
 #dkLabFavHeaderWrapper .dkLabFavHeaderIconBtn::before {
   font-size: 14px !important;
   font-weight: 600;
