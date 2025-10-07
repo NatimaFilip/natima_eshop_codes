@@ -2079,57 +2079,59 @@ if (body.classList.contains("type-product")) {
 			) {
 				isNatiosProduct = true;
 				body.classList.add("product-is-natios");
-				/*HERE*/
-				/* if (csLang || skLang) { */
-				if (productBrand) {
-					productBrand.classList.add("natios");
-				}
-				/* } */
+
 				if (productBrand) {
 					productBrand.setAttribute("href", "/natios");
 				}
-				const natiosBrandBlock = document.createElement("div");
-				natiosBrandBlock.className = "natios-brand-description-block-wrapper";
 
-				const natiosLargeBrandBlock = document.createElement("div");
-				natiosLargeBrandBlock.className = "natios-support-wrapper";
-				/* if (plLang) {
-					return;
-				} */
+				if (csLang || skLang) {
+					if (productBrand) {
+						productBrand.classList.add("natios");
+					}
 
-				natiosBrandBlock.innerHTML =
-					'<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>' +
-					translationsStrings.natiosDescription[activeLang] +
-					'<a href="/natios/">' +
-					translationsStrings.more[activeLang] +
-					'</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Charity"></div><p>' +
-					translationsStrings.natiosSupportTextTop[activeLang] +
-					'<span class="scroll-to-FNO">' +
-					translationsStrings.more[activeLang] +
-					"</span></p></div></div>";
-				if (benefitBanner) {
-					benefitBanner.classList.add("natios-block-added");
+					const natiosBrandBlock = document.createElement("div");
+					natiosBrandBlock.className = "natios-brand-description-block-wrapper";
+
+					const natiosLargeBrandBlock = document.createElement("div");
+					natiosLargeBrandBlock.className = "natios-support-wrapper";
+					if (plLang) {
+						return;
+					}
+
+					natiosBrandBlock.innerHTML =
+						'<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>' +
+						translationsStrings.natiosDescription[activeLang] +
+						'<a href="/natios/">' +
+						translationsStrings.more[activeLang] +
+						'</a></p></div><div class="natios-brand-description-block-donation"><div class="natios-brand-description-block-donation-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_natios_donate.svg" width="47px" height="auto" alt="Charity"></div><p>' +
+						translationsStrings.natiosSupportTextTop[activeLang] +
+						'<span class="scroll-to-FNO">' +
+						translationsStrings.more[activeLang] +
+						"</span></p></div></div>";
+					if (benefitBanner) {
+						benefitBanner.classList.add("natios-block-added");
+					}
+					natiosLargeBrandBlock.innerHTML =
+						'<div class="natios-support-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/NatiosDarujeFNO_2.svg" alt="Natios Charity" width="174" height="174"></div><div class="natios-support-wrapper-content"><div class="natios-support-wrapper-content-title">' +
+						translationsStrings.natiosSupportHeaderBottom[activeLang] +
+						" </div><p>" +
+						translationsStrings.natiosSupportTextBottom[activeLang] +
+						"</p><p>" +
+						translationsStrings.natiosSupportTotalAmount[activeLang] +
+						'</p><p><a href="' +
+						translationsStrings.natiosSupportBlogUrl[activeLang] +
+						'">' +
+						translationsStrings.moreAboutSupport[activeLang] +
+						"</a></p></div>";
+					if (tabContent) {
+						tabContent.appendChild(natiosLargeBrandBlock);
+					}
+
+					document.querySelector(".product-top").insertAdjacentElement("afterend", natiosBrandBlock);
+					document.querySelector(".scroll-to-FNO").addEventListener("click", function () {
+						scrollToElement(natiosLargeBrandBlock);
+					});
 				}
-				natiosLargeBrandBlock.innerHTML =
-					'<div class="natios-support-icon"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/NatiosDarujeFNO_2.svg" alt="Natios Charity" width="174" height="174"></div><div class="natios-support-wrapper-content"><div class="natios-support-wrapper-content-title">' +
-					translationsStrings.natiosSupportHeaderBottom[activeLang] +
-					" </div><p>" +
-					translationsStrings.natiosSupportTextBottom[activeLang] +
-					"</p><p>" +
-					translationsStrings.natiosSupportTotalAmount[activeLang] +
-					'</p><p><a href="' +
-					translationsStrings.natiosSupportBlogUrl[activeLang] +
-					'">' +
-					translationsStrings.moreAboutSupport[activeLang] +
-					"</a></p></div>";
-				if (tabContent) {
-					tabContent.appendChild(natiosLargeBrandBlock);
-				}
-
-				document.querySelector(".product-top").insertAdjacentElement("afterend", natiosBrandBlock);
-				document.querySelector(".scroll-to-FNO").addEventListener("click", function () {
-					scrollToElement(natiosLargeBrandBlock);
-				});
 			}
 		}
 
