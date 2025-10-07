@@ -252,10 +252,21 @@ function rearangeRecap() {
 	if (cartItems) {
 		cartItems.forEach((item) => {
 			if (item.querySelector(".recapitulation-single")) {
-				if (!item.querySelector(".recapitulation-single").textContent.toUpperCase().includes("KUPON")) {
+				let kuponText = "";
+
+				if (csLang) {
+					kuponText = "KUPON";
+				}
+				if (skLang) {
+					kuponText = "KUPÓN";
+				}
+				if (plLang) {
+					kuponText = "KUPON";
+				}
+				if (!item.querySelector(".recapitulation-single").textContent.toUpperCase().includes(kuponText)) {
 					return;
 				} else {
-					let summaryInner = document.querySelector("#checkoutSidebar .summary-inner");
+					let summaryInner = document.querySelector("#checkoutSidebar .order-summary-inner");
 					summaryInner.appendChild(item.querySelector(".recapitulation-single"));
 				}
 			}
