@@ -5088,7 +5088,8 @@ body.type-manufacturer-detail .category-header > div strong {
 .benefitBanner .benefitBanner__picture {
   display: contents;
 }
-.benefitBanner .benefitBanner__item {
+.benefitBanner .benefitBanner__item,
+.benefitBanner .benefitBanner__link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5123,7 +5124,8 @@ body.type-manufacturer-detail .category-header > div strong {
     padding-top: var(--gap-36);
     padding-bottom: var(--gap-36);
   }
-  .benefitBanner .benefitBanner__item {
+  .benefitBanner .benefitBanner__item,
+  .benefitBanner .benefitBanner__link {
     width: 19em;
     max-width: 100%;
     margin: auto;

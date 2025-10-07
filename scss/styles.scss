@@ -4811,7 +4811,8 @@ body.type-manufacturer-detail {
 		display: contents;
 	}
 
-	.benefitBanner__item {
+	.benefitBanner__item,
+	.benefitBanner__link {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -4834,7 +4835,8 @@ body.type-manufacturer-detail {
 		padding-top: var(--gap-36);
 		padding-bottom: var(--gap-36);
 
-		.benefitBanner__item {
+		.benefitBanner__item,
+		.benefitBanner__link {
 			width: 19em;
 			max-width: 100%;
 			margin: auto;
