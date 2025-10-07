@@ -13077,34 +13077,39 @@ body:has(.new-gen-modal) {
   padding-left: 13px;
   padding-bottom: 11px;
 }
-.dklab-favourites #dkLabFavPageProductsContainer .products-block .product {
+.dklab-favourites #dkLabFavPageProductsContainer .products-block .product,
+.dklab-favourites #dkLabFavCartWrapper .products-block .product {
   opacity: 1;
   width: calc(16.666% - var(--column-gap));
   -ms-flex-preferred-size: calc(16.666% - var(--column-gap));
       flex-basis: calc(16.666% - var(--column-gap));
 }
 @media screen and (max-width: 1440px) {
-  .dklab-favourites #dkLabFavPageProductsContainer .products-block .product {
+  .dklab-favourites #dkLabFavPageProductsContainer .products-block .product,
+  .dklab-favourites #dkLabFavCartWrapper .products-block .product {
     width: calc(20% - var(--column-gap));
     -ms-flex-preferred-size: calc(20% - var(--column-gap));
         flex-basis: calc(20% - var(--column-gap));
   }
 }
 @media screen and (max-width: 1279px) {
-  .dklab-favourites #dkLabFavPageProductsContainer .products-block .product {
+  .dklab-favourites #dkLabFavPageProductsContainer .products-block .product,
+  .dklab-favourites #dkLabFavCartWrapper .products-block .product {
     width: calc(25% - var(--column-gap));
     -ms-flex-preferred-size: calc(25% - var(--column-gap));
         flex-basis: calc(25% - var(--column-gap));
   }
 }
 @media screen and (max-width: 767px) {
-  .dklab-favourites #dkLabFavPageProductsContainer .products-block .product {
+  .dklab-favourites #dkLabFavPageProductsContainer .products-block .product,
+  .dklab-favourites #dkLabFavCartWrapper .products-block .product {
     width: calc(50% - var(--column-gap));
     -ms-flex-preferred-size: calc(50% - var(--column-gap));
         flex-basis: calc(50% - var(--column-gap));
   }
 }
-.dklab-favourites #dkLabFavPageProductsContainer .products-block .product .dkLabFavDeleteBtn {
+.dklab-favourites #dkLabFavPageProductsContainer .products-block .product .dkLabFavDeleteBtn,
+.dklab-favourites #dkLabFavCartWrapper .products-block .product .dkLabFavDeleteBtn {
   position: absolute;
   top: 10px;
   right: 5px;
@@ -13117,7 +13122,53 @@ body:has(.new-gen-modal) {
   transition: transform 0.2s ease;
   transition: transform 0.2s ease, -webkit-transform 0.2s ease;
 }
-.dklab-favourites #dkLabFavPageProductsContainer .products-block .product .dkLabFavDeleteBtn:hover {
+.dklab-favourites #dkLabFavPageProductsContainer .products-block .product .dkLabFavDeleteBtn:hover,
+.dklab-favourites #dkLabFavCartWrapper .products-block .product .dkLabFavDeleteBtn:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+#dkLabFavHeaderWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 24px;
+}
+#dkLabFavHeaderWrapper a {
+  font-size: 14px !important;
+  position: initial;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 4px;
+}
+#dkLabFavHeaderWrapper a:after {
+  color: var(--color-black);
+  font-size: var(--fs-13);
+}
+#dkLabFavHeaderWrapper .dkLabFavHeaderIconBtn::before {
+  font-size: 14px !important;
+  font-weight: 600;
+  margin: 0;
+}
+#dkLabFavHeaderWrapper em {
+  display: none;
+}
+
+.cs #dkLabFavHeaderWrapper a:after {
+  content: "Oblíbené";
+}
+
+.sk #dkLabFavHeaderWrapper a:after {
+  content: "Obľúbené";
+}
+
+.pl #dkLabFavHeaderWrapper a:after {
+  content: "Ulubione";
 }

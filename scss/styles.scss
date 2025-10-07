@@ -9625,7 +9625,8 @@ body:has(.new-gen-modal) {
 		padding-bottom: 11px;
 	}
 
-	#dkLabFavPageProductsContainer .products-block .product {
+	#dkLabFavPageProductsContainer .products-block .product,
+	#dkLabFavCartWrapper .products-block .product {
 		opacity: 1;
 		width: calc(16.666% - var(--column-gap));
 		flex-basis: calc(16.666% - var(--column-gap));
@@ -9653,6 +9654,58 @@ body:has(.new-gen-modal) {
 			transition: transform 0.2s ease;
 			&:hover {
 				transform: scale(1.2);
+			}
+		}
+	}
+}
+
+#dkLabFavHeaderWrapper {
+	display: flex;
+	margin-right: 24px;
+	a {
+		font-size: 14px !important;
+		position: initial;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 4px;
+		&:after {
+			color: var(--color-black);
+			font-size: var(--fs-13);
+		}
+	}
+	.dkLabFavHeaderIconBtn::before {
+		font-size: 14px !important;
+		font-weight: 600;
+		margin: 0;
+	}
+	em {
+		display: none;
+	}
+}
+.cs {
+	#dkLabFavHeaderWrapper {
+		a {
+			&:after {
+				content: "Oblíbené";
+			}
+		}
+	}
+}
+.sk {
+	#dkLabFavHeaderWrapper {
+		a {
+			&:after {
+				content: "Obľúbené";
+			}
+		}
+	}
+}
+.pl {
+	#dkLabFavHeaderWrapper {
+		a {
+			&:after {
+				content: "Ulubione";
 			}
 		}
 	}
