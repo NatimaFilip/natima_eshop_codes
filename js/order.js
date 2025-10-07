@@ -267,7 +267,7 @@ function rearangeRecap() {
 					return;
 				} else {
 					let summaryInner = document.querySelector("#checkoutSidebar .order-summary-inner");
-					summaryInner.appendChild(item.querySelector(".recapitulation-single"));
+					summaryInner.prepend(item.querySelector(".recapitulation-single"));
 				}
 			}
 			recapWrapper.appendChild(item);
