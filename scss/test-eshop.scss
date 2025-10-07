@@ -1,0 +1,26 @@
+#dkLabFavouriteDiv {
+	position: absolute;
+	margin: 0;
+	right: 28px;
+	bottom: 33px;
+	.dkLabFavDetailSpan {
+		font-size: 22px;
+		span {
+			display: none;
+		}
+	}
+}
+.products-alternative .dkLabFavouriteProductDiv {
+	display: none !important;
+}
+.products-block .dkLabFavouriteProductDiv {
+	position: relative;
+	inset: 0 !important;
+	grid-row: 1;
+	grid-column: 1;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-start;
+	padding-left: 13px;
+	padding-bottom: 11px;
+}

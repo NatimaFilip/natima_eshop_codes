@@ -1,7 +1,9 @@
-let favoriteDiv = document.querySelector("#dkLabFavouriteDiv");
+document.addEventListener("dkLabFavouriteProductsLoaded", function () {
+	let favoriteDiv = document.querySelector("#dkLabFavouriteDiv");
 
-let pImage = document.querySelector(".p-image");
+	let pImage = document.querySelector(".p-image");
 
-if (favoriteDiv && pImage) {
-	pImage.appendChild(favoriteDiv);
-}
+	if (favoriteDiv && pImage) {
+		pImage.appendChild(favoriteDiv);
+	}
+});

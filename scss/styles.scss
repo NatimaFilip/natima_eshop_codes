@@ -3154,7 +3154,7 @@ body {
 /*-------------------------------------- CATEGORY*/
 body.type-category,
 body.type-manufacturer-detail,
-body.in-favorites {
+body.dklab-favourites {
 	.category-perex,
 	.manufacturerDetail {
 		font-size: var(--fs-16);
@@ -9443,10 +9443,11 @@ body:has(.new-gen-modal) {
 	}
 }
 
-.type-page,
+.type-page:not(.inDklabFavourites ),
 .id--15,
 .type-manufacturers-listing {
 	/*děkujeme*/
+
 	#content {
 		max-width: 1000px;
 		margin: 0 auto;
