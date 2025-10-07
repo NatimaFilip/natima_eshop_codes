@@ -9629,7 +9629,8 @@ body:has(.new-gen-modal) {
 		opacity: 1;
 		width: calc(16.666% - var(--column-gap));
 		flex-basis: calc(16.666% - var(--column-gap));
-		@media screen and (max-width: $desktop-max) {
+
+		@media screen and (max-width: $desktop-medium-min) {
 			width: calc(20% - var(--column-gap));
 			flex-basis: calc(20% - var(--column-gap));
 		}
