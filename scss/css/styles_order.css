@@ -1960,3 +1960,9 @@
   width: 18em;
   padding: 10px;
 }
+
+.pl #shipping-239 a.specify-shipping-method {
+  position: relative;
+  padding: 0;
+  inset: 0;
+}
