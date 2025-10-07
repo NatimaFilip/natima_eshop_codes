@@ -2093,9 +2093,9 @@ if (body.classList.contains("type-product")) {
 
 				const natiosLargeBrandBlock = document.createElement("div");
 				natiosLargeBrandBlock.className = "natios-support-wrapper";
-				if (plLang) {
+				/* if (plLang) {
 					return;
-				}
+				} */
 
 				natiosBrandBlock.innerHTML =
 					'<div id="natios-brand-description-block"><div class="natios-brand-description-block-logo"><img src="https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_logo_natios_no_bg.svg" width="140px" height="auto" alt="Natios Logo"></div><div class="natios-brand-description-block-text"><p>' +
