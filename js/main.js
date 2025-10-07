@@ -3173,9 +3173,13 @@ if (body.classList.contains("in-index")) {
 
 	hodnoceniObchodu();
 	async function hodnoceniObchodu() {
+		if (plLang) {
+			return; // Skip for Polish language
+		}
 		if (hodnoceniObchoduAdded) {
 			return;
 		}
+
 		hodnoceniObchoduAdded = true;
 		const hodnoceniObchoduSection = document.createElement("div");
 		hodnoceniObchoduSection.className = "hodnoceni-obchodu-section";

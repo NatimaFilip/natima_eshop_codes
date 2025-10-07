@@ -1,0 +1,180 @@
+<style>
+	body {
+		display: block;
+	}
+
+	/*Akce měsíce
+.homepage-products-heading-6, 
+#products-6 {
+    display: none!important
+}*/
+</style>
+
+
+<script>
+	$("body").addClass("pl");
+	const czechEshop = false;
+	const slovakEshop = false;
+	const polishEshop = true;
+
+	const mediaThreshold768 = 768;
+	const mediaThreshold992 = 992;
+	const mediaThreshold1200 = 1200;
+	const mediaThreshold1440 = 1440;
+	const mediaThreshold1660 = 1660;
+
+	let matchesMedia768;
+	let matchesMedia992;
+	let matchesMedia1200;
+	let matchesMedia1440;
+	let matchesMedia1660;
+
+	function matchesMedia() {
+		matchesMedia768 = window.matchMedia("(min-width: " + mediaThreshold768 + "px)").matches;
+		matchesMedia992 = window.matchMedia("(min-width: " + mediaThreshold992 + "px)").matches;
+		matchesMedia1200 = window.matchMedia("(min-width: " + mediaThreshold1200 + "px)").matches;
+		matchesMedia1440 = window.matchMedia("(min-width: " + mediaThreshold1440 + "px)").matches;
+		matchesMedia1660 = window.matchMedia("(min-width: " + mediaThreshold1660 + "px)").matches;
+	}
+	window.addEventListener("DOMContentLoaded", matchesMedia);
+	window.addEventListener("resize", matchesMedia);
+
+	/*is user logged in*/
+	$(document).ready(function () {
+		isLooged();
+	});
+	isLooged();
+
+	function isLooged() {
+		if ($('.top-navigation-tools > a[href="/centrum-klientow/"]').length) {
+			$("body").addClass("user-logged-in");
+		} else {
+			$("body").addClass("user-not-logged-in");
+		}
+	}
+</script>
+
+<script src='https://natimaeshop.github.io/Natima.github.io/main_scripts.js?v=29' type="text/javascript"></script>
+<script src='https://natimaeshop.github.io/Natima.github.io/Hosek/js/product_slider_scripts.js?v=2'
+	type="text/javascript"></script>
+<script src='https://natimaeshop.github.io/Natima.github.io/Hosek/js/custom_blog.js?v=3'
+	type="text/javascript"></script>
+<script src='https://natimaeshop.github.io/Natima.github.io/test.js?v=28' type="text/javascript"></script>
+
+
+
+<script>
+	document.addEventListener("DOMContentLoaded", function (event) {
+		let navigationTopMenu = $(".header-top");
+		let navigationHelper = $(".buy-helper");
+		let navigationContact = $(".top-navigation-contacts");
+		let navigationAccount = $(".top-navigation-tools");
+
+		navigationTopMenu.append(navigationHelper);
+		navigationHelper.removeClass("display-none");
+		navigationTopMenu.append(navigationContact);
+		navigationTopMenu.append(navigationAccount);
+
+		let navigationFavorite = $("#dkLabFavHeaderWrapper");
+		let navigationCurrency = $(".top-navigation-tools .dropdown");
+		let navigationCart = $(".header-top .navigation-buttons");
+		navigationFavorite.insertBefore(navigationCart);
+		navigationCurrency.insertAfter(navigationCart);
+
+		/*presunuti dolnich banerů*/
+		let secondLastProductSlider = $(".in-index .sliderWrap");
+		secondLastProductSlider = secondLastProductSlider[secondLastProductSlider.length - 2];
+		let sliderZnacek = $(".footer-banners >.footer-banner:last-child");
+		sliderZnacek.insertAfter(".body-banners");
+		let footerH1Text = $(".welcome > h1");
+		footerH1Text.insertBefore(".footer-bottom .copyright");
+		let footerBanners = $(".footer-banners");
+		footerBanners.insertAfter(secondLastProductSlider);
+	});
+
+	const scrollCategoriesClass = "hidden-categories";
+	let navigationWrapper = $(".navigation-wrapper");
+	const scrollCategoriesThreshold = 250;
+
+	document.addEventListener("scroll", function () {
+		if (window.pageYOffset >= scrollCategoriesThreshold) {
+			$(navigationWrapper).addClass(scrollCategoriesClass);
+		} else {
+			$(navigationWrapper).removeClass(scrollCategoriesClass);
+		}
+	});
+
+	/*video a img carousel*/
+	document.addEventListener("DOMContentLoaded", function () {
+		let lazyVideos = [].slice.call(document.querySelectorAll(".lazy video"));
+
+		if ("IntersectionObserver" in window) {
+			let lazyVideoObserver = new IntersectionObserver(function (entries, observer) {
+				entries.forEach(function (video) {
+					if (video.isIntersecting) {
+						for (let source in video.target.children) {
+							let videoSource = video.target.children[source];
+							if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+								videoSource.src = videoSource.dataset.src;
+							}
+						}
+						video.target.load();
+						video.target.addEventListener("loadeddata", function () {
+							video.target.parentElement.classList.remove("lazy");
+						})
+						lazyVideoObserver.unobserve(video.target);
+					}
+				});
+			});
+
+			lazyVideos.forEach(function (lazyVideo) {
+				lazyVideoObserver.observe(lazyVideo);
+			});
+		}
+	});
+
+
+
+	/*Prepsani funkce*/
+	function setCarouselHeight() { }
+</script>
+
+<a class="buy-helper display-none" href="/poradnik-zakupowy/">
+	<div class="text">
+		<span>Poradnik</span>
+		<span>zakupowy</span>
+	</div>
+</a>
+
+<!--
+<div class="error-shoptet display-none">
+Plánujeme vylepšovat náš e-shop a můžete se zapojit. Řekněte nám, co máme vylepšit a získejte odměnu. <a href="https://forms.gle/XnphFwvoxQ7ikigJ7" target="_blank">Začít můžete zde.</a>
+   <div id="error-shoptet-close">
+   </div>
+</div>
+-->
+<script>
+	if (document.querySelector("body").classList.contains("type-product")) {
+		let relatedFiles = document.querySelector("#relatedFiles");
+		if (relatedFiles) {
+
+			const natiosAnalysis = document.querySelector(".product-widgets .natios-analysis .natios-analysis-content-left");
+			if (natiosAnalysis) {
+				relatedFiles.style.opacity = "1";
+				document.querySelector(".shp-tab[data-testid='tabRelatedFiles']").style.display = "none";
+				let allHrefsInRelatedFiles = relatedFiles.querySelectorAll("a:not(.btn)");
+				if (allHrefsInRelatedFiles && allHrefsInRelatedFiles.length > 0) {
+					allHrefsInRelatedFiles.forEach((a) => {
+						// Remove any text in parentheses with "kB" or "MB" etc.
+						a.textContent = a.textContent.replace(/\(\s*[\d.,]+\s*[kMGT]?B\s*\)/gi, "").trim();
+					});
+				}
+				natiosAnalysis.appendChild(relatedFiles);
+				const showTestsButton = natiosAnalysis.querySelector(".show-tests-button");
+				if (showTestsButton) {
+					showTestsButton.remove();
+				}
+			}
+		}
+	}
+</script>
