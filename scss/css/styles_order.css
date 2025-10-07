@@ -1403,6 +1403,10 @@
   grid-row: 1;
 }
 .ordering-process.id--16 #order-form .radio-wrapper .sublabel,
+.ordering-process.id--17 #order-form .radio-wrapper .sublabel {
+  position: relative;
+}
+.ordering-process.id--16 #order-form .radio-wrapper .sublabel,
 .ordering-process.id--16 #order-form .radio-wrapper .not-possible-info,
 .ordering-process.id--17 #order-form .radio-wrapper .sublabel,
 .ordering-process.id--17 #order-form .radio-wrapper .not-possible-info {

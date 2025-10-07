@@ -1156,6 +1156,9 @@ $desktop-large-min: 1680px;
 				grid-column: 1;
 				grid-row: 1;
 			}
+			.sublabel {
+				position: relative;
+			}
 
 			.sublabel,
 			.not-possible-info {
