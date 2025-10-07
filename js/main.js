@@ -2079,11 +2079,12 @@ if (body.classList.contains("type-product")) {
 			) {
 				isNatiosProduct = true;
 				body.classList.add("product-is-natios");
-				if (csLang || skLang) {
-					if (productBrand) {
-						productBrand.classList.add("natios");
-					}
+				/*HERE*/
+				/* if (csLang || skLang) { */
+				if (productBrand) {
+					productBrand.classList.add("natios");
 				}
+				/* } */
 				if (productBrand) {
 					productBrand.setAttribute("href", "/natios");
 				}
