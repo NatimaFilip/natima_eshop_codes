@@ -9669,10 +9669,16 @@ body:has(.new-gen-modal) {
 		align-items: center;
 		justify-content: center;
 		gap: 4px;
+
 		&:after {
 			color: var(--color-black);
 			font-size: var(--fs-13);
 		}
+		&:hover,
+		&:focus {
+			&:after {
+				color: var(--color-primary);
+			}
 	}
 	.dkLabFavHeaderIconBtn::before {
 		font-size: 14px !important;
