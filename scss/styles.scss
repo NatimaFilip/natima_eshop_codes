@@ -4824,6 +4824,16 @@ body.type-manufacturer-detail {
 	.benefitBanner__data {
 		font-size: var(--fs-13);
 	}
+	.benefitBanner__link {
+		color: var(--color-black);
+		&:hover,
+		&:focus-within {
+			color: var(--color-primary);
+			.benefitBanner__title {
+				text-decoration: underline;
+			}
+		}
+	}
 
 	@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
 		gap: var(--gap-30);

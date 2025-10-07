@@ -5108,6 +5108,15 @@ body.type-manufacturer-detail .category-header > div strong {
 .benefitBanner .benefitBanner__data {
   font-size: var(--fs-13);
 }
+.benefitBanner .benefitBanner__link {
+  color: var(--color-black);
+}
+.benefitBanner .benefitBanner__link:hover, .benefitBanner .benefitBanner__link:focus-within {
+  color: var(--color-primary);
+}
+.benefitBanner .benefitBanner__link:hover .benefitBanner__title, .benefitBanner .benefitBanner__link:focus-within .benefitBanner__title {
+  text-decoration: underline;
+}
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .benefitBanner {
     gap: var(--gap-30);
