@@ -24,3 +24,34 @@
 	padding-left: 13px;
 	padding-bottom: 11px;
 }
+
+#dkLabFavPageProductsContainer .products-block .product {
+	opacity: 1;
+	width: calc(16.666% - var(--column-gap));
+	flex-basis: calc(16.666% - var(--column-gap));
+	@media screen and (max-width: $desktop-max) {
+		width: calc(20% - var(--column-gap));
+		flex-basis: calc(20% - var(--column-gap));
+	}
+	@media screen and (max-width: $tablet-max) {
+		width: calc(25% - var(--column-gap));
+		flex-basis: calc(25% - var(--column-gap));
+	}
+	@media screen and (max-width: $mobile-max) {
+		width: calc(50% - var(--column-gap));
+		flex-basis: calc(50% - var(--column-gap));
+	}
+	.dkLabFavDeleteBtn {
+		position: absolute;
+		top: 10px;
+		right: 5px;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		z-index: 2;
+		transition: transform 0.2s ease;
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
+}

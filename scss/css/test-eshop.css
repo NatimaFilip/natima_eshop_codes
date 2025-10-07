@@ -32,3 +32,27 @@
   padding-left: 13px;
   padding-bottom: 11px;
 }
+
+#dkLabFavPageProductsContainer .products-block .product {
+  opacity: 1;
+  width: calc(16.666% - var(--column-gap));
+  -ms-flex-preferred-size: calc(16.666% - var(--column-gap));
+      flex-basis: calc(16.666% - var(--column-gap));
+}
+#dkLabFavPageProductsContainer .products-block .product .dkLabFavDeleteBtn {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+#dkLabFavPageProductsContainer .products-block .product .dkLabFavDeleteBtn:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}

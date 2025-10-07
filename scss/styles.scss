@@ -9443,7 +9443,7 @@ body:has(.new-gen-modal) {
 	}
 }
 
-.type-page:not(.inDklabFavourites ),
+.type-page:not(.inDklabFavourites),
 .id--15,
 .type-manufacturers-listing {
 	/*děkujeme*/
@@ -9595,4 +9595,64 @@ body:has(.new-gen-modal) {
 		--next-item-preview: 80px;
 	}
 	@include customSlider;
+}
+/*favorites*/
+.dklab-favourites {
+	#dkLabFavouriteDiv {
+		position: absolute;
+		margin: 0;
+		right: 28px;
+		bottom: 33px;
+		.dkLabFavDetailSpan {
+			font-size: 22px;
+			span {
+				display: none;
+			}
+		}
+	}
+	.products-alternative .dkLabFavouriteProductDiv {
+		display: none !important;
+	}
+	.products-block .dkLabFavouriteProductDiv {
+		position: relative;
+		inset: 0 !important;
+		grid-row: 1;
+		grid-column: 1;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
+		padding-left: 13px;
+		padding-bottom: 11px;
+	}
+
+	#dkLabFavPageProductsContainer .products-block .product {
+		opacity: 1;
+		width: calc(16.666% - var(--column-gap));
+		flex-basis: calc(16.666% - var(--column-gap));
+		@media screen and (max-width: $desktop-max) {
+			width: calc(20% - var(--column-gap));
+			flex-basis: calc(20% - var(--column-gap));
+		}
+		@media screen and (max-width: $tablet-max) {
+			width: calc(25% - var(--column-gap));
+			flex-basis: calc(25% - var(--column-gap));
+		}
+		@media screen and (max-width: $mobile-max) {
+			width: calc(50% - var(--column-gap));
+			flex-basis: calc(50% - var(--column-gap));
+		}
+		.dkLabFavDeleteBtn {
+			position: absolute;
+			top: 10px;
+			right: 5px;
+			width: 20px;
+			height: 20px;
+			cursor: pointer;
+			z-index: 2;
+			transition: transform 0.2s ease;
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+	}
 }
