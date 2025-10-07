@@ -3153,7 +3153,8 @@ body {
 
 /*-------------------------------------- CATEGORY*/
 body.type-category,
-body.type-manufacturer-detail {
+body.type-manufacturer-detail,
+body.in-favorites {
 	.category-perex,
 	.manufacturerDetail {
 		font-size: var(--fs-16);
