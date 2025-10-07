@@ -5072,6 +5072,12 @@ body.type-manufacturer-detail {
 			img {
 				height: auto;
 			}
+			&.ceneo {
+				img {
+					max-width: 220px;
+					padding: 0 20px;
+				}
+			}
 		}
 		.heureka-reviews-wrapper {
 			flex-shrink: 1;

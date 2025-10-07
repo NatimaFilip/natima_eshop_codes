@@ -5421,6 +5421,10 @@ body.type-manufacturer-detail .category-header > div strong {
 #footer #heureka-reviews-footer .heureka-odznak img {
   height: auto;
 }
+#footer #heureka-reviews-footer .heureka-odznak.ceneo img {
+  max-width: 220px;
+  padding: 0 20px;
+}
 #footer #heureka-reviews-footer .heureka-reviews-wrapper {
   -ms-flex-negative: 1;
       flex-shrink: 1;

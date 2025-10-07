@@ -1,0 +1,180 @@
+<div class="product lb-product">
+	<div class="p" data-micro="product" :data-micro-product-id="attributes.code && attributes.code[0].split('/')[0]">
+		<a :href="url" class="image" @click="ga && ga.sendGAClick('Result')">
+			<img v-if="attributes.image_link" :src="attributes.image_link" :data-src="attributes.image_link"
+				:data-next="attributes.images[1]" :alt="attributes.title" :data-micro-image="attributes.image_link"
+				class="swap-image">
+			<div class="flags flags-default">
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf(trans('resultDefault.flags.action')) > -1"
+					class="flag flag-action external-fonts-loaded">
+					{{ trans('resultDefault.flags.action')}}
+				</span>
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf(trans('resultDefault.flags.Doprodej')) > -1"
+					class="flag flag-doprodej external-fonts-loaded">
+					{{ trans('resultDefault.flags.Doprodej')}}
+				</span>
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf(trans('resultDefault.flags.new')) > -1"
+					class="flag flag-new external-fonts-loaded">
+					{{ trans('resultDefault.flags.new')}}
+				</span>
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf(trans('resultDefault.flags.tip')) > -1"
+					class="flag flag-tip external-fonts-loaded">
+					{{ trans('resultDefault.flags.tip')}}
+				</span>
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf( trans('resultDefault.flags.sale')) > -1"
+					class="flag flag-custom1 external-fonts-loaded" style="background-color:#cb0000;">
+					{{ trans('resultDefault.flags.sale')}}
+				</span>
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf(trans('resultDefault.flags.last')) > -1"
+					class="flag flag-doprodej external-fonts-loaded" style="background-color:#fe0000;">
+					{{trans('resultDefault.flags.last')}}
+				</span>
+				<span v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf('Sada') > -1"
+					class="flag flag-custom2" style="background-color:#c0c0c0;">
+					Sada
+				</span>
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf('Výhodná cena') > -1"
+					class="flag flag-custom1" style="background-color:#3531ff;">
+					Výhodná cena
+				</span>
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf('Doprava zdarma') > -1"
+					class="flag flag-custom3" style="background-color:#6665cd;">
+					Doprava zdarma
+				</span>
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf('Letní AKCE') > -1"
+					class="flag flag-letni-akce" style="background-color:#cb0000;">
+					Letní AKCE
+				</span>
+				<span v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf('♥ BIO') > -1"
+					class="flag flag-custom3" style="background-color:#009901;">
+					♥ BIO
+				</span>
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf('% VÝPRODEJ') > -1"
+					class="flag flag-vyprodej" style="background-color:#fe0000;">
+					% VÝPRODEJ
+				</span>
+				<span
+					v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf('Zaváděcí cena') > -1"
+					class="flag flag-custom1" style="background-color:#963400;">
+					Zaváděcí cena
+				</span>
+				<span v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf('Akce') > -1"
+					class="flag flag-action">
+					Promocja miesiąca⚡
+				</span>
+				<span v-if="attributes.flags && attributes.flags.length > 0 && attributes.flags.indexOf('Tip') > -1"
+					class="flag flag-tip">
+					Tip
+				</span>
+			</div>
+			<div class="flags flags-extra" v-if="attributes.price_old_amount || attributes.free_shipping">
+				<span
+					v-if="g('attributes.price_old_'+$window._lbCurrency.toLowerCase()+'_amount') > g('attributes.price_'+$window._lbCurrency.toLowerCase()+'_amount')"
+					class="flag flag-discount">
+					<span class="price-standard">
+						<span>{{ g('attributes.price_old_'+$window._lbCurrency.toLowerCase()+'_amount') | price }}
+						</span>
+					</span>
+					<span class="price-save">-{{ Math.round(100 -
+						(attributes['price_'+$window._lbCurrency.toLowerCase()+'_amount'] /
+						(attributes['price_old_'+$window._lbCurrency.toLowerCase()+'_amount'] / 100))) }}%</span>
+				</span>
+
+				<span v-if="g('attributes.free_shipping[0]') === true" class="flag flag-freeshipping">
+					<span class="icon-van"><span class="sr-only">ZDARMA</span></span>
+					{{trans('resultDefault.free_shipping')}}
+				</span>
+			</div>
+		</a>
+
+		<div class="p-in">
+			<div class="p-in-in">
+				<a :href="url" class="name" data-micro="url" :title="attributes.title"
+					@click="ga && ga.sendGAClick('Result')">
+					<span data-micro="name">
+						{{attributes.title}}
+					</span>
+				</a>
+				<div class="ratings-wrapper">
+
+					<div class="availability external-fonts-loaded">
+						<span v-if="attributes.availability == 0"
+							:style="attributes.availability_rank_color ? 'color:' + attributes.availability_rank_color[0] : 'color:#009901'">
+							<span v-if="g('attributes.availability_rank_text[0]')">
+								{{ attributes.availability_rank_text[0] }}
+							</span>
+							<span v-else-if="g('attributes.availability_out_of_stock[0]')">
+								{{ attributes.availability_out_of_stock[0] }}
+							</span>
+							<span v-else>
+								{{ trans('resultDefault.availability.0')}}
+							</span>
+						</span>
+						<span v-if="attributes.availability == 1"
+							:style="attributes.availability_rank_color ? 'color:' + attributes.availability_rank_color[0] : 'color:#009901'">
+							<span v-if="g('attributes.availability_rank_text[0]')">
+								{{ attributes.availability_rank_text[0] }}
+							</span>
+							<span v-else>
+								{{ trans('resultDefault.availability.1')}}
+							</span>
+
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div v-if="$window._lbCurrency" class="p-bottom single-button">
+				<div v-if="attributes['price_'+$window._lbCurrency.toLowerCase()+'_amount']"
+					:data-micro-price="attributes['price_'+$window._lbCurrency.toLowerCase()+'_amount']"
+					data-micro-availability="https://schema.org/InStock">
+					<div class="prices">
+						<!--<div v-if="$window._lbLocale == 'cz'" class="price-additional">{{((attributes['price_'+$window._lbCurrency.toLowerCase()+'_amount'] / 121) * 100) | price}} &nbsp;bez DPH</div>-->
+						<!--<div v-else-if="$window._lbLocale == 'sk'" class="price-additional">{{((attributes['price_'+$window._lbCurrency.toLowerCase()+'_amount'] / 119) * 100) | price}} &nbsp;bez DPH</div>-->
+						<div class="price price-final">
+							<!--<span v-if="g('attributes.price_old_'+$window._lbCurrency.toLowerCase()+'_amount') > g('attributes.price_'+$window._lbCurrency.toLowerCase()+'_amount')" class="price-standard">-->
+							<!--    <span>{{ g('attributes.price_old_'+$window._lbCurrency.toLowerCase()+'_amount') | price }}</span>-->
+							<!--</span>-->
+							<strong>
+								{{ attributes['price_'+$window._lbCurrency.toLowerCase()+'_amount'] | price}}
+							</strong>
+						</div>
+					</div>
+					<div class="p-tools"
+						v-if="attributes.availability==1 && attributes.code_count==1 && !attributes.price_min_variant">
+						<button v-if="g('attributes.code[0]')" :data-product-code="attributes.code[0]" type="submit"
+							class="btn btn-cart add-to-cart-button" data-action="buy"
+							@click="ga && ga.sendGAClick('Result')">
+							<span>Do koszyka</span>
+						</button>
+					</div>
+
+					<div class="p-tools" v-else>
+						<a :href="url" title="Detail" class="btn btn-primary" @click="ga && ga.sendGAClick('Result')">{{
+							trans('resultDefault.detail')}}</a>
+					</div>
+					<p v-if="g('attributes.short_description[0]')" class="p-desc desc-height" data-micro="description">
+						{{ attributes.short_description[0].replace(/<.*?>/g, '').replace(/&amp;nbsp;/g, ' ').trim() }}
+					</p>
+					<p v-else-if="attributes.description" class="p-desc desc-height" data-micro="description">
+						<span v-if="attributes.description">{{ attributes.description.replace(/<.*?>/g,
+								'').replace(/&amp;nbsp;/g, ' ').trim() }}</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<span v-if="g('attributes.code[0]')" class="p-code external-fonts-loaded">
+			<!--{{ trans('resultDefault.code')}}: <span data-micro="sku" >{{attributes.code[0]}}</span>-->
+		</span>
+	</div>
+</div>
