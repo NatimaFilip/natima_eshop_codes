@@ -6652,6 +6652,9 @@ body.sticky-header-off .messages > * {
   padding: 1px;
   overflow: hidden !important;
 }
+#colorbox #cboxContent #cboxLoadedContent > div {
+  width: 100%;
+}
 #colorbox #cboxContent #cboxClose {
   cursor: pointer;
   position: absolute;

@@ -6137,6 +6137,9 @@ body {
 			justify-content: center;
 			padding: 1px;
 			overflow: hidden !important;
+			> div {
+				width: 100%;
+			}
 		}
 		#cboxClose {
 			cursor: pointer;
