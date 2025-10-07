@@ -6084,6 +6084,14 @@ body.type-manufacturer-detail .category-header > div strong {
     gap: var(--gap-18);
   }
 }
+#footer .footer-final-block .footer-contact-us-socials-languages .footer-socials-and-languages.small {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#footer .footer-final-block .footer-contact-us-socials-languages .footer-socials-and-languages.small .footer-languages-wrapper {
+  margin-left: 20px;
+}
 #footer .footer-final-block .footer-contact-us-socials-languages .footer-socials-and-languages .footer-socials {
   display: -webkit-box;
   display: -ms-flexbox;

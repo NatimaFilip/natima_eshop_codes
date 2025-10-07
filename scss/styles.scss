@@ -5653,6 +5653,12 @@ body.type-manufacturer-detail {
 					grid-template-columns: 1fr;
 					gap: var(--gap-18);
 				}
+				&.small {
+					display: flex;
+					.footer-languages-wrapper {
+						margin-left: 20px;
+					}
+				}
 
 				.footer-socials {
 					display: flex;
