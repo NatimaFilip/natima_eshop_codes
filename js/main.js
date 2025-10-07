@@ -1408,6 +1408,17 @@ async function measureUnitFromFiltersProducts() {
 				dávky: "dávka",
 			};
 		}
+		if (plLang) {
+			singleMeasuringUnit = {
+				kapsułek: "kapsułka",
+				kapsułki: "kapsułka",
+				tabletek: "tableta",
+				saszetek: "saszetka",
+				pastylek: "pastylka",
+				gumisiów: "gumiś",
+				dawek: "dawka",
+			};
+		}
 
 		let pricePerUnit_Unit;
 
@@ -2522,7 +2533,6 @@ if (body.classList.contains("type-product")) {
 		}
 
 		let singleMeasuringUnit = {};
-
 		if (csLang) {
 			singleMeasuringUnit = {
 				kapslí: "kapsle",
@@ -2541,6 +2551,17 @@ if (body.classList.contains("type-product")) {
 				tablietek: "tabletka",
 				dávok: "dávka",
 				dávky: "dávka",
+			};
+		}
+		if (plLang) {
+			singleMeasuringUnit = {
+				kapsułek: "kapsułka",
+				kapsułki: "kapsułka",
+				tabletek: "tableta",
+				saszetek: "saszetka",
+				pastylek: "pastylka",
+				gumisiów: "gumiś",
+				dawek: "dawka",
 			};
 		}
 

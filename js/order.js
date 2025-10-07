@@ -67,8 +67,8 @@ if (body.classList.contains("id--9")) {
 				darkyTextHodnotnejsi = " a vyberte si z hodnotnejších darčekov.";
 			}
 			if (plLang) {
-				darkyTextObjednejte = "Zamów jeszcze za ";
-				darkyTextHodnotnejsi = " i wybierz bardziej wartościowy prezent.";
+				darkyTextObjednejte = "Zwiększ wartość zamówienia o ";
+				darkyTextHodnotnejsi = " i zyskaj dostęp do bardziej atrakcyjnych prezentów.";
 			}
 			giftSpan.innerHTML = darkyTextObjednejte + "<strong>" + darkyPrice + "</strong>" + darkyTextHodnotnejsi;
 		}
@@ -229,7 +229,7 @@ if (body.classList.contains("id--17")) {
 				billingAddressH4.textContent = "Doručovacia a fakturačná adresa";
 			}
 			if (plLang) {
-				billingAddressH4.textContent = "Adresy dostawy i fakturowania";
+				billingAddressH4.textContent = "Adres dostawy i adres rozliczeniowy";
 			}
 		}
 	} catch (error) {
