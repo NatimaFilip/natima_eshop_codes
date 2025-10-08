@@ -1143,6 +1143,7 @@ $desktop-large-min: 1680px;
 				border-color: var(--color-gray-500);
 				.homepage-welcome-texts {
 					font-size: var(--fs-20);
+					user-select: text;
 
 					h1 {
 						padding-bottom: 1.21875em;

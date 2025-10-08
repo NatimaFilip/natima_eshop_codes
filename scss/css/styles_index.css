@@ -865,6 +865,10 @@
 }
 .in-index .welcome-wrapper .welcome > div .homepage-welcome-texts {
   font-size: var(--fs-20);
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
 }
 .in-index .welcome-wrapper .welcome > div .homepage-welcome-texts h1 {
   padding-bottom: 1.21875em;
