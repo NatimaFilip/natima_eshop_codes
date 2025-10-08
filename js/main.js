@@ -1921,6 +1921,9 @@ document.addEventListener("ShoptetCartUpdated", function () {
 document.addEventListener("ShoptetDOMPageContentLoaded", function () {
 	changeAddToCartButtonToIncreaseDecrease();
 });
+document.addEventListener("DOMContentLoaded", function () {
+	changeAddToCartButtonToIncreaseDecrease();
+});
 
 /*------------------------------------------------- Shorten breadcrumbs*/
 shortenBreadcrumbs();
