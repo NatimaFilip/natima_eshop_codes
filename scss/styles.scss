@@ -4156,6 +4156,7 @@ body.dklab-favourites {
 						margin-left: auto;
 						margin-right: var(--gap-7);
 						margin-top: calc(var(--gap-8) * -1);
+						> a[role="button"],
 						button,
 						.increase-decrease-wrapper {
 							width: var(--add-to-cart-button-width);
