@@ -4359,7 +4359,6 @@ body.dklab-favourites .category-header > div strong {
   margin-right: var(--gap-7);
   margin-top: calc(var(--gap-8) * -1);
 }
-.products-block .product .p-in .p-bottom > div .p-tools > a[role=button],
 .products-block .product .p-in .p-bottom > div .p-tools button,
 .products-block .product .p-in .p-bottom > div .p-tools .increase-decrease-wrapper {
   width: var(--add-to-cart-button-width);
@@ -4373,25 +4372,20 @@ body.dklab-favourites .category-header > div strong {
           box-shadow: inset 0px -1px 0px var(--color-cta-600);
 }
 @media screen and (max-width: 767px) {
-  .products-block .product .p-in .p-bottom > div .p-tools > a[role=button],
   .products-block .product .p-in .p-bottom > div .p-tools button,
   .products-block .product .p-in .p-bottom > div .p-tools .increase-decrease-wrapper {
     border-radius: var(--br-8);
   }
 }
-.products-block .product .p-in .p-bottom > div .p-tools > a[role=button]:hover, .products-block .product .p-in .p-bottom > div .p-tools > a[role=button]:focus-within,
-.products-block .product .p-in .p-bottom > div .p-tools button:hover,
-.products-block .product .p-in .p-bottom > div .p-tools button:focus-within,
+.products-block .product .p-in .p-bottom > div .p-tools button:hover, .products-block .product .p-in .p-bottom > div .p-tools button:focus-within,
 .products-block .product .p-in .p-bottom > div .p-tools .increase-decrease-wrapper:hover,
 .products-block .product .p-in .p-bottom > div .p-tools .increase-decrease-wrapper:focus-within {
   background-color: var(--color-secondary-hover);
 }
-.products-block .product .p-in .p-bottom > div .p-tools > a[role=button] span,
 .products-block .product .p-in .p-bottom > div .p-tools button span,
 .products-block .product .p-in .p-bottom > div .p-tools .increase-decrease-wrapper span {
   font-size: 0px;
 }
-.products-block .product .p-in .p-bottom > div .p-tools > a[role=button]::after,
 .products-block .product .p-in .p-bottom > div .p-tools button::after,
 .products-block .product .p-in .p-bottom > div .p-tools .increase-decrease-wrapper::after {
   content: "";
@@ -13125,6 +13119,7 @@ body:has(.new-gen-modal) {
           justify-content: flex-start;
   padding-left: 13px;
   padding-bottom: 11px;
+  z-index: 0;
 }
 .dklab-favourites #dkLabFavPageProductsContainer .products-block .product,
 .dklab-favourites #dkLabFavCartWrapper .products-block .product {
