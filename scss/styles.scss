@@ -9016,25 +9016,7 @@ form[data-np-autofill-form-type="identity"]:not(#order-form) {
 		&.selected {
 			display: flex;
 		}
-		&:not(.country-flag-CZ) {
-			position: relative;
-			&::after {
-				content: "Pro doručení zásilky je nutno zadat české číslo, jinak nebude možno zásilku odeslat.";
-				display: block;
-				font-size: var(--fs-16);
-				position: absolute;
-				left: 0;
-				top: -20px;
-				transform: translateY(-100%);
-				background: white;
-				border-style: solid;
-				border-color: var(--color-red-400);
-				border-radius: var(--br-16);
-				border-width: 1px;
-				width: 18em;
-				padding: 10px;
-			}
-		}
+
 		svg {
 			min-width: 18px;
 			width: 18px;
@@ -9159,6 +9141,83 @@ form[data-np-autofill-form-type="identity"]:not(#order-form) {
 		.list-summary {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
+		}
+	}
+}
+.customer-page.cs {
+	.content-wrapper-in {
+		.country-flag {
+			&:not(.country-flag-CZ) {
+				position: relative;
+				&::after {
+					content: "Pro doručení zásilky je nutno zadat české číslo, jinak nebude možno zásilku odeslat.";
+					display: block;
+					font-size: var(--fs-16);
+					position: absolute;
+					left: 0;
+					top: -20px;
+					transform: translateY(-100%);
+					background: white;
+					border-style: solid;
+					border-color: var(--color-red-400);
+					border-radius: var(--br-16);
+					border-width: 1px;
+					width: 18em;
+					padding: 10px;
+				}
+			}
+		}
+	}
+}
+
+.customer-page.sk {
+	.content-wrapper-in {
+		.country-flag {
+			&:not(.country-flag-SK) {
+				position: relative;
+				&::after {
+					content: "Pre doručenie zásielky je nutné zadať slovenské číslo, inak nebude možné zásielku odoslať.";
+					display: block;
+					font-size: var(--fs-16);
+					position: absolute;
+					left: 0;
+					top: -20px;
+					transform: translateY(-100%);
+					background: white;
+					border-style: solid;
+					border-color: var(--color-red-400);
+					border-radius: var(--br-16);
+					border-width: 1px;
+					width: 18em;
+					padding: 10px;
+				}
+			}
+		}
+	}
+}
+
+.customer-page.pl {
+	.content-wrapper-in {
+		.country-flag {
+			&:not(.country-flag-PL) {
+				position: relative;
+				&::after {
+					content: "Podanie polskiego numeru telefonu jest niezbędne do dostarczenia przesyłki, w przeciwnym razie nie będzie można jej nadać";
+					display: block;
+					font-size: var(--fs-16);
+					position: absolute;
+					left: 0;
+					top: -20px;
+					transform: translateY(-100%);
+					background: white;
+					border-style: solid;
+					border-color: var(--color-red-400);
+					border-radius: var(--br-16);
+					border-width: 1px;
+					width: 18em;
+					padding: 10px;
+				}
+			}
 		}
 	}
 }

@@ -11818,26 +11818,6 @@ form[data-np-autofill-form-type=identity]:not(#order-form) input[type=checkbox]:
   display: -ms-flexbox;
   display: flex;
 }
-.customer-page .country-flag:not(.country-flag-CZ) {
-  position: relative;
-}
-.customer-page .country-flag:not(.country-flag-CZ)::after {
-  content: "Pro doručení zásilky je nutno zadat české číslo, jinak nebude možno zásilku odeslat.";
-  display: block;
-  font-size: var(--fs-16);
-  position: absolute;
-  left: 0;
-  top: -20px;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  background: white;
-  border-style: solid;
-  border-color: var(--color-red-400);
-  border-radius: var(--br-16);
-  border-width: 1px;
-  width: 18em;
-  padding: 10px;
-}
 .customer-page .country-flag svg {
   min-width: 18px;
   width: 18px;
@@ -11976,6 +11956,69 @@ form[data-np-autofill-form-type=identity]:not(#order-form) input[type=checkbox]:
 .customer-page .content-inner .list-summary {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.customer-page.cs .content-wrapper-in .country-flag:not(.country-flag-CZ) {
+  position: relative;
+}
+.customer-page.cs .content-wrapper-in .country-flag:not(.country-flag-CZ)::after {
+  content: "Pro doručení zásilky je nutno zadat české číslo, jinak nebude možno zásilku odeslat.";
+  display: block;
+  font-size: var(--fs-16);
+  position: absolute;
+  left: 0;
+  top: -20px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  background: white;
+  border-style: solid;
+  border-color: var(--color-red-400);
+  border-radius: var(--br-16);
+  border-width: 1px;
+  width: 18em;
+  padding: 10px;
+}
+
+.customer-page.sk .content-wrapper-in .country-flag:not(.country-flag-SK) {
+  position: relative;
+}
+.customer-page.sk .content-wrapper-in .country-flag:not(.country-flag-SK)::after {
+  content: "Pre doručenie zásielky je nutné zadať slovenské číslo, inak nebude možné zásielku odoslať.";
+  display: block;
+  font-size: var(--fs-16);
+  position: absolute;
+  left: 0;
+  top: -20px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  background: white;
+  border-style: solid;
+  border-color: var(--color-red-400);
+  border-radius: var(--br-16);
+  border-width: 1px;
+  width: 18em;
+  padding: 10px;
+}
+
+.customer-page.pl .content-wrapper-in .country-flag:not(.country-flag-PL) {
+  position: relative;
+}
+.customer-page.pl .content-wrapper-in .country-flag:not(.country-flag-PL)::after {
+  content: "Podanie polskiego numeru telefonu jest niezbędne do dostarczenia przesyłki, w przeciwnym razie nie będzie można jej nadać";
+  display: block;
+  font-size: var(--fs-16);
+  position: absolute;
+  left: 0;
+  top: -20px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  background: white;
+  border-style: solid;
+  border-color: var(--color-red-400);
+  border-radius: var(--br-16);
+  border-width: 1px;
+  width: 18em;
+  padding: 10px;
 }
 
 /*-------------------------------------------------------------------------404 not found */
