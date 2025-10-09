@@ -7959,6 +7959,21 @@ body {
 			}
 		}
 	}
+	&:not(.cs) {
+		.p-detail-tabs-wrapper {
+			#tab-content {
+				.extended-description {
+					table.detail-parameters {
+						tbody {
+							> tr:first-child {
+								display: none !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	&.sticky-header-on {
 		.shp-tabs-row {
 			position: sticky;

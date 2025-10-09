@@ -9763,6 +9763,9 @@ body.sticky-header-off .messages > * {
   background-repeat: no-repeat;
   background-size: contain;
 }
+.type-product:not(.cs) .p-detail-tabs-wrapper #tab-content .extended-description table.detail-parameters tbody > tr:first-child {
+  display: none !important;
+}
 .type-product.sticky-header-on .shp-tabs-row {
   position: sticky;
   top: calc(var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px) !important;
