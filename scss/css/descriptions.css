@@ -1863,3 +1863,26 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
 .pl #tab-content .natios-analysis a.btn {
   display: none !important;
 }
+
+.fixBullets .rc-parameter-small-left__image,
+.fixBullets .rc-parameter-small-right__image {
+  display: none !important;
+}
+
+.fixBullets .rc-parameter-small-left__box,
+.fixBullets .rc-parameter-small-right__box {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: column !important;
+          flex-direction: column !important;
+  width: 100% !important;
+}
+
+.fixBullets .rc-parameter__header-right {
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  text-align: center !important;
+}
