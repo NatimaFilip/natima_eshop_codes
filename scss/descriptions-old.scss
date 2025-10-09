@@ -487,3 +487,19 @@
 	padding-bottom: 10px !important;
 	color: #303233 !important;
 }
+
+.fixBullets .rc-parameter-small-left__image,
+.fixBullets .rc-parameter-small-right__image {
+	display: none;
+}
+.fixBullets .rc-parameter-small-left__box,
+.fixBullets .rc-parameter-small-right__box {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.fixBullets .rc-parameter__header-right {
+	font-size: 1rem;
+	font-weight: 400;
+	text-align: center;
+}
