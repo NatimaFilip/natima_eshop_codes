@@ -4067,41 +4067,45 @@ document.addEventListener("dkLabFavouriteProductsLoaded", function () {
 	}
 });
 
-if (document.body.classList.contains("type-product")) {
-	fixSolgar();
-	function fixSolgar() {
-		const any = document.querySelectorAll(".rc-parameter__header-right");
-		if (any.length === 0) return;
-
-		const nodes = document.querySelectorAll(
-			"#pobo-all-content .widget-projector .rc-parameter-small-left__box .rc-parameter__header-right"
-		);
-
-		if (nodes.length === 0) return;
-
-		nodes.forEach((el) => {
-			el.parentElement.parentElement.classList.add("fixBullets");
-			let text = el.innerHTML;
-			const characters = Array.from(text);
-			let whichHashtag = 0;
-
-			for (let i = 0; i < characters.length; i++) {
-				if (characters[i] === "#") {
-					characters[i] = whichHashtag % 2 === 0 ? "<b>" : "</b>";
-					whichHashtag++;
-				} else if (characters[i] === "$") {
-					characters[i] = "</br>";
-				}
-			}
-
-			const newHtml = characters.join("");
-			const p = document.createElement("p");
-			p.className = "rc-parameter__header-right";
-			const span = document.createElement("span");
-			span.innerHTML = newHtml;
-			p.appendChild(span);
-
-			el.replaceWith(p);
-		});
+document.addEventListener("DOMContentLoaded", function () {
+	// Fix for Solgar product pages
+	if (document.body.classList.contains("type-product")) {
+		fixSolgar();
 	}
+});
+
+function fixSolgar() {
+	const any = document.querySelectorAll(".rc-parameter__header-right");
+	if (any.length === 0) return;
+
+	const nodes = document.querySelectorAll(
+		"#pobo-all-content .widget-projector .rc-parameter-small-left__box .rc-parameter__header-right"
+	);
+
+	if (nodes.length === 0) return;
+
+	nodes.forEach((el) => {
+		el.parentElement.parentElement.classList.add("fixBullets");
+		let text = el.innerHTML;
+		const characters = Array.from(text);
+		let whichHashtag = 0;
+
+		for (let i = 0; i < characters.length; i++) {
+			if (characters[i] === "#") {
+				characters[i] = whichHashtag % 2 === 0 ? "<b>" : "</b>";
+				whichHashtag++;
+			} else if (characters[i] === "$") {
+				characters[i] = "</br>";
+			}
+		}
+
+		const newHtml = characters.join("");
+		const p = document.createElement("p");
+		p.className = "rc-parameter__header-right";
+		const span = document.createElement("span");
+		span.innerHTML = newHtml;
+		p.appendChild(span);
+
+		el.replaceWith(p);
+	});
 }
