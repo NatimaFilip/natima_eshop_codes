@@ -220,6 +220,11 @@ const translationsStrings = {
 		sk: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/heureka_reviews_sk.json",
 		pl: "https://raw.githubusercontent.com/NatimaFilip/natima_eshop_files/refs/heads/main/data/ceneo_reviews_pl.json" /*ceneo*/,
 	},
+	laboratoryAnalysisText: {
+		cs: "Laboratorně testováno",
+		sk: "Laboratórne testované",
+		pl: "Testowano laboratoryjnie",
+	},
 };
 
 /*--------------------------------------- Přepsání funkcí*/
@@ -2940,17 +2945,7 @@ if (body.classList.contains("type-product")) {
 				laboratoryAnalysisElement.classList.add("laboratory-analysis-element");
 				laboratoryAnalysisElement.setAttribute("tabindex", "0");
 
-				let laboratoryAnalysisText = "";
-				if (document.body.classList.contains("cs")) {
-					laboratoryAnalysisText = "Laboratorně testováno";
-				}
-				if (document.body.classList.contains("sk")) {
-					laboratoryAnalysisText = "Laboratórne testované";
-				}
-				if (document.body.classList.contains("pl")) {
-					laboratoryAnalysisText = "Testowane laboratoryjnie";
-				}
-				laboratoryAnalysisElement.textContent = laboratoryAnalysisText;
+				laboratoryAnalysisElement.textContent = translationsStrings.laboratoryAnalysisText[activeLang];
 
 				shortBenefitsWrapper.appendChild(laboratoryAnalysisElement);
 				laboratoryAnalysisElement.addEventListener("click", function () {
