@@ -1836,7 +1836,7 @@ function changeAddToCartButtonToIncreaseDecrease() {
 		if (!cartItemCodesAndQuantities.some((item) => item.code === productCode)) {
 			return; // Skip products not in the cart
 		}
-		productAddButton = product.querySelector(".p-tools form button");
+		productAddButton = product.querySelector(".p-tools .add-to-cart-button");
 		if (!productAddButton) {
 			console.warn(`Add to cart button not found for product with code ${productCode}.`);
 			return; // Skip if no add to cart button
