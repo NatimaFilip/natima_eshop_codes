@@ -1875,7 +1875,7 @@ function changeAddToCartButtonToIncreaseDecrease() {
 		increaseDecreaseWrapper.appendChild(quantityInput);
 		increaseDecreaseWrapper.appendChild(increaseButton);
 
-		product.querySelector(".p-tools form").appendChild(increaseDecreaseWrapper);
+		product.querySelector(".p-tools>*").appendChild(increaseDecreaseWrapper);
 
 		increaseButton.addEventListener("click", function () {
 			quantityInput.value = parseInt(quantityInput.value) + 1;
