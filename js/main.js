@@ -1930,6 +1930,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	changeAddToCartButtonToIncreaseDecrease();
 });
 
+document.addEventListener("luigiSearchDone", function () {
+	changeAddToCartButtonToIncreaseDecrease();
+});
+
 /*------------------------------------------------- Shorten breadcrumbs*/
 shortenBreadcrumbs();
 /* function shortenBreadcrumbs() {
