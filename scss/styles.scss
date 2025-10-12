@@ -9792,3 +9792,11 @@ body:has(.new-gen-modal) {
 		}
 	}
 }
+
+@media screen and (max-width: $mobile-max) {
+	#dkLabFavouriteDiv,
+	.dkLabFavouriteProductDiv,
+	#dkLabFavHeaderWrapper {
+		display: none !important;
+	}
+}
