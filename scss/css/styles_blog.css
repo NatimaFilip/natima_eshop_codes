@@ -67,6 +67,7 @@
      -moz-column-gap: 20px;
           column-gap: 20px;
   row-gap: 40px;
+  padding-top: 40px;
 }
 @media screen and (max-width: 1279px) {
   .type-posts-listing #newsWrapper {
@@ -78,6 +79,7 @@
   .type-posts-listing #newsWrapper {
     grid-template-columns: 1fr;
     row-gap: 30px;
+    padding-top: 30px;
   }
 }
 .type-posts-listing #newsWrapper .news-item .image {
