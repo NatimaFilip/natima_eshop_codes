@@ -1687,6 +1687,7 @@ async function insertHeurekaReviews() {
 			if (review.cons && review.cons._cdata) {
 				let reviewsEditedConsData = [];
 				const reviewCons = document.createElement("div");
+				reviewCons.className = "heureka-review-cons";
 				let consString = review.cons._cdata; // Extract the string from _cdata
 				let consStringEdited = consString.match(/[A-Z][^A-Z]*/g); // Split by sequences starting with a capital letter
 
