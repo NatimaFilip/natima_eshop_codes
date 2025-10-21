@@ -225,6 +225,11 @@ const translationsStrings = {
 		sk: "Laboratórne testované",
 		pl: "Testowano laboratoryjnie",
 	},
+	clientUrl: {
+		cs: "https://www.natima.cz/klient",
+		sk: "https://www.natima.sk/klient",
+		pl: "https://www.natima.pl/centrum-klientow",
+	},
 };
 
 /*--------------------------------------- Přepsání funkcí*/
@@ -379,6 +384,7 @@ function addAccountToHeaderTop() {
 	const accountButton = document.createElement("a");
 	accountButton.className = "login-button-custom";
 	accountButton.setAttribute("data-target", "login");
+	accountButton.setAttribute("href", translationsStrings.clientUrl[activeLang]);
 	headerTop.appendChild(accountButton);
 
 	let originalAccountButton = document.querySelector(".top-navigation-tools .top-nav-button-login");
