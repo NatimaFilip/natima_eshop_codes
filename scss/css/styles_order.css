@@ -239,7 +239,6 @@
   padding: 0;
 }
 .ordering-process:not(.id--15) .cart-row table.cart-table tbody .related,
-.ordering-process:not(.id--15) .cart-row table.cart-table tbody .product-appendix,
 .ordering-process:not(.id--15) .cart-row table.cart-table tbody .show-related,
 .ordering-process:not(.id--15) .cart-row table.cart-table tbody .p-label {
   display: none !important;
@@ -1004,10 +1003,6 @@
 .ordering-process:not(.id--15) .free-gift .free-product-gifts-wrapper ul li input {
   display: none;
 }
-.ordering-process:not(.id--15) .free-gift .free-gifts-wrapper ul li .product-appendix,
-.ordering-process:not(.id--15) .free-gift .free-product-gifts-wrapper ul li .product-appendix {
-  display: none !important;
-}
 .ordering-process:not(.id--15) .free-gift .free-gifts-wrapper ul li:hover, .ordering-process:not(.id--15) .free-gift .free-gifts-wrapper ul li:focus-within,
 .ordering-process:not(.id--15) .free-gift .free-product-gifts-wrapper ul li:hover,
 .ordering-process:not(.id--15) .free-gift .free-product-gifts-wrapper ul li:focus-within {
@@ -1585,10 +1580,6 @@
   -webkit-transform: scale(4) translate(35%, -35%);
           transform: scale(4) translate(35%, -35%);
 }
-.ordering-process.id--16 .recap-wrapper .cart-item-name .product-appendix,
-.ordering-process.id--17 .recap-wrapper .cart-item-name .product-appendix {
-  display: none !important;
-}
 .ordering-process.id--16 .recap-wrapper .cart-item-price,
 .ordering-process.id--17 .recap-wrapper .cart-item-price {
   font-weight: var(--fw-700);
@@ -1965,4 +1956,8 @@
   position: relative;
   padding: 0;
   inset: 0;
+}
+
+.ordering-process .product-appendix:before {
+  content: "-";
 }

@@ -304,7 +304,6 @@ $desktop-large-min: 1680px;
 					padding: 0;
 				}
 				.related,
-				.product-appendix,
 				.show-related,
 				.p-label {
 					display: none !important;
@@ -820,9 +819,6 @@ $desktop-large-min: 1680px;
 					input {
 						display: none;
 					}
-					.product-appendix {
-						display: none !important;
-					}
 					&:hover,
 					&:focus-within {
 						border-color: var(--color-primary);
@@ -1291,9 +1287,6 @@ $desktop-large-min: 1680px;
 					}
 				}
 			}
-			.product-appendix {
-				display: none !important;
-			}
 		}
 		.cart-item-price {
 			font-weight: var(--fw-700);
@@ -1653,4 +1646,10 @@ $desktop-large-min: 1680px;
 	position: relative;
 	padding: 0;
 	inset: 0;
+}
+
+.ordering-process .product-appendix {
+	&:before {
+		content: "-";
+	}
 }

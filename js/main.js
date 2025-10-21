@@ -1140,9 +1140,9 @@ if (body.classList.contains("type-category")) {
 }
 
 function productListMoveAppendixToDescription() {
-	if (!isTestEshop) {
+	/* 	if (!isTestEshop) {
 		return;
-	}
+	} */
 
 	// Get all product elements
 	const products = document.querySelectorAll(".products-block .product");

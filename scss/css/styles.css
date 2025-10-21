@@ -4100,7 +4100,10 @@ body.dklab-favourites .category-header > div strong {
   text-underline-offset: 3px;
 }
 .products-block .product .p-in .p-in-in .name > span .product-appendix {
-  display: none;
+  font-size: 0.75em;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  padding-top: 0.25em;
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper {
   display: grid;
@@ -8067,7 +8070,10 @@ body.sticky-header-off .messages > * {
 }
 .type-product #product-detail-form .product-appendix,
 .type-product .p-detail-inner-header .product-appendix {
-  display: none;
+  font-size: 0.75em;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  padding-top: 0.25em;
 }
 .type-product #product-detail-form .stars-wrapper,
 .type-product .p-detail-inner-header .stars-wrapper {

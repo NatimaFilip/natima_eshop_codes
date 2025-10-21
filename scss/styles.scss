@@ -4054,7 +4054,10 @@ body.dklab-favourites {
 
 					> span {
 						.product-appendix {
-							display: none;
+							font-size: 0.75em;
+							font-weight: 400;
+							color: var(--color-gray-700);
+							padding-top: 0.25em;
 						}
 					}
 				}
@@ -6980,7 +6983,10 @@ body {
 	#product-detail-form,
 	.p-detail-inner-header {
 		.product-appendix {
-			display: none;
+			font-size: 0.75em;
+			font-weight: 400;
+			color: var(--color-gray-700);
+			padding-top: 0.25em;
 		}
 		.stars-wrapper {
 			display: flex;
