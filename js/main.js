@@ -1157,6 +1157,9 @@ function productListMoveAppendixToDescription() {
 
 		if (appendix && desc) {
 			// Move the appendix content to the beginning of the description
+			if (!appendix.textContent.trim().endsWith(";")) {
+				appendix.insertAdjacentText("beforeend", ";");
+			}
 			desc.prepend(appendix);
 		}
 	});
