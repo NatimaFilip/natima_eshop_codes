@@ -4053,7 +4053,7 @@ body.dklab-favourites {
 					}
 
 					.product-appendix {
-						font-weight: 700;
+						display: none !important;
 					}
 				}
 				.ratings-wrapper {
@@ -4360,8 +4360,10 @@ body.dklab-favourites {
 						display: -webkit-box;
 						-webkit-line-clamp: var(--desc-number-of-lines);
 						-webkit-box-orient: vertical;
-
 						overflow: hidden;
+						.product-appendix {
+							font-weight: 700;
+						}
 					}
 				}
 			}

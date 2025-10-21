@@ -4100,7 +4100,7 @@ body.dklab-favourites .category-header > div strong {
   text-underline-offset: 3px;
 }
 .products-block .product .p-in .p-in-in .name .product-appendix {
-  font-weight: 700;
+  display: none !important;
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper {
   display: grid;
@@ -4605,6 +4605,9 @@ body.dklab-favourites .category-header > div strong {
   -webkit-line-clamp: var(--desc-number-of-lines);
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+.products-block .product .p-in .p-bottom > div .p-desc .product-appendix {
+  font-weight: 700;
 }
 .products-block .product .p-code {
   display: none;
