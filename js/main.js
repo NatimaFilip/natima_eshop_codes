@@ -1138,6 +1138,26 @@ if (body.classList.contains("type-category")) {
 		});
 	}
 }
+
+function productListMoveAppendixToDescription() {
+	if (!isTestEshop) {
+		return;
+	}
+
+	// Get all product elements
+	const products = document.querySelectorAll(".product");
+
+	products.forEach((product) => {
+		const appendix = product.querySelector(".product-appendix");
+		const desc = product.querySelector(".p-desc");
+
+		if (appendix && desc) {
+			// Move the appendix content to the beginning of the description
+			desc.prepend(appendix);
+		}
+	});
+}
+
 /*------------------------------------------------- CATEGORY Obecné*/
 let perexTrimmedIsVisible;
 if (body.classList.contains("type-category")) {
