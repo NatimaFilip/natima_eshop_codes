@@ -1638,6 +1638,9 @@ async function insertHeurekaReviews() {
 		//review stars
 		const reviewRatingWrapper = document.createElement("div");
 		reviewRatingWrapper.className = "heureka-review-rating-wrapper";
+		if (!review.total_rating || !review.total_rating._text) {
+			return;
+		}
 		for (let i = 0; i < review.total_rating._text; i++) {
 			const starIcon = document.createElement("i");
 			starIcon.className = "heureka-icon-star";
@@ -3239,10 +3242,6 @@ if (body.classList.contains("in-index")) {
 				hodnoceniObchoduSection.appendChild(votesWrap);
 				console.log("CUSTOM EVENT DISPATCHED: votesWrapLoaded");
 				document.dispatchEvent(new CustomEvent("votesWrapLoaded"));
-				if (!isTestEshop) {
-					reviewSlider(hodnoceniObchoduSection);
-					document.addEventListener("debouncedResize", () => reviewSlider(hodnoceniObchoduSection));
-				}
 			} else {
 				console.warn("No .content-inner found in the fetched content.");
 			}
