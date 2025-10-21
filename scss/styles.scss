@@ -4052,13 +4052,8 @@ body.dklab-favourites {
 						@include text-underline;
 					}
 
-					> span {
-						.product-appendix {
-							font-size: 0.75em;
-							font-weight: 400;
-							color: var(--color-gray-700);
-							padding-top: 0.25em;
-						}
+					.product-appendix {
+						font-weight: 700;
 					}
 				}
 				.ratings-wrapper {
@@ -6983,6 +6978,7 @@ body {
 	#product-detail-form,
 	.p-detail-inner-header {
 		.product-appendix {
+			display: block;
 			font-size: 0.75em;
 			font-weight: 400;
 			color: var(--color-gray-700);
