@@ -388,10 +388,12 @@ function addAccountToHeaderTop() {
 	headerTop.appendChild(accountButton);
 
 	let originalAccountButton = document.querySelector(".top-navigation-tools .top-nav-button-login");
-	addSmartTouchClickListener(accountButton, function (event) {
-		event.preventDefault();
-		originalAccountButton.click();
-	});
+	if (originalAccountButton) {
+		addSmartTouchClickListener(accountButton, function (event) {
+			event.preventDefault();
+			originalAccountButton.click();
+		});
+	}
 }
 
 function stickyHeaderToggle() {
