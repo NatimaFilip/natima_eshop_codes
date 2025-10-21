@@ -1145,7 +1145,11 @@ function productListMoveAppendixToDescription() {
 	}
 
 	// Get all product elements
-	const products = document.querySelectorAll(".product");
+	const products = document.querySelectorAll(".products-block .product");
+
+	if (!products || products.length === 0) {
+		return;
+	}
 
 	products.forEach((product) => {
 		const appendix = product.querySelector(".product-appendix");
@@ -1288,16 +1292,19 @@ measureUnitFromFiltersProducts();
 document.addEventListener("ShoptetDOMContentLoaded", function (event) {
 	actionPriceToFinalPriceAndReviewsNumber();
 	measureUnitFromFiltersProducts();
+	productListMoveAppendixToDescription();
 	/* measureUnitFromAppendixProducts(); */
 });
 document.addEventListener("luigiSearchDone", function (event) {
 	actionPriceToFinalPriceAndReviewsNumber();
 	measureUnitFromFiltersProducts();
+	productListMoveAppendixToDescription();
 	/* measureUnitFromAppendixProducts(); */
 });
 
 /*---------ACTION PRICE AND REVIEWS NUMBER*/
 actionPriceToFinalPriceAndReviewsNumber();
+productListMoveAppendixToDescription();
 function actionPriceToFinalPriceAndReviewsNumber() {
 	let allProductsInProductsBlock = document.querySelectorAll(".products-block .product");
 	if (!allProductsInProductsBlock || allProductsInProductsBlock.length === 0) {
