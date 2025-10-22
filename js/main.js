@@ -863,7 +863,7 @@ if (body.classList.contains("type-category")) {
 	filtersElement = document.querySelector("#filters");
 	asideElement = document.querySelector("aside");
 	/* 	let filtersWrapperElement = document.querySelector(".filters-wrapper"); */
-	filterSections = document.querySelectorAll(".filter-section");
+	filterSections = document.querySelectorAll("#filters .filter-section");
 	categoryContentWrapper = document.querySelector(".category-content-wrapper");
 	selectedFiltersInSidebar = true;
 	customOpenFilterButtonListenerAdded = false;
@@ -873,11 +873,9 @@ if (body.classList.contains("type-category")) {
 	customOpenFilterButton.innerHTML = translationsStrings.customFilterButton[activeLang];
 
 	moveAsideToCategoryContent();
-
 	customOpenFilterButtonListener();
 	customMoveFilter();
 	editClearFiltersButton();
-
 	moveSelectedFilters();
 	editManufacturerFilter();
 	cleanEmptyFilters();
@@ -899,7 +897,7 @@ if (body.classList.contains("type-category")) {
 		filterInOriginalPosition = true;
 		filtersElement = document.querySelector("#filters");
 		/* 	filtersWrapperElement = document.querySelector(".filters-wrapper"); */
-		filterSections = filtersElement.querySelectorAll(".filter-section");
+		filterSections = document.querySelectorAll("#filters .filter-section");
 		categoryContentWrapper = document.querySelector(".category-content-wrapper");
 		selectedFiltersInSidebar = true;
 
@@ -943,6 +941,7 @@ if (body.classList.contains("type-category")) {
 
 	function customOpenFilterButtonListener() {
 		/* 	categoryTop.insertAdjacentElement("afterend", customOpenFilterButton); */
+
 		categoryTop.appendChild(customOpenFilterButton);
 
 		if (customOpenFilterButtonListenerAdded) {
