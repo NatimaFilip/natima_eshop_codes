@@ -882,7 +882,7 @@ if (body.classList.contains("type-category")) {
 	editProductSorting();
 
 	document.addEventListener("DOMContentLoaded", function () {
-		addPriceFitlerClearButton();
+		addPriceFilterClearButton();
 		cleanEmptyActiveFiltersSection();
 	});
 
@@ -904,7 +904,7 @@ if (body.classList.contains("type-category")) {
 		customOpenFilterButtonListener();
 		customMoveFilter();
 		editClearFiltersButton();
-		addPriceFitlerClearButton();
+		addPriceFilterClearButton();
 		cleanEmptyActiveFiltersSection();
 		moveSelectedFilters();
 		editManufacturerFilter();
@@ -955,102 +955,110 @@ if (body.classList.contains("type-category")) {
 	}
 
 	function editClearFiltersButton() {
-		let clearFilterButton = filtersElement.querySelector("#clear-filters");
-		if (!clearFilterButton) {
-			body.classList.remove("has-filters-active");
-			return;
-		}
-		body.classList.add("has-filters-active");
-		const selectedFiltersDiv = document.createElement("div");
-		selectedFiltersDiv.className = "selected-filters";
-		const selectedFiltersSpan = document.createElement("span");
-		selectedFiltersSpan.className = "selected-filters-text";
-
-		selectedFiltersSpan.innerHTML = translationsStrings.selectedFilters[activeLang];
-
-		filtersElement.prepend(selectedFiltersDiv);
-		selectedFiltersDiv.appendChild(selectedFiltersSpan);
-
-		//for each fieldset get active labels, create copies of them and append tgem to selectedFiltersDiv
-		filterSections.forEach((section) => {
-			let fieldsetHeader = section.querySelector("h4 > span");
-			let activeLabels = section.querySelectorAll("fieldset > div > label.active");
-			if (activeLabels.length === 0) {
+		try {
+			let clearFilterButton = filtersElement.querySelector("#clear-filters");
+			if (!clearFilterButton) {
+				body.classList.remove("has-filters-active");
 				return;
 			}
-			const activeFilterSection = document.createElement("div");
-			activeFilterSection.className = "active-filter-section";
+			body.classList.add("has-filters-active");
+			const selectedFiltersDiv = document.createElement("div");
+			selectedFiltersDiv.className = "selected-filters";
+			const selectedFiltersSpan = document.createElement("span");
+			selectedFiltersSpan.className = "selected-filters-text";
 
-			if (fieldsetHeader) {
-				activeFilterSection.innerHTML = `<span class="active-filter-section-header">${fieldsetHeader.textContent}</span>`;
-			} else {
-				activeFilterSection.innerHTML = `<span class="active-filter-section-header">${translationsStrings.product[activeLang]}</span>`;
-			}
-			selectedFiltersDiv.appendChild(activeFilterSection);
-			activeLabels.forEach((label) => {
-				// Extract only the text node, excluding the .filter-count
-				let labelText = Array.from(label.childNodes)
-					.filter((node) => node.nodeType === Node.TEXT_NODE) // Get only text nodes
-					.map((node) => node.textContent.trim()) // Trim the text content
-					.join(""); // Combine the text if there are multiple text nodes
+			selectedFiltersSpan.innerHTML = translationsStrings.selectedFilters[activeLang];
+
+			filtersElement.prepend(selectedFiltersDiv);
+			selectedFiltersDiv.appendChild(selectedFiltersSpan);
+
+			//for each fieldset get active labels, create copies of them and append tgem to selectedFiltersDiv
+			filterSections.forEach((section) => {
+				let fieldsetHeader = section.querySelector("h4 > span");
+				let activeLabels = section.querySelectorAll("fieldset > div > label.active");
+				if (activeLabels.length === 0) {
+					return;
+				}
+				const activeFilterSection = document.createElement("div");
+				activeFilterSection.className = "active-filter-section";
+
+				if (fieldsetHeader) {
+					activeFilterSection.innerHTML = `<span class="active-filter-section-header">${fieldsetHeader.textContent}</span>`;
+				} else {
+					activeFilterSection.innerHTML = `<span class="active-filter-section-header">${translationsStrings.product[activeLang]}</span>`;
+				}
+				selectedFiltersDiv.appendChild(activeFilterSection);
+				activeLabels.forEach((label) => {
+					// Extract only the text node, excluding the .filter-count
+					let labelText = Array.from(label.childNodes)
+						.filter((node) => node.nodeType === Node.TEXT_NODE) // Get only text nodes
+						.map((node) => node.textContent.trim()) // Trim the text content
+						.join(""); // Combine the text if there are multiple text nodes
+
+					const activeNewLabel = document.createElement("span");
+					activeNewLabel.className = "active-filter-label";
+					activeNewLabel.textContent = labelText;
+
+					//on click also click the original label
+					activeFilterSection.appendChild(activeNewLabel);
+					addSmartTouchClickListener(activeNewLabel, function () {
+						label.click();
+					});
+				});
+			});
+
+			selectedFiltersDiv.appendChild(clearFilterButton);
+		} catch (error) {
+			console.error("Error in editClearFiltersButton:", error);
+		}
+	}
+
+	function addPriceFilterClearButton() {
+		try {
+			/* 	setTimeout(() => { */
+			let sliderWrapper = filtersElement.querySelector(".slider-wrapper");
+			let priceSlider = document.querySelector(".ui-slider-range");
+
+			if (sliderWrapper && priceSlider && priceSlider.style.width !== "100%") {
+				let minFilterValue = sliderWrapper.querySelector(".slider-header .from").textContent.trim();
+				let maxFilterValue = sliderWrapper.querySelector(".slider-header .to").textContent.trim();
+
+				minFilterValue = minFilterValue.replace(/  +/g, " ");
+				maxFilterValue = maxFilterValue.replace(/  +/g, " ");
+
+				const sliderHeader = sliderWrapper.querySelector("h4 > span");
+				const activeFilterSection = document.createElement("div");
+
+				activeFilterSectionElement = document.querySelector(".active-filter-section");
+				activeFilterSection.className = "active-filter-section";
+				activeFilterSection.innerHTML = `<span class="active-filter-section-header">${sliderHeader.textContent}</span>`;
+				selectedFiltersDiv = document.querySelector(".selected-filters");
+
+				selectedFiltersDiv.appendChild(activeFilterSection);
+				if (!selectedFiltersDiv) {
+					return;
+				}
+				selectedFilterText = selectedFiltersDiv.querySelector(".selected-filters-text");
+				if (!selectedFilterText) {
+					return;
+				}
 
 				const activeNewLabel = document.createElement("span");
 				activeNewLabel.className = "active-filter-label";
-				activeNewLabel.textContent = labelText;
-
-				//on click also click the original label
+				activeNewLabel.setAttribute("data-filter-type", "price");
+				activeNewLabel.textContent = `${minFilterValue} - ${maxFilterValue}`;
 				activeFilterSection.appendChild(activeNewLabel);
-				addSmartTouchClickListener(activeNewLabel, function () {
-					label.click();
-				});
-			});
-		});
 
-		selectedFiltersDiv.appendChild(clearFilterButton);
-	}
-
-	function addPriceFitlerClearButton() {
-		/* 	setTimeout(() => { */
-		let sliderWrapper = filtersElement.querySelector(".slider-wrapper");
-		let priceSlider = document.querySelector(".ui-slider-range");
-
-		if (sliderWrapper && priceSlider && priceSlider.style.width !== "100%") {
-			let minFilterValue = sliderWrapper.querySelector(".slider-header .from").textContent.trim();
-			let maxFilterValue = sliderWrapper.querySelector(".slider-header .to").textContent.trim();
-
-			minFilterValue = minFilterValue.replace(/  +/g, " ");
-			maxFilterValue = maxFilterValue.replace(/  +/g, " ");
-
-			const sliderHeader = sliderWrapper.querySelector("h4 > span");
-			const activeFilterSection = document.createElement("div");
-
-			activeFilterSectionElement = document.querySelector(".active-filter-section");
-			activeFilterSection.className = "active-filter-section";
-			activeFilterSection.innerHTML = `<span class="active-filter-section-header">${sliderHeader.textContent}</span>`;
-			selectedFiltersDiv = document.querySelector(".selected-filters");
-
-			selectedFiltersDiv.appendChild(activeFilterSection);
-			if (!selectedFiltersDiv) {
-				return;
-			}
-			selectedFilterText = selectedFiltersDiv.querySelector(".selected-filters-text");
-			if (!selectedFilterText) {
-				return;
-			}
-
-			const activeNewLabel = document.createElement("span");
-			activeNewLabel.className = "active-filter-label";
-			activeNewLabel.setAttribute("data-filter-type", "price");
-			activeNewLabel.textContent = `${minFilterValue} - ${maxFilterValue}`;
-			activeFilterSection.appendChild(activeNewLabel);
-
-			selectedFiltersDiv.insertBefore(activeFilterSection, selectedFilterText.nextSibling);
-			/* 
+				selectedFiltersDiv.insertBefore(activeFilterSection, selectedFilterText.nextSibling);
+				/* 
 				addSmartTouchClickListener(activeNewLabel, function () {
 					label.click();
 				}); */
+			}
+			/* 	}, 500); */
+		} catch (error) {
+			console.error("Error in addPriceFilterClearButton:", error);
 		}
-		/* 	}, 500); */
 	}
 
 	function cleanEmptyActiveFiltersSection() {
@@ -1063,78 +1071,90 @@ if (body.classList.contains("type-category")) {
 	}
 
 	function moveSelectedFilters() {
-		let selectedFiltersDiv = document.querySelector(".selected-filters");
-		if (!selectedFiltersDiv) {
-			return;
-		}
-		if (isDesktop) {
-			if (selectedFiltersInSidebar) {
-				selectedFiltersInSidebar = false;
-				categoryContentWrapper.prepend(selectedFiltersDiv);
+		try {
+			let selectedFiltersDiv = document.querySelector(".selected-filters");
+			if (!selectedFiltersDiv) {
+				return;
 			}
-		} else {
-			if (!selectedFiltersInSidebar) {
-				selectedFiltersInSidebar = true;
-				filtersElement.prepend(selectedFiltersDiv);
+			if (isDesktop) {
+				if (selectedFiltersInSidebar) {
+					selectedFiltersInSidebar = false;
+					categoryContentWrapper.prepend(selectedFiltersDiv);
+				}
+			} else {
+				if (!selectedFiltersInSidebar) {
+					selectedFiltersInSidebar = true;
+					filtersElement.prepend(selectedFiltersDiv);
+				}
 			}
+		} catch (error) {
+			console.error("Error in moveSelectedFilters:", error);
 		}
 	}
 
 	function editManufacturerFilter() {
-		let manufacturerFilter = document.querySelector("#manufacturer-filter");
-		if (!manufacturerFilter) {
-			return;
-		}
-		let manufacturerFilterFieldset = manufacturerFilter.querySelector("fieldset");
+		try {
+			let manufacturerFilter = document.querySelector("#manufacturer-filter");
+			if (!manufacturerFilter) {
+				return;
+			}
+			let manufacturerFilterFieldset = manufacturerFilter.querySelector("fieldset");
 
-		//remove disabled manufacturers
-		let disabledManufacturers = manufacturerFilterFieldset.querySelectorAll(":scope >div > label.disabled");
-		disabledManufacturers.forEach((label) => {
-			label.parentElement.remove();
-		});
-		//move natios to the top
-		let natiosManufacturer = manufacturerFilterFieldset.querySelector(
-			":scope > div > label[for='manufacturerId[]natios']"
-		);
-		if (natiosManufacturer) {
-			manufacturerFilterFieldset.prepend(natiosManufacturer.parentElement);
-		}
-		let manufacturers = manufacturerFilterFieldset.querySelectorAll(":scope > div");
-		let manufacturersNumber = manufacturers.length;
-		let manufacturersNumberMinusVisible = manufacturersNumber - 5;
+			//remove disabled manufacturers
+			let disabledManufacturers = manufacturerFilterFieldset.querySelectorAll(":scope >div > label.disabled");
+			disabledManufacturers.forEach((label) => {
+				label.parentElement.remove();
+			});
+			//move natios to the top
+			let natiosManufacturer = manufacturerFilterFieldset.querySelector(
+				":scope > div > label[for='manufacturerId[]natios']"
+			);
+			if (natiosManufacturer) {
+				manufacturerFilterFieldset.prepend(natiosManufacturer.parentElement);
+			}
+			let manufacturers = manufacturerFilterFieldset.querySelectorAll(":scope > div");
+			let manufacturersNumber = manufacturers.length;
+			let manufacturersNumberMinusVisible = manufacturersNumber - 5;
 
-		// If there are more than 5 active manufacturers, hide the rest
-		if (manufacturersNumber <= 5) {
-			return;
-		}
-		const showAllManufacturersButton = document.createElement("a");
-		showAllManufacturersButton.className = "show-all-manufacturers";
-		if (manufacturersNumberMinusVisible > 4) {
-			showAllManufacturersButton.innerHTML =
-				"+ " + translationsStrings.moreButtonMoreThanFour[activeLang] + " " + manufacturersNumberMinusVisible;
-		} else {
-			showAllManufacturersButton.innerHTML =
-				"+ " + translationsStrings.moreButtonLessThanFour[activeLang] + " " + manufacturersNumberMinusVisible;
-		}
+			// If there are more than 5 active manufacturers, hide the rest
+			if (manufacturersNumber <= 5) {
+				return;
+			}
+			const showAllManufacturersButton = document.createElement("a");
+			showAllManufacturersButton.className = "show-all-manufacturers";
+			if (manufacturersNumberMinusVisible > 4) {
+				showAllManufacturersButton.innerHTML =
+					"+ " + translationsStrings.moreButtonMoreThanFour[activeLang] + " " + manufacturersNumberMinusVisible;
+			} else {
+				showAllManufacturersButton.innerHTML =
+					"+ " + translationsStrings.moreButtonLessThanFour[activeLang] + " " + manufacturersNumberMinusVisible;
+			}
 
-		manufacturerFilter.appendChild(showAllManufacturersButton);
-		addSmartTouchClickListener(showAllManufacturersButton, function () {
-			manufacturerFilter.classList.add("active");
-		});
+			manufacturerFilter.appendChild(showAllManufacturersButton);
+			addSmartTouchClickListener(showAllManufacturersButton, function () {
+				manufacturerFilter.classList.add("active");
+			});
+		} catch (error) {
+			console.error("Error in editManufacturerFilter:", error);
+		}
 	}
 
 	function cleanEmptyFilters() {
-		filterSections.forEach((section) => {
-			let filterItems = section.querySelectorAll("fieldset > div > label:not(.disabled)");
-			if (filterItems.length === 0) {
-				section.remove();
-			}
-			let disabletFilterItems = section.querySelectorAll("fieldset > div > label.disabled");
-			let sectionAppendingPlace = section.querySelector("fieldset");
-			disabletFilterItems.forEach((disabledItem) => {
-				sectionAppendingPlace.appendChild(disabledItem.parentElement);
+		try {
+			filterSections.forEach((section) => {
+				let filterItems = section.querySelectorAll("fieldset > div > label:not(.disabled)");
+				if (filterItems.length === 0) {
+					section.remove();
+				}
+				let disabletFilterItems = section.querySelectorAll("fieldset > div > label.disabled");
+				let sectionAppendingPlace = section.querySelector("fieldset");
+				disabletFilterItems.forEach((disabledItem) => {
+					sectionAppendingPlace.appendChild(disabledItem.parentElement);
+				});
 			});
-		});
+		} catch (error) {
+			console.error("Error in cleanEmptyFilters:", error);
+		}
 	}
 }
 
