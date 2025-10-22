@@ -863,7 +863,7 @@ if (body.classList.contains("type-category")) {
 	filtersElement = document.querySelector("#filters");
 	asideElement = document.querySelector("aside");
 	/* 	let filtersWrapperElement = document.querySelector(".filters-wrapper"); */
-	filterSections = filtersElement.querySelectorAll(".filter-section");
+	filterSections = document.querySelectorAll(".filter-section");
 	categoryContentWrapper = document.querySelector(".category-content-wrapper");
 	selectedFiltersInSidebar = true;
 	customOpenFilterButtonListenerAdded = false;
