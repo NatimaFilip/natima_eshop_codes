@@ -9612,17 +9612,21 @@ body.sticky-header-off .messages > * {
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-delimeter {
   display: none;
 }
-.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap {
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap,
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .listingControls {
   grid-column: 2;
   text-align: center;
   padding-top: var(--gap-20);
 }
-.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap a {
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap a,
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .listingControls a {
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap a:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap a:focus-within {
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap a:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap a:focus-within,
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .listingControls a:hover,
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .listingControls a:focus-within {
   color: var(--color-primary-hover);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #ratingWrapper {
@@ -10747,17 +10751,21 @@ html.cookies-visible .siteCookies {
 .id--51 .content-inner .vote-delimeter {
   display: none;
 }
-.id--51 .content-inner .load-next-wrap {
+.id--51 .content-inner .load-next-wrap,
+.id--51 .content-inner .listingControls {
   grid-column: 2;
   text-align: center;
   padding-top: var(--gap-20);
 }
-.id--51 .content-inner .load-next-wrap a {
+.id--51 .content-inner .load-next-wrap a,
+.id--51 .content-inner .listingControls a {
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.id--51 .content-inner .load-next-wrap a:hover, .id--51 .content-inner .load-next-wrap a:focus-within {
+.id--51 .content-inner .load-next-wrap a:hover, .id--51 .content-inner .load-next-wrap a:focus-within,
+.id--51 .content-inner .listingControls a:hover,
+.id--51 .content-inner .listingControls a:focus-within {
   color: var(--color-primary-hover);
 }
 @media screen and (min-width: 1280px) {
@@ -11179,17 +11187,21 @@ html.cookies-visible .siteCookies {
 .in-index .hodnoceni-obchodu-section .vote-delimeter {
   display: none;
 }
-.in-index .hodnoceni-obchodu-section .load-next-wrap {
+.in-index .hodnoceni-obchodu-section .load-next-wrap,
+.in-index .hodnoceni-obchodu-section .listingControls {
   grid-column: 2;
   text-align: center;
   padding-top: var(--gap-20);
 }
-.in-index .hodnoceni-obchodu-section .load-next-wrap a {
+.in-index .hodnoceni-obchodu-section .load-next-wrap a,
+.in-index .hodnoceni-obchodu-section .listingControls a {
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.in-index .hodnoceni-obchodu-section .load-next-wrap a:hover, .in-index .hodnoceni-obchodu-section .load-next-wrap a:focus-within {
+.in-index .hodnoceni-obchodu-section .load-next-wrap a:hover, .in-index .hodnoceni-obchodu-section .load-next-wrap a:focus-within,
+.in-index .hodnoceni-obchodu-section .listingControls a:hover,
+.in-index .hodnoceni-obchodu-section .listingControls a:focus-within {
   color: var(--color-primary-hover);
 }
 

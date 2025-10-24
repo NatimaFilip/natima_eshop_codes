@@ -567,7 +567,8 @@ $desktop-large-min: 1680px;
 	.vote-delimeter {
 		display: none;
 	}
-	.load-next-wrap {
+	.load-next-wrap,
+	.listingControls {
 		grid-column: 2;
 		text-align: center;
 		padding-top: var(--gap-20);
