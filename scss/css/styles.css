@@ -9617,6 +9617,9 @@ body.sticky-header-off .messages > * {
   grid-column: 2;
   text-align: center;
   padding-top: var(--gap-20);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .load-next-wrap a,
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .listingControls a {
@@ -10756,6 +10759,9 @@ html.cookies-visible .siteCookies {
   grid-column: 2;
   text-align: center;
   padding-top: var(--gap-20);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .id--51 .content-inner .load-next-wrap a,
 .id--51 .content-inner .listingControls a {
@@ -11192,6 +11198,9 @@ html.cookies-visible .siteCookies {
   grid-column: 2;
   text-align: center;
   padding-top: var(--gap-20);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .in-index .hodnoceni-obchodu-section .load-next-wrap a,
 .in-index .hodnoceni-obchodu-section .listingControls a {

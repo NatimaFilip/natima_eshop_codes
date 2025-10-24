@@ -572,6 +572,7 @@ $desktop-large-min: 1680px;
 		grid-column: 2;
 		text-align: center;
 		padding-top: var(--gap-20);
+		justify-content: center;
 		a {
 			color: var(--color-primary);
 			@include text-underline;
