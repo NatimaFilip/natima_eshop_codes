@@ -2063,6 +2063,7 @@ let productsAlternative;
 let watchdog;
 let relatedFiles;
 let ratingTab;
+let productVotesWraps;
 let loadNextRatings;
 
 if (body.classList.contains("type-product")) {
@@ -2102,6 +2103,7 @@ if (body.classList.contains("type-product")) {
 	watchdog = document.querySelector(".product-top .watchdog");
 	relatedFiles = document.querySelector("#relatedFiles");
 	ratingTab = document.querySelector("#ratingTab");
+	productVotesWraps = document.querySelectorAll("#ratingsList .vote-wrap");
 	loadNextRatings =
 		document.querySelector("#ratingTab .load-next-wrap") || document.querySelector("#ratingTab .listingControls");
 
@@ -2469,6 +2471,47 @@ if (body.classList.contains("type-product")) {
 			measureUnitFromFiltersDetail();
 		} catch (error) {
 			console.error("Error in measureUnitFromFiltersDetail:", error);
+		}
+
+		if (!loadNextRatings && productVotesWraps) {
+			let isAnyWrapHidden = false;
+			//if any wrap has display none (not inline)
+			productVotesWraps.forEach((wrap) => {
+				if (getComputedStyle(wrap).display === "none") {
+					isAnyWrapHidden = true;
+				}
+			});
+			const customListingControls = document.createElement("div");
+			customListingControls.className = "listingControls";
+			customListingControls.setAttribute("aria-labelledby", "listingControlsHeadingRatings");
+
+			const customLoadMore = document.createElement("div");
+			customLoadMore.className = "loadMore";
+			customLoadMore.setAttribute("data-context", "ratings");
+
+			const customLoadMoreButton = document.createElement("button");
+			customLoadMoreButton.classList.add(
+				"loadMore__button",
+				"loadMore__button--ratings",
+				"btn",
+				"btn-secondary",
+				"js-loadMore__button--ratings"
+			);
+			customLoadMoreButton.type = "button";
+			customLoadMoreButton.setAttribute("aria-controls", "ratingsList");
+			customLoadMoreButton.textContent = translationsStrings.showNext[activeLang];
+
+			customLoadMore.appendChild(customLoadMoreButton);
+			customListingControls.appendChild(customLoadMore);
+
+			productVotesWraps.parentElement.appendChild(customListingControls);
+
+			customLoadMoreButton.addEventListener("click", function (e) {
+				if (ratingTab) {
+					ratingTab.classList.add("all-visible");
+					customLoadMoreButton.style.display = "none";
+				}
+			});
 		}
 
 		if (loadNextRatings) {
