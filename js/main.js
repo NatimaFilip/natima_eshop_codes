@@ -2504,12 +2504,12 @@ if (body.classList.contains("type-product")) {
 			customLoadMore.appendChild(customLoadMoreButton);
 			customListingControls.appendChild(customLoadMore);
 
-			productVotesWraps[0].parentElement.appendChild(customListingControls);
+			productVotesWraps[0].parentElement.parentElement.appendChild(customListingControls);
 
 			customLoadMoreButton.addEventListener("click", function (e) {
 				if (ratingTab) {
 					ratingTab.classList.add("all-visible");
-					customLoadMoreButton.style.display = "none";
+					customListingControls.style.display = "none";
 				}
 			});
 		}
