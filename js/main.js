@@ -4128,6 +4128,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (document.body.classList.contains("type-product")) {
 		fixSolgar();
 	}
+	goToTopBtn();
 });
 
 function fixSolgar() {
@@ -4163,5 +4164,18 @@ function fixSolgar() {
 		p.appendChild(span);
 
 		el.replaceWith(p);
+	});
+}
+
+function goToTopBtn() {
+	const goToTopBtnElement = document.querySelector(".goToTop__button");
+	if (!goToTopBtnElement) return;
+
+	goToTopBtnElement.addEventListener("click", (event) => {
+		event.preventDefault();
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
 	});
 }
