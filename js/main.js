@@ -14,6 +14,11 @@ const translationsStrings = {
 		sk: "Zobraziť ďalšie kategórie",
 		pl: "Pokaż więcej kategorii",
 	},
+	showNext: {
+		cs: "Zobrazit další",
+		sk: "Zobraziť ďalšie",
+		pl: "Pokaż więcej",
+	},
 	moreButtonMoreThanFour: {
 		cs: "dalších ",
 		sk: "ďalších ",
@@ -2097,7 +2102,8 @@ if (body.classList.contains("type-product")) {
 	watchdog = document.querySelector(".product-top .watchdog");
 	relatedFiles = document.querySelector("#relatedFiles");
 	ratingTab = document.querySelector("#ratingTab");
-	loadNextRatings = document.querySelector("#ratingTab .load-next-wrap");
+	loadNextRatings =
+		document.querySelector("#ratingTab .load-next-wrap") || document.querySelector("#ratingTab .listingControls");
 
 	moveElementsInProduct();
 
@@ -2472,6 +2478,11 @@ if (body.classList.contains("type-product")) {
 				}
 			});
 		}
+		/* 			showNext: {
+		cs: "Zobrazit další",
+		sk: "Zobraziť ďalšie",
+		pl: "Pokaż więcej",
+	}, */
 
 		// Add sticky sell section - uplne poslední
 		if (longDescription) {
