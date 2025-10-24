@@ -927,7 +927,9 @@ body .product-widgets[product-template=natios] .natios-compare p {
   padding: 1em;
   width: 100%;
   text-align: center;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 100%;
   -ms-flex-line-pack: center;
       align-content: center;
