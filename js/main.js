@@ -2473,7 +2473,7 @@ if (body.classList.contains("type-product")) {
 			console.error("Error in measureUnitFromFiltersDetail:", error);
 		}
 
-		if (!loadNextRatings && productVotesWraps) {
+		if (!loadNextRatings && productVotesWraps && productVotesWraps.length > 0) {
 			let isAnyWrapHidden = false;
 			//if any wrap has display none (not inline)
 			productVotesWraps.forEach((wrap) => {
