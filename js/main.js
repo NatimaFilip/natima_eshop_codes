@@ -946,17 +946,20 @@ if (body.classList.contains("type-category")) {
 
 	function customOpenFilterButtonListener() {
 		/* 	categoryTop.insertAdjacentElement("afterend", customOpenFilterButton); */
+		try {
+			categoryTop.appendChild(customOpenFilterButton);
 
-		categoryTop.appendChild(customOpenFilterButton);
-
-		if (customOpenFilterButtonListenerAdded) {
-			return;
+			if (customOpenFilterButtonListenerAdded) {
+				return;
+			}
+			customOpenFilterButtonListenerAdded = true;
+			addSmartTouchClickListener(customOpenFilterButton, function () {
+				filtersElement.classList.toggle("active");
+				customOpenFilterButton.classList.toggle("active");
+			});
+		} catch (error) {
+			console.error("Error in customOpenFilterButtonListener:", error);
 		}
-		customOpenFilterButtonListenerAdded = true;
-		addSmartTouchClickListener(customOpenFilterButton, function () {
-			filtersElement.classList.toggle("active");
-			customOpenFilterButton.classList.toggle("active");
-		});
 	}
 
 	function editClearFiltersButton() {
