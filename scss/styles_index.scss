@@ -255,20 +255,20 @@ $desktop-large-min: 1680px;
 	align-items: center;
 	gap: 3px;
 	.star {
-		width: 0.692em;
-		height: 0.692em;
+		width: 0.693em;
+		height: 0.693em;
 
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: contain;
 		&.star-on {
-			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
 		}
 		&.star-half {
-			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half.svg");
+			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
 		}
 		&.star-off {
-			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty.svg");
+			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
 		}
 	}
 }
@@ -547,7 +547,7 @@ $desktop-large-min: 1680px;
 					width: 0.75em;
 					height: 0.75em;
 					&.star-off {
-						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full.svg");
+						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
 					}
 				}
 			}

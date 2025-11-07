@@ -4071,6 +4071,10 @@ body.dklab-favourites {
 					}
 					.star-list {
 						@include star-list;
+						.star {
+							width: 16px;
+							height: 16px;
+						}
 					}
 					.reviews-number {
 						font-size: 0.846em;
