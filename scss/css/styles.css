@@ -4155,6 +4155,7 @@ body.dklab-favourites .category-header > div strong {
       -ms-flex-align: center;
           align-items: center;
   gap: 3px;
+  gap: 4px;
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star {
   width: 0.693em;
@@ -4172,9 +4173,20 @@ body.dklab-favourites .category-header > div strong {
 .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star.star-off {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
 }
+@media screen and (max-width: 767px) {
+  .products-block .product .p-in .p-in-in .ratings-wrapper .star-list {
+    gap: 3px;
+  }
+}
 .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star {
   width: 16px;
   height: 16px;
+}
+@media screen and (max-width: 767px) {
+  .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star {
+    width: 12px;
+    height: 12px;
+  }
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper .reviews-number {
   font-size: 0.846em;
