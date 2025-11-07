@@ -223,8 +223,8 @@ $desktop-large-min: 1680px;
 	align-items: center;
 	gap: 3px;
 	.star {
-		width: 16px;
-		height: 16px;
+		width: 0.693em;
+		height: 0.693em;
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: contain;
@@ -5123,8 +5123,8 @@ body.dklab-favourites {
 					align-items: center;
 					gap: 3px;
 					.heureka-icon-star {
-						width: 16px;
-						height: 16px;
+						width: 0.693em;
+						height: 0.693em;
 						background-position: center;
 						background-repeat: no-repeat;
 						background-size: contain;

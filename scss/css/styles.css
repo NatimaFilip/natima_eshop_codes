@@ -4157,8 +4157,8 @@ body.dklab-favourites .category-header > div strong {
   gap: 3px;
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -5610,8 +5610,8 @@ body.dklab-favourites .category-header > div strong {
   gap: 3px;
 }
 #footer #heureka-reviews-footer .heureka-reviews-wrapper #heureka-reviews-insert .heureka-review-rating-wrapper .heureka-icon-star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -8111,8 +8111,8 @@ body.sticky-header-off .messages > * {
 }
 .type-product #product-detail-form .stars-wrapper .star-list .star,
 .type-product .p-detail-inner-header .stars-wrapper .star-list .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -8226,8 +8226,8 @@ body.sticky-header-off .messages > * {
           order: 1;
 }
 .type-product .sticky-sell .stars-wrapper .star-list .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -9346,8 +9346,8 @@ body.sticky-header-off .messages > * {
   margin-bottom: var(--gap-4);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -9394,8 +9394,8 @@ body.sticky-header-off .messages > * {
   gap: 3px;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -9495,8 +9495,8 @@ body.sticky-header-off .messages > * {
   padding-bottom: var(--gap-16);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -9553,8 +9553,8 @@ body.sticky-header-off .messages > * {
   padding-bottom: var(--gap-12);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -10488,8 +10488,8 @@ html.cookies-visible .siteCookies {
   margin-bottom: var(--gap-4);
 }
 .id--51 .content-inner .rate-star-wrap .star-list .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -10536,8 +10536,8 @@ html.cookies-visible .siteCookies {
   gap: 3px;
 }
 .id--51 .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -10637,8 +10637,8 @@ html.cookies-visible .siteCookies {
   padding-bottom: var(--gap-16);
 }
 .id--51 .content-inner #rate-form .stars .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -10695,8 +10695,8 @@ html.cookies-visible .siteCookies {
   padding-bottom: var(--gap-12);
 }
 .id--51 .content-inner .vote-wrap .stars .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -10927,8 +10927,8 @@ html.cookies-visible .siteCookies {
   margin-bottom: var(--gap-4);
 }
 .in-index .hodnoceni-obchodu-section .rate-star-wrap .star-list .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -10975,8 +10975,8 @@ html.cookies-visible .siteCookies {
   gap: 3px;
 }
 .in-index .hodnoceni-obchodu-section .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -11076,8 +11076,8 @@ html.cookies-visible .siteCookies {
   padding-bottom: var(--gap-16);
 }
 .in-index .hodnoceni-obchodu-section #rate-form .stars .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -11134,8 +11134,8 @@ html.cookies-visible .siteCookies {
   padding-bottom: var(--gap-12);
 }
 .in-index .hodnoceni-obchodu-section .vote-wrap .stars .star {
-  width: 16px;
-  height: 16px;
+  width: 0.693em;
+  height: 0.693em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
