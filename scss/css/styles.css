@@ -4165,13 +4165,13 @@ body.dklab-favourites .category-header > div strong {
   background-size: contain;
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 @media screen and (max-width: 767px) {
   .products-block .product .p-in .p-in-in .ratings-wrapper .star-list {
@@ -5631,7 +5631,7 @@ body.dklab-favourites .category-header > div strong {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 #footer #heureka-reviews-footer .heureka-reviews-wrapper #heureka-reviews-insert .heureka-review-summary {
   font-size: var(--fs-13);
@@ -8135,15 +8135,15 @@ body.sticky-header-off .messages > * {
 }
 .type-product #product-detail-form .stars-wrapper .star-list .star.star-on,
 .type-product .p-detail-inner-header .stars-wrapper .star-list .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .type-product #product-detail-form .stars-wrapper .star-list .star.star-half,
 .type-product .p-detail-inner-header .stars-wrapper .star-list .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .type-product #product-detail-form .stars-wrapper .star-list .star.star-off,
 .type-product .p-detail-inner-header .stars-wrapper .star-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .type-product #product-detail-form .stars-wrapper .star-list .star,
 .type-product .p-detail-inner-header .stars-wrapper .star-list .star {
@@ -8249,13 +8249,13 @@ body.sticky-header-off .messages > * {
   background-size: contain;
 }
 .type-product .sticky-sell .stars-wrapper .star-list .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .type-product .sticky-sell .stars-wrapper .star-list .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .type-product .sticky-sell .stars-wrapper .star-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .type-product .sticky-sell .stars-wrapper .star-list .star {
   font-size: var(--fs-32);
@@ -9369,13 +9369,13 @@ body.sticky-header-off .messages > * {
   background-size: contain;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-star-wrap .star-list .star {
   width: var(--fs-20);
@@ -9417,13 +9417,13 @@ body.sticky-header-off .messages > * {
   background-size: contain;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .stars {
   display: grid;
@@ -9440,7 +9440,7 @@ body.sticky-header-off .messages > * {
   height: 0.75em;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .rate-block {
   width: calc(100% - 5em);
@@ -9518,13 +9518,13 @@ body.sticky-header-off .messages > * {
   background-size: contain;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .stars .star {
   cursor: pointer;
@@ -9576,13 +9576,13 @@ body.sticky-header-off .messages > * {
   background-size: contain;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .vote-wrap .stars .star {
   width: 0.75em;
@@ -10511,13 +10511,13 @@ html.cookies-visible .siteCookies {
   background-size: contain;
 }
 .id--51 .content-inner .rate-star-wrap .star-list .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .id--51 .content-inner .rate-star-wrap .star-list .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .id--51 .content-inner .rate-star-wrap .star-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .id--51 .content-inner .rate-star-wrap .star-list .star {
   width: var(--fs-20);
@@ -10559,13 +10559,13 @@ html.cookies-visible .siteCookies {
   background-size: contain;
 }
 .id--51 .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .id--51 .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .id--51 .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .id--51 .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .stars {
   display: grid;
@@ -10582,7 +10582,7 @@ html.cookies-visible .siteCookies {
   height: 0.75em;
 }
 .id--51 .content-inner .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .id--51 .content-inner .rate-block {
   width: calc(100% - 5em);
@@ -10660,13 +10660,13 @@ html.cookies-visible .siteCookies {
   background-size: contain;
 }
 .id--51 .content-inner #rate-form .stars .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .id--51 .content-inner #rate-form .stars .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .id--51 .content-inner #rate-form .stars .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .id--51 .content-inner #rate-form .stars .star {
   cursor: pointer;
@@ -10718,13 +10718,13 @@ html.cookies-visible .siteCookies {
   background-size: contain;
 }
 .id--51 .content-inner .vote-wrap .stars .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .id--51 .content-inner .vote-wrap .stars .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .id--51 .content-inner .vote-wrap .stars .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .id--51 .content-inner .vote-wrap .stars .star {
   width: 0.75em;
@@ -10950,13 +10950,13 @@ html.cookies-visible .siteCookies {
   background-size: contain;
 }
 .in-index .hodnoceni-obchodu-section .rate-star-wrap .star-list .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .in-index .hodnoceni-obchodu-section .rate-star-wrap .star-list .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .in-index .hodnoceni-obchodu-section .rate-star-wrap .star-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .in-index .hodnoceni-obchodu-section .rate-star-wrap .star-list .star {
   width: var(--fs-20);
@@ -10998,13 +10998,13 @@ html.cookies-visible .siteCookies {
   background-size: contain;
 }
 .in-index .hodnoceni-obchodu-section .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .in-index .hodnoceni-obchodu-section .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .in-index .hodnoceni-obchodu-section .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .in-index .hodnoceni-obchodu-section .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .stars {
   display: grid;
@@ -11021,7 +11021,7 @@ html.cookies-visible .siteCookies {
   height: 0.75em;
 }
 .in-index .hodnoceni-obchodu-section .rate-wrap > .col-xs-12:not(.rate-average-wrap) .rate-list .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .in-index .hodnoceni-obchodu-section .rate-block {
   width: calc(100% - 5em);
@@ -11099,13 +11099,13 @@ html.cookies-visible .siteCookies {
   background-size: contain;
 }
 .in-index .hodnoceni-obchodu-section #rate-form .stars .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .in-index .hodnoceni-obchodu-section #rate-form .stars .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .in-index .hodnoceni-obchodu-section #rate-form .stars .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .in-index .hodnoceni-obchodu-section #rate-form .stars .star {
   cursor: pointer;
@@ -11157,13 +11157,13 @@ html.cookies-visible .siteCookies {
   background-size: contain;
 }
 .in-index .hodnoceni-obchodu-section .vote-wrap .stars .star.star-on {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 }
 .in-index .hodnoceni-obchodu-section .vote-wrap .stars .star.star-half {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
 }
 .in-index .hodnoceni-obchodu-section .vote-wrap .stars .star.star-off {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_2.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 }
 .in-index .hodnoceni-obchodu-section .vote-wrap .stars .star {
   width: 0.75em;
