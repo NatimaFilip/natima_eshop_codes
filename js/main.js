@@ -2484,6 +2484,9 @@ if (body.classList.contains("type-product")) {
 					isAnyWrapHidden = true;
 				}
 			});
+			if (!isAnyWrapHidden) {
+				return;
+			}
 			const customListingControls = document.createElement("div");
 			customListingControls.className = "listingControls";
 			customListingControls.setAttribute("aria-labelledby", "listingControlsHeadingRatings");
