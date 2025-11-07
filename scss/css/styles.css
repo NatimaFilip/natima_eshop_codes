@@ -4179,8 +4179,8 @@ body.dklab-favourites .category-header > div strong {
   }
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
 }
 @media screen and (max-width: 767px) {
   .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star {
