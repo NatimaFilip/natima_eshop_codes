@@ -4071,10 +4071,8 @@ body.dklab-favourites {
 					}
 					.star-list {
 						@include star-list;
-						gap: 4px;
-						@media screen and (max-width: $mobile-max) {
-							gap: 3px;
-						}
+						gap: 3px;
+
 						.star {
 							width: 15px;
 							height: 15px;
