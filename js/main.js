@@ -2484,40 +2484,39 @@ if (body.classList.contains("type-product")) {
 					isAnyWrapHidden = true;
 				}
 			});
-			if (!isAnyWrapHidden) {
-				return;
+			if (isAnyWrapHidden) {
+				const customListingControls = document.createElement("div");
+				customListingControls.className = "listingControls";
+				customListingControls.setAttribute("aria-labelledby", "listingControlsHeadingRatings");
+
+				const customLoadMore = document.createElement("div");
+				customLoadMore.className = "loadMore";
+				customLoadMore.setAttribute("data-context", "ratings");
+
+				const customLoadMoreButton = document.createElement("button");
+				customLoadMoreButton.classList.add(
+					"loadMore__button",
+					"loadMore__button--ratings",
+					"btn",
+					"btn-secondary",
+					"js-loadMore__button--ratings"
+				);
+				customLoadMoreButton.type = "button";
+				customLoadMoreButton.setAttribute("aria-controls", "ratingsList");
+				customLoadMoreButton.textContent = translationsStrings.showNext[activeLang];
+
+				customLoadMore.appendChild(customLoadMoreButton);
+				customListingControls.appendChild(customLoadMore);
+
+				productVotesWraps[0].parentElement.parentElement.appendChild(customListingControls);
+
+				customLoadMoreButton.addEventListener("click", function (e) {
+					if (ratingTab) {
+						ratingTab.classList.add("all-visible");
+						customListingControls.style.display = "none";
+					}
+				});
 			}
-			const customListingControls = document.createElement("div");
-			customListingControls.className = "listingControls";
-			customListingControls.setAttribute("aria-labelledby", "listingControlsHeadingRatings");
-
-			const customLoadMore = document.createElement("div");
-			customLoadMore.className = "loadMore";
-			customLoadMore.setAttribute("data-context", "ratings");
-
-			const customLoadMoreButton = document.createElement("button");
-			customLoadMoreButton.classList.add(
-				"loadMore__button",
-				"loadMore__button--ratings",
-				"btn",
-				"btn-secondary",
-				"js-loadMore__button--ratings"
-			);
-			customLoadMoreButton.type = "button";
-			customLoadMoreButton.setAttribute("aria-controls", "ratingsList");
-			customLoadMoreButton.textContent = translationsStrings.showNext[activeLang];
-
-			customLoadMore.appendChild(customLoadMoreButton);
-			customListingControls.appendChild(customLoadMore);
-
-			productVotesWraps[0].parentElement.parentElement.appendChild(customListingControls);
-
-			customLoadMoreButton.addEventListener("click", function (e) {
-				if (ratingTab) {
-					ratingTab.classList.add("all-visible");
-					customListingControls.style.display = "none";
-				}
-			});
 		}
 
 		if (loadNextRatings) {
