@@ -196,7 +196,6 @@ if (body.classList.contains("id--16")) {
 	}
 
 	function checkVanocniBalicky() {
-		if (plLang) return;
 		let vanocniBalickyKody = [
 			"VB-001",
 			"VB-002",
@@ -295,6 +294,16 @@ if (body.classList.contains("id--16")) {
 				let slovenskaPostaBoxyElement = document.querySelector("#shipping-95");
 				if (slovenskaPostaBoxyElement) {
 					slovenskaPostaBoxyElement.classList.add("display-none");
+				}
+			}
+			if (plLang) {
+				paczkomatyElement = document.querySelector("#shipping-239 .payment-info");
+				if (paczkomatyElement) {
+					const warningMessage = document.createElement("p");
+					warningMessage.innerHTML =
+						"<b>UWAGA</b>: Twoje zamówienie<b>nie zmieści się do Paczkomatu (Parcel Lockera)!</b> Prosimy o wybranie <b>Parcel Pointa</b>. W przypadku wyboru Paczkomatu Twoje zamówienie zostanie przekierowane do punktu Parcel Point.";
+					warningMessage.classList.add("warning-message");
+					paczkomatyElement.appendChild(warningMessage);
 				}
 			}
 		}
