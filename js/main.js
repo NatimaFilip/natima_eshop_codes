@@ -405,6 +405,8 @@ function stickyHeaderToggle() {
 	const header = document.getElementById("header");
 	if (!header) return;
 
+	if (body.classList.contains("ordering-process")) return;
+
 	let lastScrollPosition = 0;
 	let lastScrollUp = 0;
 	let lastScrollDown = 0;
