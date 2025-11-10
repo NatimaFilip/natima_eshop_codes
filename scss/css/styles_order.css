@@ -1952,6 +1952,12 @@
   padding: 10px;
 }
 
+.order-shipping-methods .warning-message {
+  padding-top: 5px;
+  font-size: 14px;
+  color: var(--color-red-400);
+}
+
 .pl #shipping-239 a.specify-shipping-method {
   position: relative;
   padding: 0;

@@ -116,6 +116,7 @@ if (body.classList.contains("id--16")) {
 			disableInputs(paymentMethodWrapper);
 			removePaymentFromRecap();
 		}
+		checkVanocniBalicky();
 		document.addEventListener("ShoptetShippingMethodUpdated", function () {
 			let activeDeliveryMethod = document.querySelector("#order-shipping-methods > .radio-wrapper.active");
 			let activePaymentMethod = document.querySelector("#order-billing-methods > .radio-wrapper.active");
@@ -190,6 +191,111 @@ if (body.classList.contains("id--16")) {
 			}
 			if (plLang) {
 				recapText.textContent = "Wybierz sposób płatności";
+			}
+		}
+	}
+
+	function checkVanocniBalicky() {
+		if (plLang) return;
+		let vanocniBalickyKody = [
+			"VB-001",
+			"VB-002",
+			"VB-003",
+			"VB-004",
+			"VB-005",
+			"VB-006",
+			"VB-007",
+			"VB-008",
+			"VB-009",
+			"VB-010",
+			"VB-011",
+			"VB-012",
+			"VB-013",
+			"VB-014",
+			"VB-015",
+			"VB-016",
+			"VB-017",
+			"VB-018",
+			"VB-019",
+			"VB-020",
+			"VBK-AZPM",
+			"VBK-BK",
+			"VBK-CK",
+			"VBK-EC",
+			"VBK-EDPM",
+			"VBK-CHPS",
+			"VBK-KR",
+			"VBK-LP",
+			"VBK-PKK",
+			"VBK-POAVV",
+			"VBK-PSAZV",
+			"VBK-RK",
+			"VBK-SSPM",
+			"VBK-TEPM",
+		];
+
+		let pocetVanocnichBalicku = 0;
+		// Get all cart-item elements
+		const cartItems = document.querySelectorAll(".cart-item");
+
+		cartItems.forEach((item) => {
+			const sku = item.getAttribute("data-micro-sku");
+			if (vanocniBalickyKody.includes(sku)) {
+				const amountElem = item.querySelector(".cart-item-amount");
+				if (amountElem) {
+					const amount = parseInt(amountElem.textContent, 10);
+					if (!isNaN(amount)) {
+						pocetVanocnichBalicku += amount;
+					}
+				}
+			}
+		});
+
+		console.log("Celkem vánočních balíčků:", pocetVanocnichBalicku);
+		if (pocetVanocnichBalicku > 2) {
+			if (csLang) {
+				let zasilkovnaElement = document.querySelector("#shipping-32 .payment-info");
+				if (zasilkovnaElement) {
+					const warningMessage = document.createElement("p");
+					warningMessage.innerHTML =
+						"<b>POZOR</b>: Vaše objednávka se <b>nevleze do Z-BOXU!</b> Při volbě Z-BOXU bude Vaše objednávka přesměrována na nejbližší odběrné místo Zásilkovny.";
+
+					warningMessage.classList.add("warning-message");
+					zasilkovnaElement.appendChild(warningMessage);
+				}
+
+				let dpdPickupElement = document.querySelector("#shipping-35 .payment-info");
+				if (dpdPickupElement) {
+					const warningMessage = document.createElement("p");
+					warningMessage.innerHTML =
+						"<b>POZOR</b>: Vaše objednávka se <b>nevleze do výdejních boxů!</b> Při volbě výdejního boxu bude Vaše objednávka přesměrována na nejbližší fyzické odběrné místo.";
+					warningMessage.classList.add("warning-message");
+					dpdPickupElement.appendChild(warningMessage);
+				}
+
+				let ceskaPostaElement = document.querySelector("#shipping-48 .payment-info");
+				if (ceskaPostaElement) {
+					const warningMessage = document.createElement("p");
+					warningMessage.innerHTML =
+						"<b>POZOR</b>: Vaše objednávka se <b>nevleze do výdejních boxů!</b> Při volbě výdejního boxu bude Vaše objednávka přesměrována na nejbližší fyzické odběrné místo.";
+					warningMessage.classList.add("warning-message");
+					ceskaPostaElement.appendChild(warningMessage);
+				}
+			}
+
+			if (skLang) {
+				zasilkovnaElement = document.querySelector("#shipping-17 .payment-info");
+				if (zasilkovnaElement) {
+					const warningMessage = document.createElement("p");
+					warningMessage.innerHTML =
+						"<b>POZOR</b>: Vaša objednávka sa <b>nezmestí do Z-BOXU!</b> Pri voľbe Z-BOXU bude Vaša objednávka presmerovaná na najbližšie odberné miesto Zásielkovne.";
+					warningMessage.classList.add("warning-message");
+					zasilkovnaElement.appendChild(warningMessage);
+				}
+				let slovenskaPostaBoxyElement = document.querySelector("#shipping-95");
+				if (slovenskaPostaBoxyElement) {
+					slovenskaPostaBoxyElement.classList.add("display-none");
+				}
 			}
 		}
 	}
