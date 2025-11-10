@@ -268,7 +268,7 @@ if (body.classList.contains("id--16")) {
 				if (dpdPickupElement) {
 					const warningMessage = document.createElement("p");
 					warningMessage.innerHTML =
-						"<b>POZOR</b>: Vaše objednávka se <b>nevleze do výdejních boxů!</b> Při volbě výdejního boxu bude Vaše objednávka přesměrována na nejbližší fyzické odběrné místo.";
+						"<b>POZOR</b>: Vaše objednávka se <b>nevleze do výdejních boxů!</b> Při volbě výdejního boxu bude Vaše objednávka přesměrována na fyzické odběrné místo.";
 					warningMessage.classList.add("warning-message");
 					dpdPickupElement.appendChild(warningMessage);
 				}
@@ -277,7 +277,7 @@ if (body.classList.contains("id--16")) {
 				if (ceskaPostaElement) {
 					const warningMessage = document.createElement("p");
 					warningMessage.innerHTML =
-						"<b>POZOR</b>: Vaše objednávka se <b>nevleze do výdejních boxů!</b> Při volbě výdejního boxu bude Vaše objednávka přesměrována na nejbližší fyzické odběrné místo.";
+						"<b>POZOR</b>: Vaše objednávka se <b>nevleze do výdejních boxů!</b> Při volbě výdejního boxu bude Vaše objednávka přesměrována na fyzické odběrné místo.";
 					warningMessage.classList.add("warning-message");
 					ceskaPostaElement.appendChild(warningMessage);
 				}
