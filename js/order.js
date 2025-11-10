@@ -301,7 +301,7 @@ if (body.classList.contains("id--16")) {
 				if (paczkomatyElement) {
 					const warningMessage = document.createElement("p");
 					warningMessage.innerHTML =
-						"<b>UWAGA</b>: Twoje zamówienie<b>nie zmieści się do Paczkomatu (Parcel Lockera)!</b> Prosimy o wybranie <b>PaczkoPunktu (Parcel Pointa)</b>. W przypadku wyboru Paczkomatu Twoje zamówienie zostanie przekierowane do PaczkoPunktu.";
+						"<b>UWAGA</b>: Twoje zamówienie<b> nie zmieści się do Paczkomatu (Parcel Locker)!</b> Prosimy o wybranie <b>PaczkoPunktu (Parcel Point)</b>. W przypadku wyboru Paczkomatu Twoje zamówienie zostanie przekierowane do PaczkoPunktu.";
 					warningMessage.classList.add("warning-message");
 					paczkomatyElement.appendChild(warningMessage);
 				}
