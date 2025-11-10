@@ -1952,7 +1952,7 @@
   padding: 10px;
 }
 
-.order-shipping-methods .warning-message {
+#order-shipping-methods .warning-message {
   padding-top: 5px;
   font-size: 14px;
   color: var(--color-red-400);
