@@ -1466,6 +1466,7 @@ async function measureUnitFromFiltersProducts() {
 				tabletek: "tabletka",
 				dávek: "dávka",
 				dávky: "dávka",
+				produkty: "produkt",
 			};
 		}
 		if (skLang) {
@@ -1476,6 +1477,7 @@ async function measureUnitFromFiltersProducts() {
 				tablietek: "tabletka",
 				dávok: "dávka",
 				dávky: "dávka",
+				produktov: "produkt",
 			};
 		}
 		if (plLang) {
@@ -1487,6 +1489,7 @@ async function measureUnitFromFiltersProducts() {
 				pastylek: "pastylka",
 				gumisiów: "gumiś",
 				dawek: "dawka",
+				produktów: "produkt",
 			};
 		}
 
@@ -2676,6 +2679,7 @@ if (body.classList.contains("type-product")) {
 				tabletek: "tabletka",
 				dávek: "dávka",
 				dávky: "dávka",
+				produkty: "produkt",
 			};
 		}
 		if (skLang) {
@@ -2686,6 +2690,7 @@ if (body.classList.contains("type-product")) {
 				tablietek: "tabletka",
 				dávok: "dávka",
 				dávky: "dávka",
+				produktov: "produkt",
 			};
 		}
 		if (plLang) {
@@ -2697,6 +2702,7 @@ if (body.classList.contains("type-product")) {
 				pastylek: "pastylka",
 				gumisiów: "gumiś",
 				dawek: "dawka",
+				produktów: "produkt",
 			};
 		}
 
