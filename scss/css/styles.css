@@ -3884,6 +3884,11 @@ body.dklab-favourites .category-header > div strong {
     display: block; /* Show only the first 6 products */
   }
 }
+@media screen and (max-width: 767px) {
+  .products-block {
+    --padding-capsules: 2px 6px;
+  }
+}
 .products-block .product {
   position: relative;
 }
@@ -4179,14 +4184,19 @@ body.dklab-favourites .category-header > div strong {
 }
 @media screen and (max-width: 767px) {
   .products-block .product .p-in .p-in-in .ratings-wrapper .star-list .star {
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
   }
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper .reviews-number {
   font-size: 0.846em;
   color: var(--color-black-o-60);
   padding-left: 7px;
+}
+@media screen and (max-width: 767px) {
+  .products-block .product .p-in .p-in-in .ratings-wrapper .reviews-number {
+    padding-left: 5px;
+  }
 }
 .products-block .product .p-in .p-in-in .ratings-wrapper .product-measure-unit {
   grid-row: 2;
