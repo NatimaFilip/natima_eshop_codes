@@ -1777,7 +1777,7 @@ async function insertHeurekaReviews() {
 				});
 
 				reviewElement.appendChild(reviewCons);
-				contentLength += review.pros._cdata.length * 1.5;
+				contentLength += review.cons._cdata.length * 1.5;
 			}
 
 			//return if content is less than 40 and more than 150
