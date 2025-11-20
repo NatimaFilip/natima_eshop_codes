@@ -1469,6 +1469,7 @@ async function measureUnitFromFiltersProducts() {
 				dávek: "dávka",
 				dávky: "dávka",
 				produkty: "produkt",
+				produktů: "produkt",
 			};
 		}
 		if (skLang) {
@@ -1480,6 +1481,7 @@ async function measureUnitFromFiltersProducts() {
 				dávok: "dávka",
 				dávky: "dávka",
 				produktov: "produkt",
+				produkty: "produkt",
 			};
 		}
 		if (plLang) {
@@ -1492,6 +1494,7 @@ async function measureUnitFromFiltersProducts() {
 				gumisiów: "gumiś",
 				dawek: "dawka",
 				produktów: "produkt",
+				produkty: "produkt",
 			};
 		}
 
@@ -2685,6 +2688,7 @@ if (body.classList.contains("type-product")) {
 				dávek: "dávka",
 				dávky: "dávka",
 				produkty: "produkt",
+				produktů: "produkt",
 			};
 		}
 		if (skLang) {
@@ -2696,6 +2700,7 @@ if (body.classList.contains("type-product")) {
 				dávok: "dávka",
 				dávky: "dávka",
 				produktov: "produkt",
+				produkty: "produkt",
 			};
 		}
 		if (plLang) {
@@ -2708,6 +2713,7 @@ if (body.classList.contains("type-product")) {
 				gumisiów: "gumiś",
 				dawek: "dawka",
 				produktów: "produkt",
+				produkty: "produkt",
 			};
 		}
 
