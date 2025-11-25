@@ -3715,7 +3715,7 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 					const targetId = this.getAttribute("href").substring(1);
 					const targetElement = document.getElementById(targetId);
 					let offsetPosition = 0;
-					if (matchesMedia768) {
+					if (!isMobile) {
 						offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 150;
 					} else {
 						offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
