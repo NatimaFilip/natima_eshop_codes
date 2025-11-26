@@ -3807,32 +3807,10 @@ body.dklab-favourites {
 				li:has(.listSorting__control.listSorting__control--current) {
 					order: 1;
 					font-weight: var(--fw-700);
+					color: var(--color-black) !important;
 					display: flex !important;
 					gap: 4px;
 				}
-
-				/* 				label {
-					pointer-events: none;
-				}
-				label.active {
-					font-weight: var(--fw-700);
-					position: relative !important;
-					top: 0 !important;
-					pointer-events: none !important;
-				}
-
-				label:not(.active) {
-					display: none;
-				}
-
-				input {
-					display: none;
-				}
-
-				input#order5,
-				label[for="order5"] {
-					display: none !important;
-				} */
 			}
 			&.active {
 				.listSorting__controls {
@@ -3895,11 +3873,11 @@ body.dklab-favourites {
 	@media screen and (min-width: $desktop-min) {
 		.category-header {
 			margin-bottom: 0;
-			form {
-				fieldset {
+			.listSorting {
+				.listSorting__controls {
 					flex-direction: row;
 					gap: 2.615em;
-					label {
+					li {
 						display: block !important;
 						pointer-events: auto;
 						cursor: pointer;
@@ -3911,7 +3889,7 @@ body.dklab-favourites {
 				}
 			}
 			.toggle-open-sorting-form {
-				display: none;
+				display: none !important;
 			}
 		}
 	}

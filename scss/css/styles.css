@@ -3676,28 +3676,6 @@ body.dklab-favourites .category-header .listSorting .listSorting__controls {
   margin: 0;
   position: relative;
   gap: var(--gap-10);
-  /* 				label {
-  	pointer-events: none;
-  }
-  label.active {
-  	font-weight: var(--fw-700);
-  	position: relative !important;
-  	top: 0 !important;
-  	pointer-events: none !important;
-  }
-
-  label:not(.active) {
-  	display: none;
-  }
-
-  input {
-  	display: none;
-  }
-
-  input#order5,
-  label[for="order5"] {
-  	display: none !important;
-  } */
 }
 body.type-category .category-header .listSorting .listSorting__controls li:has(#listSortingControl-name),
 body.type-manufacturer-detail .category-header .listSorting .listSorting__controls li:has(#listSortingControl-name),
@@ -3724,6 +3702,7 @@ body.dklab-favourites .category-header .listSorting .listSorting__controls li:ha
       -ms-flex-order: 1;
           order: 1;
   font-weight: var(--fw-700);
+  color: var(--color-black) !important;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
@@ -3803,33 +3782,33 @@ body.dklab-favourites .category-header > div strong {
   body.dklab-favourites .category-header {
     margin-bottom: 0;
   }
-  body.type-category .category-header form fieldset,
-  body.type-manufacturer-detail .category-header form fieldset,
-  body.dklab-favourites .category-header form fieldset {
+  body.type-category .category-header .listSorting .listSorting__controls,
+  body.type-manufacturer-detail .category-header .listSorting .listSorting__controls,
+  body.dklab-favourites .category-header .listSorting .listSorting__controls {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
     gap: 2.615em;
   }
-  body.type-category .category-header form fieldset label,
-  body.type-manufacturer-detail .category-header form fieldset label,
-  body.dklab-favourites .category-header form fieldset label {
+  body.type-category .category-header .listSorting .listSorting__controls li,
+  body.type-manufacturer-detail .category-header .listSorting .listSorting__controls li,
+  body.dklab-favourites .category-header .listSorting .listSorting__controls li {
     display: block !important;
     pointer-events: auto;
     cursor: pointer;
   }
-  body.type-category .category-header form fieldset label:hover, body.type-category .category-header form fieldset label:focus-within,
-  body.type-manufacturer-detail .category-header form fieldset label:hover,
-  body.type-manufacturer-detail .category-header form fieldset label:focus-within,
-  body.dklab-favourites .category-header form fieldset label:hover,
-  body.dklab-favourites .category-header form fieldset label:focus-within {
+  body.type-category .category-header .listSorting .listSorting__controls li:hover, body.type-category .category-header .listSorting .listSorting__controls li:focus-within,
+  body.type-manufacturer-detail .category-header .listSorting .listSorting__controls li:hover,
+  body.type-manufacturer-detail .category-header .listSorting .listSorting__controls li:focus-within,
+  body.dklab-favourites .category-header .listSorting .listSorting__controls li:hover,
+  body.dklab-favourites .category-header .listSorting .listSorting__controls li:focus-within {
     color: var(--color-primary);
   }
   body.type-category .category-header .toggle-open-sorting-form,
   body.type-manufacturer-detail .category-header .toggle-open-sorting-form,
   body.dklab-favourites .category-header .toggle-open-sorting-form {
-    display: none;
+    display: none !important;
   }
 }
 
