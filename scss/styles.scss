@@ -3792,18 +3792,18 @@ body.dklab-favourites {
 				position: relative;
 				gap: var(--gap-10);
 
-				.listSortingControl-name {
-					display: none!important;
+				li:has(.listSortingControl-name) {
+					display: none !important;
 				}
-				.listSorting__control {
+				li {
 					order: 99;
 					cursor: pointer;
 					display: none;
 				}
-				.listSorting__control.listSorting__control--current {
+				li:has(.listSorting__control.listSorting__control--current) {
 					order: 1;
 					font-weight: var(--fw-700);
-					display: block!important;
+					display: block !important;
 				}
 
 				/* 				label {
@@ -3831,9 +3831,10 @@ body.dklab-favourites {
 			}
 			&.active {
 				.listSorting__controls {
-				.listSorting__control {
-					display: block;
-				}}
+					li {
+						display: block;
+					}
+				}
 			}
 			.toggle-open-sorting-form {
 				font-size: var(--fs-13);

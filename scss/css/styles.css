@@ -3698,32 +3698,32 @@ body.dklab-favourites .category-header .listSorting .listSorting__controls {
   	display: none !important;
   } */
 }
-body.type-category .category-header .listSorting .listSorting__controls .listSortingControl-name,
-body.type-manufacturer-detail .category-header .listSorting .listSorting__controls .listSortingControl-name,
-body.dklab-favourites .category-header .listSorting .listSorting__controls .listSortingControl-name {
+body.type-category .category-header .listSorting .listSorting__controls li:has(.listSortingControl-name),
+body.type-manufacturer-detail .category-header .listSorting .listSorting__controls li:has(.listSortingControl-name),
+body.dklab-favourites .category-header .listSorting .listSorting__controls li:has(.listSortingControl-name) {
   display: none !important;
 }
-body.type-category .category-header .listSorting .listSorting__controls .listSorting__control,
-body.type-manufacturer-detail .category-header .listSorting .listSorting__controls .listSorting__control,
-body.dklab-favourites .category-header .listSorting .listSorting__controls .listSorting__control {
+body.type-category .category-header .listSorting .listSorting__controls li,
+body.type-manufacturer-detail .category-header .listSorting .listSorting__controls li,
+body.dklab-favourites .category-header .listSorting .listSorting__controls li {
   -webkit-box-ordinal-group: 100;
       -ms-flex-order: 99;
           order: 99;
   cursor: pointer;
   display: none;
 }
-body.type-category .category-header .listSorting .listSorting__controls .listSorting__control.listSorting__control--current,
-body.type-manufacturer-detail .category-header .listSorting .listSorting__controls .listSorting__control.listSorting__control--current,
-body.dklab-favourites .category-header .listSorting .listSorting__controls .listSorting__control.listSorting__control--current {
+body.type-category .category-header .listSorting .listSorting__controls li:has(.listSorting__control.listSorting__control--current),
+body.type-manufacturer-detail .category-header .listSorting .listSorting__controls li:has(.listSorting__control.listSorting__control--current),
+body.dklab-favourites .category-header .listSorting .listSorting__controls li:has(.listSorting__control.listSorting__control--current) {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
   font-weight: var(--fw-700);
   display: block !important;
 }
-body.type-category .category-header .listSorting.active .listSorting__controls .listSorting__control,
-body.type-manufacturer-detail .category-header .listSorting.active .listSorting__controls .listSorting__control,
-body.dklab-favourites .category-header .listSorting.active .listSorting__controls .listSorting__control {
+body.type-category .category-header .listSorting.active .listSorting__controls li,
+body.type-manufacturer-detail .category-header .listSorting.active .listSorting__controls li,
+body.dklab-favourites .category-header .listSorting.active .listSorting__controls li {
   display: block;
 }
 body.type-category .category-header .listSorting .toggle-open-sorting-form,
