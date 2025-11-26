@@ -3798,13 +3798,17 @@ body.dklab-favourites {
 				}
 				li {
 					order: 99;
-					cursor: pointer;
+
 					display: none;
+					button {
+						cursor: pointer;
+					}
 				}
 				li:has(.listSorting__control.listSorting__control--current) {
 					order: 1;
 					font-weight: var(--fw-700);
-					display: block !important;
+					display: flex !important;
+					gap: 4px;
 				}
 
 				/* 				label {
@@ -3834,10 +3838,16 @@ body.dklab-favourites {
 				.listSorting__controls {
 					li {
 						display: block;
+						&:hover,
+						&:focus-within {
+							color: var(--color-primary);
+						}
 					}
 				}
 			}
 			.toggle-open-sorting-form {
+				display: block;
+				position: relative;
 				font-size: var(--fs-13);
 				padding: 0em 0.384em;
 				cursor: pointer;

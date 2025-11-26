@@ -3710,8 +3710,12 @@ body.dklab-favourites .category-header .listSorting .listSorting__controls li {
   -webkit-box-ordinal-group: 100;
       -ms-flex-order: 99;
           order: 99;
-  cursor: pointer;
   display: none;
+}
+body.type-category .category-header .listSorting .listSorting__controls li button,
+body.type-manufacturer-detail .category-header .listSorting .listSorting__controls li button,
+body.dklab-favourites .category-header .listSorting .listSorting__controls li button {
+  cursor: pointer;
 }
 body.type-category .category-header .listSorting .listSorting__controls li:has(.listSorting__control.listSorting__control--current),
 body.type-manufacturer-detail .category-header .listSorting .listSorting__controls li:has(.listSorting__control.listSorting__control--current),
@@ -3720,16 +3724,28 @@ body.dklab-favourites .category-header .listSorting .listSorting__controls li:ha
       -ms-flex-order: 1;
           order: 1;
   font-weight: var(--fw-700);
-  display: block !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  gap: 4px;
 }
 body.type-category .category-header .listSorting.active .listSorting__controls li,
 body.type-manufacturer-detail .category-header .listSorting.active .listSorting__controls li,
 body.dklab-favourites .category-header .listSorting.active .listSorting__controls li {
   display: block;
 }
+body.type-category .category-header .listSorting.active .listSorting__controls li:hover, body.type-category .category-header .listSorting.active .listSorting__controls li:focus-within,
+body.type-manufacturer-detail .category-header .listSorting.active .listSorting__controls li:hover,
+body.type-manufacturer-detail .category-header .listSorting.active .listSorting__controls li:focus-within,
+body.dklab-favourites .category-header .listSorting.active .listSorting__controls li:hover,
+body.dklab-favourites .category-header .listSorting.active .listSorting__controls li:focus-within {
+  color: var(--color-primary);
+}
 body.type-category .category-header .listSorting .toggle-open-sorting-form,
 body.type-manufacturer-detail .category-header .listSorting .toggle-open-sorting-form,
 body.dklab-favourites .category-header .listSorting .toggle-open-sorting-form {
+  display: block;
+  position: relative;
   font-size: var(--fs-13);
   padding: 0em 0.384em;
   cursor: pointer;
