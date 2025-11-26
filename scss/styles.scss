@@ -3680,7 +3680,7 @@ body.dklab-favourites {
 			}
 		}
 	}
-	.category-header {
+	/* .category-header {
 		@media screen and (max-width: $tablet-max) {
 			margin-top: var(--gap-24);
 		}
@@ -3723,6 +3723,97 @@ body.dklab-favourites {
 				label[for="order5"] {
 					display: none !important;
 				}
+			}
+			.toggle-open-sorting-form {
+				font-size: var(--fs-13);
+				padding: 0em 0.384em;
+				cursor: pointer;
+				pointer-events: auto;
+				width: calc(1em + 2px + 0.384em * 2);
+				height: 1em;
+				&::after {
+					content: "";
+					display: block;
+					width: calc(1em + 2px);
+					height: 1em;
+					position: absolute;
+					top: 2px;
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_down_primary.svg");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: contain;
+				}
+			}
+			&.active {
+				label:not(.active) {
+					display: block;
+					cursor: pointer;
+					pointer-events: auto;
+					&:hover,
+					&:focus-within {
+						color: var(--color-primary);
+					}
+				}
+				.toggle-open-sorting-form {
+					&::after {
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+		> div {
+			color: var(--color-black-o-60);
+			strong {
+				font-weight: var(--fw-400);
+			}
+		}
+	} */
+
+	.category-header {
+		@media screen and (max-width: $tablet-max) {
+			margin-top: var(--gap-24);
+		}
+		margin-bottom: var(--gap-16);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		font-size: var(--fs-13);
+		position: relative;
+
+		.listSorting {
+			display: flex;
+
+			.listSorting__controls {
+				display: flex;
+				flex-direction: column;
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				position: relative;
+				gap: var(--gap-10);
+
+				/* 				label {
+					pointer-events: none;
+				}
+				label.active {
+					font-weight: var(--fw-700);
+					position: relative !important;
+					top: 0 !important;
+					pointer-events: none !important;
+				}
+
+				label:not(.active) {
+					display: none;
+				}
+
+				input {
+					display: none;
+				}
+
+				input#order5,
+				label[for="order5"] {
+					display: none !important;
+				} */
 			}
 			.toggle-open-sorting-form {
 				font-size: var(--fs-13);
