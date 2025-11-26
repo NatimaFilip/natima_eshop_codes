@@ -1283,12 +1283,15 @@ function editProductSorting() {
 	let sortingForm = categoryHeader.querySelector(".listSorting");
 	if (!sortingForm) return;
 
+	let activeOSortingInput = categoryHeader.querySelector(".listSorting__control--current");
+	if (!activeOSortingInput) return;
+
 	const toggleOpenSortingForm = document.createElement("span");
 	toggleOpenSortingForm.className = "toggle-open-sorting-form";
-	sortingForm.append(toggleOpenSortingForm);
+	activeOSortingInput.parentElement.append(toggleOpenSortingForm);
 
 	// Find all inputs within the category header
-	let sortingInputs = sortingForm.querySelectorAll(".listSorting__controls li");
+	/* 	let sortingInputs = sortingForm.querySelectorAll(".listSorting__controls li"); */
 
 	/* 	sortingInputs.forEach((input) => {
 		let label = categoryHeader.querySelector(`label[for='${input.id}']`);
