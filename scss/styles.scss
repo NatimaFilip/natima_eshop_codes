@@ -3782,6 +3782,7 @@ body.dklab-favourites {
 
 		.listSorting {
 			display: flex;
+			color: var(--color-black);
 
 			.listSorting__controls {
 				display: flex;
@@ -3792,7 +3793,7 @@ body.dklab-favourites {
 				position: relative;
 				gap: var(--gap-10);
 
-				li:has(.listSortingControl-name) {
+				li:has(#listSortingControl-name) {
 					display: none !important;
 				}
 				li {
