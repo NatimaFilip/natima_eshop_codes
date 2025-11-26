@@ -1247,9 +1247,9 @@ if (body.classList.contains("type-category")) {
 	/*------------------------------ZOBRAZENÝ POČET POLOŽEK*/
 	showAmountOfProducts();
 	function showAmountOfProducts() {
-		/* let allProducts = document.querySelectorAll(".product");
+		let allProducts = document.querySelectorAll(".product");
 		const amountOfProducts = allProducts.length;
-		let categoryHeaderInsideDiv = document.querySelector("#category-header > div");
+		let categoryHeaderInsideDiv = document.querySelector("#category-header .listItemsTotal");
 		if (!amountOfProducts) return;
 		if (!categoryHeaderInsideDiv) return;
 
@@ -1261,7 +1261,7 @@ if (body.classList.contains("type-category")) {
 		amountOfProductsSpan.className = "amount-of-products";
 		amountOfProductsSpan.textContent = amountOfProducts.toString() + " " + translationsStrings.outOf[activeLang];
 
-		categoryHeaderInsideDiv.prepend(amountOfProductsSpan); */
+		categoryHeaderInsideDiv.prepend(amountOfProductsSpan);
 	}
 
 	/*------------------------------DOM PAGE CONTET LOADED FUNKCE*/
