@@ -3881,6 +3881,7 @@ body.dklab-favourites {
 						display: block !important;
 						pointer-events: auto;
 						cursor: pointer;
+						order: 1 !important;
 						&:hover,
 						&:focus-within {
 							color: var(--color-primary);
