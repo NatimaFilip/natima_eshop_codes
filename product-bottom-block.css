@@ -1,0 +1,89 @@
+.product-bottom-block {
+	background: #f8f8f8;
+	border: 1px solid #dfdddd;
+	border-radius: 5px;
+	padding: 20px 20px 0;
+}
+.product-bottom-block h4 {
+	color: var(--color-primary);
+	text-align: center;
+	padding: 10px 0;
+	font-size: 20px;
+}
+.product-bottom-block-grid {
+	display: grid;
+	grid-template-columns: 17em 1fr;
+	align-items: end;
+}
+@media screen and (max-width: 1439px) {
+	.product-bottom-block-grid {
+		align-items: center;
+	}
+}
+.product-bottom-block-texts {
+	padding: 0 5% 0 4%;
+}
+.product-bottom-block-texts ul {
+	list-style: none;
+	padding: 0;
+}
+.product-bottom-block-texts li {
+	padding: 5px 0 5px 35px;
+	position: relative;
+}
+.product-bottom-block-texts li::before {
+	content: "";
+	position: absolute;
+	width: 25px;
+	height: 18px;
+	left: 0;
+	top: 9px;
+	background: url("https://632262.myshoptet.com/user/documents/upload/product-bottom-block/product-bottom-block-checkmark.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.product-bottom-block-image {
+	position: relative;
+}
+.product-bottom-block-image-text {
+	position: absolute;
+	background: url("https://632262.myshoptet.com/user/documents/upload/product-bottom-block/product-bottom-block-bg.svg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	font-size: 18px;
+	line-height: 1.4;
+	padding: 0.75em 0.5em 0.75em 1.5em;
+	left: -20px;
+	bottom: 30px;
+	width: 17em;
+}
+.product-bottom-block-image-text-name {
+	font-weight: 700;
+}
+.product-bottom-block-image-text-owner {
+	color: white;
+}
+@media screen and (max-width: 1200px) {
+	.product-bottom-block-grid {
+		display: flex;
+		flex-direction: column-reverse;
+		gap: 10px;
+	}
+	.product-bottom-block-texts {
+		padding: 0;
+		max-width: 100%;
+	}
+	.product-bottom-block-image img {
+		max-width: 300px;
+		width: 100%;
+	}
+}
+@media screen and (max-width: 480px) {
+	.product-bottom-block-image {
+		margin-right: auto;
+	}
+}
