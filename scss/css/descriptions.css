@@ -611,6 +611,199 @@ body .product-widgets .with-icon.widget-ingredients h3::before {
   background-size: contain;
 }
 
+/*NATIMA COMPARE*/
+body .product-widgets .natima-compare-wrapper {
+  overflow: hidden;
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-gradient-1)), to(var(--color-gradient-2)));
+  background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+  border-radius: var(--br-10);
+}
+body .product-widgets .natima-compare {
+  display: grid;
+  grid-template-columns: repeat(auto, 70%);
+  overflow-x: auto;
+  padding: 1.5em 1em 2.75em;
+}
+body .product-widgets .natima-compare > *,
+body .product-widgets .natima-compare .editable-content,
+body .product-widgets .natima-compare .editable-content > div.tiptap {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-column: 1/-1;
+}
+body .product-widgets .natima-compare.items-2 {
+  grid-template-columns: repeat(2, 70%);
+  --columns: 2;
+}
+body .product-widgets .natima-compare.items-2 > *,
+body .product-widgets .natima-compare.items-2 .editable-content,
+body .product-widgets .natima-compare.items-2 .editable-content > div.tiptap {
+  grid-template-columns: 50% 50%;
+}
+body .product-widgets .natima-compare.items-3 {
+  grid-template-columns: repeat(3, 70%);
+  --columns: 3;
+}
+body .product-widgets .natima-compare.items-3 > *,
+body .product-widgets .natima-compare.items-3 .editable-content,
+body .product-widgets .natima-compare.items-3 .editable-content > div.tiptap {
+  grid-template-columns: 33.33% 33.33% 33.33%;
+}
+body .product-widgets .natima-compare.items-4 {
+  grid-template-columns: repeat(4, 70%);
+  --columns: 4;
+}
+body .product-widgets .natima-compare.items-4 > *,
+body .product-widgets .natima-compare.items-4 .editable-content,
+body .product-widgets .natima-compare.items-4 .editable-content > div.tiptap {
+  grid-template-columns: 25% 25% 25% 25%;
+}
+body .product-widgets .natima-compare h4,
+body .product-widgets .natima-compare p {
+  position: relative;
+  margin: 0;
+  padding: 1em;
+  width: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+body .product-widgets .natima-compare h4::after,
+body .product-widgets .natima-compare p::after {
+  content: "";
+  display: none;
+  position: absolute;
+  width: calc(100% * var(--columns));
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle, var(--color-compare) 0%, transparent 90%);
+}
+body .product-widgets .natima-compare .compare-names > h4:first-of-type::after {
+  display: block;
+}
+body .product-widgets .natima-compare .custom-extra-compare-content {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px 40px 10px;
+}
+body .product-widgets .natima-compare .custom-extra-compare-content p {
+  color: var(--color-white);
+  font-weight: var(--fw-500);
+  max-width: 800px;
+}
+body .product-widgets .natima-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,
+body .product-widgets .natima-compare.items-2 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(2n + 1)::after {
+  display: block;
+}
+body .product-widgets .natima-compare.items-3 .compare-texts > .editable-content > p:nth-of-type(3n-2)::after,
+body .product-widgets .natima-compare.items-3 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(3n-2)::after {
+  display: block;
+}
+body .product-widgets .natima-compare.items-4 .compare-texts > .editable-content > p:nth-of-type(4n-3)::after,
+body .product-widgets .natima-compare.items-4 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(4n-3)::after {
+  display: block;
+}
+body .product-widgets .natima-compare .compare-title {
+  display: block;
+  font-size: var(--fs-24);
+  font-weight: var(--fw-700);
+  color: var(--color-white);
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  padding-bottom: 0;
+  margin-bottom: 1em;
+}
+body .product-widgets .natima-compare .compare-images {
+  padding-bottom: 1em;
+}
+body .product-widgets .natima-compare .compare-images img {
+  max-width: 100px;
+}
+body .product-widgets .natima-compare .compare-names {
+  font-size: var(--fs-18);
+  font-weight: var(--fw-700);
+  color: var(--color-white);
+}
+body .product-widgets .natima-compare .compare-names h4 {
+  color: inherit;
+}
+body .product-widgets .natima-compare .compare-texts {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-500);
+  color: var(--color-white);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+body .product-widgets .natima-compare .compare-texts a {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+body .product-widgets .natima-compare .compare-texts p,
+body .product-widgets .natima-compare .compare-texts span {
+  color: var(--color-white);
+}
+
+@media screen and (min-width: 768px) {
+  body:not(.mobile-view) .product-widgets .natima-compare {
+    grid-template-columns: repeat(auto, 1fr);
+    overflow-x: auto;
+    padding: 1.5em 2em 2.75em;
+  }
+  body:not(.mobile-view) .product-widgets .natima-compare .compare-images img {
+    max-width: 150px;
+  }
+  body:not(.mobile-view) .product-widgets .natima-compare.items-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  body:not(.mobile-view) .product-widgets .natima-compare.items-3 {
+    grid-template-columns: repeat(3, 40%);
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1280px) {
+  body:not(.mobile-view) .product-widgets .natima-compare.items-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  body:not(.mobile-view) .product-widgets .natima-compare.items-3 .compare-images img {
+    max-width: 125px;
+  }
+  body:not(.mobile-view) .product-widgets .natima-compare.items-4 {
+    grid-template-columns: repeat(4, 40%);
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1280px) {
+  body:not(.mobile-view) .product-widgets .natima-compare.items-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  body:not(.mobile-view) .product-widgets .natima-compare.items-4 .compare-images img {
+    max-width: 100px;
+  }
+}
 /*Natima directions and ingredients pc*/
 @media screen and (min-width: 768px) {
   body:not(.mobile-view) .product-widgets .widget-directions,
@@ -852,21 +1045,14 @@ body .product-widgets[product-template=natios] .natios-icons-flex.small-flex .de
   gap: 1em;
 }
 body .product-widgets.natios .natios-compare-wrapper,
-body .product-widgets.natios .natima-compare-wrapper,
-body .product-widgets[product-template=natios] .natios-compare-wrapper,
-body .product-widgets[product-template=natios] .natima-compare-wrapper {
-  overflow: hidden;
-  border-radius: var(--br-10);
-}
-body .product-widgets.natios .natios-compare-wrapper,
 body .product-widgets[product-template=natios] .natios-compare-wrapper {
+  overflow: hidden;
   background: -webkit-gradient(linear, left top, right top, from(var(--color-gradient-1)), to(var(--color-gradient-2)));
   background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+  border-radius: var(--br-10);
 }
 body .product-widgets.natios .natios-compare,
-body .product-widgets.natios .natima-compare,
-body .product-widgets[product-template=natios] .natios-compare,
-body .product-widgets[product-template=natios] .natima-compare {
+body .product-widgets[product-template=natios] .natios-compare {
   display: grid;
   grid-template-columns: repeat(auto, 70%);
   overflow-x: auto;
@@ -875,15 +1061,9 @@ body .product-widgets[product-template=natios] .natima-compare {
 body .product-widgets.natios .natios-compare > *,
 body .product-widgets.natios .natios-compare .editable-content,
 body .product-widgets.natios .natios-compare .editable-content > div.tiptap,
-body .product-widgets.natios .natima-compare > *,
-body .product-widgets.natios .natima-compare .editable-content,
-body .product-widgets.natios .natima-compare .editable-content > div.tiptap,
 body .product-widgets[product-template=natios] .natios-compare > *,
 body .product-widgets[product-template=natios] .natios-compare .editable-content,
-body .product-widgets[product-template=natios] .natios-compare .editable-content > div.tiptap,
-body .product-widgets[product-template=natios] .natima-compare > *,
-body .product-widgets[product-template=natios] .natima-compare .editable-content,
-body .product-widgets[product-template=natios] .natima-compare .editable-content > div.tiptap {
+body .product-widgets[product-template=natios] .natios-compare .editable-content > div.tiptap {
   width: 100%;
   display: grid;
   justify-items: center;
@@ -893,76 +1073,48 @@ body .product-widgets[product-template=natios] .natima-compare .editable-content
   grid-column: 1/-1;
 }
 body .product-widgets.natios .natios-compare.items-2,
-body .product-widgets.natios .natima-compare.items-2,
-body .product-widgets[product-template=natios] .natios-compare.items-2,
-body .product-widgets[product-template=natios] .natima-compare.items-2 {
+body .product-widgets[product-template=natios] .natios-compare.items-2 {
   grid-template-columns: repeat(2, 70%);
   --columns: 2;
 }
 body .product-widgets.natios .natios-compare.items-2 > *,
 body .product-widgets.natios .natios-compare.items-2 .editable-content,
 body .product-widgets.natios .natios-compare.items-2 .editable-content > div.tiptap,
-body .product-widgets.natios .natima-compare.items-2 > *,
-body .product-widgets.natios .natima-compare.items-2 .editable-content,
-body .product-widgets.natios .natima-compare.items-2 .editable-content > div.tiptap,
 body .product-widgets[product-template=natios] .natios-compare.items-2 > *,
 body .product-widgets[product-template=natios] .natios-compare.items-2 .editable-content,
-body .product-widgets[product-template=natios] .natios-compare.items-2 .editable-content > div.tiptap,
-body .product-widgets[product-template=natios] .natima-compare.items-2 > *,
-body .product-widgets[product-template=natios] .natima-compare.items-2 .editable-content,
-body .product-widgets[product-template=natios] .natima-compare.items-2 .editable-content > div.tiptap {
+body .product-widgets[product-template=natios] .natios-compare.items-2 .editable-content > div.tiptap {
   grid-template-columns: 50% 50%;
 }
 body .product-widgets.natios .natios-compare.items-3,
-body .product-widgets.natios .natima-compare.items-3,
-body .product-widgets[product-template=natios] .natios-compare.items-3,
-body .product-widgets[product-template=natios] .natima-compare.items-3 {
+body .product-widgets[product-template=natios] .natios-compare.items-3 {
   grid-template-columns: repeat(3, 70%);
   --columns: 3;
 }
 body .product-widgets.natios .natios-compare.items-3 > *,
 body .product-widgets.natios .natios-compare.items-3 .editable-content,
 body .product-widgets.natios .natios-compare.items-3 .editable-content > div.tiptap,
-body .product-widgets.natios .natima-compare.items-3 > *,
-body .product-widgets.natios .natima-compare.items-3 .editable-content,
-body .product-widgets.natios .natima-compare.items-3 .editable-content > div.tiptap,
 body .product-widgets[product-template=natios] .natios-compare.items-3 > *,
 body .product-widgets[product-template=natios] .natios-compare.items-3 .editable-content,
-body .product-widgets[product-template=natios] .natios-compare.items-3 .editable-content > div.tiptap,
-body .product-widgets[product-template=natios] .natima-compare.items-3 > *,
-body .product-widgets[product-template=natios] .natima-compare.items-3 .editable-content,
-body .product-widgets[product-template=natios] .natima-compare.items-3 .editable-content > div.tiptap {
+body .product-widgets[product-template=natios] .natios-compare.items-3 .editable-content > div.tiptap {
   grid-template-columns: 33.33% 33.33% 33.33%;
 }
 body .product-widgets.natios .natios-compare.items-4,
-body .product-widgets.natios .natima-compare.items-4,
-body .product-widgets[product-template=natios] .natios-compare.items-4,
-body .product-widgets[product-template=natios] .natima-compare.items-4 {
+body .product-widgets[product-template=natios] .natios-compare.items-4 {
   grid-template-columns: repeat(4, 70%);
   --columns: 4;
 }
 body .product-widgets.natios .natios-compare.items-4 > *,
 body .product-widgets.natios .natios-compare.items-4 .editable-content,
 body .product-widgets.natios .natios-compare.items-4 .editable-content > div.tiptap,
-body .product-widgets.natios .natima-compare.items-4 > *,
-body .product-widgets.natios .natima-compare.items-4 .editable-content,
-body .product-widgets.natios .natima-compare.items-4 .editable-content > div.tiptap,
 body .product-widgets[product-template=natios] .natios-compare.items-4 > *,
 body .product-widgets[product-template=natios] .natios-compare.items-4 .editable-content,
-body .product-widgets[product-template=natios] .natios-compare.items-4 .editable-content > div.tiptap,
-body .product-widgets[product-template=natios] .natima-compare.items-4 > *,
-body .product-widgets[product-template=natios] .natima-compare.items-4 .editable-content,
-body .product-widgets[product-template=natios] .natima-compare.items-4 .editable-content > div.tiptap {
+body .product-widgets[product-template=natios] .natios-compare.items-4 .editable-content > div.tiptap {
   grid-template-columns: 25% 25% 25% 25%;
 }
 body .product-widgets.natios .natios-compare h4,
 body .product-widgets.natios .natios-compare p,
-body .product-widgets.natios .natima-compare h4,
-body .product-widgets.natios .natima-compare p,
 body .product-widgets[product-template=natios] .natios-compare h4,
-body .product-widgets[product-template=natios] .natios-compare p,
-body .product-widgets[product-template=natios] .natima-compare h4,
-body .product-widgets[product-template=natios] .natima-compare p {
+body .product-widgets[product-template=natios] .natios-compare p {
   position: relative;
   margin: 0;
   padding: 1em;
@@ -983,12 +1135,8 @@ body .product-widgets[product-template=natios] .natima-compare p {
 }
 body .product-widgets.natios .natios-compare h4::after,
 body .product-widgets.natios .natios-compare p::after,
-body .product-widgets.natios .natima-compare h4::after,
-body .product-widgets.natios .natima-compare p::after,
 body .product-widgets[product-template=natios] .natios-compare h4::after,
-body .product-widgets[product-template=natios] .natios-compare p::after,
-body .product-widgets[product-template=natios] .natima-compare h4::after,
-body .product-widgets[product-template=natios] .natima-compare p::after {
+body .product-widgets[product-template=natios] .natios-compare p::after {
   content: "";
   display: none;
   position: absolute;
@@ -999,15 +1147,11 @@ body .product-widgets[product-template=natios] .natima-compare p::after {
   background: radial-gradient(circle, var(--color-compare) 0%, transparent 90%);
 }
 body .product-widgets.natios .natios-compare .compare-names > h4:first-of-type::after,
-body .product-widgets.natios .natima-compare .compare-names > h4:first-of-type::after,
-body .product-widgets[product-template=natios] .natios-compare .compare-names > h4:first-of-type::after,
-body .product-widgets[product-template=natios] .natima-compare .compare-names > h4:first-of-type::after {
+body .product-widgets[product-template=natios] .natios-compare .compare-names > h4:first-of-type::after {
   display: block;
 }
 body .product-widgets.natios .natios-compare .custom-extra-compare-content,
-body .product-widgets.natios .natima-compare .custom-extra-compare-content,
-body .product-widgets[product-template=natios] .natios-compare .custom-extra-compare-content,
-body .product-widgets[product-template=natios] .natima-compare .custom-extra-compare-content {
+body .product-widgets[product-template=natios] .natios-compare .custom-extra-compare-content {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
@@ -1018,47 +1162,31 @@ body .product-widgets[product-template=natios] .natima-compare .custom-extra-com
   padding: 30px 40px 10px;
 }
 body .product-widgets.natios .natios-compare .custom-extra-compare-content p,
-body .product-widgets.natios .natima-compare .custom-extra-compare-content p,
-body .product-widgets[product-template=natios] .natios-compare .custom-extra-compare-content p,
-body .product-widgets[product-template=natios] .natima-compare .custom-extra-compare-content p {
+body .product-widgets[product-template=natios] .natios-compare .custom-extra-compare-content p {
   color: var(--color-white);
   font-weight: var(--fw-500);
   max-width: 800px;
 }
 body .product-widgets.natios .natios-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,
 body .product-widgets.natios .natios-compare.items-2 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(2n + 1)::after,
-body .product-widgets.natios .natima-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,
-body .product-widgets.natios .natima-compare.items-2 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(2n + 1)::after,
 body .product-widgets[product-template=natios] .natios-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,
-body .product-widgets[product-template=natios] .natios-compare.items-2 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(2n + 1)::after,
-body .product-widgets[product-template=natios] .natima-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,
-body .product-widgets[product-template=natios] .natima-compare.items-2 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(2n + 1)::after {
+body .product-widgets[product-template=natios] .natios-compare.items-2 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(2n + 1)::after {
   display: block;
 }
 body .product-widgets.natios .natios-compare.items-3 .compare-texts > .editable-content > p:nth-of-type(3n-2)::after,
 body .product-widgets.natios .natios-compare.items-3 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(3n-2)::after,
-body .product-widgets.natios .natima-compare.items-3 .compare-texts > .editable-content > p:nth-of-type(3n-2)::after,
-body .product-widgets.natios .natima-compare.items-3 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(3n-2)::after,
 body .product-widgets[product-template=natios] .natios-compare.items-3 .compare-texts > .editable-content > p:nth-of-type(3n-2)::after,
-body .product-widgets[product-template=natios] .natios-compare.items-3 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(3n-2)::after,
-body .product-widgets[product-template=natios] .natima-compare.items-3 .compare-texts > .editable-content > p:nth-of-type(3n-2)::after,
-body .product-widgets[product-template=natios] .natima-compare.items-3 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(3n-2)::after {
+body .product-widgets[product-template=natios] .natios-compare.items-3 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(3n-2)::after {
   display: block;
 }
 body .product-widgets.natios .natios-compare.items-4 .compare-texts > .editable-content > p:nth-of-type(4n-3)::after,
 body .product-widgets.natios .natios-compare.items-4 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(4n-3)::after,
-body .product-widgets.natios .natima-compare.items-4 .compare-texts > .editable-content > p:nth-of-type(4n-3)::after,
-body .product-widgets.natios .natima-compare.items-4 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(4n-3)::after,
 body .product-widgets[product-template=natios] .natios-compare.items-4 .compare-texts > .editable-content > p:nth-of-type(4n-3)::after,
-body .product-widgets[product-template=natios] .natios-compare.items-4 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(4n-3)::after,
-body .product-widgets[product-template=natios] .natima-compare.items-4 .compare-texts > .editable-content > p:nth-of-type(4n-3)::after,
-body .product-widgets[product-template=natios] .natima-compare.items-4 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(4n-3)::after {
+body .product-widgets[product-template=natios] .natios-compare.items-4 .compare-texts > .editable-content > div.tiptap > p:nth-of-type(4n-3)::after {
   display: block;
 }
 body .product-widgets.natios .natios-compare .compare-title,
-body .product-widgets.natios .natima-compare .compare-title,
-body .product-widgets[product-template=natios] .natios-compare .compare-title,
-body .product-widgets[product-template=natios] .natima-compare .compare-title {
+body .product-widgets[product-template=natios] .natios-compare .compare-title {
   display: block;
   font-size: var(--fs-24);
   font-weight: var(--fw-700);
@@ -1070,35 +1198,25 @@ body .product-widgets[product-template=natios] .natima-compare .compare-title {
   margin-bottom: 1em;
 }
 body .product-widgets.natios .natios-compare .compare-images,
-body .product-widgets.natios .natima-compare .compare-images,
-body .product-widgets[product-template=natios] .natios-compare .compare-images,
-body .product-widgets[product-template=natios] .natima-compare .compare-images {
+body .product-widgets[product-template=natios] .natios-compare .compare-images {
   padding-bottom: 1em;
 }
 body .product-widgets.natios .natios-compare .compare-images img,
-body .product-widgets.natios .natima-compare .compare-images img,
-body .product-widgets[product-template=natios] .natios-compare .compare-images img,
-body .product-widgets[product-template=natios] .natima-compare .compare-images img {
+body .product-widgets[product-template=natios] .natios-compare .compare-images img {
   max-width: 100px;
 }
 body .product-widgets.natios .natios-compare .compare-names,
-body .product-widgets.natios .natima-compare .compare-names,
-body .product-widgets[product-template=natios] .natios-compare .compare-names,
-body .product-widgets[product-template=natios] .natima-compare .compare-names {
+body .product-widgets[product-template=natios] .natios-compare .compare-names {
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
   color: var(--color-white);
 }
 body .product-widgets.natios .natios-compare .compare-names h4,
-body .product-widgets.natios .natima-compare .compare-names h4,
-body .product-widgets[product-template=natios] .natios-compare .compare-names h4,
-body .product-widgets[product-template=natios] .natima-compare .compare-names h4 {
+body .product-widgets[product-template=natios] .natios-compare .compare-names h4 {
   color: inherit;
 }
 body .product-widgets.natios .natios-compare .compare-texts,
-body .product-widgets.natios .natima-compare .compare-texts,
-body .product-widgets[product-template=natios] .natios-compare .compare-texts,
-body .product-widgets[product-template=natios] .natima-compare .compare-texts {
+body .product-widgets[product-template=natios] .natios-compare .compare-texts {
   font-size: var(--fs-16);
   font-weight: var(--fw-500);
   color: var(--color-white);
@@ -1107,20 +1225,14 @@ body .product-widgets[product-template=natios] .natima-compare .compare-texts {
           align-items: start;
 }
 body .product-widgets.natios .natios-compare .compare-texts a,
-body .product-widgets.natios .natima-compare .compare-texts a,
-body .product-widgets[product-template=natios] .natios-compare .compare-texts a,
-body .product-widgets[product-template=natios] .natima-compare .compare-texts a {
+body .product-widgets[product-template=natios] .natios-compare .compare-texts a {
   color: var(--color-white);
   text-decoration: underline;
 }
 body .product-widgets.natios .natios-compare .compare-texts p,
 body .product-widgets.natios .natios-compare .compare-texts span,
-body .product-widgets.natios .natima-compare .compare-texts p,
-body .product-widgets.natios .natima-compare .compare-texts span,
 body .product-widgets[product-template=natios] .natios-compare .compare-texts p,
-body .product-widgets[product-template=natios] .natios-compare .compare-texts span,
-body .product-widgets[product-template=natios] .natima-compare .compare-texts p,
-body .product-widgets[product-template=natios] .natima-compare .compare-texts span {
+body .product-widgets[product-template=natios] .natios-compare .compare-texts span {
   color: var(--color-white);
 }
 body .product-widgets.natios .natios-analysis,

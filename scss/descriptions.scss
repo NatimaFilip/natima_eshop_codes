@@ -636,6 +636,217 @@ body {
 		}
 	}
 }
+
+/*NATIMA COMPARE*/
+body {
+	.product-widgets {
+		.natima-compare-wrapper {
+			overflow: hidden;
+			background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+			border-radius: var(--br-10);
+		}
+
+		.natima-compare {
+			display: grid;
+			grid-template-columns: repeat(auto, 70%);
+			overflow-x: auto;
+			padding: 1.5em 1em 2.75em;
+
+			> *,
+			.editable-content,
+			.editable-content > div.tiptap {
+				width: 100%;
+				display: grid;
+				justify-items: center;
+				align-items: center;
+				grid-column: 1/-1;
+			}
+
+			&.items-2 {
+				grid-template-columns: repeat(2, 70%);
+				--columns: 2;
+				> *,
+				.editable-content,
+				.editable-content > div.tiptap {
+					grid-template-columns: 50% 50%;
+				}
+			}
+			&.items-3 {
+				grid-template-columns: repeat(3, 70%);
+				--columns: 3;
+				> *,
+				.editable-content,
+				.editable-content > div.tiptap {
+					grid-template-columns: 33.33% 33.33% 33.33%;
+				}
+			}
+			&.items-4 {
+				grid-template-columns: repeat(4, 70%);
+				--columns: 4;
+				> *,
+				.editable-content,
+				.editable-content > div.tiptap {
+					grid-template-columns: 25% 25% 25% 25%;
+				}
+			}
+
+			h4,
+			p {
+				position: relative;
+				margin: 0;
+				padding: 1em;
+				width: 100%;
+				text-align: center;
+				display: flex;
+				height: 100%;
+				align-content: center;
+				align-items: center;
+				justify-content: center;
+
+				&::after {
+					content: "";
+					display: none;
+					position: absolute;
+					width: calc(100% * var(--columns));
+					height: 1px;
+					bottom: 0;
+					left: 0;
+					background: radial-gradient(circle, var(--color-compare) 0%, transparent 90%);
+				}
+			}
+			.compare-names {
+				> h4:first-of-type {
+					&::after {
+						display: block;
+					}
+				}
+			}
+			.custom-extra-compare-content {
+				display: flex !important;
+				flex-direction: column;
+				padding: 30px 40px 10px;
+				p {
+					color: var(--color-white);
+					font-weight: var(--fw-500);
+					max-width: 800px;
+				}
+			}
+			&.items-2 {
+				.compare-texts > .editable-content,
+				.compare-texts > .editable-content > div.tiptap {
+					> p:nth-of-type(2n + 1) {
+						&::after {
+							display: block;
+						}
+					}
+				}
+			}
+			&.items-3 {
+				.compare-texts > .editable-content,
+				.compare-texts > .editable-content > div.tiptap {
+					> p:nth-of-type(3n-2) {
+						&::after {
+							display: block;
+						}
+					}
+				}
+			}
+			&.items-4 {
+				.compare-texts > .editable-content,
+				.compare-texts > .editable-content > div.tiptap {
+					> p:nth-of-type(4n-3) {
+						&::after {
+							display: block;
+						}
+					}
+				}
+			}
+
+			.compare-title {
+				display: block;
+				font-size: var(--fs-24);
+				font-weight: var(--fw-700);
+				color: var(--color-white);
+				text-align: center;
+				max-width: 600px;
+				margin: auto;
+				padding-bottom: 0;
+				margin-bottom: 1em;
+			}
+			.compare-images {
+				padding-bottom: 1em;
+				img {
+					max-width: 100px;
+				}
+			}
+			.compare-names {
+				font-size: var(--fs-18);
+				font-weight: var(--fw-700);
+				color: var(--color-white);
+				h4 {
+					color: inherit;
+				}
+			}
+			.compare-texts {
+				font-size: var(--fs-16);
+				font-weight: var(--fw-500);
+				color: var(--color-white);
+				align-items: start;
+				a {
+					color: var(--color-white);
+					text-decoration: underline;
+				}
+				p,
+				span {
+					color: var(--color-white);
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: $tablet-min) {
+	body:not(.mobile-view) {
+		.product-widgets .natima-compare {
+			grid-template-columns: repeat(auto, 1fr);
+			overflow-x: auto;
+			padding: 1.5em 2em 2.75em;
+
+			.compare-images {
+				img {
+					max-width: 150px;
+				}
+			}
+
+			&.items-2 {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			&.items-3 {
+				grid-template-columns: repeat(3, 40%);
+				@media screen and (min-width: $desktop-min) {
+					grid-template-columns: repeat(3, 1fr);
+				}
+				.compare-images {
+					img {
+						max-width: 125px;
+					}
+				}
+			}
+			&.items-4 {
+				grid-template-columns: repeat(4, 40%);
+				@media screen and (min-width: $desktop-min) {
+					grid-template-columns: repeat(4, 1fr);
+				}
+				.compare-images {
+					img {
+						max-width: 100px;
+					}
+				}
+			}
+		}
+	}
+}
+
 /*Natima directions and ingredients pc*/
 @media screen and (min-width: $tablet-min) {
 	body:not(.mobile-view) {
@@ -830,17 +1041,13 @@ body {
 				}
 			}
 		}
-		.natios-compare-wrapper,
-		.natima-compare-wrapper {
+		.natios-compare-wrapper {
 			overflow: hidden;
-
+			background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
 			border-radius: var(--br-10);
 		}
-		.natios-compare-wrapper {
-			background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
-		}
-		.natios-compare,
-		.natima-compare {
+
+		.natios-compare {
 			display: grid;
 			grid-template-columns: repeat(auto, 70%);
 			overflow-x: auto;
