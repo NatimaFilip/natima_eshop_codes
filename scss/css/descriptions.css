@@ -614,8 +614,7 @@ body .product-widgets .with-icon.widget-ingredients h3::before {
 /*NATIMA COMPARE*/
 body .product-widgets .natima-compare-wrapper {
   overflow: hidden;
-  background: -webkit-gradient(linear, left top, right top, from(var(--color-gradient-1)), to(var(--color-gradient-2)));
-  background: linear-gradient(90deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+  background: var(--color-gray-400);
   border-radius: var(--br-10);
 }
 body .product-widgets .natima-compare {
@@ -691,7 +690,7 @@ body .product-widgets .natima-compare p::after {
   height: 1px;
   bottom: 0;
   left: 0;
-  background: radial-gradient(circle, var(--color-compare) 0%, transparent 90%);
+  background: radial-gradient(circle, var(--color-gray-600) 0%, transparent 90%);
 }
 body .product-widgets .natima-compare .compare-names > h4:first-of-type::after {
   display: block;
@@ -707,8 +706,8 @@ body .product-widgets .natima-compare .custom-extra-compare-content {
   padding: 30px 40px 10px;
 }
 body .product-widgets .natima-compare .custom-extra-compare-content p {
-  color: var(--color-white);
-  font-weight: var(--fw-500);
+  color: var(--color-black);
+  /* font-weight: var(--fw-500); */
   max-width: 800px;
 }
 body .product-widgets .natima-compare.items-2 .compare-texts > .editable-content > p:nth-of-type(2n + 1)::after,
@@ -727,7 +726,7 @@ body .product-widgets .natima-compare .compare-title {
   display: block;
   font-size: var(--fs-24);
   font-weight: var(--fw-700);
-  color: var(--color-white);
+  color: var(--color-black);
   text-align: center;
   max-width: 600px;
   margin: auto;
@@ -743,26 +742,26 @@ body .product-widgets .natima-compare .compare-images img {
 body .product-widgets .natima-compare .compare-names {
   font-size: var(--fs-18);
   font-weight: var(--fw-700);
-  color: var(--color-white);
+  color: var(--color-black);
 }
 body .product-widgets .natima-compare .compare-names h4 {
   color: inherit;
 }
 body .product-widgets .natima-compare .compare-texts {
   font-size: var(--fs-16);
-  font-weight: var(--fw-500);
-  color: var(--color-white);
+  /* font-weight: var(--fw-500); */
+  color: var(--color-black);
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
 }
 body .product-widgets .natima-compare .compare-texts a {
-  color: var(--color-white);
+  color: var(--color-black);
   text-decoration: underline;
 }
 body .product-widgets .natima-compare .compare-texts p,
 body .product-widgets .natima-compare .compare-texts span {
-  color: var(--color-white);
+  color: var(--color-black);
 }
 
 @media screen and (min-width: 768px) {
