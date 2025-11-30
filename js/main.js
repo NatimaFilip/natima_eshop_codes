@@ -3398,8 +3398,8 @@ if (body.classList.contains("in-index")) {
 			];
 			nejprodavanejsiUrl = "/nejprodavanejsi/";
 			novinkyUrl = "/novinky/";
-			/* akceUrl = "/-akce-mesice/"; */
-			akceUrl = "/black-friday/";
+			akceUrl = "/-akce-mesice/";
+			/* 		akceUrl = "/black-friday/"; */
 			blogUrl = "/blog/";
 		}
 		if (document.body.classList.contains("sk")) {
@@ -3411,8 +3411,8 @@ if (body.classList.contains("in-index")) {
 			];
 			nejprodavanejsiUrl = "/najpredavanejsie/";
 			novinkyUrl = "/novinky/";
-			/* akceUrl = "/--akcie-mesiaca/"; */
-			akceUrl = "/black-friday/";
+			akceUrl = "/--akcie-mesiaca/";
+			/* 		akceUrl = "/black-friday/"; */
 			blogUrl = "/blog/";
 		}
 		if (document.body.classList.contains("pl")) {
@@ -3424,8 +3424,8 @@ if (body.classList.contains("in-index")) {
 			];
 			nejprodavanejsiUrl = "/najczesciej-kupowane/";
 			novinkyUrl = "/nowosci/";
-			/* akceUrl = "/promocja-miesiaca/"; */
-			akceUrl = "/black-friday/";
+			akceUrl = "/promocja-miesiaca/";
+			/* 		akceUrl = "/black-friday/"; */
 			blogUrl = "/blog/";
 		}
 		const titleUrlMap = [nejprodavanejsiUrl, novinkyUrl, akceUrl, blogUrl];

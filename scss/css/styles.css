@@ -4128,9 +4128,6 @@ body.dklab-favourites .category-header > div strong {
     line-height: var(--lh-1-4);
   }
 }
-.products-block .product .p .image .flag-action {
-  display: none !important;
-}
 .products-block .product .p .image .flag-freeshipping {
   display: none !important;
 }

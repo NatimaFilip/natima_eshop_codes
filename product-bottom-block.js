@@ -36,3 +36,42 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	}
 });
+
+const priznakyOdkazy = [
+	{
+		flagCode: "flag-tip",
+		url: "https://632262.myshoptet.com/vybaveni-autoservisu/",
+	},
+	{
+		flagCode: "flag-delivery",
+		url: "/doprava-a-platba/",
+	},
+	{
+		flagCode: "flag-return",
+		url: "/obchodni-podminky/#vraceni-zbozi",
+	},
+];
+
+/* document.addEventListener("DOMContentLoaded", function () { */
+if (document.querySelector("body").classList.contains("type-product")) {
+	let flags = document.querySelectorAll(".p-data-wrapper .flag");
+	console.log("Flags found: ", flags);
+	if (flags && flags.length > 0) {
+		flags.forEach(function (flag) {
+			const matchingPriznak = priznakyOdkazy.find(function (priznak) {
+				return flag.classList.contains(priznak.flagCode);
+			});
+			if (matchingPriznak) {
+				console.log("Matching flag found: " + matchingPriznak.flagCode);
+				console.log("URL: " + matchingPriznak.url);
+
+				const link = document.createElement("a");
+				link.href = matchingPriznak.url;
+				link.className = flag.className;
+				link.innerHTML = flag.innerHTML;
+				flag.parentNode.replaceChild(link, flag);
+			}
+		});
+	}
+}
+/* }); */
