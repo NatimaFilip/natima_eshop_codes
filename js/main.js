@@ -5,9 +5,9 @@ const translationsStrings = {
 		pl: "+48 ",
 	},
 	contactHours: {
-		cs: "Po–Pá 8:00–16:00",
-		sk: "Po–Pá 8:00–16:00",
-		pl: "Pn–Pt 8:00–16:00",
+		cs: "Po–Pá 8:00–14:00",
+		sk: "Po–Pá 8:00–14:00",
+		pl: "Pn–Pt 8:00–14:00",
 	},
 	showAllCategories: {
 		cs: "Zobrazit další kategorie",
