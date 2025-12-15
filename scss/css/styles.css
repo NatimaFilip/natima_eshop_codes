@@ -13447,7 +13447,7 @@ body:has(.new-gen-modal) {
 }
 
 .cs #order-shipping-methods .radio-wrapper#shipping-4::after {
-  content: "Objednávky na osobní odběr je možné vyzvednout do 23.12. 16:00. Po té bude osobní odběr z důvodu stěhování uzavřen a objednávky budou stornovány!";
+  content: "Objednávky na osobní odběr je možné vyzvednout do 23.12. 16:00. Poté bude osobní odběr z důvodu stěhování uzavřen a objednávky budou stornovány!";
 }
 
 .sk #order-shipping-methods .radio-wrapper::after {
