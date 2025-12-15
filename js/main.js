@@ -2443,7 +2443,7 @@ if (body.classList.contains("type-product")) {
 		if (relatedFiles) {
 			const natiosAnalysis = document.querySelector(".product-widgets .natios-analysis .natios-analysis-content-left");
 			if (natiosAnalysis) {
-				allHrefsInRelatedFiles = relatedFiles.querySelectorAll("a:not(.btn)");
+				let allHrefsInRelatedFiles = relatedFiles.querySelectorAll("a:not(.btn)");
 				if (allHrefsInRelatedFiles && allHrefsInRelatedFiles.length > 0) {
 					allHrefsInRelatedFiles.forEach((a) => {
 						// Remove any text in parentheses with "kB" or "MB" etc.

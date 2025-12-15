@@ -9920,3 +9920,69 @@ body:has(.new-gen-modal) {
 		display: none !important;
 	}
 }
+
+/*Vánoce*/
+.info-header {
+	background: var(--color-cta-400);
+	text-align: center;
+	color: white;
+	font-size: var(--fs-12);
+	padding: 0.4em 0.75em;
+}
+.info-header::before {
+	content: "";
+	display: inline-block;
+	width: 2em;
+	height: 1em;
+	background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_delivery_primary.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	filter: brightness(0) invert(1);
+	position: relative;
+	top: 2px;
+}
+.info-header a {
+	color: white;
+	font-weight: 700;
+	text-decoration: underline;
+}
+
+#order-shipping-methods .radio-wrapper {
+	flex-wrap: wrap;
+	&:after {
+		content: "";
+		display: block;
+		font-size: var(--fs-12);
+		color: var(--color-primary-hover);
+		border-top-style: solid;
+		border-width: 1px;
+		padding: 5px;
+		margin: 5px;
+		grid-row: 4;
+		grid-column: 1/-1;
+		width: 100%;
+	}
+}
+
+.cs #order-shipping-methods .radio-wrapper::after {
+	content: "Garantujeme doručení do Vánoc při zaplacení objednávky do 19.12. 12:00 (nebo při objednání na dobírku).";
+}
+.cs #order-shipping-methods .radio-wrapper#shipping-32::after,
+.cs #order-shipping-methods .radio-wrapper#shipping-63::after {
+	content: "V případě zásilkovny stihneme odeslat objednávky zaplacené do 21.12. 9:00 a tyto zásilky budou s vysokou pravděpodobností doručeny, ale 100% garanci doručení uvádíme pouze do 19.12. 12:00.";
+}
+.cs #order-shipping-methods .radio-wrapper#shipping-4::after {
+	content: "Objednávky na osobní odběr je možné vyzvenout do 23.12. 16:00. Po té bude osobní odběr z důvodu stěhování uzavřen!";
+}
+
+.sk #order-shipping-methods .radio-wrapper::after {
+	content: "Garantujeme doručenie do Vianoc pri zaplatení objednávky do 19.12. 12:00 (alebo pri objednaní na dobierku).";
+}
+.sk #order-shipping-methods .radio-wrapper#shipping-26::after {
+	content: "V prípade DPD garantujeme doručenie do Vianoc pri zaplatení objednávky iba do 18.12. 12:00 (alebo pri objednávaní na dobierku).";
+}
+
+.pl #order-shipping-methods .radio-wrapper::after {
+	content: "Gwarantowana dostawa do Świąt dla zamówień opłaconych do 19.12. do godz. 12:00 (lub złożonych z opcją płatności za pobraniem).";
+}
