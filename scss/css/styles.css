@@ -1171,7 +1171,7 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 #nav-m
             flex-direction: column;
     position: fixed;
     gap: var(--gap-5);
-    top: calc(var(--padding-top-header) + var(--header-height));
+    top: calc(var(--padding-top-header) + var(--header-height) + 43px);
     height: calc(100vh - var(--padding-top-header) - var(--header-height));
     height: calc(100svh - var(--padding-top-header) - var(--header-height));
     left: 0;

@@ -1812,7 +1812,7 @@ body {
 								flex-direction: column;
 								position: fixed;
 								gap: var(--gap-5);
-								top: calc(var(--padding-top-header) + var(--header-height));
+								top: calc(var(--padding-top-header) + var(--header-height) + 43px); //temp for info header
 								height: calc(100vh - var(--padding-top-header) - var(--header-height));
 								height: calc(100svh - var(--padding-top-header) - var(--header-height));
 								left: 0;
