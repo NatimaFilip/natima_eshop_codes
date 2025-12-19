@@ -9965,8 +9965,9 @@ body:has(.new-gen-modal) {
 	}
 }
 
-.cs #order-shipping-methods .radio-wrapper::after {
-	content: "Garantujeme doručení do Vánoc při zaplacení objednávky do 19.12. 12:00 (nebo při objednání na dobírku).";
+.cs #order-shipping-methods .radio-wrapper#shipping-35::after,
+.cs #order-shipping-methods .radio-wrapper#shipping-14::after {
+	content: "Garantujeme doručení do Vánoc při zaplacení objednávky do 19.12. 14:00 (nebo při objednání na dobírku).";
 }
 .cs #order-shipping-methods .radio-wrapper#shipping-32::after,
 .cs #order-shipping-methods .radio-wrapper#shipping-63::after {
@@ -9977,12 +9978,12 @@ body:has(.new-gen-modal) {
 }
 
 .sk #order-shipping-methods .radio-wrapper::after {
-	content: "Garantujeme doručenie do Vianoc pri zaplatení objednávky do 19.12. 12:00 (alebo pri objednaní na dobierku).";
+	content: "Garantujeme doručenie do Vianoc pri zaplatení objednávky do 19.12. 14:00 (alebo pri objednaní na dobierku).";
 }
 .sk #order-shipping-methods .radio-wrapper#shipping-26::after {
 	content: "V prípade DPD garantujeme doručenie do Vianoc pri zaplatení objednávky iba do 18.12. 12:00 (alebo pri objednávaní na dobierku).";
 }
 
 .pl #order-shipping-methods .radio-wrapper::after {
-	content: "Gwarantowana dostawa do Świąt dla zamówień opłaconych do 19.12. do godz. 12:00 (lub złożonych z opcją płatności za pobraniem).";
+	content: "Gwarantowana dostawa do Świąt dla zamówień opłaconych do 19.12. do godz. 14:00 (lub złożonych z opcją płatności za pobraniem).";
 }
