@@ -13419,12 +13419,12 @@ body:has(.new-gen-modal) {
   text-decoration: underline;
 }
 
-#order-shipping-methods .radio-wrapper {
+.cs #order-shipping-methods .radio-wrapper#shipping-4 {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-#order-shipping-methods .radio-wrapper:after {
-  content: "";
+
+.cs #order-shipping-methods .radio-wrapper#shipping-4::after {
   display: block;
   font-size: var(--fs-12);
   color: var(--color-primary-hover);
@@ -13435,13 +13435,5 @@ body:has(.new-gen-modal) {
   grid-row: 4;
   grid-column: 1/-1;
   width: 100%;
-}
-
-.cs #order-shipping-methods .radio-wrapper#shipping-32::after,
-.cs #order-shipping-methods .radio-wrapper#shipping-63::after {
-  content: "V případě zásilkovny stihneme odeslat objednávky zaplacené do 21.12. 9:00. Tyto zásilky budou s vysokou pravděpodobností doručeny, ale nemůžeme 100% garantovat doručení do Vánoc.";
-}
-
-.cs #order-shipping-methods .radio-wrapper#shipping-4::after {
   content: "Objednávky na osobní odběr je možné vyzvednout do 23.12. 16:00. Poté bude osobní odběr z důvodu stěhování uzavřen a objednávky budou stornovány!";
 }
