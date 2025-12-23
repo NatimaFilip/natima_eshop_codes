@@ -9929,7 +9929,7 @@ body:has(.new-gen-modal) {
 	font-size: var(--fs-12);
 	padding: 0.4em 0.75em;
 }
-.info-header::before {
+/* .info-header::before {
 	content: "";
 	display: inline-block;
 	width: 2em;
@@ -9941,7 +9941,7 @@ body:has(.new-gen-modal) {
 	filter: brightness(0) invert(1);
 	position: relative;
 	top: 2px;
-}
+} */
 .info-header a {
 	color: white;
 	font-weight: 700;

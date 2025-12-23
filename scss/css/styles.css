@@ -13398,21 +13398,19 @@ body:has(.new-gen-modal) {
   padding: 0.4em 0.75em;
 }
 
-.info-header::before {
-  content: "";
-  display: inline-block;
-  width: 2em;
-  height: 1em;
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_delivery_primary.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  -webkit-filter: brightness(0) invert(1);
-          filter: brightness(0) invert(1);
-  position: relative;
-  top: 2px;
-}
-
+/* .info-header::before {
+	content: "";
+	display: inline-block;
+	width: 2em;
+	height: 1em;
+	background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_delivery_primary.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	filter: brightness(0) invert(1);
+	position: relative;
+	top: 2px;
+} */
 .info-header a {
   color: white;
   font-weight: 700;
