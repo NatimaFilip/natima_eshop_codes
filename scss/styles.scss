@@ -1812,7 +1812,7 @@ body {
 								flex-direction: column;
 								position: fixed;
 								gap: var(--gap-5);
-								top: calc(var(--padding-top-header) + var(--header-height) + 43px); //temp for info header
+								top: calc(var(--padding-top-header) + var(--header-height));
 								height: calc(100vh - var(--padding-top-header) - var(--header-height));
 								height: calc(100svh - var(--padding-top-header) - var(--header-height));
 								left: 0;
@@ -9947,8 +9947,8 @@ body:has(.new-gen-modal) {
 	font-weight: 700;
 	text-decoration: underline;
 }
-
-.cs #order-shipping-methods .radio-wrapper#shipping-4 {
+/*OBJEDNAVKA INFO O DOPRAVCI*/
+/* .cs #order-shipping-methods .radio-wrapper#shipping-4 {
 	flex-wrap: wrap;
 }
 .cs #order-shipping-methods .radio-wrapper#shipping-4::after {
@@ -9964,3 +9964,4 @@ body:has(.new-gen-modal) {
 	width: 100%;
 	content: "Objednávky na osobní odběr je možné vyzvednout do 23.12. 16:00. Poté bude osobní odběr z důvodu stěhování uzavřen a objednávky budou stornovány!";
 }
+ */
