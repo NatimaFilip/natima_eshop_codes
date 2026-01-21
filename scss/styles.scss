@@ -747,8 +747,8 @@ $desktop-large-min: 1680px;
 		/*.item, .product*/
 		> * {
 			width: calc(
-				100% / var(--number-of-items) - var(--gap) * ((var(--number-of-items) - 1) / var(--number-of-items)) -
-					var(--next-item-preview) / var(--number-of-items)
+				100% / var(--number-of-items) - var(--gap) *
+					((var(--number-of-items) - 1) / var(--number-of-items)) - var(--next-item-preview) / var(--number-of-items)
 			);
 			flex-shrink: 0;
 			scroll-snap-align: start;
@@ -757,9 +757,11 @@ $desktop-large-min: 1680px;
 		> *:first-child {
 			width: calc(
 				(
-						100% / var(--number-of-items) - var(--gap) * ((var(--number-of-items) - 1) / var(--number-of-items)) -
-							var(--next-item-preview) / var(--number-of-items)
-					) * var(--width-multiplier-of-1st-item)
+						100% / var(--number-of-items) - var(--gap) *
+							((var(--number-of-items) - 1) / var(--number-of-items)) - var(--next-item-preview) /
+							var(--number-of-items)
+					) *
+					var(--width-multiplier-of-1st-item)
 			);
 		}
 	}
@@ -778,7 +780,9 @@ $desktop-large-min: 1680px;
 		background-repeat: no-repeat;
 		background-size: 25%;
 		transform-origin: center;
-		transition: background-color 0.2s ease-out, transform 0.2s ease-in-out;
+		transition:
+			background-color 0.2s ease-out,
+			transform 0.2s ease-in-out;
 
 		cursor: pointer;
 		&:hover,
@@ -2866,7 +2870,9 @@ body {
 			font-size: var(--fs-14);
 			font-weight: var(--fw-700);
 			text-align: center;
-			transition: background-color 0.1s ease, border-color 0.1s ease;
+			transition:
+				background-color 0.1s ease,
+				border-color 0.1s ease;
 			&:hover,
 			&:focus-within {
 				background-color: var(--color-primary-hover);
@@ -3241,9 +3247,13 @@ body.dklab-favourites {
 					img {
 						max-width: 40px;
 						max-height: 40px;
+						min-width: 40px;
+						min-height: 40px;
 						@media screen and (min-width: $desktop-min) {
 							max-width: 56px;
 							max-height: 56px;
+							min-width: 56px;
+							min-height: 56px;
 						}
 					}
 				}
@@ -9402,7 +9412,9 @@ form[data-np-autofill-form-type="identity"]:not(#order-form) {
 		display: block;
 		padding: 20px 40px;
 		border-radius: var(--br-16);
-		transition: color 0.2s ease, background 0.2s ease;
+		transition:
+			color 0.2s ease,
+			background 0.2s ease;
 	}
 	.not-found-home-button {
 		background: white;

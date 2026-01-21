@@ -2987,6 +2987,8 @@ body.type-manufacturer-detail .subcategories li a .image img,
 body.dklab-favourites .subcategories li a .image img {
   max-width: 40px;
   max-height: 40px;
+  min-width: 40px;
+  min-height: 40px;
 }
 @media screen and (min-width: 1280px) {
   body.type-category .subcategories li a .image img,
@@ -2994,6 +2996,8 @@ body.dklab-favourites .subcategories li a .image img {
   body.dklab-favourites .subcategories li a .image img {
     max-width: 56px;
     max-height: 56px;
+    min-width: 56px;
+    min-height: 56px;
   }
 }
 body.type-category .subcategories li a .text,
