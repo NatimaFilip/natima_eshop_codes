@@ -9884,6 +9884,16 @@ body:has(.new-gen-modal) {
 #dkLabFavHeaderWrapper {
 	display: flex;
 	margin-right: 24px;
+	@media screen and (max-width: $mobile-max) {
+		position: relative !important;
+		inset: 0 !important;
+		margin-right: 0px;
+		order: 3;
+		width: 30px;
+		@media screen and (max-width: 440px) {
+			width: 26px;
+		}
+	}
 	a {
 		font-size: 14px !important;
 		position: initial;
@@ -9892,9 +9902,20 @@ body:has(.new-gen-modal) {
 		justify-content: center;
 		gap: 4px;
 
+		&::before {
+			@media screen and (max-width: $mobile-max) {
+				display: none !important;
+				color: black;
+				font-size: var(--fs-15);
+			}
+		}
+
 		&:after {
 			color: var(--color-black);
 			font-size: var(--fs-13);
+			@media screen and (max-width: $mobile-max) {
+				display: none !important;
+			}
 		}
 		&:hover,
 		&:focus {
@@ -9903,6 +9924,7 @@ body:has(.new-gen-modal) {
 			}
 		}
 	}
+
 	.dkLabFavHeaderIconBtn::before {
 		font-size: 13px !important;
 		font-weight: 600;
@@ -9910,6 +9932,23 @@ body:has(.new-gen-modal) {
 	}
 	em {
 		display: none;
+		@media screen and (max-width: $mobile-max) {
+			display: block !important;
+			display: block;
+			top: calc(50% - 12px);
+			left: auto;
+			right: 0px;
+			-webkit-transform: translate(0, -50%);
+			transform: translate(0, -50%);
+			font-style: normal;
+			color: var(--color-white);
+			font-size: var(--fs-12);
+			font-weight: var(--fw-700);
+			background: var(--color-primary-400);
+			border-radius: var(--br-8);
+			width: 1.83em;
+			height: 1.83em;
+		}
 	}
 }
 .cs {

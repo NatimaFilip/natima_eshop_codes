@@ -13373,6 +13373,22 @@ body:has(.new-gen-modal) {
   display: flex;
   margin-right: 24px;
 }
+@media screen and (max-width: 767px) {
+  #dkLabFavHeaderWrapper {
+    position: relative !important;
+    inset: 0 !important;
+    margin-right: 0px;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    width: 30px;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 440px) {
+  #dkLabFavHeaderWrapper {
+    width: 26px;
+  }
+}
 #dkLabFavHeaderWrapper a {
   font-size: 14px !important;
   position: initial;
@@ -13387,9 +13403,21 @@ body:has(.new-gen-modal) {
           justify-content: center;
   gap: 4px;
 }
+@media screen and (max-width: 767px) {
+  #dkLabFavHeaderWrapper a::before {
+    display: none !important;
+    color: black;
+    font-size: var(--fs-15);
+  }
+}
 #dkLabFavHeaderWrapper a:after {
   color: var(--color-black);
   font-size: var(--fs-13);
+}
+@media screen and (max-width: 767px) {
+  #dkLabFavHeaderWrapper a:after {
+    display: none !important;
+  }
 }
 #dkLabFavHeaderWrapper a:hover:after, #dkLabFavHeaderWrapper a:focus:after {
   color: var(--color-primary);
@@ -13401,6 +13429,25 @@ body:has(.new-gen-modal) {
 }
 #dkLabFavHeaderWrapper em {
   display: none;
+}
+@media screen and (max-width: 767px) {
+  #dkLabFavHeaderWrapper em {
+    display: block !important;
+    display: block;
+    top: calc(50% - 12px);
+    left: auto;
+    right: 0px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    font-style: normal;
+    color: var(--color-white);
+    font-size: var(--fs-12);
+    font-weight: var(--fw-700);
+    background: var(--color-primary-400);
+    border-radius: var(--br-8);
+    width: 1.83em;
+    height: 1.83em;
+  }
 }
 
 .cs #dkLabFavHeaderWrapper a:after {
