@@ -9904,7 +9904,6 @@ body:has(.new-gen-modal) {
 
 		&::before {
 			@media screen and (max-width: $mobile-max) {
-				display: none !important;
 				color: black;
 				font-size: var(--fs-15);
 			}

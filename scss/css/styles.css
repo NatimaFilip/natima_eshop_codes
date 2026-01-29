@@ -13405,7 +13405,6 @@ body:has(.new-gen-modal) {
 }
 @media screen and (max-width: 767px) {
   #dkLabFavHeaderWrapper a::before {
-    display: none !important;
     color: black;
     font-size: var(--fs-15);
   }
