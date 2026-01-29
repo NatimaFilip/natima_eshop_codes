@@ -13378,13 +13378,13 @@ body:has(.new-gen-modal) {
   #dkLabFavHeaderWrapper {
     position: relative !important;
     inset: 0 !important;
-    margin-right: 0px;
+    margin-right: 2px;
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
   }
 }
-#dkLabFavHeaderWrapper a {
+#dkLabFavHeaderWrapper a.dkLabFavHeaderIconBtn {
   font-size: 14px !important;
   position: initial;
   display: -webkit-box;
@@ -13398,28 +13398,28 @@ body:has(.new-gen-modal) {
           justify-content: center;
   gap: 4px;
 }
+#dkLabFavHeaderWrapper a.dkLabFavHeaderIconBtn::before {
+  font-size: 13px !important;
+  font-weight: 600;
+  margin: 0;
+}
 @media screen and (max-width: 767px) {
-  #dkLabFavHeaderWrapper a::before {
+  #dkLabFavHeaderWrapper a.dkLabFavHeaderIconBtn::before {
     color: black;
     font-size: var(--fs-15) !important;
   }
 }
-#dkLabFavHeaderWrapper a:after {
+#dkLabFavHeaderWrapper a.dkLabFavHeaderIconBtn:after {
   color: var(--color-black);
   font-size: var(--fs-13);
 }
 @media screen and (max-width: 767px) {
-  #dkLabFavHeaderWrapper a:after {
+  #dkLabFavHeaderWrapper a.dkLabFavHeaderIconBtn:after {
     display: none !important;
   }
 }
-#dkLabFavHeaderWrapper a:hover:after, #dkLabFavHeaderWrapper a:focus:after {
+#dkLabFavHeaderWrapper a.dkLabFavHeaderIconBtn:hover:after, #dkLabFavHeaderWrapper a.dkLabFavHeaderIconBtn:focus:after {
   color: var(--color-primary);
-}
-#dkLabFavHeaderWrapper .dkLabFavHeaderIconBtn::before {
-  font-size: 13px !important;
-  font-weight: 600;
-  margin: 0;
 }
 #dkLabFavHeaderWrapper em {
   display: none;
@@ -13439,12 +13439,12 @@ body:has(.new-gen-modal) {
     top: calc(50% - 12px);
     left: auto;
     right: 0px;
-    -webkit-transform: translate(50%, -50%);
-    transform: translate(50%, -50%);
+    -webkit-transform: translate(60%, -50%);
+    transform: translate(60%, -50%);
     font-style: normal;
     color: var(--color-white);
     font-size: var(--fs-12);
-    font-weight: var(--fw-700);
+    font-weight: var(--fw-600);
     background: var(--color-primary);
     border-radius: var(--br-8);
     width: 1.83em;

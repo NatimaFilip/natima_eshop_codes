@@ -4209,6 +4209,15 @@ document.addEventListener("dkLabFavouriteProductsLoaded", function () {
 			headerTopElement.appendChild(headerFavoritesIcon);
 		}
 	}
+	document.addEventListener("debouncedResize", function () {
+		if (headerFavoritesIcon && topNavTools && headerTopElement) {
+			if (!isMobile) {
+				topNavTools.prepend(headerFavoritesIcon);
+			} else {
+				headerTopElement.appendChild(headerFavoritesIcon);
+			}
+		}
+	});
 
 	if (document.body.classList.contains("type-product")) {
 		let favoriteDiv = document.querySelector("#dkLabFavouriteDiv");

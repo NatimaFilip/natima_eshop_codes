@@ -9888,10 +9888,10 @@ body:has(.new-gen-modal) {
 	@media screen and (max-width: $mobile-max) {
 		position: relative !important;
 		inset: 0 !important;
-		margin-right: 0px;
+		margin-right: 2px;
 		order: 3;
 	}
-	a {
+	a.dkLabFavHeaderIconBtn {
 		font-size: 14px !important;
 		position: initial;
 		display: flex;
@@ -9900,6 +9900,9 @@ body:has(.new-gen-modal) {
 		gap: 4px;
 
 		&::before {
+			font-size: 13px !important;
+			font-weight: 600;
+			margin: 0;
 			@media screen and (max-width: $mobile-max) {
 				color: black;
 				font-size: var(--fs-15) !important;
@@ -9921,11 +9924,6 @@ body:has(.new-gen-modal) {
 		}
 	}
 
-	.dkLabFavHeaderIconBtn::before {
-		font-size: 13px !important;
-		font-weight: 600;
-		margin: 0;
-	}
 	em {
 		display: none;
 		@media screen and (max-width: $mobile-max) {
@@ -9936,12 +9934,12 @@ body:has(.new-gen-modal) {
 			top: calc(50% - 12px);
 			left: auto;
 			right: 0px;
-			-webkit-transform: translate(50%, -50%);
-			transform: translate(50%, -50%);
+			-webkit-transform: translate(60%, -50%);
+			transform: translate(60%, -50%);
 			font-style: normal;
 			color: var(--color-white);
 			font-size: var(--fs-12);
-			font-weight: var(--fw-700);
+			font-weight: var(--fw-600);
 			background: var(--color-primary);
 			border-radius: var(--br-8);
 			width: 1.83em;
