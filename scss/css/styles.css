@@ -13386,13 +13386,13 @@ body:has(.new-gen-modal) {
   content: "Ulubione";
 }
 
-@media screen and (max-width: 767px) {
-  #dkLabFavouriteDiv,
-  .dkLabFavouriteProductDiv,
-  #dkLabFavHeaderWrapper {
-    display: none !important;
-  }
-}
+/* @media screen and (max-width: $mobile-max) {
+	#dkLabFavouriteDiv,
+	.dkLabFavouriteProductDiv,
+	#dkLabFavHeaderWrapper {
+		display: none !important;
+	}
+} */
 /*Vánoce*/
 .info-header {
   background: var(--color-cta-400);
