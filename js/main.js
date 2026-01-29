@@ -4201,8 +4201,13 @@ if (plLang || skLang) {
 document.addEventListener("dkLabFavouriteProductsLoaded", function () {
 	let headerFavoritesIcon = document.querySelector("#dkLabFavHeaderWrapper");
 	let topNavTools = document.querySelector(".top-navigation-tools");
-	if (headerFavoritesIcon && topNavTools) {
-		topNavTools.prepend(headerFavoritesIcon);
+	let headerTopElement = document.querySelector("#header .header-top");
+	if (headerFavoritesIcon && topNavTools && headerTopElement) {
+		if (!isMobile) {
+			topNavTools.prepend(headerFavoritesIcon);
+		} else {
+			headerTopElement.appendChild(headerFavoritesIcon);
+		}
 	}
 
 	if (document.body.classList.contains("type-product")) {

@@ -572,6 +572,11 @@ body #header .navigation-wrapper .header-top {
     gap: var(--gap-10);
   }
 }
+@media screen and (max-width: 767px) and (max-width: 440px) {
+  body #header .navigation-wrapper .header-top {
+    gap: 8px;
+  }
+}
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   body #header .navigation-wrapper .header-top {
     gap: var(--gap-20);
@@ -745,6 +750,11 @@ body #header .navigation-wrapper .header-top .search {
     height: 100%;
   }
 }
+@media screen and (max-width: 767px) and (max-width: 440px) {
+  body #header .navigation-wrapper .header-top .search {
+    width: 26px;
+  }
+}
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   body #header .navigation-wrapper .header-top .search {
     width: auto;
@@ -865,6 +875,13 @@ body #header .navigation-wrapper .header-top .navigation-buttons {
     padding-right: 10px;
     margin-right: var(--gap-10);
   }
+}
+@media screen and (max-width: 767px) and (max-width: 440px) {
+  body #header .navigation-wrapper .header-top .navigation-buttons {
+    margin-right: var(--gap-8);
+  }
+}
+@media screen and (max-width: 767px) {
   body #header .navigation-wrapper .header-top .navigation-buttons a {
     pointer-events: none;
   }
@@ -890,6 +907,11 @@ body #header .navigation-wrapper .header-top .navigation-buttons .cart-count {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 440px) {
+  body #header .navigation-wrapper .header-top .navigation-buttons .cart-count {
+    width: 26px;
   }
 }
 body #header .navigation-wrapper .header-top .navigation-buttons .cart-count:before {
@@ -988,6 +1010,13 @@ body #header .navigation-wrapper .header-top .login-button-custom {
     height: 100%;
     cursor: pointer;
   }
+}
+@media screen and (max-width: 767px) and (max-width: 440px) {
+  body #header .navigation-wrapper .header-top .login-button-custom {
+    width: 26px;
+  }
+}
+@media screen and (max-width: 767px) {
   body #header .navigation-wrapper .header-top .login-button-custom::before {
     content: "";
     width: 20px;

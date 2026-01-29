@@ -1342,6 +1342,9 @@ body {
 					flex: 1;
 					justify-content: flex-start;
 					gap: var(--gap-10);
+					@media screen and (max-width: 440px) {
+						gap: 8px;
+					}
 				}
 				@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
 					gap: var(--gap-20);
@@ -1476,6 +1479,9 @@ body {
 					@media screen and (max-width: $mobile-max) {
 						width: 30px;
 						height: 100%;
+						@media screen and (max-width: 440px) {
+							width: 26px;
+						}
 					}
 					@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
 						width: auto;
@@ -1570,6 +1576,9 @@ body {
 					@media screen and (max-width: $mobile-max) {
 						padding-right: 10px;
 						margin-right: var(--gap-10);
+						@media screen and (max-width: 440px) {
+							margin-right: var(--gap-8);
+						}
 						a {
 							pointer-events: none;
 						}
@@ -1585,6 +1594,9 @@ body {
 							width: 30px;
 							height: 100%;
 							justify-content: center;
+							@media screen and (max-width: 440px) {
+								width: 26px;
+							}
 						}
 						&:before {
 							content: "";
@@ -1656,6 +1668,9 @@ body {
 						justify-content: center;
 						width: 30px;
 						height: 100%;
+						@media screen and (max-width: 440px) {
+							width: 26px;
+						}
 						cursor: pointer;
 						&::before {
 							content: "";
