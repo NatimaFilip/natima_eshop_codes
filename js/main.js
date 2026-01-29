@@ -1506,7 +1506,7 @@ async function measureUnitFromFiltersProducts() {
 		}
 
 		if (ignoredMeasuringUnits.includes(productMeasureUnit)) {
-			measureUnitSpan.addStyle("display", "none");
+			measureUnitSpan.style.display = "none";
 			return; // Skip processing for ignored units
 		}
 
