@@ -608,7 +608,7 @@ function inicializeMenu() {
 	if (mainCategoryMenuWidth < cumulativeMainCategoryMenuItemWidth) {
 		mainCategoryMenuHelper.classList.remove("menu-helper-hidden");
 		let indexOfOverflowItem = mainCategoryMenuItemsWidth.findIndex(
-			(itemWidth) => itemWidth > mainCategoryMenuWidth - mainCategoryMenuHelperWidth
+			(itemWidth) => itemWidth > mainCategoryMenuWidth - mainCategoryMenuHelperWidth,
 		);
 		/* 		console.log("indexOfOverflowItem", indexOfOverflowItem);
 		console.log("mainCategoryMenuItemsWidth Idex", mainCategoryMenuItemsWidth[indexOfOverflowItem]); */
@@ -1117,7 +1117,7 @@ if (body.classList.contains("type-category")) {
 			});
 			//move natios to the top
 			let natiosManufacturer = manufacturerFilterFieldset.querySelector(
-				":scope > div > label[for='manufacturerId[]natios']"
+				":scope > div > label[for='manufacturerId[]natios']",
 			);
 			if (natiosManufacturer) {
 				manufacturerFilterFieldset.prepend(natiosManufacturer.parentElement);
@@ -1463,6 +1463,7 @@ async function measureUnitFromFiltersProducts() {
 		}
 
 		let singleMeasuringUnit = {};
+		let ignoredMeasuringUnits = [];
 		if (csLang) {
 			singleMeasuringUnit = {
 				kapslí: "kapsle",
@@ -1474,6 +1475,7 @@ async function measureUnitFromFiltersProducts() {
 				produkty: "produkt",
 				produktů: "produkt",
 			};
+			ignoredMeasuringUnits = ["ks"];
 		}
 		if (skLang) {
 			singleMeasuringUnit = {
@@ -1486,6 +1488,7 @@ async function measureUnitFromFiltersProducts() {
 				produktov: "produkt",
 				produkty: "produkt",
 			};
+			ignoredMeasuringUnits = ["ks"];
 		}
 		if (plLang) {
 			singleMeasuringUnit = {
@@ -1499,6 +1502,11 @@ async function measureUnitFromFiltersProducts() {
 				produktów: "produkt",
 				produkty: "produkt",
 			};
+			ignoredMeasuringUnits = ["szt"];
+		}
+
+		if (ignoredMeasuringUnits.includes(productMeasureUnit)) {
+			return; // Skip processing for ignored units
 		}
 
 		let pricePerUnit_Unit;
@@ -1994,7 +2002,7 @@ function changeAddToCartButtonToIncreaseDecrease() {
 						amount: quantityInputValue,
 					});
 				}
-			}, 1000) // Debounce delay of 200ms
+			}, 1000), // Debounce delay of 200ms
 		);
 	});
 }
@@ -2301,7 +2309,7 @@ if (body.classList.contains("type-product")) {
 				availabilityAmount.textContent = availabilityAmount.textContent.replace(/[()]/g, "");
 				availabilityAmount.textContent = availabilityAmount.textContent.replace(
 					">",
-					translationsStrings.moreThan[activeLang]
+					translationsStrings.moreThan[activeLang],
 				);
 
 				if (souvisejiciProdukty) {
@@ -2513,7 +2521,7 @@ if (body.classList.contains("type-product")) {
 					"loadMore__button--ratings",
 					"btn",
 					"btn-secondary",
-					"js-loadMore__button--ratings"
+					"js-loadMore__button--ratings",
 				);
 				customLoadMoreButton.type = "button";
 				customLoadMoreButton.setAttribute("aria-controls", "ratingsList");
@@ -3002,14 +3010,14 @@ if (body.classList.contains("type-product")) {
 				".product-widget[widget-type='directions']",
 				translationsStrings.directionsTitle[activeLang],
 				false,
-				detailTabs
+				detailTabs,
 			);
 
 			createTabForSection(
 				".product-widget[widget-type='ingredients']",
 				translationsStrings.ingredientsTitle[activeLang],
 				false,
-				detailTabs
+				detailTabs,
 			);
 			createTabForSection("table.ingredients", translationsStrings.ingredientsTitle[activeLang], true, detailTabs);
 
@@ -3035,10 +3043,10 @@ if (body.classList.contains("type-product")) {
 				tabTitleText = section.querySelector("h2")
 					? section.querySelector("h2").textContent.trim()
 					: section.querySelector("h3")
-					? section.querySelector("h3").textContent.trim()
-					: section.querySelector("h4")
-					? section.querySelector("h4").textContent.trim()
-					: tabTitle;
+						? section.querySelector("h3").textContent.trim()
+						: section.querySelector("h4")
+							? section.querySelector("h4").textContent.trim()
+							: tabTitle;
 			}
 
 			tab.innerHTML = `<span class="shp-tab-link" data-tab="${sectionId}">${tabTitleText}</span>`;
@@ -3073,7 +3081,7 @@ if (body.classList.contains("type-product")) {
 						}
 					});
 				},
-				{ root: null, threshold: 0.01 } // Trigger when 1% of the section is visible
+				{ root: null, threshold: 0.01 }, // Trigger when 1% of the section is visible
 			);
 			observer.observe(section);
 		}
@@ -3135,7 +3143,7 @@ if (body.classList.contains("type-product")) {
 					}
 				}
 			},
-			true
+			true,
 		);
 
 		// 2) Inside-container logic: activate the 5th td's UL when 4th td is clicked
@@ -3591,17 +3599,17 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 				if (/##AUTOR##KATEŘINAT/i.test($(this).text())) {
 					if (document.body.classList.contains("cs")) {
 						$(this).replaceWith(
-							'<div id="blog-author"><div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/KaterinaTranova.webp" alt="Kateřina" width="500" height="500"></div><div class="author-text"><p class="author-label">Autor</p><p class="author-name">Kateřina</p><div class="expandale author-text"><div class="expanding"><p>Zajímám se o zdravý životní styl, sport, kosmetiku a zdravou stravu. Mým cílem je inspirovat ostatní, aby pečovali o své tělo i mysl a stali se tou nejlepší verzí sebe samých. Pravidelně se věnuji různým sportovním aktivitám a hledám nové cesty, jak optimalizovat svou fyzickou kondici i duševní pohodu.</p><p>Zdravá strava je pro mě klíčovým prvkem, který podporuje mé zdraví a energii. Kromě sportu a výživy mě baví objevovat nové kosmetické trendy a produkty, které podporují přirozenou krásu a zdraví. Ve volném čase si ráda přečtu dobrou knihu, která mi poskytne nejen odpočinek, ale i nové poznatky. Na blogu se s vámi podělím o své zkušenosti, tipy a rady, jak žít zdravěji a spokojeněji.</p></div></div></div></div>'
+							'<div id="blog-author"><div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/KaterinaTranova.webp" alt="Kateřina" width="500" height="500"></div><div class="author-text"><p class="author-label">Autor</p><p class="author-name">Kateřina</p><div class="expandale author-text"><div class="expanding"><p>Zajímám se o zdravý životní styl, sport, kosmetiku a zdravou stravu. Mým cílem je inspirovat ostatní, aby pečovali o své tělo i mysl a stali se tou nejlepší verzí sebe samých. Pravidelně se věnuji různým sportovním aktivitám a hledám nové cesty, jak optimalizovat svou fyzickou kondici i duševní pohodu.</p><p>Zdravá strava je pro mě klíčovým prvkem, který podporuje mé zdraví a energii. Kromě sportu a výživy mě baví objevovat nové kosmetické trendy a produkty, které podporují přirozenou krásu a zdraví. Ve volném čase si ráda přečtu dobrou knihu, která mi poskytne nejen odpočinek, ale i nové poznatky. Na blogu se s vámi podělím o své zkušenosti, tipy a rady, jak žít zdravěji a spokojeněji.</p></div></div></div></div>',
 						);
 					}
 					if (document.body.classList.contains("sk")) {
 						$(this).replaceWith(
-							'<div id="blog-author"><div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/KaterinaTranova.webp" alt="Kateřina" width="500" height="500"></div><div class="author-text"><p class="author-label">Autor</p><p class="author-name">Kateřina</p><div class="expandale author-text"><div class="expanding"><p>Zaujímam sa o zdravý životný štýl, šport, kozmetiku a zdravú stravu. Môj cieľ je inšpirovať ostatných, aby sa starali o svoje telo aj myseľ a stali sa tou najlepšou verziou seba samých. Pravidelne sa venujem rôznym športovým aktivitám a hľadám nové cesty, ako optimalizovať svoju fyzickú kondíciu aj duševnú pohodu.</p><p>Zdravá strava je pre mňa kľúčovým prvkom, ktorý podporuje moje zdravie a energiu. Okrem športu a výživy ma baví objavovať nové kozmetické trendy a produkty, ktoré podporujú prirodzenú krásu a zdravie. Vo voľnom čase si rada prečítam dobrú knihu, ktorá mi poskytne nielen oddych, ale aj nové poznatky. Na blogu sa s vami podelím o svoje skúsenosti, tipy a rady, ako žiť zdravšie a spokojnejšie.</p></div></div></div></div>'
+							'<div id="blog-author"><div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/KaterinaTranova.webp" alt="Kateřina" width="500" height="500"></div><div class="author-text"><p class="author-label">Autor</p><p class="author-name">Kateřina</p><div class="expandale author-text"><div class="expanding"><p>Zaujímam sa o zdravý životný štýl, šport, kozmetiku a zdravú stravu. Môj cieľ je inšpirovať ostatných, aby sa starali o svoje telo aj myseľ a stali sa tou najlepšou verziou seba samých. Pravidelne sa venujem rôznym športovým aktivitám a hľadám nové cesty, ako optimalizovať svoju fyzickú kondíciu aj duševnú pohodu.</p><p>Zdravá strava je pre mňa kľúčovým prvkom, ktorý podporuje moje zdravie a energiu. Okrem športu a výživy ma baví objavovať nové kozmetické trendy a produkty, ktoré podporujú prirodzenú krásu a zdravie. Vo voľnom čase si rada prečítam dobrú knihu, ktorá mi poskytne nielen oddych, ale aj nové poznatky. Na blogu sa s vami podelím o svoje skúsenosti, tipy a rady, ako žiť zdravšie a spokojnejšie.</p></div></div></div></div>',
 						);
 					}
 					if (document.body.classList.contains("pl")) {
 						$(this).replaceWith(
-							'<div id="blog-author"><div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/KaterinaTranova.webp" alt="Kasia" width="500" height="500"></div><div class="author-text"><p class="author-label">Autor</p><p class="author-name">Kasia</p><div class="expandale author-text"><div class="expanding"><p>Interesuję się zdrowym stylem życia, sportem, metodami pielęgnacji skóry i zdrowym odżywianiem. Moim celem jest inspirowanie innych do dbania o ciało i umysł oraz stawania się najlepszą wersją siebie. Regularnie uprawiam różne sporty i poszukuję nowe sposoby na poprawę kondycji fizycznej i zdrowia psychicznego.</p><p>Zdrowa dieta jest dla mnie kluczowym elementem wspierającym moje zdrowie i energię. Oprócz sportu i zdrowego odżywiania lubię odkrywać nowe trendy w branży kosmetycznej oraz produkty, które promują naturalne piękno i zdrowie. W wolnym czasie lubię przeczytać dobrą książkę, która nie tylko pozwala mi się zrelaksować, ale także dowiedzieć się czegoś nowego. Na blogu będę dzielić się z Tobą moimi doświadczeniami, wskazówkami i poradami dotyczącymi tego, jak żyć zdrowszym i szczęśliwszym życiem.</p></div></div></div></div>'
+							'<div id="blog-author"><div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/KaterinaTranova.webp" alt="Kasia" width="500" height="500"></div><div class="author-text"><p class="author-label">Autor</p><p class="author-name">Kasia</p><div class="expandale author-text"><div class="expanding"><p>Interesuję się zdrowym stylem życia, sportem, metodami pielęgnacji skóry i zdrowym odżywianiem. Moim celem jest inspirowanie innych do dbania o ciało i umysł oraz stawania się najlepszą wersją siebie. Regularnie uprawiam różne sporty i poszukuję nowe sposoby na poprawę kondycji fizycznej i zdrowia psychicznego.</p><p>Zdrowa dieta jest dla mnie kluczowym elementem wspierającym moje zdrowie i energię. Oprócz sportu i zdrowego odżywiania lubię odkrywać nowe trendy w branży kosmetycznej oraz produkty, które promują naturalne piękno i zdrowie. W wolnym czasie lubię przeczytać dobrą książkę, która nie tylko pozwala mi się zrelaksować, ale także dowiedzieć się czegoś nowego. Na blogu będę dzielić się z Tobą moimi doświadczeniami, wskazówkami i poradami dotyczącymi tego, jak żyć zdrowszym i szczęśliwszym życiem.</p></div></div></div></div>',
 						);
 					}
 				}
@@ -3770,7 +3778,7 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 				}
 
 				let showBlogButton = $("<div>", { class: "show-all-blog-btn" }).append(
-					$("<a>", { href: blogURL, target: "_blank" }).text(showBlogText)
+					$("<a>", { href: blogURL, target: "_blank" }).text(showBlogText),
 				);
 				let showBlogHeading = $("<h3>", { class: "show-blog-heading" }).text(showBlogHeadingText);
 
@@ -3948,7 +3956,7 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 
 						// Create the show-all-blog-btn div with an anchor inside
 						let showBlogButtonDiv = $("<div>", { class: "show-all-blog-btn" }).append(
-							$("<a>", { href: request.url, target: "_blank" }).text(showCategoryText)
+							$("<a>", { href: request.url, target: "_blank" }).text(showCategoryText),
 						);
 
 						// Insert the blogProductsDiv before the paragraph containing ##KATEGORIE##
@@ -4218,7 +4226,7 @@ function fixSolgar() {
 	if (any.length === 0) return;
 
 	const nodes = document.querySelectorAll(
-		"#pobo-all-content .widget-projector .rc-parameter-small-left__box .rc-parameter__header-right"
+		"#pobo-all-content .widget-projector .rc-parameter-small-left__box .rc-parameter__header-right",
 	);
 
 	if (nodes.length === 0) return;
