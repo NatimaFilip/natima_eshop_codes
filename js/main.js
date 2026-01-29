@@ -161,9 +161,9 @@ const translationsStrings = {
 		pl: "Natios z każdego sprzedanego produktu przekazuje 1 CZK na rzecz pediatrycznej hematoonkologii w Szpitalu Uniwersyteckim w Ostrawie. Leczenie jednego pacjenta onkologicznego w Czechach szacuje się na około 8&nbsp;000&nbsp;CZK miesięcznie. Wierzymy, że tym krokiem wspólnie możemy pomóc wielu rodzinom.",
 	},
 	natiosSupportTotalAmount: {
-		cs: "Společně jsme již dokázali přispět přes 650&nbsp;000&nbsp;Kč. Děkujeme!",
-		sk: "Spoločne sme už dokázali prispieť cez 650&nbsp;000&nbsp;Kč. Ďakujeme!",
-		pl: "Wspólnie udało nam się już przekazać ponad 650&nbsp;000&nbsp;CZK. Dziękujemy!",
+		cs: "Společně jsme již dokázali přispět přes 780&nbsp;000&nbsp;Kč. Děkujeme!",
+		sk: "Spoločne sme už dokázali prispieť cez 780&nbsp;000&nbsp;Kč. Ďakujeme!",
+		pl: "Wspólnie udało nam się już przekazać ponad 780&nbsp;000&nbsp;CZK. Dziękujemy!",
 	},
 	natiosSupportBlogUrl: {
 		cs: "/blog/natios-pomaha-hematoonkologii-v-ostrave/",
