@@ -1439,9 +1439,9 @@ async function measureUnitFromFiltersProducts() {
 		let productMeasureUnit = amountText.replace(/[\d\s]/g, ""); //keep only letters from the measure unit
  */
 		let ratingsWrapper = product.querySelector(".ratings-wrapper");
+		const measureUnitSpan = document.createElement("span");
 		if (ratingsWrapper) {
 			// Create a new span element to display the amount
-			let measureUnitSpan = document.createElement("span");
 			measureUnitSpan.className = "product-measure-unit";
 			measureUnitSpan.textContent = amountText;
 
@@ -1506,6 +1506,7 @@ async function measureUnitFromFiltersProducts() {
 		}
 
 		if (ignoredMeasuringUnits.includes(productMeasureUnit)) {
+			measureUnitSpan.addStyle("display", "none");
 			return; // Skip processing for ignored units
 		}
 
