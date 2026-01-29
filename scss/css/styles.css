@@ -17,6 +17,7 @@
   --fs-12: 0.75rem;
   --fs-13: 0.8125rem;
   --fs-14: 0.875rem;
+  --fs-15: 0.9375rem;
   --fs-16: 1rem;
   --fs-18: 1.125rem;
   --fs-20: 1.25rem;
@@ -13381,12 +13382,6 @@ body:has(.new-gen-modal) {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
-    width: 30px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 440px) {
-  #dkLabFavHeaderWrapper {
-    width: 26px;
   }
 }
 #dkLabFavHeaderWrapper a {
@@ -13406,7 +13401,7 @@ body:has(.new-gen-modal) {
 @media screen and (max-width: 767px) {
   #dkLabFavHeaderWrapper a::before {
     color: black;
-    font-size: var(--fs-15);
+    font-size: var(--fs-15) !important;
   }
 }
 #dkLabFavHeaderWrapper a:after {
@@ -13431,18 +13426,26 @@ body:has(.new-gen-modal) {
 }
 @media screen and (max-width: 767px) {
   #dkLabFavHeaderWrapper em {
-    display: block !important;
-    display: block;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     top: calc(50% - 12px);
     left: auto;
     right: 0px;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -webkit-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
     font-style: normal;
     color: var(--color-white);
     font-size: var(--fs-12);
     font-weight: var(--fw-700);
-    background: var(--color-primary-400);
+    background: var(--color-primary);
     border-radius: var(--br-8);
     width: 1.83em;
     height: 1.83em;
