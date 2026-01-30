@@ -1789,8 +1789,8 @@ body.cart-window-visible #cart-widget {
   padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
   -webkit-box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
-  --first-column-width: 460px;
-  --second-column-width: 320px;
+  --first-column-width: 28.75rem;
+  --second-column-width: 20rem;
 }
 @media screen and (min-width: 1920px) {
   body.cart-window-visible #cart-widget {
@@ -1805,7 +1805,7 @@ body.cart-window-visible #cart-widget {
 }
 @media screen and (max-width: 1279px) {
   body.cart-window-visible #cart-widget {
-    --first-column-width: 350px;
+    --first-column-width: 21.875rem;
   }
 }
 body.cart-window-visible #cart-widget .cart-widget-inner {
