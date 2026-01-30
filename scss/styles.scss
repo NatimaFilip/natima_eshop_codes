@@ -55,6 +55,7 @@ $desktop-large-min: 1680px;
 	content: "";
 	position: absolute;
 	display: flex;
+	z-index: 1;
 	left: 0;
 	top: 0;
 	pointer-events: none;
