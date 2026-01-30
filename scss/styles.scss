@@ -2411,8 +2411,8 @@ body {
 			max-width: calc(100% - var(--padding-sides) * 2);
 			padding: var(--gap-20) var(--gap-10) var(--gap-36) var(--gap-20);
 			box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
-			--first-column-width: 460px;
-			--second-column-width: 320px;
+			--first-column-width: 28.75rem;
+			--second-column-width: 20rem;
 
 			@media screen and (min-width: 1920px) {
 				right: calc(((100vw - 1920px) / 2 + var(--padding-sides)) - 6px);
@@ -2423,7 +2423,7 @@ body {
 			}
 
 			@media screen and (max-width: $tablet-max) {
-				--first-column-width: 350px;
+				--first-column-width: 21.875rem;
 			}
 
 			.cart-widget-inner {
