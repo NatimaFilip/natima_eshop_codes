@@ -10398,6 +10398,10 @@ html.cookies-visible .siteCookies {
 .content-modal .shipping-options-popup {
   padding-bottom: 20px;
 }
+.content-modal .shipping-options-popup > p {
+  font-weight: var(--fw-700);
+  padding-top: 10px;
+}
 .content-modal .shipping-row {
   display: grid;
   grid-template-columns: 120px 1fr auto;

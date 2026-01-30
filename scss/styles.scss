@@ -8505,6 +8505,10 @@ html.cookies-visible .siteCookies {
 	}
 	.shipping-options-popup {
 		padding-bottom: 20px;
+		> p {
+			font-weight: var(--fw-700);
+			padding-top: 10px;
+		}
 	}
 	.shipping-row {
 		display: grid;
