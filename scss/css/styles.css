@@ -1907,27 +1907,27 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #f5f5f5;
 }
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-image a img {
   width: var(--image-width);
   height: auto;
-  -webkit-filter: brightness(1.03);
-          filter: brightness(1.03);
+  /* filter: brightness(1.03); */
   margin: auto;
+  mix-blend-mode: multiply;
   padding: 12.5% 25%;
 }
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-image a:after {
-  content: "";
+  /* 	content: "";
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+
   left: 0;
   top: 0;
   pointer-events: none;
   width: 100%;
   height: 100%;
-  background-color: hsla(0, 0%, 0%, 0.04);
+  background-color: hsla(0, 0%, 0%, 0.04); */
 }
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-name {
   grid-column: 2;
@@ -4050,28 +4050,28 @@ body.dklab-favourites .category-header > div strong {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #f5f5f5;
 }
 .products-block .product .p .image img {
   width: 100%;
   height: auto;
-  -webkit-filter: brightness(1.03);
-          filter: brightness(1.03);
+  /* filter: brightness(1.03); */
   margin: auto;
+  mix-blend-mode: multiply;
   margin-top: 55px;
   margin-bottom: 50px;
 }
 .products-block .product .p .image:after {
-  content: "";
+  /* 	content: "";
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+
   left: 0;
   top: 0;
   pointer-events: none;
   width: 100%;
   height: 100%;
-  background-color: hsla(0, 0%, 0%, 0.04);
+  background-color: hsla(0, 0%, 0%, 0.04); */
 }
 .products-block .product .p .image .flags-default {
   position: absolute;
@@ -7101,13 +7101,14 @@ body.sticky-header-off .messages > * {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #f5f5f5;
 }
 .type-product .product-top .p-image-wrapper .p-image a.p-main-image img {
   width: var(--image-width);
   height: auto;
-  -webkit-filter: brightness(1.03);
-          filter: brightness(1.03);
+  /* filter: brightness(1.03); */
   margin: auto;
+  mix-blend-mode: multiply;
   padding: 12.5% 16.5%;
 }
 @media screen and (max-width: 1279px) {
@@ -7116,17 +7117,16 @@ body.sticky-header-off .messages > * {
   }
 }
 .type-product .product-top .p-image-wrapper .p-image a.p-main-image:after {
-  content: "";
+  /* 	content: "";
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+
   left: 0;
   top: 0;
   pointer-events: none;
   width: 100%;
   height: 100%;
-  background-color: hsla(0, 0%, 0%, 0.04);
+  background-color: hsla(0, 0%, 0%, 0.04); */
 }
 .type-product .product-top .p-image-wrapper .p-image .flags-extra {
   position: absolute;
@@ -7419,15 +7419,16 @@ body.sticky-header-off .messages > * {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #f5f5f5;
 }
 .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnails-inner > div > a.p-thumbnail img {
   --image-padding-side: 30px;
   --image-padding-top: 10px;
   width: 100%;
   height: auto;
-  -webkit-filter: brightness(1.03);
-          filter: brightness(1.03);
+  /* filter: brightness(1.03); */
   margin: auto;
+  mix-blend-mode: multiply;
   padding: var(--image-padding-top) var(--image-padding-side);
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -7443,17 +7444,16 @@ body.sticky-header-off .messages > * {
   }
 }
 .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnails-inner > div > a.p-thumbnail:after {
-  content: "";
+  /* 	content: "";
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+
   left: 0;
   top: 0;
   pointer-events: none;
   width: 100%;
   height: 100%;
-  background-color: hsla(0, 0%, 0%, 0.04);
+  background-color: hsla(0, 0%, 0%, 0.04); */
   border-radius: var(--br-16);
 }
 .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .thumbnail-prev,
@@ -9041,28 +9041,28 @@ body.sticky-header-off .messages > * {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #f5f5f5;
 }
 .type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-image-wrapper img {
   width: 82px;
   height: auto;
-  -webkit-filter: brightness(1.03);
-          filter: brightness(1.03);
+  /* filter: brightness(1.03); */
   margin: auto;
+  mix-blend-mode: multiply;
   padding: 12.5% 15%;
   margin: 0;
 }
 .type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-image-wrapper:after {
-  content: "";
+  /* 	content: "";
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+
   left: 0;
   top: 0;
   pointer-events: none;
   width: 100%;
   height: 100%;
-  background-color: hsla(0, 0%, 0%, 0.04);
+  background-color: hsla(0, 0%, 0%, 0.04); */
 }
 .type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-info-wrapper {
   display: -webkit-box;
@@ -11845,27 +11845,27 @@ form[data-np-autofill-form-type=identity]:not(#order-form) input[type=checkbox]:
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #f5f5f5;
 }
 .id--15 table.cart-table tbody > tr .cart-p-image img {
   width: var(--image-width);
   height: auto;
-  -webkit-filter: brightness(1.03);
-          filter: brightness(1.03);
+  /* filter: brightness(1.03); */
   margin: auto;
+  mix-blend-mode: multiply;
   padding: 2px 5px;
 }
 .id--15 table.cart-table tbody > tr .cart-p-image:after {
-  content: "";
+  /* 	content: "";
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+
   left: 0;
   top: 0;
   pointer-events: none;
   width: 100%;
   height: 100%;
-  background-color: hsla(0, 0%, 0%, 0.04);
+  background-color: hsla(0, 0%, 0%, 0.04); */
 }
 .id--15 table.cart-table tbody > tr .p-name {
   justify-self: flex-start;
