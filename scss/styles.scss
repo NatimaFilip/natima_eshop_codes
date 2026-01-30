@@ -44,12 +44,6 @@ $desktop-large-min: 1680px;
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	* {
-		z-index: 1;
-	}
-	img {
-		z-index: 2;
-	}
 }
 
 @mixin image-foreground-margin-category {
@@ -61,7 +55,7 @@ $desktop-large-min: 1680px;
 	content: "";
 	position: absolute;
 	display: flex;
-	z-index: 3 !important;
+
 	left: 0;
 	top: 0;
 	pointer-events: none;

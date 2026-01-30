@@ -1908,12 +1908,6 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
       -ms-flex-direction: column;
           flex-direction: column;
 }
-body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-image a * {
-  z-index: 1;
-}
-body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-image a img {
-  z-index: 2;
-}
 body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product .cart-widget-product-image a img {
   width: var(--image-width);
   height: auto;
@@ -1928,7 +1922,6 @@ body.cart-window-visible #cart-widget .cart-widget-products .cart-widget-product
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 3 !important;
   left: 0;
   top: 0;
   pointer-events: none;
@@ -4058,12 +4051,6 @@ body.dklab-favourites .category-header > div strong {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.products-block .product .p .image * {
-  z-index: 1;
-}
-.products-block .product .p .image img {
-  z-index: 2;
-}
 .products-block .product .p .image img {
   width: 100%;
   height: auto;
@@ -4079,7 +4066,6 @@ body.dklab-favourites .category-header > div strong {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 3 !important;
   left: 0;
   top: 0;
   pointer-events: none;
@@ -7116,12 +7102,6 @@ body.sticky-header-off .messages > * {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.type-product .product-top .p-image-wrapper .p-image a.p-main-image * {
-  z-index: 1;
-}
-.type-product .product-top .p-image-wrapper .p-image a.p-main-image img {
-  z-index: 2;
-}
 .type-product .product-top .p-image-wrapper .p-image a.p-main-image img {
   width: var(--image-width);
   height: auto;
@@ -7141,7 +7121,6 @@ body.sticky-header-off .messages > * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 3 !important;
   left: 0;
   top: 0;
   pointer-events: none;
@@ -7441,12 +7420,6 @@ body.sticky-header-off .messages > * {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnails-inner > div > a.p-thumbnail * {
-  z-index: 1;
-}
-.type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnails-inner > div > a.p-thumbnail img {
-  z-index: 2;
-}
 .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnails-inner > div > a.p-thumbnail img {
   --image-padding-side: 30px;
   --image-padding-top: 10px;
@@ -7475,7 +7448,6 @@ body.sticky-header-off .messages > * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 3 !important;
   left: 0;
   top: 0;
   pointer-events: none;
@@ -9070,12 +9042,6 @@ body.sticky-header-off .messages > * {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-image-wrapper * {
-  z-index: 1;
-}
-.type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-image-wrapper img {
-  z-index: 2;
-}
 .type-product .p-detail-tabs-wrapper > .row .shp-tabs-row .product-thumbnail .product-thumbnail-image-wrapper img {
   width: 82px;
   height: auto;
@@ -9091,7 +9057,6 @@ body.sticky-header-off .messages > * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 3 !important;
   left: 0;
   top: 0;
   pointer-events: none;
@@ -11881,12 +11846,6 @@ form[data-np-autofill-form-type=identity]:not(#order-form) input[type=checkbox]:
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.id--15 table.cart-table tbody > tr .cart-p-image * {
-  z-index: 1;
-}
-.id--15 table.cart-table tbody > tr .cart-p-image img {
-  z-index: 2;
-}
 .id--15 table.cart-table tbody > tr .cart-p-image img {
   width: var(--image-width);
   height: auto;
@@ -11901,7 +11860,6 @@ form[data-np-autofill-form-type=identity]:not(#order-form) input[type=checkbox]:
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 3 !important;
   left: 0;
   top: 0;
   pointer-events: none;
