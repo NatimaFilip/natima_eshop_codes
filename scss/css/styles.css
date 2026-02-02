@@ -3017,6 +3017,10 @@ body.type-manufacturer-detail .subcategories li a .image img,
 body.dklab-favourites .subcategories li a .image img {
   max-width: 40px;
   max-height: 40px;
+}
+body.type-category .subcategories li a .image img[src$=".svg"],
+body.type-manufacturer-detail .subcategories li a .image img[src$=".svg"],
+body.dklab-favourites .subcategories li a .image img[src$=".svg"] {
   min-width: 40px;
   min-height: 40px;
 }
@@ -3026,6 +3030,10 @@ body.dklab-favourites .subcategories li a .image img {
   body.dklab-favourites .subcategories li a .image img {
     max-width: 56px;
     max-height: 56px;
+  }
+  body.type-category .subcategories li a .image img[src$=".svg"],
+  body.type-manufacturer-detail .subcategories li a .image img[src$=".svg"],
+  body.dklab-favourites .subcategories li a .image img[src$=".svg"] {
     min-width: 56px;
     min-height: 56px;
   }

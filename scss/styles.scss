@@ -3266,13 +3266,19 @@ body.dklab-favourites {
 					img {
 						max-width: 40px;
 						max-height: 40px;
-						min-width: 40px;
-						min-height: 40px;
+
+						&[src$=".svg"] {
+							min-width: 40px;
+							min-height: 40px;
+						}
 						@media screen and (min-width: $desktop-min) {
 							max-width: 56px;
 							max-height: 56px;
-							min-width: 56px;
-							min-height: 56px;
+
+							&[src$=".svg"] {
+								min-width: 56px;
+								min-height: 56px;
+							}
 						}
 					}
 				}
