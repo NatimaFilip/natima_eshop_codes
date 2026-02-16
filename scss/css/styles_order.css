@@ -1281,10 +1281,6 @@
   display: flex;
   border-radius: var(--br-16);
   padding: 2px 25px 2px 0;
-  cursor: pointer;
-  border-style: solid;
-  border-width: 1px;
-  border-color: transparent;
 }
 @media screen and (max-width: 767px) {
   .ordering-process.id--16 #order-form .radio-wrapper,
@@ -1292,9 +1288,19 @@
     padding: 10px 15px 2px 0;
   }
 }
+.ordering-process.id--16 #order-form .radio-wrapper,
+.ordering-process.id--17 #order-form .radio-wrapper {
+  cursor: pointer;
+}
 .ordering-process.id--16 #order-form .radio-wrapper *,
 .ordering-process.id--17 #order-form .radio-wrapper * {
   cursor: inherit;
+}
+.ordering-process.id--16 #order-form .radio-wrapper,
+.ordering-process.id--17 #order-form .radio-wrapper {
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
 }
 .ordering-process.id--16 #order-form .radio-wrapper.active, .ordering-process.id--16 #order-form .radio-wrapper:hover, .ordering-process.id--16 #order-form .radio-wrapper:focus-within,
 .ordering-process.id--17 #order-form .radio-wrapper.active,

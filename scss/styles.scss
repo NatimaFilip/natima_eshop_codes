@@ -5005,6 +5005,19 @@ body.dklab-favourites {
 		}
 	}
 }
+.pl .benefitBanner {
+	@media screen and (max-width: $mobile-max) {
+		.benefitBanner__item,
+		.benefitBanner__link {
+			order: 2;
+		}
+		> .benefitBanner__item:last-of-type,
+		> .benefitBanner__item:last-of-type .benefitBanner__link {
+			width: 25em;
+			order: 1;
+		}
+	}
+}
 
 /*-------------------------------------- FOOTER */
 #footer {
@@ -5237,6 +5250,14 @@ body.dklab-favourites {
 				height: auto;
 			}
 			&.ceneo {
+				> a {
+					display: flex;
+
+					flex-direction: column;
+					align-items: center;
+					align-content: center;
+					gap: 10px;
+				}
 				img {
 					max-width: 220px;
 					padding: 0 20px;
