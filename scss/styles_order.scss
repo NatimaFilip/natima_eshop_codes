@@ -1389,6 +1389,11 @@ $desktop-large-min: 1680px;
 			grid-template-columns: 33.33% max(45%, 300px);
 			margin-bottom: 8px;
 			a {
+				text-decoration: underline;
+				color: var(--color-primary);
+				font-size: var(--fs-14);
+
+				/* 
 				display: block;
 				width: 100%;
 				color: white;
@@ -1400,7 +1405,7 @@ $desktop-large-min: 1680px;
 				&:hover,
 				&:focus {
 					background: var(--color-primary-hover);
-				}
+				} */
 			}
 			@media screen and (max-width: $mobile-max) {
 				flex-direction: column;

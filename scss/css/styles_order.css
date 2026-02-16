@@ -1694,19 +1694,22 @@
   margin-bottom: 8px;
 }
 .ordering-process.id--17 #checkoutContent .form-group:has(label[for=login]) a {
+  text-decoration: underline;
+  color: var(--color-primary);
+  font-size: var(--fs-14);
+  /* 
   display: block;
   width: 100%;
   color: white;
   background: var(--color-primary);
   border-radius: var(--br-16);
-  padding-bottom: 1px;
-  -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
-          box-shadow: inset 0px -1px 0px var(--color-primary-500);
+  @include bottom-primary-shadow;
   padding: 1.25em 0.5em;
   text-align: center;
-}
-.ordering-process.id--17 #checkoutContent .form-group:has(label[for=login]) a:hover, .ordering-process.id--17 #checkoutContent .form-group:has(label[for=login]) a:focus {
-  background: var(--color-primary-hover);
+  &:hover,
+  &:focus {
+  	background: var(--color-primary-hover);
+  } */
 }
 @media screen and (max-width: 767px) {
   .ordering-process.id--17 #checkoutContent .form-group:has(label[for=login]) {
