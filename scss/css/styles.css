@@ -5489,6 +5489,11 @@ body.dklab-favourites .category-header > div strong {
         -ms-flex-order: 1;
             order: 1;
   }
+  .pl .benefitBanner > .benefitBanner__item:last-of-type .benefitBanner__picture,
+  .pl .benefitBanner > .benefitBanner__item:last-of-type .benefitBanner__link .benefitBanner__picture {
+    display: block;
+    min-width: 9em;
+  }
 }
 
 /*-------------------------------------- FOOTER */

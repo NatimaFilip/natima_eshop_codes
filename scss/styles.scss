@@ -5015,6 +5015,11 @@ body.dklab-favourites {
 		> .benefitBanner__item:last-of-type .benefitBanner__link {
 			width: 25em;
 			order: 1;
+
+			.benefitBanner__picture {
+				display: block;
+				min-width: 9em;
+			}
 		}
 	}
 }
