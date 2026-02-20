@@ -11,7 +11,7 @@ $desktop-large-min: 1680px;
 body.test-eshop {
 	#lbx-ac-element {
 		padding: 0;
-		background-color: var(--color-primary-200);
+		background-color: var(--color-primary-100);
 		--padding-top: 25px;
 		--padding-left: 35px;
 
@@ -111,7 +111,7 @@ body.test-eshop {
 			border-style: none;
 			border-left-style: solid;
 			border-width: 1px;
-			border-color: var(--color-gray-blue-400);
+			border-color: var(--color-gray-400);
 			display: grid;
 			grid-template-columns: 2.2fr 3fr;
 
@@ -433,10 +433,13 @@ body.test-eshop {
 							transform: translate(-50%, -50%);
 							width: 18px;
 							height: 18px;
-							background-image: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/icon_cart_black.svg);
+							background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_add_to_cart.svg);
 							background-size: contain;
 							background-position: center;
 							background-repeat: no-repeat;
+						}
+						img {
+							display: none;
 						}
 					}
 				}

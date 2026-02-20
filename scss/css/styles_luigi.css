@@ -1,52 +1,53 @@
-body:not(.test-eshop) .lb-search {
+.lb-search {
   font-family: inherit !important;
 }
-body:not(.test-eshop) .luigi-ac {
+
+.luigi-ac {
   width: 1020px !important;
   max-width: 100% !important;
 }
 @media screen and (min-width: 1680px) {
-  body:not(.test-eshop) .luigi-ac {
+  .luigi-ac {
     left: -200px !important;
   }
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-ribbon,
-body:not(.test-eshop) .luigi-ac .luigi-ac-caret {
+.luigi-ac .luigi-ac-ribbon,
+.luigi-ac .luigi-ac-caret {
   display: none;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-other-content,
-body:not(.test-eshop) .luigi-ac .luigi-ac-others .luigi-ac-title {
+.luigi-ac .luigi-ac-other-content,
+.luigi-ac .luigi-ac-others .luigi-ac-title {
   color: var(--color-primary) !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-main .luigi-ac-name {
+.luigi-ac .luigi-ac-main .luigi-ac-name {
   color: var(--color-black) !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-query {
+.luigi-ac .luigi-ac-query {
   border-radius: var(--br-8);
   color: var(--color-white) !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-query .luigi-ac-other-content {
+.luigi-ac .luigi-ac-query .luigi-ac-other-content {
   color: var(--color-white) !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-inner {
+.luigi-ac .luigi-ac-inner {
   border-radius: 0 0 var(--br-12) var(--br-12);
   overflow: hidden;
   -webkit-box-shadow: 0px 4px 12px 2px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 4px 12px 2px rgba(0, 0, 0, 0.2);
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-others {
+.luigi-ac .luigi-ac-others {
   height: auto !important;
   border-style: none !important;
 }
 @media screen and (max-width: 1020px) {
-  body:not(.test-eshop) .luigi-ac .luigi-ac-others {
+  .luigi-ac .luigi-ac-others {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
     padding-bottom: 40px !important;
   }
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-image {
+.luigi-ac .luigi-ac-image {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,7 +69,7 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-image {
           flex-direction: column;
   background-color: #f5f5f5;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-image img {
+.luigi-ac .luigi-ac-image img {
   width: var(--image-width);
   height: auto;
   /* filter: brightness(1.03); */
@@ -76,7 +77,7 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-image img {
   mix-blend-mode: multiply;
   padding: 12.5% 25%;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-image:after {
+.luigi-ac .luigi-ac-image:after {
   /* 	content: "";
   position: absolute;
   display: flex;
@@ -88,7 +89,7 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-image:after {
   height: 100%;
   background-color: hsla(0, 0%, 0%, 0.04); */
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products {
+.luigi-ac .luigi-ac-products {
   border-style: none !important;
   display: grid !important;
   grid-template-columns: 40% 1fr;
@@ -96,58 +97,58 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-products {
       align-content: stretch;
   height: 100% !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main {
   width: 100% !important;
   height: 100% !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main * {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main * {
   text-align: left !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-product {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-product {
   padding: 0 10px;
   -webkit-box-orient: vertical !important;
   -webkit-box-direction: normal !important;
       -ms-flex-direction: column !important;
           flex-direction: column !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-action-primary {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-action-primary {
   position: relative;
   inset: 0;
   width: 100%;
   border-radius: var(--br-16);
   margin-top: auto !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-action-primary .luigi-ac-button-block {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-action-primary .luigi-ac-button-block {
   margin-bottom: 20px !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-action-primary .luigi-ac-button-action {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-action-primary .luigi-ac-button-action {
   text-align: center !important;
   padding: 1em 0.5em;
   background: var(--color-secondary) !important;
   border-radius: var(--br-16);
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-action-primary .luigi-ac-button-action:hover {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-action-primary .luigi-ac-button-action:hover {
   background: var(--color-secondary-hover) !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-image {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-image {
   margin-top: 8px !important;
   width: 100% !important;
   height: auto !important;
   max-width: none !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-image img {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-image img {
   padding: 10% 2.5%;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-header {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-header {
   padding-left: 10px;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-text {
+.luigi-ac .luigi-ac-products .luigi-ac-first-main .luigi-ac-text {
   padding: 0;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .flag {
+.luigi-ac .luigi-ac-products .flag {
   display: none !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-price {
+.luigi-ac .luigi-ac-products .luigi-ac-price {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,11 +163,11 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-price {
   margin-top: 10px !important;
   margin-bottom: 15px !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-price-old,
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-price-new {
+.luigi-ac .luigi-ac-products .luigi-ac-price-old,
+.luigi-ac .luigi-ac-products .luigi-ac-price-new {
   margin-bottom: 0 !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main {
   -webkit-box-orient: vertical !important;
   -webkit-box-direction: normal !important;
       -ms-flex-direction: column !important;
@@ -177,36 +178,36 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main {
   margin-bottom: 0 !important;
   height: 100%;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main > a {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main > a {
   width: 100% !important;
   padding: 8px !important;
   margin: 0 !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main > a:last-of-type {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main > a:last-of-type {
   display: none !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image {
   height: auto !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main img {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main img {
   margin: 0 !important;
   max-height: 50px !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-name {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-name {
   font-size: var(--fs-13) !important;
   white-space: normal;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-header {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-header {
   padding-left: 8px;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block {
   margin-bottom: 20px !important;
   position: relative;
   inset: 0;
   width: 100%;
   padding: 0 8px !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block .luigi-ac-button {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block .luigi-ac-button {
   text-align: center !important;
   padding: 1em 0.5em;
   margin-top: 10px !important;
@@ -219,31 +220,31 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac
   -webkit-transition: none !important;
   transition: none !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block .luigi-ac-button:hover {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block .luigi-ac-button:hover {
   background: var(--color-primary) !important;
   color: var(--color-white) !important;
   border-color: var(--color-primary) !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-price {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-price {
   margin-top: 5px !important;
   margin-bottom: 5px !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image {
   height: auto !important;
   max-width: none !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image img {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image img {
   padding: 5px !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero {
   right: 10px !important;
   border-radius: 8px;
   background-color: var(--color-secondary) !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero:hover {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero:hover {
   background-color: var(--color-secondary-hover) !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero:before {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -256,28 +257,29 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac
   background-size: contain;
   background-repeat: no-repeat;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero img {
+.luigi-ac .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero img {
   display: none;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-close {
+.luigi-ac .luigi-ac-close {
   top: 10px !important;
   width: 26px !important;
   height: 26px !important;
 }
-body:not(.test-eshop) .luigi-ac .luigi-ac-close:before, body:not(.test-eshop) .luigi-ac .luigi-ac-close:after {
+.luigi-ac .luigi-ac-close:before, .luigi-ac .luigi-ac-close:after {
   background: var(--color-red-400) !important;
   height: 2px !important;
 }
+
 @media screen and (max-width: 767px) {
-  body:not(.test-eshop) body.custom-search-active {
+  body.custom-search-active {
     overflow-y: hidden;
     overflow-x: hidden;
     position: relative;
   }
-  body:not(.test-eshop) body.custom-search-active input[type=search] {
+  body.custom-search-active input[type=search] {
     z-index: 9999 !important;
   }
-  body:not(.test-eshop) body.custom-search-active input[type=search].active {
+  body.custom-search-active input[type=search].active {
     display: block !important;
     position: fixed !important;
     left: calc(var(--padding-sides) + 5%) !important;
@@ -290,11 +292,11 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-close:before, body:not(.test-eshop) .l
     border-color: var(--color-black-o-60);
     border-width: 1px;
   }
-  body:not(.test-eshop) body.custom-search-active input[type=search]:focus {
+  body.custom-search-active input[type=search]:focus {
     border-color: var(--color-primary);
     border-width: 2px;
   }
-  body:not(.test-eshop) body.custom-search-active #header::before {
+  body.custom-search-active #header::before {
     content: "";
     position: fixed;
     left: 0;
@@ -306,7 +308,7 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-close:before, body:not(.test-eshop) .l
     z-index: 9999;
     pointer-events: auto;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac {
+  body.custom-search-active .luigi-ac {
     border-radius: var(--br-12);
     position: fixed;
     z-index: 10000;
@@ -316,13 +318,13 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-close:before, body:not(.test-eshop) .l
     padding-top: 0;
     margin-top: 25px !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
     grid-template-columns: 1fr;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -330,44 +332,44 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-close:before, body:not(.test-eshop) .l
     max-width: 100%;
     height: auto !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-header {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-header {
     margin-top: 20px !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product {
     height: auto !important;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-description {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-description {
     margin: 0 10px;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-image img {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-image img {
     max-width: 100%;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-price {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-price {
     margin-top: 0 !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-action-primary {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-first-main .luigi-ac-product .luigi-ac-action-primary {
     width: 100%;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main {
     margin-top: 20px !important;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding-bottom: 20px;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-header {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-header {
     grid-column: 1/-1;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main > a:last-of-type {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main > a:last-of-type {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-product {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-product {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -377,7 +379,7 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-close:before, body:not(.test-eshop) .l
             flex-direction: column;
     padding: 0 !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -386,13 +388,13 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-close:before, body:not(.test-eshop) .l
             align-items: center !important;
     max-height: none !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image img {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image img {
     margin: 0 auto !important;
     max-width: 100% !important;
     max-height: none !important;
     padding: 10% !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-text .luigi-ac-name {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-text .luigi-ac-name {
     padding-top: 5px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -400,25 +402,24 @@ body:not(.test-eshop) .luigi-ac .luigi-ac-close:before, body:not(.test-eshop) .l
     overflow: hidden;
     height: 3em;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-action-hero {
     bottom: calc(3.9em + 5px);
     right: 14px !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-price {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-price {
     margin: 0 !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block {
     grid-column: 1/-1;
     margin-bottom: 20px !important;
   }
-  body:not(.test-eshop) body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-others {
+  body.custom-search-active .luigi-ac .luigi-ac-inner .luigi-ac-others {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
     padding-bottom: 80px;
   }
 }
-
 #lb-search-element .lb-search__body {
   margin-top: 0;
   border-style: none;
