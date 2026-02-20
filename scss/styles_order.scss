@@ -1891,13 +1891,13 @@ $desktop-large-min: 1680px;
 					td {
 						border-top-style: solid;
 						border-top-width: 1px;
-						border-top-color: var(--color-gray-600);
+						border-top-color: var(--color-gray-400);
 					}
 					&:last-child {
 						td {
 							border-bottom-style: solid;
 							border-bottom-width: 1px;
-							border-bottom-color: var(--color-gray-600);
+							border-bottom-color: var(--color-gray-400);
 						}
 					}
 				}
@@ -1915,9 +1915,9 @@ $desktop-large-min: 1680px;
 			order: 3;
 			.row {
 				padding: 20px 25px;
-				border-style: solid;
+				/* 				border-style: solid;
 				border-width: 1px;
-				border-color: var(--color-gray-600);
+				border-color: var(--color-gray-600); */
 				border-radius: 16px;
 				background-color: var(--color-gray-400);
 				max-width: 450px;
@@ -1973,6 +1973,7 @@ $desktop-large-min: 1680px;
 					margin-bottom: 15px;
 					color: white;
 					padding: 0.5em 1em;
+					font-weight: var(--fw-700);
 					&:hover,
 					&:focus {
 						background: var(--color-primary-500);
