@@ -10491,6 +10491,7 @@ html.cookies-visible .siteCookies {
 }
 .content-modal .shipping-options-popup > h1 {
   text-align: center;
+  padding-bottom: 1em;
 }
 .content-modal .shipping-row {
   display: grid;

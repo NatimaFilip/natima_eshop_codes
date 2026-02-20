@@ -3217,7 +3217,6 @@ if (body.classList.contains("type-product")) {
 	});
 
 	/*Možnosti doručení popup*/
-	// write a listener when "shipping-options-popup" appears in the DOM and than console log "NOW YOU SEE ME"
 	editDeliveryPricesPopup();
 	function editDeliveryPricesPopup() {
 		let lastShippingCheck = Date.now();
@@ -3232,7 +3231,7 @@ if (body.classList.contains("type-product")) {
 							return; // Skip if the last check was less than 1 second ago
 						}
 						lastShippingCheck = now;
-						console.log("NOW YOU SEE ME");
+
 						/* 		observer.disconnect(); */
 						changePricesInShippingTooltip();
 					}
