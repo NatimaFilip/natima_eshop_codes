@@ -63,11 +63,11 @@ body.test-eshop #lbx-ac-element .luigi-ac-header {
   font-weight: 700;
   padding: 0;
   margin: 0;
-  padding-bottom: 1em;
+  padding-bottom: 8px;
 }
 @media screen and (max-width: 767px) {
   body.test-eshop #lbx-ac-element .luigi-ac-header {
-    padding-bottom: 0.75em;
+    /* padding-bottom: 0.75em; */
   }
 }
 body.test-eshop #lbx-ac-element .luigi-ac-others {
@@ -100,6 +100,9 @@ body.test-eshop #lbx-ac-element .luigi-ac-others .luigi-ac-queries .luigi-ac-ite
   border-radius: 8px;
   padding: 0.25em 0.5em;
 }
+body.test-eshop #lbx-ac-element .luigi-ac-others .luigi-ac-queries .luigi-ac-item .luigi-ac-other-content {
+  color: white !important;
+}
 body.test-eshop #lbx-ac-element .luigi-ac-others .luigi-ac-header:not(:first-of-type) {
   padding-top: 1em;
 }
@@ -127,9 +130,8 @@ body.test-eshop #lbx-ac-element .luigi-ac-main > * {
 body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main {
   margin: 0;
   padding: var(--padding-top) var(--padding-left);
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
 }
 body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main .luigi-ac-button-buy {
   /* @include add-to-cart-button; */
@@ -157,6 +159,7 @@ body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main > a {
   background: transparent;
   height: auto;
   overflow: auto;
+  background-color: white !important;
 }
 @media screen and (max-width: 767px) {
   body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main > a {
@@ -377,6 +380,13 @@ body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac
   padding-top: 1em;
   padding-bottom: 1em;
   font-size: var(--fs-16);
+  border-radius: 16px;
+  background-color: var(--color-primary) !important;
+  -webkit-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block--show-all .luigi-ac-button:hover, body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block--show-all .luigi-ac-button:focus {
+  background-color: var(--color-primary-hover) !important;
 }
 @media screen and (max-width: 767px) {
   body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-button-block--show-all .luigi-ac-button {
