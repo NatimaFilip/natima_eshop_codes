@@ -1,0 +1,446 @@
+$large-mobile-min: 500px;
+$mobile-max: 767px;
+
+$tablet-min: 768px;
+$tablet-medium-min: 1024px;
+$tablet-max: 1279px;
+$desktop-min: 1280px;
+$desktop-medium-min: 1440px;
+$desktop-large-min: 1680px;
+
+body.test-eshop {
+	#lbx-ac-element {
+		padding: 0;
+		background-color: var(--color-primary-200);
+		--padding-top: 25px;
+		--padding-left: 35px;
+
+		width: 1440px !important;
+		max-width: 90vw !important;
+		border-radius: 8px;
+
+		overflow: auto;
+		max-height: none !important;
+		top: calc(var(--header-height) / 2 + 10px) !important;
+		position: fixed;
+		transition: top 0.2s ease-in-out;
+
+		@media screen and (max-width: $mobile-max) {
+			width: 100% !important;
+			max-width: 100% !important;
+			--padding-top: 15px;
+			--padding-left: 15px;
+			top: calc(var(--header-height) + var(--mobile-search-height)) !important;
+			left: 0 !important;
+			border-radius: 0;
+			min-height: calc(100vh - var(--header-height) - var(--mobile-search-height)) !important;
+			max-height: calc(100vh - var(--header-height) - var(--mobile-search-height)) !important;
+			min-height: calc(100svh - var(--header-height) - var(--mobile-search-height)) !important;
+			max-height: calc(100svh - var(--header-height) - var(--mobile-search-height)) !important;
+			padding-bottom: 150px;
+		}
+
+		.luigi-ac-inner {
+			display: grid;
+			grid-template-columns: 24% 76%;
+			> * {
+				width: 100%;
+			}
+
+			@media screen and (max-width: $mobile-max) {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		.luigi-ac-others,
+		.luigi-ac-products {
+			background: transparent;
+		}
+		.luigi-ac-footer {
+			display: none;
+		}
+
+		.luigi-ac-close {
+			top: 16px;
+			right: 16px;
+		}
+
+		.luigi-ac-ribbon,
+		.luigi-ac-caret {
+			display: none;
+		}
+
+		.luigi-ac-header {
+			height: auto;
+			display: block;
+			font-size: var(--fs-18);
+			font-weight: 700;
+			padding: 0;
+			margin: 0;
+			padding-bottom: 1em;
+			@media screen and (max-width: $mobile-max) {
+				padding-bottom: 0.75em;
+			}
+		}
+
+		.luigi-ac-others {
+			padding: var(--padding-top) var(--padding-left);
+			border-style: none;
+
+			@media screen and (max-width: $mobile-max) {
+				grid-row: 2;
+			}
+
+			.luigi-ac-item {
+				padding: 0.25em 0;
+				margin: 0;
+				background: transparent !important;
+				&:hover,
+				&:focus {
+					color: var(--color-primary);
+					text-decoration: underline;
+				}
+			}
+			.luigi-ac-other-content {
+				text-wrap: auto;
+			}
+		}
+
+		.luigi-ac-main {
+			height: auto;
+			border-style: none;
+			border-left-style: solid;
+			border-width: 1px;
+			border-color: var(--color-gray-blue-400);
+			display: grid;
+			grid-template-columns: 2.2fr 3fr;
+
+			@media screen and (max-width: $mobile-max) {
+				grid-template-columns: 1fr;
+				grid-row: 1;
+			}
+			> * {
+				width: 100%;
+			}
+		}
+
+		.luigi-ac-products {
+			.luigi-ac-first-main {
+				margin: 0;
+				padding: var(--padding-top) var(--padding-left);
+
+				.luigi-ac-button-buy {
+					/* @include add-to-cart-button; */
+					color: black !important;
+
+					@media screen and (max-width: $mobile-max) {
+						font-size: var(--fs-14);
+						padding: 0.7142em;
+					}
+				}
+				> a {
+					padding: 0;
+					border-style: solid;
+					border-width: 1px;
+					border-color: var(--color-gray-400);
+					border-radius: 8px;
+					margin: 0;
+					background: transparent;
+					height: auto;
+					overflow: auto;
+
+					@media screen and (max-width: $mobile-max) {
+						display: grid;
+						grid-template-columns: 0.75fr 1fr;
+					}
+
+					&:hover,
+					&:focus {
+						.luigi-ac-name {
+							color: var(--color-primary);
+							text-decoration: underline;
+						}
+					}
+
+					.luigi-ac-image {
+						width: 100% !important;
+						height: auto;
+						max-height: none;
+						max-width: none;
+						background: white;
+						border-bottom-style: solid;
+						border-width: 1px;
+						border-color: var(--color-gray-400);
+
+						margin: 0;
+
+						@media screen and (max-width: $mobile-max) {
+							height: 100%;
+							border-style: none;
+						}
+						img {
+							width: 100%;
+							max-width: 270px;
+							margin: 20px auto;
+						}
+						.flag {
+							display: none;
+						}
+					}
+					.luigi-ac-attrs {
+						display: flex;
+						flex-direction: column;
+						max-height: none;
+						gap: 12px;
+						align-items: flex-start;
+
+						.luigi-ac-attr--short_description {
+							line-height: 1.2;
+							margin: 0;
+							font-size: var(--fs-13);
+							font-weight: 400;
+							--number-of-lines: 2;
+							line-height: 1.2;
+							max-height: calc(var(--number-of-lines) + (var(--number-of-lines) - 1) * 1.2);
+							display: -webkit-box;
+							-webkit-line-clamp: var(--number-of-lines);
+							-webkit-box-orient: vertical;
+							overflow: hidden;
+							margin: 0;
+							font-size: var(--fs-13);
+							h2 {
+								text-wrap: pretty;
+								margin: 0;
+								font-size: inherit;
+								font-weight: inherit;
+								line-height: inherit;
+							}
+							ul {
+								display: none;
+							}
+							@media screen and (max-width: $mobile-max) {
+								display: none;
+							}
+						}
+					}
+
+					.luigi-ac-description {
+						text-align: left;
+						padding: 16px;
+						gap: 12px;
+						@media screen and (max-width: $mobile-max) {
+							padding: 10px;
+							gap: 4px;
+							margin-left: 0;
+						}
+						.luigi-ac-text {
+							padding: 0;
+						}
+						.luigi-ac-name {
+							font-size: var(--fs-16);
+							padding-bottom: 12px;
+							@media screen and (max-width: $mobile-max) {
+								font-size: var(--fs-14);
+								padding-bottom: 0.5em;
+							}
+						}
+					}
+					.luigi-ac-price {
+						margin: 0;
+						display: flex;
+						flex-direction: row;
+						gap: 8px;
+						align-items: center;
+						font-size: var(--fs-24);
+						.luigi-ac-price-new {
+							margin: 0;
+						}
+						.luigi-ac-price-old {
+							color: var(--color-red-400);
+							text-decoration: line-through;
+							margin: 0;
+							font-size: inherit;
+						}
+						@media screen and (max-width: $mobile-max) {
+							font-size: var(--fs-16);
+						}
+					}
+					.luigi-ac-button-block {
+						margin: 0;
+					}
+					.luigi-ac-action-primary {
+						position: initial;
+						width: 100%;
+					}
+					.luigi-ac-attr--availability_rank_text {
+						color: var(--color-cta-400);
+						font-weight: 700;
+						background: var(--color-cta-200);
+						border-radius: 8px;
+						padding: 2px 4px;
+						font-size: var(--fs-13);
+					}
+				}
+			}
+
+			.luigi-ac-rest-main {
+				margin: 0;
+				padding: var(--padding-top) var(--padding-left);
+				display: grid;
+				grid-template-columns: 1fr;
+				flex-direction: column;
+				gap: 16px;
+				height: 100%;
+				@media screen and (max-width: $mobile-max) {
+					padding-top: 0;
+					gap: 12px;
+				}
+				> * {
+					width: 100%;
+					padding: 0;
+				}
+				> a {
+					border-style: solid;
+					border-width: 1px;
+					border-color: var(--color-gray-400);
+					border-radius: 8px;
+					background: white;
+					padding: 10px 15px;
+					background: white;
+					&:hover,
+					&:focus {
+						.luigi-ac-name {
+							color: var(--color-primary);
+							text-decoration: underline;
+						}
+					}
+				}
+				.luigi-ac-image {
+					height: auto;
+					max-height: none;
+					width: 70px !important;
+
+					@media screen and (max-width: $mobile-max) {
+						width: 55px !important;
+					}
+
+					img {
+						width: 100%;
+					}
+				}
+				.flag {
+					display: none;
+				}
+				.luigi-ac-attr--short_description {
+					display: none;
+				}
+				.luigi-ac-button-block--show-all {
+					position: initial;
+					margin: 0;
+					.luigi-ac-button {
+						/* 	@include primaryButton; */
+						width: 100%;
+						max-width: none;
+						text-align: center;
+						align-items: center;
+						justify-content: center;
+						padding-top: 1em;
+						padding-bottom: 1em;
+						font-size: var(--fs-16);
+
+						@media screen and (max-width: $mobile-max) {
+							font-size: var(--fs-14);
+							padding: 0.7142em;
+						}
+					}
+				}
+
+				.luigi-ac-description {
+					display: grid;
+					grid-template-columns: 90px 1fr 1fr;
+					grid-template-rows: 2.625em 2.625em;
+
+					.luigi-ac-text {
+						display: grid;
+						grid-template-columns: 90px 1fr 1fr;
+						grid-template-rows: 2.625em 2.625em;
+						grid-column: 1/-1;
+						grid-row: 1/3;
+						margin: 0;
+
+						.luigi-ac-name {
+							grid-column: 1/-1;
+							grid-row: 1;
+						}
+						.luigi-ac-attrs {
+							display: block;
+							margin: 0;
+							grid-column: 1;
+							grid-row: 2;
+							align-content: center;
+						}
+						.luigi-ac-attr--availability_rank_text {
+							align-self: center;
+							color: var(--color-cta-400);
+							font-weight: 700;
+							background: var(--color-cta-200);
+							border-radius: 8px;
+							padding: 2px 4px;
+							font-size: var(--fs-13);
+						}
+					}
+
+					.luigi-ac-price {
+						grid-column: 2;
+						grid-row: 2;
+						padding-top: 0px;
+						display: flex;
+						flex-direction: row;
+						gap: 8px;
+						align-items: center;
+						font-size: var(--fs-16);
+						@media screen and (max-width: $mobile-max) {
+							font-size: var(--fs-14);
+						}
+
+						.luigi-ac-price-new {
+							margin: 0;
+						}
+						.luigi-ac-price-old {
+							color: var(--color-red-400);
+							text-decoration: line-through;
+							font-size: inherit;
+						}
+					}
+
+					.luigi-ac-hero-color-clickable {
+						grid-column: 3;
+						grid-row: 2;
+						position: relative;
+						inset: 0;
+						margin-left: auto;
+						/* @include add-to-cart-button; */
+
+						width: 24px;
+						height: 24px;
+
+						&::before {
+							position: absolute;
+							content: "";
+							display: block;
+							left: 50%;
+							top: 50%;
+							transform: translate(-50%, -50%);
+							width: 18px;
+							height: 18px;
+							background-image: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/icon_cart_black.svg);
+							background-size: contain;
+							background-position: center;
+							background-repeat: no-repeat;
+						}
+					}
+				}
+			}
+		}
+	}
+}
