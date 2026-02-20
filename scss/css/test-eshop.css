@@ -88,6 +88,9 @@ body.test-eshop #lbx-ac-element .luigi-ac-others .luigi-ac-item:hover, body.test
   color: var(--color-primary);
   text-decoration: underline;
 }
+body.test-eshop #lbx-ac-element .luigi-ac-others .luigi-ac-item .luigi-ac-other-content {
+  color: var(--color-primary) !important;
+}
 body.test-eshop #lbx-ac-element .luigi-ac-others .luigi-ac-queries {
   padding: 0;
 }
@@ -124,10 +127,19 @@ body.test-eshop #lbx-ac-element .luigi-ac-main > * {
 body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main {
   margin: 0;
   padding: var(--padding-top) var(--padding-left);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main .luigi-ac-button-buy {
   /* @include add-to-cart-button; */
-  color: black !important;
+  color: white !important;
+  background: var(--color-cta-400) !important;
+  border-radius: 16px;
+  padding: 0.75em 1em;
+}
+body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main .luigi-ac-button-buy:hover, body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main .luigi-ac-button-buy:focus {
+  background: var(--color-cta-600) !important;
 }
 @media screen and (max-width: 767px) {
   body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main .luigi-ac-button-buy {
@@ -303,7 +315,7 @@ body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 16px;
+  gap: 8px;
   height: 100%;
 }
 @media screen and (max-width: 767px) {
@@ -447,11 +459,11 @@ body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: var(--color-cta-400);
+  background: var(--color-cta-400) !important;
   padding: 0;
 }
 body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-description .luigi-ac-hero-color-clickable:hover, body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-description .luigi-ac-hero-color-clickable:focus {
-  background: var(--color-cta-600);
+  background: var(--color-cta-600) !important;
 }
 body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-description .luigi-ac-hero-color-clickable::before {
   position: absolute;

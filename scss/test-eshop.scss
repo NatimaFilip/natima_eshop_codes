@@ -95,10 +95,14 @@ body.test-eshop {
 				padding: 0.25em 0;
 				margin: 0;
 				background: transparent !important;
+
 				&:hover,
 				&:focus {
 					color: var(--color-primary);
 					text-decoration: underline;
+				}
+				.luigi-ac-other-content {
+					color: var(--color-primary) !important;
 				}
 			}
 			.luigi-ac-queries {
@@ -142,10 +146,18 @@ body.test-eshop {
 			.luigi-ac-first-main {
 				margin: 0;
 				padding: var(--padding-top) var(--padding-left);
+				align-items: flex-start;
 
 				.luigi-ac-button-buy {
 					/* @include add-to-cart-button; */
-					color: black !important;
+					color: white !important;
+					background: var(--color-cta-400) !important;
+					border-radius: 16px;
+					padding: 0.75em 1em;
+					&:hover,
+					&:focus {
+						background: var(--color-cta-600) !important;
+					}
 
 					@media screen and (max-width: $mobile-max) {
 						font-size: var(--fs-14);
@@ -303,7 +315,7 @@ body.test-eshop {
 				display: grid;
 				grid-template-columns: 1fr;
 				flex-direction: column;
-				gap: 16px;
+				gap: 8px;
 				height: 100%;
 				@media screen and (max-width: $mobile-max) {
 					padding-top: 0;
@@ -438,11 +450,11 @@ body.test-eshop {
 						width: 32px;
 						height: 32px;
 						border-radius: 8px;
-						background: var(--color-cta-400);
+						background: var(--color-cta-400) !important;
 						padding: 0;
 						&:hover,
 						&:focus {
-							background: var(--color-cta-600);
+							background: var(--color-cta-600) !important;
 						}
 
 						&::before {
