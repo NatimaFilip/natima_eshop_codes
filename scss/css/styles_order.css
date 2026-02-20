@@ -2208,12 +2208,12 @@
 .id--15 .recapitulation-wrapper .co-order .cart-table tr td {
   border-top-style: solid;
   border-top-width: 1px;
-  border-top-color: var(--color-gray-400);
+  border-top-color: var(--color-gray-500);
 }
 .id--15 .recapitulation-wrapper .co-order .cart-table tr:last-child td {
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: var(--color-gray-400);
+  border-bottom-color: var(--color-gray-500);
 }
 .id--15 .recapitulation-wrapper .co-order .cart-table .p-quantity strong {
   font-weight: 400;
