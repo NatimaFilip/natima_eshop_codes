@@ -269,6 +269,9 @@
   background: var(--color-red-400) !important;
   height: 2px !important;
 }
+.luigi-ac .luigi-ac-footer {
+  display: none;
+}
 
 @media screen and (max-width: 767px) {
   body.custom-search-active {
@@ -602,8 +605,4 @@
     display: -ms-flexbox;
     display: flex;
   }
-}
-
-.luigi-ac .luigi-ac-footer {
-  display: none;
 }

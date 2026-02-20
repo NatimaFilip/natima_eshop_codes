@@ -274,6 +274,9 @@ $desktop-large-min: 1680px;
 			height: 2px !important;
 		}
 	}
+	.luigi-ac-footer {
+		display: none;
+	}
 }
 
 @media screen and (max-width: $mobile-max) {
@@ -585,8 +588,4 @@ $desktop-large-min: 1680px;
 			display: flex;
 		}
 	}
-}
-
-.luigi-ac .luigi-ac-footer {
-	display: none;
 }
