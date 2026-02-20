@@ -180,7 +180,7 @@ if (body.classList.contains("id--16")) {
 	}
 	function removePaymentFromRecap() {
 		let recapText = document.querySelector(
-			".recapitulation-shipping-billing.last .recapitulation-shipping-billing-info"
+			".recapitulation-shipping-billing.last .recapitulation-shipping-billing-info",
 		);
 		if (recapText) {
 			if (csLang) {
@@ -433,4 +433,18 @@ async function fetchImagesOfProductsInCart() {
 			console.error("There has been a problem with your fetch operation:", error);
 		}
 	});
+}
+
+if (body.classList.contains("id--15")) {
+	thxOrder();
+}
+
+function thxOrder() {
+	let thxElement = document.querySelector(".summary-thx");
+	if (!thxElement) return;
+
+	let h1Element = document.querySelector("h1");
+	if (h1Element) {
+		h1Element.insertAdjacentElement("beforebegin", thxElement);
+	}
 }
