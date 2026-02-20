@@ -2170,8 +2170,8 @@
   text-align: center;
   font-size: var(--fs-18);
   padding: 10px 20px;
-  background-color: var(--color-green-200);
-  color: var(--color-green-400);
+  background-color: var(--color-cta-200);
+  color: var(--color-cta-400);
   border-radius: 16px;
 }
 .id--15 .recapitulation-wrapper {
@@ -2306,4 +2306,9 @@
   border-radius: var(--br-16);
   font-size: var(--fs-18);
   margin-bottom: 15px;
+  color: white;
+  padding: 0.5em 1em;
+}
+.id--15 .recapitulation-wrapper .order-complete-links p a:hover, .id--15 .recapitulation-wrapper .order-complete-links p a:focus {
+  background: var(--color-primary-500);
 }
