@@ -8535,8 +8535,10 @@ html.cookies-visible .siteCookies {
 	.shipping-options-popup {
 		padding-bottom: 20px;
 		> p {
-			font-weight: var(--fw-700);
-			padding-top: 10px;
+			display: none;
+		}
+		> h1 {
+			text-align: center;
 		}
 	}
 	.shipping-row {

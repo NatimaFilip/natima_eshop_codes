@@ -10487,8 +10487,10 @@ html.cookies-visible .siteCookies {
   padding-bottom: 20px;
 }
 .content-modal .shipping-options-popup > p {
-  font-weight: var(--fw-700);
-  padding-top: 10px;
+  display: none;
+}
+.content-modal .shipping-options-popup > h1 {
+  text-align: center;
 }
 .content-modal .shipping-row {
   display: grid;
