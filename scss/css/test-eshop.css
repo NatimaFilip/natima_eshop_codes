@@ -351,6 +351,7 @@ body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac
   height: auto;
   max-height: none;
   width: 70px !important;
+  border-color: var(--color-gray-400);
 }
 @media screen and (max-width: 767px) {
   body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image {
@@ -359,6 +360,7 @@ body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac
 }
 body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image img {
   width: 100%;
+  mix-blend-mode: multiply;
 }
 body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .flag {
   display: none;

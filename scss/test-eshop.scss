@@ -352,6 +352,7 @@ body.test-eshop {
 					height: auto;
 					max-height: none;
 					width: 70px !important;
+					border-color: var(--color-gray-400);
 
 					@media screen and (max-width: $mobile-max) {
 						width: 55px !important;
@@ -359,6 +360,7 @@ body.test-eshop {
 
 					img {
 						width: 100%;
+						mix-blend-mode: multiply;
 					}
 				}
 				.flag {
