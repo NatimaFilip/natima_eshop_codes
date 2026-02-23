@@ -21,7 +21,7 @@ $desktop-large-min: 1680px;
 					display: block !important;
 					position: fixed !important;
 					left: calc(var(--padding-sides) + 5%) !important;
-					top: 50px !important;
+					top: var(--header-height) !important;
 					background: var(--color-white) !important;
 					font-size: var(--fs-16) !important;
 					padding: 1em 0.5em !important;
@@ -36,27 +36,12 @@ $desktop-large-min: 1680px;
 					border-width: 2px;
 				}
 			}
-
-			#header {
-				&::before {
-					content: "";
-					position: fixed;
-					left: 0;
-					top: 0;
-					width: 100vw;
-					height: 100vh;
-					background: var(--color-black-o-60);
-
-					backdrop-filter: blur(5px);
-					z-index: 9999; // High enough to be above everything except your modal
-					pointer-events: auto;
-				}
-			}
 		}
 	}
 }
 
 body.test-eshop {
+	--mobile-search-height: 60px;
 	&.sticky-header-off,
 	&.scrolled-down {
 		#lbx-ac-element {
