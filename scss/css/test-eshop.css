@@ -10,15 +10,26 @@
   body.custom-search-active.test-eshop input[type=search].active {
     display: block !important;
     position: fixed !important;
-    left: 0 !important;
+    left: var(--padding-sides) !important;
     top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6)) !important;
     background: var(--color-white) !important;
     font-size: var(--fs-16) !important;
     padding: 1em 0.5em !important;
-    width: 100% !important;
+    width: calc(100% - var(--padding-sides) * 2) !important;
     border-style: solid;
     border-color: var(--color-primary);
     border-width: 1px;
+    outline: none !important;
+  }
+  body.custom-search-active.test-eshop input[type=search].active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    background: red;
+    width: calc(100% + var(--padding-sides) * 2);
+    height: 100%;
+    left: calc(-1 * var(--padding-sides));
+    z-index: -1;
   }
   body.custom-search-active.test-eshop input[type=search]:focus {
     border-color: var(--color-primary);
@@ -55,13 +66,13 @@ body.test-eshop #lbx-ac-element {
     max-width: 100% !important;
     --padding-top: 15px;
     --padding-left: 15px;
-    top: calc(var(--header-height) + var(--mobile-search-height)) !important;
+    top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + var(--mobile-search-height)) !important;
     left: 0 !important;
     border-radius: 0;
-    min-height: calc(100vh - var(--header-height) - var(--mobile-search-height)) !important;
-    max-height: calc(100vh - var(--header-height) - var(--mobile-search-height)) !important;
-    min-height: calc(100svh - var(--header-height) - var(--mobile-search-height)) !important;
-    max-height: calc(100svh - var(--header-height) - var(--mobile-search-height)) !important;
+    min-height: calc(100vh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)) !important;
+    max-height: calc(100vh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)) !important;
+    min-height: calc(100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)) !important;
+    max-height: calc(100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)) !important;
     padding-bottom: 150px;
   }
 }

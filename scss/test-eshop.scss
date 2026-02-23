@@ -29,6 +29,7 @@ $desktop-large-min: 1680px;
 					border-style: solid;
 					border-color: var(--color-primary);
 					border-width: 1px;
+					outline: none !important;
 					&::before {
 						content: "";
 						position: absolute;
@@ -86,16 +87,16 @@ body.test-eshop {
 			left: 0 !important;
 			border-radius: 0;
 			min-height: calc(
-				100vh - var(--header-height)- var(--padding-top-header)- var(--gap-6) - var(--mobile-search-height)
+				100vh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)
 			) !important;
 			max-height: calc(
-				100vh - var(--header-height)- var(--padding-top-header)- var(--gap-6)- var(--mobile-search-height)
+				100vh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)
 			) !important;
 			min-height: calc(
-				100svh - var(--header-height)- var(--padding-top-header) -var(--gap-6) - var(--mobile-search-height)
+				100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)
 			) !important;
 			max-height: calc(
-				100svh -var(--header-height)- var(--padding-top-header)- var(--gap-6) - var(--mobile-search-height)
+				100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)
 			) !important;
 			padding-bottom: 150px;
 		}
