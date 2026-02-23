@@ -16,7 +16,7 @@ $desktop-large-min: 1680px;
 			position: relative;
 			// Create a stacking context
 			#header {
-				background: white !important;
+				background: var(--color-primary-100) !important;
 			}
 			input[type="search"] {
 				z-index: 9999 !important; // High enough to be above everything except your modal
@@ -47,14 +47,11 @@ $desktop-large-min: 1680px;
 						left: 0;
 						top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6));
 						height: calc(var(--mobile-search-height) + 8px);
-						background: white;
+						background: var(--color-primary-100);
 						width: 100%;
 						filter: drop-shadow(0px 12px 6px rgba(0, 0, 0, 0.2));
 					}
 				}
-			}
-			#lbx-ac-element {
-				filter: none !important;
 			}
 		}
 	}
@@ -92,7 +89,7 @@ body.test-eshop {
 			--padding-top: 15px;
 			--padding-left: 15px;
 			top: calc(
-				var(--header-height) + var(--padding-top-header) + var(--gap-6) + var(--mobile-search-height)
+				var(--header-height) + var(--padding-top-header) + var(--gap-6) + var(--mobile-search-height) + 8px
 			) !important;
 			left: 0 !important;
 			border-radius: 0;
@@ -109,6 +106,9 @@ body.test-eshop {
 				100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)
 			) !important;
 			padding-bottom: 150px;
+			margin-top: 0 !important;
+
+			filter: none !important;
 		}
 
 		.luigi-ac-inner {
