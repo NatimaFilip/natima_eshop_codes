@@ -25,7 +25,7 @@ body.test-eshop {
 		/* top: calc(var(--header-height) / 2 + 10px) !important; */
 		position: fixed;
 		transition: top 0.2s ease-in-out;
-		filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.12));
+		filter: drop-shadow(0px 18px 22px rgba(0, 0, 0, 0.5));
 
 		@media screen and (max-width: $mobile-max) {
 			width: 100% !important;
@@ -56,7 +56,7 @@ body.test-eshop {
 
 		.luigi-ac-others,
 		.luigi-ac-products {
-			background: transparent;
+			background: transparent !important;
 		}
 		.luigi-ac-footer {
 			display: none;

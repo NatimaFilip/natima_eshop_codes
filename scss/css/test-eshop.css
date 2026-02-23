@@ -13,8 +13,8 @@ body.test-eshop #lbx-ac-element {
   position: fixed;
   -webkit-transition: top 0.2s ease-in-out;
   transition: top 0.2s ease-in-out;
-  -webkit-filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.12));
-          filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.12));
+  -webkit-filter: drop-shadow(0px 18px 22px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(0px 18px 22px rgba(0, 0, 0, 0.5));
 }
 @media screen and (max-width: 767px) {
   body.test-eshop #lbx-ac-element {
@@ -46,7 +46,7 @@ body.test-eshop #lbx-ac-element .luigi-ac-inner > * {
 }
 body.test-eshop #lbx-ac-element .luigi-ac-others,
 body.test-eshop #lbx-ac-element .luigi-ac-products {
-  background: transparent;
+  background: transparent !important;
 }
 body.test-eshop #lbx-ac-element .luigi-ac-footer {
   display: none;
