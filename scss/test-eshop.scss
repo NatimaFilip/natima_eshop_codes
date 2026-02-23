@@ -49,16 +49,19 @@ $desktop-large-min: 1680px;
 						height: calc(var(--mobile-search-height) + 8px);
 						background: white;
 						width: 100%;
-						filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.25));
+						filter: drop-shadow(0px 12px 6px rgba(0, 0, 0, 0.2));
 					}
 				}
+			}
+			#lbx-ac-element {
+				filter: none !important;
 			}
 		}
 	}
 }
 
 body.test-eshop {
-	--mobile-search-height: 52px;
+	--mobile-search-height: 54px;
 	&.sticky-header-off,
 	&.scrolled-down {
 		#lbx-ac-element {
