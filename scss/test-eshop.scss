@@ -15,6 +15,18 @@ $desktop-large-min: 1680px;
 			overflow-x: hidden;
 			position: relative;
 			// Create a stacking context
+			&::before {
+				content: "";
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: hsla(var(--color-primary-hover-h), var(--color-primary-hover-s), var(--color-primary-hover-l), 0.5);
+				z-index: 999;
+				pointer-events: none;
+				backdrop-filter: blur(5px);
+			}
 			#header {
 				background: var(--color-primary-100) !important;
 			}
@@ -94,16 +106,16 @@ body.test-eshop {
 			left: 0 !important;
 			border-radius: 0;
 			min-height: calc(
-				100vh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)
+				100vh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height) - 8px
 			) !important;
 			max-height: calc(
-				100vh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)
+				100vh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height) - 8px
 			) !important;
 			min-height: calc(
-				100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)
+				100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height) - 8px
 			) !important;
 			max-height: calc(
-				100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height)
+				100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height) - 8px
 			) !important;
 			padding-bottom: 150px;
 			margin-top: 0 !important;
