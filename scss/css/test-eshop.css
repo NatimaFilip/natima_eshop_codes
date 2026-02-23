@@ -4,6 +4,9 @@
     overflow-x: hidden;
     position: relative;
   }
+  body.custom-search-active.test-eshop #header {
+    background: white !important;
+  }
   body.custom-search-active.test-eshop input[type=search] {
     z-index: 9999 !important;
   }
@@ -25,7 +28,7 @@
     border-color: var(--color-primary);
     border-width: 2px;
   }
-  body.custom-search-active.test-eshop input[type=search] .search-form fieldset::after {
+  body.custom-search-active.test-eshop .search-form fieldset::after {
     content: "";
     position: fixed;
     left: 0;
