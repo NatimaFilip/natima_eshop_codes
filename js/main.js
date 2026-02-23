@@ -453,6 +453,7 @@ function stickyHeaderToggle() {
 	};
 
 	const activateStickyHeader = () => {
+		document.body.classList.add("scrolled-down");
 		document.body.classList.add("sticky-header-off");
 		document.body.classList.remove("sticky-header-on");
 	};
@@ -460,6 +461,7 @@ function stickyHeaderToggle() {
 	const deactivateStickyHeader = () => {
 		document.body.classList.add("sticky-header-on");
 		document.body.classList.remove("sticky-header-off");
+		document.body.classList.remove("scrolled-down");
 	};
 
 	const removeStickyHeader = () => {

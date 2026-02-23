@@ -1,4 +1,4 @@
-body.test-eshop.sticky-header-off #lbx-ac-element {
+body.test-eshop.sticky-header-off #lbx-ac-element, body.test-eshop.scrolled-down #lbx-ac-element {
   top: 0 !important;
 }
 body.test-eshop #lbx-ac-element {

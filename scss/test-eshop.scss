@@ -9,7 +9,8 @@ $desktop-medium-min: 1440px;
 $desktop-large-min: 1680px;
 
 body.test-eshop {
-	&.sticky-header-off {
+	&.sticky-header-off,
+	&.scrolled-down {
 		#lbx-ac-element {
 			top: 0 !important;
 		}
