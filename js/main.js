@@ -443,9 +443,9 @@ function stickyHeaderToggle() {
 			if (currentScrollPosition > headerHeight && scrollDifference > scrollThreshold) {
 				if (scrolledUp) {
 					activateStickyHeader();
-				} /* else {
-					document.body.classList.add("sticky-header-off");
-				} */
+				} else {
+					document.body.classList.add("scrolled-down");
+				}
 			}
 		}
 
