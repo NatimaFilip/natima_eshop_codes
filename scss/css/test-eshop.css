@@ -216,6 +216,13 @@ body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main .luigi-a
   }
 }
 body.test-eshop #lbx-ac-element .luigi-ac-products .luigi-ac-first-main > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 0;
   border-style: solid;
   border-width: 1px;

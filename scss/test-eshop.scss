@@ -251,6 +251,8 @@ body.test-eshop {
 					}
 				}
 				> a {
+					display: flex;
+					flex-direction: column;
 					padding: 0;
 					border-style: solid;
 					border-width: 1px;
