@@ -871,6 +871,7 @@ body #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-descriptio
   margin: 0;
 }
 body #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-description .luigi-ac-text .luigi-ac-name {
+  color: black !important;
   grid-column: 1/-1;
   grid-row: 1;
 }
