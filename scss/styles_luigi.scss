@@ -770,6 +770,7 @@ body {
 						.luigi-ac-name {
 							font-size: var(--fs-16);
 							padding-bottom: 12px;
+							color: black !important;
 							@media screen and (max-width: $mobile-max) {
 								font-size: var(--fs-14);
 								padding-bottom: 0.5em;
@@ -841,7 +842,8 @@ body {
 					&:hover,
 					&:focus {
 						.luigi-ac-name {
-							color: var(--color-primary);
+							color: black !important;
+
 							text-decoration: underline;
 						}
 					}

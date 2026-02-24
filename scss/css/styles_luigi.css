@@ -717,6 +717,7 @@ body #lbx-ac-element .luigi-ac-products .luigi-ac-first-main > a .luigi-ac-descr
 body #lbx-ac-element .luigi-ac-products .luigi-ac-first-main > a .luigi-ac-description .luigi-ac-name {
   font-size: var(--fs-16);
   padding-bottom: 12px;
+  color: black !important;
 }
 @media screen and (max-width: 767px) {
   body #lbx-ac-element .luigi-ac-products .luigi-ac-first-main > a .luigi-ac-description .luigi-ac-name {
@@ -799,7 +800,7 @@ body #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main > a {
   padding: 10px 15px;
 }
 body #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main > a:hover .luigi-ac-name, body #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main > a:focus .luigi-ac-name {
-  color: var(--color-primary);
+  color: black !important;
   text-decoration: underline;
 }
 body #lbx-ac-element .luigi-ac-products .luigi-ac-rest-main .luigi-ac-image {
