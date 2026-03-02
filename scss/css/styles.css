@@ -13509,3 +13509,27 @@ body:has(.new-gen-modal) {
 	content: "Objednávky na osobní odběr je možné vyzvednout do 23.12. 16:00. Poté bude osobní odběr z důvodu stěhování uzavřen a objednávky budou stornovány!";
 }
  */
+body.kioskmode.klaviyo-prevent-body-scrolling {
+  overflow: auto !important;
+}
+body.kioskmode .siteCookies {
+  display: none !important;
+}
+body.kioskmode .needsclick {
+  display: none !important;
+}
+body.kioskmode .msgokWidget--popup {
+  display: none !important;
+}
+body.kioskmode #order-shipping-methods > *,
+body.kioskmode #order-billing-methods > * {
+  display: none !important;
+}
+body.kioskmode #order-shipping-methods #shipping-osobni-odber,
+body.kioskmode #order-shipping-methods .radio-wrapper[data-id=billing-164],
+body.kioskmode #order-billing-methods #shipping-osobni-odber,
+body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}

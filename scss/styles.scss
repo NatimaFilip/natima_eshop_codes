@@ -9898,3 +9898,31 @@ body:has(.new-gen-modal) {
 	content: "Objednávky na osobní odběr je možné vyzvednout do 23.12. 16:00. Poté bude osobní odběr z důvodu stěhování uzavřen a objednávky budou stornovány!";
 }
  */
+
+body {
+	&.kioskmode {
+		&.klaviyo-prevent-body-scrolling {
+			overflow: auto !important;
+		}
+		.siteCookies {
+			display: none !important;
+		}
+		.needsclick {
+			display: none !important;
+		}
+		.msgokWidget--popup {
+			display: none !important;
+		}
+
+		#order-shipping-methods,
+		#order-billing-methods {
+			> * {
+				display: none !important;
+			}
+			#shipping-osobni-odber,
+			.radio-wrapper[data-id="billing-164"] {
+				display: flex !important;
+			}
+		}
+	}
+}
