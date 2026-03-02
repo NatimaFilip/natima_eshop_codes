@@ -13511,6 +13511,7 @@ body:has(.new-gen-modal) {
  */
 body.kioskmode.klaviyo-prevent-body-scrolling {
   overflow: auto !important;
+  overflow-x: hidden !important;
 }
 body.kioskmode .siteCookies {
   display: none !important;

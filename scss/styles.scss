@@ -9903,6 +9903,7 @@ body {
 	&.kioskmode {
 		&.klaviyo-prevent-body-scrolling {
 			overflow: auto !important;
+			overflow-x: hidden !important;
 		}
 		.siteCookies {
 			display: none !important;
