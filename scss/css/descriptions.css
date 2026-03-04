@@ -2088,3 +2088,21 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
   font-weight: 400 !important;
   text-align: center !important;
 }
+
+.product-widgets .product-widget .widget-with-table table {
+  margin-bottom: 20px;
+}
+.product-widgets .product-widget .widget-with-table table col {
+  width: auto !important;
+  min-width: 130px !important;
+}
+.product-widgets .product-widget .widget-with-table table th,
+.product-widgets .product-widget .widget-with-table table td {
+  padding-left: 0.5em !important;
+  padding-right: 0.5em !important;
+  text-align: center !important;
+}
+.product-widgets .product-widget .widget-with-table table th *,
+.product-widgets .product-widget .widget-with-table table td * {
+  text-align: inherit !important;
+}

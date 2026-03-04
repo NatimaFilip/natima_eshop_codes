@@ -1855,3 +1855,20 @@ body {
 	font-weight: 400 !important;
 	text-align: center !important;
 }
+
+.product-widgets .product-widget .widget-with-table table {
+	margin-bottom: 20px;
+	col {
+		width: auto !important;
+		min-width: 130px !important;
+	}
+	th,
+	td {
+		padding-left: 0.5em !important;
+		padding-right: 0.5em !important;
+		text-align: center !important;
+		* {
+			text-align: inherit !important;
+		}
+	}
+}
