@@ -3696,8 +3696,8 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 						$(this).replaceWith(
 							`
 <div id="blog-author">
-	<!-- <div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
-			alt="Barbora P." width="500" height="500"></div> -->
+	<div class="author-image"><!-- <img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
+			alt="Barbora P." width="500" height="500">--></div> 
 	<div class="author-text">
 		<p class="author-label">Autor</p>
 		<p class="author-name">Barbora P.</p>
@@ -3722,8 +3722,8 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 						$(this).replaceWith(
 							`
 <div id="blog-author">
-	<!-- <div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
-			alt="Barbora P." width="500" height="500"></div> -->
+	<div class="author-image"><!-- <img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
+			alt="Barbora P." width="500" height="500">--></div> 
 	<div class="author-text">
 		<p class="author-label">Autor</p>
 		<p class="author-name">Barbora P.</p>
@@ -3748,8 +3748,8 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 						$(this).replaceWith(
 							`
 <div id="blog-author">
-	<!-- <div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
-			alt="Barbora P." width="500" height="500"></div> -->
+	<div class="author-image"><!-- <img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
+			alt="Barbora P." width="500" height="500">--></div> 
 	<div class="author-text">
 		<p class="author-label">Autor</p>
 		<p class="author-name">Barbara P.</p>
