@@ -3708,7 +3708,7 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 					efektivní řešení, která nebolí mě ani peněženku. Velkou částí mého života je moje border kolie, se
 					kterou se věnujeme psím sportům a podnikáme dobrodružné výlety do hor.</p>
 				<p>Pohyb v přírodě je pro mě zdrojem energie i klidu. V kuchyni mě baví testovat různé stravovací styly
-					a nové recepty, u kterých nepohrdnu kvalitní muzikou nebo zajímavým podcastem. Mou vášní se psaní a
+					a nové recepty, u kterých nepohrdnu kvalitní muzikou nebo zajímavým podcastem. Mou vášní je psaní a
 					skrze něj chci sdílet své tipy, zkušenosti i drobné triky, které mohou ostatním pomoct ke
 					spokojenějšímu životu.</p>
 			</div>
