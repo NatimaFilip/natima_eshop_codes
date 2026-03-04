@@ -3690,6 +3690,88 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 						);
 					}
 				}
+
+				if (/##AUTOR##BARBORAP/i.test($(this).text())) {
+					if (document.body.classList.contains("cs")) {
+						$(this).replaceWith(
+							`
+<div id="blog-author">
+	<!-- <div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
+			alt="Barbora P." width="500" height="500"></div> -->
+	<div class="author-text">
+		<p class="author-label">Autor</p>
+		<p class="author-name">Barbora P.</p>
+		<div class="expandale author-text">
+			<div class="expanding">
+				<p>Zajímám se o cestu ke zdraví a pohodě především přirozenou cestou. Objevuji síly bylinek, principy
+					tradiční čínské medicíny a hledání rovnováhy mezi tělem a myslí. Jako studentka upřednostňuji
+					efektivní řešení, která nebolí mě ani peněženku. Velkou částí mého života je moje border kolie, se
+					kterou se věnujeme psím sportům a podnikáme dobrodružné výlety do hor.</p>
+				<p>Pohyb v přírodě je pro mě zdrojem energie i klidu. V kuchyni mě baví testovat různé stravovací styly
+					a nové recepty, u kterých nepohrdnu kvalitní muzikou nebo zajímavým podcastem. Mou vášní se psaní a
+					skrze něj chci sdílet své tipy, zkušenosti i drobné triky, které mohou ostatním pomoct ke
+					spokojenějšímu životu.</p>
+			</div>
+		</div>
+	</div>
+</div>
+							`,
+						);
+					}
+					if (document.body.classList.contains("sk")) {
+						$(this).replaceWith(
+							`
+<div id="blog-author">
+	<!-- <div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
+			alt="Barbora P." width="500" height="500"></div> -->
+	<div class="author-text">
+		<p class="author-label">Autor</p>
+		<p class="author-name">Barbora P.</p>
+		<div class="expandale author-text">
+			<div class="expanding">
+				<p>Zaujímam sa o cestu k zdraviu a pohode predovšetkým prirodzenou cestou. Objavujem silu byliniek,
+					princípy tradičnej čínskej medicíny a hľadanie rovnováhy medzi telom a mysľou. Ako študentka
+					uprednostňujem efektívne riešenia, ktoré nebolia mňa ani peňaženku. Veľkou súčasťou môjho života je
+					moja border kólia, s ktorou sa venujeme psím športom a podnikáme dobrodružné výlety do hôr.</p>
+				<p>Pohyb v prírode je pre mňa zdrojom energie aj pokoja. V kuchyni ma baví testovať rôzne stravovacie
+					štýly a nové recepty, pri ktorých nepohrdnem kvalitnou muzikou alebo zaujímavým podcastom. Mojou
+					vášňou je písanie a prostredníctvom neho chcem zdieľať svoje tipy, skúsenosti aj drobné triky, ktoré
+					môžu ostatným pomôcť k spokojnejšiemu životu.</p>
+			</div>
+		</div>
+	</div>
+</div>
+							`,
+						);
+					}
+					if (document.body.classList.contains("pl")) {
+						$(this).replaceWith(
+							`
+<div id="blog-author">
+	<!-- <div class="author-image"><img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
+			alt="Barbora P." width="500" height="500"></div> -->
+	<div class="author-text">
+		<p class="author-label">Autor</p>
+		<p class="author-name">Barbara P.</p>
+		<div class="expandale author-text">
+			<div class="expanding">
+				<p>Interesuję się drogą do zdrowia i dobrego samopoczucia przede wszystkim w naturalny sposób. Odkrywam
+					moc ziół, zasady tradycyjnej medycyny chińskiej oraz poszukiwanie równowagi między ciałem a umysłem.
+					Jako studentka stawiam na skuteczne rozwiązania, które nie obciążają ani mnie, ani mojego portfela.
+					Dużą częścią mojego życia jest moja border collie, z którą uprawiamy psie sporty i wyruszamy na
+					pełne przygód wycieczki w góry.</p>
+				<p>Ruch na łonie natury jest dla mnie źródłem energii i spokoju. W kuchni uwielbiam eksperymentować z
+					różnymi sposobami odżywiania i nowymi przepisami, a w tle najczęściej towarzyszy mi dobra muzyka lub
+					ciekawy podcast. Moją pasją jest pisanie i właśnie poprzez nie chcę dzielić się swoimi wskazówkami,
+					doświadczeniami oraz drobnymi trikami, które mogą pomóc innym żyć szczęśliwiej.</p>
+			</div>
+		</div>
+	</div>
+</div>
+							`,
+						);
+					}
+				}
 			});
 		}
 
