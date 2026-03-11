@@ -110,6 +110,7 @@ if (body.classList.contains("id--16")) {
 		if (deliveryMethodWrapper) {
 			disableInputs(deliveryMethodWrapper);
 			removeDeliveryFromRecap();
+			selectOsobniOdberKisokMode();
 		}
 		if (paymentMethodWrapper) {
 			paymentMethodWrapper.classList.add("disabled");
@@ -305,6 +306,27 @@ if (body.classList.contains("id--16")) {
 					warningMessage.classList.add("warning-message");
 					paczkomatyElement.appendChild(warningMessage);
 				}
+			}
+		}
+	}
+
+	function selectOsobniOdberKisokMode() {
+		if (document.body.classList.contains("kioskmode")) {
+			let osobniOdberDeliveryInput = document.querySelector("#shipping-4");
+			document.addEventListener(
+				"ShoptetBillingMethodUpdated",
+				function () {
+					let osobniOdberPaymentInput = document.querySelector(".radio-wrapper[data-id='billing-164']");
+					setTimeout(() => {
+						if (osobniOdberPaymentInput) {
+							osobniOdberPaymentInput.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
+						}
+					}, 300);
+				},
+				{ once: true },
+			);
+			if (osobniOdberDeliveryInput) {
+				osobniOdberDeliveryInput.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
 			}
 		}
 	}
