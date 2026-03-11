@@ -13526,9 +13526,9 @@ body.kioskmode #order-shipping-methods > *,
 body.kioskmode #order-billing-methods > * {
   display: none !important;
 }
-body.kioskmode #order-shipping-methods #shipping-osobni-odber,
+body.kioskmode #order-shipping-methods #shipping-4,
 body.kioskmode #order-shipping-methods .radio-wrapper[data-id=billing-164],
-body.kioskmode #order-billing-methods #shipping-osobni-odber,
+body.kioskmode #order-billing-methods #shipping-4,
 body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
