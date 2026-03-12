@@ -573,10 +573,10 @@ function inicializeMenu() {
 			copyFooterLinksToHeader();
 
 			function copyFooterContactsToHeader() {
-				let footerContactBlock = document.querySelector(".footer-contacts-blocks > div:first-child");
+				let footerContactBlock = document.querySelector(".top-navigation-contacts");
 				if (footerContactBlock) {
 					const footerContactBlockClone = footerContactBlock.cloneNode(true);
-					footerContactBlockClone.classList.add("footer-contact-block-clone");
+					footerContactBlockClone.classList.add("top-navigation-contacts-clone");
 					mainCategoryMenuHelperSubmenu.appendChild(footerContactBlockClone);
 				}
 			}
