@@ -5811,6 +5811,7 @@ body.dklab-favourites {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			gap: var(--gap-30);
+			order: 1;
 			@media screen and (max-width: $mobile-max) {
 				grid-template-columns: 1fr;
 			}
@@ -5839,6 +5840,10 @@ body.dklab-favourites {
 		}
 		//kontaktujte nás
 		.footer-contact-us-socials-languages {
+			order: 2;
+			@media screen and (max-width: $mobile-max) {
+				order: 99;
+			}
 			.footer-contacts {
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
@@ -6090,6 +6095,10 @@ body.dklab-favourites {
 		}
 		//prodejna
 		.footer-prodejna {
+			order: 3;
+			@media screen and (max-width: $mobile-max) {
+				order: 98;
+			}
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: max-content 1fr;
@@ -6182,6 +6191,7 @@ body.dklab-favourites {
 
 		//vydejní místa
 		.footer-vydejni-mista {
+			order: 4;
 			display: flex;
 			gap: var(--gap-20);
 			justify-content: space-between;
