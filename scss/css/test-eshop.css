@@ -1265,16 +1265,16 @@ body.test-eshop #header .navigation-wrapper #navigation .navigation-in .menu-lev
 body.test-eshop #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:first-child:hover {
   border-radius: var(--br-16) 0 0 var(--br-16);
 }
-body.test-eshop #header .customer-links,
-body.test-eshop #header .about-us-links {
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .customer-links,
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .about-us-links {
   margin-top: 1.5em;
   -webkit-box-ordinal-group: 10;
       -ms-flex-order: 9;
           order: 9;
   width: 100%;
 }
-body.test-eshop #header .customer-links ul,
-body.test-eshop #header .about-us-links ul {
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .customer-links ul,
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .about-us-links ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1284,8 +1284,8 @@ body.test-eshop #header .about-us-links ul {
           flex-direction: column;
   margin-top: 8px !important;
 }
-body.test-eshop #header .customer-links ul li a,
-body.test-eshop #header .about-us-links ul li a {
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .customer-links ul li a,
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .about-us-links ul li a {
   background: none;
   border-style: none !important;
   width: -webkit-max-content;
@@ -1296,9 +1296,83 @@ body.test-eshop #header .about-us-links ul li a {
   font-weight: 400 !important;
   font-size: var(--fs-12) !important;
 }
-body.test-eshop #header .customer-links ul li a:hover, body.test-eshop #header .customer-links ul li a:focus-within,
-body.test-eshop #header .about-us-links ul li a:hover,
-body.test-eshop #header .about-us-links ul li a:focus-within {
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .customer-links ul li a:hover, body.test-eshop #header .menu-level-1 .menu-helper-submenu .customer-links ul li a:focus-within,
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .about-us-links ul li a:hover,
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .about-us-links ul li a:focus-within {
   text-decoration: underline;
   color: var(--color-primary);
+}
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  pointer-events: none;
+  gap: var(--gap-20);
+  position: relative;
+}
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone .project-phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone .project-phone span {
+  color: var(--color-black);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  pointer-events: auto;
+  padding: 4px 0;
+}
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone .project-phone span:hover, body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone .project-phone span:focus-within {
+  color: var(--color-primary);
+}
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone .project-phone .contact-hours {
+  font-size: var(--fs-13);
+  color: var(--color-gray-700);
+  font-weight: var(--fw-400);
+  pointer-events: none;
+}
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone::before {
+  content: "";
+  display: block;
+  width: calc(var(--header-height) - 2px);
+  height: calc(var(--header-height) - 2px);
+  background-color: var(--color-gray-400);
+  border-radius: var(--br-16);
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/ali_contact_image_2.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone::before {
+    display: none;
+  }
+}
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 21px;
+  height: 22px;
+  left: -4px;
+  bottom: -3px;
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_contact_phone_header.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone::after {
+    display: none;
+  }
+}
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone strong,
+body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone a.project-email {
+  display: none;
 }
