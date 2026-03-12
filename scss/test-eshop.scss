@@ -1,3 +1,4 @@
+// Define SCSS variables for breakpoints
 $large-mobile-min: 500px;
 $mobile-max: 767px;
 
@@ -8,744 +9,1881 @@ $desktop-min: 1280px;
 $desktop-medium-min: 1440px;
 $desktop-large-min: 1680px;
 
-@media screen and (max-width: $mobile-max) {
-	body.custom-search-active {
-		&.test-eshop {
-			overflow-y: hidden;
-			overflow-x: hidden;
-			position: relative;
-			// Create a stacking context
-			&::before {
-				content: "";
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: hsla(var(--color-primary-hover-h), var(--color-primary-hover-s), var(--color-primary-hover-l), 0.5);
-				z-index: 99;
-				/* pointer-events: auto; */
-				backdrop-filter: blur(5px);
-			}
-			#header {
-				background: var(--color-primary-100) !important;
-			}
-			input[type="search"] {
-				z-index: 9999 !important; // High enough to be above everything except your modal
-				&.active {
-					display: block !important;
-					position: fixed !important;
-					left: var(--padding-sides) !important;
-					top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 4px) !important;
-					background: var(--color-white) !important;
-					font-size: var(--fs-16) !important;
-					padding: 1em 0.5em !important;
-					width: calc(100% - var(--padding-sides) * 2) !important;
-					border-style: solid !important;
-					border-color: var(--color-primary);
-					border-width: 1px;
-					outline: none !important;
-				}
-				&:focus {
-					border-color: var(--color-primary);
-					border-width: 2px;
-				}
-			}
-			.search-form {
-				fieldset {
-					&::after {
-						content: "";
-						position: fixed;
-						left: 0;
-						top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6));
-						height: calc(var(--mobile-search-height) + 8px);
-						background: var(--color-primary-100);
-						width: 100%;
-						filter: drop-shadow(0px 12px 6px rgba(0, 0, 0, 0.2));
-					}
-				}
-			}
-		}
+/*mixinss*/
+@mixin bottom-shadow {
+	box-shadow: 0px 9px 14px rgba(0, 0, 0, 0.1);
+}
+@mixin bottom-primary-shadow {
+	padding-bottom: 1px;
+	box-shadow: inset 0px -1px 0px var(--color-primary-500);
+}
+
+@mixin bottom-primary-shadow-small {
+	padding-bottom: 1px;
+	box-shadow: inset 0px -1px 0px var(--color-primary-500);
+}
+@mixin bottom-cta-shadow {
+	padding-bottom: 1px;
+	box-shadow: inset 0px -1px 0px var(--color-cta-600);
+}
+@mixin bottom-cta-shadow-small {
+	padding-bottom: 1px;
+	box-shadow: inset 0px -1px 0px var(--color-cta-600);
+}
+@mixin text-underline {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+@mixin image-foreground-brightness {
+	/* filter: brightness(1.03); */
+	margin: auto;
+	mix-blend-mode: multiply;
+}
+
+@mixin image-foreground-setup {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-color: #f5f5f5;
+}
+
+@mixin image-foreground-margin-category {
+	margin-top: 55px;
+	margin-bottom: 50px;
+}
+
+@mixin image-foreground-block {
+	/* 	content: "";
+	position: absolute;
+	display: flex;
+
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	width: 100%;
+	height: 100%;
+	background-color: hsla(0, 0%, 0%, 0.04); */
+}
+
+@mixin body-max-width {
+	max-width: 1920px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--padding-sides);
+	padding-right: var(--padding-sides);
+}
+@mixin disable-input-controls {
+	-moz-appearance: textfield; /* For Firefox */
+	-webkit-appearance: none; /* For WebKit browsers like Chrome and Safari */
+	appearance: none; /* Standard property */
+	/* Prevent controls from showing on hover or focus */
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
 	}
 }
 
-body.test-eshop {
-	--mobile-search-height: 54px;
-	&.sticky-header-off,
-	&.scrolled-down {
-		#lbx-ac-element {
-			top: 0 !important;
+@mixin flags-extra-in-product-image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: var(--color-red-400);
+	color: var(--color-white);
+	font-weight: var(--fw-700);
+	font-size: var(--fs-16);
+	line-height: var(--lh-2);
+	border-radius: 0 var(--br-16) 0 var(--br-16);
+	padding: 0.1875em 0.5em;
+	.flag-discount {
+		.price-standard {
+			display: none;
+		}
+		.price-save {
+			display: block;
 		}
 	}
-	#lbx-ac-element {
-		padding: 0;
-		background-color: var(--color-primary-100);
-		--padding-top: 25px;
-		--padding-left: 35px;
 
-		width: 1200px !important;
-		max-width: 90vw !important;
-		border-radius: 16px;
-		margin-top: var(--gap-8) !important;
+	@media screen and (max-width: $tablet-max) {
+		font-size: var(--fs-10);
+		padding: 0.9em 0.4em;
+		border-radius: 0 var(--br-12) 0 var(--br-12);
+		line-height: var(--lh-1-4);
+	}
+}
 
-		overflow: auto;
-		max-height: none !important;
-		/* top: calc(var(--header-height) / 2 + 10px) !important; */
-		position: fixed;
-		transition: top 0.2s ease-in-out;
-		filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.25));
+@mixin flags-default-in-product-image {
+	//--padding-capsules: 2px 8px -v product bloku definovane, jinak definovat;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--gap-6);
+	position: absolute;
+	font-size: var(--fs-10);
 
-		@media screen and (max-width: $mobile-max) {
-			width: 100% !important;
-			max-width: 100% !important;
-			--padding-top: 15px;
-			--padding-left: 15px;
-			top: calc(
-				var(--header-height) + var(--padding-top-header) + var(--gap-6) + var(--mobile-search-height) + 8px
-			) !important;
-			left: 0 !important;
-			border-radius: 0;
-			min-height: calc(
-				100vh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height) - 8px
-			) !important;
-			max-height: calc(
-				100vh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height) - 8px
-			) !important;
-			min-height: calc(
-				100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height) - 8px
-			) !important;
-			max-height: calc(
-				100svh - var(--header-height) - var(--padding-top-header) - var(--gap-6) - var(--mobile-search-height) - 8px
-			) !important;
-			padding-bottom: 150px;
-			margin-top: 0 !important;
+	max-width: calc(100% - 5em);
 
-			filter: none !important;
+	font-size: var(--fs-11);
+	left: var(--gap-11);
+	top: var(--gap-11);
+	.flag {
+		background-color: var(--color-primary) !important;
+		color: var(--color-white);
+		font-weight: var(--fw-700);
+		border-radius: var(--br-20);
+		line-height: var(--lh-1-4);
+		padding: var(--padding-capsules);
+		order: 99;
+	}
+
+	.flag-cesky-produkt {
+		background: var(--color-white) !important;
+		color: var(--color-black) !important;
+		display: flex;
+		align-items: center;
+		z-index: 1;
+		order: 3;
+
+		&::before {
+			content: "";
+			position: relative;
+			margin-right: 6px;
+			height: var(--fs-12);
+			width: var(--fs-12);
+			background: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_flag_cz_circle.svg");
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
 		}
+	}
+	@media screen and (max-width: $tablet-max) {
+		font-size: var(--fs-10);
+		top: var(--gap-7);
+		left: var(--gap-5);
+	}
+}
 
-		.luigi-ac-inner {
-			display: grid;
-			grid-template-columns: 24% 76%;
-			> * {
-				width: 100%;
-			}
+@mixin quantity-setup {
+	display: flex;
 
-			@media screen and (max-width: $mobile-max) {
-				grid-template-columns: 1fr;
-			}
-		}
-
-		.luigi-ac-others,
-		.luigi-ac-products {
-			background: transparent !important;
-		}
-		.luigi-ac-footer {
-			display: none;
-		}
-
-		.luigi-ac-close {
-			top: 16px;
-			right: 16px;
-		}
-
-		.luigi-ac-ribbon,
-		.luigi-ac-caret {
-			display: none;
-		}
-
-		.luigi-ac-header {
-			height: auto;
-			display: block;
-			font-size: var(--fs-18);
-			font-weight: 700;
+	.decrease {
+		order: 1;
+	}
+	label {
+		order: 2;
+	}
+	.increase {
+		order: 3;
+	}
+	label {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		input {
+			border-style: none;
 			padding: 0;
 			margin: 0;
-			padding-bottom: 8px;
-			@media screen and (max-width: $mobile-max) {
-				/* padding-bottom: 0.75em; */
+			text-align: center;
+			width: 4.5rem;
+			font-size: var(--fs-16);
+			height: 100%;
+			@include disable-input-controls;
+
+			@media screen and (max-width: $desktop-large-min) {
+				width: 4rem;
+			}
+			@media screen and (max-width: $desktop-medium-min) {
+				width: 3.5rem;
 			}
 		}
+	}
+	.increase,
+	.decrease {
+		width: 27px;
+		height: 27px;
+		background-color: var(--color-primary);
+		border-radius: 4px;
+		color: var(--color-white);
+		cursor: pointer;
+		text-align: center;
+		&:hover,
+		&:focus-within {
+			background-color: var(--color-primary-500);
+		}
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			line-height: 1;
+		}
+	}
+}
 
-		.luigi-ac-others {
-			padding: var(--padding-top) var(--padding-left);
-			border-style: none;
+@mixin star-list {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	.star {
+		width: 0.693em;
+		height: 0.693em;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		&.star-on {
+			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
+		}
+		&.star-half {
+			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_half_3.svg");
+		}
+		&.star-off {
+			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
+		}
+	}
+}
 
-			@media screen and (max-width: $mobile-max) {
-				grid-row: 2;
-			}
+@mixin list-reset {
+	list-style: none;
+	li {
+		padding: 0.375em 0 0.375em 1.25em;
+		position: relative;
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 0.375em;
+			height: 0.375em;
+			border-radius: 50%;
+			background: var(--color-primary);
+		}
+	}
+}
 
-			.luigi-ac-item {
-				padding: 0.25em 0;
-				margin: 0;
-				background: transparent !important;
+@mixin slider-controls {
+	position: absolute;
+	top: 50%;
+	background: var(--color-black);
+	width: 3.25rem;
+	height: 3.25rem;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 4px;
+	border-color: var(--color-white);
+	background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_white.svg");
+	background-position: calc(50% + 1px) center;
+	background-repeat: no-repeat;
+	background-size: 25%;
+	transition: background-color 0.2s ease-out;
+	cursor: pointer;
+	&:hover,
+	&:focus-within {
+		background-color: var(--color-primary);
+	}
+	&.left {
+		left: 0;
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+	&.right {
+		right: 0;
+		transform: translate(50%, -50%);
+	}
+	span {
+		display: none;
+	}
+}
 
-				&:hover,
-				&:focus {
-					color: var(--color-primary);
-					text-decoration: underline;
-				}
-				.luigi-ac-other-content {
-					color: var(--color-primary) !important;
-				}
-			}
-			.luigi-ac-queries {
-				padding: 0;
-				.luigi-ac-item {
-					background: var(--color-primary) !important;
-					color: white;
-					border-radius: 8px;
-					padding: 0.25em 0.5em;
-					.luigi-ac-other-content {
-						color: white !important;
-					}
-				}
-			}
+@mixin ratingTab-shopRating {
+	max-width: 100%;
+	margin: 0 auto;
+	display: grid;
+	align-items: start;
+	grid-template-columns: 3fr 5fr;
+	column-gap: var(--description-widget-gap);
+	&.no-score {
+		display: flex;
+		flex-direction: column;
+		gap: var(--gap-10);
+		align-items: center;
+		#ratingWrapper {
+			width: 100%;
+		}
+		p[data-testid="textCommentNotice"] {
+			font-size: var(--fs-20);
+			color: var(--color-black);
+			text-align: left;
+			margin-right: auto;
+			font-weight: var(--fw-700);
+		}
+	}
+	@media screen and (max-width: $tablet-max) {
+		display: flex;
+		flex-direction: column;
+		gap: var(--gap-10);
+		align-items: center;
+	}
 
-			.luigi-ac-header:not(:first-of-type) {
-				padding-top: 1em;
-			}
-
-			.luigi-ac-other-content {
-				text-wrap: auto;
+	#ratingWrapper {
+		background-color: var(--color-gray-400);
+		border-radius: var(--br-16);
+		padding: 40px 40px 55px 40px;
+		&.unveiled {
+			.add-comment {
+				display: none;
 			}
 		}
-
-		.luigi-ac-main {
-			height: auto;
-			border-style: none;
-			border-left-style: solid;
-			border-width: 1px;
-			border-color: #ddd;
-			display: grid;
-			grid-template-columns: 2.2fr 3fr;
-
-			@media screen and (max-width: $mobile-max) {
-				grid-template-columns: 1fr;
-				grid-row: 1;
-			}
-			> * {
-				width: 100%;
+		@media screen and (max-width: $tablet-max) {
+			width: 100%;
+			padding: 12px 12px 26px 26px;
+		}
+	}
+	.rate-average-wrap {
+		display: grid;
+		align-items: center;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto;
+		h3 {
+			grid-column: 1;
+			grid-row: 1;
+			font-size: var(--fs-24);
+			font-weight: var(--fw-700);
+			color: var(--color-black);
+		}
+	}
+	.add-comment {
+		grid-row: 1;
+		grid-column: 2;
+		margin-left: auto;
+		color: var(--color-primary);
+		font-size: var(--fs-16);
+		cursor: pointer;
+		@include text-underline;
+		&:hover,
+		&:focus-within {
+			color: var(--color-primary-hover);
+		}
+		&:before {
+			content: "+";
+		}
+	}
+	.rate-average-inner {
+		grid-row: 2;
+		grid-column: 1/ -1;
+		display: flex;
+		gap: var(--gap-46);
+		align-items: center;
+		@media screen and (max-width: $tablet-max) {
+			justify-content: space-between;
+			gap: var(--gap-20);
+		}
+	}
+	.rate-average {
+		font-size: var(--fs-48);
+		font-weight: var(--fw-700);
+		color: var(--color-black);
+		line-height: var(--lh-2);
+		flex-shrink: 0;
+		&:after {
+			content: "/ 5";
+			font-size: var(--fs-32);
+			font-weight: var(--fw-400);
+			color: var(--color-black-o-60);
+		}
+	}
+	.rate-star-wrap {
+		padding-top: var(--gap-12);
+		.star-list {
+			@include star-list;
+			pointer-events: none;
+			cursor: default;
+			gap: var(--gap-8);
+			margin-bottom: var(--gap-4);
+			.star {
+				width: var(--fs-20);
+				height: var(--fs-20);
 			}
 		}
-
-		.luigi-ac-products {
-			.luigi-ac-first-main {
-				margin: 0;
-				padding: var(--padding-top) var(--padding-left);
-				align-content: flex-start;
-
-				.luigi-ac-button-buy {
-					/* @include add-to-cart-button; */
-					color: white !important;
-					background: var(--color-cta-400) !important;
-					border-radius: 16px;
-					padding: 0.75em 1em;
-					&:hover,
-					&:focus {
-						background: var(--color-cta-600) !important;
-					}
-
-					@media screen and (max-width: $mobile-max) {
-						font-size: var(--fs-14);
-						padding: 0.7142em;
-					}
-				}
-				> a {
-					display: flex;
-					flex-direction: column;
-					padding: 0;
-					border-style: solid;
-					border-width: 1px;
-					border-color: var(--color-gray-400);
-					border-radius: 16px;
-					margin: 0;
-					background: transparent;
-					height: auto;
-					overflow: auto;
-					background-color: white !important;
-
-					@media screen and (max-width: $mobile-max) {
-						display: grid;
-						grid-template-columns: 0.75fr 1fr;
-					}
-
-					&:hover,
-					&:focus {
-						.luigi-ac-name {
-							color: var(--color-primary);
-							text-decoration: underline;
-						}
-					}
-
-					.luigi-ac-image {
-						width: 100% !important;
-						height: auto;
-						max-height: none;
-						max-width: none;
-						background: #f5f5f5;
-						border-bottom-style: solid;
-						border-width: 1px;
-						border-color: var(--color-gray-400);
-
-						margin: 0;
-
-						@media screen and (max-width: $mobile-max) {
-							height: 100%;
-							border-style: none;
-						}
-						img {
-							width: 100%;
-							max-width: 270px;
-							margin: 20px auto;
-							mix-blend-mode: multiply;
-						}
-						.flag {
-							display: none;
-						}
-					}
-					.luigi-ac-attrs {
-						display: flex;
-						flex-direction: column;
-						max-height: none;
-						gap: 12px;
-						align-items: flex-start;
-
-						.luigi-ac-attr--short_description {
-							line-height: 1.2;
-							margin: 0;
-							font-size: var(--fs-13);
-							font-weight: 400;
-							--number-of-lines: 2;
-							line-height: 1.2;
-							max-height: calc(var(--number-of-lines) + (var(--number-of-lines) - 1) * 1.2);
-							display: -webkit-box;
-							-webkit-line-clamp: var(--number-of-lines);
-							-webkit-box-orient: vertical;
-							overflow: hidden;
-							margin: 0;
-							font-size: var(--fs-13);
-							h2 {
-								text-wrap: pretty;
-								margin: 0;
-								font-size: inherit;
-								font-weight: inherit;
-								line-height: inherit;
-							}
-							ul {
-								display: none;
-							}
-							@media screen and (max-width: $mobile-max) {
-								display: none;
-							}
-						}
-					}
-
-					.luigi-ac-description {
-						text-align: left;
-						padding: 16px;
-						gap: 12px;
-						@media screen and (max-width: $mobile-max) {
-							padding: 10px;
-							gap: 4px;
-							margin-left: 0;
-						}
-						.luigi-ac-text {
-							padding: 0;
-						}
-						.luigi-ac-name {
-							font-size: var(--fs-16);
-							padding-bottom: 12px;
-							@media screen and (max-width: $mobile-max) {
-								font-size: var(--fs-14);
-								padding-bottom: 0.5em;
-							}
-						}
-					}
-					.luigi-ac-price {
-						margin: 0;
-						display: flex;
-						flex-direction: row;
-						gap: 8px;
-						align-items: center;
-						font-size: var(--fs-24);
-						.luigi-ac-price-new {
-							margin: 0;
-						}
-						.luigi-ac-price-old {
-							color: var(--color-red-400);
-							text-decoration: line-through;
-							margin: 0;
-							font-size: inherit;
-						}
-						@media screen and (max-width: $mobile-max) {
-							font-size: var(--fs-16);
-						}
-					}
-					.luigi-ac-button-block {
-						margin: 0;
-					}
-					.luigi-ac-action-primary {
-						position: initial;
-						width: 100%;
-					}
-					.luigi-ac-attr--availability_rank_text {
-						color: var(--color-cta-400);
-						font-weight: 700;
-						background: var(--color-cta-200);
-						border-radius: 16px;
-						padding: 2px 4px;
-						font-size: var(--fs-13);
-					}
-				}
-			}
-
-			.luigi-ac-rest-main {
-				margin: 0;
-				padding: var(--padding-top) var(--padding-left);
-				display: grid;
-				grid-template-columns: 1fr;
-				flex-direction: column;
-				gap: 8px;
-				height: 100%;
-				@media screen and (max-width: $mobile-max) {
-					padding-top: 0;
-					gap: 12px;
-				}
-				> * {
-					width: 100%;
-					padding: 0;
-				}
-				> a {
-					border-style: solid;
-					border-width: 1px;
-					border-color: var(--color-gray-400);
-					border-radius: 16px;
-					background-color: white !important;
-					padding: 10px 15px;
-
-					&:hover,
-					&:focus {
-						.luigi-ac-name {
-							color: var(--color-primary);
-							text-decoration: underline;
-						}
-					}
-				}
-				.luigi-ac-image {
-					height: auto;
-					max-height: none;
-					width: 70px !important;
-					background: #f5f5f5;
-					border-radius: 10px;
-					@media screen and (max-width: $mobile-max) {
-						width: 55px !important;
-					}
-
-					img {
-						width: 100%;
-						mix-blend-mode: multiply;
-					}
-				}
-				.flag {
-					display: none;
-				}
-				.luigi-ac-attr--short_description {
-					display: none;
-				}
-				.luigi-ac-button-block--show-all {
-					position: initial;
-					margin: 0;
-					.luigi-ac-button {
-						/* 	@include primaryButton; */
-						width: 100%;
-						max-width: none;
-						text-align: center;
-						align-items: center;
-						justify-content: center;
-						padding-top: 1em;
-						padding-bottom: 1em;
-						font-size: var(--fs-16);
-						border-radius: 16px;
-						background-color: var(--color-primary) !important;
-
-						transition: background-color 0.2s ease;
-
-						&:hover,
-						&:focus {
-							background-color: var(--color-primary-hover) !important;
-						}
-
-						@media screen and (max-width: $mobile-max) {
-							font-size: var(--fs-14);
-							padding: 0.7142em;
-						}
-					}
-				}
-
-				.luigi-ac-description {
+	}
+	.stars-label {
+		pointer-events: none;
+		cursor: default;
+		font-size: var(--fs-13);
+		font-weight: var(--fw-400);
+		color: var(--color-black);
+		text-decoration: none;
+	}
+	.rate-wrap {
+		> .col-xs-12:not(.rate-average-wrap) {
+			display: flex;
+			flex-direction: column;
+			gap: var(--gap-12);
+			.rate-list {
+				font-size: var(--fs-16);
+				@include star-list;
+				.stars {
 					display: grid;
-					grid-template-columns: 90px 1fr 1fr;
-					grid-template-rows: 2.625em 2em;
-
-					.luigi-ac-text {
-						display: grid;
-						grid-template-columns: 90px 1fr 1fr;
-						grid-template-rows: 2.625em 2em;
-						grid-column: 1/-1;
-						grid-row: 1/3;
-						margin: 0;
-
-						.luigi-ac-name {
-							grid-column: 1/-1;
-							grid-row: 1;
-						}
-						.luigi-ac-attrs {
-							display: block;
-							margin: 0;
-							grid-column: 1;
-							grid-row: 2;
-							align-content: center;
-						}
-						.luigi-ac-attr--availability_rank_text {
-							align-self: center;
-							color: var(--color-cta-400);
-							font-weight: 700;
-							background: var(--color-cta-200);
-							border-radius: 16px;
-							padding: 2px 4px;
-							font-size: var(--fs-13);
-						}
-					}
-
-					.luigi-ac-price {
-						grid-column: 2;
-						grid-row: 2;
-						padding-top: 0px;
-						display: flex;
-						flex-direction: row;
-						gap: 8px;
-						align-items: center;
-						font-size: var(--fs-16);
-						@media screen and (max-width: $mobile-max) {
-							font-size: var(--fs-14);
-						}
-
-						.luigi-ac-price-new {
-							margin: 0;
-						}
-						.luigi-ac-price-old {
-							color: var(--color-red-400);
-							text-decoration: line-through;
-							font-size: inherit;
-						}
-					}
-
-					.luigi-ac-hero-color-clickable {
-						grid-column: 3;
-						grid-row: 2;
-						position: relative;
-						inset: 0;
-						margin-left: auto;
-						/* @include add-to-cart-button; */
-
-						width: 32px;
-						height: 32px;
-						border-radius: 8px;
-						background: var(--color-cta-400) !important;
-						padding: 0;
-						&:hover,
-						&:focus {
-							background: var(--color-cta-600) !important;
-						}
-
-						&::before {
-							position: absolute;
-							content: "";
-							display: block;
-							left: 50%;
-							top: 50%;
-							transform: translate(-50%, -50%);
-							width: 24px;
-							height: 24px;
-
-							background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_add_to_cart.svg);
-							background-size: contain;
-							background-position: center;
-							background-repeat: no-repeat;
-						}
-						img {
-							display: none;
-						}
+					grid-template-columns: 0.75em 0.75em;
+					gap: var(--gap-4);
+					align-items: center;
+					text-align: center;
+				}
+				.star {
+					display: block;
+					width: 0.75em;
+					height: 0.75em;
+					&.star-off {
+						background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 					}
 				}
 			}
 		}
 	}
+	.rate-block {
+		width: calc(100% - 5em);
+		padding-left: 0.5em;
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		&:before {
+			grid-row: 1;
+			grid-column: 1;
+			content: "";
+			display: block;
+			width: 100%;
+			height: 10px;
+			background-color: var(--color-white);
+			border-radius: 5px;
+		}
+		.rate-bar {
+			grid-row: 1;
+			grid-column: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 10px;
+			background-color: var(--color-primary);
+			border-radius: 5px;
+		}
+		.rate-count {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: calc(100% + 1em);
+			color: var(--color-black-o-60);
+			text-align: left;
+		}
+	}
+	#rate-form {
+		display: none;
+		&.visible {
+			display: block;
+		}
+		.no-display {
+			display: none;
+		}
+		padding-top: var(--gap-20);
+		border-top-style: solid;
+		border-top-width: 1px;
+		border-top-color: var(--color-black-o-20);
+		margin-top: var(--gap-30);
+		input,
+		textarea {
+			width: 100%;
+			margin: var(--gap-6) 0;
+		}
+
+		.stars {
+			@include star-list;
+			gap: var(--gap-8);
+			padding-top: var(--gap-8);
+			padding-bottom: var(--gap-16);
+			.star {
+				cursor: pointer;
+				width: 1.25em;
+				height: 1.25em;
+				&:hover {
+					transform: scale(1.35);
+				}
+			}
+		}
+		.consents-first {
+			font-size: var(--fs-14);
+			padding-bottom: var(--gap-6);
+		}
+	}
+	.votes-wrap {
+		display: flex;
+		flex-direction: column;
+		gap: var(--gap-20);
+	}
+	.vote-wrap {
+		border-style: solid;
+		border-width: 1px;
+		border-color: var(--color-black-o-10);
+		border-radius: var(--br-10);
+		padding: var(--gap-20);
+		.stars {
+			@include star-list;
+			gap: var(--gap-4);
+			padding-top: var(--gap-12);
+			padding-bottom: var(--gap-12);
+			.star {
+				width: 0.75em;
+				height: 0.75em;
+			}
+		}
+		.vote-header {
+			position: relative;
+		}
+		.vote-summary {
+			width: 100%;
+			.vote-rating {
+				@media screen and (max-width: $mobile-max) {
+					padding-top: var(--gap-12);
+					display: flex;
+					flex-direction: column-reverse;
+				}
+			}
+			.vote-name {
+				font-size: var(--fs-18);
+				font-weight: var(--fw-700);
+			}
+			.vote-time {
+				position: absolute;
+				right: 0;
+				top: 0;
+				font-size: var(--fs-13);
+				color: var(--color-gray-600);
+				@media screen and (max-width: $mobile-max) {
+					position: relative;
+					inset: 0;
+				}
+			}
+		}
+	}
+	.vote-pic,
+	.no-display,
+	.vote-delimeter {
+		display: none;
+	}
+	.load-next-wrap,
+	.listingControls {
+		grid-column: 2;
+		text-align: center;
+		padding-top: var(--gap-20);
+		justify-content: center;
+		a {
+			color: var(--color-primary);
+			@include text-underline;
+			&:hover,
+			&:focus-within {
+				color: var(--color-primary-hover);
+			}
+		}
+	}
+}
+@mixin banner-item-preset {
+	position: relative;
+	color: var(--color-black);
+	transition: transform 0.3s ease-in-out;
+	a {
+		position: relative;
+		color: inherit;
+		text-decoration: none;
+		display: block;
+		border-radius: var(--br-16);
+		overflow: hidden;
+	}
+	img,
+	video {
+		transition: transform 0.2s ease-in-out;
+	}
+	.extended-banner-texts {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding: 30px 10px 30px 33px;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		color: inherit;
+	}
+	.extended-banner-title {
+		font-size: var(--fs-24);
+		font-weight: var(--fw-700);
+		line-height: var(--lh-1-4);
+		padding-bottom: 0.375em;
+	}
+	.extended-banner-text {
+		font-size: var(--fs-20);
+		line-height: var(--lh-1-4);
+		padding-bottom: 1.111em;
+	}
+	.extended-banner-link {
+		color: var(--color-white);
+		font-size: var(--fs-13);
+		font-weight: var(--fw-700);
+		line-height: 1;
+		border-radius: var(--br-12);
+		background-color: var(--color-primary);
+		@include bottom-primary-shadow;
+		padding: 1em 1.538em;
+		z-index: 1;
+		transition: background-color 0.2s ease-out;
+		&:hover,
+		&:focus-within {
+			background-color: var(--color-primary-hover);
+		}
+	}
+
+	&:hover,
+	&:focus-within {
+		img,
+		video {
+			transform: scale(1.025);
+		}
+	}
+	&.white {
+		color: var(--color-white);
+	}
+	.carousel-video-lazy {
+		video {
+			display: none;
+		}
+		&.loaded {
+			video {
+				display: block;
+			}
+			img {
+				display: none !important;
+			}
+		}
+	}
 }
 
-/*---------------- kategorie*/
-body.test-eshop {
-	#lb-search-element {
-		.lb-search__body {
-			margin-top: 0;
-			border-style: none;
-			@media screen and (max-width: $tablet-max) {
-				.lb-search__button-and-sorting {
-					display: grid !important;
-					grid-template-columns: 1fr 1fr;
-					padding-bottom: 20px;
-				}
-				@media screen and (max-width: $mobile-max) {
-					.lb-search__button-and-sorting {
-						grid-template-columns: 1fr;
-					}
-				}
-				.lb-search__button-and-sorting__button {
-					display: block !important;
-					flex: 1;
-					width: 100% !important;
+@mixin customCheckbox {
+	--box-width: 20px;
+	--box-radius: 6px;
 
-					.lb-search__mobile-filter {
-						border-radius: var(--br-16);
+	display: flex;
+	align-items: center;
+	min-height: var(--box-width);
+	cursor: pointer;
+	position: relative;
+	margin-bottom: 0.615em;
+	&.disabled {
+		opacity: 0.3;
+		pointer-events: none;
+	}
+	&::before {
+		content: "";
+		margin: 0;
+		width: var(--box-width);
+		height: var(--box-width);
+		border-radius: var(--box-radius);
+		border-style: solid;
+		border-width: 1px;
+		border-color: var(--color-primary);
+		outline-style: none;
+		background: transparent;
+		margin-right: 0.4615em;
+	}
+	&.active::before {
+		background: var(--color-primary);
+	}
+	&.active::after {
+		content: "";
+		margin: 0;
+		width: calc(var(--box-width) / 2);
+		height: var(--box-width);
+		background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_check_white.svg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		position: absolute;
+		left: 0;
+		top: 1px;
+		transform: translateX(50%);
+	}
+	.filter-count {
+		margin-left: 0.84615em;
+		padding: 0 7px;
+		line-height: var(--lh-1-4);
+		background-color: var(--color-gray-400);
+		border-radius: 10px;
+		font-size: var(--fs-11);
+	}
+}
+
+@mixin customSlider {
+	position: relative; /*carousel inner, .products-block*/
+	user-select: none;
+	display: block;
+	&:not(.content) > *,
+	&.content > .products-block {
+		display: flex;
+		flex-direction: row;
+		overflow-x: scroll;
+		--gap: var(--gap-20);
+		@media screen and (max-width: $tablet-medium-min) {
+			--gap: var(--gap-10);
+		}
+		gap: var(--gap);
+		flex-wrap: nowrap;
+		margin-left: 0;
+		margin-right: 0;
+
+		&.grabbing,
+		&.grabbing * {
+			cursor: grabbing !important;
+		}
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		/*.item, .product*/
+		> * {
+			width: calc(
+				100% / var(--number-of-items) - var(--gap) *
+					((var(--number-of-items) - 1) / var(--number-of-items)) - var(--next-item-preview) / var(--number-of-items)
+			);
+			flex-shrink: 0;
+			scroll-snap-align: start;
+			flex-basis: auto;
+		}
+		> *:first-child {
+			width: calc(
+				(
+						100% / var(--number-of-items) - var(--gap) *
+							((var(--number-of-items) - 1) / var(--number-of-items)) - var(--next-item-preview) /
+							var(--number-of-items)
+					) *
+					var(--width-multiplier-of-1st-item)
+			);
+		}
+	}
+	.carousel-control {
+		position: absolute;
+		top: 50%;
+		background: var(--color-black);
+		width: 52px;
+		height: 52px;
+		border-radius: 50%;
+		border-style: solid;
+		border-width: 4px;
+		border-color: var(--color-white);
+		background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_white.svg");
+		background-position: calc(50% + 1px) center;
+		background-repeat: no-repeat;
+		background-size: 25%;
+		transform-origin: center;
+		transition:
+			background-color 0.2s ease-out,
+			transform 0.2s ease-in-out;
+
+		cursor: pointer;
+		&:hover,
+		&:focus-within {
+			background-color: var(--color-primary);
+		}
+
+		@media screen and (max-width: $tablet-medium-min) {
+			width: 36px;
+			height: 36px;
+		}
+		&.left {
+			left: 0;
+			transform: translate(-50%, -50%) rotate(180deg) scale(1);
+			&.hidden-control {
+				transform: translate(-50%, -50%) rotate(180deg) scale(0);
+			}
+			@media screen and (max-width: $tablet-medium-min) {
+				left: 5px;
+			}
+		}
+		&.right {
+			right: 0;
+			transform: translate(50%, -50%) scale(1);
+			&.hidden-control {
+				transform: translate(50%, -50%) scale(0);
+			}
+			@media screen and (max-width: $tablet-medium-min) {
+				right: 5px;
+			}
+		}
+	}
+}
+
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+/*-------------------------------------- HEADER*/
+
+body:not(.test-eshop) {
+	&.sticky-header-on {
+		padding-top: calc(
+			var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px
+		) !important;
+		@media screen and (max-width: $mobile-max) {
+			padding-top: calc(var(--padding-top-header) + var(--gap-6) + var(--header-height)) !important;
+		}
+		#header {
+			position: fixed;
+			width: 100%;
+			top: -1px;
+			left: 0;
+			@media screen and (min-width: 1920px) {
+				left: calc((100vw - 1920px) / 2);
+			}
+			animation: slideDown 0.3s ease-in-out; /* Apply the animation */
+
+			@media screen and (max-width: $mobile-max) {
+				background: var(--color-white);
+				box-shadow: 0px 0px 5px var(--color-gray-400);
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				border-color: var(--color-gray-500);
+			}
+		}
+		@keyframes slideDown {
+			from {
+				transform: translateY(-100%);
+			}
+			to {
+				transform: translateY(0);
+			}
+		}
+	}
+	&.sticky-header-off {
+		padding-top: calc(
+			var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px
+		) !important;
+		@media screen and (max-width: $mobile-max) {
+			padding-top: calc(var(--padding-top-header) + var(--gap-6) + var(--header-height)) !important;
+		}
+		#header {
+			position: fixed;
+			width: 100%;
+			top: -1px;
+			left: 0;
+			@media screen and (min-width: 1920px) {
+				left: calc((100vw - 1920px) / 2);
+			}
+
+			transform: translateY(-101%); /* Start off-screen */
+			transition: transform 0.3s ease-in-out; /* Smooth transition */
+			.navigation-wrapper {
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+	#header {
+		position: relative;
+		padding-top: var(--gap-18);
+		background: white;
+		z-index: 100;
+		@media screen and (max-width: $mobile-max) {
+			padding-top: var(--padding-top-header);
+			background: transparent;
+
+			padding-bottom: calc(var(--gap-6));
+		}
+
+		.navigation-wrapper {
+			@media screen and (max-width: $mobile-max) {
+				display: flex;
+				background: var(--color-white);
+				border-radius: var(--br-16);
+				justify-content: space-between;
+			}
+			.header-top {
+				display: flex;
+				justify-content: space-between;
+				height: var(--header-height);
+				margin-bottom: var(--gap-18);
+				@media screen and (max-width: $mobile-max) {
+					margin-bottom: 0;
+					flex: 1;
+					justify-content: flex-start;
+					gap: var(--gap-10);
+					@media screen and (max-width: 440px) {
+						gap: 8px;
 					}
 				}
-				.lb-search__button-and-sorting__sorting {
-					width: 100% !important;
-					.lb-sorts {
-						justify-content: flex-end;
+				@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+					gap: var(--gap-20);
+				}
+
+				.site-name-wrapper {
+					order: 1;
+
+					@media screen and (max-width: $mobile-max) {
+						margin-left: 0;
+						margin-right: auto;
+					}
+					@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+						flex-shrink: 0;
+					}
+					.site-name {
+						height: 100%;
+						display: flex;
+						align-items: center;
+						max-width: 177px;
+						a {
+							display: flex;
+							align-items: center;
+							height: 100%;
+							img {
+								padding: 3px 0;
+								height: auto;
+								max-height: 100%;
+								width: 100%;
+
+								object-fit: contain;
+								transition: filter 0.2s ease-in-out;
+								@media screen and (max-width: $mobile-max) {
+									padding: 7px 0px 10px 11px;
+								}
+							}
+						}
+						&:hover img,
+						&:focus-within img {
+							filter: brightness(0.85) contrast(1.2);
+						}
+					}
+				}
+				&:after {
+					content: "";
+					order: 3;
+					display: block;
+					width: 185px;
+					height: 1px;
+					background-color: var(--color-gray-400);
+				}
+				&.header-loaded::after {
+					display: none;
+				}
+				&.header-loaded {
+					.top-navigation-contacts {
+						display: flex;
+						order: 3;
+						pointer-events: none;
+						gap: var(--gap-20);
+						position: relative;
+						.project-phone {
+							display: flex;
+							flex-direction: column;
+
+							span {
+								color: var(--color-black);
+								font-size: var(--fs-16);
+								font-weight: var(--fw-700);
+								pointer-events: auto;
+								padding: 4px 0;
+								&:hover,
+								&:focus-within {
+									color: var(--color-primary);
+								}
+							}
+
+							.contact-hours {
+								font-size: var(--fs-13);
+								color: var(--color-gray-700);
+								font-weight: var(--fw-400);
+								pointer-events: none;
+							}
+						}
+						&::before {
+							content: "";
+							display: block;
+							width: calc(var(--header-height) - 2px);
+							height: calc(var(--header-height) - 2px);
+							background-color: var(--color-gray-400);
+							border-radius: var(--br-16);
+							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/ali_contact_image_2.webp");
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: contain;
+							@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+								display: none;
+							}
+						}
+						&::after {
+							content: "";
+							display: block;
+							position: absolute;
+							width: 21px;
+							height: 22px;
+							left: -4px;
+							bottom: -3px;
+							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_contact_phone_header.svg");
+							background-position: center;
+							background-repeat: no-repeat;
+							@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+								display: none;
+							}
+						}
+
+						strong,
+						a.project-email {
+							display: none;
+						}
+						@media screen and (max-width: $mobile-max) {
+							display: none;
+						}
+						@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+							flex-shrink: 0;
+						}
+					}
+				}
+				.search {
+					order: 2;
+					height: 100%;
+					padding: 1px 0;
+					@media screen and (max-width: $mobile-max) {
+						width: 30px;
+						height: 100%;
+						@media screen and (max-width: 440px) {
+							width: 26px;
+						}
+					}
+					@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+						width: auto;
+						flex-grow: 1;
+					}
+					form {
+						height: 100%;
+						fieldset {
+							height: 100%;
+
+							display: flex;
+							gap: var(--gap-10);
+							position: relative;
+
+							@media screen and (max-width: $mobile-max) {
+								align-items: center;
+								justify-content: center;
+								cursor: pointer;
+								position: initial;
+							}
+
+							&::before {
+								pointer-events: none;
+								content: "";
+								display: block;
+								position: absolute;
+								left: 15px;
+								top: 50%;
+								transform: translateY(-50%);
+								width: 24px;
+								height: 24px;
+								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_search_glass.svg");
+								background-size: cover;
+								@media screen and (max-width: $mobile-max) {
+									position: relative;
+									inset: 0;
+									transform: none;
+								}
+							}
+
+							input[type="search"] {
+								width: clamp(200px, 38vw, 726px);
+								background: var(--color-gray-400);
+								border-style: none;
+								border-radius: var(--br-16);
+								display: flex;
+								font-size: var(--fs-13);
+								padding: 0 0.5em 0 4em;
+								color: var(--color-gray-700);
+								@media screen and (max-width: $mobile-max) {
+									display: none;
+								}
+								@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+									width: 100%;
+								}
+								&:focus {
+									outline: solid 2px var(--color-primary);
+									outline-offset: 1px;
+								}
+							}
+							button {
+								background: var(--color-primary);
+								border-style: none;
+								border-radius: var(--br-16);
+								color: var(--color-white);
+								padding: 0 1.6em;
+
+								font-size: var(--fs-16);
+								font-weight: var(--fw-700);
+								cursor: pointer;
+								position: relative;
+								@include bottom-primary-shadow;
+
+								&:hover,
+								&:focus-within {
+									background: var(--color-primary-500);
+								}
+								@media screen and (max-width: $mobile-max) {
+									display: none;
+								}
+							}
+						}
+					}
+					.search-whisperer {
+						display: none;
+					}
+				}
+				.navigation-buttons {
+					order: 4;
+					display: flex;
+					align-items: center;
+					@media screen and (max-width: $mobile-max) {
+						padding-right: 10px;
+						margin-right: var(--gap-10);
+						@media screen and (max-width: 440px) {
+							margin-right: var(--gap-8);
+						}
+						a {
+							pointer-events: none;
+						}
+					}
+					.cart-count {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: var(--gap-12);
+						position: relative;
+						outline-style: none;
+						@media screen and (max-width: $mobile-max) {
+							width: 30px;
+							height: 100%;
+							justify-content: center;
+							@media screen and (max-width: 440px) {
+								width: 26px;
+							}
+						}
+						&:before {
+							content: "";
+							display: block;
+							width: calc(var(--header-height) - 2px);
+							height: calc(var(--header-height) - 2px);
+							background-color: var(--color-gray-400);
+							border-radius: var(--br-16);
+							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_cart.svg");
+							background-position: center;
+							background-repeat: no-repeat;
+							padding: 17px;
+							@media screen and (max-width: $mobile-max) {
+								background-repeat: no-repeat;
+								background-position: center;
+								background-size: contain;
+								width: 17px;
+								background-color: transparent;
+								border-radius: 0;
+								padding: 0;
+							}
+						}
+						.sr-only {
+							display: none;
+						}
+						.cart-price {
+							font-size: var(--fs-16);
+							font-weight: var(--fw-700);
+							color: var(--color-black);
+							@media screen and (max-width: $mobile-max) {
+								display: none;
+							}
+							@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+								display: none;
+							}
+						}
+						i[data-testid="headerCartCount"] {
+							font-style: normal;
+							color: var(--color-white);
+							font-size: var(--fs-12);
+							font-weight: var(--fw-700);
+							background: var(--color-cta-400);
+							border-radius: var(--br-8);
+							width: 1.83em;
+							height: 1.83em;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							position: absolute;
+							top: -3px;
+							left: calc(var(--header-height) + 3px);
+							transform: translateX(-100%);
+							@media screen and (max-width: $mobile-max) {
+								top: calc(50% - 12px);
+								left: auto;
+								right: -8px;
+								transform: translate(0, -50%);
+							}
+						}
+					}
+				}
+				.login-button-custom {
+					display: none;
+					@media screen and (max-width: $mobile-max) {
+						order: 3;
+						content: "";
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						width: 30px;
+						height: 100%;
+						@media screen and (max-width: 440px) {
+							width: 26px;
+						}
+						cursor: pointer;
+						&::before {
+							content: "";
+							width: 20px;
+							height: 100%;
+							background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_account.svg");
+							background-size: contain;
+							background-repeat: no-repeat;
+							background-position: center;
+							//make it black
+							filter: brightness(0);
+						}
 					}
 				}
 			}
-			.lb-container {
-				display: grid;
-				grid-template-columns: 1fr 5fr;
-				&:has(.lb-results-wrapper.is-no-results) {
-					grid-template-columns: 1fr;
-				}
-				@media screen and (max-width: $tablet-max) {
-					grid-template-columns: 1fr;
-				}
-				.lb-search__aside {
-					width: 90% !important;
-					max-width: 248px;
+			#navigation {
+				background: var(--color-primary);
+				border-radius: var(--br-16);
+				@include bottom-primary-shadow;
+				ul,
+				li {
+					margin: 0;
 					padding: 0;
-					background-color: transparent;
-					@media screen and (max-width: $tablet-max) {
-						position: fixed;
-						top: 0;
-						left: 0;
-						width: 100% !important;
-						max-width: none !important;
-						min-height: 100vh;
-						min-height: 100svh;
-						z-index: 10000;
-						background: white;
-						display: none;
-						padding: 40px var(--padding-sides) 20px;
-						&.is-active {
-							display: block;
-						}
-						.lb-search__close-filter {
-							display: block;
-						}
-					}
 				}
-				.lb-aside-border {
-					border-style: none;
+				@media screen and (max-width: $mobile-max) {
+					width: var(--hamburger-width);
+					height: var(--header-height);
 				}
-				.lb-search__main {
-					width: 100% !important;
-					padding: 0 !important;
-					h1 {
-						padding-top: 0;
-						margin-bottom: 15px;
-					}
-					.lb-quick-searches__headings {
-						border-style: none;
-						@media screen and (max-width: $tablet-max) {
-							h2 {
-								font-size: var(--fs-16);
-							}
-						}
-					}
-					.lb-sorts {
-						select {
-							width: auto;
-							border-style: none;
-							text-align: right;
-							padding-right: 10px;
-						}
-					}
-					.lb-quick-search-default__list {
-						border-style: none;
-						margin: 0;
-						padding: 20px 0;
-						gap: 6px;
-						font-size: var(--fs-13);
-						display: grid;
-						grid-template-columns: 1fr 1fr;
-						@media screen and (min-width: $tablet-max) {
-							grid-template-columns: repeat(3, 1fr);
-							gap: var(--gap-10);
-						}
-						> a {
-							margin: 0 !important;
-							width: 100% !important;
-							border-style: none !important;
-							background-color: var(--color-gray-400);
-							border-radius: var(--br-8);
-							padding: 0.77em 0.5em 0.77em 0.5em !important;
-							@media screen and (min-width: $desktop-min) {
-								border-radius: var(--br-16);
-								padding: 0.75em 2em 0.75em 1em !important;
-							}
+				.navigation-in {
+					.menu-level-1 {
+						display: flex;
+						position: relative;
+						font-size: var(--fs-14);
+						.menu-helper-custom {
+							color: var(--color-white);
+							font-weight: var(--fw-600);
+							/* font-weight: var(--fw-700); */
 							display: flex;
+							gap: var(--gap-6);
+							padding: 16px 20px;
+							margin-bottom: -1px;
 							flex-direction: row;
-							align-items: center;
-							gap: clamp(0.25em, 10%, 1.5em);
-							&:after {
+							position: relative;
+							margin-left: auto;
+							border-radius: 0 var(--br-16) var(--br-16) 0;
+							@media screen and (max-width: $mobile-max) {
+								padding: 0;
+								border-radius: var(--br-16);
+								span {
+									display: none;
+								}
+							}
+							@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+								padding: 16px 20px;
+							}
+							&.menu-helper-hidden {
 								display: none;
 							}
-							.lb-quick-search-default__item-image-wrapper {
-								img {
-									width: auto !important;
-									max-width: 40px;
-									max-height: 40px;
-									@media screen and (min-width: $desktop-min) {
-										max-width: 56px;
-										max-height: 56px;
+
+							&::after {
+								content: "";
+								display: block;
+								justify-content: center;
+								background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_down.svg");
+								width: 8px;
+								height: 100%;
+								background-position: center;
+								background-repeat: no-repeat;
+								transition: transform 0.2s ease-in-out;
+								@media screen and (max-width: $mobile-max) {
+									display: none;
+								}
+							}
+							@media screen and (max-width: $mobile-max) {
+								&:before {
+									content: "";
+									display: block;
+									justify-content: center;
+									background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_hamburger_menu.svg");
+									width: var(--hamburger-width);
+									height: var(--header-height);
+									background-position: center;
+									background-repeat: no-repeat;
+									background-size: 37%;
+								}
+								&.active {
+									background-color: var(--color-primary-500);
+									&::before {
+										background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_hamburger_menu_close.svg");
 									}
 								}
 							}
-							.lb-quick-search-default__item-title {
-								font-size: 1em;
-								color: var(--color-black);
-								max-width: 12em;
-								font-weight: var(--fw-400);
-								text-wrap: balance;
-								padding: 0;
-								line-height: var(--lh-1-4);
+
+							@media screen and (min-width: $tablet-min) {
+								&:hover,
+								&:focus-within,
+								&.active {
+									&::after {
+										transform: rotate(180deg);
+									}
+									background: var(--color-primary-500);
+
+									.menu-helper-submenu {
+										display: flex;
+									}
+								}
 							}
+						}
+
+						.menu-helper-submenu {
+							display: none;
+							flex-direction: column;
+							position: absolute;
+							width: 16.5em;
+							right: 0;
+							top: 100%;
+							font-size: var(--fs-14);
+							gap: var(--gap-16);
+							margin-top: 0px;
+							padding: 2em 1em 1.75em 2em;
+							z-index: 2;
+
+							background: white;
+							border-radius: var(--br-16);
+							@include bottom-shadow;
+							li {
+								list-style: none;
+								a {
+									display: block;
+									color: var(--color-black);
+									font-size: var(--fs-14);
+									font-weight: var(--fw-700);
+									line-height: var(--lh-1-4);
+									&:hover,
+									&:focus-within {
+										color: var(--color-primary);
+									}
+								}
+							}
+							.menu-level-2 {
+								display: none;
+							}
+						}
+
+						#nav-manufacturers {
+							display: none !important;
+						}
+
+						@media screen and (max-width: $mobile-max) {
+							.menu-helper-submenu.active {
+								display: flex;
+							}
+							.menu-image {
+								display: none !important;
+							}
+
+							.menu-helper-submenu {
+								flex-direction: column;
+								position: fixed;
+								gap: var(--gap-5);
+								top: calc(var(--padding-top-header) + var(--header-height));
+								height: calc(100vh - var(--padding-top-header) - var(--header-height));
+								height: calc(100svh - var(--padding-top-header) - var(--header-height));
+								left: 0;
+								right: auto;
+								width: 100%;
+								background: transparent;
+								overflow-y: scroll;
+								overflow-x: hidden;
+								box-shadow: none;
+								padding: var(--gap-18) var(--padding-sides) 40px;
+
+								> li {
+									display: grid;
+									width: 100%;
+									background: var(--color-gray-400);
+									border-radius: var(--br-12);
+									a {
+										padding: 0.73em 0.85em;
+
+										&:hover,
+										&:focus-within {
+											color: var(--color-black);
+										}
+									}
+								}
+
+								> li.ext {
+									grid-template-columns: 1fr 2.857em;
+
+									.menu-level-2 {
+										display: block;
+
+										&::before {
+											content: "";
+											display: block;
+											top: 0;
+											left: 0;
+											width: 100%;
+											height: 100%;
+											background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+											background-position: center;
+											background-repeat: no-repeat;
+											background-size: 0.857em;
+											border-radius: 0 var(--br-12) var(--br-12) 0;
+											border-left: 1px solid #dcdcdc;
+											cursor: pointer;
+										}
+
+										.show-all-categories {
+											display: none;
+										}
+
+										> li {
+											display: none;
+										}
+									}
+								}
+								&.level-two-active {
+									> li {
+										display: none;
+									}
+									> li.active {
+										display: flex;
+										flex-direction: column;
+										background: transparent;
+
+										> a {
+											color: var(--color-primary);
+											display: flex;
+
+											&::before {
+												content: "";
+												display: block;
+												width: 0.857em;
+												height: 100%;
+												margin-right: 0.57em;
+												background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+												background-position: center;
+												background-repeat: no-repeat;
+												background-size: 100%;
+												transform: rotate(180deg);
+											}
+										}
+
+										.menu-level-2 {
+											display: flex;
+											flex-direction: column;
+											gap: var(--gap-5);
+											margin-top: var(--gap-5);
+
+											&::before {
+												display: none;
+											}
+
+											> li {
+												display: grid;
+												width: 100%;
+												background: var(--color-gray-400);
+												border-radius: var(--br-12);
+
+												a {
+													padding: 0.73em 0.85em;
+												}
+											}
+											.menu-level-3 {
+												display: none;
+											}
+											> li.has-third-level {
+												> div {
+													display: grid;
+													grid-template-columns: 1fr 2.857em;
+												}
+
+												.menu-level-3 {
+													display: block;
+
+													&::before {
+														content: "";
+														display: block;
+
+														width: 100%;
+														height: 100%;
+														background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+														background-position: center;
+														background-repeat: no-repeat;
+														background-size: 0.857em;
+														border-radius: 0 var(--br-12) var(--br-12) 0;
+														border-left: 1px solid var(--color-gray-500);
+													}
+
+													.show-all-subcategories {
+														display: none;
+													}
+
+													> li {
+														display: none;
+													}
+												}
+											}
+										}
+									}
+								}
+								&.level-three-active {
+									> li.active {
+										> a {
+											display: none;
+										}
+										> ul.menu-level-2 {
+											margin-top: 0;
+											> li {
+												display: none;
+											}
+											> li.active {
+												display: block;
+												background: transparent;
+												> div {
+													display: flex;
+													flex-direction: column;
+													height: 100%;
+
+													> a {
+														color: var(--color-primary);
+														display: flex;
+														height: 100%;
+
+														&::before {
+															content: "";
+															display: block;
+															width: 0.857em;
+															height: 100%;
+															margin-right: 0.57em;
+															background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+															background-position: center;
+															background-repeat: no-repeat;
+															background-size: 100%;
+															transform: rotate(180deg);
+														}
+													}
+												}
+												.menu-level-3 {
+													display: flex;
+													flex-direction: column;
+													gap: var(--gap-5);
+													margin-top: var(--gap-5);
+
+													> li {
+														display: block;
+														width: 100%;
+														background: var(--color-gray-400);
+														border-radius: var(--br-12);
+
+														a {
+															padding: 0.73em 0.85em;
+														}
+													}
+													&::before {
+														display: none;
+													}
+													.show-all-subcategories {
+														display: none;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+
+						> li {
+							display: flex;
+							@media screen and (max-width: $mobile-max) {
+								display: none;
+							}
+							> a {
+								width: max-content;
+								padding: 16px 20px;
+								color: var(--color-white);
+								@media screen and (min-width: $tablet-min) {
+									b {
+										font-weight: var(--fw-600);
+										/* 	font-weight: var(--fw-700); */
+									}
+								}
+
+								@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+									padding: 16px 20px;
+								}
+							}
+
+							> span {
+								color: var(--color-white);
+							}
+							.menu-level-2 {
+								display: none;
+							}
+
 							&:hover,
 							&:focus-within {
-								outline: solid 2px var(--color-primary);
-								background-color: var(--color-gray-200);
+								background: var(--color-primary-500);
+
+								.menu-level-2 {
+									background: white;
+									display: grid;
+									grid-template-columns: repeat(3, 1fr);
+									@media screen and (min-width: $desktop-min) {
+										grid-template-columns: repeat(4, 1fr);
+									}
+									/* 								grid-auto-rows: minmax(8rem, 1fr);
+								column-gap: var(--gap-16);
+								row-gap: calc(var(--gap-14) + 2rem); */
+									grid-auto-rows: minmax(6rem, 1fr);
+									column-gap: var(--gap-14);
+									row-gap: calc(var(--gap-14) + 1rem);
+									position: absolute;
+									width: 100%;
+									left: 0;
+									top: 100%;
+									z-index: 9;
+									/* 		padding: calc(var(--gap-16) * 4) calc(var(--gap-16) * 2) calc(var(--gap-16) * 4 - 10px)
+									calc(var(--gap-16) * 4); */
+									padding: calc(var(--gap-14) * 3.5) calc(var(--gap-14) * 1) calc(var(--gap-14) * 3.5 - 10px)
+										calc(var(--gap-14) * 3);
+									border-radius: var(--br-16);
+									overflow: hidden;
+									@include bottom-shadow;
+									&::before {
+										content: "";
+										display: block;
+										position: absolute;
+										top: 0;
+										left: 0;
+										width: 100%;
+										height: 1px;
+										background: var(--color-primary-500);
+									}
+									> li {
+										display: flex;
+										align-items: flex-start;
+										justify-content: flex-start;
+										column-gap: var(--gap-16);
+										&:not(.has-third-level) {
+											div {
+												display: flex;
+												height: 100%;
+												align-items: center;
+												a {
+													padding-top: 0.75em;
+													padding-bottom: 0.75em;
+
+													margin-bottom: calc(7rem - var(--menu-image-width));
+												}
+											}
+										}
+
+										> div {
+											/*nadpis menu level 2*/
+											> a {
+												display: block;
+												font-weight: var(--fw-700);
+												font-size: var(--fs-14);
+												color: var(--color-black);
+												line-height: var(--lh-1);
+												padding-left: 0.625rem;
+												padding-bottom: 0.5em;
+												&:hover,
+												&:focus-within {
+													color: var(--color-primary);
+												}
+											}
+										}
+									}
+									.show-all-categories {
+										font-weight: var(--fw-700);
+										font-size: var(--fs-14);
+										color: var(--color-primary);
+
+										display: flex;
+										align-items: center;
+										margin-bottom: calc(8rem - var(--menu-image-width));
+										justify-content: flex-start;
+										padding-right: 1em;
+										span {
+											position: relative;
+											&::after {
+												content: "";
+												display: flex;
+												width: 1em;
+												height: 0.8em;
+												background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg");
+												background-position: center;
+												background-repeat: no-repeat;
+												position: absolute;
+												transform: translateY(-50%);
+												top: 50%;
+												right: -1em;
+											}
+										}
+
+										&:hover,
+										&:focus-within {
+											@include text-underline;
+										}
+									}
+									.menu-image {
+										padding: 0;
+										height: var(--menu-image-width);
+										width: var(--menu-image-width);
+										min-width: var(--menu-image-width);
+										max-height: var(--menu-image-width);
+										background-color: var(--color-gray-400);
+										border-radius: var(--br-8);
+										padding: var(--gap-13);
+										img {
+											width: 100%;
+											height: 100%;
+											object-fit: cover;
+										}
+									}
+									.menu-level-3 {
+										display: flex;
+										flex-direction: column;
+										li {
+											display: flex;
+											a {
+												padding: 0;
+												font-size: var(--fs-14);
+												font-weight: var(--fw-400);
+												color: var(--color-black-o-60);
+												line-height: var(--lh-1-6);
+												padding-left: 0.625rem;
+												&:hover,
+												&:focus-within {
+													color: var(--color-primary);
+													@include text-underline;
+												}
+											}
+										}
+										.show-all-subcategories {
+											color: var(--color-primary);
+											font-size: var(--fs-14);
+											font-weight: var(--fw-400);
+											line-height: var(--lh-1-6);
+											padding-left: 0.625rem;
+
+											@include text-underline;
+											&:hover,
+											&:focus-within {
+												color: var(--color-primary-500);
+											}
+										}
+									}
+								}
+							}
+							&:first-child:hover {
+								border-radius: var(--br-16) 0 0 var(--br-16);
 							}
 						}
 					}
 				}
-				.lb-product {
-					padding: 0;
-				}
-			}
-		}
-		.lb-pagination__btn {
-			border-radius: var(--br-16);
-			color: white;
-		}
-		@media screen and (min-width: $tablet-max) {
-			.lb-search .lb-search__button-and-sorting {
-				display: flex;
 			}
 		}
 	}
