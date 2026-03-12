@@ -1265,3 +1265,41 @@ body.test-eshop #header .navigation-wrapper #navigation .navigation-in .menu-lev
 body.test-eshop #header .navigation-wrapper #navigation .navigation-in .menu-level-1 > li:first-child:hover {
   border-radius: var(--br-16) 0 0 var(--br-16);
 }
+body.test-eshop #header .customer-links,
+body.test-eshop #header .about-us-links {
+  margin-top: 1.5em;
+  -webkit-box-ordinal-group: 10;
+      -ms-flex-order: 9;
+          order: 9;
+  width: 100%;
+}
+body.test-eshop #header .customer-links ul,
+body.test-eshop #header .about-us-links ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+body.test-eshop #header .customer-links ul li a,
+body.test-eshop #header .about-us-links ul li a {
+  background: none;
+  border-style: none !important;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0.25em 0;
+  color: black;
+  font-weight: 400;
+  font-size: var(--fs-12);
+}
+body.test-eshop #header .customer-links ul li a:hover, body.test-eshop #header .customer-links ul li a:focus-within,
+body.test-eshop #header .about-us-links ul li a:hover,
+body.test-eshop #header .about-us-links ul li a:focus-within {
+  text-decoration: underline;
+  color: var(--color-primary);
+}

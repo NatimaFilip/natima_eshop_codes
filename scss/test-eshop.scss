@@ -1886,5 +1886,33 @@ body.test-eshop {
 				}
 			}
 		}
+		.customer-links,
+		.about-us-links {
+			margin-top: 1.5em;
+			order: 9;
+			width: 100%;
+			ul {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+				margin-top: 8px;
+				li {
+					a {
+						background: none;
+						border-style: none !important;
+						width: max-content;
+						padding: 0.25em 0;
+						color: black;
+						font-weight: 400;
+						font-size: var(--fs-12);
+						&:hover,
+						&:focus-within {
+							text-decoration: underline;
+							color: var(--color-primary);
+						}
+					}
+				}
+			}
+		}
 	}
 }
