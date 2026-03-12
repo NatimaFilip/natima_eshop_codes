@@ -1282,8 +1282,7 @@ body.test-eshop #header .about-us-links ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 8px;
-  margin-top: 8px;
+  margin-top: 8px !important;
 }
 body.test-eshop #header .customer-links ul li a,
 body.test-eshop #header .about-us-links ul li a {
@@ -1293,9 +1292,9 @@ body.test-eshop #header .about-us-links ul li a {
   width: -moz-max-content;
   width: max-content;
   padding: 0.25em 0;
-  color: black;
-  font-weight: 400;
-  font-size: var(--fs-12);
+  color: var(--color-black);
+  font-weight: 400 !important;
+  font-size: var(--fs-12) !important;
 }
 body.test-eshop #header .customer-links ul li a:hover, body.test-eshop #header .customer-links ul li a:focus-within,
 body.test-eshop #header .about-us-links ul li a:hover,
