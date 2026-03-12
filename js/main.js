@@ -635,6 +635,9 @@ let addedListenerToClickOutsideOfMenu = false;
 addSmartTouchClickListener(mainCategoryMenuHelper, function (event) {
 	mainCategoryMenuHelper.classList.toggle("active");
 	mainCategoryMenuHelperSubmenuDiv.classList.toggle("active");
+	if (mainCategoryMenu) {
+		mainCategoryMenu.classList.toggle("active");
+	}
 
 	if (isMobile) {
 		document.body.classList.toggle("scroll-lock");
