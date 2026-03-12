@@ -619,8 +619,9 @@ function inicializeMenu() {
 		for (let i = indexOfOverflowItem; i < mainCategoryMenuItems.length; i++) {
 			mainCategoryMenuHelperSubmenu.appendChild(mainCategoryMenuItems[i]);
 		}
-		if (document.body.classList.contains("test-eshop")) {
+		if (isTestEshop) {
 			const testDiv = document.createElement("div");
+			testDiv.classList.add("test-div");
 			testDiv.style.background = "red";
 			mainCategoryMenuHelperSubmenu.appendChild(testDiv);
 		}
