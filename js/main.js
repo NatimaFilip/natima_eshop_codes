@@ -569,10 +569,23 @@ function inicializeMenu() {
 		});
 
 		if (isTestEshop) {
-			const testDiv = document.createElement("div");
-			testDiv.classList.add("test-div");
-			testDiv.style.background = "red";
-			mainCategoryMenuHelperSubmenu.appendChild(testDiv);
+			copyFooterLinksToHeader();
+			function copyFooterLinksToHeader() {
+				let customerLinks = document.querySelector(".customer-links");
+				let aboutUsLinks = document.querySelector(".about-us-links");
+
+				if (customerLinks) {
+					const customerLinksClone = customerLinks.cloneNode(true);
+					customerLinksClone.classList.add("customer-links-clone");
+					mainCategoryMenuHelperSubmenu.appendChild(customerLinksClone);
+				}
+
+				if (aboutUsLinks) {
+					const aboutUsLinksClone = aboutUsLinks.cloneNode(true);
+					aboutUsLinksClone.classList.add("about-us-links-clone");
+					mainCategoryMenuHelperSubmenu.appendChild(aboutUsLinksClone);
+				}
+			}
 		}
 
 		return;
