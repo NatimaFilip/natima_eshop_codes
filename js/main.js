@@ -569,7 +569,18 @@ function inicializeMenu() {
 		});
 
 		if (isTestEshop) {
+			copyFooterContactsToHeader();
 			copyFooterLinksToHeader();
+
+			function copyFooterContactsToHeader() {
+				let footerContactBlock = document.querySelector(".footer-contacts-blocks > div:first-child");
+				if (footerContactBlock) {
+					const footerContactBlockClone = footerContactBlock.cloneNode(true);
+					footerContactBlockClone.classList.add("footer-contact-block-clone");
+					mainCategoryMenuHelperSubmenu.appendChild(footerContactBlockClone);
+				}
+			}
+
 			function copyFooterLinksToHeader() {
 				let customerLinks = document.querySelector(".customer-links");
 				let aboutUsLinks = document.querySelector(".about-us-links");
