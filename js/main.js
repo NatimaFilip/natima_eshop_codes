@@ -619,6 +619,11 @@ function inicializeMenu() {
 		for (let i = indexOfOverflowItem; i < mainCategoryMenuItems.length; i++) {
 			mainCategoryMenuHelperSubmenu.appendChild(mainCategoryMenuItems[i]);
 		}
+		if (document.body.classList.contains("test-eshop")) {
+			const testDiv = document.createElement("div");
+			testDiv.style.background = "red";
+			mainCategoryMenuHelperSubmenu.appendChild(testDiv);
+		}
 	} else {
 		mainCategoryMenuHelper.classList.add("menu-helper-hidden");
 	}
@@ -635,9 +640,6 @@ let addedListenerToClickOutsideOfMenu = false;
 addSmartTouchClickListener(mainCategoryMenuHelper, function (event) {
 	mainCategoryMenuHelper.classList.toggle("active");
 	mainCategoryMenuHelperSubmenuDiv.classList.toggle("active");
-	if (mainCategoryMenu) {
-		mainCategoryMenu.classList.toggle("active");
-	}
 
 	if (isMobile) {
 		document.body.classList.toggle("scroll-lock");

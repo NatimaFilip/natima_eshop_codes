@@ -826,32 +826,6 @@ body.test-eshop #header .navigation-wrapper #navigation .navigation-in .menu-lev
   display: none !important;
 }
 @media screen and (max-width: 767px) {
-  body.test-eshop #header .navigation-wrapper #navigation .navigation-in .menu-level-1 {
-    display: none !important;
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    height: calc(100vh - var(--header-height));
-    height: 100svh;
-    height: calc(100svh - var(--header-height));
-    overflow-y: auto;
-    left: 0;
-    top: 100%;
-    z-index: 10000;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    gap: 4px;
-    padding: 24px 20px 60px !important;
-  }
   body.test-eshop #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu.active {
     display: -webkit-box;
     display: -ms-flexbox;
