@@ -568,36 +568,36 @@ function inicializeMenu() {
 			});
 		});
 
-		if (isTestEshop) {
-			copyFooterContactsToHeader();
-			copyFooterLinksToHeader();
+		/* if (isTestEshop) { */
+		copyFooterContactsToHeader();
+		copyFooterLinksToHeader();
 
-			function copyFooterContactsToHeader() {
-				let footerContactBlock = document.querySelector(".top-navigation-contacts");
-				if (footerContactBlock) {
-					const footerContactBlockClone = footerContactBlock.cloneNode(true);
-					footerContactBlockClone.classList.add("top-navigation-contacts-clone");
-					mainCategoryMenuHelperSubmenu.appendChild(footerContactBlockClone);
-				}
-			}
-
-			function copyFooterLinksToHeader() {
-				let customerLinks = document.querySelector(".customer-links");
-				let aboutUsLinks = document.querySelector(".about-us-links");
-
-				if (customerLinks) {
-					const customerLinksClone = customerLinks.cloneNode(true);
-					customerLinksClone.classList.add("customer-links-clone");
-					mainCategoryMenuHelperSubmenu.appendChild(customerLinksClone);
-				}
-
-				if (aboutUsLinks) {
-					const aboutUsLinksClone = aboutUsLinks.cloneNode(true);
-					aboutUsLinksClone.classList.add("about-us-links-clone");
-					mainCategoryMenuHelperSubmenu.appendChild(aboutUsLinksClone);
-				}
+		function copyFooterContactsToHeader() {
+			let footerContactBlock = document.querySelector(".top-navigation-contacts");
+			if (footerContactBlock) {
+				const footerContactBlockClone = footerContactBlock.cloneNode(true);
+				footerContactBlockClone.classList.add("top-navigation-contacts-clone");
+				mainCategoryMenuHelperSubmenu.appendChild(footerContactBlockClone);
 			}
 		}
+
+		function copyFooterLinksToHeader() {
+			let customerLinks = document.querySelector(".customer-links");
+			let aboutUsLinks = document.querySelector(".about-us-links");
+
+			if (customerLinks) {
+				const customerLinksClone = customerLinks.cloneNode(true);
+				customerLinksClone.classList.add("customer-links-clone");
+				mainCategoryMenuHelperSubmenu.appendChild(customerLinksClone);
+			}
+
+			if (aboutUsLinks) {
+				const aboutUsLinksClone = aboutUsLinks.cloneNode(true);
+				aboutUsLinksClone.classList.add("about-us-links-clone");
+				mainCategoryMenuHelperSubmenu.appendChild(aboutUsLinksClone);
+			}
+		}
+		/* } */
 
 		return;
 	}

@@ -1259,7 +1259,7 @@ table {
 }
 
 /*-------------------------------------- HEADER*/
-body:not(.test-eshop) {
+body {
 	&.sticky-header-on {
 		padding-top: calc(
 			var(--gap-18) + var(--header-height) + var(--gap-18) + var(--fs-14) * 1.4 + 32px + 1px
@@ -2042,6 +2042,105 @@ body:not(.test-eshop) {
 												}
 											}
 										}
+									}
+								}
+								.customer-links,
+								.about-us-links {
+									margin-top: 1.5em;
+									order: 9;
+									width: 100%;
+									ul {
+										display: flex;
+										flex-direction: column;
+										margin-top: 8px !important;
+										li {
+											a {
+												background: none;
+												border-style: none !important;
+												width: max-content;
+												padding: 0.25em 0;
+												color: var(--color-black);
+												font-weight: 400 !important;
+												font-size: var(--fs-12) !important;
+												&:hover,
+												&:focus-within {
+													text-decoration: underline;
+													color: var(--color-primary);
+												}
+											}
+										}
+									}
+								}
+								.top-navigation-contacts-clone {
+									display: flex;
+									order: 3;
+									pointer-events: none;
+									gap: var(--gap-20);
+									position: relative;
+									margin-top: 1.5em;
+									border-style: solid;
+									border-width: 1px;
+									border-color: var(--color-gray-400);
+									border-radius: var(--br-16);
+									padding: var(--gap-10);
+
+									.project-phone {
+										display: flex;
+										flex-direction: column;
+
+										span {
+											color: var(--color-black);
+											font-size: var(--fs-16);
+											font-weight: var(--fw-700);
+											pointer-events: auto;
+											padding: 4px 0;
+											&:hover,
+											&:focus-within {
+												color: var(--color-primary);
+											}
+										}
+
+										.contact-hours {
+											font-size: var(--fs-13);
+											color: var(--color-gray-700);
+											font-weight: var(--fw-400);
+											pointer-events: none;
+										}
+									}
+									&::before {
+										content: "";
+										display: block;
+										width: calc(var(--header-height) - 2px);
+										height: calc(var(--header-height) - 2px);
+										background-color: var(--color-gray-400);
+										border-radius: var(--br-16);
+										background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/ali_contact_image_2.webp");
+										background-position: center;
+										background-repeat: no-repeat;
+										background-size: contain;
+										@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+											display: none;
+										}
+									}
+									&::after {
+										content: "";
+										display: block;
+										position: absolute;
+										width: 21px;
+										height: 22px;
+										left: calc(-4px + var(--gap-10));
+										bottom: calc(-3px + var(--gap-10));
+										background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_contact_phone_header.svg");
+										background-position: center;
+										background-repeat: no-repeat;
+										@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
+											display: none;
+										}
+									}
+
+									strong,
+									a.project-email {
+										display: none;
 									}
 								}
 							}
