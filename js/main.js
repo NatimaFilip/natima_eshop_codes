@@ -568,6 +568,13 @@ function inicializeMenu() {
 			});
 		});
 
+		if (isTestEshop) {
+			const testDiv = document.createElement("div");
+			testDiv.classList.add("test-div");
+			testDiv.style.background = "red";
+			mainCategoryMenuHelperSubmenu.appendChild(testDiv);
+		}
+
 		return;
 	}
 
@@ -618,12 +625,6 @@ function inicializeMenu() {
 		// from this index onwards, hide the items with style.display = "none"
 		for (let i = indexOfOverflowItem; i < mainCategoryMenuItems.length; i++) {
 			mainCategoryMenuHelperSubmenu.appendChild(mainCategoryMenuItems[i]);
-		}
-		if (isTestEshop) {
-			const testDiv = document.createElement("div");
-			testDiv.classList.add("test-div");
-			testDiv.style.background = "red";
-			mainCategoryMenuHelperSubmenu.appendChild(testDiv);
 		}
 	} else {
 		mainCategoryMenuHelper.classList.add("menu-helper-hidden");
