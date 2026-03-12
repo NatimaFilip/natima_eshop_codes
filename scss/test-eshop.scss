@@ -1921,6 +1921,12 @@ body.test-eshop {
 					pointer-events: none;
 					gap: var(--gap-20);
 					position: relative;
+					margin-top: 1.5em;
+					border-style: solid;
+					border-width: 1px;
+					border-color: var(--color-gray-400);
+					border-radius: var(--br-16);
+					padding: var(--gap-10);
 					.project-phone {
 						display: flex;
 						flex-direction: column;

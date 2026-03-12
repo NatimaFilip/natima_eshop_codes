@@ -1312,6 +1312,12 @@ body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-conta
   pointer-events: none;
   gap: var(--gap-20);
   position: relative;
+  margin-top: 1.5em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-gray-400);
+  border-radius: var(--br-16);
+  padding: var(--gap-10);
 }
 body.test-eshop #header .menu-level-1 .menu-helper-submenu .top-navigation-contacts-clone .project-phone {
   display: -webkit-box;
