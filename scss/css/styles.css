@@ -8459,6 +8459,35 @@ body.sticky-header-off .messages > * {
   background-repeat: no-repeat;
   background-size: contain;
 }
+.type-product .product-top .p-info-wrapper .p-gifts-wrapper {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  max-width: 400px;
+}
+.type-product .product-top .p-info-wrapper .p-gifts-wrapper .p-gift {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-primary);
+  border-radius: var(--br-16);
+  padding: 16px;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--fs-14);
+  gap: 10px;
+}
+.type-product .product-top .p-info-wrapper .p-gifts-wrapper .p-gift a {
+  color: inherit;
+}
+.type-product .product-top .p-info-wrapper .p-gifts-wrapper .p-gift:hover, .type-product .product-top .p-info-wrapper .p-gifts-wrapper .p-gift:focus-within {
+  text-decoration: underline;
+}
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .type-product .product-top .p-info-wrapper > * {
     grid-column: 1 !important;

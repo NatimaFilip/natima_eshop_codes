@@ -7240,6 +7240,33 @@ body {
 					}
 				}
 			}
+
+			.p-gifts-wrapper {
+				order: 3;
+				max-width: 400px;
+				.p-gift {
+					display: flex;
+					align-items: center;
+					border-style: solid;
+					border-width: 1px;
+					border-color: var(--color-primary);
+					border-radius: var(--br-16);
+					padding: 16px;
+					position: relative;
+					cursor: pointer;
+					font-size: var(--fs-14);
+					gap: 10px;
+
+					a {
+						color: inherit;
+					}
+					&:hover,
+					&:focus-within {
+						text-decoration: underline;
+					}
+				}
+			}
+
 			@media screen and (min-width: $tablet-min) and (max-width: $tablet-max) {
 				> * {
 					grid-column: 1 !important;
