@@ -6684,6 +6684,14 @@ body {
 							}
 						}
 					}
+					.p-thumbnail {
+						&:hover {
+							border-color: var(--color-primary-hover);
+						}
+						&.active {
+							border-color: var(--color-primary);
+						}
+					}
 
 					.thumbnail-prev,
 					.thumbnail-next {
@@ -10082,22 +10090,22 @@ body.test-eshop {
 
 				.p-main-image {
 					min-width: 100%;
-					width: 100%;
+					width: 100% !important;
 				}
 				.carousel-control {
 					z-index: 4;
 					&.left {
-						left: 15%;
-						transform: translate(-50%, 0%) scale(1) !important;
+						left: 0;
+						transform: translate(-50%, 0%) rotate(180deg) scale(1) !important;
 						&:hover {
-							transform: translate(-50%, 0%) scale(1.15) !important;
+							transform: translate(-50%, 0%) rotate(180deg) scale(1.15) !important;
 						}
 						&.hidden-control {
-							transform: translate(-50%, 0%) scale(0) !important;
+							transform: translate(-50%, 0%) rotate(180deg) scale(0) !important;
 						}
 					}
 					&.right {
-						right: 15%;
+						right: 0;
 						transform: translate(50%, 0%) scale(1) !important;
 						&:hover {
 							transform: translate(50%, 0%) scale(1.15) !important;
@@ -10108,7 +10116,7 @@ body.test-eshop {
 					}
 				}
 				img {
-					width: 100%;
+					width: 100% !important;
 					height: auto;
 					border-radius: 7% !important;
 				}

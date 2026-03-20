@@ -7703,6 +7703,12 @@ body.sticky-header-off .messages > * {
   background-color: hsla(0, 0%, 0%, 0.04); */
   border-radius: var(--br-16);
 }
+.type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnail:hover {
+  border-color: var(--color-primary-hover);
+}
+.type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnail.active {
+  border-color: var(--color-primary);
+}
 .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .thumbnail-prev,
 .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .thumbnail-next {
   display: none;
@@ -13839,26 +13845,26 @@ body.test-eshop .product-top .p-image-wrapper .p-image .carousel-control.right.h
 }
 body.test-eshop .product-top .p-image-wrapper .p-image .p-main-image {
   min-width: 100%;
-  width: 100%;
+  width: 100% !important;
 }
 body.test-eshop .product-top .p-image-wrapper .p-image .carousel-control {
   z-index: 4;
 }
 body.test-eshop .product-top .p-image-wrapper .p-image .carousel-control.left {
-  left: 15%;
-  -webkit-transform: translate(-50%, 0%) scale(1) !important;
-          transform: translate(-50%, 0%) scale(1) !important;
+  left: 0;
+  -webkit-transform: translate(-50%, 0%) rotate(180deg) scale(1) !important;
+          transform: translate(-50%, 0%) rotate(180deg) scale(1) !important;
 }
 body.test-eshop .product-top .p-image-wrapper .p-image .carousel-control.left:hover {
-  -webkit-transform: translate(-50%, 0%) scale(1.15) !important;
-          transform: translate(-50%, 0%) scale(1.15) !important;
+  -webkit-transform: translate(-50%, 0%) rotate(180deg) scale(1.15) !important;
+          transform: translate(-50%, 0%) rotate(180deg) scale(1.15) !important;
 }
 body.test-eshop .product-top .p-image-wrapper .p-image .carousel-control.left.hidden-control {
-  -webkit-transform: translate(-50%, 0%) scale(0) !important;
-          transform: translate(-50%, 0%) scale(0) !important;
+  -webkit-transform: translate(-50%, 0%) rotate(180deg) scale(0) !important;
+          transform: translate(-50%, 0%) rotate(180deg) scale(0) !important;
 }
 body.test-eshop .product-top .p-image-wrapper .p-image .carousel-control.right {
-  right: 15%;
+  right: 0;
   -webkit-transform: translate(50%, 0%) scale(1) !important;
           transform: translate(50%, 0%) scale(1) !important;
 }
@@ -13871,7 +13877,7 @@ body.test-eshop .product-top .p-image-wrapper .p-image .carousel-control.right.h
           transform: translate(50%, 0%) scale(0) !important;
 }
 body.test-eshop .product-top .p-image-wrapper .p-image img {
-  width: 100%;
+  width: 100% !important;
   height: auto;
   border-radius: 7% !important;
 }
