@@ -13851,7 +13851,7 @@ body.test-eshop .product-top .p-image-wrapper .p-image .carousel-control.right.h
   }
 }
 body.test-eshop .product-top .p-image-wrapper .p-image a {
-  display: none;
+  display: none !important;
 }
 body.test-eshop .product-top .p-image-wrapper .p-image a.p-main-image {
   display: -webkit-box !important;
