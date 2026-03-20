@@ -6566,6 +6566,7 @@ body {
 					@include image-foreground-setup;
 					img {
 						width: var(--image-width);
+						width: 100%;
 						height: auto;
 
 						@include image-foreground-brightness;
@@ -6685,6 +6686,7 @@ body {
 						}
 					}
 					.p-thumbnail {
+						cursor: pointer;
 						&:hover {
 							border-color: var(--color-primary-hover);
 						}

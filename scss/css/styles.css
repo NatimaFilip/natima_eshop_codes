@@ -7342,6 +7342,7 @@ body.sticky-header-off .messages > * {
 }
 .type-product .product-top .p-image-wrapper .p-image a.p-main-image img {
   width: var(--image-width);
+  width: 100%;
   height: auto;
   /* filter: brightness(1.03); */
   margin: auto;
@@ -7702,6 +7703,9 @@ body.sticky-header-off .messages > * {
   height: 100%;
   background-color: hsla(0, 0%, 0%, 0.04); */
   border-radius: var(--br-16);
+}
+.type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnail {
+  cursor: pointer;
 }
 .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnail:hover {
   border-color: var(--color-primary-hover);
