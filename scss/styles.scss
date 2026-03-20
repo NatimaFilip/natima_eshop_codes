@@ -10069,3 +10069,50 @@ body {
 		}
 	}
 }
+
+/*-----------*/
+body.test-eshop {
+	.product-top {
+		.p-image-wrapper {
+			.image-carousel-wrapper {
+				touch-action: none;
+			}
+			.p-image {
+				@include customSlider;
+
+				.p-main-image {
+					min-width: 100%;
+					width: 100%;
+				}
+				.carousel-control {
+					z-index: 4;
+					&.left {
+						left: 15%;
+						transform: translate(-50%, 0%) scale(1) !important;
+						&:hover {
+							transform: translate(-50%, 0%) scale(1.15) !important;
+						}
+						&.hidden-control {
+							transform: translate(-50%, 0%) scale(0) !important;
+						}
+					}
+					&.right {
+						right: 15%;
+						transform: translate(50%, 0%) scale(1) !important;
+						&:hover {
+							transform: translate(50%, 0%) scale(1.15) !important;
+						}
+						&.hidden-control {
+							transform: translate(50%, 0%) scale(0) !important;
+						}
+					}
+				}
+				img {
+					width: 100%;
+					height: auto;
+					border-radius: 7% !important;
+				}
+			}
+		}
+	}
+}
