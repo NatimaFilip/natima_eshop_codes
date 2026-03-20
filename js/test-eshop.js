@@ -266,6 +266,8 @@ if (body.classList.contains("type-product")) {
 				if (thumbnailImage) {
 					thumbnailImage.setAttribute("src", thumbnailHref);
 					thumbnailImage.setAttribute("data-src", thumbnailHref);
+					thumbnailImage.setAttribute("width", 1024);
+					thumbnailImage.setAttribute("height", 768);
 				}
 				thumbnailClone.classList.add("p-main-image");
 				thumbnailClone.classList.add("no-first-image");
