@@ -8692,6 +8692,7 @@ body.sticky-header-off .messages > * {
 .type-product .product-top .p-image-wrapper .p-image img {
   /* 		width: 100% !important;
   height: auto; */
+  aspect-ratio: 1024/768;
 }
 .type-product #product-detail-form .product-appendix,
 .type-product .p-detail-inner-header .product-appendix {
