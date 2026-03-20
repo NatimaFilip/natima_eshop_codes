@@ -8664,7 +8664,7 @@ body.sticky-header-off .messages > * {
   z-index: 4;
 }
 .type-product .product-top .p-image-wrapper .p-image .carousel-control.left {
-  left: 0;
+  /* left: 0; */
   -webkit-transform: translate(-50%, 0%) rotate(180deg) scale(1) !important;
           transform: translate(-50%, 0%) rotate(180deg) scale(1) !important;
 }
@@ -8677,7 +8677,7 @@ body.sticky-header-off .messages > * {
           transform: translate(-50%, 0%) rotate(180deg) scale(0) !important;
 }
 .type-product .product-top .p-image-wrapper .p-image .carousel-control.right {
-  right: 0;
+  /* right: 0; */
   -webkit-transform: translate(50%, 0%) scale(1) !important;
           transform: translate(50%, 0%) scale(1) !important;
 }
