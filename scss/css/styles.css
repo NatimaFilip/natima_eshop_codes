@@ -8533,10 +8533,6 @@ body.sticky-header-off .messages > * {
     grid-row: 8 !important;
   }
 }
-.type-product .product-top .p-image-wrapper .image-carousel-wrapper {
-  -ms-touch-action: none;
-      touch-action: none;
-}
 .type-product .product-top .p-image-wrapper .p-image {
   position: relative; /*carousel inner, .products-block*/
   -webkit-user-select: none;
