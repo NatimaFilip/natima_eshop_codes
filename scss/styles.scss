@@ -7310,6 +7310,56 @@ body {
 			}
 		}
 	}
+	.product-top {
+		.p-image-wrapper {
+			.image-carousel-wrapper {
+				touch-action: none;
+			}
+			.p-image {
+				@include customSlider;
+
+				a {
+					display: none !important;
+					&.p-main-image {
+						display: flex !important;
+					}
+				}
+
+				.p-main-image {
+					min-width: 100%;
+					width: 100% !important;
+				}
+				.carousel-control {
+					z-index: 4;
+					&.left {
+						left: 0;
+						transform: translate(-50%, 0%) rotate(180deg) scale(1) !important;
+						&:hover {
+							transform: translate(-50%, 0%) rotate(180deg) scale(1.15) !important;
+						}
+						&.hidden-control {
+							transform: translate(-50%, 0%) rotate(180deg) scale(0) !important;
+						}
+					}
+					&.right {
+						right: 0;
+						transform: translate(50%, 0%) scale(1) !important;
+						&:hover {
+							transform: translate(50%, 0%) scale(1.15) !important;
+						}
+						&.hidden-control {
+							transform: translate(50%, 0%) scale(0) !important;
+						}
+					}
+				}
+				img {
+					width: 100% !important;
+					height: auto;
+					border-radius: 7% !important;
+				}
+			}
+		}
+	}
 	//některé věci nejsou ma mobili a tabletu v product top, potřebuju to tedy přesunout
 	#product-detail-form,
 	.p-detail-inner-header {
@@ -10078,60 +10128,6 @@ body {
 			#shipping-4,
 			.radio-wrapper[data-id="billing-164"] {
 				display: flex !important;
-			}
-		}
-	}
-}
-
-/*-----------*/
-body.test-eshop {
-	.product-top {
-		.p-image-wrapper {
-			.image-carousel-wrapper {
-				touch-action: none;
-			}
-			.p-image {
-				@include customSlider;
-
-				a {
-					display: none !important;
-					&.p-main-image {
-						display: flex !important;
-					}
-				}
-
-				.p-main-image {
-					min-width: 100%;
-					width: 100% !important;
-				}
-				.carousel-control {
-					z-index: 4;
-					&.left {
-						left: 0;
-						transform: translate(-50%, 0%) rotate(180deg) scale(1) !important;
-						&:hover {
-							transform: translate(-50%, 0%) rotate(180deg) scale(1.15) !important;
-						}
-						&.hidden-control {
-							transform: translate(-50%, 0%) rotate(180deg) scale(0) !important;
-						}
-					}
-					&.right {
-						right: 0;
-						transform: translate(50%, 0%) scale(1) !important;
-						&:hover {
-							transform: translate(50%, 0%) scale(1.15) !important;
-						}
-						&.hidden-control {
-							transform: translate(50%, 0%) scale(0) !important;
-						}
-					}
-				}
-				img {
-					width: 100% !important;
-					height: auto;
-					border-radius: 7% !important;
-				}
 			}
 		}
 	}
