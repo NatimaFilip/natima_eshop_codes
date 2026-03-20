@@ -6564,17 +6564,20 @@ body {
 					overflow: hidden;
 
 					@include image-foreground-setup;
+					/*here*/
 					img {
-						width: var(--image-width);
+						/* width: var(--image-width);
 						width: 100%;
 						height: auto;
-
+ */
 						@include image-foreground-brightness;
 
 						padding: 12.5% 16.5%;
+						border-radius: 18%;
 
 						@media screen and (max-width: $tablet-max) {
 							padding: 10% 12.5%;
+							border-radius: 15%;
 						}
 					}
 					&:after {
@@ -7353,9 +7356,8 @@ body {
 					}
 				}
 				img {
-					width: 100% !important;
-					height: auto;
-					border-radius: 7% !important;
+					/* 		width: 100% !important;
+					height: auto; */
 				}
 			}
 		}
@@ -7933,6 +7935,7 @@ body {
 							height: auto;
 							@include image-foreground-brightness;
 							padding: 12.5% 15%;
+
 							margin: 0;
 						}
 						&:after {
