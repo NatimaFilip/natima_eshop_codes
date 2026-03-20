@@ -7706,6 +7706,9 @@ body.sticky-header-off .messages > * {
 }
 .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnail {
   cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
 }
 .type-product .product-top .p-image-wrapper .p-thumbnails-wrapper .p-thumbnails .p-thumbnail:hover {
   border-color: var(--color-primary-hover);
@@ -13846,6 +13849,14 @@ body.test-eshop .product-top .p-image-wrapper .p-image .carousel-control.right.h
   body.test-eshop .product-top .p-image-wrapper .p-image .carousel-control.right {
     right: 5px;
   }
+}
+body.test-eshop .product-top .p-image-wrapper .p-image a {
+  display: none;
+}
+body.test-eshop .product-top .p-image-wrapper .p-image a.p-main-image {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
 }
 body.test-eshop .product-top .p-image-wrapper .p-image .p-main-image {
   min-width: 100%;

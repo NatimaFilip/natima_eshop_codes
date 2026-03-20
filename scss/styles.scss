@@ -6687,6 +6687,9 @@ body {
 					}
 					.p-thumbnail {
 						cursor: pointer;
+						border-style: solid;
+						border-width: 1px;
+						border-color: transparent;
 						&:hover {
 							border-color: var(--color-primary-hover);
 						}
@@ -10089,6 +10092,13 @@ body.test-eshop {
 			}
 			.p-image {
 				@include customSlider;
+
+				a {
+					display: none;
+					&.p-main-image {
+						display: flex !important;
+					}
+				}
 
 				.p-main-image {
 					min-width: 100%;
