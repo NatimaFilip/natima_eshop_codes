@@ -6037,7 +6037,7 @@ body.dklab-favourites .category-header > div strong {
   color: var(--color-red-400);
   background-color: var(--color-red-200);
 }
-#footer .custom-footer__instagram h4 {
+#footer .custom-footer__instagram h3 {
   display: none;
 }
 #footer .custom-footer__instagram .instagram-widget {
