@@ -3342,7 +3342,23 @@ if (body.classList.contains("type-product")) {
 		if (thumbnails && thumbnailsParent && thumbnailsWrapper) {
 			inicializeSliderElement(thumbnailsWrapper, thumbnailsParent, thumbnails, "thumbnails-slider", null);
 		}
+		inicializeReviewFromEmail();
 	});
+
+	function inicializeReviewFromEmail() {
+		if (window.location.hash !== "#ratingTab") return;
+
+		const params = new URLSearchParams(window.location.search);
+		const name = params.get("name");
+
+		const trigger = document.querySelector("#ratingTab .rate-form-trigger");
+		if (trigger) trigger.click();
+
+		if (name) {
+			const nameInput = document.querySelector('#ratingTab input[name="fullName"]');
+			if (nameInput) nameInput.value = name;
+		}
+	}
 
 	/*Možnosti doručení popup*/
 	editDeliveryPricesPopup();
