@@ -13908,6 +13908,7 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   --gap: 20px;
   gap: var(--gap);
+  margin: 60px 0;
 }
 @media screen and (max-width: 767px) {
   .page-deliveries-and-payments {
@@ -13983,7 +13984,7 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   display: block;
   width: 1em;
   height: 1em;
-  background-image: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/arrow_primary_down.svg);
+  background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_down_primary.svg);
   background-size: 70%;
   background-position: center;
   background-repeat: no-repeat;
