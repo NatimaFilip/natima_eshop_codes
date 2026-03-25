@@ -10151,7 +10151,7 @@ body {
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	--gap: 20px;
 	gap: var(--gap);
-	margin: 60px 0;
+	margin: 30px 0 60px 0;
 
 	@media screen and (max-width: $mobile-max) {
 		padding-bottom: 40px;
@@ -10181,7 +10181,7 @@ body {
 		display: grid;
 		grid-template-columns: 0.75fr 0.25fr;
 		grid-template-rows: auto;
-		border-style: solid;
+		border-style: none;
 
 		border-radius: var(--br-16);
 		padding: 10px 10px 10px 10px;
@@ -10209,7 +10209,7 @@ body {
 				width: 1em;
 				height: 1em;
 				background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_down_primary.svg);
-				background-size: 70%;
+				background-size: 80%;
 				background-position: center;
 				background-repeat: no-repeat;
 				transition: transform 0.2s ease;
@@ -10221,6 +10221,7 @@ body {
 		> img {
 			grid-column: 2;
 			grid-row: 1;
+			justify-self: end;
 		}
 		> .ul-wrapper {
 			grid-column: 1 / span 2;
