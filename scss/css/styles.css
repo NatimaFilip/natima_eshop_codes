@@ -13894,3 +13894,156 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   display: -ms-flexbox !important;
   display: flex !important;
 }
+
+.in-doprava-a-platba-2 h1 {
+  display: none;
+}
+
+.page-deliveries-and-payments {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  --gap: 60px;
+  gap: var(--gap);
+}
+@media screen and (max-width: 767px) {
+  .page-deliveries-and-payments {
+    padding-bottom: 40px;
+    grid-template-columns: 1fr;
+  }
+}
+.page-deliveries-and-payments h2 {
+  font-size: var(--fs-28);
+  font-weight: 700;
+  line-height: 1.4;
+  padding-bottom: 0.75em;
+}
+@media screen and (max-width: 767px) {
+  .page-deliveries-and-payments h2 {
+    font-size: var(--fs-22);
+  }
+}
+.page-deliveries-and-payments .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  background: var(--color-gray-400);
+  border-radius: var(--br-16);
+  padding: 22px;
+}
+.page-deliveries-and-payments .item {
+  display: grid;
+  grid-template-columns: 0.75fr 0.25fr;
+  grid-template-rows: auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-gray-blue-400);
+  border-radius: 8px;
+  padding: 24px 16px 24px 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 16px;
+     -moz-column-gap: 16px;
+          column-gap: 16px;
+  cursor: pointer;
+  font-size: var(--fs-14);
+  background: white;
+}
+@media screen and (max-width: 767px) {
+  .page-deliveries-and-payments .item {
+    padding: 16px 12px 16px 12px;
+  }
+}
+.page-deliveries-and-payments .item > h3 {
+  grid-column: 1;
+  grid-row: 1;
+  line-height: 1.4;
+  font-size: var(--fs-22);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5em;
+}
+.page-deliveries-and-payments .item > h3::before {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 1em;
+  background-image: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/arrow_primary_down.svg);
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+@media screen and (max-width: 767px) {
+  .page-deliveries-and-payments .item > h3 {
+    font-size: var(--fs-18);
+  }
+}
+.page-deliveries-and-payments .item > img {
+  grid-column: 2;
+  grid-row: 1;
+}
+.page-deliveries-and-payments .item > .ul-wrapper {
+  grid-column: 1/span 2;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: 0fr;
+  -webkit-transition: grid-template-rows 0.3s ease;
+  transition: grid-template-rows 0.3s ease;
+  transition: grid-template-rows 0.3s ease, -ms-grid-rows 0.3s ease;
+  overflow: hidden;
+}
+.page-deliveries-and-payments .item ul {
+  height: auto;
+  overflow: hidden;
+  list-style: none;
+}
+.page-deliveries-and-payments .item ul li {
+  padding: 0.375em 0 0.375em 1.25em;
+  position: relative;
+}
+.page-deliveries-and-payments .item ul li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0.375em;
+  height: 0.375em;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+.page-deliveries-and-payments .item ul {
+  padding: 0;
+  padding-left: 10px;
+  -webkit-transition: padding 0.3s ease;
+  transition: padding 0.3s ease;
+  cursor: text;
+}
+.page-deliveries-and-payments .item.expanded {
+  background: white;
+}
+.page-deliveries-and-payments .item.expanded .ul-wrapper {
+  grid-template-rows: 1fr;
+}
+.page-deliveries-and-payments .item.expanded ul {
+  padding-top: 1em;
+}
+.page-deliveries-and-payments .item.expanded h3::before {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}

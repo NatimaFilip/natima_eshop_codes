@@ -10135,3 +10135,117 @@ body {
 		}
 	}
 }
+
+.in-doprava-a-platba-2 {
+	h1 {
+		display: none;
+	}
+}
+
+.page-deliveries-and-payments {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	--gap: 60px;
+	gap: var(--gap);
+
+	@media screen and (max-width: $mobile-max) {
+		padding-bottom: 40px;
+		grid-template-columns: 1fr;
+	}
+
+	h2 {
+		font-size: var(--fs-28);
+		font-weight: 700;
+		line-height: 1.4;
+		padding-bottom: 0.75em;
+		@media screen and (max-width: $mobile-max) {
+			font-size: var(--fs-22);
+		}
+	}
+	.list {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		background: var(--color-gray-400);
+		border-radius: var(--br-16);
+		padding: 22px;
+	}
+	.item {
+		display: grid;
+		grid-template-columns: 0.75fr 0.25fr;
+		grid-template-rows: auto;
+		border-style: solid;
+		border-width: 1px;
+		border-color: var(--color-gray-blue-400);
+		border-radius: 8px;
+		padding: 24px 16px 24px 16px;
+		align-items: center;
+		column-gap: 16px;
+		cursor: pointer;
+		font-size: var(--fs-14);
+		background: white;
+
+		@media screen and (max-width: $mobile-max) {
+			padding: 16px 12px 16px 12px;
+		}
+
+		> h3 {
+			grid-column: 1;
+			grid-row: 1;
+			line-height: 1.4;
+			font-size: var(--fs-22);
+			display: flex;
+			align-items: center;
+			gap: 0.5em;
+			&::before {
+				content: "";
+				display: block;
+				width: 1em;
+				height: 1em;
+				background-image: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/arrow_primary_down.svg);
+				background-size: 70%;
+				background-position: center;
+				background-repeat: no-repeat;
+				transition: transform 0.2s ease;
+			}
+			@media screen and (max-width: $mobile-max) {
+				font-size: var(--fs-18);
+			}
+		}
+		> img {
+			grid-column: 2;
+			grid-row: 1;
+		}
+		> .ul-wrapper {
+			grid-column: 1 / span 2;
+			grid-row: 2;
+			display: grid;
+			grid-template-rows: 0fr;
+			transition: grid-template-rows 0.3s ease;
+			overflow: hidden;
+		}
+		ul {
+			height: auto;
+			overflow: hidden;
+			@include list-reset;
+
+			padding: 0;
+			padding-left: 10px;
+			transition: padding 0.3s ease;
+			cursor: text;
+		}
+		&.expanded {
+			background: white;
+			.ul-wrapper {
+				grid-template-rows: 1fr;
+			}
+			ul {
+				padding-top: 1em;
+			}
+			h3::before {
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
