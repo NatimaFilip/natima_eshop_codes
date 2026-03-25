@@ -10140,13 +10140,16 @@ body {
 	h1 {
 		display: none;
 	}
+	#content {
+		max-width: none !important;
+	}
 }
 
 .page-deliveries-and-payments {
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-	--gap: 60px;
+	--gap: 20px;
 	gap: var(--gap);
 
 	@media screen and (max-width: $mobile-max) {
@@ -10163,13 +10166,15 @@ body {
 			font-size: var(--fs-22);
 		}
 	}
+	.list-wrapper {
+		background: var(--color-gray-400);
+		border-radius: var(--br-16);
+		padding: 22px;
+	}
 	.list {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
-		background: var(--color-gray-400);
-		border-radius: var(--br-16);
-		padding: 22px;
 	}
 	.item {
 		display: grid;
@@ -10194,7 +10199,7 @@ body {
 			grid-column: 1;
 			grid-row: 1;
 			line-height: 1.4;
-			font-size: var(--fs-22);
+			font-size: var(--fs-18);
 			display: flex;
 			align-items: center;
 			gap: 0.5em;
@@ -10229,7 +10234,7 @@ body {
 			height: auto;
 			overflow: hidden;
 			@include list-reset;
-
+			margin: 0;
 			padding: 0;
 			padding-left: 10px;
 			transition: padding 0.3s ease;

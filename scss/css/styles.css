@@ -13898,12 +13898,15 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
 .in-doprava-a-platba-2 h1 {
   display: none;
 }
+.in-doprava-a-platba-2 #content {
+  max-width: none !important;
+}
 
 .page-deliveries-and-payments {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  --gap: 60px;
+  --gap: 20px;
   gap: var(--gap);
 }
 @media screen and (max-width: 767px) {
@@ -13923,6 +13926,11 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
     font-size: var(--fs-22);
   }
 }
+.page-deliveries-and-payments .list-wrapper {
+  background: var(--color-gray-400);
+  border-radius: var(--br-16);
+  padding: 22px;
+}
 .page-deliveries-and-payments .list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13932,9 +13940,6 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
-  background: var(--color-gray-400);
-  border-radius: var(--br-16);
-  padding: 22px;
 }
 .page-deliveries-and-payments .item {
   display: grid;
@@ -13964,7 +13969,7 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   grid-column: 1;
   grid-row: 1;
   line-height: 1.4;
-  font-size: var(--fs-22);
+  font-size: var(--fs-18);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14028,6 +14033,7 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   background: var(--color-primary);
 }
 .page-deliveries-and-payments .item ul {
+  margin: 0;
   padding: 0;
   padding-left: 10px;
   -webkit-transition: padding 0.3s ease;
