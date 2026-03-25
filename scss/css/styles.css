@@ -13975,7 +13975,8 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 0.5em;
+  gap: 0.6em;
+  font-weight: 400;
 }
 .page-deliveries-and-payments .item > h3::before {
   content: "";

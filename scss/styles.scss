@@ -10202,7 +10202,8 @@ body {
 			font-size: var(--fs-20);
 			display: flex;
 			align-items: center;
-			gap: 0.5em;
+			gap: 0.6em;
+			font-weight: 400;
 			&::before {
 				content: "";
 				display: block;
