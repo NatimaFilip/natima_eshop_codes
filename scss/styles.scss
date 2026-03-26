@@ -10184,7 +10184,7 @@ body {
 		border-style: none;
 
 		border-radius: var(--br-16);
-		padding: 10px 10px 10px 10px;
+		padding: 10px 10px 10px 30px;
 		align-items: center;
 		column-gap: 16px;
 		cursor: pointer;
@@ -10199,11 +10199,11 @@ body {
 			grid-column: 1;
 			grid-row: 1;
 			line-height: 1.4;
-			font-size: var(--fs-20);
+			font-size: var(--fs-18);
 			display: flex;
 			align-items: center;
-			gap: 0.6em;
-			font-weight: 400;
+			gap: 1.4em;
+			font-weight: 700;
 			&::before {
 				content: "";
 				display: block;

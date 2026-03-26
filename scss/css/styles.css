@@ -13948,7 +13948,7 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   grid-template-rows: auto;
   border-style: none;
   border-radius: var(--br-16);
-  padding: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 30px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -13968,15 +13968,15 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   grid-column: 1;
   grid-row: 1;
   line-height: 1.4;
-  font-size: var(--fs-20);
+  font-size: var(--fs-18);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 0.6em;
-  font-weight: 400;
+  gap: 1.4em;
+  font-weight: 700;
 }
 .page-deliveries-and-payments .item > h3::before {
   content: "";
