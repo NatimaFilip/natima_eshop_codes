@@ -10179,7 +10179,8 @@ body {
 	}
 	.item {
 		display: grid;
-		grid-template-columns: 0.75fr 0.25fr;
+		/* 	grid-template-columns: 0.75fr 0.25fr; */
+		grid-template-columns: auto 1fr;
 		grid-template-rows: auto;
 		border-style: none;
 
@@ -10190,10 +10191,6 @@ body {
 		cursor: pointer;
 		font-size: var(--fs-14);
 		background: white;
-
-		&.has-more-payments {
-			grid-template-columns: auto 1fr;
-		}
 
 		@media screen and (max-width: $mobile-max) {
 			padding: 16px 12px 16px 12px;
@@ -10229,8 +10226,12 @@ body {
 			justify-self: end;
 			display: flex;
 			gap: 10px;
+			flex-wrap: wrap;
 			> img {
 				max-width: 110px;
+			}
+			@media screen and (max-width: $mobile-max) {
+				flex-direction: column;
 			}
 		}
 		> img {

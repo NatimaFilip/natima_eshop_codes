@@ -13944,7 +13944,8 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
 }
 .page-deliveries-and-payments .item {
   display: grid;
-  grid-template-columns: 0.75fr 0.25fr;
+  /* 	grid-template-columns: 0.75fr 0.25fr; */
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto;
   border-style: none;
   border-radius: var(--br-16);
@@ -13958,9 +13959,6 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   cursor: pointer;
   font-size: var(--fs-14);
   background: white;
-}
-.page-deliveries-and-payments .item.has-more-payments {
-  grid-template-columns: auto 1fr;
 }
 @media screen and (max-width: 767px) {
   .page-deliveries-and-payments .item {
@@ -14008,9 +14006,19 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   display: -ms-flexbox;
   display: flex;
   gap: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .page-deliveries-and-payments .item > .more-payments > img {
   max-width: 110px;
+}
+@media screen and (max-width: 767px) {
+  .page-deliveries-and-payments .item > .more-payments {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 .page-deliveries-and-payments .item > img {
   grid-column: 2;
