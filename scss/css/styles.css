@@ -13895,10 +13895,12 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   display: flex !important;
 }
 
-.in-doprava-a-platba h1 {
+.in-doprava-a-platba h1,
+.in-dostawa-i-platnosc h1 {
   display: none;
 }
-.in-doprava-a-platba #content {
+.in-doprava-a-platba #content,
+.in-dostawa-i-platnosc #content {
   max-width: none !important;
 }
 
