@@ -10136,7 +10136,7 @@ body {
 	}
 }
 
-.in-doprava-a-platba-2 {
+.in-doprava-a-platba {
 	h1 {
 		display: none;
 	}
@@ -10217,7 +10217,7 @@ body {
 				transition: transform 0.2s ease;
 			}
 			@media screen and (max-width: $mobile-max) {
-				font-size: var(--fs-18);
+				font-size: var(--fs-16);
 			}
 		}
 		> .more-payments {

@@ -13895,10 +13895,10 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   display: flex !important;
 }
 
-.in-doprava-a-platba-2 h1 {
+.in-doprava-a-platba h1 {
   display: none;
 }
-.in-doprava-a-platba-2 #content {
+.in-doprava-a-platba #content {
   max-width: none !important;
 }
 
@@ -13995,7 +13995,7 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
 }
 @media screen and (max-width: 767px) {
   .page-deliveries-and-payments .item > h3 {
-    font-size: var(--fs-18);
+    font-size: var(--fs-16);
   }
 }
 .page-deliveries-and-payments .item > .more-payments {
