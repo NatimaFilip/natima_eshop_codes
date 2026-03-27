@@ -14008,6 +14008,9 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   gap: 10px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 .page-deliveries-and-payments .item > .more-payments > img {
   max-width: 110px;
