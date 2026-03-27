@@ -13959,6 +13959,9 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   font-size: var(--fs-14);
   background: white;
 }
+.page-deliveries-and-payments .item.has-more-payments {
+  grid-template-columns: auto 1fr;
+}
 @media screen and (max-width: 767px) {
   .page-deliveries-and-payments .item {
     padding: 16px 12px 16px 12px;
