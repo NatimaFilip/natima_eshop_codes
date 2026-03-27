@@ -14001,6 +14001,7 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   grid-column: 2;
   grid-row: 1;
   justify-self: end;
+  max-width: 110px;
 }
 .page-deliveries-and-payments .item > .ul-wrapper {
   grid-column: 1/span 2;
