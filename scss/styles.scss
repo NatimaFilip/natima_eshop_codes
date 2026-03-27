@@ -10219,6 +10219,16 @@ body {
 				font-size: var(--fs-18);
 			}
 		}
+		> .more-payments {
+			grid-column: 2;
+			grid-row: 1;
+			justify-self: end;
+			display: flex;
+			gap: 10px;
+			> img {
+				max-width: 110px;
+			}
+		}
 		> img {
 			grid-column: 2;
 			grid-row: 1;
