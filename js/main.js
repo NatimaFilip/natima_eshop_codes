@@ -2346,6 +2346,7 @@ if (body.classList.contains("type-product")) {
 
 						const thSpan = document.createElement("span");
 						thSpan.textContent = th.textContent.trim();
+						thSpan.className = "vhodne-pro-title";
 						vhodneProElement.appendChild(thSpan);
 
 						const entries = td.textContent
@@ -2359,6 +2360,8 @@ if (body.classList.contains("type-product")) {
 						});
 
 						vhodneProWrapper.appendChild(vhodneProElement);
+						vhodneProWrapper.classList.add("active");
+						th.remove(); // Remove the th element
 					}
 				}
 			});

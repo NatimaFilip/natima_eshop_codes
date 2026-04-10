@@ -7886,6 +7886,24 @@ body.sticky-header-off .messages > * {
   border-width: 1px;
   border-color: var(--color-gray-500);
 }
+.type-product .product-top .p-info-wrapper .right-content-wrapper .vhodne-pro-wrapper .vhodne-pro-element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--gap-8);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-400);
+}
+.type-product .product-top .p-info-wrapper .right-content-wrapper .vhodne-pro-wrapper .vhodne-pro-element span:not(.vhodne-pro-title) {
+  color: var(--color-primary);
+  font-weight: var(--fw-700);
+  font-size: var(--fs-13);
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-primary);
+  padding: 0.3em 0.615em;
+}
 .type-product .product-top .p-info-wrapper .right-content-wrapper .manufacturer-and-code-wrapper.active {
   display: -webkit-box;
   display: -ms-flexbox;
