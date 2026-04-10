@@ -2335,15 +2335,30 @@ if (body.classList.contains("type-product")) {
 
 			parametersInProductTopTrs = parametersInProductTop.querySelectorAll("tr");
 
-			//for each tr in parametersInProductTopTrs get text content of th and if its "Vhodné pro" console log text content of td
+			//for each tr in parametersInProductTopTrs get text content of th and if its "Vhodné pro", append it to vhodne pro wrapper
 			parametersInProductTopTrs.forEach((tr) => {
 				let th = tr.querySelector("th");
-				console.log(th.textContent.trim());
-				console.log(translationsStrings.vhodnePro[activeLang]);
 				if (th && th.textContent.trim() === translationsStrings.vhodnePro[activeLang]) {
 					let td = tr.querySelector("td");
 					if (td) {
-						console.log("Vhodné pro:", td.innerHTML);
+						const vhodneProElement = document.createElement("div");
+						vhodneProElement.className = "vhodne-pro-element";
+
+						const thSpan = document.createElement("span");
+						thSpan.textContent = th.textContent.trim();
+						vhodneProElement.appendChild(thSpan);
+
+						const entries = td.textContent
+							.split(",")
+							.map((e) => e.trim())
+							.filter((e) => e.length > 0);
+						entries.forEach((entry) => {
+							const entrySpan = document.createElement("span");
+							entrySpan.textContent = entry;
+							vhodneProElement.appendChild(entrySpan);
+						});
+
+						vhodneProWrapper.appendChild(vhodneProElement);
 					}
 				}
 			});
