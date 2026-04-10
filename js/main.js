@@ -236,9 +236,9 @@ const translationsStrings = {
 		pl: "https://www.natima.pl/centrum-klientow",
 	},
 	vhodnePro: {
-		cs: "Vhodné pro",
-		sk: "Vhodné pre",
-		pl: "Odpowiednie dla",
+		cs: "Vhodné pro:",
+		sk: "Vhodné pre:",
+		pl: "Odpowiednie dla:",
 	},
 };
 
