@@ -235,6 +235,11 @@ const translationsStrings = {
 		sk: "https://www.natima.sk/klient",
 		pl: "https://www.natima.pl/centrum-klientow",
 	},
+	vhodnePro: {
+		cs: "Vhodné pro",
+		sk: "Vhodné pre",
+		pl: "Odpowiednie dla",
+	},
 };
 
 /*--------------------------------------- Přepsání funkcí*/
@@ -2327,6 +2332,19 @@ if (body.classList.contains("type-product")) {
 			parametersInProductTop.className = "product-parameters-product-top";
 			parametersInProductTop.innerHTML = detailParameters.outerHTML;
 			infoWrapper.appendChild(parametersInProductTop);
+
+			parametersInProductTopTrs = parametersInProductTop.querySelectorAll("tr");
+
+			//for each tr in parametersInProductTopTrs get text content of th and if its "Vhodné pro" console log text content of td
+			parametersInProductTopTrs.forEach((tr) => {
+				let th = tr.querySelector("th");
+				if (th && th.textContent.trim() === translationsStrings.vhodnePro[activeLang]) {
+					let td = tr.querySelector("td");
+					if (td) {
+						console.log("Vhodné pro:", td.innerHTML);
+					}
+				}
+			});
 		}
 
 		const dostupnostADoruceniDoWrapper = document.createElement("div");
