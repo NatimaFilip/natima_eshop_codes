@@ -6844,6 +6844,8 @@ body {
 						gap: var(--gap-8);
 						font-size: var(--fs-16);
 						font-weight: var(--fw-400);
+						flex-wrap: wrap;
+						align-items: center;
 
 						span:not(.vhodne-pro-title) {
 							color: var(--color-primary);

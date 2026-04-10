@@ -7893,6 +7893,11 @@ body.sticky-header-off .messages > * {
   gap: var(--gap-8);
   font-size: var(--fs-16);
   font-weight: var(--fw-400);
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .type-product .product-top .p-info-wrapper .right-content-wrapper .vhodne-pro-wrapper .vhodne-pro-element span:not(.vhodne-pro-title) {
   color: var(--color-primary);
