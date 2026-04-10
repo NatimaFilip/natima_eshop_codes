@@ -2345,6 +2345,7 @@ if (body.classList.contains("type-product")) {
 						vhodneProElement.className = "vhodne-pro-element";
 
 						const thSpan = document.createElement("span");
+						thSpan.textContent = thSpan.textContent.replace(":", "");
 						thSpan.textContent = th.textContent.trim();
 						thSpan.className = "vhodne-pro-title";
 						vhodneProElement.appendChild(thSpan);
@@ -2361,7 +2362,7 @@ if (body.classList.contains("type-product")) {
 
 						vhodneProWrapper.appendChild(vhodneProElement);
 						vhodneProWrapper.classList.add("active");
-						th.remove(); // Remove the th element
+						tr.remove(); // Remove the tr element
 					}
 				}
 			});
