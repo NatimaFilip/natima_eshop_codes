@@ -2338,6 +2338,8 @@ if (body.classList.contains("type-product")) {
 			//for each tr in parametersInProductTopTrs get text content of th and if its "Vhodné pro" console log text content of td
 			parametersInProductTopTrs.forEach((tr) => {
 				let th = tr.querySelector("th");
+				console.log(th.textContent.trim());
+				console.log(translationsStrings.vhodnePro[activeLang]);
 				if (th && th.textContent.trim() === translationsStrings.vhodnePro[activeLang]) {
 					let td = tr.querySelector("td");
 					if (td) {
