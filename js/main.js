@@ -3847,7 +3847,12 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 				articleNav();
 				blogAutor();
 				fetchAndAppendRelatedBlogs();
+
+				fetchAndAppendBlogProducts3();
+				fetchAndAppendBlogProducts2();
+				fetchAndAppendBlogProducts1();
 				fetchAndAppendBlogProducts();
+
 				fetchAndAppendBlogCategory();
 			}
 		}
@@ -4233,6 +4238,225 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 				$("p").each(function () {
 					let text = $(this).text();
 					if (/##PRODUKT##/i.test(text)) {
+						$(this).remove();
+					}
+				});
+			}
+		}
+		async function fetchAndAppendBlogProducts1() {
+			let productURLs = [];
+			let firstProductParagraph = null;
+			let maxNumberOfProducts = 4;
+
+			$("#content p").each(function () {
+				let text = $(this).text();
+				if (/##PRODUKT##1/i.test(text)) {
+					if (!firstProductParagraph) {
+						firstProductParagraph = $(this);
+					}
+					let urlMatch = text.match(/https?:\/\/[^\s]+/);
+					if (urlMatch && productURLs.length < maxNumberOfProducts) {
+						productURLs.push(urlMatch[0]);
+					}
+				}
+			});
+
+			if (productURLs.length > 0 && firstProductParagraph) {
+				let blogProductsDiv = $("<div>", { class: "blog-fetched-products" });
+
+				for (let url of productURLs) {
+					try {
+						const response = await fetch(url);
+						const text = await response.text();
+						const parser = new DOMParser();
+						const doc = parser.parseFromString(text, "text/html");
+						const metaImage = doc.querySelector('meta[property="og:image"]');
+						const metaName = doc.querySelector('meta[itemprop="name"]');
+
+						if (metaImage && metaName) {
+							// Create an anchor element
+							let anchorElement = $("<a>", { href: url, target: "_blank" });
+
+							// Create a paragraph element for the meta name content
+							let productName = $("<p>").text(metaName.getAttribute("content"));
+
+							// Create an img element
+							let blogImage = $("<img>", {
+								src: metaImage.getAttribute("content"),
+								alt: productName.text(),
+								loading: "lazy",
+							});
+
+							// Append the img element and the paragraph element to the anchor element
+							anchorElement.append(blogImage);
+							anchorElement.append(productName);
+
+							/* 				const showBtn = document.createElement("div");
+							showBtn.classList.add("show-product-btn");
+							showBtn.textContent = "Zobrazit produkt";
+							anchorElement.append(showBtn); */
+
+							// Append the anchor element to the blogProductsDiv
+							blogProductsDiv.append(anchorElement);
+						}
+					} catch (error) {
+						console.error("Error fetching product data:", error);
+					}
+				}
+
+				// Insert the blogProductsDiv before the first found paragraph
+				firstProductParagraph.before(blogProductsDiv);
+
+				// Remove the paragraphs containing ##PRODUKT##
+				$("p").each(function () {
+					let text = $(this).text();
+					if (/##PRODUKT##1/i.test(text)) {
+						$(this).remove();
+					}
+				});
+			}
+		}
+		async function fetchAndAppendBlogProducts2() {
+			let productURLs = [];
+			let firstProductParagraph = null;
+			let maxNumberOfProducts = 4;
+
+			$("#content p").each(function () {
+				let text = $(this).text();
+				if (/##PRODUKT##2/i.test(text)) {
+					if (!firstProductParagraph) {
+						firstProductParagraph = $(this);
+					}
+					let urlMatch = text.match(/https?:\/\/[^\s]+/);
+					if (urlMatch && productURLs.length < maxNumberOfProducts) {
+						productURLs.push(urlMatch[0]);
+					}
+				}
+			});
+
+			if (productURLs.length > 0 && firstProductParagraph) {
+				let blogProductsDiv = $("<div>", { class: "blog-fetched-products" });
+
+				for (let url of productURLs) {
+					try {
+						const response = await fetch(url);
+						const text = await response.text();
+						const parser = new DOMParser();
+						const doc = parser.parseFromString(text, "text/html");
+						const metaImage = doc.querySelector('meta[property="og:image"]');
+						const metaName = doc.querySelector('meta[itemprop="name"]');
+
+						if (metaImage && metaName) {
+							// Create an anchor element
+							let anchorElement = $("<a>", { href: url, target: "_blank" });
+
+							// Create a paragraph element for the meta name content
+							let productName = $("<p>").text(metaName.getAttribute("content"));
+
+							// Create an img element
+							let blogImage = $("<img>", {
+								src: metaImage.getAttribute("content"),
+								alt: productName.text(),
+								loading: "lazy",
+							});
+
+							// Append the img element and the paragraph element to the anchor element
+							anchorElement.append(blogImage);
+							anchorElement.append(productName);
+							/* 
+							const showBtn = document.createElement("div");
+							showBtn.classList.add("show-product-btn");
+							showBtn.textContent = "Zobrazit produkt";
+							anchorElement.append(showBtn); */
+
+							// Append the anchor element to the blogProductsDiv
+							blogProductsDiv.append(anchorElement);
+						}
+					} catch (error) {
+						console.error("Error fetching product data:", error);
+					}
+				}
+
+				// Insert the blogProductsDiv before the first found paragraph
+				firstProductParagraph.before(blogProductsDiv);
+
+				// Remove the paragraphs containing ##PRODUKT##
+				$("p").each(function () {
+					let text = $(this).text();
+					if (/##PRODUKT##2/i.test(text)) {
+						$(this).remove();
+					}
+				});
+			}
+		}
+		async function fetchAndAppendBlogProducts3() {
+			let productURLs = [];
+			let firstProductParagraph = null;
+			let maxNumberOfProducts = 4;
+
+			$("#content p").each(function () {
+				let text = $(this).text();
+				if (/##PRODUKT##3/i.test(text)) {
+					if (!firstProductParagraph) {
+						firstProductParagraph = $(this);
+					}
+					let urlMatch = text.match(/https?:\/\/[^\s]+/);
+					if (urlMatch && productURLs.length < maxNumberOfProducts) {
+						productURLs.push(urlMatch[0]);
+					}
+				}
+			});
+
+			if (productURLs.length > 0 && firstProductParagraph) {
+				let blogProductsDiv = $("<div>", { class: "blog-fetched-products" });
+
+				for (let url of productURLs) {
+					try {
+						const response = await fetch(url);
+						const text = await response.text();
+						const parser = new DOMParser();
+						const doc = parser.parseFromString(text, "text/html");
+						const metaImage = doc.querySelector('meta[property="og:image"]');
+						const metaName = doc.querySelector('meta[itemprop="name"]');
+
+						if (metaImage && metaName) {
+							// Create an anchor element
+							let anchorElement = $("<a>", { href: url, target: "_blank" });
+
+							// Create a paragraph element for the meta name content
+							let productName = $("<p>").text(metaName.getAttribute("content"));
+
+							// Create an img element
+							let blogImage = $("<img>", {
+								src: metaImage.getAttribute("content"),
+								alt: productName.text(),
+								loading: "lazy",
+							});
+
+							// Append the img element and the paragraph element to the anchor element
+							anchorElement.append(blogImage);
+							anchorElement.append(productName);
+
+							/* 		const showBtn = document.createElement("div");
+							showBtn.classList.add("show-product-btn");
+							showBtn.textContent = "Zobrazit produkt";
+							anchorElement.append(showBtn); */
+
+							// Append the anchor element to the blogProductsDiv
+							blogProductsDiv.append(anchorElement);
+						}
+					} catch (error) {
+						console.error("Error fetching product data:", error);
+					}
+				}
+
+				// Insert the blogProductsDiv before the first found paragraph
+				firstProductParagraph.before(blogProductsDiv);
+
+				// Remove the paragraphs containing ##PRODUKT##
+				$("p").each(function () {
+					let text = $(this).text();
+					if (/##PRODUKT##3/i.test(text)) {
 						$(this).remove();
 					}
 				});
