@@ -1163,11 +1163,11 @@
 }
 .ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing-info,
 .ordering-process.id--17 #checkoutSidebar .recapitulation-shipping-billing-info {
-  font-weight: var(--fw-700);
+  font-weight: var(--fw-700) !important;
 }
 .ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing-info span,
 .ordering-process.id--17 #checkoutSidebar .recapitulation-shipping-billing-info span {
-  font-weight: var(--fw-400);
+  font-weight: var(--fw-400) !important;
 }
 .ordering-process.id--16 #checkoutSidebar .recapitulation-shipping-billing-label,
 .ordering-process.id--16 #checkoutSidebar .recapitulation-single > span,
