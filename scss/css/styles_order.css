@@ -912,7 +912,8 @@
 .ordering-process:not(.id--15) .cart-row #checkoutSidebar .extra.discount a {
   text-decoration: underline;
 }
-.ordering-process:not(.id--15) h4 {
+.ordering-process:not(.id--15) h4,
+.ordering-process:not(.id--15) h2.h4 {
   font-size: var(--fs-18);
   padding-bottom: 1em;
 }

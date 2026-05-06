@@ -759,7 +759,8 @@ $desktop-large-min: 1680px;
 			}
 		}
 	}
-	h4 {
+	h4,
+	h2.h4 {
 		font-size: var(--fs-18);
 		padding-bottom: 1em;
 	}
