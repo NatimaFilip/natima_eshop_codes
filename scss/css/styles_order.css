@@ -1487,6 +1487,11 @@
 .ordering-process.id--17 .recap-wrapper h4 {
   padding-bottom: 1.25em;
 }
+.ordering-process.id--16 .recap-wrapper h2.h4,
+.ordering-process.id--17 .recap-wrapper h2.h4 {
+  font-size: var(--fs-18);
+  padding-bottom: 1.25em;
+}
 .ordering-process.id--16 .recap-wrapper .cart-items,
 .ordering-process.id--17 .recap-wrapper .cart-items {
   display: -webkit-box;
