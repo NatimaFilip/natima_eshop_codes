@@ -356,7 +356,7 @@ function rearangeRecap() {
 	let checkoutSidebar = document.querySelector("#checkoutSidebar");
 	if (!checkoutSidebar) return;
 
-	recapTitle = checkoutSidebar.querySelector("h4");
+	recapTitle = checkoutSidebar.querySelector("h2");
 	cartItems = checkoutSidebar.querySelectorAll(".cart-items");
 	const recapWrapper = document.createElement("div");
 	recapWrapper.classList.add("recap-wrapper");

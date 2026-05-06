@@ -976,6 +976,13 @@ $desktop-large-min: 1680px;
 		.recapitulation-single > strong {
 			flex-direction: row;
 		}
+		.recapitulation-shipping-billing-info {
+			font-weight: var(--fw-700);
+			span {
+				font-weight: var(--fw-400);
+			}
+		}
+
 		.recapitulation-shipping-billing-label,
 		.recapitulation-single > span {
 			display: none;
