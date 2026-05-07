@@ -1258,7 +1258,9 @@ function fixKosikInVyhledavani() {
 		cartLink.setAttribute("aria-haspopup", "dialog");
 		cartLink.setAttribute("aria-expanded", "false");
 		cartLink.setAttribute("aria-controls", "cart-widget");
+
 		navigationButtons.appendChild(cartLink);
+		navigationButtons.style.setProperty("display", "flex", "important");
 	}
 }
 
