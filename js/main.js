@@ -240,6 +240,11 @@ const translationsStrings = {
 		sk: "Vhodné pre:",
 		pl: "Odpowiednie dla:",
 	},
+	kosikUrl: {
+		cs: "https://www.natima.cz/kosik",
+		sk: "https://www.natima.sk/kosik",
+		pl: "https://www.natima.pl/koszyk",
+	},
 };
 
 /*--------------------------------------- Přepsání funkcí*/
@@ -1235,6 +1240,16 @@ function productListMoveAppendixToDescription() {
 	});
 }
 
+function fixKosikInVyhledavani() {
+	let navigationButtons = header.querySelector(".navigation-buttons");
+	if (!navigationButtons) {
+		return;
+	}
+	if (navigationButtons.textContent.length === 0) {
+		console.log("Navigation buttons are empty, fixing cart icon in search.");
+	}
+}
+
 /*------------------------------------------------- CATEGORY Obecné*/
 let perexTrimmedIsVisible;
 if (body.classList.contains("type-category")) {
@@ -1375,6 +1390,7 @@ document.addEventListener("luigiSearchDone", function (event) {
 	actionPriceToFinalPriceAndReviewsNumber();
 	measureUnitFromFiltersProducts();
 	productListMoveAppendixToDescription();
+	fixKosikInVyhledavani();
 	/* measureUnitFromAppendixProducts(); */
 });
 
