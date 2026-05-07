@@ -36,7 +36,7 @@ if (body.classList.contains("id--9")) {
 		let freeGift = document.querySelector(".free-gift");
 		if (!freeGift) return;
 
-		let giftHeader = document.querySelector(".cart-summary h4");
+		let giftHeader = document.querySelector(".cart-summary .h4");
 		if (csLang) {
 			giftHeader.textContent = "Dárky k objednávce";
 		}

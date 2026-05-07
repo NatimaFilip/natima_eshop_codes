@@ -823,6 +823,9 @@ document.addEventListener("ShoptetDOMCartContentLoaded", function () {
 });
 let priceAddedToCartWidget = false;
 function insertTotalPriceToCartWidget() {
+	if (!header.querySelector(".cart-price")) {
+		return;
+	}
 	let totalPrice = header.querySelector(".cart-price").textContent.trim();
 	if (!totalPrice) {
 		return;
