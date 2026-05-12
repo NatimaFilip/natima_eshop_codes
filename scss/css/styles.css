@@ -10317,6 +10317,31 @@ body.sticky-header-off .messages > * {
   padding-bottom: var(--gap-6);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .btn-primary {
+  width: 100%;
+  border-radius: var(--br-16);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--color-primary);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  color: var(--color-white);
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  margin-top: 1em;
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .btn-primary:hover, .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .btn-primary:focus-within {
+  background-color: var(--color-primary-hover);
+}
+.type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .btn-primary {
+  padding: 1.1667em;
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
           box-shadow: inset 0px -1px 0px var(--color-primary-500);
@@ -11584,6 +11609,31 @@ html.cookies-visible .siteCookies {
   padding-bottom: var(--gap-6);
 }
 .id--51 .content-inner #rate-form .btn-primary {
+  width: 100%;
+  border-radius: var(--br-16);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--color-primary);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  color: var(--color-white);
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  margin-top: 1em;
+}
+.id--51 .content-inner #rate-form .btn-primary:hover, .id--51 .content-inner #rate-form .btn-primary:focus-within {
+  background-color: var(--color-primary-hover);
+}
+.id--51 .content-inner #rate-form .btn-primary {
+  padding: 1.1667em;
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
           box-shadow: inset 0px -1px 0px var(--color-primary-500);
@@ -12136,6 +12186,31 @@ html.cookies-visible .siteCookies {
   padding-bottom: var(--gap-6);
 }
 .in-index .hodnoceni-obchodu-section #rate-form .btn-primary {
+  width: 100%;
+  border-radius: var(--br-16);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--color-primary);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  color: var(--color-white);
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  margin-top: 1em;
+}
+.in-index .hodnoceni-obchodu-section #rate-form .btn-primary:hover, .in-index .hodnoceni-obchodu-section #rate-form .btn-primary:focus-within {
+  background-color: var(--color-primary-hover);
+}
+.in-index .hodnoceni-obchodu-section #rate-form .btn-primary {
+  padding: 1.1667em;
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
           box-shadow: inset 0px -1px 0px var(--color-primary-500);

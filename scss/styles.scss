@@ -550,6 +550,23 @@ $desktop-large-min: 1680px;
 			padding-bottom: var(--gap-6);
 		}
 		.btn-primary {
+			width: 100%;
+			border-radius: var(--br-16);
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: var(--color-primary);
+			font-size: var(--fs-16);
+			font-weight: var(--fw-700);
+			color: var(--color-white);
+			transition: background-color 0.2s ease-out;
+			margin-top: 1em;
+			&:hover,
+			&:focus-within {
+				background-color: var(--color-primary-hover);
+			}
+			padding: 1.1667em;
 			@include bottom-primary-shadow;
 		}
 	}
