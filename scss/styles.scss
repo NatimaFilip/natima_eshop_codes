@@ -318,6 +318,9 @@ $desktop-large-min: 1680px;
 			font-weight: var(--fw-700);
 		}
 	}
+	> h2 {
+		display: none;
+	}
 	@media screen and (max-width: $tablet-max) {
 		display: flex;
 		flex-direction: column;
@@ -415,7 +418,8 @@ $desktop-large-min: 1680px;
 		text-decoration: none;
 	}
 	.rate-wrap {
-		> .col-xs-12:not(.rate-average-wrap) {
+		> .col-xs-12:not(.rate-average-wrap),
+		> .votes {
 			display: flex;
 			flex-direction: column;
 			gap: var(--gap-12);
