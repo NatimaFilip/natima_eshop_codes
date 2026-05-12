@@ -566,8 +566,9 @@ $desktop-large-min: 1680px;
 			&:focus-within {
 				background-color: var(--color-primary-hover);
 			}
-			padding: 1.1667em;
+
 			@include bottom-primary-shadow;
+			padding: 1.1667em;
 		}
 	}
 	.votes-wrap {
@@ -6794,6 +6795,9 @@ body {
 					.star-list {
 						display: none;
 					}
+				}
+				.show-ratings {
+					display: none;
 				}
 			}
 

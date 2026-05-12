@@ -7777,6 +7777,9 @@ body.sticky-header-off .messages > * {
 .type-product .product-top .p-info-wrapper .stars-wrapper.no-score .star-list {
   display: none;
 }
+.type-product .product-top .p-info-wrapper .stars-wrapper .show-ratings {
+  display: none;
+}
 .type-product .product-top .p-info-wrapper .product-parameters-product-top {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
@@ -10341,10 +10344,10 @@ body.sticky-header-off .messages > * {
   background-color: var(--color-primary-hover);
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab #rate-form .btn-primary {
-  padding: 1.1667em;
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
           box-shadow: inset 0px -1px 0px var(--color-primary-500);
+  padding: 1.1667em;
 }
 .type-product .p-detail-tabs-wrapper > .row #tab-content #ratingTab .votes-wrap {
   display: -webkit-box;
@@ -11633,10 +11636,10 @@ html.cookies-visible .siteCookies {
   background-color: var(--color-primary-hover);
 }
 .id--51 .content-inner #rate-form .btn-primary {
-  padding: 1.1667em;
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
           box-shadow: inset 0px -1px 0px var(--color-primary-500);
+  padding: 1.1667em;
 }
 .id--51 .content-inner .votes-wrap {
   display: -webkit-box;
@@ -12210,10 +12213,10 @@ html.cookies-visible .siteCookies {
   background-color: var(--color-primary-hover);
 }
 .in-index .hodnoceni-obchodu-section #rate-form .btn-primary {
-  padding: 1.1667em;
   padding-bottom: 1px;
   -webkit-box-shadow: inset 0px -1px 0px var(--color-primary-500);
           box-shadow: inset 0px -1px 0px var(--color-primary-500);
+  padding: 1.1667em;
 }
 .in-index .hodnoceni-obchodu-section .votes-wrap {
   display: -webkit-box;
