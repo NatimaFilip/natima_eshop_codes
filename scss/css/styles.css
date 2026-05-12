@@ -8840,6 +8840,8 @@ body.sticky-header-off .messages > * {
   position: relative;
   top: 3px;
   pointer-events: none;
+  color: var(--color-primary);
+  padding-left: 0.5em;
   font-size: var(--fs-11);
   text-decoration: underline;
   text-underline-offset: 3px;

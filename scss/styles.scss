@@ -7495,7 +7495,8 @@ body {
 				position: relative;
 				top: 3px;
 				pointer-events: none;
-
+				color: var(--color-primary);
+				padding-left: 0.5em;
 				font-size: var(--fs-11);
 				@include text-underline;
 			}
