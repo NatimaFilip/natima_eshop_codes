@@ -225,13 +225,16 @@ $desktop-large-min: 1680px;
 	display: flex;
 	align-items: center;
 	gap: 3px;
-	.star {
+	.star,
+	.rating-star {
 		width: 0.693em;
 		height: 0.693em;
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: contain;
-		&.star-on {
+		background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
+		&.star-on,
+		&.full {
 			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_full_3.svg");
 		}
 		&.star-half {
@@ -362,6 +365,7 @@ $desktop-large-min: 1680px;
 		color: var(--color-primary);
 		font-size: var(--fs-16);
 		cursor: pointer;
+		margin-top: 1em;
 		@include text-underline;
 		&:hover,
 		&:focus-within {
@@ -467,6 +471,7 @@ $desktop-large-min: 1680px;
 			top: 0;
 			left: 0;
 			width: 100%;
+			width: var(--rate-bar-width);
 			height: 10px;
 			background-color: var(--color-primary);
 			border-radius: 5px;
@@ -499,12 +504,36 @@ $desktop-large-min: 1680px;
 			margin: var(--gap-6) 0;
 		}
 
-		.stars {
+		h2 {
+			display: none;
+		}
+
+		.msg-email-ok {
+			display: none;
+		}
+		.msg-error {
+			color: var(--color-red-400);
+		}
+
+		.rating-stars-label {
+			display: none;
+		}
+		.rating-star-description {
+			display: none;
+		}
+
+		.form-legend {
+			display: none;
+		}
+
+		.stars,
+		.rating-stars-wrapper {
 			@include star-list;
 			gap: var(--gap-8);
 			padding-top: var(--gap-8);
 			padding-bottom: var(--gap-16);
-			.star {
+			.star,
+			.rating-star {
 				cursor: pointer;
 				width: 1.25em;
 				height: 1.25em;
