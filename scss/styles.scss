@@ -243,6 +243,9 @@ $desktop-large-min: 1680px;
 		&.star-off {
 			background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_star_empty_3.svg");
 		}
+		input {
+			display: none;
+		}
 	}
 }
 
@@ -501,10 +504,10 @@ $desktop-large-min: 1680px;
 		input,
 		textarea {
 			width: 100%;
-			margin: var(--gap-6) 0;
+			margin: var(--gap-6) 0 var(--gap-12) 0;
 		}
 
-		h2 {
+		h3 {
 			display: none;
 		}
 
@@ -545,6 +548,9 @@ $desktop-large-min: 1680px;
 		.consents-first {
 			font-size: var(--fs-14);
 			padding-bottom: var(--gap-6);
+		}
+		.btn-primary {
+			@include bottom-primary-shadow;
 		}
 	}
 	.votes-wrap {
