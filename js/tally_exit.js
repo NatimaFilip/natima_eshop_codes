@@ -1,7 +1,7 @@
 (function () {
 	var LOG = "[tally-exit]";
 	var FORM_ID = "aQaQQW"; // doplnit ID exit-intent formu z Tally
-	var MIN_TIME = 60 * 1000; // ≥60 s na webu
+	var MIN_TIME = 5 * 1000; // ≥60 s na webu
 	var MIN_PAGES = 2; // ≥2 navštívené stránky
 	var COOLDOWN = 30; // dní — frequency cap
 	var fired = false;
@@ -157,33 +157,39 @@
 		setCookie("natima_exit_shown", "1", COOLDOWN);
 	}
 
-	// --- DESKTOP: mouse-leave intent (horní hrana okna) ---
+	// --- DESKTOP: mouse-leave intent (horní hrana okna, s 20px tolerancí) ---
+	var TOP_EDGE_TOLERANCE = 10; // px — kolik nad/pod horní hranou ještě počítáme jako exit
 	document.addEventListener("mouseout", function (e) {
-		if (!e.relatedTarget && e.clientY <= 0) {
-			console.log(LOG, "DESKTOP exit signál: mouseleave přes horní hranu");
+		if (!e.relatedTarget && e.clientY <= TOP_EDGE_TOLERANCE) {
+			console.log(LOG, "DESKTOP exit signál: mouseleave přes horní hranu, clientY =", e.clientY);
 			openPopup();
 		}
 	});
 
-	// --- MOBIL: rychlý scroll nahoru jako proxy za exit ---
-	var lastY = window.scrollY,
-		lastT = Date.now();
-	window.addEventListener(
-		"scroll",
-		function () {
-			var now = Date.now(),
-				dy = lastY - window.scrollY,
-				dt = now - lastT || 1;
-			var velocity = dy / dt; // px/ms směrem nahoru
-			if (velocity > 1.5 && window.scrollY < 300) {
-				console.log(LOG, "MOBIL exit signál: rychlý scroll nahoru, velocity =", velocity.toFixed(2));
-				openPopup();
-			}
-			lastY = window.scrollY;
-			lastT = now;
-		},
-		{ passive: true },
-	);
+	// --- MOBIL: rychlý scroll nahoru jako proxy za exit (jen ≤768 px) ---
+	if (window.matchMedia("(max-width: 768px)").matches) {
+		var lastY = window.scrollY,
+			lastT = Date.now();
+		window.addEventListener(
+			"scroll",
+			function () {
+				var now = Date.now(),
+					dy = lastY - window.scrollY,
+					dt = now - lastT || 1;
+				var velocity = dy / dt; // px/ms směrem nahoru
+				if (velocity > 1.5 && window.scrollY < 300) {
+					console.log(LOG, "MOBIL exit signál: rychlý scroll nahoru, velocity =", velocity.toFixed(2));
+					openPopup();
+				}
+				lastY = window.scrollY;
+				lastT = now;
+			},
+			{ passive: true },
+		);
+		console.log(LOG, "mobilní scroll listener aktivní (šířka ≤768 px)");
+	} else {
+		console.log(LOG, "mobilní scroll listener přeskočen (šířka >768 px)");
+	}
 
 	console.log(LOG, "listenery (mouseout + scroll) navěšeny, čekám na exit signál");
 })();
