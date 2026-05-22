@@ -1,7 +1,7 @@
 (function () {
 	var LOG = "[tally-exit]";
 	var FORM_ID = "aQaQQW"; // doplnit ID exit-intent formu z Tally
-	var MIN_TIME = 5 * 1000; // ≥60 s na webu
+	var MIN_TIME = 60 * 1000; // ≥60 s na webu
 	var MIN_PAGES = 2; // ≥2 navštívené stránky
 	var COOLDOWN = 30; // dní — frequency cap
 	var fired = false;
@@ -157,8 +157,8 @@
 		setCookie("natima_exit_shown", "1", COOLDOWN);
 	}
 
-	// --- DESKTOP: mouse-leave intent (horní hrana okna, s 20px tolerancí) ---
-	var TOP_EDGE_TOLERANCE = 10; // px — kolik nad/pod horní hranou ještě počítáme jako exit
+	// --- DESKTOP: mouse-leave intent (horní hrana okna, s 10px tolerancí) ---
+	var TOP_EDGE_TOLERANCE = 15; // px — kolik nad/pod horní hranou ještě počítáme jako exit
 	document.addEventListener("mouseout", function (e) {
 		if (!e.relatedTarget && e.clientY <= TOP_EDGE_TOLERANCE) {
 			console.log(LOG, "DESKTOP exit signál: mouseleave přes horní hranu, clientY =", e.clientY);
