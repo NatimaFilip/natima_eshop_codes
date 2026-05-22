@@ -7500,6 +7500,9 @@ body {
 				font-size: var(--fs-11);
 				@include text-underline;
 			}
+			.show-ratings {
+				display: none !important;
+			}
 			&.no-score {
 				.stars-label {
 					padding-left: 1em;
@@ -7573,6 +7576,9 @@ body {
 				font-size: var(--fs-11);
 				@include text-underline;
 				max-width: 12em;
+			}
+			.show-ratings {
+				display: none !important;
 			}
 			&.no-score {
 				.stars-label {

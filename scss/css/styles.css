@@ -8846,6 +8846,10 @@ body.sticky-header-off .messages > * {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+.type-product #product-detail-form .stars-wrapper .show-ratings,
+.type-product .p-detail-inner-header .stars-wrapper .show-ratings {
+  display: none !important;
+}
 .type-product #product-detail-form .stars-wrapper.no-score .stars-label,
 .type-product .p-detail-inner-header .stars-wrapper.no-score .stars-label {
   padding-left: 1em;
@@ -8966,6 +8970,9 @@ body.sticky-header-off .messages > * {
   text-decoration: underline;
   text-underline-offset: 3px;
   max-width: 12em;
+}
+.type-product .sticky-sell .stars-wrapper .show-ratings {
+  display: none !important;
 }
 .type-product .sticky-sell .stars-wrapper.no-score .stars-label {
   padding-left: 1em;
