@@ -630,6 +630,7 @@ body #header .navigation-wrapper .header-top .site-name-wrapper .site-name a img
   height: auto;
   max-height: 100%;
   width: 100%;
+  min-width: 80px;
   -o-object-fit: contain;
      object-fit: contain;
   -webkit-transition: -webkit-filter 0.2s ease-in-out;
