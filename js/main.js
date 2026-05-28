@@ -3423,6 +3423,7 @@ if (body.classList.contains("type-product")) {
 		denDetiDiv.appendChild(denDetiText);
 		shortDescription.appendChild(denDetiDiv);
 	}
+	addDenDetiTextToShortDescription();
 
 	document.addEventListener("DOMContentLoaded", function () {
 		let thumbnailsWrapper = document.querySelector(".p-thumbnails-inner");
