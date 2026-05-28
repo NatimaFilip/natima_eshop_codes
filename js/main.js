@@ -3419,7 +3419,7 @@ if (body.classList.contains("type-product")) {
 		const denDetiDiv = document.createElement("div");
 		denDetiDiv.className = "den-deti-text";
 		const denDetiText = document.createElement("p");
-		denDetiText.textContent = translationsStrings.denDetiText[activeLang];
+		denDetiText.innerHTML = translationsStrings.denDetiText[activeLang];
 		denDetiDiv.appendChild(denDetiText);
 		shortDescription.appendChild(denDetiDiv);
 	}
