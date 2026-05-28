@@ -3422,6 +3422,7 @@ if (body.classList.contains("type-product")) {
 		denDetiText.innerHTML = translationsStrings.denDetiText[activeLang];
 		denDetiDiv.appendChild(denDetiText);
 		shortDescription.appendChild(denDetiDiv);
+		console.log("Den dětí text added to short description");
 	}
 	addDenDetiTextToShortDescription();
 
