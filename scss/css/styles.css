@@ -14586,6 +14586,7 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   position: relative;
   height: 1.5em;
   width: 1.5em;
+  min-width: 1.5em;
   background: var(--color-cta-400);
   border-radius: 4px;
   display: -webkit-box;
