@@ -3419,10 +3419,9 @@ if (body.classList.contains("type-product")) {
 		const denDetiDiv = document.createElement("div");
 		denDetiDiv.className = "den-deti-text";
 		const denDetiText = document.createElement("p");
-		denDetiText.innerHTML = translationsStrings.denDetiText[activeLang];
+		denDetiText.innerHTML = translationsStrings.denDetiKupon[activeLang];
 		denDetiDiv.appendChild(denDetiText);
 		shortDescription.appendChild(denDetiDiv);
-		console.log("Den dětí text added to short description");
 	}
 	addDenDetiTextToShortDescription();
 
