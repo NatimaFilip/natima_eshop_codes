@@ -10368,3 +10368,34 @@ body {
 	background: var(--color-cta-400) !important;
 	color: white !important;
 }
+#content .flag-dendeti10 {
+	background: var(--color-cta-400) !important;
+	color: white !important;
+}
+
+.den-deti-text {
+	background: var(--color-cta-200);
+	border-radius: var(--br-16);
+	padding: 1.5em 1em;
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	justify-content: flex-start;
+	p {
+		margin: 0;
+		padding: 0;
+	}
+	&::before {
+		content: "!";
+		font-weight: 700;
+		color: white;
+		position: relative;
+		height: 1.5em;
+		width: 1.5em;
+		background: var(--color-cta-400);
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
