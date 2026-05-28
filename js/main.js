@@ -81,7 +81,7 @@ const translationsStrings = {
 	},
 	denDetiKupon: {
 		cs: "Na tento produkt lze uplatnit kód <b>PRODETI10</b> pro 10% slevu.",
-		sk: "Na tento produkt je možné uplatniť kód <b>PRODETI10</b> pre 10% zľavu.",
+		sk: "Na tento produkt je možné uplatniť kód <b>PREDETI10</b> pre 10% zľavu.",
 		pl: "Na ten produkt można użyć kod rabatowy <b>DLADZIECI10</b> ze zniżką 10%.",
 	},
 	descriptionTitle: {
@@ -3414,7 +3414,7 @@ if (body.classList.contains("type-product")) {
 
 	function addDenDetiTextToShortDescription() {
 		if (!shortDescription) return;
-		const denDetiFlag = document.querySelector(".flag-dendeti10");
+		const denDetiFlag = document.querySelector(".image-carousel-wrapper .flag-dendeti10");
 		if (!denDetiFlag) return;
 		const denDetiDiv = document.createElement("div");
 		denDetiDiv.className = "den-deti-text";
