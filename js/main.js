@@ -2601,19 +2601,6 @@ if (body.classList.contains("type-product")) {
 			imageElement.appendChild(flagsWrapper);
 		}
 
-		function addDenDetiTextToShortDescription() {
-			if (!shortDescription) return;
-			const denDetiFlag = document.querySelector(".image-carousel-wrapper .flag-dendeti10");
-			if (!denDetiFlag) return;
-			const denDetiDiv = document.createElement("div");
-			denDetiDiv.className = "den-deti-text";
-			const denDetiText = document.createElement("p");
-			denDetiText.innerHTML = translationsStrings.denDetiKupon[activeLang];
-			denDetiDiv.appendChild(denDetiText);
-			shortDescription.appendChild(denDetiDiv);
-		}
-		addDenDetiTextToShortDescription();
-
 		//merne jednotky v detailu produktu
 		try {
 			/* 	measureUnitFromAppendixDetail */
@@ -3424,6 +3411,19 @@ if (body.classList.contains("type-product")) {
 	if ($(".nelze-uplatnit-vernostni-slevu").length > 0) {
 		$(".nelze-uplatnit-vernostni-slevu").html("<p>" + translationsStrings.noLoyaltySale[activeLang] + "</p>");
 	}
+
+	function addDenDetiTextToShortDescription() {
+		if (!shortDescription) return;
+		const denDetiFlag = document.querySelector(".product-top .flag-dendeti10");
+		if (!denDetiFlag) return;
+		const denDetiDiv = document.createElement("div");
+		denDetiDiv.className = "den-deti-text";
+		const denDetiText = document.createElement("p");
+		denDetiText.innerHTML = translationsStrings.denDetiKupon[activeLang];
+		denDetiDiv.appendChild(denDetiText);
+		shortDescription.appendChild(denDetiDiv);
+	}
+	addDenDetiTextToShortDescription();
 
 	document.addEventListener("DOMContentLoaded", function () {
 		let thumbnailsWrapper = document.querySelector(".p-thumbnails-inner");
