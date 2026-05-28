@@ -14548,3 +14548,9 @@ body.kioskmode #order-billing-methods .radio-wrapper[data-id=billing-164] {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
+
+/*DEN DETI A DALSI KUPONY PRO ZVYRAZNENI + ZVYREZNENI V SHORT DESCRIPTIONU*/
+#content .flag-dendeti10 {
+  background: var(--color-cta-400) !important;
+  color: white !important;
+}

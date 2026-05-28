@@ -79,6 +79,11 @@ const translationsStrings = {
 		sk: "U tohto produktu nie je možné uplatniť vernostnú zľavu.",
 		pl: "U tego produktu nie można zastosować zniżki lojalnościowej.",
 	},
+	denDetiKupon: {
+		cs: "Na tento produkt lze uplatnit kód <b>PRODETI10</b> pro 10% slevu.",
+		sk: "Na tento produkt je možné uplatniť kód <b>PRODETI10</b> pre 10% zľavu.",
+		pl: "Na ten produkt można zastosować kod <b>PRODETI10</b> na 10% zniżki.",
+	},
 	descriptionTitle: {
 		cs: "Popis",
 		sk: "Popis",
@@ -3405,6 +3410,18 @@ if (body.classList.contains("type-product")) {
 	}
 	if ($(".nelze-uplatnit-vernostni-slevu").length > 0) {
 		$(".nelze-uplatnit-vernostni-slevu").html("<p>" + translationsStrings.noLoyaltySale[activeLang] + "</p>");
+	}
+
+	function addDenDetiTextToShortDescription() {
+		if (!shortDescription) return;
+		const denDetiFlag = document.querySelector(".flag-dendeti10");
+		if (!denDetiFlag) return;
+		const denDetiDiv = document.createElement("div");
+		denDetiDiv.className = "den-deti-text";
+		const denDetiText = document.createElement("p");
+		denDetiText.textContent = translationsStrings.denDetiText[activeLang];
+		denDetiDiv.appendChild(denDetiText);
+		shortDescription.appendChild(denDetiDiv);
 	}
 
 	document.addEventListener("DOMContentLoaded", function () {
