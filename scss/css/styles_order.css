@@ -2186,6 +2186,7 @@
   padding: 10px 20px;
   background-color: var(--color-cta-200);
   color: var(--color-cta-400);
+  max-width: 100%;
   border-radius: 16px;
 }
 .id--15 .recapitulation-wrapper {
@@ -2223,6 +2224,9 @@
   border-top-style: solid;
   border-top-width: 1px;
   border-top-color: var(--color-gray-500);
+}
+.id--15 .recapitulation-wrapper .co-order .cart-table tr td.cart-p-image {
+  min-width: 50px;
 }
 .id--15 .recapitulation-wrapper .co-order .cart-table tr:last-child td {
   border-bottom-style: solid;
