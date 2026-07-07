@@ -3933,8 +3933,8 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 						$(this).replaceWith(
 							`
 <div id="blog-author">
-	<div class="author-image"><!-- <img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
-			alt="Barbora P." width="500" height="500">--></div> 
+	<div class="author-image"> <img src="https://www.natima.cz/user/documents/upload/Blog/autori/barbora_p_natima.jpg"
+			alt="Barbora P." width="400" height="400"></div> 
 	<div class="author-text">
 		<p class="author-label">Autor</p>
 		<p class="author-name">Barbora P.</p>
@@ -3959,8 +3959,8 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 						$(this).replaceWith(
 							`
 <div id="blog-author">
-	<div class="author-image"><!-- <img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
-			alt="Barbora P." width="500" height="500">--></div> 
+	<div class="author-image"> <img src="https://www.natima.cz/user/documents/upload/Blog/autori/barbora_p_natima.jpg"
+			alt="Barbora P." width="400" height="400"></div> 
 	<div class="author-text">
 		<p class="author-label">Autor</p>
 		<p class="author-name">Barbora P.</p>
@@ -3985,8 +3985,8 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 						$(this).replaceWith(
 							`
 <div id="blog-author">
-	<div class="author-image"><!-- <img src="https://www.natima.cz/user/documents/upload/Blog/autori/BarboraP.webp"
-			alt="Barbora P." width="500" height="500">--></div> 
+	<div class="author-image"> <img src="https://www.natima.cz/user/documents/upload/Blog/autori/barbora_p_natima.jpg"
+			alt="Barbora P." width="400" height="400"></div> 
 	<div class="author-text">
 		<p class="author-label">Autor</p>
 		<p class="author-name">Barbara P.</p>
@@ -4001,6 +4001,74 @@ if (document.body.classList.contains("in-blog") && document.body.classList.conta
 					różnymi sposobami odżywiania i nowymi przepisami, a w tle najczęściej towarzyszy mi dobra muzyka lub
 					ciekawy podcast. Moją pasją jest pisanie i właśnie poprzez nie chcę dzielić się swoimi wskazówkami,
 					doświadczeniami oraz drobnymi trikami, które mogą pomóc innym żyć szczęśliwiej.</p>
+			</div>
+		</div>
+	</div>
+</div>
+							`,
+						);
+					}
+				}
+
+				if (/##AUTOR##TEREZABERGLOWCOVA/i.test($(this).text())) {
+					if (document.body.classList.contains("cs")) {
+						$(this).replaceWith(
+							`
+<div id="blog-author">
+	<div class="author-image"> <img src="https://www.natima.cz/user/documents/upload/Blog/autori/tereza_b_natima.jpg"
+			alt="Tereza Berglowcová" width="400" height="400"></div> 
+	<div class="author-text">
+		<p class="author-label">Autor</p>
+		<p class="author-name">Tereza Berglowcová</p>
+		<div class="expandale author-text">
+			<div class="expanding">
+				<p>Zajímám se o přírodní podporu zdraví prostřednictvím bylinek, výživy, pohybu a doplňků stravy. Blízký je mi aktivní životní styl, sport a přirozená péče o zdraví, stejně jako chvíle klidu a odpočinku s dobrou knihou.</p>
+				<p>Jako maminka malé dcery hledám šetrné a přirozené cesty, jak podpořit imunitu a celkovou vitalitu celé rodiny. Nejbližší jsou mi přírodní produkty a šetrná řešení, která respektují potřeby organismu.</p>
+				<p>Ráda se dělím o poznatky a zkušenosti, které mi dávají smysl a mohou být přínosné i pro ostatní.</p>
+			</div>
+		</div>
+	</div>
+</div>
+							`,
+						);
+					}
+					if (document.body.classList.contains("sk")) {
+						$(this).replaceWith(
+							`
+<div id="blog-author">
+	<div class="author-image"> <img src="https://www.natima.cz/user/documents/upload/Blog/autori/tereza_b_natima.jpg"
+			alt="Tereza Berglowcová" width="400" height="400"></div> 
+	<div class="author-text">
+		<p class="author-label">Autor</p>
+		<p class="author-name">Tereza Berglowcová</p>
+		<div class="expandale author-text">
+			<div class="expanding">
+			<p>Zaujímam sa o prírodnú podporu zdravia prostredníctvom byliniek, výživy, pohybu a výživových doplnkov. Blízky je mi aktívny životný štýl, šport a prirodzená starostlivosť o zdravie, rovnako ako chvíle pokoja a oddychu s dobrou knihou.</p>
+<p>Ako mamička malej dcéry hľadám šetrné a prirodzené cesty, ako podporiť imunitu a celkovú vitalitu celej rodiny. Najbližšie sú mi prírodné produkty a šetrné riešenia, ktoré rešpektujú potreby organizmu.</p>
+<p>Rada sa delím o poznatky a skúsenosti, ktoré mi dávajú zmysel a môžu byť prínosné aj pre ostatných.</p>
+
+			</div>
+		</div>
+	</div>
+</div>
+							`,
+						);
+					}
+					if (document.body.classList.contains("pl")) {
+						$(this).replaceWith(
+							`
+<div id="blog-author">
+	<div class="author-image"> <img src="https://www.natima.cz/user/documents/upload/Blog/autori/tereza_b_natima.jpg"
+			alt="Tereza Berglowcová" width="400" height="400"></div> 
+	<div class="author-text">
+		<p class="author-label">Autor</p>
+		<p class="author-name">Tereza Berglowcová</p>
+		<div class="expandale author-text">
+			<div class="expanding">
+			<p>Interesuję się naturalnym wspieraniem zdrowia poprzez zioła, odżywianie, ruch i suplementy diety. Bliski jest mi aktywny styl życia, sport i naturalna troska o zdrowie, a także chwile spokoju i odpoczynku z dobrą książką.</p>
+<p>Jako mama małej córki szukam łagodnych i naturalnych sposobów na wspieranie odporności oraz ogólnej witalności całej rodziny. Najbliższe są mi produkty naturalne i delikatne rozwiązania, które szanują potrzeby organizmu.</p>
+<p>Chętnie dzielę się wiedzą i doświadczeniami, które mają dla mnie sens i mogą być wartościowe także dla innych.</p>
+
 			</div>
 		</div>
 	</div>
