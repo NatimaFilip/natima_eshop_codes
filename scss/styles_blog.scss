@@ -453,7 +453,7 @@ $desktop-large-min: 1680px;
 	width: 300px;
 	flex-shrink: 0;
 	padding: calc(var(--gap-10) / 1.5);
-	margin-bottom: 40px;
+
 	position: relative;
 	cursor: pointer;
 	background-color: hsla(204, 5%, 60%, 0.06);
@@ -486,6 +486,7 @@ $desktop-large-min: 1680px;
 	inset: 0;
 	width: 80%;
 	max-width: 200px;
+	margin-bottom: 0.5em;
 	margin-top: 0.5em;
 	margin-left: auto;
 	margin-right: auto;
@@ -504,6 +505,10 @@ $desktop-large-min: 1680px;
 .blog-fetched-products > a:hover::after,
 .blog-fetched-category > .product:hover::after {
 	background-color: var(--color-primary-hover);
+}
+.blog-fetched-products > img,
+.blog-fetched-category > img {
+	mix-blend-mode: darken;
 }
 .blog-fetched-products > a:hover::before,
 .blog-fetched-category > .product:hover::before {
@@ -532,7 +537,7 @@ $desktop-large-min: 1680px;
 	-webkit-line-clamp: 3;
 	overflow: hidden;
 	padding: 0 10px;
-	margin-bottom: 2em !important;
+	margin-bottom: 1em !important;
 	margin-top: 1em !important;
 }
 @media (min-width: 1200px) {
@@ -544,7 +549,6 @@ $desktop-large-min: 1680px;
 	.blog-fetched-products > a,
 	.blog-fetched-category > .product {
 		max-width: 50%;
-		min-width: 25%;
 		width: auto;
 		flex-shrink: 1;
 		flex: 1;
