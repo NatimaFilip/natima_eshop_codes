@@ -554,8 +554,8 @@
   background-color: var(--color-primary-hover);
 }
 
-.blog-fetched-products > img,
-.blog-fetched-category > img {
+.blog-fetched-products img,
+.blog-fetched-category img {
   mix-blend-mode: darken;
 }
 
