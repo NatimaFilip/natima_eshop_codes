@@ -251,6 +251,21 @@ const translationsStrings = {
 		pl: "https://www.natima.pl/koszyk",
 	},
 
+	skladem: {
+		cs: "Skladem",
+		sk: "Skladom",
+		pl: "Na stanie",
+	},
+	nedostupne: {
+		cs: "Momentálně nedostupné",
+		sk: "Momentálne nedostupné",
+		pl: "Chwilowo niedostępne",
+	},
+	doKosiku: {
+		cs: "Do košíku",
+		sk: "Do košíka",
+		pl: "Do koszyka",
+	},
 	// --- Raventic search widgets (results + dropdown). SK/PL machine-translated; review. ---
 	raventicNoResults: {
 		cs: "Nic jsme nenašli, zkuste to znovu",
@@ -5367,8 +5382,10 @@ window.NAT.translations = function (key) {
 
 window.NAT.raventic = window.NAT.raventic || {
 	cs: {
-		apiKey: "euc28f5007d854bb5b8b89120288e45",
-		bestsellersApiKey: "euc28f5007d854bb5b8b89120288e45",
+		/* 		apiKey: "euc28f5007d854bb5b8b89120288e45",
+		bestsellersApiKey: "euc28f5007d854bb5b8b89120288e45", */
+		apiKey: "euca0e3736860cd1072be643e4e32e5",
+		bestsellersApiKey: "euca0e3736860cd1072be643e4e32e5",
 		locale: "cs-CZ",
 		currency: "CZK",
 		priceDecimals: 0,
