@@ -830,25 +830,6 @@ $desktop-large-min: 1680px;
 		}
 		//konec temp
 	}
-	.raventic-search-results {
-		> h1 {
-			position: relative;
-			@include body-max-width;
-
-			&:before {
-				content: "";
-				width: calc(100vw - 8px);
-				height: 100%;
-				position: absolute;
-				left: 50%;
-				top: 0;
-				transform: translateX(-50%);
-				@include white-blue-gradient;
-				--angle: 90deg;
-				z-index: -1;
-			}
-		}
-	}
 
 	.raventic-search-results-products {
 		order: 2;
@@ -978,7 +959,7 @@ $desktop-large-min: 1680px;
 			margin-bottom: 1em;
 			input {
 				padding: 0.5em 1em;
-				width: 9em;
+				width: 45%;
 			}
 		}
 	}
@@ -1001,12 +982,6 @@ $desktop-large-min: 1680px;
 		}
 	}
 	.raventic-search-results-promo-content {
-		@include white-blue-gradient;
-		--angle: 90deg;
-
-		.raventic-search-results-promo-content-type {
-			@include body-max-width;
-		}
 		.raventic-search-results-promo-content-type-title {
 			font-size: var(--fs-20);
 			font-weight: 700;

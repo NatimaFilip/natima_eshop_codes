@@ -12,30 +12,6 @@
 .is-test-eshop.id--11 #products .product img {
   aspect-ratio: 4/3;
 }
-.is-test-eshop .raventic-search-results > h1 {
-  position: relative;
-  width: 100%;
-  max-width: 1920px;
-  padding: 0 var(--padding-sides);
-  margin: 0 auto;
-}
-.is-test-eshop .raventic-search-results > h1:before {
-  content: "";
-  width: calc(100vw - 8px);
-  height: 100%;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  --angle: 90deg;
-  --start: 0%;
-  --end: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(var(--angle)), color-stop(white), to(var(--color-primary-200)));
-  background: linear-gradient(var(--angle), white var(--start), var(--color-primary-200) var(--end));
-  --angle: 90deg;
-  z-index: -1;
-}
 .is-test-eshop .raventic-search-results-products {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
@@ -209,7 +185,7 @@
 }
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-selector input {
   padding: 0.5em 1em;
-  width: 9em;
+  width: 45%;
 }
 .is-test-eshop .raventic-search-results-products .raventic-search-results-filter-selection {
   margin-top: 40px;
@@ -225,20 +201,6 @@
 .is-test-eshop .raventic-search-results-products .raventic-search-results-filter-selection svg {
   max-width: 20px;
   max-height: 20px;
-}
-.is-test-eshop .raventic-search-results-promo-content {
-  --angle: 90deg;
-  --start: 0%;
-  --end: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(var(--angle)), color-stop(white), to(var(--color-primary-200)));
-  background: linear-gradient(var(--angle), white var(--start), var(--color-primary-200) var(--end));
-  --angle: 90deg;
-}
-.is-test-eshop .raventic-search-results-promo-content .raventic-search-results-promo-content-type {
-  width: 100%;
-  max-width: 1920px;
-  padding: 0 var(--padding-sides);
-  margin: 0 auto;
 }
 .is-test-eshop .raventic-search-results-promo-content .raventic-search-results-promo-content-type-title {
   font-size: var(--fs-20);
