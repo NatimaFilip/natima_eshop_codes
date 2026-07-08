@@ -914,6 +914,15 @@ $desktop-large-min: 1680px;
 			padding-bottom: 0.5em;
 		}
 
+		.raventic-search-results-filters-filter-body {
+			a {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				color: black;
+			}
+		}
+
 		.raventic-search-results-filters-filter-enum-item-checkbox,
 		.raventic-search-results-filters-filter-price-item-checkbox {
 			position: relative;
@@ -934,12 +943,6 @@ $desktop-large-min: 1680px;
 				& ~ span {
 					font-weight: 700;
 				}
-			}
-			a {
-				display: flex;
-				align-items: center;
-				gap: 8px;
-				color: black;
 			}
 
 			svg {

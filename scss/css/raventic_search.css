@@ -99,6 +99,16 @@
   line-height: var(--lh-2);
   padding-bottom: 0.5em;
 }
+.is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-body a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  color: black;
+}
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-enum-item-checkbox,
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-item-checkbox {
   position: relative;
@@ -152,17 +162,6 @@
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-item-checkbox.raventic-search-results-filters-filter-enum-item-checkbox-checked ~ span,
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-item-checkbox.raventic-search-results-filters-filter-price-item-checkbox-checked ~ span {
   font-weight: 700;
-}
-.is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-enum-item-checkbox a,
-.is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-item-checkbox a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 8px;
-  color: black;
 }
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-enum-item-checkbox svg,
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-item-checkbox svg {
