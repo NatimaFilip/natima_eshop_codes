@@ -251,6 +251,58 @@ const translationsStrings = {
 		pl: "https://www.natima.pl/koszyk",
 	},
 
+	nahoru: {
+		cs: "Nahoru",
+		sk: "Hore",
+		pl: "Do góry",
+	},
+
+	currencySymbol: {
+		cs: "Kč",
+		sk: "€",
+		pl: "zł",
+	},
+
+	measuringUnitSingulars: {
+		cs: {
+			kapslí: "kapsle",
+			tablet: "tableta",
+			tobolek: "tobolka",
+			tabletek: "tabletka",
+			dávek: "dávka",
+			dávky: "dávka",
+			produkty: "produkt",
+			produktů: "produkt",
+		},
+		sk: {
+			kapsúl: "kapsula",
+			kapsula: "kapsula",
+			tabliet: "tableta",
+			tablietek: "tabletka",
+			dávok: "dávka",
+			dávky: "dávka",
+			produktov: "produkt",
+			produkty: "produkt",
+		},
+		pl: {
+			kapsułek: "kapsułka",
+			kapsułki: "kapsułka",
+			tabletek: "tableta",
+			saszetek: "saszetka",
+			pastylek: "pastylka",
+			gumisiów: "gumiś",
+			dawek: "dawka",
+			produktów: "produkt",
+			produkty: "produkt",
+		},
+	},
+
+	showAll: {
+		cs: "Zobrazit vše",
+		sk: "Zobraziť všetko",
+		pl: "Zobacz wszystko",
+	},
+
 	skladem: {
 		cs: "Skladem",
 		sk: "Skladom",
@@ -5383,12 +5435,17 @@ window.NAT.translations = function (key) {
 window.NAT.raventic = window.NAT.raventic || {
 	cs: {
 		/* 		apiKey: "euc28f5007d854bb5b8b89120288e45",
-		bestsellersApiKey: "euc28f5007d854bb5b8b89120288e45", */
-		apiKey: "euca0e3736860cd1072be643e4e32e5",
-		bestsellersApiKey: "euca0e3736860cd1072be643e4e32e5",
+		bestsellersApiKey: "euc28f5007d854bb5b8b89120288e45",
 		locale: "cs-CZ",
 		currency: "CZK",
-		priceDecimals: 0,
+		priceDecimals: 0, */
+
+		apiKey: "euca0e3736860cd1072be643e4e32e5",
+		bestsellersApiKey: "euca0e3736860cd1072be643e4e32e5",
+		locale: "sk-SK",
+		currency: "EUR",
+		priceDecimals: 2,
+
 		// Dropdown: where Enter / the "show all" button submits the query.
 		/* 		submitUrl: "https://www.natima.cz/vyhledavani/",
 		// Results: substring the page URL must contain for the results widget to run.
