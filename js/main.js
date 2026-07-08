@@ -6097,7 +6097,7 @@ function searchRaventicResults() {
 			const discountPercent = hasDiscount ? Math.round((1 - priceNum / priceBeforeNum) * 100) : 0;
 
 			const parts = [];
-			parts.push('<div class="p swap-images" data-testid="productItem">');
+			parts.push('<div class="p" data-testid="productItem">');
 
 			parts.push(`<a href="${escapeHtml(href)}" class="image">`);
 			if (hasDiscount) {
@@ -6106,9 +6106,10 @@ function searchRaventicResults() {
 				);
 			}
 			if (imgSrc) {
-				const next = altImg ? ` data-next="${escapeHtml(altImg)}"` : "";
+				/* const next = altImg ? ` data-next="${escapeHtml(altImg)}"` : ""; */
 				parts.push(
-					`<img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(imgAlt)}" class="swap-image"${next} width="423" height="423" loading="lazy">`,
+					/* `<img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(imgAlt)}" class=""${next} width="423" height="318" loading="lazy">`, */
+					`<img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(imgAlt)}" width="423" height="318" loading="lazy">`,
 				);
 			}
 			parts.push("</a>");
