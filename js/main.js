@@ -5440,10 +5440,16 @@ window.NAT.raventic = window.NAT.raventic || {
 		currency: "CZK",
 		priceDecimals: 0, */
 
-		apiKey: "euca0e3736860cd1072be643e4e32e5",
+		/* 		apiKey: "euca0e3736860cd1072be643e4e32e5",
 		bestsellersApiKey: "euca0e3736860cd1072be643e4e32e5",
 		locale: "sk-SK",
 		currency: "EUR",
+		priceDecimals: 2, */
+
+		apiKey: "euc8c5f31012cea7c050d4b3c2d0467",
+		bestsellersApiKey: "euc8c5f31012cea7c050d4b3c2d0467",
+		locale: "pl-PL",
+		currency: "PLN",
 		priceDecimals: 2,
 
 		// Dropdown: where Enter / the "show all" button submits the query.
