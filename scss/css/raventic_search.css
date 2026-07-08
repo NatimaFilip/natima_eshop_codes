@@ -108,6 +108,7 @@
           align-items: center;
   gap: 8px;
   color: black;
+  padding: 0.3075em 0;
 }
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-enum-item-checkbox,
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-item-checkbox {
