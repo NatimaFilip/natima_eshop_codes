@@ -3730,6 +3730,9 @@ body.dklab-favourites {
 
 	.selected-filters,
 	.raventic-search-results-filter-selection {
+		@media screen and (min-width: $desktop-min) {
+			padding-bottom: var(--gap-30);
+		}
 		display: flex !important;
 		flex-direction: column;
 		gap: var(--gap-6);
@@ -4901,7 +4904,7 @@ body.dklab-favourites {
 } */
 
 .pagination-wrapper,
-.listingControls {
+.listingControls .raventic-search-results-paginator {
 	padding-top: var(--gap-16);
 	padding-bottom: var(--gap-11);
 

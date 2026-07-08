@@ -206,6 +206,7 @@
 .is-test-eshop .raventic-search-results-products .raventic-search-results-filter-selection svg {
   max-width: 20px;
   max-height: 20px;
+  display: none;
 }
 .is-test-eshop .raventic-search-results-promo-content .raventic-search-results-promo-content-type-title {
   font-size: var(--fs-20);
@@ -230,7 +231,7 @@
   list-style: none;
   padding: 0;
   padding-top: 0;
-  padding-bottom: 38px;
+  /* padding-bottom: 38px; */
   /* padding-bottom: 0.5em; */
   margin-top: 0;
   margin-bottom: 0;

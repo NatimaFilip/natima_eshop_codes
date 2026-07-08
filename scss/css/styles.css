@@ -3575,6 +3575,18 @@ body.dklab-favourites.has-filters-active #filters {
     display: none;
   }
 }
+@media screen and (min-width: 1280px) {
+  body.type-category .selected-filters,
+  body.type-category .raventic-search-results-filter-selection,
+  body.type-manufacturer-detail .selected-filters,
+  body.type-manufacturer-detail .raventic-search-results-filter-selection,
+  body.id--11.is-test-eshop .selected-filters,
+  body.id--11.is-test-eshop .raventic-search-results-filter-selection,
+  body.dklab-favourites .selected-filters,
+  body.dklab-favourites .raventic-search-results-filter-selection {
+    padding-bottom: var(--gap-30);
+  }
+}
 body.type-category .selected-filters,
 body.type-category .raventic-search-results-filter-selection,
 body.type-manufacturer-detail .selected-filters,
@@ -5442,7 +5454,7 @@ body.dklab-favourites .category-header > div strong {
 	}
 } */
 .pagination-wrapper,
-.listingControls {
+.listingControls .raventic-search-results-paginator {
   padding-top: var(--gap-16);
   padding-bottom: var(--gap-11);
   display: -webkit-box;
@@ -5463,18 +5475,18 @@ body.dklab-favourites .category-header > div strong {
   min-height: var(--component-height);
 }
 .pagination-wrapper .itemsTotal,
-.listingControls .itemsTotal {
+.listingControls .raventic-search-results-paginator .itemsTotal {
   display: none;
 }
 @media screen and (min-width: 768px) {
   .pagination-wrapper > *,
-  .listingControls > * {
+  .listingControls .raventic-search-results-paginator > * {
     width: 33.3333%;
   }
   .pagination-wrapper .pagination-loader,
   .pagination-wrapper .loadMore,
-  .listingControls .pagination-loader,
-  .listingControls .loadMore {
+  .listingControls .raventic-search-results-paginator .pagination-loader,
+  .listingControls .raventic-search-results-paginator .loadMore {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -5484,14 +5496,14 @@ body.dklab-favourites .category-header > div strong {
   }
   .pagination-wrapper .pagination-top,
   .pagination-wrapper .goToTop,
-  .listingControls .pagination-top,
-  .listingControls .goToTop {
+  .listingControls .raventic-search-results-paginator .pagination-top,
+  .listingControls .raventic-search-results-paginator .goToTop {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
   }
   .pagination-wrapper .pagination,
-  .listingControls .pagination {
+  .listingControls .raventic-search-results-paginator .pagination {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
@@ -5499,8 +5511,8 @@ body.dklab-favourites .category-header > div strong {
 }
 .pagination-wrapper .pagination-top,
 .pagination-wrapper .goToTop,
-.listingControls .pagination-top,
-.listingControls .goToTop {
+.listingControls .raventic-search-results-paginator .pagination-top,
+.listingControls .raventic-search-results-paginator .goToTop {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
@@ -5509,10 +5521,10 @@ body.dklab-favourites .category-header > div strong {
 .pagination-wrapper .pagination-top .goToTop__button,
 .pagination-wrapper .goToTop strong.js-scroll-top,
 .pagination-wrapper .goToTop .goToTop__button,
-.listingControls .pagination-top strong.js-scroll-top,
-.listingControls .pagination-top .goToTop__button,
-.listingControls .goToTop strong.js-scroll-top,
-.listingControls .goToTop .goToTop__button {
+.listingControls .raventic-search-results-paginator .pagination-top strong.js-scroll-top,
+.listingControls .raventic-search-results-paginator .pagination-top .goToTop__button,
+.listingControls .raventic-search-results-paginator .goToTop strong.js-scroll-top,
+.listingControls .raventic-search-results-paginator .goToTop .goToTop__button {
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5528,10 +5540,10 @@ body.dklab-favourites .category-header > div strong {
 .pagination-wrapper .pagination-top .goToTop__button::before,
 .pagination-wrapper .goToTop strong.js-scroll-top::before,
 .pagination-wrapper .goToTop .goToTop__button::before,
-.listingControls .pagination-top strong.js-scroll-top::before,
-.listingControls .pagination-top .goToTop__button::before,
-.listingControls .goToTop strong.js-scroll-top::before,
-.listingControls .goToTop .goToTop__button::before {
+.listingControls .raventic-search-results-paginator .pagination-top strong.js-scroll-top::before,
+.listingControls .raventic-search-results-paginator .pagination-top .goToTop__button::before,
+.listingControls .raventic-search-results-paginator .goToTop strong.js-scroll-top::before,
+.listingControls .raventic-search-results-paginator .goToTop .goToTop__button::before {
   content: "";
   display: block;
   width: var(--component-height);
@@ -5550,14 +5562,14 @@ body.dklab-favourites .category-header > div strong {
 .pagination-wrapper .goToTop strong.js-scroll-top:focus-within,
 .pagination-wrapper .goToTop .goToTop__button:hover,
 .pagination-wrapper .goToTop .goToTop__button:focus-within,
-.listingControls .pagination-top strong.js-scroll-top:hover,
-.listingControls .pagination-top strong.js-scroll-top:focus-within,
-.listingControls .pagination-top .goToTop__button:hover,
-.listingControls .pagination-top .goToTop__button:focus-within,
-.listingControls .goToTop strong.js-scroll-top:hover,
-.listingControls .goToTop strong.js-scroll-top:focus-within,
-.listingControls .goToTop .goToTop__button:hover,
-.listingControls .goToTop .goToTop__button:focus-within {
+.listingControls .raventic-search-results-paginator .pagination-top strong.js-scroll-top:hover,
+.listingControls .raventic-search-results-paginator .pagination-top strong.js-scroll-top:focus-within,
+.listingControls .raventic-search-results-paginator .pagination-top .goToTop__button:hover,
+.listingControls .raventic-search-results-paginator .pagination-top .goToTop__button:focus-within,
+.listingControls .raventic-search-results-paginator .goToTop strong.js-scroll-top:hover,
+.listingControls .raventic-search-results-paginator .goToTop strong.js-scroll-top:focus-within,
+.listingControls .raventic-search-results-paginator .goToTop .goToTop__button:hover,
+.listingControls .raventic-search-results-paginator .goToTop .goToTop__button:focus-within {
   color: var(--color-primary);
 }
 .pagination-wrapper .pagination-top strong.js-scroll-top:hover::before, .pagination-wrapper .pagination-top strong.js-scroll-top:focus-within::before,
@@ -5567,21 +5579,21 @@ body.dklab-favourites .category-header > div strong {
 .pagination-wrapper .goToTop strong.js-scroll-top:focus-within::before,
 .pagination-wrapper .goToTop .goToTop__button:hover::before,
 .pagination-wrapper .goToTop .goToTop__button:focus-within::before,
-.listingControls .pagination-top strong.js-scroll-top:hover::before,
-.listingControls .pagination-top strong.js-scroll-top:focus-within::before,
-.listingControls .pagination-top .goToTop__button:hover::before,
-.listingControls .pagination-top .goToTop__button:focus-within::before,
-.listingControls .goToTop strong.js-scroll-top:hover::before,
-.listingControls .goToTop strong.js-scroll-top:focus-within::before,
-.listingControls .goToTop .goToTop__button:hover::before,
-.listingControls .goToTop .goToTop__button:focus-within::before {
+.listingControls .raventic-search-results-paginator .pagination-top strong.js-scroll-top:hover::before,
+.listingControls .raventic-search-results-paginator .pagination-top strong.js-scroll-top:focus-within::before,
+.listingControls .raventic-search-results-paginator .pagination-top .goToTop__button:hover::before,
+.listingControls .raventic-search-results-paginator .pagination-top .goToTop__button:focus-within::before,
+.listingControls .raventic-search-results-paginator .goToTop strong.js-scroll-top:hover::before,
+.listingControls .raventic-search-results-paginator .goToTop strong.js-scroll-top:focus-within::before,
+.listingControls .raventic-search-results-paginator .goToTop .goToTop__button:hover::before,
+.listingControls .raventic-search-results-paginator .goToTop .goToTop__button:focus-within::before {
   background-size: 0.875em;
   background-color: var(--color-gray-300);
 }
 .pagination-wrapper .pagination-loader,
 .pagination-wrapper .loadMore,
-.listingControls .pagination-loader,
-.listingControls .loadMore {
+.listingControls .raventic-search-results-paginator .pagination-loader,
+.listingControls .raventic-search-results-paginator .loadMore {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
@@ -5590,10 +5602,10 @@ body.dklab-favourites .category-header > div strong {
 .pagination-wrapper .pagination-loader button,
 .pagination-wrapper .loadMore span,
 .pagination-wrapper .loadMore button,
-.listingControls .pagination-loader span,
-.listingControls .pagination-loader button,
-.listingControls .loadMore span,
-.listingControls .loadMore button {
+.listingControls .raventic-search-results-paginator .pagination-loader span,
+.listingControls .raventic-search-results-paginator .pagination-loader button,
+.listingControls .raventic-search-results-paginator .loadMore span,
+.listingControls .raventic-search-results-paginator .loadMore button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5621,20 +5633,20 @@ body.dklab-favourites .category-header > div strong {
 .pagination-wrapper .loadMore span:focus-within,
 .pagination-wrapper .loadMore button:hover,
 .pagination-wrapper .loadMore button:focus-within,
-.listingControls .pagination-loader span:hover,
-.listingControls .pagination-loader span:focus-within,
-.listingControls .pagination-loader button:hover,
-.listingControls .pagination-loader button:focus-within,
-.listingControls .loadMore span:hover,
-.listingControls .loadMore span:focus-within,
-.listingControls .loadMore button:hover,
-.listingControls .loadMore button:focus-within {
+.listingControls .raventic-search-results-paginator .pagination-loader span:hover,
+.listingControls .raventic-search-results-paginator .pagination-loader span:focus-within,
+.listingControls .raventic-search-results-paginator .pagination-loader button:hover,
+.listingControls .raventic-search-results-paginator .pagination-loader button:focus-within,
+.listingControls .raventic-search-results-paginator .loadMore span:hover,
+.listingControls .raventic-search-results-paginator .loadMore span:focus-within,
+.listingControls .raventic-search-results-paginator .loadMore button:hover,
+.listingControls .raventic-search-results-paginator .loadMore button:focus-within {
   color: var(--color-white);
   background-color: var(--color-primary);
   border-color: var(--color-primary-hover);
 }
 .pagination-wrapper .pagination,
-.listingControls .pagination {
+.listingControls .raventic-search-results-paginator .pagination {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
@@ -5651,7 +5663,7 @@ body.dklab-favourites .category-header > div strong {
           align-items: center;
 }
 .pagination-wrapper .pagination .pagination__list,
-.listingControls .pagination .pagination__list {
+.listingControls .raventic-search-results-paginator .pagination .pagination__list {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5667,14 +5679,14 @@ body.dklab-favourites .category-header > div strong {
 }
 .pagination-wrapper .pagination .pagination-link span,
 .pagination-wrapper .pagination .pagination__link span,
-.listingControls .pagination .pagination-link span,
-.listingControls .pagination .pagination__link span {
+.listingControls .raventic-search-results-paginator .pagination .pagination-link span,
+.listingControls .raventic-search-results-paginator .pagination .pagination__link span {
   display: none;
 }
 .pagination-wrapper .pagination .pagination-link::before,
 .pagination-wrapper .pagination .pagination__link::before,
-.listingControls .pagination .pagination-link::before,
-.listingControls .pagination .pagination__link::before {
+.listingControls .raventic-search-results-paginator .pagination .pagination-link::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination__link::before {
   content: "";
   display: block;
   width: var(--component-height);
@@ -5688,20 +5700,20 @@ body.dklab-favourites .category-header > div strong {
 .pagination-wrapper .pagination .pagination-link:hover::before, .pagination-wrapper .pagination .pagination-link:focus-within::before,
 .pagination-wrapper .pagination .pagination__link:hover::before,
 .pagination-wrapper .pagination .pagination__link:focus-within::before,
-.listingControls .pagination .pagination-link:hover::before,
-.listingControls .pagination .pagination-link:focus-within::before,
-.listingControls .pagination .pagination__link:hover::before,
-.listingControls .pagination .pagination__link:focus-within::before {
+.listingControls .raventic-search-results-paginator .pagination .pagination-link:hover::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination-link:focus-within::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination__link:hover::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination__link:focus-within::before {
   background-size: 0.875em;
   background-color: var(--color-gray-300);
 }
 .pagination-wrapper .pagination .pagination-link.next::before, .pagination-wrapper .pagination .pagination-link.pagination__link--next::before,
 .pagination-wrapper .pagination .pagination__link.next::before,
 .pagination-wrapper .pagination .pagination__link.pagination__link--next::before,
-.listingControls .pagination .pagination-link.next::before,
-.listingControls .pagination .pagination-link.pagination__link--next::before,
-.listingControls .pagination .pagination__link.next::before,
-.listingControls .pagination .pagination__link.pagination__link--next::before {
+.listingControls .raventic-search-results-paginator .pagination .pagination-link.next::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination-link.pagination__link--next::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination__link.next::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination__link.pagination__link--next::before {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
@@ -5709,10 +5721,10 @@ body.dklab-favourites .category-header > div strong {
 .pagination-wrapper .pagination .pagination-link.prev::before, .pagination-wrapper .pagination .pagination-link.pagination__link--prev::before,
 .pagination-wrapper .pagination .pagination__link.prev::before,
 .pagination-wrapper .pagination .pagination__link.pagination__link--prev::before,
-.listingControls .pagination .pagination-link.prev::before,
-.listingControls .pagination .pagination-link.pagination__link--prev::before,
-.listingControls .pagination .pagination__link.prev::before,
-.listingControls .pagination .pagination__link.pagination__link--prev::before {
+.listingControls .raventic-search-results-paginator .pagination .pagination-link.prev::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination-link.pagination__link--prev::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination__link.prev::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination__link.pagination__link--prev::before {
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
@@ -5720,31 +5732,31 @@ body.dklab-favourites .category-header > div strong {
 .pagination-wrapper .pagination .pagination-link.pagination__link--first::before, .pagination-wrapper .pagination .pagination-link.pagination__link--last::before,
 .pagination-wrapper .pagination .pagination__link.pagination__link--first::before,
 .pagination-wrapper .pagination .pagination__link.pagination__link--last::before,
-.listingControls .pagination .pagination-link.pagination__link--first::before,
-.listingControls .pagination .pagination-link.pagination__link--last::before,
-.listingControls .pagination .pagination__link.pagination__link--first::before,
-.listingControls .pagination .pagination__link.pagination__link--last::before {
+.listingControls .raventic-search-results-paginator .pagination .pagination-link.pagination__link--first::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination-link.pagination__link--last::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination__link.pagination__link--first::before,
+.listingControls .raventic-search-results-paginator .pagination .pagination__link.pagination__link--last::before {
   display: none;
 }
 .pagination-wrapper .pagination a,
-.listingControls .pagination a {
+.listingControls .raventic-search-results-paginator .pagination a {
   color: var(--color-black);
 }
 .pagination-wrapper .pagination a:hover, .pagination-wrapper .pagination a:focus-within,
-.listingControls .pagination a:hover,
-.listingControls .pagination a:focus-within {
+.listingControls .raventic-search-results-paginator .pagination a:hover,
+.listingControls .raventic-search-results-paginator .pagination a:focus-within {
   color: var(--color-primary);
 }
 @media screen and (max-width: 1279px) {
   .pagination-wrapper,
-  .listingControls {
+  .listingControls .raventic-search-results-paginator {
     padding-top: var(--gap-24);
     padding-bottom: var(--gap-30);
   }
 }
 @media screen and (max-width: 767px) {
   .pagination-wrapper,
-  .listingControls {
+  .listingControls .raventic-search-results-paginator {
     --component-height: 2.77em;
     gap: var(--gap-30);
     -ms-flex-wrap: wrap;
@@ -5753,8 +5765,8 @@ body.dklab-favourites .category-header > div strong {
   }
   .pagination-wrapper .pagination-top,
   .pagination-wrapper .goToTop,
-  .listingControls .pagination-top,
-  .listingControls .goToTop {
+  .listingControls .raventic-search-results-paginator .pagination-top,
+  .listingControls .raventic-search-results-paginator .goToTop {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
@@ -5763,26 +5775,26 @@ body.dklab-favourites .category-header > div strong {
   .pagination-wrapper .pagination-top .goToTop__button,
   .pagination-wrapper .goToTop strong.js-scroll-top,
   .pagination-wrapper .goToTop .goToTop__button,
-  .listingControls .pagination-top strong.js-scroll-top,
-  .listingControls .pagination-top .goToTop__button,
-  .listingControls .goToTop strong.js-scroll-top,
-  .listingControls .goToTop .goToTop__button {
+  .listingControls .raventic-search-results-paginator .pagination-top strong.js-scroll-top,
+  .listingControls .raventic-search-results-paginator .pagination-top .goToTop__button,
+  .listingControls .raventic-search-results-paginator .goToTop strong.js-scroll-top,
+  .listingControls .raventic-search-results-paginator .goToTop .goToTop__button {
     gap: var(--gap-11);
   }
   .pagination-wrapper .pagination-top strong.js-scroll-top::before,
   .pagination-wrapper .pagination-top .goToTop__button::before,
   .pagination-wrapper .goToTop strong.js-scroll-top::before,
   .pagination-wrapper .goToTop .goToTop__button::before,
-  .listingControls .pagination-top strong.js-scroll-top::before,
-  .listingControls .pagination-top .goToTop__button::before,
-  .listingControls .goToTop strong.js-scroll-top::before,
-  .listingControls .goToTop .goToTop__button::before {
+  .listingControls .raventic-search-results-paginator .pagination-top strong.js-scroll-top::before,
+  .listingControls .raventic-search-results-paginator .pagination-top .goToTop__button::before,
+  .listingControls .raventic-search-results-paginator .goToTop strong.js-scroll-top::before,
+  .listingControls .raventic-search-results-paginator .goToTop .goToTop__button::before {
     border-radius: var(--br-12);
   }
   .pagination-wrapper .pagination-loader,
   .pagination-wrapper .loadMore,
-  .listingControls .pagination-loader,
-  .listingControls .loadMore {
+  .listingControls .raventic-search-results-paginator .pagination-loader,
+  .listingControls .raventic-search-results-paginator .loadMore {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5793,32 +5805,32 @@ body.dklab-favourites .category-header > div strong {
   }
   .pagination-wrapper .pagination-loader button,
   .pagination-wrapper .loadMore button,
-  .listingControls .pagination-loader button,
-  .listingControls .loadMore button {
+  .listingControls .raventic-search-results-paginator .pagination-loader button,
+  .listingControls .raventic-search-results-paginator .loadMore button {
     width: 100%;
   }
   .pagination-wrapper .pagination,
-  .listingControls .pagination {
+  .listingControls .raventic-search-results-paginator .pagination {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
     gap: var(--gap-16);
   }
   .pagination-wrapper .pagination .pagination__list,
-  .listingControls .pagination .pagination__list {
+  .listingControls .raventic-search-results-paginator .pagination .pagination__list {
     gap: var(--gap-16);
   }
   .pagination-wrapper .pagination .pagination-link,
   .pagination-wrapper .pagination .pagination__link,
-  .listingControls .pagination .pagination-link,
-  .listingControls .pagination .pagination__link {
+  .listingControls .raventic-search-results-paginator .pagination .pagination-link,
+  .listingControls .raventic-search-results-paginator .pagination .pagination__link {
     width: 100%;
     text-align: center;
   }
   .pagination-wrapper .pagination .pagination-link::before,
   .pagination-wrapper .pagination .pagination__link::before,
-  .listingControls .pagination .pagination-link::before,
-  .listingControls .pagination .pagination__link::before {
+  .listingControls .raventic-search-results-paginator .pagination .pagination-link::before,
+  .listingControls .raventic-search-results-paginator .pagination .pagination__link::before {
     border-radius: var(--br-12);
   }
 }
