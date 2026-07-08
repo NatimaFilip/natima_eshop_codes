@@ -1063,8 +1063,7 @@ $desktop-large-min: 1680px;
 				height: 90%;
 				position: absolute;
 				left: 50%;
-				top: calc(var(--gap-24) * 1.5);
-				@include body-max-width;
+				top: calc(var(--gap-24) * 2);
 				transform: translateX(-50%);
 				border-radius: 8px;
 				background: linear-gradient(

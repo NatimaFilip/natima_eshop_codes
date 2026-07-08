@@ -3907,7 +3907,7 @@ body.dklab-favourites .raventic-search-results-filter-selection .raventic-search
   body.type-manufacturer-detail .raventic-search-results-container,
   body.id--11.is-test-eshop .raventic-search-results-container,
   body.dklab-favourites .raventic-search-results-container {
-    padding-top: calc(var(--gap-24) * 1.5);
+    padding-top: calc(var(--gap-24) * 2);
     margin-top: 0 !important;
   }
   body.type-category .category-content-wrapper,

@@ -350,11 +350,7 @@
   height: 90%;
   position: absolute;
   left: 50%;
-  top: calc(var(--gap-24) * 1.5);
-  width: 100%;
-  max-width: 1920px;
-  padding: 0 var(--padding-sides);
-  margin: 0 auto;
+  top: calc(var(--gap-24) * 2);
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   border-radius: 8px;

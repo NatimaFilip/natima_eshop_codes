@@ -3854,7 +3854,7 @@ body.dklab-favourites {
 	//aside naboku
 	@media screen and (min-width: $desktop-min) {
 		.raventic-search-results-container {
-			padding-top: calc(var(--gap-24) * 1.5);
+			padding-top: calc(var(--gap-24) * 2);
 			margin-top: 0 !important;
 		}
 
