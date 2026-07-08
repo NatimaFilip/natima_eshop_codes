@@ -850,8 +850,8 @@
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_add_to_cart.svg);
   background-size: contain;
   background-position: center;
@@ -1179,7 +1179,7 @@
   --admin-bar-height: 37px;
 }
 .admin-logged.is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body {
-  top: calc(var(--header-height) + 18px + 26px + var(--admin-bar-height)) !important;
+  top: calc(var(--header-height) + 18px + 26px + 8px + var(--admin-bar-height)) !important;
 }
 @media screen and (max-width: 767px) {
   .admin-logged.is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body {

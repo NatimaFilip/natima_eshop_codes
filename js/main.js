@@ -5501,6 +5501,32 @@ window.NAT.utils.goTopBtn = function () {
 	});
 };
 
+window.NAT = window.NAT || {};
+
+const mediaSizesNew = {
+	desktop: 1280,
+	smallTabletMax: 1023,
+	tablet: 768,
+};
+
+window.NAT.media = {
+	// Raw breakpoints, in case a caller wants the numbers.
+	sizes: mediaSizesNew,
+
+	get isMobile() {
+		return window.innerWidth < mediaSizesNew.tablet;
+	},
+	get isTablet() {
+		return window.innerWidth >= mediaSizesNew.tablet && window.innerWidth < mediaSizesNew.desktop;
+	},
+	get isDesktop() {
+		return window.innerWidth >= mediaSizesNew.desktop;
+	},
+	get isSmallTablet() {
+		return window.innerWidth <= mediaSizesNew.smallTabletMax;
+	},
+};
+
 /* document.addEventListener("DOMContentLoaded", () => {
 	window.NAT.utils.goTopBtn();
 });
