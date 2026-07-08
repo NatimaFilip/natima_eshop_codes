@@ -10,7 +10,8 @@
   display: none;
 }
 .is-test-eshop.id--11 #products .product img {
-  aspect-ratio: 4/3;
+  aspect-ratio: 141/106;
+  width: auto;
 }
 .is-test-eshop .raventic-search-results-products {
   -webkit-box-ordinal-group: 3;

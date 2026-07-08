@@ -3826,6 +3826,7 @@ body.dklab-favourites {
 		}
 		#clear-filters a,
 		.raventic-search-results-filter-selection-clear {
+			font-size: var(--fs-13);
 			color: var(--color-red-400);
 			font-weight: var(--fw-700);
 			border-style: solid;
@@ -4480,6 +4481,8 @@ body.dklab-favourites {
 						margin-left: auto;
 						margin-right: var(--gap-7);
 						margin-top: calc(var(--gap-8) * -1);
+						align-items: flex-start;
+
 						button,
 						.increase-decrease-wrapper {
 							width: var(--add-to-cart-button-width);
@@ -4904,7 +4907,8 @@ body.dklab-favourites {
 } */
 
 .pagination-wrapper,
-.listingControls .raventic-search-results-paginator {
+.listingControls,
+.raventic-search-results-paginator {
 	padding-top: var(--gap-16);
 	padding-bottom: var(--gap-11);
 
