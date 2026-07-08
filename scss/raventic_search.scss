@@ -125,7 +125,7 @@ $desktop-large-min: 1680px;
 	--angle: 90deg;
 	--start: 0%;
 	--end: 100%;
-	background: linear-gradient(var(--angle), white var(--start), var(--color-gray-blue-400) var(--end));
+	background: linear-gradient(var(--angle), white var(--start), var(--color-primary-200) var(--end));
 }
 
 @mixin red-gradient {
@@ -220,7 +220,7 @@ $desktop-large-min: 1680px;
 			color: black;
 			@include white-blue-gradient;
 			border-style: solid;
-			border-color: var(--color-gray-blue-400);
+			border-color: var(--color-primary-200);
 			border-width: 1px;
 			border-radius: 8px;
 			width: 2.2857em;
@@ -248,7 +248,7 @@ $desktop-large-min: 1680px;
 					color: black;
 					@include white-blue-gradient;
 					border-style: solid;
-					border-color: var(--color-gray-blue-400);
+					border-color: var(--color-primary-200);
 					border-width: 1px;
 					border-radius: 8px;
 					width: 2.2857em;
@@ -310,21 +310,26 @@ $desktop-large-min: 1680px;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	color: black;
-	border-radius: 8px;
+	color: white;
 	font-weight: 700;
-	padding: 1.3125em 1.833em; //1.166em for padding top and bottom
 	cursor: pointer;
+	background: var(--color-cta-400) !important;
+	border-radius: 16px;
+	padding: 0.75em 1em;
+	&:hover,
+	&:focus {
+		background: var(--color-cta-600) !important;
+	}
+
+	@media screen and (max-width: $mobile-max) {
+		font-size: var(--fs-14);
+		padding: 0.7142em;
+	}
+
 	span,
 	&::before {
 		font-size: var(--fs-18);
 		line-height: 1.4;
-	}
-
-	@include secondary-background-gradient-hover-effect;
-	&:focus-visible {
-		outline: 3px solid var(--color-secondary-hover);
-		outline-offset: 2px;
 	}
 }
 
@@ -579,7 +584,7 @@ $desktop-large-min: 1680px;
 @mixin quantity-setup {
 	border-style: solid;
 	border-width: 1px;
-	border-color: var(--color-gray-blue-400);
+	border-color: var(--color-primary-200);
 	border-radius: 8px;
 	display: flex;
 	align-items: center;
@@ -596,7 +601,7 @@ $desktop-large-min: 1680px;
 			border-left-style: solid;
 			border-right-style: solid;
 			border-width: 1px;
-			border-color: var(--color-gray-blue-400);
+			border-color: var(--color-primary-200);
 			border-radius: 0;
 			height: 100%;
 			text-align: center;
@@ -704,7 +709,7 @@ $desktop-large-min: 1680px;
 		background: white !important;
 		border-style: solid;
 		border-width: 1px;
-		border-color: var(--color-gray-blue-400);
+		border-color: var(--color-primary-200);
 		color: black;
 		order: 1;
 		display: flex;
@@ -797,6 +802,9 @@ $desktop-large-min: 1680px;
 	.raventic-search-results-products {
 		order: 2;
 		.raventic-search-results-products-list {
+		}
+		.products-block {
+			padding-bottom: var(--gap-30);
 		}
 	}
 	.raventic-search-results h1 {
@@ -964,7 +972,7 @@ $desktop-large-min: 1680px;
 	.raventic-search-results-promo-content:has(.raventic-search-results-promo-content-type--articles) {
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
-		border-color: var(--color-gray-blue-400);
+		border-color: var(--color-primary-200);
 		padding-top: 0;
 	}
 	.raventic-search-results-promo-content-expand {
@@ -1114,7 +1122,7 @@ $desktop-large-min: 1680px;
 			display: block;
 			position: relative;
 
-			&::before {
+			/* 	&::before {
 				content: "";
 				display: block;
 				position: absolute;
@@ -1125,7 +1133,7 @@ $desktop-large-min: 1680px;
 				background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_border.svg");
 				background-repeat: no-repeat;
 				background-size: contain;
-			}
+			} */
 			&::after {
 				content: "";
 				display: block;
@@ -1134,11 +1142,14 @@ $desktop-large-min: 1680px;
 				height: 100%;
 				top: 0;
 				left: 0;
-				background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/arrow_primary_right.svg");
+				background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+				transform: rotate(90deg);
 				background-repeat: no-repeat;
-				background-size: 17.5%;
+				/* background-size: 17.5%; */
 				background-position: center;
 				transition: transform 0.2s ease-out;
+				background-size: 0.875em;
+				background-color: var(--color-gray-300);
 			}
 			&:hover {
 				&::after {
@@ -1151,7 +1162,8 @@ $desktop-large-min: 1680px;
 			&.prev {
 				order: 4;
 				&::after {
-					background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/arrow_primary_left.svg");
+					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+					transform: rotate(-90deg);
 				}
 			}
 		}
@@ -1217,7 +1229,7 @@ $desktop-large-min: 1680px;
 			left: 50%;
 			top: calc(var(--header-height) / 2 + 10px) !important;
 			transform: translateX(-50%);
-			background: var(--color-primary-200);
+			background: var(--color-primary-100);
 			overflow: auto;
 			max-height: calc(100vh - var(--header-height) - 20px);
 			border-radius: 8px;
@@ -1259,7 +1271,7 @@ $desktop-large-min: 1680px;
 			gap: 18px;
 			border-right-style: solid;
 			border-width: 1px;
-			border-color: var(--color-gray-blue-400);
+			border-color: var(--color-primary-200);
 			width: 20%;
 			@media screen and (max-width: $small-tablet-max) {
 				width: 100%;
@@ -1339,7 +1351,7 @@ $desktop-large-min: 1680px;
 				}
 				border-style: solid;
 				border-width: 1px;
-				border-color: var(--color-gray-blue-400);
+				border-color: var(--color-primary-200);
 				border-radius: 8px;
 				background: white;
 				padding: 10px 15px;
@@ -1470,7 +1482,7 @@ $desktop-large-min: 1680px;
 						background: white;
 						border-bottom-style: solid;
 						border-width: 1px;
-						border-color: var(--color-gray-blue-400);
+						border-color: var(--color-primary-200);
 						border-radius: 8px 8px 0 0;
 						overflow: hidden;
 						img {
@@ -1560,7 +1572,7 @@ $desktop-large-min: 1680px;
 							background: white;
 							border-bottom-style: solid;
 							border-width: 1px;
-							border-color: var(--color-gray-blue-400);
+							border-color: var(--color-primary-200);
 							border-radius: 8px 8px 0 0;
 							overflow: hidden;
 							img {

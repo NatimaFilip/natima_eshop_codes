@@ -18,6 +18,9 @@
       -ms-flex-order: 2;
           order: 2;
 }
+.is-test-eshop .raventic-search-results-products .products-block {
+  padding-bottom: var(--gap-30);
+}
 .is-test-eshop .raventic-search-results h1 {
   font-size: var(--fs-32);
   font-weight: 700;
@@ -222,7 +225,7 @@
 .is-test-eshop .raventic-search-results-promo-content:has(.raventic-search-results-promo-content-type--articles) {
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-color: var(--color-gray-blue-400);
+  border-color: var(--color-primary-200);
   padding-top: 0;
 }
 .is-test-eshop .raventic-search-results-promo-content-expand {
@@ -431,18 +434,18 @@
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow {
   display: block;
   position: relative;
-}
-.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_border.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
+  /* 	&::before {
+  	content: "";
+  	display: block;
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+  	top: 0;
+  	left: 0;
+  	background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_border.svg");
+  	background-repeat: no-repeat;
+  	background-size: contain;
+  } */
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow::after {
   content: "";
@@ -452,14 +455,18 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/arrow_primary_right.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
   background-repeat: no-repeat;
-  background-size: 17.5%;
+  /* background-size: 17.5%; */
   background-position: center;
   -webkit-transition: -webkit-transform 0.2s ease-out;
   transition: -webkit-transform 0.2s ease-out;
   transition: transform 0.2s ease-out;
   transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+  background-size: 0.875em;
+  background-color: var(--color-gray-300);
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow:hover::after {
   -webkit-transform: scale(1.25);
@@ -476,7 +483,9 @@
           order: 4;
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.prev::after {
-  background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/arrow_primary_left.svg");
+  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-link {
   display: none;
@@ -545,7 +554,7 @@
   top: calc(var(--header-height) / 2 + 10px) !important;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background: var(--color-primary-200);
+  background: var(--color-primary-100);
   overflow: auto;
   max-height: calc(100vh - var(--header-height) - 20px);
   border-radius: 8px;
@@ -602,7 +611,7 @@
   gap: 18px;
   border-right-style: solid;
   border-width: 1px;
-  border-color: var(--color-gray-blue-400);
+  border-color: var(--color-primary-200);
   width: 20%;
 }
 @media screen and (max-width: 1023px) {
@@ -698,7 +707,7 @@
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product {
   border-style: solid;
   border-width: 1px;
-  border-color: var(--color-gray-blue-400);
+  border-color: var(--color-primary-200);
   border-radius: 8px;
   background: white;
   padding: 10px 15px;
@@ -801,37 +810,25 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  color: black;
-  border-radius: 8px;
+  color: white;
   font-weight: 700;
-  padding: 1.3125em 1.833em;
   cursor: pointer;
+  background: var(--color-cta-400) !important;
+  border-radius: 16px;
+  padding: 0.75em 1em;
+}
+.is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-button.raventic-product-button-cart:hover, .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-button.raventic-product-button-cart:focus {
+  background: var(--color-cta-600) !important;
+}
+@media screen and (max-width: 767px) {
+  .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-button.raventic-product-button-cart {
+    font-size: var(--fs-14);
+    padding: 0.7142em;
+  }
 }
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-button.raventic-product-button-cart span, .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-button.raventic-product-button-cart::before {
   font-size: var(--fs-18);
   line-height: 1.4;
-}
-.is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-button.raventic-product-button-cart {
-  --angle: 90deg;
-  --start: 0%;
-  --middle: 40%;
-  --end: 90%;
-  background: -webkit-gradient(linear, left top, left bottom, from(var(--angle)), color-stop(var(--color-secondary-hover)), color-stop(var(--color-secondary)), to(var(--color-secondary-hover))) !important;
-  background: linear-gradient(var(--angle), var(--color-secondary-hover) var(--start), var(--color-secondary) var(--middle), var(--color-secondary-hover) var(--end)) !important;
-  background-size: 200% !important;
-  background-position: right !important;
-  -webkit-transition: background-position 0.2s ease-out;
-  transition: background-position 0.2s ease-out;
-  cursor: pointer;
-}
-.is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-button.raventic-product-button-cart:hover {
-  background-position: left !important;
-  -webkit-filter: drop-shadow(2px 2px 6px hsla(var(--color-secondary-hover-h), var(--color-secondary-hover-s), var(--color-secondary-hover-l), 0.4));
-          filter: drop-shadow(2px 2px 6px hsla(var(--color-secondary-hover-h), var(--color-secondary-hover-s), var(--color-secondary-hover-l), 0.4));
-}
-.is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-button.raventic-product-button-cart:focus-visible {
-  outline: 3px solid var(--color-secondary-hover);
-  outline-offset: 2px;
 }
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-button.raventic-product-button-cart {
   font-size: 0;
@@ -893,7 +890,7 @@
   background: white;
   border-bottom-style: solid;
   border-width: 1px;
-  border-color: var(--color-gray-blue-400);
+  border-color: var(--color-primary-200);
   border-radius: 8px 8px 0 0;
   overflow: hidden;
 }
@@ -993,7 +990,7 @@
     background: white;
     border-bottom-style: solid;
     border-width: 1px;
-    border-color: var(--color-gray-blue-400);
+    border-color: var(--color-primary-200);
     border-radius: 8px 8px 0 0;
     overflow: hidden;
   }
