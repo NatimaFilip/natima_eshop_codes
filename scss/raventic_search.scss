@@ -828,24 +828,7 @@ $desktop-large-min: 1680px;
 				}
 			}
 		}
-
 		//konec temp
-		.breadcrumbs-wrapper {
-			position: relative;
-
-			&:before {
-				content: "";
-				width: calc(100vw - 8px);
-				height: 100%;
-				position: absolute;
-				left: 50%;
-				top: 0;
-				transform: translateX(-50%);
-				@include white-blue-gradient;
-				--angle: 90deg;
-				z-index: -1;
-			}
-		}
 	}
 	.raventic-search-results {
 		> h1 {
@@ -899,6 +882,9 @@ $desktop-large-min: 1680px;
 			max-width: 20px;
 			max-height: 20px;
 		}
+		input {
+			border-radius: 8px;
+		}
 	}
 	.raventic-search-results-filters-mobile {
 		display: none !important;
@@ -918,8 +904,14 @@ $desktop-large-min: 1680px;
 			} */
 		}
 
-		.raventic-search-results-filters-filter-categories {
+		/* 		.raventic-search-results-filters-filter-categories {
 			display: none;
+		} */
+
+		h3 {
+			font-size: var(--fs-16);
+			line-height: var(--lh-2);
+			padding-bottom: 0.5em;
 		}
 
 		.raventic-search-results-filters-filter-enum-item-checkbox,
@@ -943,11 +935,18 @@ $desktop-large-min: 1680px;
 					font-weight: 700;
 				}
 			}
+			a {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				color: black;
+			}
 
 			svg {
 				display: none;
 			}
 		}
+
 		.raventic-search-results-filters-filter-enum-search {
 			display: flex;
 			align-items: center;
