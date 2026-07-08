@@ -6020,6 +6020,7 @@ function searchRaventicResults() {
 		addGoToTopButton();
 		addFilterHeading();
 		addPromoContentClasses();
+		removeUnwantedFilters();
 	});
 
 	function editRaventicSearchResults() {
@@ -6288,6 +6289,19 @@ function searchRaventicResults() {
 			"</a>";
 		paginator.prepend(goToTop);
 		window.NAT.utils.goTopBtn();
+	}
+
+	// The v4 SDK renders every enum filter group with the same generic class, so the
+	// only reliable way to target a specific group is by its <h3> title text. Kategorie
+	// also has a dedicated class, but matching by title keeps all removals consistent.
+	function removeUnwantedFilters() {
+		const unwantedTitles = ["Kategorie", "Množství", "Denní dávka"];
+
+		const filters = document.querySelectorAll(".raventic-search-results-filters-filter");
+		filters.forEach((filter) => {
+			const title = filter.querySelector("h3 span")?.textContent.trim();
+			if (title && unwantedTitles.includes(title)) filter.remove();
+		});
 	}
 
 	function addFilterHeading() {
