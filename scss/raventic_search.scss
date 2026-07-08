@@ -805,7 +805,7 @@ $desktop-large-min: 1680px;
 		color: black;
 		padding-top: 0;
 		padding-bottom: 0.8125em !important;
-		padding-bottom: 0.625em !important;
+		padding-top: 0.625em !important;
 		margin-top: 0;
 		margin-bottom: 0;
 	}
@@ -1049,7 +1049,8 @@ $desktop-large-min: 1680px;
 			min-height: 100vh;
 		}
 	}
-	&.id--11:not(.raventic-search-results-transformed) {
+	&.id--11:not(.raventic-search-results-transformed),
+	&.id--11 {
 		.content-wrapper {
 			position: relative;
 
@@ -1059,7 +1060,7 @@ $desktop-large-min: 1680px;
 				height: 90%;
 				position: absolute;
 				left: 50%;
-				top: 20px;
+				top: 0px;
 				transform: translateX(-50%);
 				border-radius: 8px;
 				background: linear-gradient(
