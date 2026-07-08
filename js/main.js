@@ -6362,3 +6362,52 @@ function searchRaventicResults() {
 		});
 	}
 }
+
+//empty search
+document.addEventListener("DOMContentLoaded", function () {
+	emptySearchQuery();
+});
+function emptySearchQuery() {
+	const headerSearch = document.querySelector("#header .search");
+	if (!headerSearch) return;
+	const queryInput = headerSearch.querySelector("input[type='search']");
+	if (queryInput) {
+		document.addEventListener("RAVENTIC SEARCH RESULTS LOADED", function () {
+			queryInput.value = "";
+		});
+	}
+}
+//
+function addSearchButtonForMobile() {
+	const headerSearch = document.querySelector("#header .search");
+	if (!headerSearch) return;
+
+	const headerTop = document.querySelector("#header .header-top");
+	if (!headerTop) return;
+
+	const searchButton = document.createElement("div");
+	searchButton.classList.add("mobile-search-button");
+	headerTop.appendChild(searchButton);
+	const queryInput = headerSearch.querySelector("input[type='search']");
+	searchButton.addEventListener("click", function () {
+		headerSearch.classList.toggle("active-mobile-search");
+
+		if (queryInput) {
+			// timeout 10ms to wait for the animation to finish
+			setTimeout(() => {
+				if (document.body.classList.contains("sk")) {
+					if (headerSearch.classList.contains("active-mobile-search")) {
+						queryInput.click();
+						console.log("-------- Raventic Search Dropdown Opened (from mobile search button) ------");
+					}
+				}
+				queryInput.focus();
+			}, 10);
+		}
+
+		const searchHeight = headerSearch.offsetHeight;
+		document.body.style.setProperty("--mobile-search-height", searchHeight + "px");
+
+		document.body.classList.remove("has-opened-hamburger-menu");
+	});
+}
