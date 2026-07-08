@@ -6009,6 +6009,10 @@ function handleResult(result, error, reference, instanceId) {
 	}
 	window.raventicResult = result;
 	document.dispatchEvent(new CustomEvent("RAVENTIC SEARCH RESULTS LOADED"));
+	console.log(
+		"%c CUSTOM EVENT DISPATCHED: RAVENTIC SEARCH RESULTS LOADED",
+		"background: lime; color: black; padding: 5px 10px; font-weight: bold;",
+	);
 }
 
 /*--------------------------------------------------------------------------------------------------*/
@@ -6364,7 +6368,7 @@ function searchRaventicResults() {
 }
 
 //empty search
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("RAVENTIC SEARCH RESULTS LOADED", function () {
 	emptySearchQuery();
 });
 function emptySearchQuery() {
@@ -6372,9 +6376,7 @@ function emptySearchQuery() {
 	if (!headerSearch) return;
 	const queryInput = headerSearch.querySelector("input[type='search']");
 	if (queryInput) {
-		document.addEventListener("RAVENTIC SEARCH RESULTS LOADED", function () {
-			queryInput.value = "";
-		});
+		queryInput.value = "";
 	}
 }
 //
