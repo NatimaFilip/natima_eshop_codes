@@ -382,6 +382,144 @@
     background-position: -200% 0;
   }
 }
+.raventic-search-results-paginator .raventic-search-results-paginator-container {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-left: auto;
+}
+@media screen and (max-width: 767px) {
+  .raventic-search-results-paginator .raventic-search-results-paginator-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-left: 0;
+  }
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  gap: 15px;
+  padding: 0;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow svg {
+  display: none !important;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow {
+  width: 56px;
+  height: 49px;
+}
+@media screen and (max-width: 1279px) {
+  .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow {
+    width: 46px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow {
+    width: 42px;
+    height: 36px;
+  }
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow {
+  display: block;
+  position: relative;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_border.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/arrow_primary_right.svg");
+  background-repeat: no-repeat;
+  background-size: 17.5%;
+  background-position: center;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  transition: -webkit-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow:hover::after {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.next {
+  -webkit-box-ordinal-group: 7;
+      -ms-flex-order: 6;
+          order: 6;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.prev {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.prev::after {
+  background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/arrow_primary_left.svg");
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-link {
+  display: none;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-link.active {
+  display: block;
+  font-weight: 500;
+  color: black;
+  pointer-events: none;
+  -webkit-box-ordinal-group: 6;
+      -ms-flex-order: 5;
+          order: 5;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-link:first-child {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  display: block;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.prev + .raventic-search-results-paginator-link {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  display: block;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container:has(.raventic-search-results-paginator-arrow.next) .raventic-search-results-paginator-link:nth-last-child(2) {
+  -webkit-box-ordinal-group: 11;
+      -ms-flex-order: 10;
+          order: 10;
+  display: block;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-link:last-child {
+  -webkit-box-ordinal-group: 11;
+      -ms-flex-order: 10;
+          order: 10;
+  display: block;
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-link.active:nth-last-child(2) ~ .raventic-search-results-paginator-arrow.next {
+  -webkit-box-ordinal-group: 12;
+      -ms-flex-order: 11;
+          order: 11;
+}
+
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-input {
   display: none !important;
 }
