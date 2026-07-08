@@ -265,42 +265,29 @@ $desktop-large-min: 1680px;
 }
 
 @mixin menu-item-setup {
-	display: grid;
-	grid-template-columns: 64px 1fr;
-	gap: 25px;
+	background-color: var(--color-gray-400);
+	border-radius: var(--br-8);
+	display: flex;
+	@media screen and (min-width: $desktop-min) {
+		border-radius: var(--br-16);
+	}
+
 	align-items: center;
 	color: black;
-	background: white;
-	border-radius: 8px;
-	border-style: solid;
-	border-color: var(--color-gray-blue-400);
-	border-width: 1px;
+
 	padding: 23px 10px 23px 25px;
 	cursor: pointer;
 	font-size: var(--fs-18);
 
-	@media (hover: hover) and (pointer: fine) {
-		&:hover {
-			@include primary-background-gradient;
+	font-size: 1em;
+	color: var(--color-black);
+	max-width: 9em;
+	text-wrap: balance;
 
-			cursor: pointer;
-			color: white;
-			border-color: transparent;
-			img[src$=".svg"] {
-				filter: brightness(0) invert(1);
-			}
-		}
-	}
-
+	&:hover,
 	&:focus-within {
-		@include primary-background-gradient;
-
-		cursor: pointer;
-		color: white;
-		border-color: transparent;
-		img[src$=".svg"] {
-			filter: brightness(0) invert(1);
-		}
+		outline: solid 2px var(--color-primary);
+		background-color: var(--color-gray-200);
 	}
 }
 

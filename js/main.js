@@ -6295,7 +6295,7 @@ function searchRaventicResults() {
 	// only reliable way to target a specific group is by its <h3> title text. Kategorie
 	// also has a dedicated class, but matching by title keeps all removals consistent.
 	function removeUnwantedFilters() {
-		const unwantedTitles = ["Kategorie", "Množství", "Denní dávka", "Vstřebatelnost"];
+		const unwantedTitles = ["Kategorie", "Množství", "Denní dávka", "Vstřebatelnost", "Objem"];
 
 		const filters = document.querySelectorAll(".raventic-search-results-filters-filter");
 		filters.forEach((filter) => {
