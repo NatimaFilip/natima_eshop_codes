@@ -495,7 +495,7 @@ $desktop-large-min: 1680px;
 					}
 				}
 			}
-			&.is-admin-logged {
+			&.admin-logged {
 				input[type="search"] {
 					--admin-bar-height: 24px;
 					&.active {
