@@ -1202,6 +1202,7 @@ $desktop-large-min: 1680px;
 
 //raventic dropdown
 .is-test-eshop {
+	--admin-bar-height: 0px;
 	.raventic-search-dropdown-external {
 		.raventic-search-dropdown-input {
 			display: none !important;
@@ -1233,6 +1234,7 @@ $desktop-large-min: 1680px;
 			overflow: auto;
 			max-height: calc(100vh - var(--header-height) - 20px);
 			border-radius: 8px;
+			filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.25));
 
 			@media screen and (max-width: $small-tablet-max) {
 				top: calc(var(--header-height) + var(--mobile-search-height, 0px)) !important;
@@ -1435,9 +1437,10 @@ $desktop-large-min: 1680px;
 						position: relative;
 						@include add-to-cart-button;
 						font-size: 0;
-						padding: 1.3125rem 1.833rem;
-						width: 24px;
-						height: 24px;
+						padding: 1.3125rem 1.3125rem;
+						width: 26px;
+						height: 26px;
+						border-radius: 8px;
 						&::before {
 							position: absolute;
 							content: "";
@@ -1447,7 +1450,7 @@ $desktop-large-min: 1680px;
 							transform: translate(-50%, -50%);
 							width: 18px;
 							height: 18px;
-							background-image: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/icon_cart_black.svg);
+							background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_add_to_cart.svg);
 							background-size: contain;
 							background-position: center;
 							background-repeat: no-repeat;
@@ -1701,8 +1704,8 @@ $desktop-large-min: 1680px;
 	}
 }
 
-.admin-logged.is-test-eshop,
-.admin-logged.sk {
+.admin-logged.is-test-eshop {
+	--admin-bar-height: 0px;
 	.raventic-search-dropdown-external .raventic-search-dropdown-body {
 		top: calc(var(--header-height) / 2 - 10px + var(--admin-bar-height)) !important;
 		@media screen and (max-width: $small-tablet-max) {
