@@ -5473,6 +5473,28 @@ window.NAT.raventic = window.NAT.raventic || {
 	},
 };
 
+window.NAT.utils = window.NAT.utils || {};
+
+window.NAT.utils.goTopBtn = function () {
+	const goTopBtn = document.querySelector(".goToTop__button");
+	if (!goTopBtn) return;
+
+	goTopBtn.addEventListener("click", (e) => {
+		e.preventDefault();
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+	});
+};
+
+/* document.addEventListener("DOMContentLoaded", () => {
+	window.NAT.utils.goTopBtn();
+});
+document.addEventListener("ShoptetDOMContentLoaded", () => {
+	window.NAT.utils.goTopBtn();
+});
+ */
 //RAVENTIC SETUP DROPDOWN
 // 2_components/search_raventic_dropdown_setup_new.js
 // Vendor Raventic search-DROPDOWN integration (test eshop only), v4 SDK: defines
