@@ -866,11 +866,7 @@ $desktop-large-min: 1680px;
 			}
 		}
 	}
-	.raventic-search-results-container {
-		@include body-max-width;
-		display: flex;
-		flex-direction: column;
-	}
+
 	.raventic-search-results-products {
 		order: 2;
 		.raventic-search-results-products-list {
@@ -908,18 +904,22 @@ $desktop-large-min: 1680px;
 		display: none !important;
 	}
 	.raventic-search-results-filters-desktop {
-		display: flex;
-		--gap: 24px;
+		display: block;
+		/* 	--gap: 24px;
 		gap: var(--gap);
-		flex-direction: row;
+		flex-direction: column; */
 
 		@media screen and (max-width: $tablet-max) {
-			flex-direction: column;
+			/* flex-direction: column;
 			width: 100%;
 			gap: 16px;
 			> * {
 				width: 100%;
-			}
+			} */
+		}
+
+		.raventic-search-results-filters-filter-categories {
+			display: none;
 		}
 
 		.raventic-search-results-filters-filter-enum-item-checkbox,
@@ -962,6 +962,10 @@ $desktop-large-min: 1680px;
 		}
 		.raventic-search-results-filters-filter {
 			order: 99;
+			padding: 0.5em 0;
+			border-bottom-style: solid;
+			border-bottom-width: 1px;
+			border-color: var(--color-gray-500);
 			&.raventic-search-results-filters-filter-price {
 				order: 1;
 			}

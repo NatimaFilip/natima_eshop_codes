@@ -56,19 +56,6 @@
   --angle: 90deg;
   z-index: -1;
 }
-.is-test-eshop .raventic-search-results-container {
-  width: 100%;
-  max-width: 1920px;
-  padding: 0 var(--padding-sides);
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
 .is-test-eshop .raventic-search-results-products {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
@@ -104,28 +91,23 @@
   display: none !important;
 }
 .is-test-eshop .raventic-search-results-filters-desktop {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  --gap: 24px;
+  display: block;
+  /* 	--gap: 24px;
   gap: var(--gap);
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: column; */
 }
 @media screen and (max-width: 1279px) {
   .is-test-eshop .raventic-search-results-filters-desktop {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    /* flex-direction: column;
     width: 100%;
     gap: 16px;
+    > * {
+    	width: 100%;
+    } */
   }
-  .is-test-eshop .raventic-search-results-filters-desktop > * {
-    width: 100%;
-  }
+}
+.is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-categories {
+  display: none;
 }
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-enum-item-checkbox,
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-item-checkbox {
@@ -211,6 +193,10 @@
   -webkit-box-ordinal-group: 100;
       -ms-flex-order: 99;
           order: 99;
+  padding: 0.5em 0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: var(--color-gray-500);
 }
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter.raventic-search-results-filters-filter-price {
   -webkit-box-ordinal-group: 2;
