@@ -5624,8 +5624,8 @@ function raventicSetupDropdown() {
 			],
 		},
 		onOpen: handleOpen,
-		onProductClick: handleProductClick,
-		resultHandler: handleResult,
+		onProductClick: handleProductClickDropdown,
+		resultHandler: handleResultDropdown,
 		onClose: handleClose,
 		runABTest: false,
 	};
@@ -5806,15 +5806,19 @@ function closeRaventicDropdown() {
 	}
 }
 
-function handleProductClick(product, instanceId, action, source) {
+function handleProductClickDropdown(product, instanceId, action, source) {
 	if (action === "add-to-cart") {
 		shoptet.cartShared.addToCart({ productCode: product.id });
 	}
 }
 
-function handleResult(result, error, reference, instanceId) {
+function handleResultDropdown(result, error, reference, instanceId) {
 	if (result && !error) {
 		document.dispatchEvent(new CustomEvent("RAVENTIC SEARCH RESULTS DROPDOWN LOADED"));
+		console.log(
+			"%c CUSTOM EVENT DISPATCHED: RAVENTIC SEARCH RESULTS DROPDOWN LOADED",
+			"background: lime; color: black; padding: 5px 10px; font-weight: bold;",
+		);
 	}
 }
 
