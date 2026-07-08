@@ -78,9 +78,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  /* align-items: center; */
   gap: 8px;
   color: black;
   padding: 0.3075em 0;
@@ -133,8 +131,13 @@
   content: "✔";
   font-size: 0.75em;
   color: white;
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
   top: 2px;
+}
+.is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-enum-item-checkbox.raventic-search-results-filters-filter-enum-item-checkbox-checked::before, .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-enum-item-checkbox.raventic-search-results-filters-filter-price-item-checkbox-checked::before,
+.is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-item-checkbox.raventic-search-results-filters-filter-enum-item-checkbox-checked::before,
+.is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-item-checkbox.raventic-search-results-filters-filter-price-item-checkbox-checked::before {
+  background-color: var(--color-primary);
 }
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-enum-item-checkbox.raventic-search-results-filters-filter-enum-item-checkbox-checked ~ span, .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-enum-item-checkbox.raventic-search-results-filters-filter-price-item-checkbox-checked ~ span,
 .is-test-eshop .raventic-search-results-filters-desktop .raventic-search-results-filters-filter-price-item-checkbox.raventic-search-results-filters-filter-enum-item-checkbox-checked ~ span,
@@ -209,7 +212,7 @@
   font-weight: 700;
   line-height: 1.4;
   color: black;
-  padding-top: 1.5em;
+  /* padding-top: 1.5em; */
   padding-bottom: 0.8125em !important;
   margin-top: 0;
   margin-bottom: 0;
@@ -342,7 +345,7 @@
 }
 .is-test-eshop.id--11:not(.raventic-search-results-transformed) .content-wrapper:before {
   content: "";
-  width: 100%;
+  width: calc(100% - var(--padding-sides) * 2);
   height: 90%;
   position: absolute;
   left: 50%;

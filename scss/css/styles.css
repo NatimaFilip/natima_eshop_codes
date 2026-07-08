@@ -3576,9 +3576,13 @@ body.dklab-favourites.has-filters-active #filters {
   }
 }
 body.type-category .selected-filters,
+body.type-category .raventic-search-results-filter-selection,
 body.type-manufacturer-detail .selected-filters,
+body.type-manufacturer-detail .raventic-search-results-filter-selection,
 body.id--11.is-test-eshop .selected-filters,
-body.dklab-favourites .selected-filters {
+body.id--11.is-test-eshop .raventic-search-results-filter-selection,
+body.dklab-favourites .selected-filters,
+body.dklab-favourites .raventic-search-results-filter-selection {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
@@ -3590,9 +3594,13 @@ body.dklab-favourites .selected-filters {
 }
 @media screen and (min-width: 768px) {
   body.type-category .selected-filters,
+  body.type-category .raventic-search-results-filter-selection,
   body.type-manufacturer-detail .selected-filters,
+  body.type-manufacturer-detail .raventic-search-results-filter-selection,
   body.id--11.is-test-eshop .selected-filters,
-  body.dklab-favourites .selected-filters {
+  body.id--11.is-test-eshop .raventic-search-results-filter-selection,
+  body.dklab-favourites .selected-filters,
+  body.dklab-favourites .raventic-search-results-filter-selection {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -3607,25 +3615,45 @@ body.dklab-favourites .selected-filters {
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   body.type-category .selected-filters,
+  body.type-category .raventic-search-results-filter-selection,
   body.type-manufacturer-detail .selected-filters,
+  body.type-manufacturer-detail .raventic-search-results-filter-selection,
   body.id--11.is-test-eshop .selected-filters,
-  body.dklab-favourites .selected-filters {
+  body.id--11.is-test-eshop .raventic-search-results-filter-selection,
+  body.dklab-favourites .selected-filters,
+  body.dklab-favourites .raventic-search-results-filter-selection {
     margin-top: var(--gap-10);
   }
 }
 body.type-category .selected-filters .selected-filters-text,
+body.type-category .selected-filters .selected-filters-heading,
+body.type-category .raventic-search-results-filter-selection .selected-filters-text,
+body.type-category .raventic-search-results-filter-selection .selected-filters-heading,
 body.type-manufacturer-detail .selected-filters .selected-filters-text,
+body.type-manufacturer-detail .selected-filters .selected-filters-heading,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .selected-filters-text,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .selected-filters-heading,
 body.id--11.is-test-eshop .selected-filters .selected-filters-text,
-body.dklab-favourites .selected-filters .selected-filters-text {
+body.id--11.is-test-eshop .selected-filters .selected-filters-heading,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .selected-filters-text,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .selected-filters-heading,
+body.dklab-favourites .selected-filters .selected-filters-text,
+body.dklab-favourites .selected-filters .selected-filters-heading,
+body.dklab-favourites .raventic-search-results-filter-selection .selected-filters-text,
+body.dklab-favourites .raventic-search-results-filter-selection .selected-filters-heading {
   font-size: var(--fs-16);
   font-weight: var(--fw-700);
   color: var(--color-black);
   line-height: var(--lh-2);
 }
 body.type-category .selected-filters .active-filter-section,
+body.type-category .raventic-search-results-filter-selection .active-filter-section,
 body.type-manufacturer-detail .selected-filters .active-filter-section,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .active-filter-section,
 body.id--11.is-test-eshop .selected-filters .active-filter-section,
-body.dklab-favourites .selected-filters .active-filter-section {
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .active-filter-section,
+body.dklab-favourites .selected-filters .active-filter-section,
+body.dklab-favourites .raventic-search-results-filter-selection .active-filter-section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3654,16 +3682,33 @@ body.dklab-favourites .selected-filters .active-filter-section {
 }
 @media screen and (min-width: 1280px) {
   body.type-category .selected-filters .active-filter-section,
+  body.type-category .raventic-search-results-filter-selection .active-filter-section,
   body.type-manufacturer-detail .selected-filters .active-filter-section,
+  body.type-manufacturer-detail .raventic-search-results-filter-selection .active-filter-section,
   body.id--11.is-test-eshop .selected-filters .active-filter-section,
-  body.dklab-favourites .selected-filters .active-filter-section {
+  body.id--11.is-test-eshop .raventic-search-results-filter-selection .active-filter-section,
+  body.dklab-favourites .selected-filters .active-filter-section,
+  body.dklab-favourites .raventic-search-results-filter-selection .active-filter-section {
     gap: var(--gap-10);
   }
 }
 body.type-category .selected-filters .active-filter-label,
+body.type-category .selected-filters .raventic-search-results-filter-selection-item,
+body.type-category .raventic-search-results-filter-selection .active-filter-label,
+body.type-category .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item,
 body.type-manufacturer-detail .selected-filters .active-filter-label,
+body.type-manufacturer-detail .selected-filters .raventic-search-results-filter-selection-item,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .active-filter-label,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item,
 body.id--11.is-test-eshop .selected-filters .active-filter-label,
-body.dklab-favourites .selected-filters .active-filter-label {
+body.id--11.is-test-eshop .selected-filters .raventic-search-results-filter-selection-item,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .active-filter-label,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item,
+body.dklab-favourites .selected-filters .active-filter-label,
+body.dklab-favourites .selected-filters .raventic-search-results-filter-selection-item,
+body.dklab-favourites .raventic-search-results-filter-selection .active-filter-label,
+body.dklab-favourites .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item {
+  font-size: var(--fs-13);
   color: var(--color-primary);
   font-weight: var(--fw-700);
   border-style: solid;
@@ -3675,16 +3720,40 @@ body.dklab-favourites .selected-filters .active-filter-label {
   cursor: pointer;
 }
 body.type-category .selected-filters .active-filter-label:focus-within,
+body.type-category .selected-filters .raventic-search-results-filter-selection-item:focus-within,
+body.type-category .raventic-search-results-filter-selection .active-filter-label:focus-within,
+body.type-category .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item:focus-within,
 body.type-manufacturer-detail .selected-filters .active-filter-label:focus-within,
+body.type-manufacturer-detail .selected-filters .raventic-search-results-filter-selection-item:focus-within,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .active-filter-label:focus-within,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item:focus-within,
 body.id--11.is-test-eshop .selected-filters .active-filter-label:focus-within,
-body.dklab-favourites .selected-filters .active-filter-label:focus-within {
+body.id--11.is-test-eshop .selected-filters .raventic-search-results-filter-selection-item:focus-within,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .active-filter-label:focus-within,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item:focus-within,
+body.dklab-favourites .selected-filters .active-filter-label:focus-within,
+body.dklab-favourites .selected-filters .raventic-search-results-filter-selection-item:focus-within,
+body.dklab-favourites .raventic-search-results-filter-selection .active-filter-label:focus-within,
+body.dklab-favourites .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item:focus-within {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 body.type-category .selected-filters .active-filter-label::after,
+body.type-category .selected-filters .raventic-search-results-filter-selection-item::after,
+body.type-category .raventic-search-results-filter-selection .active-filter-label::after,
+body.type-category .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item::after,
 body.type-manufacturer-detail .selected-filters .active-filter-label::after,
+body.type-manufacturer-detail .selected-filters .raventic-search-results-filter-selection-item::after,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .active-filter-label::after,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item::after,
 body.id--11.is-test-eshop .selected-filters .active-filter-label::after,
-body.dklab-favourites .selected-filters .active-filter-label::after {
+body.id--11.is-test-eshop .selected-filters .raventic-search-results-filter-selection-item::after,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .active-filter-label::after,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item::after,
+body.dklab-favourites .selected-filters .active-filter-label::after,
+body.dklab-favourites .selected-filters .raventic-search-results-filter-selection-item::after,
+body.dklab-favourites .raventic-search-results-filter-selection .active-filter-label::after,
+body.dklab-favourites .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item::after {
   content: "";
   display: block;
   position: absolute;
@@ -3701,22 +3770,50 @@ body.dklab-favourites .selected-filters .active-filter-label::after {
   cursor: pointer;
 }
 body.type-category .selected-filters .active-filter-label[data-filter-type=price],
+body.type-category .selected-filters .raventic-search-results-filter-selection-item[data-filter-type=price],
+body.type-category .raventic-search-results-filter-selection .active-filter-label[data-filter-type=price],
+body.type-category .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item[data-filter-type=price],
 body.type-manufacturer-detail .selected-filters .active-filter-label[data-filter-type=price],
+body.type-manufacturer-detail .selected-filters .raventic-search-results-filter-selection-item[data-filter-type=price],
+body.type-manufacturer-detail .raventic-search-results-filter-selection .active-filter-label[data-filter-type=price],
+body.type-manufacturer-detail .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item[data-filter-type=price],
 body.id--11.is-test-eshop .selected-filters .active-filter-label[data-filter-type=price],
-body.dklab-favourites .selected-filters .active-filter-label[data-filter-type=price] {
+body.id--11.is-test-eshop .selected-filters .raventic-search-results-filter-selection-item[data-filter-type=price],
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .active-filter-label[data-filter-type=price],
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item[data-filter-type=price],
+body.dklab-favourites .selected-filters .active-filter-label[data-filter-type=price],
+body.dklab-favourites .selected-filters .raventic-search-results-filter-selection-item[data-filter-type=price],
+body.dklab-favourites .raventic-search-results-filter-selection .active-filter-label[data-filter-type=price],
+body.dklab-favourites .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item[data-filter-type=price] {
   padding: 0.31em 0.615em 0.31em 0.615em;
   cursor: default;
 }
 body.type-category .selected-filters .active-filter-label[data-filter-type=price]::after,
+body.type-category .selected-filters .raventic-search-results-filter-selection-item[data-filter-type=price]::after,
+body.type-category .raventic-search-results-filter-selection .active-filter-label[data-filter-type=price]::after,
+body.type-category .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item[data-filter-type=price]::after,
 body.type-manufacturer-detail .selected-filters .active-filter-label[data-filter-type=price]::after,
+body.type-manufacturer-detail .selected-filters .raventic-search-results-filter-selection-item[data-filter-type=price]::after,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .active-filter-label[data-filter-type=price]::after,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item[data-filter-type=price]::after,
 body.id--11.is-test-eshop .selected-filters .active-filter-label[data-filter-type=price]::after,
-body.dklab-favourites .selected-filters .active-filter-label[data-filter-type=price]::after {
+body.id--11.is-test-eshop .selected-filters .raventic-search-results-filter-selection-item[data-filter-type=price]::after,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .active-filter-label[data-filter-type=price]::after,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item[data-filter-type=price]::after,
+body.dklab-favourites .selected-filters .active-filter-label[data-filter-type=price]::after,
+body.dklab-favourites .selected-filters .raventic-search-results-filter-selection-item[data-filter-type=price]::after,
+body.dklab-favourites .raventic-search-results-filter-selection .active-filter-label[data-filter-type=price]::after,
+body.dklab-favourites .raventic-search-results-filter-selection .raventic-search-results-filter-selection-item[data-filter-type=price]::after {
   display: none;
 }
 body.type-category .selected-filters #clear-filters,
+body.type-category .raventic-search-results-filter-selection #clear-filters,
 body.type-manufacturer-detail .selected-filters #clear-filters,
+body.type-manufacturer-detail .raventic-search-results-filter-selection #clear-filters,
 body.id--11.is-test-eshop .selected-filters #clear-filters,
-body.dklab-favourites .selected-filters #clear-filters {
+body.id--11.is-test-eshop .raventic-search-results-filter-selection #clear-filters,
+body.dklab-favourites .selected-filters #clear-filters,
+body.dklab-favourites .raventic-search-results-filter-selection #clear-filters {
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3727,17 +3824,33 @@ body.dklab-favourites .selected-filters #clear-filters {
 }
 @media screen and (min-width: 1280px) {
   body.type-category .selected-filters #clear-filters,
+  body.type-category .raventic-search-results-filter-selection #clear-filters,
   body.type-manufacturer-detail .selected-filters #clear-filters,
+  body.type-manufacturer-detail .raventic-search-results-filter-selection #clear-filters,
   body.id--11.is-test-eshop .selected-filters #clear-filters,
-  body.dklab-favourites .selected-filters #clear-filters {
+  body.id--11.is-test-eshop .raventic-search-results-filter-selection #clear-filters,
+  body.dklab-favourites .selected-filters #clear-filters,
+  body.dklab-favourites .raventic-search-results-filter-selection #clear-filters {
     margin-top: 0;
     margin-bottom: 0;
   }
 }
 body.type-category .selected-filters #clear-filters a,
+body.type-category .selected-filters .raventic-search-results-filter-selection-clear,
+body.type-category .raventic-search-results-filter-selection #clear-filters a,
+body.type-category .raventic-search-results-filter-selection .raventic-search-results-filter-selection-clear,
 body.type-manufacturer-detail .selected-filters #clear-filters a,
+body.type-manufacturer-detail .selected-filters .raventic-search-results-filter-selection-clear,
+body.type-manufacturer-detail .raventic-search-results-filter-selection #clear-filters a,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .raventic-search-results-filter-selection-clear,
 body.id--11.is-test-eshop .selected-filters #clear-filters a,
-body.dklab-favourites .selected-filters #clear-filters a {
+body.id--11.is-test-eshop .selected-filters .raventic-search-results-filter-selection-clear,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection #clear-filters a,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .raventic-search-results-filter-selection-clear,
+body.dklab-favourites .selected-filters #clear-filters a,
+body.dklab-favourites .selected-filters .raventic-search-results-filter-selection-clear,
+body.dklab-favourites .raventic-search-results-filter-selection #clear-filters a,
+body.dklab-favourites .raventic-search-results-filter-selection .raventic-search-results-filter-selection-clear {
   color: var(--color-red-400);
   font-weight: var(--fw-700);
   border-style: solid;
@@ -3748,9 +3861,21 @@ body.dklab-favourites .selected-filters #clear-filters a {
   position: relative;
 }
 body.type-category .selected-filters #clear-filters a::after,
+body.type-category .selected-filters .raventic-search-results-filter-selection-clear::after,
+body.type-category .raventic-search-results-filter-selection #clear-filters a::after,
+body.type-category .raventic-search-results-filter-selection .raventic-search-results-filter-selection-clear::after,
 body.type-manufacturer-detail .selected-filters #clear-filters a::after,
+body.type-manufacturer-detail .selected-filters .raventic-search-results-filter-selection-clear::after,
+body.type-manufacturer-detail .raventic-search-results-filter-selection #clear-filters a::after,
+body.type-manufacturer-detail .raventic-search-results-filter-selection .raventic-search-results-filter-selection-clear::after,
 body.id--11.is-test-eshop .selected-filters #clear-filters a::after,
-body.dklab-favourites .selected-filters #clear-filters a::after {
+body.id--11.is-test-eshop .selected-filters .raventic-search-results-filter-selection-clear::after,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection #clear-filters a::after,
+body.id--11.is-test-eshop .raventic-search-results-filter-selection .raventic-search-results-filter-selection-clear::after,
+body.dklab-favourites .selected-filters #clear-filters a::after,
+body.dklab-favourites .selected-filters .raventic-search-results-filter-selection-clear::after,
+body.dklab-favourites .raventic-search-results-filter-selection #clear-filters a::after,
+body.dklab-favourites .raventic-search-results-filter-selection .raventic-search-results-filter-selection-clear::after {
   content: "";
   display: block;
   position: absolute;

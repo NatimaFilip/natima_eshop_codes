@@ -442,7 +442,7 @@ $desktop-large-min: 1680px;
 	content: "✔";
 	font-size: 0.75em;
 	color: white;
-	background-color: var(--color-primary);
+	/* background-color: var(--color-primary); */
 	top: 2px;
 }
 
@@ -859,7 +859,7 @@ $desktop-large-min: 1680px;
 		.raventic-search-results-filters-filter-body {
 			a {
 				display: flex;
-				align-items: center;
+				/* align-items: center; */
 				gap: 8px;
 				color: black;
 				padding: 0.3075em 0;
@@ -881,6 +881,9 @@ $desktop-large-min: 1680px;
 					top: 0.25em;
 					transform: translateX(50%);
 					@include input-checkbox-checked;
+				}
+				&::before {
+					background-color: var(--color-primary);
 				}
 
 				& ~ span {
@@ -949,7 +952,7 @@ $desktop-large-min: 1680px;
 			font-weight: 700;
 			line-height: 1.4;
 			color: black;
-			padding-top: 1.5em;
+			/* padding-top: 1.5em; */
 			padding-bottom: 0.8125em !important;
 			margin-top: 0;
 			margin-bottom: 0;
@@ -1055,7 +1058,7 @@ $desktop-large-min: 1680px;
 
 			&:before {
 				content: "";
-				width: 100%;
+				width: calc(100% - var(--padding-sides) * 2);
 				height: 90%;
 				position: absolute;
 				left: 50%;
