@@ -3339,6 +3339,7 @@ body {
 /*-------------------------------------- CATEGORY*/
 body.type-category,
 body.type-manufacturer-detail,
+body.id--11.is-test-eshop,
 body.dklab-favourites {
 	.category-perex,
 	.manufacturerDetail {
@@ -3844,7 +3845,8 @@ body.dklab-favourites {
 
 	//aside naboku
 	@media screen and (min-width: $desktop-min) {
-		.category-content-wrapper {
+		.category-content-wrapper,
+		.raventic-search-results-container {
 			margin-top: calc(var(--gap-24) * 1.5);
 			display: grid;
 			grid-template-columns: 1fr 4fr;
@@ -3856,7 +3858,8 @@ body.dklab-favourites {
 				grid-column: 2;
 				padding-bottom: var(--gap-30);
 			}
-			aside {
+			aside,
+			.raventic-search-results-filters {
 				display: block;
 				grid-column: 1;
 				width: 90%;
