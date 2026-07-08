@@ -3766,6 +3766,13 @@ body.dklab-favourites .selected-filters #clear-filters a::after {
   background-repeat: no-repeat;
 }
 @media screen and (min-width: 1280px) {
+  body.type-category .raventic-search-results-container,
+  body.type-manufacturer-detail .raventic-search-results-container,
+  body.id--11.is-test-eshop .raventic-search-results-container,
+  body.dklab-favourites .raventic-search-results-container {
+    padding-top: calc(var(--gap-24) * 1.5);
+    margin-top: 0 !important;
+  }
   body.type-category .category-content-wrapper,
   body.type-category .raventic-search-results-container,
   body.type-manufacturer-detail .category-content-wrapper,

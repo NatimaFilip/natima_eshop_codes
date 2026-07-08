@@ -1049,8 +1049,7 @@ $desktop-large-min: 1680px;
 			min-height: 100vh;
 		}
 	}
-	&.id--11:not(.raventic-search-results-transformed),
-	&.id--11 {
+	&.id--11:not(.raventic-search-results-transformed) {
 		.content-wrapper {
 			position: relative;
 
