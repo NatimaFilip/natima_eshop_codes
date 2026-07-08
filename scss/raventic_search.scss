@@ -820,6 +820,16 @@ $desktop-large-min: 1680px;
 	}
 
 	&.id--11 {
+		//temp
+		#products {
+			.product {
+				img {
+					aspect-ratio: 4 / 3;
+				}
+			}
+		}
+
+		//konec temp
 		.breadcrumbs-wrapper {
 			position: relative;
 
@@ -1114,8 +1124,7 @@ $desktop-large-min: 1680px;
 }
 
 //raventic dropdown
-.is-test-eshop,
-.sk {
+.is-test-eshop {
 	.raventic-search-dropdown-external {
 		.raventic-search-dropdown-input {
 			display: none !important;

@@ -1602,6 +1602,13 @@ document.addEventListener("luigiSearchDone", function (event) {
 	/* measureUnitFromAppendixProducts(); */
 });
 
+document.addEventListener("RAVENTIC SEARCH RESULTS TRANSFORMED ", function (event) {
+	actionPriceToFinalPriceAndReviewsNumber();
+	measureUnitFromFiltersProducts();
+	productListMoveAppendixToDescription();
+	/* measureUnitFromAppendixProducts(); */
+});
+
 /*---------ACTION PRICE AND REVIEWS NUMBER*/
 actionPriceToFinalPriceAndReviewsNumber();
 productListMoveAppendixToDescription();
