@@ -264,33 +264,6 @@ $desktop-large-min: 1680px;
 	}
 }
 
-@mixin menu-item-setup {
-	background-color: var(--color-gray-400);
-	border-radius: var(--br-8);
-	display: flex;
-	@media screen and (min-width: $desktop-min) {
-		border-radius: var(--br-16);
-	}
-
-	align-items: center;
-	color: black;
-
-	padding: 23px 10px 23px 25px;
-	cursor: pointer;
-	font-size: var(--fs-18);
-
-	font-size: 1em;
-	color: var(--color-black);
-	max-width: 9em;
-	text-wrap: balance;
-
-	&:hover,
-	&:focus-within {
-		outline: solid 2px var(--color-primary);
-		background-color: var(--color-gray-200);
-	}
-}
-
 @mixin body-max-width {
 	width: 100%;
 	max-width: 1920px;
@@ -1000,12 +973,32 @@ $desktop-large-min: 1680px;
 			margin-top: 0;
 			margin-bottom: 0;
 			display: grid;
-			grid-template-columns: repeat(6, 1fr);
-			gap: 26px;
+			grid-template-columns: repeat(8, 1fr);
+			gap: 10px;
 			li {
 				a {
-					@include menu-item-setup;
 					display: flex;
+					background-color: var(--color-gray-400);
+					border-radius: var(--br-8);
+
+					@media screen and (min-width: $desktop-min) {
+						border-radius: var(--br-16);
+					}
+
+					align-items: center;
+					color: black;
+					padding: 23px 10px 23px 25px;
+					cursor: pointer;
+					font-size: 1em;
+					color: var(--color-black);
+					text-wrap: balance;
+
+					&:hover,
+					&:focus-within {
+						outline: solid 2px var(--color-primary);
+						background-color: var(--color-gray-200);
+					}
+
 					height: 100%;
 					font-size: var(--fs-16);
 					@media screen and (max-width: $small-tablet-max) {
@@ -1024,7 +1017,7 @@ $desktop-large-min: 1680px;
 			}
 
 			@media screen and (max-width: $desktop-medium-max) {
-				grid-template-columns: repeat(5, 1fr);
+				grid-template-columns: repeat(6, 1fr);
 			}
 			@media screen and (max-width: $desktop-small-max) {
 				grid-template-columns: repeat(4, 1fr);

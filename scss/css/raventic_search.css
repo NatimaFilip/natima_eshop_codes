@@ -230,15 +230,15 @@
   margin-top: 0;
   margin-bottom: 0;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 26px;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
 }
 .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a {
-  background-color: var(--color-gray-400);
-  border-radius: var(--br-8);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-color: var(--color-gray-400);
+  border-radius: var(--br-8);
 }
 @media screen and (min-width: 1280px) {
   .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a {
@@ -252,10 +252,8 @@
   color: black;
   padding: 23px 10px 23px 25px;
   cursor: pointer;
-  font-size: var(--fs-18);
   font-size: 1em;
   color: var(--color-black);
-  max-width: 9em;
   text-wrap: balance;
 }
 .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a:hover, .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a:focus-within {
@@ -263,9 +261,6 @@
   background-color: var(--color-gray-200);
 }
 .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   height: 100%;
   font-size: var(--fs-16);
 }
@@ -287,7 +282,7 @@
 }
 @media screen and (max-width: 1679px) {
   .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 @media screen and (max-width: 1439px) {
