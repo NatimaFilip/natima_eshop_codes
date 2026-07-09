@@ -5912,7 +5912,7 @@ function raventicSetupResults() {
 			promoContent: [
 				{
 					title: window.NAT.translations("raventicCategoriesTitle"), // titulek bloku
-					identifier: "categories",
+					identifier: "categories_feed",
 					maxCount: 8,
 				},
 				{
