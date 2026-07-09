@@ -1489,17 +1489,15 @@ $desktop-large-min: 1680px;
 					}
 					display: flex;
 					flex-direction: column;
-					background: transparent;
+
 					padding: 0;
 					--padding-top-product: 16px;
 					row-gap: 16px;
 					max-height: fit-content;
 					padding-bottom: var(--padding-top-product);
 					transition: background 0.3s ease;
-					&:hover,
-					&:focus-within {
-						background: white;
-					}
+
+					background: white;
 
 					.raventic-product-image {
 						width: 100%;
@@ -1526,6 +1524,12 @@ $desktop-large-min: 1680px;
 								height: calc(var(--image-width) * 3 - 40px);
 								max-width: calc(var(--image-width) * 2);
 							}
+						}
+					}
+					&:hover,
+					&:focus-within {
+						.raventic-product-image {
+							background: white;
 						}
 					}
 					.raventic-product-name,
@@ -1593,18 +1597,25 @@ $desktop-large-min: 1680px;
 							width: 100%;
 							height: calc(var(--image-width) * 3);
 							padding: calc(var(--image-width) / 2);
-							background: white;
+							background: #f5f5f5;
 							border-bottom-style: solid;
 							border-width: 1px;
 							border-color: var(--color-primary-200);
 							border-radius: 8px 8px 0 0;
 							overflow: hidden;
+							mix-blend-mode: multiply;
 							img {
 								width: 100%;
 								height: calc(var(--image-width) * 2);
 								max-width: calc(var(--image-width) * 2);
 								object-fit: contain;
 								margin: auto;
+							}
+						}
+						&:hover,
+						&:focus-within {
+							.raventic-product-image {
+								background: white;
 							}
 						}
 						.raventic-product-name,
