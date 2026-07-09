@@ -967,6 +967,9 @@ $desktop-large-min: 1680px;
 			display: flex;
 			flex-wrap: wrap;
 			gap: 32px;
+			@media screen and (max-width: $tablet-max) {
+				gap: 16px;
+			}
 			li {
 				&::before {
 					display: none;
@@ -980,7 +983,8 @@ $desktop-large-min: 1680px;
 					flex-wrap: nowrap;
 					&::after {
 						content: "";
-						display: flex;
+						display: inline-flex;
+						flex-shrink: 0;
 						width: 20px;
 						height: 1lh;
 						background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_long_right_primary.svg);
@@ -1602,11 +1606,10 @@ $desktop-large-min: 1680px;
 							border-radius: 8px 8px 0 0;
 							overflow: hidden;
 							transition: background 0.2s ease;
-							padding: 7% 5%;
 
 							img {
 								width: 100%;
-
+								padding: 7% 5%;
 								object-fit: contain;
 								margin: auto;
 								mix-blend-mode: multiply;

@@ -6421,6 +6421,11 @@ function shortenBlogAdditionalContentInRaventicResults() {
 	});
 }
 //
+if (body.classList.contains("is-test-eshop")) {
+	document.addEventListener("DOMContentLoaded", function () {
+		addSearchButtonForMobile();
+	});
+}
 function addSearchButtonForMobile() {
 	const headerSearch = document.querySelector("#header .search");
 	if (!headerSearch) return;
@@ -6428,21 +6433,20 @@ function addSearchButtonForMobile() {
 	const headerTop = document.querySelector("#header .header-top");
 	if (!headerTop) return;
 
-	const searchButton = document.createElement("div");
-	searchButton.classList.add("mobile-search-button");
-	headerTop.appendChild(searchButton);
+	const headerSearchFormRaventic = document.querySelector("#header search-form");
+	if (!headerSearchFormRaventic) return;
+
 	const queryInput = headerSearch.querySelector("input[type='search']");
-	searchButton.addEventListener("click", function () {
+	if (!queryInput) return;
+	headerSearchFormRaventic.addEventListener("click", function () {
 		headerSearch.classList.toggle("active-mobile-search");
 
 		if (queryInput) {
 			// timeout 10ms to wait for the animation to finish
 			setTimeout(() => {
-				if (document.body.classList.contains("sk")) {
-					if (headerSearch.classList.contains("active-mobile-search")) {
-						queryInput.click();
-						console.log("-------- Raventic Search Dropdown Opened (from mobile search button) ------");
-					}
+				if (headerSearch.classList.contains("active-mobile-search")) {
+					queryInput.click();
+					console.log("-------- Raventic Search Dropdown Opened (from mobile search button) ------");
 				}
 				queryInput.focus();
 			}, 10);
@@ -6450,7 +6454,6 @@ function addSearchButtonForMobile() {
 
 		const searchHeight = headerSearch.offsetHeight;
 		document.body.style.setProperty("--mobile-search-height", searchHeight + "px");
-
 		document.body.classList.remove("has-opened-hamburger-menu");
 	});
 }

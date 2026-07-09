@@ -437,10 +437,10 @@
             filter: drop-shadow(0px 12px 6px rgba(0, 0, 0, 0.2));
   }
   body.custom-search-active.is-test-eshop input[type=search].active {
-    top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 4px + 8px) !important;
+    top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 4px) !important;
   }
   body.custom-search-active.is-test-eshop .search-form fieldset::after {
-    top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 8px);
+    top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6));
   }
   body.custom-search-active.is-test-eshop.admin-logged input[type=search] {
     --admin-bar-height: 24px;

@@ -234,6 +234,11 @@
       flex-wrap: wrap;
   gap: 32px;
 }
+@media screen and (max-width: 1279px) {
+  .is-test-eshop .raventic-search-results-promo-content-type--articles ul {
+    gap: 16px;
+  }
+}
 .is-test-eshop .raventic-search-results-promo-content-type--articles ul li::before {
   display: none;
 }
@@ -259,9 +264,11 @@
 }
 .is-test-eshop .raventic-search-results-promo-content-type--articles ul li a::after {
   content: "";
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   width: 20px;
   height: 1lh;
   background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_long_right_primary.svg);
@@ -1035,10 +1042,10 @@
     overflow: hidden;
     -webkit-transition: background 0.2s ease;
     transition: background 0.2s ease;
-    padding: 7% 5%;
   }
   .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list.fresh .raventic-product .raventic-product-image img {
     width: 100%;
+    padding: 7% 5%;
     -o-object-fit: contain;
        object-fit: contain;
     margin: auto;
