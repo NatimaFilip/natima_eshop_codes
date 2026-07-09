@@ -273,6 +273,9 @@
   background-repeat: no-repeat;
   background-size: 45%;
 }
+.is-test-eshop .raventic-search-results-promo-content-type--articles ul li a:hover, .is-test-eshop .raventic-search-results-promo-content-type--articles ul li a:focus {
+  text-decoration: underline;
+}
 .is-test-eshop .raventic-search-results-promo-content-expand {
   display: none;
 }

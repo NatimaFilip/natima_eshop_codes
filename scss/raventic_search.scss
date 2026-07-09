@@ -1001,6 +1001,10 @@ $desktop-large-min: 1680px;
 						background-repeat: no-repeat;
 						background-size: 45%;
 					}
+					&:hover,
+					&:focus {
+						text-decoration: underline;
+					}
 				}
 			}
 		}

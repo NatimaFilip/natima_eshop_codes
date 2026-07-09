@@ -6401,7 +6401,18 @@ function shortenBlogAdditionalContentInRaventicResults() {
 	spans.forEach((span) => {
 		const original = span.textContent.trim();
 		span.title = original;
-		span.textContent = original.length > MAX_LENGTH ? original.slice(0, MAX_LENGTH).trimEnd() + "..." : original;
+
+		if (original.length <= MAX_LENGTH) return;
+
+		// Keep whole words up to and including the one that crosses MAX_LENGTH,
+		// so the text never ends mid-word.
+		const words = original.split(/\s+/);
+		let shortened = "";
+		for (const word of words) {
+			shortened += (shortened ? " " : "") + word;
+			if (shortened.length >= MAX_LENGTH) break;
+		}
+		span.textContent = shortened + "...";
 	});
 }
 //
