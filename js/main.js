@@ -5447,17 +5447,17 @@ window.NAT.raventic = window.NAT.raventic || {
 		currency: "CZK",
 		priceDecimals: 0, */
 
-		apiKey: "euca0e3736860cd1072be643e4e32e5",
+		/* 		apiKey: "euca0e3736860cd1072be643e4e32e5",
 		bestsellersApiKey: "euca0e3736860cd1072be643e4e32e5",
 		locale: "sk-SK",
 		currency: "EUR",
-		priceDecimals: 2,
+		priceDecimals: 2, */
 
-		/* 		apiKey: "euc8c5f31012cea7c050d4b3c2d0467",
+		apiKey: "euc8c5f31012cea7c050d4b3c2d0467",
 		bestsellersApiKey: "euc8c5f31012cea7c050d4b3c2d0467",
 		locale: "pl-PL",
 		currency: "PLN",
-		priceDecimals: 2, */
+		priceDecimals: 2,
 
 		// Dropdown: where Enter / the "show all" button submits the query.
 		/* 		submitUrl: "https://www.natima.cz/vyhledavani/",
@@ -6329,7 +6329,16 @@ function searchRaventicResults() {
 	// only reliable way to target a specific group is by its <h3> title text. Kategorie
 	// also has a dedicated class, but matching by title keeps all removals consistent.
 	function removeUnwantedFilters() {
-		const unwantedTitles = ["Kategorie", "Množství", "Denní dávka", "Vstřebatelnost", "Objem"];
+		const unwantedTitles = [
+			"Kategorie",
+			"Množství",
+			"Denní dávka",
+			"Vstřebatelnost",
+			"Objem",
+			"Množstvo",
+			"Denná dávka",
+			"Vstrebateľnosť",
+		];
 
 		const filters = document.querySelectorAll(".raventic-search-results-filters-filter");
 		filters.forEach((filter) => {
