@@ -231,7 +231,7 @@
 .is-test-eshop .raventic-search-results-promo-content-expand {
   display: none;
 }
-.is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items {
+.is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items {
   list-style: none;
   padding: 0;
   padding-top: 0;
@@ -243,7 +243,7 @@
   grid-template-columns: repeat(8, 1fr);
   gap: 10px;
 }
-.is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a {
+.is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items li a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -251,11 +251,11 @@
   border-radius: var(--br-8);
 }
 @media screen and (min-width: 1280px) {
-  .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a {
+  .is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items li a {
     border-radius: var(--br-16);
   }
 }
-.is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a {
+.is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items li a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -266,16 +266,16 @@
   color: var(--color-black);
   text-wrap: balance;
 }
-.is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a:hover, .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a:focus-within {
+.is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items li a:hover, .is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items li a:focus-within {
   outline: solid 2px var(--color-primary);
   background-color: var(--color-gray-200);
 }
-.is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a {
+.is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items li a {
   height: 100%;
   font-size: var(--fs-16);
 }
 @media screen and (max-width: 1023px) {
-  .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a {
+  .is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items li a {
     gap: 20px;
     grid-template-columns: 40px 1fr;
     padding: 15px 8px 15px 10px;
@@ -283,7 +283,7 @@
   }
 }
 @media screen and (max-width: 767px) {
-  .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items li a {
+  .is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items li a {
     gap: 10px;
     grid-template-columns: 34px 1fr;
     padding: 15px 6px 15px 8px;
@@ -291,24 +291,24 @@
   }
 }
 @media screen and (max-width: 1679px) {
-  .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items {
+  .is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items {
     grid-template-columns: repeat(6, 1fr);
   }
 }
 @media screen and (max-width: 1439px) {
-  .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items {
+  .is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
 }
 @media screen and (max-width: 1279px) {
-  .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items {
+  .is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
 }
 @media screen and (max-width: 767px) {
-  .is-test-eshop .raventic-search-results-promo-content-type--categories .raventic-search-results-promo-content-type-items {
+  .is-test-eshop .raventic-search-results-promo-content-type--categories_feed .raventic-search-results-promo-content-type-items {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
