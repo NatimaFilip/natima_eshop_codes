@@ -6421,11 +6421,11 @@ function shortenBlogAdditionalContentInRaventicResults() {
 	});
 }
 //
-if (body.classList.contains("is-test-eshop")) {
-	document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
+	if (document.body.classList.contains("is-test-eshop")) {
 		addSearchButtonForMobile();
-	});
-}
+	}
+});
 function addSearchButtonForMobile() {
 	console.log("Adding search button for mobile...");
 	const headerSearch = document.querySelector("#header .search");
@@ -6436,7 +6436,7 @@ function addSearchButtonForMobile() {
 	if (!headerTop) return;
 	console.log("Header top found:", headerTop);
 
-	const headerSearchFormRaventic = document.querySelector("#header search-form");
+	const headerSearchFormRaventic = document.querySelector("#header .search-form");
 	if (!headerSearchFormRaventic) return;
 	console.log("Header search form found:", headerSearchFormRaventic);
 
