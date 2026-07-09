@@ -6427,23 +6427,30 @@ if (body.classList.contains("is-test-eshop")) {
 	});
 }
 function addSearchButtonForMobile() {
+	console.log("Adding search button for mobile...");
 	const headerSearch = document.querySelector("#header .search");
 	if (!headerSearch) return;
+	console.log("Header search found:", headerSearch);
 
 	const headerTop = document.querySelector("#header .header-top");
 	if (!headerTop) return;
+	console.log("Header top found:", headerTop);
 
 	const headerSearchFormRaventic = document.querySelector("#header search-form");
 	if (!headerSearchFormRaventic) return;
+	console.log("Header search form found:", headerSearchFormRaventic);
 
 	const queryInput = headerSearch.querySelector("input[type='search']");
 	if (!queryInput) return;
+	console.log("Query input found:", queryInput);
 	headerSearchFormRaventic.addEventListener("click", function () {
 		headerSearch.classList.toggle("active-mobile-search");
+		console.log("Mobile search button clicked, toggled active-mobile-search class.");
 
 		if (queryInput) {
 			// timeout 10ms to wait for the animation to finish
 			setTimeout(() => {
+				console.log("Focusing query input after mobile search button click.");
 				if (headerSearch.classList.contains("active-mobile-search")) {
 					queryInput.click();
 					console.log("-------- Raventic Search Dropdown Opened (from mobile search button) ------");
