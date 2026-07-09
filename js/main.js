@@ -6394,10 +6394,10 @@ function emptySearchQuery() {
 }
 function shortenBlogAdditionalContentInRaventicResults() {
 	const MAX_LENGTH = 25;
+	console.log("Shortening blog additional content in Raventic results...");
 
-	const spans = document.querySelectorAll(
-		".raventic-search-results-promo-content-type--articles .raventic-search-results-promo-content-type-item a span",
-	);
+	const spans = document.querySelectorAll(".raventic-search-results-promo-content-type--articles span");
+	console.log(`Found ${spans.length} spans to shorten.`);
 	spans.forEach((span) => {
 		const original = span.textContent.trim();
 		span.title = original;
