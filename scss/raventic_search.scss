@@ -1253,6 +1253,9 @@ $desktop-large-min: 1680px;
 			top: calc(var(--header-height) / 2 + 10px) !important;
 			transform: translateX(-50%);
 			background: #fbf9fd;
+			@media screen and (max-width: $mobile-max) {
+				background: var(--color-primary-100);
+			}
 			overflow: auto;
 			max-height: calc(100vh - var(--header-height) - 20px);
 			border-radius: 8px;

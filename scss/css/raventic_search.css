@@ -581,6 +581,13 @@
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   background: #fbf9fd;
+}
+@media screen and (max-width: 767px) {
+  .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body {
+    background: var(--color-primary-100);
+  }
+}
+.is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body {
   overflow: auto;
   max-height: calc(100vh - var(--header-height) - 20px);
   border-radius: 8px;
