@@ -969,11 +969,32 @@ $desktop-large-min: 1680px;
 		}
 	}
 
-	.raventic-search-results-promo-content:has(.raventic-search-results-promo-content-type--articles) {
+	.raventic-search-results-promo-content-type--articles {
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
-		border-color: var(--color-primary-200);
-		padding-top: 0;
+		border-color: var(--color-gray-200);
+		padding-top: 0.625em;
+		ul {
+			list-style: none;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			li {
+				&::before {
+					display: none;
+				}
+				a {
+					&::after {
+						content: "\2192";
+					}
+					&:hover,
+					&:focus {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
 	}
 	.raventic-search-results-promo-content-expand {
 		display: none;

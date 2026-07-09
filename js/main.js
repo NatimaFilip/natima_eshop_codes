@@ -5918,7 +5918,7 @@ function raventicSetupResults() {
 				{
 					title: window.NAT.translations("raventicArticlesTitle"), // titulek tabu pro výsledky článků
 					identifier: "articles",
-					maxCount: 4, // maximální počet výsledků na stránku
+					maxCount: 3, // maximální počet výsledků na stránku
 				},
 			],
 
@@ -6336,6 +6336,7 @@ function searchRaventicResults() {
 			"Vstrebateľnosť",
 			"Ilość",
 			"Dzienna dawka",
+			"Pojemność",
 		];
 
 		const filters = document.querySelectorAll(".raventic-search-results-filters-filter");

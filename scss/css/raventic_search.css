@@ -222,11 +222,30 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-.is-test-eshop .raventic-search-results-promo-content:has(.raventic-search-results-promo-content-type--articles) {
+.is-test-eshop .raventic-search-results-promo-content-type--articles {
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-color: var(--color-primary-200);
-  padding-top: 0;
+  border-color: var(--color-gray-200);
+  padding-top: 0.625em;
+}
+.is-test-eshop .raventic-search-results-promo-content-type--articles ul {
+  list-style: none;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
+.is-test-eshop .raventic-search-results-promo-content-type--articles ul li::before {
+  display: none;
+}
+.is-test-eshop .raventic-search-results-promo-content-type--articles ul li a::after {
+  content: "→";
+}
+.is-test-eshop .raventic-search-results-promo-content-type--articles ul li a:hover, .is-test-eshop .raventic-search-results-promo-content-type--articles ul li a:focus {
+  text-decoration: underline;
 }
 .is-test-eshop .raventic-search-results-promo-content-expand {
   display: none;
