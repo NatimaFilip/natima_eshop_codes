@@ -5610,7 +5610,7 @@ function raventicSetupDropdown() {
 
 			content: [
 				{
-					type: "categories",
+					type: "categories_feed",
 					title: window.NAT.translations("raventicCategoriesTitle"),
 				},
 				/* 	{
