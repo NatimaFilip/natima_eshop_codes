@@ -6393,7 +6393,7 @@ function emptySearchQuery() {
 	}
 }
 function shortenBlogAdditionalContentInRaventicResults() {
-	const MAX_LENGTH = 25;
+	const MAX_LENGTH = 35;
 	console.log("Shortening blog additional content in Raventic results...");
 
 	const spans = document.querySelectorAll(".raventic-search-results-promo-content-type--articles span");
