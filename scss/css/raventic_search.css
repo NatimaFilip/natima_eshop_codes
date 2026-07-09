@@ -247,15 +247,12 @@
   display: -ms-flexbox;
   display: flex;
   width: 1em;
-  height: 0.8em;
+  height: 100%;
   background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
   background-position: center;
   background-repeat: no-repeat;
-  position: absolute;
   -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  top: 50%;
-  right: -1em;
+          transform: translateY(-50%);
 }
 .is-test-eshop .raventic-search-results-promo-content-expand {
   display: none;
