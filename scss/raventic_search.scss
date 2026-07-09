@@ -1000,6 +1000,7 @@ $desktop-large-min: 1680px;
 						background-position: center;
 						background-repeat: no-repeat;
 						background-size: contain;
+						margin-left: 4px;
 					}
 					&:hover,
 					&:focus {
@@ -1251,7 +1252,7 @@ $desktop-large-min: 1680px;
 			left: 50%;
 			top: calc(var(--header-height) / 2 + 10px) !important;
 			transform: translateX(-50%);
-			background: var(--color-primary-100);
+			background: #fbf9fd;
 			overflow: auto;
 			max-height: calc(100vh - var(--header-height) - 20px);
 			border-radius: 8px;
@@ -1381,7 +1382,7 @@ $desktop-large-min: 1680px;
 				background: white;
 				padding: 10px 15px;
 				display: grid;
-				--image-width: 70px;
+				--image-width: 90px;
 				grid-template-columns: var(--image-width) 1fr 1fr 1fr;
 				column-gap: 8px;
 				row-gap: 4px;
@@ -1401,6 +1402,7 @@ $desktop-large-min: 1680px;
 						height: 100%;
 						object-fit: contain;
 						mix-blend-mode: multiply;
+						padding: 10px;
 					}
 				}
 
@@ -1499,7 +1501,7 @@ $desktop-large-min: 1680px;
 					row-gap: 16px;
 					max-height: fit-content;
 					padding-bottom: var(--padding-top-product);
-					transition: background 0.3s ease;
+					transition: background 0.2s ease;
 
 					background: white;
 
@@ -1596,7 +1598,7 @@ $desktop-large-min: 1680px;
 						row-gap: 8px;
 						max-height: fit-content;
 						padding-bottom: var(--padding-top-product);
-						transition: background 0.3s ease;
+						transition: background 0.2s ease;
 
 						.raventic-product-image {
 							width: 100%;

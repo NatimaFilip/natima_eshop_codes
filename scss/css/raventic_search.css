@@ -272,6 +272,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  margin-left: 4px;
 }
 .is-test-eshop .raventic-search-results-promo-content-type--articles ul li a:hover, .is-test-eshop .raventic-search-results-promo-content-type--articles ul li a:focus {
   text-decoration: underline;
@@ -579,7 +580,7 @@
   top: calc(var(--header-height) / 2 + 10px) !important;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background: var(--color-primary-100);
+  background: #fbf9fd;
   overflow: auto;
   max-height: calc(100vh - var(--header-height) - 20px);
   border-radius: 8px;
@@ -743,7 +744,7 @@
   background: white;
   padding: 10px 15px;
   display: grid;
-  --image-width: 70px;
+  --image-width: 90px;
   grid-template-columns: var(--image-width) 1fr 1fr 1fr;
   -webkit-column-gap: 8px;
      -moz-column-gap: 8px;
@@ -769,6 +770,7 @@
   -o-object-fit: contain;
      object-fit: contain;
   mix-blend-mode: multiply;
+  padding: 10px;
 }
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-labels {
   display: none;
@@ -911,8 +913,8 @@
   max-height: -moz-fit-content;
   max-height: fit-content;
   padding-bottom: var(--padding-top-product);
-  -webkit-transition: background 0.3s ease;
-  transition: background 0.3s ease;
+  -webkit-transition: background 0.2s ease;
+  transition: background 0.2s ease;
   background: white;
 }
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product:first-child .raventic-product-image {
@@ -1015,8 +1017,8 @@
     max-height: -moz-fit-content;
     max-height: fit-content;
     padding-bottom: var(--padding-top-product);
-    -webkit-transition: background 0.3s ease;
-    transition: background 0.3s ease;
+    -webkit-transition: background 0.2s ease;
+    transition: background 0.2s ease;
   }
   .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list.fresh .raventic-product .raventic-product-image {
     width: 100%;

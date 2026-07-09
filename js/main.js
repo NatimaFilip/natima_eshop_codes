@@ -389,6 +389,11 @@ const translationsStrings = {
 		sk: "Skladom",
 		pl: "Na stanie",
 	},
+	raventicBrandsTitle: {
+		cs: "Značky",
+		sk: "Značky",
+		pl: "Marki",
+	},
 	raventicArticlesTitle: {
 		cs: "Články",
 		sk: "Články",
@@ -5613,14 +5618,14 @@ function raventicSetupDropdown() {
 					type: "categories_feed",
 					title: window.NAT.translations("raventicCategoriesTitle"),
 				},
-				/* 	{
+				{
 					type: "brands",
-					title: "Značky",
-				}, */
-				/* 	{
+					title: window.NAT.translations("raventicBrandsTitle"),
+				},
+				{
 					type: "articles",
 					title: window.NAT.translations("raventicArticlesTitle"),
-				}, */
+				},
 			],
 		},
 		onOpen: handleOpen,
