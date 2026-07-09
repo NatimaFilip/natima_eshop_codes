@@ -979,7 +979,7 @@ $desktop-large-min: 1680px;
 			padding: 0;
 			display: flex;
 			flex-wrap: wrap;
-			gap: 10px;
+			gap: 16px;
 			li {
 				&::before {
 					display: none;
@@ -999,7 +999,7 @@ $desktop-large-min: 1680px;
 						background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
 						background-position: center;
 						background-repeat: no-repeat;
-						background-size: 55%;
+						background-size: 45%;
 					}
 				}
 			}

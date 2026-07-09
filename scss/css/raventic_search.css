@@ -236,7 +236,7 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 10px;
+  gap: 16px;
 }
 .is-test-eshop .raventic-search-results-promo-content-type--articles ul li::before {
   display: none;
@@ -271,7 +271,7 @@
   background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 55%;
+  background-size: 45%;
 }
 .is-test-eshop .raventic-search-results-promo-content-expand {
   display: none;
