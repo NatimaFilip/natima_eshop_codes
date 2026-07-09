@@ -6382,6 +6382,7 @@ function searchRaventicResults() {
 //empty search
 document.addEventListener("RAVENTIC SEARCH RESULTS LOADED", function () {
 	emptySearchQuery();
+	shortenBlogAdditionalContentInRaventicResults();
 });
 function emptySearchQuery() {
 	const headerSearch = document.querySelector("#header .search");
@@ -6390,6 +6391,18 @@ function emptySearchQuery() {
 	if (queryInput) {
 		queryInput.value = "";
 	}
+}
+function shortenBlogAdditionalContentInRaventicResults() {
+	const MAX_LENGTH = 25;
+
+	const spans = document.querySelectorAll(
+		".raventic-search-results-promo-content-type--articles .raventic-search-results-promo-content-type-item a span",
+	);
+	spans.forEach((span) => {
+		const original = span.textContent.trim();
+		span.title = original;
+		span.textContent = original.length > MAX_LENGTH ? original.slice(0, MAX_LENGTH).trimEnd() + "..." : original;
+	});
 }
 //
 function addSearchButtonForMobile() {
