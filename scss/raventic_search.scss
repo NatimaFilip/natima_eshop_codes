@@ -1038,12 +1038,12 @@ $desktop-large-min: 1680px;
 
 					height: 100%;
 					font-size: var(--fs-16);
-					@media screen and (max-width: $small-tablet-max) {
+					/* 	@media screen and (max-width: $small-tablet-max) {
 						gap: 20px;
 						grid-template-columns: 40px 1fr;
 						padding: 15px 8px 15px 10px;
 						font-size: var(--fs-14);
-					}
+					} */
 					@media screen and (max-width: $mobile-max) {
 						gap: 10px;
 						grid-template-columns: 34px 1fr;
@@ -1250,7 +1250,7 @@ $desktop-large-min: 1680px;
 				filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.25));
 			}
 
-			@media screen and (max-width: $small-tablet-max) {
+			@media screen and (max-width: $mobile-max) {
 				top: calc(var(--header-height) + var(--mobile-search-height, 0px)) !important;
 				left: 0;
 				transform: none;
@@ -1275,7 +1275,7 @@ $desktop-large-min: 1680px;
 			padding: 25px 35px;
 			display: flex;
 			gap: 35px;
-			@media screen and (max-width: $small-tablet-max) {
+			@media screen and (max-width: $mobile-max) {
 				flex-direction: column-reverse;
 				gap: 20px;
 				padding: var(--padding-sides);
@@ -1288,8 +1288,9 @@ $desktop-large-min: 1680px;
 			border-right-style: solid;
 			border-width: 1px;
 			border-color: var(--color-primary-200);
-			width: 20%;
-			@media screen and (max-width: $small-tablet-max) {
+			width: 25%;
+			padding-right: 20px;
+			@media screen and (max-width: $mobile-max) {
 				width: 100%;
 				border-right-style: none;
 				border-top-style: solid;
@@ -1321,7 +1322,7 @@ $desktop-large-min: 1680px;
 			flex: 1;
 			h2 {
 				display: none;
-				@media screen and (max-width: $small-tablet-max) {
+				@media screen and (max-width: $mobile-max) {
 					display: block;
 				}
 			}
@@ -1355,14 +1356,14 @@ $desktop-large-min: 1680px;
 			/* 	grid-template-columns: 1fr 1fr 1fr 1fr;
 			grid-template-rows: 1fr 1fr; */
 
-			@media screen and (max-width: $small-tablet-max) {
+			@media screen and (max-width: $mobile-max) {
 				grid-template-columns: repeat(3, 1fr);
 				grid-template-rows: repeat(6, auto);
 			}
 
 			.raventic-product {
 				grid-column: 3;
-				@media screen and (max-width: $small-tablet-max) {
+				@media screen and (max-width: $mobile-max) {
 					grid-column: 1 / -1;
 				}
 				border-style: solid;
@@ -1392,7 +1393,7 @@ $desktop-large-min: 1680px;
 						height: 100%;
 						object-fit: contain;
 						mix-blend-mode: multiply;
-						padding: 10px;
+						padding: 5px;
 					}
 				}
 
@@ -1479,7 +1480,7 @@ $desktop-large-min: 1680px;
 				&:first-child {
 					grid-column: 1 / 3;
 					grid-row: 1 / -1;
-					@media screen and (max-width: $small-tablet-max) {
+					@media screen and (max-width: $mobile-max) {
 						grid-column: 1/-1;
 						grid-row: 1;
 					}
@@ -1513,8 +1514,13 @@ $desktop-large-min: 1680px;
 							object-fit: contain;
 							margin: auto;
 							mix-blend-mode: multiply;
+							padding: 7% 15%;
+							@media screen and (max-width: $mobile-max) {
+								max-width: 70%;
+								padding: 3% 5%;
+							}
 						}
-						@media screen and (max-width: $small-tablet-max) {
+						@media screen and (max-width: $mobile-max) {
 							padding: 20px;
 						}
 					}
@@ -1558,7 +1564,7 @@ $desktop-large-min: 1680px;
 			&.fresh {
 				grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 				grid-template-rows: 1fr 1fr;
-				@media screen and (max-width: $small-tablet-max) {
+				@media screen and (max-width: $mobile-max) {
 					grid-template-columns: repeat(3, 1fr);
 					grid-template-rows: repeat(6, auto);
 					.raventic-product {
@@ -1566,7 +1572,7 @@ $desktop-large-min: 1680px;
 					}
 				}
 
-				@media screen and (min-width: $tablet-medium-min) {
+				@media screen and (min-width: $tablet-min) {
 					.raventic-product {
 						grid-column: auto;
 						&:first-child {
@@ -1660,7 +1666,7 @@ $desktop-large-min: 1680px;
 				text-decoration: none;
 			}
 
-			@media screen and (max-width: $small-tablet-max) {
+			@media screen and (max-width: $mobile-max) {
 				width: 100%;
 				margin: 0;
 			}
@@ -1674,7 +1680,7 @@ $desktop-large-min: 1680px;
 		width: 18px;
 		height: 18px;
 		transition: transform 0.3s ease;
-		@media screen and (max-width: $small-tablet-max) {
+		@media screen and (max-width: $mobile-max) {
 			width: 24px;
 			height: 24px;
 			top: 10px;
