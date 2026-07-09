@@ -6126,7 +6126,7 @@ function searchRaventicResults() {
 			const imgEl = rvProduct.querySelector(".raventic-product-image img");
 			const imgSrc = imgEl?.getAttribute("src") || "";
 			const imgAlt = imgEl?.getAttribute("alt") || name;
-			const altImg = getParamValue(rvProduct, "imgurl_alternative");
+			const altImg = (getParamValue(rvProduct, "imgurl_alternative") || "").replace("/orig/", "/detail/");
 			const ratingAvg = getParamValue(rvProduct, "rating_avg");
 			const ratingTotal = getParamValue(rvProduct, "rating_total");
 			const stockAmount = getParamValue(rvProduct, "stock_amount");
@@ -6169,7 +6169,7 @@ function searchRaventicResults() {
 			const hasRating = ratingAvg != null;
 			const hasStock = stockAmount != null;
 			const stockNum = hasStock ? parseInt(stockAmount, 10) : NaN;
-			const isUnavailable = hasStock && !isNaN(stockNum) && stockNum === 0;
+			const isUnavailable = hasStock && (isNaN(stockNum) || stockNum <= 0);
 			if (hasRating || hasStock) {
 				parts.push('<div class="ratings-wrapper">');
 				if (hasRating) {
@@ -6184,11 +6184,7 @@ function searchRaventicResults() {
 							`<div class="availability"><span style="color:#cb0000">${window.NAT.translations("nedostupne")}</span></div>`,
 						);
 					} else {
-						const stockText = isNaN(stockNum)
-							? escapeHtml(stockAmount)
-							: stockNum >= 10
-								? "(&gt;10&nbsp;ks)"
-								: `(${stockNum}&nbsp;ks)`;
+						const stockText = stockNum >= 10 ? "(&gt;10&nbsp;ks)" : `(${stockNum}&nbsp;ks)`;
 						parts.push(
 							`<div class="availability"><span style="color:#009901">${window.NAT.translations("skladem")}</span> <span class="availability-amount" data-testid="numberAvailabilityAmount">${stockText}</span></div>`,
 						);
@@ -6338,6 +6334,8 @@ function searchRaventicResults() {
 			"Množstvo",
 			"Denná dávka",
 			"Vstrebateľnosť",
+			"Ilość",
+			"Dzienna dawka",
 		];
 
 		const filters = document.querySelectorAll(".raventic-search-results-filters-filter");

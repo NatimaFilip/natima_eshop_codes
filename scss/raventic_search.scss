@@ -1149,11 +1149,13 @@ $desktop-large-min: 1680px;
 				background-position: center;
 				transition: transform 0.2s ease-out;
 				background-size: 0.875em;
-				background-color: var(--color-gray-300);
+				background-color: var(--color-gray-400);
+				border-radius: 16px;
+				transition: none !important;
 			}
 			&:hover {
 				&::after {
-					transform: scale(1.25);
+					transform: scale(1.25) rotate(90deg);
 				}
 			}
 			&.next {
@@ -1164,6 +1166,11 @@ $desktop-large-min: 1680px;
 				&::after {
 					background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
 					transform: rotate(-90deg);
+				}
+				&:hover {
+					&::after {
+						transform: scale(1.25) rotate(-90deg);
+					}
 				}
 			}
 		}

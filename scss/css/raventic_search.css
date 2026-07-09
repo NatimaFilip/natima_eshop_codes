@@ -466,11 +466,14 @@
   transition: transform 0.2s ease-out;
   transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
   background-size: 0.875em;
-  background-color: var(--color-gray-300);
+  background-color: var(--color-gray-400);
+  border-radius: 16px;
+  -webkit-transition: none !important;
+  transition: none !important;
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow:hover::after {
-  -webkit-transform: scale(1.25);
-          transform: scale(1.25);
+  -webkit-transform: scale(1.25) rotate(90deg);
+          transform: scale(1.25) rotate(90deg);
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.next {
   -webkit-box-ordinal-group: 7;
@@ -486,6 +489,10 @@
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.prev:hover::after {
+  -webkit-transform: scale(1.25) rotate(-90deg);
+          transform: scale(1.25) rotate(-90deg);
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-link {
   display: none;
