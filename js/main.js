@@ -5441,17 +5441,17 @@ window.NAT.translations = function (key) {
 
 window.NAT.raventic = window.NAT.raventic || {
 	cs: {
-		apiKey: "euc28f5007d854bb5b8b89120288e45",
+		/* 	apiKey: "euc28f5007d854bb5b8b89120288e45",
 		bestsellersApiKey: "euc28f5007d854bb5b8b89120288e45",
 		locale: "cs-CZ",
 		currency: "CZK",
-		priceDecimals: 0,
+		priceDecimals: 0, */
 
-		/* 		apiKey: "euca0e3736860cd1072be643e4e32e5",
+		apiKey: "euca0e3736860cd1072be643e4e32e5",
 		bestsellersApiKey: "euca0e3736860cd1072be643e4e32e5",
 		locale: "sk-SK",
 		currency: "EUR",
-		priceDecimals: 2, */
+		priceDecimals: 2,
 
 		/* 		apiKey: "euc8c5f31012cea7c050d4b3c2d0467",
 		bestsellersApiKey: "euc8c5f31012cea7c050d4b3c2d0467",
