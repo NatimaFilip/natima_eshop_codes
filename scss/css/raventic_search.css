@@ -1223,4 +1223,7 @@
     --admin-bar-height: 24px;
     top: calc(var(--header-height) + var(--admin-bar-height) + 11px + 6px + 8px + var(--mobile-search-height, 0px)) !important;
   }
+  .admin-logged.is-test-eshop #header .search-form {
+    --admin-bar-height: 24px;
+  }
 }
