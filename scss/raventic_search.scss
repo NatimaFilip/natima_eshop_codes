@@ -985,6 +985,11 @@ $desktop-large-min: 1680px;
 					display: none;
 				}
 				a {
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+					flex-direction: row;
+					flex-wrap: nowrap;
 					&::after {
 						content: "";
 						display: flex;
@@ -993,8 +998,6 @@ $desktop-large-min: 1680px;
 						background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
 						background-position: center;
 						background-repeat: no-repeat;
-
-						transform: translateY(-50%);
 					}
 				}
 			}

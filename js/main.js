@@ -6376,13 +6376,13 @@ function searchRaventicResults() {
 			if (!identifier) return;
 			block.classList.add(`raventic-search-results-promo-content-type--${identifier}`);
 		});
+		shortenBlogAdditionalContentInRaventicResults();
 	}
 }
 
 //empty search
 document.addEventListener("RAVENTIC SEARCH RESULTS LOADED", function () {
 	emptySearchQuery();
-	shortenBlogAdditionalContentInRaventicResults();
 });
 function emptySearchQuery() {
 	const headerSearch = document.querySelector("#header .search");

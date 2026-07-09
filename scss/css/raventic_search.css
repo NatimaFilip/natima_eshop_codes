@@ -241,6 +241,23 @@
 .is-test-eshop .raventic-search-results-promo-content-type--articles ul li::before {
   display: none;
 }
+.is-test-eshop .raventic-search-results-promo-content-type--articles ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
 .is-test-eshop .raventic-search-results-promo-content-type--articles ul li a::after {
   content: "";
   display: -webkit-box;
@@ -251,8 +268,6 @@
   background-image: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_right_primary.svg);
   background-position: center;
   background-repeat: no-repeat;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
 }
 .is-test-eshop .raventic-search-results-promo-content-expand {
   display: none;
