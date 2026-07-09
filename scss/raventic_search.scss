@@ -979,7 +979,7 @@ $desktop-large-min: 1680px;
 			padding: 0;
 			display: flex;
 			flex-wrap: wrap;
-			gap: 16px;
+			gap: 32px;
 			li {
 				&::before {
 					display: none;
@@ -1505,7 +1505,7 @@ $desktop-large-min: 1680px;
 						width: 100%;
 						height: calc(var(--image-width) * 5);
 						padding: calc(var(--image-width) / 2);
-						background: white;
+						background: #f5f5f5;
 						border-bottom-style: solid;
 						border-width: 1px;
 						border-color: var(--color-primary-200);
@@ -1517,6 +1517,7 @@ $desktop-large-min: 1680px;
 							max-width: calc(var(--image-width) * 4);
 							object-fit: contain;
 							margin: auto;
+							mix-blend-mode: darken;
 						}
 						@media screen and (max-width: $small-tablet-max) {
 							height: calc(var(--image-width) * 3);
@@ -1579,17 +1580,14 @@ $desktop-large-min: 1680px;
 
 						display: flex;
 						flex-direction: column;
-						background: transparent;
+
+						background: white;
 						padding: 0;
 						--padding-top-product: 8px;
 						row-gap: 8px;
 						max-height: fit-content;
 						padding-bottom: var(--padding-top-product);
 						transition: background 0.3s ease;
-						&:hover,
-						&:focus-within {
-							background: white;
-						}
 
 						.raventic-product-image {
 							width: 100%;
