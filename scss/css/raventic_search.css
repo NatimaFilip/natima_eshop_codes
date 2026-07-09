@@ -571,7 +571,7 @@
   max-width: 90vw !important;
   position: fixed;
   left: 50%;
-  top: calc(var(--header-height) / 2 + 10px) !important;
+  top: calc(var(--header-height) + 18px + 26px + 8px) !important;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   background: #fbf9fd;
@@ -579,6 +579,7 @@
 @media screen and (max-width: 767px) {
   .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body {
     background: var(--color-primary-100);
+    top: calc(var(--header-height) + 11px + 6px + 8px + var(--mobile-search-height, 0px)) !important;
   }
 }
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body {
@@ -1034,6 +1035,7 @@
     overflow: hidden;
     -webkit-transition: background 0.2s ease;
     transition: background 0.2s ease;
+    padding: 7% 5%;
   }
   .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list.fresh .raventic-product .raventic-product-image img {
     width: 100%;

@@ -1237,11 +1237,12 @@ $desktop-large-min: 1680px;
 			max-width: 90vw !important;
 			position: fixed;
 			left: 50%;
-			top: calc(var(--header-height) / 2 + 10px) !important;
+			top: calc(var(--header-height) + 18px + 26px + 8px) !important;
 			transform: translateX(-50%);
 			background: #fbf9fd;
 			@media screen and (max-width: $mobile-max) {
 				background: var(--color-primary-100);
+				top: calc(var(--header-height) + 11px + 6px + 8px + var(--mobile-search-height, 0px)) !important;
 			}
 			overflow: auto;
 			max-height: calc(100vh - var(--header-height) - 20px);
@@ -1601,6 +1602,7 @@ $desktop-large-min: 1680px;
 							border-radius: 8px 8px 0 0;
 							overflow: hidden;
 							transition: background 0.2s ease;
+							padding: 7% 5%;
 
 							img {
 								width: 100%;
