@@ -9,10 +9,6 @@
   appearance: none;
   display: none;
 }
-.is-test-eshop.id--11 #products .product img {
-  aspect-ratio: 141/106;
-  width: auto;
-}
 .is-test-eshop .raventic-search-results-products {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
@@ -926,8 +922,8 @@
 }
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product:first-child .raventic-product-image {
   width: 100%;
-  height: calc(var(--image-width) * 5);
-  padding: calc(var(--image-width) / 2);
+  height: auto;
+  padding: 0;
   background: #f5f5f5;
   border-bottom-style: solid;
   border-width: 1px;
@@ -939,8 +935,7 @@
 }
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product:first-child .raventic-product-image img {
   width: 100%;
-  height: calc(var(--image-width) * 4);
-  max-width: calc(var(--image-width) * 4);
+  height: auto;
   -o-object-fit: contain;
      object-fit: contain;
   margin: auto;
@@ -948,12 +943,7 @@
 }
 @media screen and (max-width: 1023px) {
   .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product:first-child .raventic-product-image {
-    height: calc(var(--image-width) * 3);
     padding: 20px;
-  }
-  .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product:first-child .raventic-product-image img {
-    height: calc(var(--image-width) * 3 - 40px);
-    max-width: calc(var(--image-width) * 2);
   }
 }
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product:first-child:hover .raventic-product-image, .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product:first-child:focus-within .raventic-product-image {
@@ -1029,8 +1019,7 @@
   }
   .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list.fresh .raventic-product .raventic-product-image {
     width: 100%;
-    height: calc(var(--image-width) * 3);
-    padding: calc(var(--image-width) / 2);
+    height: auto;
     background: #f5f5f5;
     border-bottom-style: solid;
     border-width: 1px;
@@ -1042,8 +1031,6 @@
   }
   .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list.fresh .raventic-product .raventic-product-image img {
     width: 100%;
-    height: calc(var(--image-width) * 2);
-    max-width: calc(var(--image-width) * 2);
     -o-object-fit: contain;
        object-fit: contain;
     margin: auto;

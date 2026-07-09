@@ -786,19 +786,6 @@ $desktop-large-min: 1680px;
 		display: none;
 	}
 
-	&.id--11 {
-		//temp
-		#products {
-			.product {
-				img {
-					aspect-ratio: 141 / 106;
-					width: auto;
-				}
-			}
-		}
-		//konec temp
-	}
-
 	.raventic-search-results-products {
 		order: 2;
 		.raventic-search-results-products-list {
@@ -1510,8 +1497,8 @@ $desktop-large-min: 1680px;
 
 					.raventic-product-image {
 						width: 100%;
-						height: calc(var(--image-width) * 5);
-						padding: calc(var(--image-width) / 2);
+						height: auto;
+						padding: 0;
 						background: #f5f5f5;
 						border-bottom-style: solid;
 						border-width: 1px;
@@ -1521,19 +1508,14 @@ $desktop-large-min: 1680px;
 						transition: background 0.2s ease;
 						img {
 							width: 100%;
-							height: calc(var(--image-width) * 4);
-							max-width: calc(var(--image-width) * 4);
+							height: auto;
+
 							object-fit: contain;
 							margin: auto;
 							mix-blend-mode: multiply;
 						}
 						@media screen and (max-width: $small-tablet-max) {
-							height: calc(var(--image-width) * 3);
 							padding: 20px;
-							img {
-								height: calc(var(--image-width) * 3 - 40px);
-								max-width: calc(var(--image-width) * 2);
-							}
 						}
 					}
 					&:hover,
@@ -1605,8 +1587,7 @@ $desktop-large-min: 1680px;
 
 						.raventic-product-image {
 							width: 100%;
-							height: calc(var(--image-width) * 3);
-							padding: calc(var(--image-width) / 2);
+							height: auto;
 							background: #f5f5f5;
 							border-bottom-style: solid;
 							border-width: 1px;
@@ -1617,8 +1598,7 @@ $desktop-large-min: 1680px;
 
 							img {
 								width: 100%;
-								height: calc(var(--image-width) * 2);
-								max-width: calc(var(--image-width) * 2);
+
 								object-fit: contain;
 								margin: auto;
 								mix-blend-mode: multiply;
