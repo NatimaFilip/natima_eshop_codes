@@ -416,83 +416,50 @@
   display: none !important;
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow {
-  width: 56px;
-  height: 49px;
+  --component-height: 3.25em;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--gap-16);
+  color: var(--color-black);
+  font-weight: var(--fw-700);
 }
-@media screen and (max-width: 1279px) {
-  .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow {
-    width: 46px;
-    height: 40px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow {
-    width: 42px;
-    height: 36px;
-  }
-}
-.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow {
-  display: block;
-  position: relative;
-  /* 	&::before {
-  	content: "";
-  	display: block;
-  	position: absolute;
-  	width: 100%;
-  	height: 100%;
-  	top: 0;
-  	left: 0;
-  	background-image: url("https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_border.svg");
-  	background-repeat: no-repeat;
-  	background-size: contain;
-  } */
-}
-.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow::after {
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow::before {
   content: "";
   display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  width: var(--component-height);
+  height: var(--component-height);
   background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  background-repeat: no-repeat;
-  /* background-size: 17.5%; */
   background-position: center;
-  -webkit-transition: -webkit-transform 0.2s ease-out;
-  transition: -webkit-transform 0.2s ease-out;
-  transition: transform 0.2s ease-out;
-  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
-  background-size: 0.875em;
+  background-repeat: no-repeat;
+  background-size: 0.625em;
   background-color: var(--color-gray-400);
-  border-radius: 16px;
-  -webkit-transition: none !important;
-  transition: none !important;
+  border-radius: var(--br-16);
 }
-.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow:hover::after {
-  -webkit-transform: scale(1.25) rotate(90deg);
-          transform: scale(1.25) rotate(90deg);
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow:hover, .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow:focus-within {
+  color: var(--color-primary);
+}
+.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow:hover::before, .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow:focus-within::before {
+  background-size: 0.875em;
+  background-color: var(--color-gray-300);
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.next {
   -webkit-box-ordinal-group: 7;
       -ms-flex-order: 6;
           order: 6;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.prev {
   -webkit-box-ordinal-group: 5;
       -ms-flex-order: 4;
           order: 4;
-}
-.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.prev::after {
-  background-image: url("https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_arrow_up_black.svg");
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
-}
-.raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-arrow.prev:hover::after {
-  -webkit-transform: scale(1.25) rotate(-90deg);
-          transform: scale(1.25) rotate(-90deg);
 }
 .raventic-search-results-paginator .raventic-search-results-paginator-container .raventic-search-results-paginator-link {
   display: none;
