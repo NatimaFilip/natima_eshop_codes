@@ -1729,11 +1729,13 @@ $desktop-large-min: 1680px;
 		background-position: center;
 		position: absolute;
 		right: 25px;
-		top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 1em);
+		top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 2em);
 		transform: translateY(-50%);
 		cursor: pointer;
+		z-index: 9999;
 		@media screen and (min-width: $tablet-min) {
 			right: calc(6em + 10px + 22px);
+			top: 50%;
 		}
 	}
 }
