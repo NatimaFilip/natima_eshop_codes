@@ -6447,7 +6447,7 @@ function addSearchButtonForMobile() {
 	if (!queryInput) return;
 
 	headerSearchFormRaventic.addEventListener("click", function () {
-		headerSearch.classList.toggle("active-mobile-search");
+		headerSearch.classList.toggle("custom-search-active");
 
 		if (body.classList.contains("raventic-search-dropdown-open")) {
 			body.classList.add("custom-search-active");
@@ -6458,7 +6458,7 @@ function addSearchButtonForMobile() {
 			setTimeout(() => {
 				if (
 					headerSearch.classList.contains("raventic-search-dropdown-open") ||
-					headerSearch.classList.contains("active-mobile-search")
+					headerSearch.classList.contains("custom-search-active")
 				) {
 					queryInput.click();
 					console.log("-------- Raventic Search Dropdown Opened (from mobile search button) ------");
@@ -6467,12 +6467,12 @@ function addSearchButtonForMobile() {
 			}, 10);
 		}
 
-		if (body.classList.contains("custom-search-active")) {
+		/* 	if (body.classList.contains("custom-search-active")) {
 			setTimeout(() => {
 				queryInput.click();
 				console.log("-------- Raventic Search Dropdown Opened (from mobile search button) 2------");
 			}, 10);
-		}
+		} */
 
 		const searchHeight = headerSearch.offsetHeight;
 		document.body.style.setProperty("--mobile-search-height", searchHeight + "px");
