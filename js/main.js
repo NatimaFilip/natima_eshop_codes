@@ -6428,6 +6428,7 @@ function shortenBlogAdditionalContentInRaventicResults() {
 document.addEventListener("DOMContentLoaded", function () {
 	if (document.body.classList.contains("is-test-eshop")) {
 		addSearchButtonForMobile();
+		clickOutsideSearchDropdown();
 	}
 });
 function addSearchButtonForMobile() {
@@ -6460,5 +6461,20 @@ function addSearchButtonForMobile() {
 		const searchHeight = headerSearch.offsetHeight;
 		document.body.style.setProperty("--mobile-search-height", searchHeight + "px");
 		document.body.classList.remove("has-opened-hamburger-menu");
+	});
+}
+//when i click elsewhere than: #header.search and its children and .raventic-search-dropdown-body and its children  then from body remove custom-search-active
+function clickOutsideSearchDropdown() {
+	document.addEventListener("click", function (event) {
+		if (!document.body.classList.contains("custom-search-active")) {
+			return;
+		}
+		const headerSearch = document.querySelector("#header .search");
+		const dropdownBody = document.querySelector(".raventic-search-dropdown-body");
+
+		if (headerSearch && dropdownBody && !headerSearch.contains(event.target) && !dropdownBody.contains(event.target)) {
+			document.body.classList.remove("custom-search-active");
+			console.log("-------- Raventic Search Dropdown Closed (clicked outside) ------");
+		}
 	});
 }
