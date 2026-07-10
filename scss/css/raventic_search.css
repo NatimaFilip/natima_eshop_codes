@@ -1258,9 +1258,6 @@
 
 @media screen and (max-width: 1279px) {
   .raventic-search-results-container {
-    display: none !important;
-  }
-  .raventic-search-results-container.active {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;

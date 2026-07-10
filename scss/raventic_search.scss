@@ -1775,11 +1775,8 @@ $desktop-large-min: 1680px;
 
 @media screen and (max-width: $tablet-max) {
 	.raventic-search-results-container {
-		display: none !important;
-		&.active {
-			display: flex !important;
-			flex-direction: column;
-			width: 100%;
-		}
+		display: flex !important;
+		flex-direction: column;
+		width: 100%;
 	}
 }
