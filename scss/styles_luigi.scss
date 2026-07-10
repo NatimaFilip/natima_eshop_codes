@@ -455,19 +455,18 @@ $desktop-large-min: 1680px;
 		}
 		input[type="search"] {
 			z-index: 9999 !important; // High enough to be above everything except your modal
-			&.active {
-				position: fixed !important;
-				left: var(--padding-sides) !important;
-				top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 4px) !important;
-				background: var(--color-white) !important;
-				font-size: var(--fs-16) !important;
-				padding: 1em 0.5em !important;
-				width: calc(100% - var(--padding-sides) * 2) !important;
-				border-style: solid !important;
-				border-color: var(--color-primary);
-				border-width: 1px;
-				outline: none !important;
-			}
+			position: fixed !important;
+			left: var(--padding-sides) !important;
+			top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 4px) !important;
+			background: var(--color-white) !important;
+			font-size: var(--fs-16) !important;
+			padding: 1em 0.5em !important;
+			width: calc(100% - var(--padding-sides) * 2) !important;
+			border-style: solid !important;
+			border-color: var(--color-primary);
+			border-width: 1px;
+			outline: none !important;
+
 			&:focus {
 				border-color: var(--color-primary);
 				border-width: 2px;
