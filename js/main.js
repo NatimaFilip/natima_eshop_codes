@@ -5550,7 +5550,7 @@ function raventicSetupDropdown() {
 	if (!document.body.classList.contains("is-test-eshop")) return;
 
 	window.RaventicSearchDropdownConfig = {
-		elementSelectors: ["#formSearchForm .search-form"],
+		elementSelectors: ["#formSearchForm input[type='search']", "#header .search-form"],
 		config: {
 			locale: window.NAT.raventic[window.NAT.lang].locale,
 			apiKey: window.NAT.raventic[window.NAT.lang].apiKey,
