@@ -6447,6 +6447,7 @@ function addSearchButtonForMobile() {
 	if (!queryInput) return;
 
 	headerSearchFormRaventic.addEventListener("click", function () {
+		console.log("-------- CLICK");
 		headerSearch.classList.toggle("custom-search-active");
 
 		if (body.classList.contains("raventic-search-dropdown-open")) {
