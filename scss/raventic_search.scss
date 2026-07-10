@@ -1740,6 +1740,10 @@ $desktop-large-min: 1680px;
 	}
 }
 
+.is-test-eshop.custom-search-active #header .search {
+	display: block !important;
+}
+
 .admin-logged.is-test-eshop {
 	--admin-bar-height: 37px;
 	.raventic-search-dropdown-external .raventic-search-dropdown-body {
