@@ -1203,20 +1203,20 @@
   display: none;
   width: var(--width);
   height: var(--width);
-  background: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/icon_close_blue.svg);
+  background: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_close_black.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  right: 10px;
-  top: 50%;
+  right: 25px;
+  top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 1em);
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   cursor: pointer;
 }
 @media screen and (min-width: 768px) {
   .is-test-eshop .clear-raventic {
-    right: 6em;
+    right: calc(6em + 10px + 22px);
   }
 }
 
