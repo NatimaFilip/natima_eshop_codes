@@ -2244,7 +2244,7 @@ function changeAddToCartButtonToIncreaseDecrease() {
 
 		product.querySelector(".p-tools>*").appendChild(increaseDecreaseWrapper);
 
-		if (document.body.classList.contains("is-test-eshop") && !document.body.classList.contains("id--11")) {
+		if (document.body.classList.contains("is-test-eshop") && document.body.classList.contains("id--11")) {
 			product.querySelector(".p-tools").appendChild(increaseDecreaseWrapper);
 		}
 
