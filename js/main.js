@@ -2195,6 +2195,7 @@ function changeAddToCartButtonToIncreaseDecrease() {
 
 	allProducts.forEach((product) => {
 		const productCode = product.querySelector(".p-code > span").textContent.trim();
+		console.log("Processing product with code:", productCode);
 		if (!productCode) {
 			console.warn("Product code not found for a product.");
 			return;
