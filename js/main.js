@@ -6348,6 +6348,7 @@ function searchRaventicResults() {
 			"Kategorie",
 			"Množství",
 			"Denní dávka",
+			"Kategórie",
 			"Vstřebatelnost",
 			"Objem",
 			"Množstvo",
