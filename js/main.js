@@ -5791,10 +5791,12 @@ function clearRaventicSearch() {
 	input.dispatchEvent(new Event("change", { bubbles: true }));
 	input.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
 	body.classList.add("custom-search-active");
+	input.classList.add("active");
 	setTimeout(() => {
 		input.click();
 		input.focus();
 		body.classList.add("custom-search-active");
+		input.classList.add("active");
 	}, 10);
 }
 

@@ -1199,12 +1199,12 @@
 }
 .is-test-eshop .clear-raventic {
   content: "";
-  --width: 8.25px;
+  --width: 8px;
   display: none;
-  width: var(--width);
-  height: var(--width);
+  width: calc(var(--width) * 2);
+  height: calc(var(--width) * 2);
   background: url(https://cdn.myshoptet.com/usr/www.natima.cz/user/documents/upload/assets/icon_close_black.svg);
-  background-size: contain;
+  background-size: var(--width);
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
