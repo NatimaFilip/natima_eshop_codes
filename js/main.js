@@ -2195,7 +2195,7 @@ function changeAddToCartButtonToIncreaseDecrease() {
 
 	allProducts.forEach((product) => {
 		const productCode = product.querySelector(".p-code > span").textContent.trim();
-		console.log("Processing product with code:", productCode);
+
 		if (!productCode) {
 			console.warn("Product code not found for a product.");
 			return;
@@ -2243,6 +2243,10 @@ function changeAddToCartButtonToIncreaseDecrease() {
 		increaseDecreaseWrapper.appendChild(increaseButton);
 
 		product.querySelector(".p-tools>*").appendChild(increaseDecreaseWrapper);
+
+		if (document.body.classList.contains("is-test-eshop") && !document.body.classList.contains("id--11")) {
+			product.querySelector(".p-tools").appendChild(increaseDecreaseWrapper);
+		}
 
 		increaseButton.addEventListener("click", function () {
 			quantityInput.value = parseInt(quantityInput.value) + 1;
