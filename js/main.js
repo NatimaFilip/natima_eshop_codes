@@ -2299,6 +2299,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("luigiSearchDone", function () {
 	changeAddToCartButtonToIncreaseDecrease();
 });
+document.addEventListener("RAVENTIC SEARCH RESULTS TRANSFORMED", function () {
+	changeAddToCartButtonToIncreaseDecrease();
+});
 
 /*------------------------------------------------- Shorten breadcrumbs*/
 shortenBreadcrumbs();
