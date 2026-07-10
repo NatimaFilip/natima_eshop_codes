@@ -5550,7 +5550,7 @@ function raventicSetupDropdown() {
 	if (!document.body.classList.contains("is-test-eshop")) return;
 
 	window.RaventicSearchDropdownConfig = {
-		elementSelectors: ["#formSearchForm input[type='search']"],
+		elementSelectors: ["#formSearchForm .search-form"],
 		config: {
 			locale: window.NAT.raventic[window.NAT.lang].locale,
 			apiKey: window.NAT.raventic[window.NAT.lang].apiKey,
@@ -6446,6 +6446,10 @@ function addSearchButtonForMobile() {
 
 	headerSearchFormRaventic.addEventListener("click", function () {
 		headerSearch.classList.toggle("active-mobile-search");
+
+		if (body.classList.contains("raventic-search-dropdown-open")) {
+			body.classList.add("custom-search-active");
+		}
 
 		if (queryInput) {
 			// timeout 10ms to wait for the animation to finish
