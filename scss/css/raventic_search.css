@@ -1222,7 +1222,7 @@
   }
 }
 
-.is-test-eshop.custom-search-active #header .search {
+.is-test-eshop.custom-search-active #header .search-input {
   display: block !important;
 }
 
