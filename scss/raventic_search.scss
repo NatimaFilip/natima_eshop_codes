@@ -776,7 +776,8 @@ $desktop-large-min: 1680px;
 	visibility: visible;
 }
 
-.is-test-eshop {
+body
+/* .is-test-eshop  */ {
 	// The native search clear "×" can't clear the field — the Raventic dropdown loader
 	// preventDefault()s pointer events on the input. Hide the dead button; the custom
 	// .clear-raventic control (added in search_raventic_dropdown_setup_new.js) replaces it.
@@ -1225,7 +1226,8 @@ $desktop-large-min: 1680px;
 }
 
 //raventic dropdown
-.is-test-eshop {
+body
+/* .is-test-eshop */ {
 	--admin-bar-height: 0px;
 	.raventic-search-dropdown-external {
 		.raventic-search-dropdown-input {
@@ -1751,12 +1753,12 @@ $desktop-large-min: 1680px;
 		}
 	}
 }
-
-.is-test-eshop.custom-search-active #header .search-input {
+body.custom-search-active #header .search-input 
+/* .is-test-eshop.custom-search-active #header .search-input */ {
 	display: block !important;
 }
-
-.admin-logged.is-test-eshop {
+body.admin-logged
+/* .admin-logged.is-test-eshop  */ {
 	--admin-bar-height: 37px;
 	.raventic-search-dropdown-external .raventic-search-dropdown-body {
 		top: calc(var(--header-height) + 18px + 26px + 8px + var(--admin-bar-height)) !important;
