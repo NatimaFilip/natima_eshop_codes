@@ -6527,6 +6527,7 @@ document.addEventListener("RAVENTIC SEARCH RESULTS TRANSFORMED", function (event
 				if (raventicFilters) {
 					raventicFilters.classList.toggle("active");
 				}
+				customOpenFilterButtonRaventic.classList.toggle("active");
 			});
 		} catch (error) {
 			console.error("Error in customOpenFilterButtonListener:", error);

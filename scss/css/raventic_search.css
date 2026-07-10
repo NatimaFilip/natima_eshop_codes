@@ -54,6 +54,7 @@
 @media screen and (max-width: 1279px) {
   .is-test-eshop .raventic-search-results-filters {
     display: none !important;
+    padding-top: 20px;
   }
   .is-test-eshop .raventic-search-results-filters.active {
     display: block !important;
@@ -211,6 +212,7 @@
 @media screen and (max-width: 1279px) {
   .is-test-eshop .raventic-search-results-products .raventic-search-results-filter-selection {
     margin-top: 0;
+    padding-bottom: 20px;
   }
 }
 .is-test-eshop .raventic-search-results-products .raventic-search-results-filter-selection:not(:has(.raventic-search-results-filter-selection-item)) {
