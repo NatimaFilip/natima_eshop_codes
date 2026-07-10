@@ -6419,6 +6419,10 @@ function shortenBlogAdditionalContentInRaventicResults() {
 	console.log(`Found ${spans.length} spans to shorten.`);
 	spans.forEach((span) => {
 		const original = span.textContent.trim();
+
+		// Already shortened on a previous run — leave it (and its title) untouched.
+		if (original.endsWith("...")) return;
+
 		span.title = original;
 
 		if (original.length <= MAX_LENGTH) return;
