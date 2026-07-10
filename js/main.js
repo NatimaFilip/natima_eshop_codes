@@ -6454,6 +6454,7 @@ function addSearchButtonForMobile() {
 					queryInput.click();
 					console.log("-------- Raventic Search Dropdown Opened (from mobile search button) ------");
 				}
+				queryInput.click();
 				queryInput.focus();
 			}, 10);
 		}
