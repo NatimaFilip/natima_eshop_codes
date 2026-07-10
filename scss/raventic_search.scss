@@ -829,6 +829,7 @@ $desktop-large-min: 1680px;
 		}
 		@media screen and (max-width: $tablet-max) {
 			display: none !important;
+			padding-top: 20px;
 			&.active {
 				display: block !important;
 			}
@@ -940,6 +941,7 @@ $desktop-large-min: 1680px;
 			/* margin-top: 40px; */
 			@media screen and (max-width: $tablet-max) {
 				margin-top: 0;
+				padding-bottom: 20px;
 			}
 			&:not(:has(.raventic-search-results-filter-selection-item)) {
 				display: none !important;

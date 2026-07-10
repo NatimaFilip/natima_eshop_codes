@@ -6509,21 +6509,27 @@ function clickOutsideSearchDropdown() {
 }
 
 document.addEventListener("RAVENTIC SEARCH RESULTS TRANSFORMED", function (event) {
-	const customOpenFilterButtonRaventic = document.createElement("a");
-	customOpenFilterButtonRaventic.className = "custom-open-filter-button";
-	customOpenFilterButtonRaventic.innerHTML = translationsStrings.customFilterButton[activeLang];
+	addFilterButtonToggleRaventic();
+	function addFilterButtonToggleRaventic() {
+		const alreadyExistsRaventicFilterButton = document.querySelector(".custom-open-filter-button");
+		if (alreadyExistsRaventicFilterButton) return;
 
-	try {
-		const raventicResultsTop = document.querySelector(".raventic-search-results-container");
-		raventicResultsTop.appendChild(customOpenFilterButtonRaventic);
+		const customOpenFilterButtonRaventic = document.createElement("a");
+		customOpenFilterButtonRaventic.className = "custom-open-filter-button";
+		customOpenFilterButtonRaventic.innerHTML = translationsStrings.customFilterButton[activeLang];
 
-		customOpenFilterButtonRaventic.addEventListener("click", function () {
-			const raventicFilters = document.querySelector(".raventic-search-results-filters");
-			if (raventicFilters) {
-				raventicFilters.classList.toggle("active");
-			}
-		});
-	} catch (error) {
-		console.error("Error in customOpenFilterButtonListener:", error);
+		try {
+			const raventicResultsTop = document.querySelector(".raventic-search-results-container");
+			raventicResultsTop.appendChild(customOpenFilterButtonRaventic);
+
+			customOpenFilterButtonRaventic.addEventListener("click", function () {
+				const raventicFilters = document.querySelector(".raventic-search-results-filters");
+				if (raventicFilters) {
+					raventicFilters.classList.toggle("active");
+				}
+			});
+		} catch (error) {
+			console.error("Error in customOpenFilterButtonListener:", error);
+		}
 	}
 });
