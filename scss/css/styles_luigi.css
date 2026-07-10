@@ -384,9 +384,13 @@
 	}
 } */
 @media screen and (max-width: 767px) {
-  body:not(.is-test-eshop) input[type=search].active {
-    display: block !important;
-  }
+  /* body:not(.is-test-eshop) {
+  	input[type="search"] {
+  		&.active {
+  			display: block !important;
+  		}
+  	}
+  } */
   body.custom-search-active {
     overflow-y: hidden;
     overflow-x: hidden;
@@ -436,20 +440,26 @@
     -webkit-filter: drop-shadow(0px 12px 6px rgba(0, 0, 0, 0.2));
             filter: drop-shadow(0px 12px 6px rgba(0, 0, 0, 0.2));
   }
-  body.custom-search-active.is-test-eshop input[type=search].active {
+  body.custom-search-active {
+    /* &.is-test-eshop { */
+  }
+  body.custom-search-active input[type=search].active {
     top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 4px) !important;
   }
-  body.custom-search-active.is-test-eshop .search-form fieldset::after {
+  body.custom-search-active .search-form fieldset::after {
     top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6));
   }
-  body.custom-search-active.is-test-eshop.admin-logged input[type=search] {
+  body.custom-search-active.admin-logged input[type=search] {
     --admin-bar-height: 24px;
   }
-  body.custom-search-active.is-test-eshop.admin-logged input[type=search].active {
+  body.custom-search-active.admin-logged input[type=search].active {
     top: calc(var(--header-height) + var(--admin-bar-height) + var(--padding-top-header) + var(--gap-6) + 4px + 0px) !important;
   }
-  body.custom-search-active.is-test-eshop.admin-logged .search-form fieldset::after {
+  body.custom-search-active.admin-logged .search-form fieldset::after {
     top: calc(var(--header-height) + var(--admin-bar-height) + var(--padding-top-header) + var(--gap-6) + 0px);
+  }
+  body.custom-search-active.admin-logged {
+    /* } */
   }
 }
 body {

@@ -2244,7 +2244,7 @@ function changeAddToCartButtonToIncreaseDecrease() {
 
 		product.querySelector(".p-tools>*").appendChild(increaseDecreaseWrapper);
 
-		if (document.body.classList.contains("is-test-eshop") && document.body.classList.contains("id--11")) {
+		if (/* document.body.classList.contains("is-test-eshop") && */ document.body.classList.contains("id--11")) {
 			product.querySelector(".p-tools").appendChild(increaseDecreaseWrapper);
 		}
 
@@ -5473,11 +5473,11 @@ window.NAT.raventic = window.NAT.raventic || {
 		priceDecimals: 2, */
 
 		// Dropdown: where Enter / the "show all" button submits the query.
-		/* 		submitUrl: "https://www.natima.cz/vyhledavani/",
+		submitUrl: "https://www.natima.cz/vyhledavani/",
 		// Results: substring the page URL must contain for the results widget to run.
-		resultsUrlMatch: "www.natima.cz/vyhledavani", */
-		submitUrl: "https://696098.myshoptet.com/vyhledavani/",
-		resultsUrlMatch: "696098.myshoptet.com/vyhledavani",
+		resultsUrlMatch: "www.natima.cz/vyhledavani",
+		/* 	submitUrl: "https://696098.myshoptet.com/vyhledavani/",
+		resultsUrlMatch: "696098.myshoptet.com/vyhledavani", */
 	},
 	sk: {
 		apiKey: "euca0e3736860cd1072be643e4e32e5",
@@ -5555,7 +5555,7 @@ document.addEventListener("ShoptetDOMContentLoaded", () => {
 
 raventicSetupDropdown();
 function raventicSetupDropdown() {
-	if (!document.body.classList.contains("is-test-eshop")) return;
+	/* if (!document.body.classList.contains("is-test-eshop")) return; */
 
 	window.RaventicSearchDropdownConfig = {
 		elementSelectors: ["#formSearchForm input[type='search']"],
@@ -5863,7 +5863,7 @@ function handleClose(instanceId) {
 
 raventicSetupResults();
 function raventicSetupResults() {
-	if (!document.body.classList.contains("is-test-eshop")) return;
+	/* if (!document.body.classList.contains("is-test-eshop")) return; */
 	if (!location.href.includes(window.NAT.raventic[window.NAT.lang].resultsUrlMatch)) return;
 
 	window.RaventicSearchResultsConfig = {
@@ -6058,7 +6058,7 @@ function handleResult(result, error, reference, instanceId) {
 
 searchRaventicResults();
 function searchRaventicResults() {
-	if (!document.body.classList.contains("is-test-eshop")) return;
+	/* if (!document.body.classList.contains("is-test-eshop")) return; */
 
 	document.addEventListener(
 		"RAVENTIC SEARCH RESULTS LOADED",
@@ -6440,10 +6440,10 @@ function shortenBlogAdditionalContentInRaventicResults() {
 }
 //
 document.addEventListener("DOMContentLoaded", function () {
-	if (document.body.classList.contains("is-test-eshop")) {
-		addSearchButtonForMobile();
-		clickOutsideSearchDropdown();
-	}
+	/* if (document.body.classList.contains("is-test-eshop")) { */
+	addSearchButtonForMobile();
+	clickOutsideSearchDropdown();
+	/* } */
 });
 function addSearchButtonForMobile() {
 	const headerSearch = document.querySelector("#header .search");
