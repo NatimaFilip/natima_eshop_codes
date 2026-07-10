@@ -384,6 +384,9 @@
 	}
 } */
 @media screen and (max-width: 767px) {
+  body:not(.is-test-eshop) input[type=search].active {
+    display: block !important;
+  }
   body.custom-search-active {
     overflow-y: hidden;
     overflow-x: hidden;
@@ -408,7 +411,6 @@
     z-index: 9999 !important;
   }
   body.custom-search-active input[type=search].active {
-    display: block !important;
     position: fixed !important;
     left: var(--padding-sides) !important;
     top: calc(var(--header-height) + var(--padding-top-header) + var(--gap-6) + 4px) !important;
