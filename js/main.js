@@ -6467,6 +6467,10 @@ function addSearchButtonForMobile() {
 			}, 10);
 		}
 
+		if (body.classList.contains("custom-search-active")) {
+			queryInput.click();
+		}
+
 		const searchHeight = headerSearch.offsetHeight;
 		document.body.style.setProperty("--mobile-search-height", searchHeight + "px");
 		document.body.classList.remove("has-opened-hamburger-menu");
