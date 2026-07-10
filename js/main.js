@@ -6450,11 +6450,10 @@ function addSearchButtonForMobile() {
 		if (queryInput) {
 			// timeout 10ms to wait for the animation to finish
 			setTimeout(() => {
-				if (headerSearch.classList.contains("active-mobile-search")) {
+				if (headerSearch.classList.contains("raventic-search-dropdown-open")) {
 					queryInput.click();
 					console.log("-------- Raventic Search Dropdown Opened (from mobile search button) ------");
 				}
-				queryInput.click();
 				queryInput.focus();
 			}, 10);
 		}
