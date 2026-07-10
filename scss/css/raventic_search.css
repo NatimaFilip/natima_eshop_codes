@@ -742,7 +742,10 @@ body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-
   display: grid;
   grid-template-columns: 0.25fr 0.25fr 0.5fr;
   grid-template-rows: repeat(5, 1fr);
-  gap: 16px;
+  -webkit-column-gap: 16px;
+     -moz-column-gap: 16px;
+          column-gap: 16px;
+  row-gap: 8px;
   padding-bottom: 16px;
   /* 	grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr; */
@@ -767,9 +770,9 @@ body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-
   border-color: var(--color-primary-200);
   border-radius: 8px;
   background: white;
-  padding: 10px 15px;
+  padding: 7px 10px;
   display: grid;
-  --image-width: 90px;
+  --image-width: 80px;
   grid-template-columns: var(--image-width) 1fr 1fr 1fr;
   -webkit-column-gap: 8px;
      -moz-column-gap: 8px;
@@ -893,7 +896,7 @@ body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-
 }
 body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product .raventic-product-button.raventic-product-button-cart {
   font-size: 0;
-  padding: 1.3125rem 1.3125rem;
+  padding: 1rem;
   width: 22px;
   height: 22px;
   border-radius: 8px;
@@ -934,6 +937,8 @@ body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -ms-flex-item-align: start;
+      align-self: start;
   padding: 0;
   --padding-top-product: 16px;
   row-gap: 16px;
@@ -1001,7 +1006,7 @@ body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-
 }
 body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list .raventic-product:first-child .raventic-product-button {
   width: calc(100% - var(--padding-top-product) * 2);
-  margin: auto;
+  margin: 0 auto;
   height: auto;
   font-size: var(--fs-18);
   padding: 1em 1.5em;
@@ -1068,7 +1073,7 @@ body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-
        object-fit: contain;
     margin: auto;
     mix-blend-mode: multiply;
-    /* 	max-height: 150px; */
+    max-height: 150px;
   }
   body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list.fresh .raventic-product:hover .raventic-product-image, body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-list.fresh .raventic-product:focus-within .raventic-product-image {
     background: white;
@@ -1143,6 +1148,7 @@ body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-
           filter: drop-shadow(2px 2px 6px hsla(var(--color-tertiary-h), var(--color-tertiary-s), var(--color-tertiary-l), 0.4));
 }
 body .raventic-search-dropdown-external .raventic-search-dropdown-body-products-all {
+  background: var(--color-primary);
   width: calc(50% - 16px);
   margin-left: auto;
   max-width: none;

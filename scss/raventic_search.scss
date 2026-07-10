@@ -1369,7 +1369,8 @@ body
 			display: grid;
 			grid-template-columns: 0.25fr 0.25fr 0.5fr;
 			grid-template-rows: repeat(5, 1fr);
-			gap: 16px;
+			column-gap: 16px;
+			row-gap: 8px;
 			padding-bottom: 16px;
 			/* 	grid-template-columns: 1fr 1fr 1fr 1fr;
 			grid-template-rows: 1fr 1fr; */
@@ -1389,9 +1390,9 @@ body
 				border-color: var(--color-primary-200);
 				border-radius: 8px;
 				background: white;
-				padding: 10px 15px;
+				padding: 7px 10px;
 				display: grid;
-				--image-width: 90px;
+				--image-width: 80px;
 				grid-template-columns: var(--image-width) 1fr 1fr 1fr;
 				column-gap: 8px;
 				row-gap: 4px;
@@ -1475,7 +1476,7 @@ body
 						position: relative;
 						@include add-to-cart-button;
 						font-size: 0;
-						padding: 1.3125rem 1.3125rem;
+						padding: 1rem;
 						width: 22px;
 						height: 22px;
 						border-radius: 8px;
@@ -1505,6 +1506,8 @@ body
 					display: flex;
 					flex-direction: column;
 					justify-content: flex-start;
+
+					align-self: start;
 
 					padding: 0;
 					--padding-top-product: 16px;
@@ -1569,7 +1572,7 @@ body
 					}
 					.raventic-product-button {
 						width: calc(100% - var(--padding-top-product) * 2);
-						margin: auto;
+						margin: 0 auto;
 						height: auto;
 						font-size: var(--fs-18);
 						padding: 1em 1.5em;
@@ -1627,7 +1630,7 @@ body
 								object-fit: contain;
 								margin: auto;
 								mix-blend-mode: multiply;
-								/* 	max-height: 150px; */
+								max-height: 150px;
 							}
 						}
 						&:hover,
@@ -1671,6 +1674,7 @@ body
 
 		.raventic-search-dropdown-body-products-all {
 			@include primary-button;
+			background: var(--color-primary);
 			width: calc(50% - 16px);
 			margin-left: auto;
 			max-width: none;
