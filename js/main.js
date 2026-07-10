@@ -6468,7 +6468,10 @@ function addSearchButtonForMobile() {
 		}
 
 		if (body.classList.contains("custom-search-active")) {
-			queryInput.click();
+			setTimeout(() => {
+				queryInput.click();
+				console.log("-------- Raventic Search Dropdown Opened (from mobile search button) 2------");
+			}, 10);
 		}
 
 		const searchHeight = headerSearch.offsetHeight;
