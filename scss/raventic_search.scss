@@ -788,6 +788,9 @@ $desktop-large-min: 1680px;
 
 	.raventic-search-results-products {
 		order: 2;
+		@media screen and (max-width: $mobile-max) {
+			padding-top: 20px;
+		}
 		.raventic-search-results-products-list {
 		}
 		.products-block {
@@ -823,6 +826,12 @@ $desktop-large-min: 1680px;
 		}
 		input {
 			border-radius: 8px;
+		}
+		@media screen and (max-width: $tablet-max) {
+			display: none !important;
+			&.active {
+				display: block !important;
+			}
 		}
 	}
 	.raventic-search-results-filters-mobile {
@@ -933,7 +942,7 @@ $desktop-large-min: 1680px;
 				margin-top: 0;
 			}
 			&:not(:has(.raventic-search-results-filter-selection-item)) {
-				display: none;
+				display: none !important;
 			}
 
 			svg {
@@ -1760,6 +1769,17 @@ $desktop-large-min: 1680px;
 		}
 		#header .search-form {
 			--admin-bar-height: 24px;
+		}
+	}
+}
+
+@media screen and (max-width: $tablet-max) {
+	.raventic-search-results-container {
+		display: none !important;
+		&.active {
+			display: flex !important;
+			flex-direction: column;
+			width: 100%;
 		}
 	}
 }

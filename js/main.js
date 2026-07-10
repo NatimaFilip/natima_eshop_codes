@@ -1170,6 +1170,26 @@ if (body.classList.contains("type-category")) {
 		}
 	});
 
+	document.addEventListener("RAVENTIC SEARCH RESULTS TRANSFORMED", function (event) {
+		const customOpenFilterButtonRaventic = document.createElement("a");
+		customOpenFilterButtonRaventic.className = "custom-open-filter-button";
+		customOpenFilterButtonRaventic.innerHTML = translationsStrings.customFilterButton[activeLang];
+
+		try {
+			const raventicResultsTop = document.querySelector(".raventic-search-results-container");
+			raventicResultsTop.appendChild(customOpenFilterButtonRaventic);
+
+			customOpenFilterButtonRaventic.addEventListener("click", function () {
+				const raventicFilters = document.querySelector(".raventic-search-results-filters");
+				if (raventicFilters) {
+					raventicFilters.classList.toggle("active");
+				}
+			});
+		} catch (error) {
+			console.error("Error in customOpenFilterButtonListener:", error);
+		}
+	});
+
 	function moveAsideToCategoryContent() {
 		if (asideElement) {
 			categoryContentWrapper.prepend(asideElement);
