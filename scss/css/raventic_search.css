@@ -708,12 +708,15 @@ body .raventic-search-dropdown-external .raventic-search-dropdown-body-products 
       -ms-flex: 1;
           flex: 1;
 }
+body .raventic-search-dropdown-external .raventic-search-dropdown-body-products:has(.fresh) h2 {
+  display: block;
+}
 body .raventic-search-dropdown-external .raventic-search-dropdown-body-products h2 {
   display: none;
 }
 @media screen and (max-width: 767px) {
   body .raventic-search-dropdown-external .raventic-search-dropdown-body-products h2 {
-    display: block;
+    display: block !important;
   }
 }
 body .raventic-search-dropdown-external .raventic-search-dropdown-body-products .raventic-search-dropdown-body-products-query {

@@ -1338,10 +1338,15 @@ body
 		}
 		.raventic-search-dropdown-body-products {
 			flex: 1;
+			&:has(.fresh) {
+				h2 {
+					display: block;
+				}
+			}
 			h2 {
 				display: none;
 				@media screen and (max-width: $mobile-max) {
-					display: block;
+					display: block !important;
 				}
 			}
 			.raventic-search-dropdown-body-products-query {
