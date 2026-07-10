@@ -14,7 +14,7 @@
       -ms-flex-order: 2;
           order: 2;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1279px) {
   .is-test-eshop .raventic-search-results-products {
     padding-top: 20px;
   }
