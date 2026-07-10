@@ -5550,7 +5550,7 @@ function raventicSetupDropdown() {
 	if (!document.body.classList.contains("is-test-eshop")) return;
 
 	window.RaventicSearchDropdownConfig = {
-		elementSelectors: ["#header .search-form"],
+		elementSelectors: ["#formSearchForm input[type='search']"],
 		config: {
 			locale: window.NAT.raventic[window.NAT.lang].locale,
 			apiKey: window.NAT.raventic[window.NAT.lang].apiKey,
@@ -5730,6 +5730,7 @@ function raventicSetupDropdown() {
 
 function handleOpen(instanceId) {
 	document.body.classList.add("raventic-search-dropdown-open");
+	document.body.classList.add("custom-search-active");
 	addDropdownControls();
 }
 
@@ -5833,6 +5834,7 @@ function handleResultDropdown(result, error, reference, instanceId) {
 
 function handleClose(instanceId) {
 	document.body.classList.remove("raventic-search-dropdown-open");
+	document.body.classList.remove("custom-search-active");
 }
 
 /*--------------------------------------------------------------------------------------------------*/
