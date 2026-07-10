@@ -5473,11 +5473,11 @@ window.NAT.raventic = window.NAT.raventic || {
 		priceDecimals: 2, */
 
 		// Dropdown: where Enter / the "show all" button submits the query.
-		/* 		submitUrl: "https://www.natima.cz/vyhledavani/",
+		submitUrl: "https://www.natima.cz/vyhledavani/",
 		// Results: substring the page URL must contain for the results widget to run.
-		resultsUrlMatch: "www.natima.cz/vyhledavani", */
-		submitUrl: "https://696098.myshoptet.com/vyhledavani/",
-		resultsUrlMatch: "696098.myshoptet.com/vyhledavani",
+		resultsUrlMatch: "www.natima.cz/vyhledavani",
+		/* 	submitUrl: "https://696098.myshoptet.com/vyhledavani/",
+		resultsUrlMatch: "696098.myshoptet.com/vyhledavani", */
 	},
 	sk: {
 		apiKey: "euca0e3736860cd1072be643e4e32e5",
