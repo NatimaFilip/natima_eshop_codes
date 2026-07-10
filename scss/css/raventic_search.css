@@ -586,6 +586,7 @@
 @media screen and (max-width: 767px) {
   .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body {
     background: var(--color-primary-100);
+    padding-bottom: 120px;
   }
 }
 .is-test-eshop .raventic-search-dropdown-external .raventic-search-dropdown-body {

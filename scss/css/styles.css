@@ -1214,12 +1214,12 @@ body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 #nav-m
     left: 0;
     right: auto;
     width: 100%;
-    background: transparent;
     overflow-y: scroll;
     overflow-x: hidden;
     -webkit-box-shadow: none;
             box-shadow: none;
     padding: var(--gap-18) var(--padding-sides) 40px;
+    background: white;
   }
   body #header .navigation-wrapper #navigation .navigation-in .menu-level-1 .menu-helper-submenu > li {
     display: grid;

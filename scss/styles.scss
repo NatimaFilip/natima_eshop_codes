@@ -1856,10 +1856,10 @@ body {
 							margin-top: 0px;
 							padding: 2em 1em 1.75em 2em;
 							z-index: 2;
-
 							background: white;
 							border-radius: var(--br-16);
 							@include bottom-shadow;
+
 							li {
 								list-style: none;
 								a {
@@ -1901,11 +1901,12 @@ body {
 								left: 0;
 								right: auto;
 								width: 100%;
-								background: transparent;
+
 								overflow-y: scroll;
 								overflow-x: hidden;
 								box-shadow: none;
 								padding: var(--gap-18) var(--padding-sides) 40px;
+								background: white;
 
 								> li {
 									display: grid;
