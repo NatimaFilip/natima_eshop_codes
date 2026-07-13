@@ -200,6 +200,14 @@
   cursor: pointer;
 }
 
+.js-cookiesConsentSubmit {
+  background: transparent;
+  color: var(--cookies-notice-color);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--cookies-notice-color);
+}
+
 .siteCookies__button:hover {
   background-color: var(--cookies-notice-button-hover);
   color: var(--cookies-notice-background);
