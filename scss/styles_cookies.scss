@@ -200,7 +200,7 @@
 	width: 100%;
 	cursor: pointer;
 }
-.js-cookiesConsentSubmit {
+.js-cookiesConsentSubmit[value="reject"] {
 	background: transparent;
 	color: var(--cookies-notice-color);
 	border-style: solid;
