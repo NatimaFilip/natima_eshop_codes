@@ -22,12 +22,17 @@ const translationsStrings = {
 	moreButtonMoreThanFour: {
 		cs: "dalších ",
 		sk: "ďalších ",
-		pl: "dalszych ",
+		pl: "kolejnych ",
 	},
 	moreButtonLessThanFour: {
 		cs: "další ",
 		sk: "ďalšie ",
-		pl: "dalsze ",
+		pl: "kolejne ",
+	},
+	moreButtonOne: {
+		cs: "další ",
+		sk: "ďalšia ",
+		pl: "kolejna ",
 	},
 	more: {
 		cs: "Více",
@@ -945,6 +950,9 @@ function removeCommasFromMenu() {
 						if (numberOfHiddenItems > 4) {
 							showAllSubcategoriesButton.innerHTML =
 								"+ " + translationsStrings.moreButtonMoreThanFour[activeLang] + " " + numberOfHiddenItems;
+						} else if ((numberOfHiddenItems = 1)) {
+							showAllSubcategoriesButton.innerHTML =
+								"+ " + translationsStrings.moreButtonOne[activeLang] + " " + numberOfHiddenItems;
 						} else {
 							showAllSubcategoriesButton.innerHTML =
 								"+ " + translationsStrings.moreButtonLessThanFour[activeLang] + " " + numberOfHiddenItems;
@@ -1380,6 +1388,9 @@ if (body.classList.contains("type-category")) {
 			if (manufacturersNumberMinusVisible > 4) {
 				showAllManufacturersButton.innerHTML =
 					"+ " + translationsStrings.moreButtonMoreThanFour[activeLang] + " " + manufacturersNumberMinusVisible;
+			} else if ((manufacturersNumberMinusVisible = 1)) {
+				showAllManufacturersButton.innerHTML =
+					"+ " + translationsStrings.moreButtonOne[activeLang] + " " + manufacturersNumberMinusVisible;
 			} else {
 				showAllManufacturersButton.innerHTML =
 					"+ " + translationsStrings.moreButtonLessThanFour[activeLang] + " " + manufacturersNumberMinusVisible;
