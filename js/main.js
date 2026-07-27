@@ -950,7 +950,7 @@ function removeCommasFromMenu() {
 						if (numberOfHiddenItems > 4) {
 							showAllSubcategoriesButton.innerHTML =
 								"+ " + translationsStrings.moreButtonMoreThanFour[activeLang] + " " + numberOfHiddenItems;
-						} else if ((numberOfHiddenItems = 1)) {
+						} else if (numberOfHiddenItems == 1) {
 							showAllSubcategoriesButton.innerHTML =
 								"+ " + translationsStrings.moreButtonOne[activeLang] + " " + numberOfHiddenItems;
 						} else {
@@ -1388,7 +1388,7 @@ if (body.classList.contains("type-category")) {
 			if (manufacturersNumberMinusVisible > 4) {
 				showAllManufacturersButton.innerHTML =
 					"+ " + translationsStrings.moreButtonMoreThanFour[activeLang] + " " + manufacturersNumberMinusVisible;
-			} else if ((manufacturersNumberMinusVisible = 1)) {
+			} else if (manufacturersNumberMinusVisible == 1) {
 				showAllManufacturersButton.innerHTML =
 					"+ " + translationsStrings.moreButtonOne[activeLang] + " " + manufacturersNumberMinusVisible;
 			} else {
