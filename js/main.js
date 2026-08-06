@@ -5905,7 +5905,6 @@ function raventicSetupResults() {
 
 			disableDefaultStyles: true,
 			doNotCropImages: false /*true*/,
-
 			filtersTitle: window.NAT.translations("raventicFiltersTitle"),
 			filterButtonTitle: window.NAT.translations("raventicFilterButton"),
 			clearAllFiltersTitle: window.NAT.translations("raventicClearAllFilters"),
