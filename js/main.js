@@ -5599,7 +5599,7 @@ function raventicSetupDropdown() {
 			submitUrl: window.NAT.raventic[window.NAT.lang].submitUrl,
 
 			disableDefaultStyles: true,
-			doNotCropImages: false,
+			doNotCropImages: true,
 
 			customStyles: ``,
 			customPageStyles: ``,
@@ -5904,7 +5904,7 @@ function raventicSetupResults() {
 			priceTitle: window.NAT.translations("raventicPriceTitle"),
 
 			disableDefaultStyles: true,
-			doNotCropImages: true,
+			doNotCropImages: false,
 
 			filtersTitle: window.NAT.translations("raventicFiltersTitle"),
 			filterButtonTitle: window.NAT.translations("raventicFilterButton"),
