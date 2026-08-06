@@ -5904,7 +5904,7 @@ function raventicSetupResults() {
 			priceTitle: window.NAT.translations("raventicPriceTitle"),
 
 			disableDefaultStyles: true,
-			doNotCropImages: false /*true*/,
+			doNotCropImages: true /*true*/,
 
 			filtersTitle: window.NAT.translations("raventicFiltersTitle"),
 			filterButtonTitle: window.NAT.translations("raventicFilterButton"),
