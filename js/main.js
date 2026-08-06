@@ -5599,7 +5599,7 @@ function raventicSetupDropdown() {
 			submitUrl: window.NAT.raventic[window.NAT.lang].submitUrl,
 
 			disableDefaultStyles: true,
-			doNotCropImages: true,
+			doNotCropImages: false,
 
 			customStyles: ``,
 			customPageStyles: ``,
