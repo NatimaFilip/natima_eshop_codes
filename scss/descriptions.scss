@@ -1878,135 +1878,125 @@ body {
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
-.product-widget[data-widget-id="natios-detailed-directions"] {
-	background: white !important;
-	border-bottom-style: solid;
-	border-color: var(--color-gray-blue-400);
-	border-top-style: solid;
-	border-width: 1px;
-}
+.type-product #description {
+	.product-widget[data-widget-id="natios-detailed-directions"] {
+		background: white !important;
+		border-bottom-style: solid;
+		border-color: var(--color-gray-blue-400);
+		border-top-style: solid;
+		border-width: 1px;
+	}
 
-.widget-detailed-directions {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	column-gap: 20px;
-	row-gap: 42px;
-}
+	.widget-detailed-directions {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 20px;
+		row-gap: 42px;
+		.widget-detailed-directions-header {
+			grid-column: 1 / -1;
+			text-align: left;
+			display: flex;
+			align-items: center;
+			padding-bottom: 26px;
+		}
+		.widget-detailed-directions-header img {
+			width: 50px;
+			height: auto;
+		}
 
-.widget-detailed-directions-header {
-	grid-column: 1 / -1;
-	text-align: left;
-	display: flex;
-	align-items: center;
-	padding-bottom: 26px;
-}
+		.widget-detailed-directions-header-text {
+			margin-left: 24px;
+			h2 {
+				padding: 0px;
+				padding-bottom: 4px;
+			}
+			.widget-detailed-directions-header-text p {
+				padding: 0;
+			}
+		}
+	}
 
-.widget-detailed-directions-header img {
-	width: 50px;
-	height: auto;
-}
-
-.widget-detailed-directions-header-text {
-	margin-left: 24px;
-}
-
-.widget-detailed-directions-header-text h2 {
-	padding: 0px;
-	padding-bottom: 4px;
-}
-
-.widget-detailed-directions-header-text p {
-	padding: 0;
-}
-
-.directions-card {
-	border-style: solid;
-	border-color: var(--color-gray-blue-400);
-	border-width: 1px;
-	padding: 32px;
-	border-radius: 10px;
-	background: linear-gradient(var(--angle), #fff var(--start), var(--color-primary-200) var(--end));
-	--start: -20%;
-	--end: 150%;
-	--angle: 135deg;
-	position: relative;
-}
-
-.detailed-description-icon {
-	background: none;
-	position: absolute;
-	left: 35px;
-	top: 0;
-	width: 46px;
-	height: 46px;
-	transform: translateY(-50%);
-}
-
-.detailed-description-icon:before {
-	background: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_primary_with_border.svg);
-	background-position: 50%;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 130%;
-	left: -15%;
-	position: absolute;
-	top: -15%;
-	width: 130%;
-	z-index: 1;
-}
-
-.detailed-description-icon img {
-	width: 60%;
-	height: 60%;
-	left: 50%;
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 2;
-}
-
-.directions-card h3 {
-	font-size: var(--fs-20) !important;
-}
-
-.directions-card ul {
-	padding: 0;
-	list-style: none;
-	margin: 0;
-}
-
-.directions-card ul li {
-	padding: 0 !important;
-	padding-left: 1.25em !important;
-	margin: 0 0 14px 0;
-	font-size: var(--fs-16);
-	line-height: 1.5;
-}
-
-.directions-card ul li:before {
-	background: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_blue.svg) !important;
-	background-position: 50% !important;
-	background-repeat: no-repeat !important;
-	background-size: contain !important;
-	border-radius: 0 !important;
-	content: "";
-	height: 0.5625em;
-	left: 0;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 0.5625em;
-}
-
-.type-product #description .product-widget[data-widget-id="natios-detailed-directions"] {
-	max-width: none;
-	background: none;
-	border-left-style: none;
-	border-right-style: none;
-	padding: 64px 0;
-	border-radius: 0;
-	margin: 0;
-	margin-bottom: 20px;
-	width: 100%;
+	.directions-card {
+		border-style: solid;
+		border-color: var(--color-gray-blue-400);
+		border-width: 1px;
+		padding: 32px;
+		border-radius: 10px;
+		background: linear-gradient(var(--angle), #fff var(--start), var(--color-primary-200) var(--end));
+		--start: -20%;
+		--end: 150%;
+		--angle: 135deg;
+		position: relative;
+		.detailed-description-icon {
+			background: none;
+			position: absolute;
+			left: 35px;
+			top: 0;
+			width: 46px;
+			height: 46px;
+			transform: translateY(-50%);
+			img {
+				width: 60%;
+				height: 60%;
+				left: 50%;
+				position: absolute;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 2;
+			}
+			&::before {
+				background: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_primary_with_border.svg);
+				background-position: 50%;
+				background-repeat: no-repeat;
+				background-size: contain;
+				content: "";
+				height: 130%;
+				left: -15%;
+				position: absolute;
+				top: -15%;
+				width: 130%;
+				z-index: 1;
+			}
+		}
+		h3 {
+			font-size: var(--fs-20) !important;
+		}
+		ul {
+			padding: 0;
+			list-style: none;
+			margin: 0;
+			li {
+				padding: 0 !important;
+				padding-left: 1.25em !important;
+				margin: 0 0 14px 0;
+				font-size: var(--fs-16);
+				line-height: 1.5;
+			}
+			&::before {
+				background: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_blue.svg) !important;
+				background-position: 50% !important;
+				background-repeat: no-repeat !important;
+				background-size: contain !important;
+				border-radius: 0 !important;
+				content: "";
+				height: 0.5625em;
+				left: 0;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 0.5625em;
+			}
+		}
+	}
+	.product-widget[data-widget-id="natios-detailed-directions"] {
+		max-width: none;
+		background: none;
+		border-left-style: none;
+		border-right-style: none;
+		padding: 64px 0;
+		border-radius: 0;
+		margin: 0;
+		margin-bottom: 20px;
+		width: 100%;
+	}
 }
