@@ -2149,7 +2149,7 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
   padding: 0px;
   padding-bottom: 4px;
 }
-.type-product #description .widget-detailed-directions .widget-detailed-directions-header-text .widget-detailed-directions-header-text p {
+.type-product #description .widget-detailed-directions .widget-detailed-directions-header-text p {
   padding: 0;
 }
 .type-product #description .directions-card {
@@ -2233,7 +2233,7 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
   background: none !important;
   border-left-style: none !important;
   border-right-style: none !important;
-  padding: 64px 0 !important;
+  padding: 64px var(--padding-sides) !important;
   border-radius: 0 !important;
   margin: 0 !important;
   margin-bottom: 20px !important;
