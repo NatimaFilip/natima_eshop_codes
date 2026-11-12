@@ -2206,6 +2206,7 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
 }
 .type-product #description .directions-card h3 {
   font-size: var(--fs-20) !important;
+  padding-top: 4px !important;
 }
 .type-product #description .directions-card ul {
   padding: 0;
