@@ -1971,32 +1971,32 @@ body {
 				margin: 0 0 14px 0;
 				font-size: var(--fs-16);
 				line-height: 1.5;
-			}
-			&::before {
-				background: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_blue.svg) !important;
-				background-position: 50% !important;
-				background-repeat: no-repeat !important;
-				background-size: contain !important;
-				border-radius: 0 !important;
-				content: "";
-				height: 0.5625em;
-				left: 0;
-				position: absolute;
-				top: 50%;
-				transform: translateY(-50%);
-				width: 0.5625em;
+				&::before {
+					background: url(https://cdn.myshoptet.com/usr/740472.myshoptet.com/user/documents/upload/assets/hexagon_blue.svg) !important;
+					background-position: 50% !important;
+					background-repeat: no-repeat !important;
+					background-size: contain !important;
+					border-radius: 0 !important;
+					content: "";
+					height: 0.5625em;
+					left: 0;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					width: 0.5625em;
+				}
 			}
 		}
 	}
 	.product-widget[data-widget-id="natios-detailed-directions"] {
-		max-width: none;
-		background: none;
-		border-left-style: none;
-		border-right-style: none;
-		padding: 64px 0;
-		border-radius: 0;
-		margin: 0;
-		margin-bottom: 20px;
-		width: 100%;
+		max-width: none !important;
+		background: none !important;
+		border-left-style: none !important;
+		border-right-style: none !important;
+		padding: 64px 0 !important;
+		border-radius: 0 !important;
+		margin: 0 !important;
+		margin-bottom: 20px !important;
+		width: 100% !important;
 	}
 }
