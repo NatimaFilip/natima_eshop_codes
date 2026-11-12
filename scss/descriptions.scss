@@ -1892,12 +1892,17 @@ body {
 		grid-template-columns: 1fr 1fr;
 		column-gap: 20px;
 		row-gap: 42px;
+		@media screen and (max-width: $tablet-max) {
+			grid-template-columns: 1fr;
+		}
+
 		.widget-detailed-directions-header {
 			grid-column: 1 / -1;
 			text-align: left;
 			display: flex;
 			align-items: center;
 			padding-bottom: 26px;
+			padding-left: 4px;
 		}
 		.widget-detailed-directions-header img {
 			width: 50px;

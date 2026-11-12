@@ -2127,6 +2127,11 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
           column-gap: 20px;
   row-gap: 42px;
 }
+@media screen and (max-width: 1279px) {
+  .type-product #description .widget-detailed-directions {
+    grid-template-columns: 1fr;
+  }
+}
 .type-product #description .widget-detailed-directions .widget-detailed-directions-header {
   grid-column: 1/-1;
   text-align: left;
@@ -2137,6 +2142,7 @@ body .product-widgets[product-template=natios] .natios-analysis .natios-analysis
       -ms-flex-align: center;
           align-items: center;
   padding-bottom: 26px;
+  padding-left: 4px;
 }
 .type-product #description .widget-detailed-directions .widget-detailed-directions-header img {
   width: 50px;
